@@ -1,0 +1,4 @@
+Synthetic receiving clarification. Original fixture records remain unchanged.
+FG-C complete ancestry: SUP-B only. Supersedes LIN-3, LIN-4. Receipt REC-C-2 covers all 100 units; no other parent lots.
+Affected lots: SUP-B
+The affected-lots line is a synthetic parser cue for a candidate, not an incident disposition. Review this receiving record separately from the incident notice.

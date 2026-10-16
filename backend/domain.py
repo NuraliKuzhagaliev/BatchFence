@@ -171,6 +171,8 @@ def calculate(stocks, edges, seeds, allocations, bounded=True, uncertain_seeds=N
     requests.sort(key=lambda x: (-x['value_cents'], x['id']))
     return {
         'rows': rows,
+        'node_states': {n: ('documented' if n in documented else 'uncertain' if n in possible or not narrow else 'outside')
+                        for n in {e['source'] for e in edges} | {e['target'] for e in edges}},
         'documented_units': units([s for s in exposed if s['classification'] == 'documented']),
         'uncertain_units': units(uncertain), 'hold_units': units(hold),
         'outside_units': units(outside), 'broad_units': units(onsite),
@@ -206,8 +208,13 @@ def make_plan(state):
                and scope.get('review_policy_version') == REVIEW_POLICY_VERSION)
     result = calculate(state['stocks'], state['edges'], state['scope']['lot_ids'],
                        state['allocations'], bounded, scope.get('uncertain_lot_ids', []))
+    from .causes import evidence_queue
+    result['requests'], result['request_unique_units'], result['request_unique_cents'] = evidence_queue(state, result)
+    result['node_states'].update({r['id']: r['classification'] for r in result['rows']})
     inputs = plan_inputs(state, result['actions'])
     return {'id': 'PLAN-' + digest(inputs)[:12], 'digest': digest(inputs),
+            'source_claims': [r.get('output', {}) for r in state.get('runs', [])
+                              if r.get('document_id') == scope.get('source_document_id') and r.get('status') == 'succeeded'][-1:],
             'status': 'proposed', 'revision': state['revision'],
             'inventory_version': state['inventory_version'],
             'actions': result['actions'], 'result': result, 'inputs': inputs}

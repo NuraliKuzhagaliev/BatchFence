@@ -1,0 +1,3 @@
+Synthetic receiving clarification.
+FG-C has conflicting entries: SUP-A on the pallet card and SUP-B on the delivery sheet. Neither LIN-3 nor LIN-4 is superseded. Further investigation is pending.
+Affected lots: SUP-B

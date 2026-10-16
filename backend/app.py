@@ -185,6 +185,34 @@ class Upload(Strict):
     filename: str = Field(min_length=1, max_length=160)
     content_base64: str = Field(max_length=4_000_000)
     synthetic: bool = False
+    request_id: str | None = Field(default=None, max_length=80)
+
+
+class Hypothesis(Strict):
+    kind: Literal['identity', 'boundary', 'inconclusive']
+    pool_id: str = Field(default='', max_length=160)
+    supplier_lot_id: str = Field(default='', max_length=80)
+    complete: bool = False
+    lot_ids: list[str] = Field(default_factory=list, max_length=80)
+    uncertain_lot_ids: list[str] = Field(default_factory=list, max_length=80)
+
+
+class Scenario(Strict):
+    revision: int
+    hypotheses: list[Hypothesis] = Field(min_length=1, max_length=6)
+
+
+class Reply(Strict):
+    revision: int
+    document_id: str = Field(max_length=80)
+    pool_id: str = Field(max_length=160)
+    supplier_lot_id: str = Field(default='', max_length=80)
+    outcome: Literal['resolved','inconclusive','conflicting']
+    complete: bool = False
+    quote: str = Field(min_length=8,max_length=3000)
+    reviewed: bool = False
+    replacement_reviewed: bool = False
+    note: str = Field(default='',max_length=2000)
 
 
 class Review(Strict):
@@ -362,6 +390,12 @@ def upload(case_id: str, data: Upload, request: Request):
     with transaction(case_id, request.state.owner) as (_, s):
         if len(s['documents']) >= 24:
             fail('DOCUMENT_LIMIT', 'Case limit: 24 documents', 429)
+        if data.request_id:
+            cause = next((c for c in make_plan(s)['result']['requests'] if c['id']==data.request_id),None)
+            if cause is None or not s['plan']:
+                fail('QUESTION_STALE','Evidence question is absent or has changed',422)
+            doc.update(request_id=data.request_id,request_snapshot=cause,
+                       prior_plan_digest=s['plan']['digest'],prior_pending=s['pending_revision'])
         s['revision'] += 1
         doc['revision'] = s['revision']
         s['documents'].append(doc)
@@ -431,6 +465,8 @@ def review(case_id: str, data: Review, request: Request):
         if not runs or not data.accept_scope:
             fail('REVIEW_REQUIRED', 'A successful current extraction and explicit scope review are required', 422)
         source = next(d for d in s['documents'] if d['id'] == runs[0]['document_id'])
+        if source.get('request_id'):
+            fail('REPLY_REVIEW','Use linked reply reconciliation; receiving candidates cannot replace incident scope',422)
         lots = sorted(set(l.strip() for l in data.lot_ids))
         uncertain = sorted(set(l.strip() for l in data.uncertain_lot_ids))
         excluded = sorted(set(l.strip() for l in data.excluded_lot_ids))
@@ -497,6 +533,38 @@ def review(case_id: str, data: Review, request: Request):
                              'new_units': s['plan']['result']['hold_units'],
                              'message': 'Critical scope and completeness reviewed; new exact plan calculated.'})
     return s
+
+
+@app.post('/api/cases/{case_id}/simulate')
+def scenario(case_id: str, data: Scenario, request: Request):
+    from .scenarios import simulate
+    s = read(case_id, request.state.owner)
+    if s['revision'] != data.revision:
+        fail('STALE_SCENARIO','Evidence changed; refresh the scenario')
+    return simulate(s,[h.model_dump() for h in data.hypotheses])
+
+
+@app.post('/api/cases/{case_id}/reply-preview')
+def reply_preview(case_id: str, data: Reply, request: Request):
+    from .reconciliation import preview_reply
+    return preview_reply(read(case_id, request.state.owner),data)
+
+
+@app.post('/api/cases/{case_id}/reply-review')
+def reply_review(case_id: str, data: Reply, request: Request):
+    from .reconciliation import commit_reply
+    with transaction(case_id,request.state.owner) as (_,s):
+        commit_reply(s,data,now())
+    return s
+
+
+@app.get('/api/cases/{case_id}/comparison')
+def comparison(case_id: str, request: Request):
+    from .comparison import compare_plans
+    s = read(case_id,request.state.owner)
+    if not s['plan'] or not s['plans']:
+        fail('COMPARISON','Two reviewed plans are required',422)
+    return compare_plans(s['plans'][-1],s['plan'])
 
 
 @app.post('/api/cases/{case_id}/approve')
