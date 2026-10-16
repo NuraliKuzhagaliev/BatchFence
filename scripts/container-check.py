@@ -1,7 +1,7 @@
 """CI container integration: dynamic port, exact workflow, real Docker restart."""
 from pathlib import Path
 from datetime import datetime, timezone
-import json, subprocess, time, os
+import json, subprocess, time, os, hashlib
 import httpx
 
 base='http://127.0.0.1:8795'
@@ -45,6 +45,12 @@ try:
     subprocess.run(['docker','restart','batchfence-ci'],check=True,capture_output=True)
     wait(); saved=c.get(path).json()
     assert saved['receipts']==receipts and saved['stocks']==s['stocks']
+    for doc in saved['documents']:
+        source=c.get('/api/sources/'+doc['original_hash'])
+        source.raise_for_status()
+        assert hashlib.sha256(source.content).hexdigest()==doc['original_hash']
+        assert other.get('/api/sources/'+doc['original_hash']).status_code==404
+    report['checks'].append('all original source bytes and owner isolation survive restart')
     report['checks'].append('same SQLite volume survives actual container restart')
     assert c.get('/workspace/review',headers={'Accept':'text/html'}).status_code==200
     assert c.get('/api/missing').status_code==404

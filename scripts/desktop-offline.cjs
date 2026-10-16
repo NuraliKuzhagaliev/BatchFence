@@ -63,6 +63,18 @@ let activeApp;
     path: path.join(out, "screenshots/13-installed-desktop-offline.png"),
     fullPage: true,
   });
+  if(process.env.BATCHFENCE_ENTERPRISE_PACKET){
+    await page.getByRole('tab',{name:'Recovery',exact:true}).click();
+    await page.getByRole('heading',{name:'Saved restrictions and recovery receipts',exact:true}).waitFor();
+    await page.getByText('Recovery receipts',{exact:true}).click();
+    assert((await page.locator('body').innerText()).includes('became_available'));
+    for(const section of ['Overview','Signals','Knowledge','Actions']){
+      await page.getByRole('button',{name:section,exact:true}).click();
+      await page.getByRole('heading',{name:'Saved evidence · no current action authority',exact:true}).waitFor();
+      assert.equal(await page.locator('form').count(),0);
+    }
+    await page.screenshot({path:path.join(out,'screenshots/14-offline-modules.png'),fullPage:true});
+  }
   await fs.writeFile(
     path.join(out, "desktop-offline-results.json"),
     JSON.stringify(
