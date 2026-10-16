@@ -59,7 +59,8 @@ def evidence(db,owner,state,data):
     for ref in (receiving,inspected):
         if not db.execute('SELECT 1 FROM bf_sources WHERE owner=? AND hash=?',(owner,ref['original_hash'])).fetchone():
             raise DomainError('Original source bytes must be available in the authorized store')
-    observed=datetime.fromisoformat(data.inspected_at.replace('Z','+00:00'))
+    try:observed=datetime.fromisoformat(data.inspected_at.replace('Z','+00:00'))
+    except ValueError:raise DomainError('Use a valid timezone-aware inspection timestamp')
     if not observed.tzinfo or observed>datetime.now(timezone.utc) or observed<datetime.now(timezone.utc)-timedelta(days=30):
         raise DomainError('Inspection must be timezone-aware, not future-dated, and within the 30-day policy')
     result={'id':'REC-EVID-'+uuid.uuid4().hex,'case_id':state['id'],'pool_id':pool['id'],'receiving':receiving,'inspection':inspected,

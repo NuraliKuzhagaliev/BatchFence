@@ -25,7 +25,12 @@ def integer(value):
 
 def timestamp(value,tz):
     dt=datetime.fromisoformat(value.replace('Z','+00:00'))
-    if dt.tzinfo is None: dt=dt.replace(tzinfo=ZoneInfo(tz))
+    if dt.tzinfo is None:
+        zone=ZoneInfo(tz)
+        first=dt.replace(tzinfo=zone,fold=0);second=dt.replace(tzinfo=zone,fold=1)
+        if first.utcoffset()!=second.utcoffset() or first.astimezone(timezone.utc).astimezone(zone).replace(tzinfo=None)!=dt:
+            raise ValueError('Ambiguous or nonexistent local timestamp; supply an explicit UTC offset')
+        dt=first
     return dt.astimezone(timezone.utc).isoformat()
 
 

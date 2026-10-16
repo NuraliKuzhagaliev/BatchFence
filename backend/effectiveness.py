@@ -7,8 +7,10 @@ from .signals import validate_rows,same_group,GROUP,wilson
 
 def freeze_plan(rows,baseline_ids,group,start,end,min_inspected,expected_samples,max_rate,synthetic_replay=False):
     validate_rows(rows)
-    begin=datetime.fromisoformat(start.replace('Z','+00:00'));finish=datetime.fromisoformat(end.replace('Z','+00:00'))
+    try:begin=datetime.fromisoformat(start.replace('Z','+00:00'));finish=datetime.fromisoformat(end.replace('Z','+00:00'))
+    except ValueError:raise DomainError('Use valid ISO follow-up timestamps with timezone')
     if not begin.tzinfo or not finish.tzinfo or finish<=begin:raise DomainError('Use a valid timezone-aware follow-up window')
+    start=begin.astimezone(timezone.utc).isoformat();end=finish.astimezone(timezone.utc).isoformat()
     if not synthetic_replay and begin<datetime.now(timezone.utc):raise DomainError('Predeclare a future follow-up window; historical data cannot become a prospective trial')
     if not 1<=min_inspected<=1_000_000 or not 2<=expected_samples<=500 or not 0<=max_rate<=1:raise DomainError('Invalid predefined exposure or success criterion')
     baseline=[r for r in rows if r['observation_id'] in baseline_ids]

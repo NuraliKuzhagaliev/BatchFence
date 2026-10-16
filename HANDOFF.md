@@ -1,3 +1,17 @@
+# Enterprise client and OCR checkpoint — not yet released
+
+Protected release remains e70f4a0 / v0.2.0; development branch enterprise-pilot-0.3. Local backend checkpoint 28b0b5a follows foundation 84cf9a8. The four module interfaces, proposed/applied quantities, typed receiving review, recovery controls, pilot login, mapped imports, source OCR review, and module packet snapshots are now connected. Desktop IPC explicitly allows the new routes. No new public deployment or installer yet.
+
+Actual checks: 89 full pytest passed before the latest boundary additions; nine additional boundary tests passed. TypeScript/Vite build passed. Existing local Edge browser regression passed all 12 checks with zero page errors after fixing offline/reconnect events. Evidence: docs/enterprise/browser-core.json and ui/core. Narrow-window visual inspection found and fixed unreachable module navigation; synthetic baseline review through the UI showed 1.77% pooled baseline and five signals. This is agent-operated synthetic verification.
+
+Actual private Linux container Tesseract 5.3.0 processed two raster-only pages in 1,391 ms including retained-page fetches; 52 word boxes and original PDF bytes preserved. Narrowing before visual review rejected 422. After agent inspection of both retained page images and explicit review, the fixture parser/review produced a 500-unit proposal with zero applied units. Evidence: docs/enterprise/ocr. No AMD inference was used for this OCR check.
+
+Remaining: connected client acceptance (especially recovery/action transitions), fresh AMD cap-four evaluation, full PostgreSQL recovery/restore and SQLite-to-Postgres migration, actual local connector restart, security/performance review, Windows package/media and gated free Render release. No independent domain/operator validation or enterprise readiness claim. Owner consent PILOT_AMD_DATA_APPROVED defaults false; private pilot inference is blocked until owner authorization.
+
+Next commands: `.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-enterprise-next`; `npm run build`; local server on 8794; pilot container on 8788. OCR: `python -m scripts.verify-ocr upload`, then inspect both saved pages before `review-after-visual-inspection`. Existing release artifacts and source remain recoverable.
+
+---
+
 # Enterprise development checkpoint — backend integration in progress
 
 Protected public release remains e70f4a0 / v0.2.0. Foundation local checkpoint is 84cf9a8; later enterprise work remains on enterprise-pilot-0.3. Nothing from this expansion has been published.

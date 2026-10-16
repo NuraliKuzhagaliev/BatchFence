@@ -42,7 +42,8 @@ def list_documents(request:Request):
 @router.post('/api/knowledge/procedure-review')
 def review_procedure(data:Procedure,request:Request):
     from .app import connect
-    knowledge.validate_document(data.document)
+    try:knowledge.validate_document(data.document)
+    except (ValueError,TypeError,KeyError,AttributeError):raise DomainError('Malformed procedure metadata, passage or validity interval')
     if not data.reviewed:raise DomainError('Explicit applicability, source and revision approval required')
     with repo.write(connect) as db:
         identity.recheck(db,'quality_reviewer')

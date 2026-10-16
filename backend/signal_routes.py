@@ -5,6 +5,7 @@ from pydantic import BaseModel,ConfigDict,Field
 from . import repository as repo,identity,signals
 from .domain import DomainError,digest
 from .fixtures import load_demo,now
+from typing import Literal
 
 router=APIRouter()
 class Baseline(BaseModel):
@@ -19,6 +20,53 @@ class Investigation(BaseModel):
     observation_id:str=Field(max_length=80)
     chart_digest:str=Field(max_length=64)
     source_case_id:str=Field(max_length=80)
+
+class Explain(BaseModel):
+    model_config=ConfigDict(extra='forbid')
+    baseline_id:str=Field(max_length=80)
+    chart_digest:str=Field(max_length=64)
+    mode:Literal['live','fixture']
+class SignalComment(BaseModel):
+    model_config=ConfigDict(extra='forbid')
+    observation_id:str=Field(max_length=80)
+    explanation:str=Field(min_length=8,max_length=600)
+class Explanation(BaseModel):
+    model_config=ConfigDict(extra='forbid')
+    comments:list[SignalComment]=Field(max_length=5)
+    limitations:str=Field(min_length=20,max_length=1000)
+
+@router.post('/api/signals/explain')
+def explain(data:Explain,request:Request):
+    from .app import connect
+    from .public_demo import inference_access
+    from .provider_tasks import infer
+    from . import jobs
+    with inference_access(data.mode,request.headers.get('x-bf-demo-token','')):
+        with repo.write(connect) as db:
+            identity.recheck(db,'reporter')
+            _,base=repo.get_record(db,request.state.owner,'baseline',data.baseline_id)
+            _,observations=repo.get_record(db,request.state.owner,'inspections','current',{'rows':[]})
+            if not base:raise DomainError('Baseline unavailable')
+            chart=signals.chart(base,observations['rows'])
+            if chart['status']!='ready' or digest(chart)!=data.chart_digest:raise DomainError('Review a current supported chart first')
+            if data.mode=='fixture' and 'synthetic' not in observations.get('provenance','').lower():raise DomainError('Synthetic explanation requires synthetic inspection provenance')
+            key='SIGNAL-'+uuid.uuid4().hex
+            jobs.start(db,request.state.owner,key,'signal-explanation',{'chart_digest':data.chart_digest},data.mode)
+        run=infer('signal-explanation','Explain only the supplied statistical observations. Do not infer supplier cause, prescribe a hold or release, or invent limits. Cite observation IDs. Mention independent/comparable inspections, frozen baseline and control limits versus acceptance specifications.',Explanation.model_json_schema(),chart,data.mode,{'comments':[],'limitations':chart['boundary']})
+        if run['status']=='succeeded':
+            try:
+                output=Explanation.model_validate(run['output']).model_dump()
+                if {c['observation_id'] for c in output['comments']}-{p['observation_id'] for p in chart['points']}:raise ValueError()
+                run['output']=output
+            except Exception:run.update(status='failed',error='Unsupported signal citation or schema; explanation has no authority')
+        with repo.write(connect) as db:
+            identity.recheck(db,'reporter')
+            _,current=repo.get_record(db,request.state.owner,'inspections','current',{'rows':[]})
+            if not jobs.finish(db,request.state.owner,key,run['status'],digest(run)) or digest(signals.chart(base,current['rows']))!=data.chart_digest:
+                run.update(status='stale',error='Inspection evidence changed or request was cancelled')
+            run.update(id=key,baseline_id=base['id'],chart_digest=data.chart_digest,boundary='Unreviewed narrative proposal; deterministic chart and original records govern. No causal or action authority.')
+            repo.put_record(db,request.state.owner,'signal-explanation',key,run,0)
+    return run
 
 
 @router.post('/api/signals/baseline-review')

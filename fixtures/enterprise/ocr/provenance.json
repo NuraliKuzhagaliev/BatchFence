@@ -1,0 +1,20 @@
+{
+  "provenance": "Programmatically generated raster-only synthetic engineering fixture; no real supplier or inspection claim",
+  "expected_pages": [
+    [
+      "SYNTHETIC ENGINEERING TEST \u2014 NOT SUPPLIER EVIDENCE",
+      "Supplier notice revision 1",
+      "Affected lots: SUP-A.",
+      "Complete supplier scope: SUP-A only.",
+      "Warehouse ancestry remains a separate question."
+    ],
+    [
+      "SYNTHETIC ENGINEERING TEST \u2014 NOT INSPECTION PROOF",
+      "Inspection record INS-100",
+      "FG-C: 100 pieces inspected; 0 nonconforming.",
+      "Method: visual-v1. Result: passed.",
+      "Receiving record REC-812 identifies supplier lot SUP-B."
+    ]
+  ],
+  "pdf_sha256": "e706fedc1fac396c139997939d01de1e36329157c796742ec2da6bec9bfaa336"
+}

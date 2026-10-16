@@ -13,6 +13,7 @@ export type Document = {
   text_hash: string;
 };
 export type Stock = {
+  product_family?: string;
   id: string;
   units: number;
   unit_cents: number;
@@ -117,6 +118,12 @@ export type Receipt = {
   changes: { pool_id: string; units: number; before: string; after: string }[];
 };
 export type Case = {
+  enterprise_packet?: Record<string, any>;
+  enterprise_example?: boolean;
+  procedure_checks?: Record<string, any>[];
+  receiving_runs?: Record<string, any>[];
+  hold_ledger?: Record<string, any>[];
+  recovery_receipts?: Record<string, any>[];
   quantities?: {applied_hold_units:number;recovery_pending_units:number;confirmed_recovery_units:number};
   id: string;
   name: string;

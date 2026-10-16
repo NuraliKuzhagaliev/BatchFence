@@ -1,0 +1,661 @@
+{
+  "at": "2026-10-16T22:27:19.026605+00:00",
+  "elapsed_ms": 1391,
+  "engine": "tesseract 5.3.0",
+  "document": {
+    "id": "DOC-7358fff158d7",
+    "filename": "raster-only-notice.pdf",
+    "media_type": "application/pdf",
+    "revision": 2,
+    "ingested_at": "2026-10-16T22:27:18.646259+00:00",
+    "original_hash": "e706fedc1fac396c139997939d01de1e36329157c796742ec2da6bec9bfaa336",
+    "text_hash": "cf974e471bf8a569abae658b416689219fda267b14c7299a7f853aa47214da2c",
+    "blocks": [
+      {
+        "id": "page-1-line-1",
+        "page": 1,
+        "text": "SYNTHETIC ENGINEERING TEST \u2014 NOT SUPPLIER EVIDENCE"
+      },
+      {
+        "id": "page-1-line-2",
+        "page": 1,
+        "text": "Supplier notice revision 1"
+      },
+      {
+        "id": "page-1-line-3",
+        "page": 1,
+        "text": "Affected lots: SUP-A."
+      },
+      {
+        "id": "page-1-line-4",
+        "page": 1,
+        "text": "Complete supplier scope: SUP-A only."
+      },
+      {
+        "id": "page-1-line-5",
+        "page": 1,
+        "text": "Warehouse ancestry remains a separate question."
+      },
+      {
+        "id": "page-2-line-1",
+        "page": 2,
+        "text": "SYNTHETIC ENGINEERING TEST \u2014 NOT INSPECTION PROOF"
+      },
+      {
+        "id": "page-2-line-2",
+        "page": 2,
+        "text": "Inspection record INS-100"
+      },
+      {
+        "id": "page-2-line-3",
+        "page": 2,
+        "text": "FG-C: 100 pieces inspected; 0 nonconforming."
+      },
+      {
+        "id": "page-2-line-4",
+        "page": 2,
+        "text": "Method: visual-v1. Result: passed."
+      },
+      {
+        "id": "page-2-line-5",
+        "page": 2,
+        "text": "Receiving record REC-812 identifies supplier lot SUP-B."
+      }
+    ],
+    "synthetic": true,
+    "ocr": {
+      "engine": "tesseract 5.3.0",
+      "language": "eng",
+      "elapsed_ms": 679,
+      "critical_fields_confirmed": false,
+      "pages": [
+        {
+          "page": 1,
+          "image_hash": "1bc7e9a2101d7b6244b96f6edadfe86d717471c8d8db622b20105b565a4027a7"
+        },
+        {
+          "page": 2,
+          "image_hash": "c83da9e9b700dac31e311c8e310cffa6aedd54d18095356027c18adc0450dd84"
+        }
+      ],
+      "words": [
+        {
+          "page": 1,
+          "text": "SYNTHETIC",
+          "box": [
+            69,
+            97,
+            209,
+            27
+          ],
+          "confidence": 96.331635
+        },
+        {
+          "page": 1,
+          "text": "ENGINEERING",
+          "box": [
+            292,
+            97,
+            256,
+            27
+          ],
+          "confidence": 96.058777
+        },
+        {
+          "page": 1,
+          "text": "TEST",
+          "box": [
+            563,
+            97,
+            94,
+            27
+          ],
+          "confidence": 92.018806
+        },
+        {
+          "page": 1,
+          "text": "\u2014",
+          "box": [
+            668,
+            113,
+            38,
+            3
+          ],
+          "confidence": 92.018806
+        },
+        {
+          "page": 1,
+          "text": "NOT",
+          "box": [
+            719,
+            97,
+            76,
+            27
+          ],
+          "confidence": 96.671509
+        },
+        {
+          "page": 1,
+          "text": "SUPPLIER",
+          "box": [
+            808,
+            97,
+            182,
+            27
+          ],
+          "confidence": 96.617996
+        },
+        {
+          "page": 1,
+          "text": "EVIDENCE",
+          "box": [
+            1004,
+            97,
+            186,
+            27
+          ],
+          "confidence": 96.073196
+        },
+        {
+          "page": 1,
+          "text": "Supplier",
+          "box": [
+            69,
+            235,
+            133,
+            34
+          ],
+          "confidence": 96.270813
+        },
+        {
+          "page": 1,
+          "text": "notice",
+          "box": [
+            216,
+            235,
+            95,
+            27
+          ],
+          "confidence": 96.297379
+        },
+        {
+          "page": 1,
+          "text": "revision",
+          "box": [
+            325,
+            235,
+            123,
+            27
+          ],
+          "confidence": 96.297379
+        },
+        {
+          "page": 1,
+          "text": "1",
+          "box": [
+            465,
+            235,
+            9,
+            27
+          ],
+          "confidence": 93.94854
+        },
+        {
+          "page": 1,
+          "text": "Affected",
+          "box": [
+            67,
+            373,
+            135,
+            27
+          ],
+          "confidence": 96.204613
+        },
+        {
+          "page": 1,
+          "text": "lots:",
+          "box": [
+            217,
+            373,
+            63,
+            27
+          ],
+          "confidence": 93.299461
+        },
+        {
+          "page": 1,
+          "text": "SUP-A.",
+          "box": [
+            296,
+            373,
+            119,
+            27
+          ],
+          "confidence": 90.794815
+        },
+        {
+          "page": 1,
+          "text": "Complete",
+          "box": [
+            69,
+            511,
+            156,
+            34
+          ],
+          "confidence": 95.7173
+        },
+        {
+          "page": 1,
+          "text": "supplier",
+          "box": [
+            238,
+            511,
+            127,
+            34
+          ],
+          "confidence": 96.835564
+        },
+        {
+          "page": 1,
+          "text": "scope:",
+          "box": [
+            378,
+            518,
+            104,
+            27
+          ],
+          "confidence": 93.290977
+        },
+        {
+          "page": 1,
+          "text": "SUP-A",
+          "box": [
+            498,
+            511,
+            112,
+            27
+          ],
+          "confidence": 92.090202
+        },
+        {
+          "page": 1,
+          "text": "only.",
+          "box": [
+            621,
+            511,
+            74,
+            34
+          ],
+          "confidence": 95.663506
+        },
+        {
+          "page": 1,
+          "text": "Warehouse",
+          "box": [
+            68,
+            649,
+            188,
+            26
+          ],
+          "confidence": 96.215881
+        },
+        {
+          "page": 1,
+          "text": "ancestry",
+          "box": [
+            269,
+            650,
+            138,
+            33
+          ],
+          "confidence": 95.988647
+        },
+        {
+          "page": 1,
+          "text": "remains",
+          "box": [
+            421,
+            649,
+            127,
+            26
+          ],
+          "confidence": 96.111481
+        },
+        {
+          "page": 1,
+          "text": "a",
+          "box": [
+            563,
+            656,
+            17,
+            19
+          ],
+          "confidence": 96.609077
+        },
+        {
+          "page": 1,
+          "text": "separate",
+          "box": [
+            594,
+            650,
+            141,
+            33
+          ],
+          "confidence": 96.234718
+        },
+        {
+          "page": 1,
+          "text": "question.",
+          "box": [
+            748,
+            649,
+            146,
+            34
+          ],
+          "confidence": 96.484634
+        },
+        {
+          "page": 2,
+          "text": "SYNTHETIC",
+          "box": [
+            69,
+            97,
+            209,
+            27
+          ],
+          "confidence": 96.201874
+        },
+        {
+          "page": 2,
+          "text": "ENGINEERING",
+          "box": [
+            292,
+            97,
+            256,
+            27
+          ],
+          "confidence": 96.054626
+        },
+        {
+          "page": 2,
+          "text": "TEST",
+          "box": [
+            563,
+            97,
+            94,
+            27
+          ],
+          "confidence": 93.121002
+        },
+        {
+          "page": 2,
+          "text": "\u2014",
+          "box": [
+            668,
+            113,
+            38,
+            3
+          ],
+          "confidence": 92.995033
+        },
+        {
+          "page": 2,
+          "text": "NOT",
+          "box": [
+            719,
+            97,
+            76,
+            27
+          ],
+          "confidence": 96.431458
+        },
+        {
+          "page": 2,
+          "text": "INSPECTION",
+          "box": [
+            810,
+            97,
+            222,
+            27
+          ],
+          "confidence": 95.914108
+        },
+        {
+          "page": 2,
+          "text": "PROOF",
+          "box": [
+            1048,
+            97,
+            129,
+            27
+          ],
+          "confidence": 96.211456
+        },
+        {
+          "page": 2,
+          "text": "Inspection",
+          "box": [
+            71,
+            235,
+            163,
+            34
+          ],
+          "confidence": 96.135727
+        },
+        {
+          "page": 2,
+          "text": "record",
+          "box": [
+            249,
+            235,
+            100,
+            27
+          ],
+          "confidence": 93.284943
+        },
+        {
+          "page": 2,
+          "text": "INS-100",
+          "box": [
+            366,
+            235,
+            131,
+            27
+          ],
+          "confidence": 89.12281
+        },
+        {
+          "page": 2,
+          "text": "FG-C:",
+          "box": [
+            70,
+            373,
+            96,
+            27
+          ],
+          "confidence": 92.688843
+        },
+        {
+          "page": 2,
+          "text": "100",
+          "box": [
+            185,
+            373,
+            55,
+            27
+          ],
+          "confidence": 96.09861
+        },
+        {
+          "page": 2,
+          "text": "pieces",
+          "box": [
+            255,
+            373,
+            102,
+            34
+          ],
+          "confidence": 96.313835
+        },
+        {
+          "page": 2,
+          "text": "inspected;",
+          "box": [
+            372,
+            373,
+            163,
+            34
+          ],
+          "confidence": 96.510376
+        },
+        {
+          "page": 2,
+          "text": "0",
+          "box": [
+            551,
+            373,
+            17,
+            27
+          ],
+          "confidence": 96.379601
+        },
+        {
+          "page": 2,
+          "text": "nonconforming.",
+          "box": [
+            583,
+            373,
+            249,
+            34
+          ],
+          "confidence": 96.120361
+        },
+        {
+          "page": 2,
+          "text": "Method:",
+          "box": [
+            70,
+            511,
+            128,
+            27
+          ],
+          "confidence": 93.269257
+        },
+        {
+          "page": 2,
+          "text": "visual-v1.",
+          "box": [
+            213,
+            511,
+            152,
+            27
+          ],
+          "confidence": 91.59948
+        },
+        {
+          "page": 2,
+          "text": "Result:",
+          "box": [
+            382,
+            511,
+            109,
+            27
+          ],
+          "confidence": 96.771118
+        },
+        {
+          "page": 2,
+          "text": "passed.",
+          "box": [
+            508,
+            511,
+            124,
+            34
+          ],
+          "confidence": 96.224609
+        },
+        {
+          "page": 2,
+          "text": "Receiving",
+          "box": [
+            70,
+            649,
+            157,
+            34
+          ],
+          "confidence": 95.907539
+        },
+        {
+          "page": 2,
+          "text": "record",
+          "box": [
+            242,
+            649,
+            100,
+            26
+          ],
+          "confidence": 91.243073
+        },
+        {
+          "page": 2,
+          "text": "REC-812",
+          "box": [
+            358,
+            649,
+            148,
+            26
+          ],
+          "confidence": 91.243073
+        },
+        {
+          "page": 2,
+          "text": "identifies",
+          "box": [
+            521,
+            649,
+            141,
+            26
+          ],
+          "confidence": 96.604958
+        },
+        {
+          "page": 2,
+          "text": "supplier",
+          "box": [
+            676,
+            649,
+            128,
+            34
+          ],
+          "confidence": 96.375313
+        },
+        {
+          "page": 2,
+          "text": "lot",
+          "box": [
+            817,
+            649,
+            36,
+            26
+          ],
+          "confidence": 93.280807
+        },
+        {
+          "page": 2,
+          "text": "SUP-B.",
+          "box": [
+            866,
+            649,
+            119,
+            26
+          ],
+          "confidence": 90.973885
+        }
+      ],
+      "coordinates": "pixels in retained page PNG; top-left origin",
+      "fallible": true
+    }
+  },
+  "provenance": "Actual local Tesseract/Poppler on two synthetic raster-only pages; not AMD inference",
+  "visual_review": "pending agent page inspection; no independent human validation"
+}

@@ -146,6 +146,9 @@ def put_record(db, owner, kind, key, value, expected=None):
 
 def audit(db, owner, actor, operation, before, after, sources=(), operation_id=None):
     import uuid
+    if db.execute('SELECT count(*) FROM bf_audit WHERE owner=?',(owner,)).fetchone()[0]>=10000 or db.execute('SELECT count(*) FROM bf_audit').fetchone()[0]>=200000:
+        from .domain import DomainError
+        raise DomainError('Audit capacity reached; preserve and archive the workspace before additional writes')
     row = db.execute('SELECT event_hash FROM bf_audit WHERE owner=? ORDER BY at DESC,id DESC LIMIT 1', (owner,)).fetchone()
     previous = row[0] if row else '0' * 64
     event = {'actor': actor, 'operation': operation, 'operation_id': operation_id or uuid.uuid4().hex,
@@ -168,7 +171,7 @@ def source_path(owner, sha):
 
 
 def save_source(db, owner, raw):
-    """Content addressed immutable bytes. An aborted write can leave an unreferenced blob only."""
+    """Content addressed bytes; rolled-back writers remove only their new blobs."""
     sha = hashlib.sha256(raw).hexdigest()
     existing=db.execute('SELECT size FROM bf_sources WHERE owner=? AND hash=?',(owner,sha)).fetchone()
     if not existing:

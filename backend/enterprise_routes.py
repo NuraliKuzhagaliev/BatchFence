@@ -7,6 +7,37 @@ from .domain import DomainError,canonical
 from .fixtures import ROOT,now
 
 router=APIRouter()
+
+def snapshot(db,owner,case_id):
+    from . import signals,effectiveness
+    from .domain import digest
+    records={}
+    for kind,raw in db.execute('SELECT kind,data FROM bf_records WHERE owner=? ORDER BY kind,id',(owner,)):
+        if kind not in ('inspections','baseline','procedure','answer','action','recovery','recovery-evidence','recovery-policy','outbox','signal-explanation'):continue
+        value=json.loads(raw)
+        if value.get('case_id') and value['case_id']!=case_id:continue
+        records.setdefault(kind,[]).append(value)
+    rows=records.get('inspections',[{'rows':[]}])[0]
+    records['signals']=[]
+    for base in records.get('baseline',[]):
+        chart=signals.chart(base,rows['rows'])
+        records['signals'].append({'baseline':base,'chart':chart,'chart_digest':digest(chart)})
+    for action in records.get('action',[]):
+        if action.get('plan'):action['evaluation']=effectiveness.evaluate(action,rows['rows'])
+    ids={p['id'] for p in records.get('recovery',[])}
+    records['outbox']=[o for o in records.get('outbox',[]) if o['recovery_id'] in ids]
+    rev,_=repo.get_record(db,owner,'recovery-policy','current')
+    records['policy_revision']=rev
+    records['actor']=identity.current_actor()
+    records['snapshot_at']=now()
+    records['boundary']='Historical snapshots confer no action authority. Synthetic records and simulated identities are not independent human validation.'
+    return records
+
+@router.get('/api/cases/{case_id}/modules')
+def modules(case_id:str,request:Request):
+    from .app import connect,read
+    read(case_id,request.state.owner)
+    with connect() as db:return snapshot(db,request.state.owner,case_id)
 class Example(BaseModel):
     model_config=ConfigDict(extra='forbid')
     case_id:str=Field(max_length=80)

@@ -35,6 +35,8 @@ import type { Case, Document, Evidence, Packet, Upload, Run } from "./types";
 import { Graph, GenealogyPreview, labels } from "./Graph";
 import { EvidencePlanner, RevisionComparison, VerificationPanel, Elapsed } from "./UpgradePanels";
 import {PilotLogin,QuantityStrip,IntakePanel,OcrReview} from "./FoundationPanels";
+import {EnterprisePanels} from './EnterprisePanels';
+import {RecoveryPanel} from './RecoveryPanel';
 import "./style.css";
 const euro = (n: number) =>
   new Intl.NumberFormat("en-IE", {
@@ -94,6 +96,7 @@ function PlatformLinks({ openWeb }: { openWeb: () => void }) {
   );
 }
 function App() {
+  const [section,setSection]=useState('incidents');
   const [data, setData] = useState<Case | null>(null),
     [packet, setPacket] = useState<Packet | null>(null),
     [busy, setBusy] = useState(""),
@@ -200,6 +203,7 @@ function App() {
           const c = await request<Case>("GET", "/api/cases/" + id);
           if (active) setData(c);
         }
+        if(!connectionWasAvailable.current)setNotice('Backend reconnected. Current evidence and action state reloaded.');
         setOnline(true);
         connectionWasAvailable.current = true;
       } catch {
@@ -212,8 +216,11 @@ function App() {
     void boot();
     // User activity checks connectivity without keeping a free host awake.
     const focus = () => { if(document.visibilityState==='visible') void boot(); };
+    const offline=()=>{connectionWasAvailable.current=false;setOnline(false);};
     window.addEventListener('focus',focus);
-    return () => {active=false;window.removeEventListener('focus',focus);};
+    window.addEventListener('online',focus);
+    window.addEventListener('offline',offline);
+    return () => {active=false;window.removeEventListener('focus',focus);window.removeEventListener('online',focus);window.removeEventListener('offline',offline);};
   }, []);
   useEffect(() => {
     if (state)
@@ -458,19 +465,21 @@ function App() {
         </a>
         <div className="rail-line" />
         {[
-          [Network, "Incident", "map"],
-          [Files, "Sources", "sources"],
-          [History, "History", "timeline"],
+          [List, "Overview", "overview"],
+          [Network, "Signals", "signals"],
+          [Files, "Incidents", "incidents"],
+          [Search, "Knowledge", "knowledge"],
+          [PackageCheck, "Actions", "actions"],
+          [ShieldCheck, "Verification", "verification"],
         ].map(([Icon, title, key]) => {
           const I = Icon as typeof Network;
           return (
             <button
-              className={"rail-item " + (tab === key ? "active" : "")}
+              className={"rail-item " + (section === key ? "active" : "")}
               key={String(key)}
               title={String(title)}
               onClick={() => {
-                setTab(String(key));
-                setMobile(key === "sources" ? "sources" : "map");
+                setSection(String(key));
               }}
             >
               <I size={21} />
@@ -494,7 +503,7 @@ function App() {
         <header className="topbar">
           <div className="wordmark">
             BatchFence<span className="separator">/</span>
-            <span className="workspace-name">Containment desk</span>
+            <span className="workspace-name">Quality operations</span>
           </div>
           <div className="top-actions">
             {pilotIdentity&&<><span className="caption">{pilotIdentity}</span><button className="text-button" onClick={async()=>{await request('POST','/api/auth/logout',{});location.reload();}}>Sign out</button></>}
@@ -512,11 +521,14 @@ function App() {
             </button>
           </div>
         </header>
+        <nav className="module-mobile-nav" aria-label="Quality workspaces">
+          {['overview','signals','incidents','knowledge','actions','verification'].map(key=><button key={key} className={section===key?'active':''} onClick={()=>setSection(key)}>{key[0].toUpperCase()+key.slice(1)}</button>)}
+        </nav>
         <main>
           <div className="page-heading">
             <div>
               <div className="eyebrow">
-                QUALITY OPERATIONS <ChevronRight size={12} /> INCIDENT WORKBENCH
+                QUALITY OPERATIONS <ChevronRight size={12} /> {section.toUpperCase()}
               </div>
               <h1>{state ? state.name : "Evidence to action."}</h1>
               <p>
@@ -596,7 +608,7 @@ function App() {
               )}
             </div>
           )}
-          {!state ? (
+          {state && section!=='incidents' ? <EnterprisePanels key={state.id+section} section={section} state={state} readOnly={readOnly} mode={mode} setMode={setMode} update={accept} navigate={setSection} openCase={async id=>{accept(await request<Case>('GET','/api/cases/'+id));setSection('incidents');setReview(false);setTab('map');}}/> : !state ? (
             <section className="welcome">
               <div className="welcome-copy">
                 <span className="pill navy">
@@ -920,10 +932,12 @@ function App() {
                   >
                     {[
                       ["map", "Exposure"],
+                      ["sources", "Sources & intake"],
                       ["requests", "Evidence requests"],
                       ["orders", "Order review"],
                       ["timeline", "Revisions"],
                       ["receipt", "Receipt"],
+                      ["recovery", "Recovery"],
                       ["verify", "Verification"],
                     ].map(([k, t]) => (
                       <button
@@ -1068,6 +1082,8 @@ function App() {
                         Confirm scope & calculate
                       </button>
                     </section>
+                  ) : tab === "recovery" ? (
+                    <RecoveryPanel key={state.id} state={state} readOnly={readOnly} update={accept}/>
                   ) : tab === "verify" ? (
                     <VerificationPanel state={state} replay={!!packet} readOnly={readOnly}/>
                   ) : tab === "timeline" ? (

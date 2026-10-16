@@ -46,6 +46,9 @@ def inference_access(mode, supplied_token):
     if mode != 'live':
         yield
         return
+    from .identity import pilot
+    if pilot() and os.getenv('PILOT_AMD_DATA_APPROVED', '').lower() != 'true':
+        error('PROVIDER_DATA_APPROVAL', 'The organization owner must authorize external AMD processing and configure PILOT_AMD_DATA_APPROVED=true before pilot inference.', 403)
     expected = os.getenv('LIVE_DEMO_TOKEN', '')
     if public_demo() or expected:
         if len(expected) < 32:

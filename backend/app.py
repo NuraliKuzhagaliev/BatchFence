@@ -344,6 +344,9 @@ def demo(request: Request):
 @app.post('/api/cases/import')
 def promote(packet: Packet, request: Request):
     state = copy.deepcopy(validate_packet(packet))
+    for field in ('enterprise_packet','workspace_attached','enterprise_example','hold_ledger','recovery_receipts','quantities','procedure_checks','receiving_runs','origin_signal'):
+        state.pop(field,None)
+    for stock in state['stocks']:stock['status']='available'
     state.update({'id': uuid.uuid4().hex, 'revision': 1, 'inventory_version': 1,
                   'scope': {'lot_ids': [], 'revision': 0, 'qualifiers': []},
                   'plan': None, 'plans': [], 'runs': [], 'reviews': [], 'receipts': [],
@@ -688,6 +691,8 @@ def challenges():
 @app.get('/api/cases/{case_id}/export')
 def export(case_id: str, request: Request):
     s = read(case_id, request.state.owner)
+    from .enterprise_routes import snapshot
+    with connect() as db:s['enterprise_packet']=snapshot(db,request.state.owner,case_id)
     return {'schema_version': 1, 'exported_at': now(), 'label': 'Historical read-only packet. Hash is change detection, not supplier authentication.',
             'case': s, 'integrity_hash': digest(s)}
 

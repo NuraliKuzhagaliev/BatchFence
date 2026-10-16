@@ -12,12 +12,13 @@ export async function request<T>(
   route: string,
   body?: unknown,
 ): Promise<T> {
-  if (native) return (await native.request(method, route, body, route.endsWith("/analyze") ? liveDemoToken : undefined)) as T;
+  const inference=/\/(analyze|receiving-draft|answer|explain)$/.test(route);
+  if (native) return (await native.request(method, route, body, inference ? liveDemoToken : undefined)) as T;
   const response = await fetch(route, {
     method,
     credentials: "same-origin",
     headers: { "Content-Type": "application/json",
-      ...(route.endsWith("/analyze") && liveDemoToken ? {"X-BF-Demo-Token": liveDemoToken} : {}),
+      ...(inference && liveDemoToken ? {"X-BF-Demo-Token": liveDemoToken} : {}),
     },
     ...(body === undefined ? {} : { body: JSON.stringify(body) }),
   });
@@ -48,7 +49,7 @@ export async function fileUpload(f: File): Promise<Upload> {
     binary += String.fromCharCode(...bytes.subarray(i, i + 8192));
   return { filename: f.name, content_base64: btoa(binary) };
 }
-function canonical(v: unknown): string {
+export function canonical(v: unknown): string {
   if (Array.isArray(v)) return "[" + v.map(canonical).join(",") + "]";
   if (v && typeof v === "object")
     return (
@@ -66,6 +67,7 @@ function canonical(v: unknown): string {
     );
   return JSON.stringify(v);
 }
+export async function contentHash(value:unknown){const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(canonical(value)));return Array.from(new Uint8Array(bytes)).map(v=>v.toString(16).padStart(2,'0')).join('');}
 export async function validatePacket(v: unknown): Promise<Packet> {
   validateShape(v);
   const p = v as Packet;

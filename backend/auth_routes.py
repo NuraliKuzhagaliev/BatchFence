@@ -64,7 +64,7 @@ def me():
 def logout(request: Request):
     from .app import connect
     p = identity.principal.get()
-    if p:
+    if p and p.get('token_hash'):
         with repository.write(connect) as db:
             db.execute('DELETE FROM bf_sessions WHERE token_hash=?', (p['token_hash'],))
     response = JSONResponse({'signed_out': True})
