@@ -1,0 +1,8 @@
+{
+  "source_sha256": "11a237547b3b6667d8032b0d15abe4a4b245edd712f4db6c079c67e60c9bbb00",
+  "file": "BatchFence-connected-synthetic-rc1.mp4",
+  "sha256": "ee9a287e71b5383aa92433725090f9ac5f3c3c6c43fac8537bb500c894fb223b",
+  "bytes": 2721748,
+  "duration_seconds": 50.28,
+  "provenance": "Actual running candidate captured at original speed with automated interactions and reading pauses. HTTP incident setup disclosed by browser test. All model segments use synthetic fixtures. No fresh AMD inference; no independent human review. Caption band added outside application pixels. No audio; narration supplied separately."
+}

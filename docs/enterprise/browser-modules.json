@@ -1,7 +1,8 @@
 {
-  "at": "2026-10-16T22:46:29.381Z",
+  "at": "2026-10-16T22:57:54.119Z",
   "url": "http://127.0.0.1:8794",
-  "provenance": "Synthetic agent-operated browser checks. Incident 500/800 setup via HTTP; typed review, recovery, baseline, knowledge and action forms through browser. Distinct public simulated roles are not independent named approval.",
+  "packaged_desktop": false,
+  "provenance": "Synthetic agent-operated checks. Incident 500/800 setup via transport; typed review, recovery, baseline, knowledge and action forms through UI. Distinct public simulated roles are not independent named approval.",
   "checks": [
     "UI natural structured receiving review: 800 applied remains while proposal narrows to 700",
     "UI simulated distinct approval and exact 100-unit recovery; two containment receipts preserved",
@@ -11,5 +12,5 @@
     "Overview/Signals at 1366,1920,390 plus 200% CSS zoom without document overflow"
   ],
   "errors": [],
-  "case_id": "1525cdc70e1f43d596b4f3b2b17ec669"
+  "case_id": "cafadfd3ff8d4a8da2805e148c126c0e"
 }
