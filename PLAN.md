@@ -1,3 +1,9 @@
+# Active enterprise expansion
+
+See ENTERPRISE_PLAN.md for all four modules and required foundations. Protected release remains e70f4a0 / v0.2.0. Foundation checkpoint: 73 tests plus real PostgreSQL restore/workflow checks pass; expansion not published. Complete mapped onboarding, modules, full release acceptance before main push.
+
+---
+
 # BatchFence 0.2.0 upgrade
 
 Protected release: `2402375b6dd3aecae2e1cd691b51639a07f8dac7` (web); Windows `v0.1.2` at `45280e8`. Preserve these and frozen 500/800 fixtures. The research brief predates the verified Windows download; retain it until a new verified installer exists.

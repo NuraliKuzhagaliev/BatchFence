@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-16T21:32:57.996503+00:00",
+  "profile": "actual private loopback Compose containers",
+  "health": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.2.0",
+    "commit": "local",
+    "inference_mode": "fixture",
+    "amd_configured": false,
+    "live_protected": false,
+    "profile": "pilot",
+    "public_demo": false,
+    "storage_mode": "local",
+    "replay_available": true
+  },
+  "checks": [
+    "unauthenticated case access denied",
+    "named login",
+    "500 workflow and sandbox receipt",
+    "original byte upload/download"
+  ],
+  "independent_human_validation": false,
+  "case_id": "8c583028b3e646ab9565aa7022aef7e4",
+  "receipt_id": "TX-43a131452c3f4f2c82c2da9e046380f9"
+}

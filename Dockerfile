@@ -13,6 +13,7 @@ WORKDIR /app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt && useradd --create-home --uid 10001 batchfence
 COPY backend ./backend
+COPY scripts ./scripts
 COPY fixtures ./fixtures
 COPY --from=frontend /app/dist ./dist
 RUN mkdir -p /var/data && chown batchfence:batchfence /var/data

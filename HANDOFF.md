@@ -1,3 +1,17 @@
+# Enterprise upgrade in progress — protected 0.2.0 remains published
+
+Development branch: enterprise-pilot-0.3. Entire enterprise brief read; no existing 0.2.1 work found. Do not publish the expansion until its gates pass. New implementation is currently foundations only, not four delivered modules.
+
+Foundation checkpoint: 73 pytest pass (65 preserved plus 8 new cases); real PostgreSQL 17.11 run verified 500/800, stale rejection, concurrent duplicate execution, runtime privilege restrictions, and isolated backup/restore of one case, two receipts and 11 original sources. Measured restore 168 ms, backup age 0.227 s for this small synthetic drill. All named test identities/reviews are agent-operated. Same-device drill is not disaster recovery; owner RPO/RTO unset. Evidence: docs/enterprise/foundation-postgres.json.
+
+Added incremental SQLite/PostgreSQL repository and version-2 migration, private local identity with scoped roles and revocation, transactionally appended audit, original source storage/download, persisted single-attempt jobs with cancellation/interrupt status, and private loopback pilot Compose/setup/backup tooling. Existing extraction prompt is unchanged; no new AMD requests have been made. Model evaluation set must be frozen before prompt changes.
+
+Commands: `.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-foundation-04`; `.venv\Scripts\python.exe -m scripts.verify-pilot` (requires ignored local evaluation config); `python -m scripts.pilot-config`; `docker compose -f ops/compose.pilot.yml up --build -d`. Operational instructions and boundaries: docs/enterprise/pilot-operations.md. Plan/evidence/risk register: ENTERPRISE_PLAN.md and docs/enterprise.
+
+Next: finish private container profile acceptance, mapped onboarding and typed source review; then Signals/Knowledge, shared-ledger Recovery and Corrective Action in dependency order. All four remain in scope. No cloud deployment, installer replacement, paid resources or real inventory execution in this checkpoint.
+
+---
+
 # BatchFence 0.2.0 handoff
 
 All six core improvements are implemented and verified on the public web application and installed Windows client. Public app: https://batchfence.onrender.com. Windows: https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.2.0. Existing free Render service only; no purchases, paid disks or account-security changes.

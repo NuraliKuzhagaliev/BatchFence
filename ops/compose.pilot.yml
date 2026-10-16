@@ -1,0 +1,30 @@
+name: batchfence-pilot
+services:
+  postgres:
+    image: postgres:17
+    env_file: ../work/pilot-config/postgres.env
+    volumes:
+      - ../work/pilot-data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U batchfence_migration -d batchfence"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+  migrate:
+    build: ..
+    env_file: ../work/pilot-config/migration.env
+    command: ["python", "-m", "scripts.pilot", "bootstrap-postgres"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+  app:
+    build: ..
+    env_file: ../work/pilot-config/app.env
+    ports: ["127.0.0.1:8788:8787"]
+    volumes:
+      - ../work/pilot-data/sources:/var/data/sources
+      - ../work/pilot-data/backups:/var/data/backups
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped

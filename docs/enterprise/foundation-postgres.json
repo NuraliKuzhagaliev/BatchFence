@@ -1,0 +1,57 @@
+{
+  "timestamp": "2026-10-16T21:28:57.054366+00:00",
+  "profile": "real local PostgreSQL; synthetic records and agent-operated named identities",
+  "server_version": "17.11 (Debian 17.11-1.pgdg13+2)",
+  "checks": [
+    "500 hold",
+    "800 revised hold",
+    "stale rejection",
+    "concurrent duplicate: two receipts total",
+    "runtime cannot delete audit or create schema",
+    "database and source backup",
+    "isolated restored records byte-equivalent",
+    "restored source hash",
+    "sessions excluded",
+    "restored stale execution rejected"
+  ],
+  "backup": {
+    "created_at": "2026-10-16T21:28:56.192547+00:00",
+    "duration_ms": 43,
+    "counts": {
+      "cases": 1,
+      "receipts": 2,
+      "bf_records": 2,
+      "bf_users": 1,
+      "bf_members": 1,
+      "bf_audit": 16,
+      "bf_sources": 11,
+      "bf_schema": 1
+    },
+    "source_count": 11,
+    "sha256": "091f9bb9c43c4fefa85ff1cef5737e189e4e872bedf3872254da7820016c2d26",
+    "bytes": 16817,
+    "boundary": "Same-device backup drill does not establish disaster recovery; owner RPO/RTO not agreed."
+  },
+  "restore": {
+    "restored_at": "2026-10-16T21:28:56.419758+00:00",
+    "duration_ms": 168,
+    "backup_age_seconds": 0.227,
+    "counts": {
+      "bf_audit": 16,
+      "bf_members": 1,
+      "bf_records": 2,
+      "bf_schema": 1,
+      "bf_sources": 11,
+      "bf_users": 1,
+      "cases": 1,
+      "receipts": 2
+    },
+    "source_hashes_verified": 11,
+    "all_record_values_match": true,
+    "sessions_restored": 0,
+    "independent_disaster_recovery": false
+  },
+  "duration_ms": 7914,
+  "rpo_rto": "Owner targets unset; same-device drill, not disaster recovery",
+  "independent_human_acceptance": false
+}
