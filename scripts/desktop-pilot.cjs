@@ -12,7 +12,7 @@ const root=path.resolve(__dirname,'..'),out=path.join(root,'docs/enterprise/desk
  await page.getByRole('button',{name:'Sign in',exact:true}).click();
  await page.getByRole('heading',{name:'Sign in to your quality workspace',exact:true}).waitFor({state:'hidden'});
  const call=(method,route,body)=>page.evaluate(p=>window.batchfence.request(p.method,p.route,p.body),{method,route,body});
- const me=await call('GET','/api/auth/me');assert.equal(me.username,credentials.username);checks.push('Default loopback8788 pilot sign-in through installed restricted transport; named engineering account');
+ const me=await call('GET','/api/auth/me');assert.equal(me.actor.username,credentials.username);checks.push('Default loopback8788 pilot sign-in through installed restricted transport; named engineering account');
  const health=await call('GET','/api/health');assert.equal(health.version,'0.3.0-rc.1');
  for(const route of ['/api/signals','/api/knowledge','/api/actions','/api/jobs'])await call('GET',route);
  checks.push('All module read routes and jobs available to named scoped identity');

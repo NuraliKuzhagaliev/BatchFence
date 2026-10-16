@@ -1,6 +1,6 @@
 # Private pilot operations (development branch)
 
-Public 0.2.0 remains the verified release. The new pilot profile is under acceptance; do not treat the foundation checkpoint as all four modules delivered. Initial supported scope is one organization/site on owner-controlled hardware. Tests also exercise a second organization/site. No production SaaS certification is claimed.
+Public 0.2.0 remains the verified release. All four candidate modules are implemented and synthetically exercised; fresh new-task AMD and independent pilot acceptance remain open. Initial supported scope is one organization/site on owner-controlled hardware. Tests also exercise a second organization/site. No production SaaS certification is claimed.
 
 ## Private setup
 
@@ -14,7 +14,7 @@ docker compose -f ops/compose.pilot.yml exec app python -m scripts.pilot create-
 
 The create-user command prompts twice without echo. Repeat for explicit reporter, quality_reviewer, release_approver and auditor roles as appropriate. Never assign default reusable passwords. Administrator does not imply operational review/release capability. Named test accounts do not prove independent review. The owner must create and accept real distinct identities before operational recovery.
 
-The configuration generator refuses existing configuration and writes three ignored files under `work/pilot-config`: PostgreSQL initialization credentials, a migration-only connection, and a restricted runtime connection plus random session signing key. The app never receives migration credentials. The database has no published port. Web binds only `127.0.0.1:8788`. Source data, database and backup directories are under `work/pilot-data`. Linux bind mounts need owner-approved write access for application UID 10001; do not apply blanket permission changes. Windows desktop can use `BATCHFENCE_BACKEND_ORIGIN=http://127.0.0.1:8788` once client acceptance passes.
+The configuration generator refuses existing configuration and writes three ignored files under `work/pilot-config`: PostgreSQL initialization credentials, a migration-only connection, and a restricted runtime connection plus random session signing key. The app never receives migration credentials. The database has no published port. Web binds only `127.0.0.1:8788`. Source data, database and backup directories are under `work/pilot-data`. Linux bind mounts need owner-approved write access for application UID 10001; do not apply blanket permission changes. Windows desktop can use `BATCHFENCE_BACKEND_ORIGIN=http://127.0.0.1:8788` with the installed0.3.0-rc.1 candidate (default origin8788).
 
 Configure the actual AMD endpoint/model/key privately in the app env file only after the owner approves the provider processing of the intended data. No private plant-data approval is inferred from synthetic testing. The pilot defaults to fixture mode with persisted 20 organization / 8 user live-job limits; failed/cancelled attempts count. Provider request fees/credits remain governed by existing authorized resources. Do not increase limits or buy resources automatically.
 
@@ -47,3 +47,5 @@ It refuses nonempty databases/existing source directories, checks archive paths/
 One committing writer is serialized across PostgreSQL web/worker processes using a transaction-scoped advisory lock. Model calls occur outside write transactions. This prioritizes correctness within a bounded pilot, not high-throughput claims. Jobs persist a single attempt, finite budgets and a 120-second lease. Cancellation suppresses result acceptance; it cannot undo a provider request already dispatched. An expired worker becomes interrupted and requires an explicit new request; no automatic paid retry or fixture fallback occurs.
 
 Session lifetime is eight hours, HttpOnly/SameSite Strict, Secure on HTTPS. Membership changes revoke sessions and pending named authority. Server-side organization/site scope applies before object access. Document downloads are binary attachments after scoped lookup and hash verification. Local HTTP is loopback-only. Public TLS or remote plant deployment is a separate owner-reviewed operating decision.
+
+Actual module recovery/connector restart/migration/restore: modules-postgres.json. Candidate packaging and local installed results: candidate-artifacts.json and desktop/. Source configuration remains private; no generated engineering account is intended as an owner credential.

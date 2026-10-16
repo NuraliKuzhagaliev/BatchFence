@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-16T22:54:36.586Z",
+  "at": "2026-10-16T23:04:31.943Z",
   "url": "http://127.0.0.1:8794",
   "packaged_desktop": true,
   "provenance": "Synthetic agent-operated checks. Incident 500/800 setup via transport; typed review, recovery, baseline, knowledge and action forms through UI. Distinct public simulated roles are not independent named approval.",
@@ -12,5 +12,5 @@
     "Overview/Signals at 1366,1920,390 plus 200% CSS zoom without document overflow"
   ],
   "errors": [],
-  "case_id": "08355915f3a342448e744d1a8ab1b066"
+  "case_id": "d4dcc3f236bf42c7b298586ab8c9a8bf"
 }

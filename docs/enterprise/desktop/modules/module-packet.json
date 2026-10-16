@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "exported_at": "2026-10-16T22:54:36.499259+00:00",
+  "exported_at": "2026-10-16T23:04:31.859606+00:00",
   "label": "Historical read-only packet. Hash is change detection, not supplier authentication.",
   "case": {
-    "id": "08355915f3a342448e744d1a8ab1b066",
+    "id": "d4dcc3f236bf42c7b298586ab8c9a8bf",
     "name": "Northstar Enclosures",
     "incident": "Cosmetic coating defect · decorative housings",
     "synthetic": true,
@@ -11,11 +11,11 @@
     "inventory_version": 5,
     "documents": [
       {
-        "id": "DOC-aa104a23ee79",
+        "id": "DOC-65530e2ce331",
         "filename": "ambiguous_receipt.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T22:54:23.991255+00:00",
+        "ingested_at": "2026-10-16T23:04:24.293103+00:00",
         "original_hash": "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
         "text_hash": "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
         "blocks": [
@@ -33,11 +33,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-4f4ddb129e1a",
+        "id": "DOC-cb4b0092c0ae",
         "filename": "completeness_manifest.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T22:54:23.991655+00:00",
+        "ingested_at": "2026-10-16T23:04:24.293433+00:00",
         "original_hash": "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
         "text_hash": "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
         "blocks": [
@@ -55,11 +55,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-7616b587f16e",
+        "id": "DOC-fbae35146a23",
         "filename": "containment_policy.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T22:54:23.992081+00:00",
+        "ingested_at": "2026-10-16T23:04:24.293843+00:00",
         "original_hash": "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
         "text_hash": "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
         "blocks": [
@@ -77,11 +77,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-ad540a93b50f",
+        "id": "DOC-fd4f8ba10f78",
         "filename": "inventory.csv",
         "media_type": "text/csv",
         "revision": 1,
-        "ingested_at": "2026-10-16T22:54:23.992353+00:00",
+        "ingested_at": "2026-10-16T23:04:24.294143+00:00",
         "original_hash": "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
         "text_hash": "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
         "blocks": [
@@ -124,11 +124,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-893ffdf723e0",
+        "id": "DOC-725f945f63d7",
         "filename": "lineage.csv",
         "media_type": "text/csv",
         "revision": 1,
-        "ingested_at": "2026-10-16T22:54:23.992544+00:00",
+        "ingested_at": "2026-10-16T23:04:24.294480+00:00",
         "original_hash": "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
         "text_hash": "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
         "blocks": [
@@ -176,11 +176,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-db1c16543081",
+        "id": "DOC-bf6d9e849a2f",
         "filename": "order_allocations.csv",
         "media_type": "text/csv",
         "revision": 1,
-        "ingested_at": "2026-10-16T22:54:23.992932+00:00",
+        "ingested_at": "2026-10-16T23:04:24.294902+00:00",
         "original_hash": "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
         "text_hash": "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
         "blocks": [
@@ -223,11 +223,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-6f9f8be95868",
+        "id": "DOC-9a9f02536c81",
         "filename": "production_travelers.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T22:54:23.993201+00:00",
+        "ingested_at": "2026-10-16T23:04:24.295183+00:00",
         "original_hash": "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
         "text_hash": "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
         "blocks": [
@@ -245,11 +245,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-d9d07f030160",
+        "id": "DOC-6c0cb9c25d92",
         "filename": "receiving_register.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T22:54:23.993464+00:00",
+        "ingested_at": "2026-10-16T23:04:24.295428+00:00",
         "original_hash": "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
         "text_hash": "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
         "blocks": [
@@ -267,11 +267,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-ffb8cc3960e0",
+        "id": "DOC-02804aadf8dd",
         "filename": "supplier_notice_v1.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T22:54:23.993739+00:00",
+        "ingested_at": "2026-10-16T23:04:24.295740+00:00",
         "original_hash": "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
         "text_hash": "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
         "blocks": [
@@ -304,11 +304,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-e02b36e23751",
+        "id": "DOC-42960aacd0aa",
         "filename": "inspections.csv",
         "media_type": "text/csv",
         "revision": 1,
-        "ingested_at": "2026-10-16T22:54:24.057154+00:00",
+        "ingested_at": "2026-10-16T23:04:24.364464+00:00",
         "original_hash": "5318f896d2de6d7635419a36a980fdd9652295d91a75bf0e8a0906b0ac651ed8",
         "text_hash": "5318f896d2de6d7635419a36a980fdd9652295d91a75bf0e8a0906b0ac651ed8",
         "blocks": [
@@ -656,11 +656,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-aae11aba2858",
+        "id": "DOC-b088e88f2372",
         "filename": "inspection.txt",
         "media_type": "text/plain",
         "revision": 2,
-        "ingested_at": "2026-10-16T22:54:24.131975+00:00",
+        "ingested_at": "2026-10-16T23:04:24.425746+00:00",
         "original_hash": "d74acce2d99ad71bc8d5421e6b7d75d87c09c2dca9e6c8edb04d78d9f48f4310",
         "text_hash": "d74acce2d99ad71bc8d5421e6b7d75d87c09c2dca9e6c8edb04d78d9f48f4310",
         "blocks": [
@@ -673,11 +673,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-019e4b9519ef",
+        "id": "DOC-093ba48efdab",
         "filename": "implementation.txt",
         "media_type": "text/plain",
         "revision": 3,
-        "ingested_at": "2026-10-16T22:54:24.159804+00:00",
+        "ingested_at": "2026-10-16T23:04:24.465821+00:00",
         "original_hash": "008e9b3cfd2fa96f188d880c0aa25abdd8801677f186c6f75135b77bafe1e321",
         "text_hash": "008e9b3cfd2fa96f188d880c0aa25abdd8801677f186c6f75135b77bafe1e321",
         "blocks": [
@@ -690,11 +690,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-fd178e85e76a",
+        "id": "DOC-177a59201fc6",
         "filename": "supplier_notice_v2.txt",
         "media_type": "text/plain",
         "revision": 4,
-        "ingested_at": "2026-10-16T22:54:24.335864+00:00",
+        "ingested_at": "2026-10-16T23:04:24.682943+00:00",
         "original_hash": "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d",
         "text_hash": "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d",
         "blocks": [
@@ -727,11 +727,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-d9e2d25f764e",
+        "id": "DOC-8a06c402eba6",
         "filename": "natural-receiving.txt",
         "media_type": "text/plain",
         "revision": 5,
-        "ingested_at": "2026-10-16T22:54:24.524339+00:00",
+        "ingested_at": "2026-10-16T23:04:25.012337+00:00",
         "original_hash": "ed7809adfbbc42684da98acfd5548f3f50a24bc4cdb2d04e8c613a1dc2338181",
         "text_hash": "ed7809adfbbc42684da98acfd5548f3f50a24bc4cdb2d04e8c613a1dc2338181",
         "blocks": [
@@ -742,9 +742,9 @@
           }
         ],
         "synthetic": true,
-        "request_id": "CAUSE-4dc25b253d3b01",
+        "request_id": "CAUSE-c4b2954913fe2b",
         "request_snapshot": {
-          "id": "CAUSE-4dc25b253d3b01",
+          "id": "CAUSE-c4b2954913fe2b",
           "kind": "possible_ancestry",
           "pool_ids": [
             "FG-C"
@@ -755,12 +755,12 @@
           "reason": "Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. The completeness manifest also needs confirmation.",
           "evidence": [
             {
-              "document_id": "DOC-893ffdf723e0",
+              "document_id": "DOC-725f945f63d7",
               "block_id": "row-3",
               "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
             },
             {
-              "document_id": "DOC-893ffdf723e0",
+              "document_id": "DOC-725f945f63d7",
               "block_id": "row-4",
               "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
             }
@@ -790,26 +790,26 @@
           "draft": "Please clarify receiving identity for fg-c for FG-C (100 unique units). Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. Provide original record IDs, exact lot identities and document revision; state whether the record is complete or inconclusive. This request does not authorize release.",
           "causes": [
             {
-              "id": "CAUSE-4dc25b253d3b01",
+              "id": "CAUSE-c4b2954913fe2b",
               "kind": "possible_ancestry"
             },
             {
-              "id": "CAUSE-42bbd1f3104dd7",
+              "id": "CAUSE-99aedbeff156f0",
               "kind": "incomplete_ancestry"
             }
           ],
           "decision_change_units": 100,
           "sort_reason": "Conditional change up to 100 proposed units; decision-changing questions first, then earliest affected order, then inventory carrying value."
         },
-        "prior_plan_digest": "273c1200c43cc5d350a0f0e0df82f7cf0e43bf1f50f0bfda839e8a459d6fd8fd",
+        "prior_plan_digest": "454ddffefa819a31b6f915024ab4bf84a125d483132a1a3b08f4f68543499187",
         "prior_pending": false
       },
       {
-        "id": "DOC-050583eb4af4",
+        "id": "DOC-b6426ae6677f",
         "filename": "inspections-followup.csv",
         "media_type": "text/csv",
         "revision": 1,
-        "ingested_at": "2026-10-16T22:54:35.292625+00:00",
+        "ingested_at": "2026-10-16T23:04:30.633306+00:00",
         "original_hash": "5318f896d2de6d7635419a36a980fdd9652295d91a75bf0e8a0906b0ac651ed8",
         "text_hash": "5318f896d2de6d7635419a36a980fdd9652295d91a75bf0e8a0906b0ac651ed8",
         "blocks": [
@@ -1234,7 +1234,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-893ffdf723e0",
+          "document_id": "DOC-725f945f63d7",
           "block_id": "row-1",
           "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
         }
@@ -1247,7 +1247,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-893ffdf723e0",
+          "document_id": "DOC-725f945f63d7",
           "block_id": "row-2",
           "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
         }
@@ -1260,7 +1260,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-893ffdf723e0",
+          "document_id": "DOC-725f945f63d7",
           "block_id": "row-5",
           "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
         }
@@ -1273,7 +1273,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-893ffdf723e0",
+          "document_id": "DOC-725f945f63d7",
           "block_id": "row-6",
           "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
         }
@@ -1286,18 +1286,18 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-893ffdf723e0",
+          "document_id": "DOC-725f945f63d7",
           "block_id": "row-7",
           "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
         }
       },
       {
-        "row_id": "RECV-DOC-d9e2d25f764e-0",
+        "row_id": "RECV-DOC-8a06c402eba6-0",
         "source": "SUP-B",
         "target": "FG-C",
         "kind": "confirmed",
         "evidence": {
-          "document_id": "DOC-d9e2d25f764e",
+          "document_id": "DOC-8a06c402eba6",
           "block_id": "line-1",
           "quote": "Receiver reconciled every receipt for FG-C. Its entire ancestry is supplier lot SUP-B, with no additional parents. Original supplier receipt REC-812 was authenticated by the receiving supervisor."
         }
@@ -1374,12 +1374,12 @@
       "qualifiers": [
         "Synthetic deterministic walkthrough. Confirm scope against the original notice."
       ],
-      "source_document_id": "DOC-fd178e85e76a",
+      "source_document_id": "DOC-177a59201fc6",
       "uncertain_lot_ids": [],
       "excluded_lot_ids": [],
       "incident_scope_status": "resolved",
       "resolution_evidence": {
-        "document_id": "DOC-fd178e85e76a",
+        "document_id": "DOC-177a59201fc6",
         "block_id": "line-4",
         "quote": "Affected lots: SUP-A, SUP-C"
       },
@@ -1389,14 +1389,14 @@
     },
     "runs": [
       {
-        "id": "34339d00-5197-4fe9-869c-2a0b09ddff13",
+        "id": "661075b4-bced-453f-a0f5-1d37e56325d1",
         "mode": "fixture",
         "clock_source": "Server UTC wall clock; latency from monotonic clock",
-        "input_hash": "a8e72bd83c2de7967d14e6d7953fbc6be6b8e5cc70c5c291068a8222ebc8ff66",
+        "input_hash": "967538ddcd342dd38a9f2acc95e2844d9eb660afe51d4cc6f25b116c2f07b084",
         "provider": "Synthetic fixture",
         "prompt_version": "scope-extract-2",
         "schema_version": 1,
-        "timestamp": "2026-10-16T22:54:24.198631+00:00",
+        "timestamp": "2026-10-16T23:04:24.513226+00:00",
         "status": "succeeded",
         "repairs": 0,
         "model_id": "fixture-parser-v1",
@@ -1407,7 +1407,7 @@
               "affected": true,
               "evidence": [
                 {
-                  "document_id": "DOC-ffb8cc3960e0",
+                  "document_id": "DOC-02804aadf8dd",
                   "block_id": "line-4",
                   "quote": "Affected lots: SUP-A"
                 }
@@ -1420,18 +1420,18 @@
         },
         "elapsed_ms": 0,
         "revision": 3,
-        "document_id": "DOC-ffb8cc3960e0",
+        "document_id": "DOC-02804aadf8dd",
         "scope_concerns": []
       },
       {
-        "id": "ac18b0c1-d437-4d85-bf0e-9f324fab1d36",
+        "id": "7d7ee2be-0615-4f07-8a9c-9eca139b032a",
         "mode": "fixture",
         "clock_source": "Server UTC wall clock; latency from monotonic clock",
-        "input_hash": "8a6e6556a93ad38ad0f4b829e89192df19c3871e009c3d70e72d7238c9b25294",
+        "input_hash": "6ef8deab4dca1f4790c1dadebce435a5af55d67f88be0548fae820f1926713fc",
         "provider": "Synthetic fixture",
         "prompt_version": "scope-extract-2",
         "schema_version": 1,
-        "timestamp": "2026-10-16T22:54:24.375597+00:00",
+        "timestamp": "2026-10-16T23:04:24.735345+00:00",
         "status": "succeeded",
         "repairs": 0,
         "model_id": "fixture-parser-v1",
@@ -1442,7 +1442,7 @@
               "affected": true,
               "evidence": [
                 {
-                  "document_id": "DOC-fd178e85e76a",
+                  "document_id": "DOC-177a59201fc6",
                   "block_id": "line-4",
                   "quote": "Affected lots: SUP-A, SUP-C"
                 }
@@ -1453,7 +1453,7 @@
               "affected": true,
               "evidence": [
                 {
-                  "document_id": "DOC-fd178e85e76a",
+                  "document_id": "DOC-177a59201fc6",
                   "block_id": "line-4",
                   "quote": "Affected lots: SUP-A, SUP-C"
                 }
@@ -1466,15 +1466,15 @@
         },
         "elapsed_ms": 0,
         "revision": 4,
-        "document_id": "DOC-fd178e85e76a",
+        "document_id": "DOC-177a59201fc6",
         "scope_concerns": []
       }
     ],
     "reviews": [
       {
-        "at": "2026-10-16T22:54:24.230740+00:00",
+        "at": "2026-10-16T23:04:24.546616+00:00",
         "reviewer": "Anonymous session reviewer",
-        "run_id": "34339d00-5197-4fe9-869c-2a0b09ddff13",
+        "run_id": "661075b4-bced-453f-a0f5-1d37e56325d1",
         "suggested_lots": [
           "SUP-A"
         ],
@@ -1489,7 +1489,7 @@
         "excluded_lot_ids": [],
         "incident_scope_status": "resolved",
         "resolution_evidence": {
-          "document_id": "DOC-ffb8cc3960e0",
+          "document_id": "DOC-02804aadf8dd",
           "block_id": "line-4",
           "quote": "Affected lots: SUP-A"
         },
@@ -1497,9 +1497,9 @@
         "bounded_scope_reviewed": true
       },
       {
-        "at": "2026-10-16T22:54:24.407840+00:00",
+        "at": "2026-10-16T23:04:24.783160+00:00",
         "reviewer": "Anonymous session reviewer",
-        "run_id": "ac18b0c1-d437-4d85-bf0e-9f324fab1d36",
+        "run_id": "7d7ee2be-0615-4f07-8a9c-9eca139b032a",
         "suggested_lots": [
           "SUP-A",
           "SUP-C"
@@ -1518,7 +1518,7 @@
         "excluded_lot_ids": [],
         "incident_scope_status": "resolved",
         "resolution_evidence": {
-          "document_id": "DOC-fd178e85e76a",
+          "document_id": "DOC-177a59201fc6",
           "block_id": "line-4",
           "quote": "Affected lots: SUP-A, SUP-C"
         },
@@ -1528,8 +1528,8 @@
     ],
     "plans": [
       {
-        "id": "PLAN-2d30f20143ef",
-        "digest": "2d30f20143ef8a2e77e863d8835ee7a9987c17d32cd1cd92e6897565d838724f",
+        "id": "PLAN-e52bfb4686b9",
+        "digest": "e52bfb4686b97ec917858c4abffe46a22099dda8f8474b648fa9bda8d797fd36",
         "source_claims": [
           {
             "facts": [
@@ -1538,7 +1538,7 @@
                 "affected": true,
                 "evidence": [
                   {
-                    "document_id": "DOC-ffb8cc3960e0",
+                    "document_id": "DOC-02804aadf8dd",
                     "block_id": "line-4",
                     "quote": "Affected lots: SUP-A"
                   }
@@ -1587,7 +1587,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-893ffdf723e0",
+                  "document_id": "DOC-725f945f63d7",
                   "block_id": "row-1",
                   "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -1611,7 +1611,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-893ffdf723e0",
+                  "document_id": "DOC-725f945f63d7",
                   "block_id": "row-2",
                   "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -1635,7 +1635,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-893ffdf723e0",
+                  "document_id": "DOC-725f945f63d7",
                   "block_id": "row-3",
                   "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
                 }
@@ -1659,7 +1659,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-893ffdf723e0",
+                  "document_id": "DOC-725f945f63d7",
                   "block_id": "row-5",
                   "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -1683,7 +1683,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-893ffdf723e0",
+                  "document_id": "DOC-725f945f63d7",
                   "block_id": "row-6",
                   "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -1707,7 +1707,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-893ffdf723e0",
+                  "document_id": "DOC-725f945f63d7",
                   "block_id": "row-7",
                   "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -1752,7 +1752,7 @@
           ],
           "requests": [
             {
-              "id": "CAUSE-4dc25b253d3b01",
+              "id": "CAUSE-c4b2954913fe2b",
               "kind": "possible_ancestry",
               "pool_ids": [
                 "FG-C"
@@ -1763,12 +1763,12 @@
               "reason": "Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. The completeness manifest also needs confirmation.",
               "evidence": [
                 {
-                  "document_id": "DOC-893ffdf723e0",
+                  "document_id": "DOC-725f945f63d7",
                   "block_id": "row-3",
                   "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
                 },
                 {
-                  "document_id": "DOC-893ffdf723e0",
+                  "document_id": "DOC-725f945f63d7",
                   "block_id": "row-4",
                   "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
                 }
@@ -1798,11 +1798,11 @@
               "draft": "Please clarify receiving identity for fg-c for FG-C (100 unique units). Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. Provide original record IDs, exact lot identities and document revision; state whether the record is complete or inconclusive. This request does not authorize release.",
               "causes": [
                 {
-                  "id": "CAUSE-4dc25b253d3b01",
+                  "id": "CAUSE-c4b2954913fe2b",
                   "kind": "possible_ancestry"
                 },
                 {
-                  "id": "CAUSE-42bbd1f3104dd7",
+                  "id": "CAUSE-99aedbeff156f0",
                   "kind": "incomplete_ancestry"
                 }
               ],
@@ -1854,82 +1854,82 @@
           "narrowing_available": true
         },
         "inputs": {
-          "incident_id": "08355915f3a342448e744d1a8ab1b066",
+          "incident_id": "d4dcc3f236bf42c7b298586ab8c9a8bf",
           "review_policy_version": 2,
           "evidence_revision": 3,
           "inventory_version": 1,
           "documents": [
             [
-              "DOC-019e4b9519ef",
+              "DOC-02804aadf8dd",
+              1,
+              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
+              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404"
+            ],
+            [
+              "DOC-093ba48efdab",
               3,
               "008e9b3cfd2fa96f188d880c0aa25abdd8801677f186c6f75135b77bafe1e321",
               "008e9b3cfd2fa96f188d880c0aa25abdd8801677f186c6f75135b77bafe1e321"
             ],
             [
-              "DOC-4f4ddb129e1a",
-              1,
-              "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
-              "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3"
-            ],
-            [
-              "DOC-6f9f8be95868",
-              1,
-              "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
-              "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e"
-            ],
-            [
-              "DOC-7616b587f16e",
-              1,
-              "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
-              "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6"
-            ],
-            [
-              "DOC-893ffdf723e0",
-              1,
-              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
-              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5"
-            ],
-            [
-              "DOC-aa104a23ee79",
-              1,
-              "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
-              "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9"
-            ],
-            [
-              "DOC-aae11aba2858",
-              2,
-              "d74acce2d99ad71bc8d5421e6b7d75d87c09c2dca9e6c8edb04d78d9f48f4310",
-              "d74acce2d99ad71bc8d5421e6b7d75d87c09c2dca9e6c8edb04d78d9f48f4310"
-            ],
-            [
-              "DOC-ad540a93b50f",
-              1,
-              "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
-              "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46"
-            ],
-            [
-              "DOC-d9d07f030160",
-              1,
-              "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
-              "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e"
-            ],
-            [
-              "DOC-db1c16543081",
-              1,
-              "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
-              "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee"
-            ],
-            [
-              "DOC-e02b36e23751",
+              "DOC-42960aacd0aa",
               1,
               "5318f896d2de6d7635419a36a980fdd9652295d91a75bf0e8a0906b0ac651ed8",
               "5318f896d2de6d7635419a36a980fdd9652295d91a75bf0e8a0906b0ac651ed8"
             ],
             [
-              "DOC-ffb8cc3960e0",
+              "DOC-65530e2ce331",
               1,
-              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
-              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404"
+              "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
+              "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9"
+            ],
+            [
+              "DOC-6c0cb9c25d92",
+              1,
+              "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
+              "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e"
+            ],
+            [
+              "DOC-725f945f63d7",
+              1,
+              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
+              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5"
+            ],
+            [
+              "DOC-9a9f02536c81",
+              1,
+              "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
+              "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e"
+            ],
+            [
+              "DOC-b088e88f2372",
+              2,
+              "d74acce2d99ad71bc8d5421e6b7d75d87c09c2dca9e6c8edb04d78d9f48f4310",
+              "d74acce2d99ad71bc8d5421e6b7d75d87c09c2dca9e6c8edb04d78d9f48f4310"
+            ],
+            [
+              "DOC-bf6d9e849a2f",
+              1,
+              "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
+              "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee"
+            ],
+            [
+              "DOC-cb4b0092c0ae",
+              1,
+              "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
+              "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3"
+            ],
+            [
+              "DOC-fbae35146a23",
+              1,
+              "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
+              "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6"
+            ],
+            [
+              "DOC-fd4f8ba10f78",
+              1,
+              "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
+              "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46"
             ]
           ],
           "reviewed_scope": {
@@ -1940,12 +1940,12 @@
             "qualifiers": [
               "Synthetic deterministic walkthrough. Confirm scope against the original notice."
             ],
-            "source_document_id": "DOC-ffb8cc3960e0",
+            "source_document_id": "DOC-02804aadf8dd",
             "uncertain_lot_ids": [],
             "excluded_lot_ids": [],
             "incident_scope_status": "resolved",
             "resolution_evidence": {
-              "document_id": "DOC-ffb8cc3960e0",
+              "document_id": "DOC-02804aadf8dd",
               "block_id": "line-4",
               "quote": "Affected lots: SUP-A"
             },
@@ -2030,7 +2030,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-1",
                 "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -2043,7 +2043,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-2",
                 "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -2056,7 +2056,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-3",
                 "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
               }
@@ -2069,7 +2069,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-4",
                 "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
               }
@@ -2082,7 +2082,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-5",
                 "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -2095,7 +2095,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-6",
                 "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -2108,7 +2108,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-7",
                 "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -2192,16 +2192,16 @@
           ]
         },
         "approval": {
-          "at": "2026-10-16T22:54:24.273624+00:00",
+          "at": "2026-10-16T23:04:24.598948+00:00",
           "reviewer": "Anonymous session reviewer",
-          "digest": "2d30f20143ef8a2e77e863d8835ee7a9987c17d32cd1cd92e6897565d838724f",
-          "plan_id": "PLAN-2d30f20143ef",
+          "digest": "e52bfb4686b97ec917858c4abffe46a22099dda8f8474b648fa9bda8d797fd36",
+          "plan_id": "PLAN-e52bfb4686b9",
           "authorization": null
         }
       },
       {
-        "id": "PLAN-273c1200c43c",
-        "digest": "273c1200c43cc5d350a0f0e0df82f7cf0e43bf1f50f0bfda839e8a459d6fd8fd",
+        "id": "PLAN-454ddffefa81",
+        "digest": "454ddffefa819a31b6f915024ab4bf84a125d483132a1a3b08f4f68543499187",
         "source_claims": [
           {
             "facts": [
@@ -2210,7 +2210,7 @@
                 "affected": true,
                 "evidence": [
                   {
-                    "document_id": "DOC-fd178e85e76a",
+                    "document_id": "DOC-177a59201fc6",
                     "block_id": "line-4",
                     "quote": "Affected lots: SUP-A, SUP-C"
                   }
@@ -2221,7 +2221,7 @@
                 "affected": true,
                 "evidence": [
                   {
-                    "document_id": "DOC-fd178e85e76a",
+                    "document_id": "DOC-177a59201fc6",
                     "block_id": "line-4",
                     "quote": "Affected lots: SUP-A, SUP-C"
                   }
@@ -2274,7 +2274,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-893ffdf723e0",
+                  "document_id": "DOC-725f945f63d7",
                   "block_id": "row-1",
                   "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -2298,7 +2298,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-893ffdf723e0",
+                  "document_id": "DOC-725f945f63d7",
                   "block_id": "row-2",
                   "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -2322,7 +2322,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-893ffdf723e0",
+                  "document_id": "DOC-725f945f63d7",
                   "block_id": "row-3",
                   "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
                 }
@@ -2346,7 +2346,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-893ffdf723e0",
+                  "document_id": "DOC-725f945f63d7",
                   "block_id": "row-5",
                   "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -2370,7 +2370,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-893ffdf723e0",
+                  "document_id": "DOC-725f945f63d7",
                   "block_id": "row-6",
                   "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -2394,7 +2394,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-893ffdf723e0",
+                  "document_id": "DOC-725f945f63d7",
                   "block_id": "row-7",
                   "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -2443,7 +2443,7 @@
           ],
           "requests": [
             {
-              "id": "CAUSE-4dc25b253d3b01",
+              "id": "CAUSE-c4b2954913fe2b",
               "kind": "possible_ancestry",
               "pool_ids": [
                 "FG-C"
@@ -2454,12 +2454,12 @@
               "reason": "Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. The completeness manifest also needs confirmation.",
               "evidence": [
                 {
-                  "document_id": "DOC-893ffdf723e0",
+                  "document_id": "DOC-725f945f63d7",
                   "block_id": "row-3",
                   "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
                 },
                 {
-                  "document_id": "DOC-893ffdf723e0",
+                  "document_id": "DOC-725f945f63d7",
                   "block_id": "row-4",
                   "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
                 }
@@ -2489,11 +2489,11 @@
               "draft": "Please clarify receiving identity for fg-c for FG-C (100 unique units). Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. Provide original record IDs, exact lot identities and document revision; state whether the record is complete or inconclusive. This request does not authorize release.",
               "causes": [
                 {
-                  "id": "CAUSE-4dc25b253d3b01",
+                  "id": "CAUSE-c4b2954913fe2b",
                   "kind": "possible_ancestry"
                 },
                 {
-                  "id": "CAUSE-42bbd1f3104dd7",
+                  "id": "CAUSE-99aedbeff156f0",
                   "kind": "incomplete_ancestry"
                 }
               ],
@@ -2557,88 +2557,88 @@
           "narrowing_available": true
         },
         "inputs": {
-          "incident_id": "08355915f3a342448e744d1a8ab1b066",
+          "incident_id": "d4dcc3f236bf42c7b298586ab8c9a8bf",
           "review_policy_version": 2,
           "evidence_revision": 4,
           "inventory_version": 2,
           "documents": [
             [
-              "DOC-019e4b9519ef",
+              "DOC-02804aadf8dd",
+              1,
+              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
+              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404"
+            ],
+            [
+              "DOC-093ba48efdab",
               3,
               "008e9b3cfd2fa96f188d880c0aa25abdd8801677f186c6f75135b77bafe1e321",
               "008e9b3cfd2fa96f188d880c0aa25abdd8801677f186c6f75135b77bafe1e321"
             ],
             [
-              "DOC-4f4ddb129e1a",
-              1,
-              "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
-              "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3"
-            ],
-            [
-              "DOC-6f9f8be95868",
-              1,
-              "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
-              "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e"
-            ],
-            [
-              "DOC-7616b587f16e",
-              1,
-              "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
-              "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6"
-            ],
-            [
-              "DOC-893ffdf723e0",
-              1,
-              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
-              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5"
-            ],
-            [
-              "DOC-aa104a23ee79",
-              1,
-              "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
-              "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9"
-            ],
-            [
-              "DOC-aae11aba2858",
-              2,
-              "d74acce2d99ad71bc8d5421e6b7d75d87c09c2dca9e6c8edb04d78d9f48f4310",
-              "d74acce2d99ad71bc8d5421e6b7d75d87c09c2dca9e6c8edb04d78d9f48f4310"
-            ],
-            [
-              "DOC-ad540a93b50f",
-              1,
-              "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
-              "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46"
-            ],
-            [
-              "DOC-d9d07f030160",
-              1,
-              "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
-              "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e"
-            ],
-            [
-              "DOC-db1c16543081",
-              1,
-              "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
-              "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee"
-            ],
-            [
-              "DOC-e02b36e23751",
-              1,
-              "5318f896d2de6d7635419a36a980fdd9652295d91a75bf0e8a0906b0ac651ed8",
-              "5318f896d2de6d7635419a36a980fdd9652295d91a75bf0e8a0906b0ac651ed8"
-            ],
-            [
-              "DOC-fd178e85e76a",
+              "DOC-177a59201fc6",
               4,
               "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d",
               "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d"
             ],
             [
-              "DOC-ffb8cc3960e0",
+              "DOC-42960aacd0aa",
               1,
-              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
-              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404"
+              "5318f896d2de6d7635419a36a980fdd9652295d91a75bf0e8a0906b0ac651ed8",
+              "5318f896d2de6d7635419a36a980fdd9652295d91a75bf0e8a0906b0ac651ed8"
+            ],
+            [
+              "DOC-65530e2ce331",
+              1,
+              "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
+              "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9"
+            ],
+            [
+              "DOC-6c0cb9c25d92",
+              1,
+              "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
+              "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e"
+            ],
+            [
+              "DOC-725f945f63d7",
+              1,
+              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
+              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5"
+            ],
+            [
+              "DOC-9a9f02536c81",
+              1,
+              "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
+              "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e"
+            ],
+            [
+              "DOC-b088e88f2372",
+              2,
+              "d74acce2d99ad71bc8d5421e6b7d75d87c09c2dca9e6c8edb04d78d9f48f4310",
+              "d74acce2d99ad71bc8d5421e6b7d75d87c09c2dca9e6c8edb04d78d9f48f4310"
+            ],
+            [
+              "DOC-bf6d9e849a2f",
+              1,
+              "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
+              "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee"
+            ],
+            [
+              "DOC-cb4b0092c0ae",
+              1,
+              "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
+              "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3"
+            ],
+            [
+              "DOC-fbae35146a23",
+              1,
+              "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
+              "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6"
+            ],
+            [
+              "DOC-fd4f8ba10f78",
+              1,
+              "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
+              "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46"
             ]
           ],
           "reviewed_scope": {
@@ -2650,12 +2650,12 @@
             "qualifiers": [
               "Synthetic deterministic walkthrough. Confirm scope against the original notice."
             ],
-            "source_document_id": "DOC-fd178e85e76a",
+            "source_document_id": "DOC-177a59201fc6",
             "uncertain_lot_ids": [],
             "excluded_lot_ids": [],
             "incident_scope_status": "resolved",
             "resolution_evidence": {
-              "document_id": "DOC-fd178e85e76a",
+              "document_id": "DOC-177a59201fc6",
               "block_id": "line-4",
               "quote": "Affected lots: SUP-A, SUP-C"
             },
@@ -2740,7 +2740,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-1",
                 "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -2753,7 +2753,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-2",
                 "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -2766,7 +2766,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-3",
                 "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
               }
@@ -2779,7 +2779,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-4",
                 "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
               }
@@ -2792,7 +2792,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-5",
                 "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -2805,7 +2805,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-6",
                 "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -2818,7 +2818,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-7",
                 "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -2906,17 +2906,17 @@
           ]
         },
         "approval": {
-          "at": "2026-10-16T22:54:24.453433+00:00",
+          "at": "2026-10-16T23:04:24.907234+00:00",
           "reviewer": "Anonymous session reviewer",
-          "digest": "273c1200c43cc5d350a0f0e0df82f7cf0e43bf1f50f0bfda839e8a459d6fd8fd",
-          "plan_id": "PLAN-273c1200c43c",
+          "digest": "454ddffefa819a31b6f915024ab4bf84a125d483132a1a3b08f4f68543499187",
+          "plan_id": "PLAN-454ddffefa81",
           "authorization": null
         }
       }
     ],
     "plan": {
-      "id": "PLAN-357903e01953",
-      "digest": "357903e01953bb29d60df64767c5e11bd1f6c86b5553c8555a55095cebccd5e2",
+      "id": "PLAN-5468b3048542",
+      "digest": "5468b304854288ffba1499fa4ee8d8c82e81c0ab138e6575d085661e67c7d316",
       "source_claims": [
         {
           "facts": [
@@ -2925,7 +2925,7 @@
               "affected": true,
               "evidence": [
                 {
-                  "document_id": "DOC-fd178e85e76a",
+                  "document_id": "DOC-177a59201fc6",
                   "block_id": "line-4",
                   "quote": "Affected lots: SUP-A, SUP-C"
                 }
@@ -2936,7 +2936,7 @@
               "affected": true,
               "evidence": [
                 {
-                  "document_id": "DOC-fd178e85e76a",
+                  "document_id": "DOC-177a59201fc6",
                   "block_id": "line-4",
                   "quote": "Affected lots: SUP-A, SUP-C"
                 }
@@ -2985,7 +2985,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-1",
                 "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -3009,7 +3009,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-2",
                 "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -3033,7 +3033,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-d9e2d25f764e",
+                "document_id": "DOC-8a06c402eba6",
                 "block_id": "line-1",
                 "quote": "Receiver reconciled every receipt for FG-C. Its entire ancestry is supplier lot SUP-B, with no additional parents. Original supplier receipt REC-812 was authenticated by the receiving supervisor."
               }
@@ -3057,7 +3057,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-5",
                 "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -3081,7 +3081,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-6",
                 "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -3105,7 +3105,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-893ffdf723e0",
+                "document_id": "DOC-725f945f63d7",
                 "block_id": "row-7",
                 "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -3193,94 +3193,94 @@
         "narrowing_available": true
       },
       "inputs": {
-        "incident_id": "08355915f3a342448e744d1a8ab1b066",
+        "incident_id": "d4dcc3f236bf42c7b298586ab8c9a8bf",
         "review_policy_version": 2,
         "evidence_revision": 5,
         "inventory_version": 4,
         "documents": [
           [
-            "DOC-019e4b9519ef",
+            "DOC-02804aadf8dd",
+            1,
+            "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
+            "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404"
+          ],
+          [
+            "DOC-093ba48efdab",
             3,
             "008e9b3cfd2fa96f188d880c0aa25abdd8801677f186c6f75135b77bafe1e321",
             "008e9b3cfd2fa96f188d880c0aa25abdd8801677f186c6f75135b77bafe1e321"
           ],
           [
-            "DOC-4f4ddb129e1a",
-            1,
-            "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
-            "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3"
-          ],
-          [
-            "DOC-6f9f8be95868",
-            1,
-            "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
-            "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e"
-          ],
-          [
-            "DOC-7616b587f16e",
-            1,
-            "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
-            "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6"
-          ],
-          [
-            "DOC-893ffdf723e0",
-            1,
-            "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
-            "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5"
-          ],
-          [
-            "DOC-aa104a23ee79",
-            1,
-            "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
-            "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9"
-          ],
-          [
-            "DOC-aae11aba2858",
-            2,
-            "d74acce2d99ad71bc8d5421e6b7d75d87c09c2dca9e6c8edb04d78d9f48f4310",
-            "d74acce2d99ad71bc8d5421e6b7d75d87c09c2dca9e6c8edb04d78d9f48f4310"
-          ],
-          [
-            "DOC-ad540a93b50f",
-            1,
-            "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
-            "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46"
-          ],
-          [
-            "DOC-d9d07f030160",
-            1,
-            "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
-            "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e"
-          ],
-          [
-            "DOC-d9e2d25f764e",
-            5,
-            "ed7809adfbbc42684da98acfd5548f3f50a24bc4cdb2d04e8c613a1dc2338181",
-            "ed7809adfbbc42684da98acfd5548f3f50a24bc4cdb2d04e8c613a1dc2338181"
-          ],
-          [
-            "DOC-db1c16543081",
-            1,
-            "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
-            "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee"
-          ],
-          [
-            "DOC-e02b36e23751",
-            1,
-            "5318f896d2de6d7635419a36a980fdd9652295d91a75bf0e8a0906b0ac651ed8",
-            "5318f896d2de6d7635419a36a980fdd9652295d91a75bf0e8a0906b0ac651ed8"
-          ],
-          [
-            "DOC-fd178e85e76a",
+            "DOC-177a59201fc6",
             4,
             "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d",
             "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d"
           ],
           [
-            "DOC-ffb8cc3960e0",
+            "DOC-42960aacd0aa",
             1,
-            "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
-            "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404"
+            "5318f896d2de6d7635419a36a980fdd9652295d91a75bf0e8a0906b0ac651ed8",
+            "5318f896d2de6d7635419a36a980fdd9652295d91a75bf0e8a0906b0ac651ed8"
+          ],
+          [
+            "DOC-65530e2ce331",
+            1,
+            "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
+            "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9"
+          ],
+          [
+            "DOC-6c0cb9c25d92",
+            1,
+            "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
+            "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e"
+          ],
+          [
+            "DOC-725f945f63d7",
+            1,
+            "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
+            "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5"
+          ],
+          [
+            "DOC-8a06c402eba6",
+            5,
+            "ed7809adfbbc42684da98acfd5548f3f50a24bc4cdb2d04e8c613a1dc2338181",
+            "ed7809adfbbc42684da98acfd5548f3f50a24bc4cdb2d04e8c613a1dc2338181"
+          ],
+          [
+            "DOC-9a9f02536c81",
+            1,
+            "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
+            "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e"
+          ],
+          [
+            "DOC-b088e88f2372",
+            2,
+            "d74acce2d99ad71bc8d5421e6b7d75d87c09c2dca9e6c8edb04d78d9f48f4310",
+            "d74acce2d99ad71bc8d5421e6b7d75d87c09c2dca9e6c8edb04d78d9f48f4310"
+          ],
+          [
+            "DOC-bf6d9e849a2f",
+            1,
+            "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
+            "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee"
+          ],
+          [
+            "DOC-cb4b0092c0ae",
+            1,
+            "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
+            "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3"
+          ],
+          [
+            "DOC-fbae35146a23",
+            1,
+            "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
+            "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6"
+          ],
+          [
+            "DOC-fd4f8ba10f78",
+            1,
+            "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
+            "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46"
           ]
         ],
         "reviewed_scope": {
@@ -3292,12 +3292,12 @@
           "qualifiers": [
             "Synthetic deterministic walkthrough. Confirm scope against the original notice."
           ],
-          "source_document_id": "DOC-fd178e85e76a",
+          "source_document_id": "DOC-177a59201fc6",
           "uncertain_lot_ids": [],
           "excluded_lot_ids": [],
           "incident_scope_status": "resolved",
           "resolution_evidence": {
-            "document_id": "DOC-fd178e85e76a",
+            "document_id": "DOC-177a59201fc6",
             "block_id": "line-4",
             "quote": "Affected lots: SUP-A, SUP-C"
           },
@@ -3375,12 +3375,12 @@
         ],
         "lineage": [
           {
-            "row_id": "RECV-DOC-d9e2d25f764e-0",
+            "row_id": "RECV-DOC-8a06c402eba6-0",
             "source": "SUP-B",
             "target": "FG-C",
             "kind": "confirmed",
             "evidence": {
-              "document_id": "DOC-d9e2d25f764e",
+              "document_id": "DOC-8a06c402eba6",
               "block_id": "line-1",
               "quote": "Receiver reconciled every receipt for FG-C. Its entire ancestry is supplier lot SUP-B, with no additional parents. Original supplier receipt REC-812 was authenticated by the receiving supervisor."
             }
@@ -3393,7 +3393,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-893ffdf723e0",
+              "document_id": "DOC-725f945f63d7",
               "block_id": "row-1",
               "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
             }
@@ -3406,7 +3406,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-893ffdf723e0",
+              "document_id": "DOC-725f945f63d7",
               "block_id": "row-2",
               "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
             }
@@ -3419,7 +3419,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-893ffdf723e0",
+              "document_id": "DOC-725f945f63d7",
               "block_id": "row-5",
               "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
             }
@@ -3432,7 +3432,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-893ffdf723e0",
+              "document_id": "DOC-725f945f63d7",
               "block_id": "row-6",
               "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
             }
@@ -3445,7 +3445,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-893ffdf723e0",
+              "document_id": "DOC-725f945f63d7",
               "block_id": "row-7",
               "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
             }
@@ -3531,19 +3531,19 @@
     },
     "history": [
       {
-        "at": "2026-10-16T22:54:24.135703+00:00",
+        "at": "2026-10-16T23:04:24.431431+00:00",
         "type": "evidence_changed",
         "message": "New source: inspection.txt. Re-extract and review current evidence.",
         "revision": 2
       },
       {
-        "at": "2026-10-16T22:54:24.163284+00:00",
+        "at": "2026-10-16T23:04:24.471829+00:00",
         "type": "evidence_changed",
         "message": "New source: implementation.txt. Re-extract and review current evidence.",
         "revision": 3
       },
       {
-        "at": "2026-10-16T22:54:24.235362+00:00",
+        "at": "2026-10-16T23:04:24.550722+00:00",
         "type": "reviewed",
         "revision": 3,
         "previous_lots": [],
@@ -3558,25 +3558,25 @@
         "message": "Critical scope and completeness reviewed; new exact plan calculated."
       },
       {
-        "at": "2026-10-16T22:54:24.273647+00:00",
+        "at": "2026-10-16T23:04:24.598972+00:00",
         "type": "approved",
         "revision": 3,
-        "message": "Approved exact plan PLAN-2d30f20143ef"
+        "message": "Approved exact plan PLAN-e52bfb4686b9"
       },
       {
-        "at": "2026-10-16T22:54:24.304747+00:00",
+        "at": "2026-10-16T23:04:24.641769+00:00",
         "type": "applied",
         "revision": 3,
-        "message": "Sandbox inventory committed atomically: TX-4fa9b76a85334d37bb0b2c4d718a2b9f"
+        "message": "Sandbox inventory committed atomically: TX-3d546d1bc2ad4b41bb097da50e35bf1b"
       },
       {
-        "at": "2026-10-16T22:54:24.338650+00:00",
+        "at": "2026-10-16T23:04:24.686709+00:00",
         "type": "evidence_changed",
         "message": "Supplier correction expands affected lots. Previous approval is stale immediately.",
         "revision": 4
       },
       {
-        "at": "2026-10-16T22:54:24.412220+00:00",
+        "at": "2026-10-16T23:04:24.790866+00:00",
         "type": "reviewed",
         "revision": 4,
         "previous_lots": [
@@ -3595,25 +3595,25 @@
         "message": "Critical scope and completeness reviewed; new exact plan calculated."
       },
       {
-        "at": "2026-10-16T22:54:24.453448+00:00",
+        "at": "2026-10-16T23:04:24.907264+00:00",
         "type": "approved",
         "revision": 4,
-        "message": "Approved exact plan PLAN-273c1200c43c"
+        "message": "Approved exact plan PLAN-454ddffefa81"
       },
       {
-        "at": "2026-10-16T22:54:24.491106+00:00",
+        "at": "2026-10-16T23:04:24.962157+00:00",
         "type": "applied",
         "revision": 4,
-        "message": "Sandbox inventory committed atomically: TX-4c3b056443ac49eb8af54e28a1928aab"
+        "message": "Sandbox inventory committed atomically: TX-2d9dd7729f28496b879727e7eb90b53d"
       },
       {
-        "at": "2026-10-16T22:54:24.533731+00:00",
+        "at": "2026-10-16T23:04:25.026398+00:00",
         "type": "evidence_changed",
         "message": "New source: natural-receiving.txt. Re-extract and review current evidence.",
         "revision": 5
       },
       {
-        "at": "2026-10-16T22:54:28.709972+00:00",
+        "at": "2026-10-16T23:04:26.188422+00:00",
         "type": "reconciled",
         "revision": 5,
         "message": "Typed receiving replacement explicitly reviewed. Applied restrictions retained.",
@@ -3623,11 +3623,11 @@
     ],
     "receipts": [
       {
-        "transaction_id": "TX-4fa9b76a85334d37bb0b2c4d718a2b9f",
-        "at": "2026-10-16T22:54:24.304738+00:00",
+        "transaction_id": "TX-3d546d1bc2ad4b41bb097da50e35bf1b",
+        "at": "2026-10-16T23:04:24.641756+00:00",
         "execution": "SANDBOX INVENTORY",
-        "plan_id": "PLAN-2d30f20143ef",
-        "digest": "2d30f20143ef8a2e77e863d8835ee7a9987c17d32cd1cd92e6897565d838724f",
+        "plan_id": "PLAN-e52bfb4686b9",
+        "digest": "e52bfb4686b97ec917858c4abffe46a22099dda8f8474b648fa9bda8d797fd36",
         "idempotency_key": "enterprise-browser-false",
         "changes": [
           {
@@ -3654,11 +3654,11 @@
         "evidence_revision": 3
       },
       {
-        "transaction_id": "TX-4c3b056443ac49eb8af54e28a1928aab",
-        "at": "2026-10-16T22:54:24.491098+00:00",
+        "transaction_id": "TX-2d9dd7729f28496b879727e7eb90b53d",
+        "at": "2026-10-16T23:04:24.962146+00:00",
         "execution": "SANDBOX INVENTORY",
-        "plan_id": "PLAN-273c1200c43c",
-        "digest": "273c1200c43cc5d350a0f0e0df82f7cf0e43bf1f50f0bfda839e8a459d6fd8fd",
+        "plan_id": "PLAN-454ddffefa81",
+        "digest": "454ddffefa819a31b6f915024ab4bf84a125d483132a1a3b08f4f68543499187",
         "idempotency_key": "enterprise-browser-true",
         "changes": [
           {
@@ -3697,67 +3697,67 @@
     "workspace_attached": true,
     "hold_ledger": [
       {
-        "id": "HOLD-aa2f54a38a61a292da15",
+        "id": "HOLD-e3387e9c2956ff0d7aa5",
         "pool_id": "FG-A",
-        "incident_id": "08355915f3a342448e744d1a8ab1b066",
+        "incident_id": "d4dcc3f236bf42c7b298586ab8c9a8bf",
         "units": 240,
         "status": "active",
-        "origin": "sandbox containment receipt TX-4fa9b76a85334d37bb0b2c4d718a2b9f",
+        "origin": "sandbox containment receipt TX-3d546d1bc2ad4b41bb097da50e35bf1b",
         "version": 1,
-        "created_at": "2026-10-16T22:54:24.305297+00:00"
+        "created_at": "2026-10-16T23:04:24.642592+00:00"
       },
       {
-        "id": "HOLD-633c71814853994da90b",
+        "id": "HOLD-7d4e7d7b9aec2d56df94",
         "pool_id": "FG-B",
-        "incident_id": "08355915f3a342448e744d1a8ab1b066",
+        "incident_id": "d4dcc3f236bf42c7b298586ab8c9a8bf",
         "units": 160,
         "status": "active",
-        "origin": "sandbox containment receipt TX-4fa9b76a85334d37bb0b2c4d718a2b9f",
+        "origin": "sandbox containment receipt TX-3d546d1bc2ad4b41bb097da50e35bf1b",
         "version": 1,
-        "created_at": "2026-10-16T22:54:24.305307+00:00"
+        "created_at": "2026-10-16T23:04:24.642614+00:00"
       },
       {
-        "id": "HOLD-6cc17885ff99dad67d92",
+        "id": "HOLD-706ac9f24eca76de55c7",
         "pool_id": "FG-C",
-        "incident_id": "08355915f3a342448e744d1a8ab1b066",
+        "incident_id": "d4dcc3f236bf42c7b298586ab8c9a8bf",
         "units": 100,
         "status": "removed",
-        "origin": "sandbox containment receipt TX-4fa9b76a85334d37bb0b2c4d718a2b9f",
+        "origin": "sandbox containment receipt TX-3d546d1bc2ad4b41bb097da50e35bf1b",
         "version": 2,
-        "created_at": "2026-10-16T22:54:24.305312+00:00",
-        "removed_at": "2026-10-16T22:54:29.694030+00:00",
-        "recovery_id": "RECOVERY-db3cad82311e4af2addd5af989659a38"
+        "created_at": "2026-10-16T23:04:24.642623+00:00",
+        "removed_at": "2026-10-16T23:04:27.544190+00:00",
+        "recovery_id": "RECOVERY-1368160af209443b96600deb92ddf3f0"
       },
       {
-        "id": "HOLD-346f8787a98dcffa9341",
+        "id": "HOLD-48c67b4c618cdef40b8d",
         "pool_id": "FG-D",
-        "incident_id": "08355915f3a342448e744d1a8ab1b066",
+        "incident_id": "d4dcc3f236bf42c7b298586ab8c9a8bf",
         "units": 300,
         "status": "active",
-        "origin": "sandbox containment receipt TX-4c3b056443ac49eb8af54e28a1928aab",
+        "origin": "sandbox containment receipt TX-2d9dd7729f28496b879727e7eb90b53d",
         "version": 1,
-        "created_at": "2026-10-16T22:54:24.491529+00:00"
+        "created_at": "2026-10-16T23:04:24.962923+00:00"
       }
     ],
     "recovery_receipts": [
       {
-        "transaction_id": "REC-TX-eb2b22655f1a4030994335f367703d8c",
-        "recovery_id": "RECOVERY-db3cad82311e4af2addd5af989659a38",
-        "at": "2026-10-16T22:54:29.694057+00:00",
+        "transaction_id": "REC-TX-5285d63867da4d9cb84c0f833e0364d0",
+        "recovery_id": "RECOVERY-1368160af209443b96600deb92ddf3f0",
+        "at": "2026-10-16T23:04:27.544220+00:00",
         "execution": "SANDBOX LEDGER",
         "changes": [
           {
             "pool_id": "FG-C",
             "units": 100,
-            "removed_hold_id": "HOLD-6cc17885ff99dad67d92",
+            "removed_hold_id": "HOLD-706ac9f24eca76de55c7",
             "became_available": true
           }
         ],
         "prior_inventory_version": 4,
         "current_inventory_version": 5,
-        "digest": "a51a3aa8b04d0f418f41b41662657e14cfe63713bc714837fcfe6b63a9ce2174",
+        "digest": "985887c8abd9632a882faa9b17240ad23e24ee60cbc4e3cc082a94c76e8c5bfa",
         "preparer": {
-          "user_id": "sim-preparer-bdbb12669ed0",
+          "user_id": "sim-preparer-aa4034e0a5e8",
           "username": "Simulated preparer",
           "org": "session",
           "site": "training",
@@ -3768,7 +3768,7 @@
           "identity_mode": "simulated demonstration role"
         },
         "approver": {
-          "user_id": "sim-approver-bdbb12669ed0",
+          "user_id": "sim-approver-aa4034e0a5e8",
           "username": "Simulated approver",
           "org": "session",
           "site": "training",
@@ -3789,7 +3789,7 @@
             "PROC-100@1"
           ],
           "approved_by": {
-            "user_id": "sim-preparer-bdbb12669ed0",
+            "user_id": "sim-preparer-aa4034e0a5e8",
             "username": "Simulated preparer",
             "org": "session",
             "site": "training",
@@ -3799,18 +3799,18 @@
             ],
             "identity_mode": "simulated demonstration role"
           },
-          "at": "2026-10-16T22:54:28.935216+00:00",
+          "at": "2026-10-16T23:04:26.561335+00:00",
           "note": "Agent-operated synthetic browser acceptance; source reviewed for this engineering exercise, not independent human or domain validation.",
           "execution_boundary": "Sandbox only; no use-as-is waiver, destruction or real enterprise execution"
         },
         "source_evidence": [
           {
-            "id": "REC-EVID-823da45bfcc64ed3a84a372cec24d54c",
-            "case_id": "08355915f3a342448e744d1a8ab1b066",
+            "id": "REC-EVID-3da2efd6542f45418d0939b5816806e3",
+            "case_id": "d4dcc3f236bf42c7b298586ab8c9a8bf",
             "pool_id": "FG-C",
             "receiving": {
               "citation": {
-                "document_id": "DOC-d9e2d25f764e",
+                "document_id": "DOC-8a06c402eba6",
                 "block_id": "line-1",
                 "quote": "Receiver reconciled every receipt for FG-C. Its entire ancestry is supplier lot SUP-B, with no additional parents. Original supplier receipt REC-812 was authenticated by the receiving supervisor."
               },
@@ -3819,7 +3819,7 @@
             },
             "inspection": {
               "citation": {
-                "document_id": "DOC-aae11aba2858",
+                "document_id": "DOC-b088e88f2372",
                 "block_id": "line-1",
                 "quote": "FG-C: 100 pieces inspected using visual-v1; 0 nonconforming. Passed whole-pool cosmetic inspection."
               },
@@ -3828,13 +3828,13 @@
             },
             "inspected_units": 100,
             "nonconforming_units": 0,
-            "inspected_at": "2026-10-16T22:54:19.099Z",
+            "inspected_at": "2026-10-16T23:04:16.801Z",
             "method": "visual-v1",
             "authenticity": "reviewer verified",
             "verification_reference": "Synthetic receiver REC-812, agent-operated engineering fixture",
             "note": "Agent-operated synthetic browser acceptance; source reviewed for this engineering exercise, not independent human or domain validation.",
             "actor": {
-              "user_id": "sim-preparer-bdbb12669ed0",
+              "user_id": "sim-preparer-aa4034e0a5e8",
               "username": "Simulated preparer",
               "org": "session",
               "site": "training",
@@ -3844,7 +3844,7 @@
               ],
               "identity_mode": "simulated demonstration role"
             },
-            "at": "2026-10-16T22:54:29.188132+00:00",
+            "at": "2026-10-16T23:04:26.915719+00:00",
             "case_revision": 5
           }
         ],
@@ -3868,7 +3868,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-893ffdf723e0",
+              "document_id": "DOC-725f945f63d7",
               "block_id": "row-3",
               "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
             }
@@ -3881,7 +3881,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-893ffdf723e0",
+              "document_id": "DOC-725f945f63d7",
               "block_id": "row-4",
               "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
             }
@@ -3889,12 +3889,12 @@
         ],
         "proposed_relationships": [
           {
-            "row_id": "RECV-DOC-d9e2d25f764e-0",
+            "row_id": "RECV-DOC-8a06c402eba6-0",
             "source": "SUP-B",
             "target": "FG-C",
             "kind": "confirmed",
             "evidence": {
-              "document_id": "DOC-d9e2d25f764e",
+              "document_id": "DOC-8a06c402eba6",
               "block_id": "line-1",
               "quote": "Receiver reconciled every receipt for FG-C. Its entire ancestry is supplier lot SUP-B, with no additional parents. Original supplier receipt REC-812 was authenticated by the receiving supervisor."
             }
@@ -3907,7 +3907,7 @@
         "complete": true,
         "review_path": "structured_record",
         "evidence": {
-          "document_id": "DOC-d9e2d25f764e",
+          "document_id": "DOC-8a06c402eba6",
           "block_id": "line-1",
           "quote": "Receiver reconciled every receipt for FG-C. Its entire ancestry is supplier lot SUP-B, with no additional parents. Original supplier receipt REC-812 was authenticated by the receiving supervisor."
         },
@@ -3917,7 +3917,7 @@
           "user_id": null,
           "identity_mode": "anonymous session; not independent identity"
         },
-        "at": "2026-10-16T22:54:28.709972+00:00",
+        "at": "2026-10-16T23:04:26.188422+00:00",
         "note": "Agent-operated synthetic browser acceptance; source reviewed for this engineering exercise, not independent human or domain validation.",
         "raw_run_id": "",
         "reviewed_parent_ids": [
@@ -3933,7 +3933,7 @@
     "enterprise_packet": {
       "action": [
         {
-          "case_id": "08355915f3a342448e744d1a8ab1b066",
+          "case_id": "d4dcc3f236bf42c7b298586ab8c9a8bf",
           "title": "Verify receiving traceability improvement",
           "owner": "Synthetic quality owner",
           "due_date": "2026-11-15",
@@ -3941,12 +3941,12 @@
           "product": "Decorative housing",
           "process": "coating",
           "defect": "cosmetic",
-          "id": "ACTION-f54ef77bfe77490ea908b582f3db4d73",
+          "id": "ACTION-1e2cfa8b197948849e10e8d16d3a9620",
           "status": "reviewed_outcome",
           "revision": 6,
-          "created_at": "2026-10-16T22:54:34.618735+00:00",
+          "created_at": "2026-10-16T23:04:29.490264+00:00",
           "creator": {
-            "user_id": "sim-approver-bdbb12669ed0",
+            "user_id": "sim-approver-aa4034e0a5e8",
             "username": "Simulated approver",
             "org": "session",
             "site": "training",
@@ -3960,7 +3960,7 @@
             "status": "hypothesis",
             "supporting": {
               "citation": {
-                "document_id": "DOC-d9e2d25f764e",
+                "document_id": "DOC-8a06c402eba6",
                 "block_id": "line-1",
                 "quote": "Receiver reconciled every receipt for FG-C. Its entire ancestry is supplier lot SUP-B, with no additional parents. Original supplier receipt REC-812 was authenticated by the receiving supervisor."
               },
@@ -3970,7 +3970,7 @@
             "refuting": "No independent manufacturing investigation; hypothesis only.",
             "note": "Agent-operated synthetic browser acceptance; source reviewed for this engineering exercise, not independent human or domain validation.",
             "actor": {
-              "user_id": "sim-approver-bdbb12669ed0",
+              "user_id": "sim-approver-aa4034e0a5e8",
               "username": "Simulated approver",
               "org": "session",
               "site": "training",
@@ -3979,7 +3979,7 @@
               ],
               "identity_mode": "simulated demonstration role"
             },
-            "at": "2026-10-16T22:54:34.718363+00:00"
+            "at": "2026-10-16T23:04:29.675754+00:00"
           },
           "plan": {
             "baseline": [
@@ -4000,7 +4000,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-1",
                   "quote": "BASE-001,2026-09-01T00:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,11,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4022,7 +4022,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-2",
                   "quote": "BASE-002,2026-09-01T01:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,16,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4044,7 +4044,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-3",
                   "quote": "BASE-003,2026-09-01T02:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4066,7 +4066,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-4",
                   "quote": "BASE-004,2026-09-01T03:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,13,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4088,7 +4088,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-5",
                   "quote": "BASE-005,2026-09-01T04:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,4,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4110,7 +4110,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-6",
                   "quote": "BASE-006,2026-09-01T05:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,10,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4132,7 +4132,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-7",
                   "quote": "BASE-007,2026-09-01T06:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4154,7 +4154,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-8",
                   "quote": "BASE-008,2026-09-01T07:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,14,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4176,7 +4176,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-9",
                   "quote": "BASE-009,2026-09-01T08:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4198,7 +4198,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-10",
                   "quote": "BASE-010,2026-09-01T09:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,15,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4220,7 +4220,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-11",
                   "quote": "BASE-011,2026-09-01T10:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,6,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4242,7 +4242,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-12",
                   "quote": "BASE-012,2026-09-01T11:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,18,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4264,7 +4264,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-13",
                   "quote": "BASE-013,2026-09-01T12:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,14,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4286,7 +4286,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-14",
                   "quote": "BASE-014,2026-09-01T13:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,15,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4308,7 +4308,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-15",
                   "quote": "BASE-015,2026-09-01T14:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4330,7 +4330,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-16",
                   "quote": "BASE-016,2026-09-01T15:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,16,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4352,7 +4352,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-17",
                   "quote": "BASE-017,2026-09-01T16:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,8,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4374,7 +4374,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-18",
                   "quote": "BASE-018,2026-09-01T17:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,19,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4396,7 +4396,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-19",
                   "quote": "BASE-019,2026-09-01T18:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,11,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -4418,13 +4418,13 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-20",
                   "quote": "BASE-020,2026-09-01T19:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,6,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
               }
             ],
-            "baseline_hash": "4381c6666ee4207474aa95e2f3715ccfc4c213309e699d5916257600df7b5403",
+            "baseline_hash": "488768b5905b6567edc287051d14527e9ebfac32fe7bef8e85f6c1f4c6ef3295",
             "group": {
               "site": "NORTH-01",
               "product": "Decorative housing",
@@ -4502,9 +4502,9 @@
                 "source_hash": "9c726139accd6e777eff3bd1446b09024c316b999da15077c8ba8f44a1677d9f"
               }
             ],
-            "approved_at": "2026-10-16T22:54:34.899809+00:00",
+            "approved_at": "2026-10-16T23:04:29.977056+00:00",
             "actor": {
-              "user_id": "sim-approver-bdbb12669ed0",
+              "user_id": "sim-approver-aa4034e0a5e8",
               "username": "Simulated approver",
               "org": "session",
               "site": "training",
@@ -4519,7 +4519,7 @@
           "implementation": {
             "evidence": {
               "citation": {
-                "document_id": "DOC-019e4b9519ef",
+                "document_id": "DOC-093ba48efdab",
                 "block_id": "line-1",
                 "quote": "Completed the synthetic receiving procedure update and reviewer training exercise for this incident."
               },
@@ -4527,7 +4527,7 @@
               "document_revision": 3
             },
             "actor": {
-              "user_id": "sim-approver-bdbb12669ed0",
+              "user_id": "sim-approver-aa4034e0a5e8",
               "username": "Simulated approver",
               "org": "session",
               "site": "training",
@@ -4536,7 +4536,7 @@
               ],
               "identity_mode": "simulated demonstration role"
             },
-            "at": "2026-10-16T22:54:34.982476+00:00",
+            "at": "2026-10-16T23:04:30.141034+00:00",
             "note": "Agent-operated synthetic browser acceptance; source reviewed for this engineering exercise, not independent human or domain validation.",
             "synthetic_historical_replay": true
           },
@@ -4581,7 +4581,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-46",
                       "quote": "FOLLOW-001,2026-09-04T00:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,2,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4602,7 +4602,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-47",
                       "quote": "FOLLOW-002,2026-09-04T01:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,4,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4623,7 +4623,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-48",
                       "quote": "FOLLOW-003,2026-09-04T02:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,5,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4644,7 +4644,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-49",
                       "quote": "FOLLOW-004,2026-09-04T03:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,4,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4665,7 +4665,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-50",
                       "quote": "FOLLOW-005,2026-09-04T04:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,2,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4686,7 +4686,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-51",
                       "quote": "FOLLOW-006,2026-09-04T05:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,4,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4707,7 +4707,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-52",
                       "quote": "FOLLOW-007,2026-09-04T06:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,6,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4728,7 +4728,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-53",
                       "quote": "FOLLOW-008,2026-09-04T07:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,7,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4749,7 +4749,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-54",
                       "quote": "FOLLOW-009,2026-09-04T08:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,3,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4770,7 +4770,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-55",
                       "quote": "FOLLOW-010,2026-09-04T09:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,3,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4791,7 +4791,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-56",
                       "quote": "FOLLOW-011,2026-09-04T10:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,1,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4812,7 +4812,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-57",
                       "quote": "FOLLOW-012,2026-09-04T11:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,12,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4833,7 +4833,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-58",
                       "quote": "FOLLOW-013,2026-09-04T12:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,2,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4854,7 +4854,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-59",
                       "quote": "FOLLOW-014,2026-09-04T13:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,8,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4875,7 +4875,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-60",
                       "quote": "FOLLOW-015,2026-09-04T14:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,4,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4896,7 +4896,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-61",
                       "quote": "FOLLOW-016,2026-09-04T15:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,6,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4917,7 +4917,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-62",
                       "quote": "FOLLOW-017,2026-09-04T16:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4938,7 +4938,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-63",
                       "quote": "FOLLOW-018,2026-09-04T17:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,7,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4959,7 +4959,7 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-64",
                       "quote": "FOLLOW-019,2026-09-04T18:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,4,cosmetic,FG-C,nonconforming_units"
                     }
@@ -4980,21 +4980,21 @@
                     ],
                     "metric": "nonconforming_units",
                     "source": {
-                      "document_id": "DOC-050583eb4af4",
+                      "document_id": "DOC-b6426ae6677f",
                       "block_id": "row-65",
                       "quote": "FOLLOW-020,2026-09-04T19:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,6,cosmetic,FG-C,nonconforming_units"
                     }
                   }
                 ],
-                "plan_hash": "ec7a713ca57eb02c42403fc4d36d3ac2fdb30748de61ffaa48ff2d01dd8bf29d",
-                "input_hash": "0c5dbc6216e10be794861010cc711b8977bfc25aa807bd492b70475a1bc489dd",
+                "plan_hash": "52666f21fab330d11773ef8a0221a73888c0a91cc9c5d6d79cf3ba66359da919",
+                "input_hash": "c885a17f27748a9aebdf025fc1ae17b101a7ca2835ee881a8aa7eac08a6fbbd2",
                 "criterion": "Follow-up nonconforming-unit rate at or below the predeclared maximum, after complete window/exposure and evidence checks",
                 "max_rate": 0.02,
                 "interpretation": "Observed improvement is not causal attribution. Intervals describe binomial sampling uncertainty under comparability/independence assumptions.",
                 "synthetic_historical_replay": true
               },
               "actor": {
-                "user_id": "sim-approver-bdbb12669ed0",
+                "user_id": "sim-approver-aa4034e0a5e8",
                 "username": "Simulated approver",
                 "org": "session",
                 "site": "training",
@@ -5003,16 +5003,16 @@
                 ],
                 "identity_mode": "simulated demonstration role"
               },
-              "at": "2026-10-16T22:54:35.445767+00:00",
+              "at": "2026-10-16T23:04:30.819644+00:00",
               "note": "Agent-operated synthetic browser acceptance; source reviewed for this engineering exercise, not independent human or domain validation. Observed rate change is not causation."
             }
           ],
           "recurrences": [],
           "synthetic": true,
           "monitoring_started": {
-            "at": "2026-10-16T22:54:35.077487+00:00",
+            "at": "2026-10-16T23:04:30.312092+00:00",
             "actor": {
-              "user_id": "sim-approver-bdbb12669ed0",
+              "user_id": "sim-approver-aa4034e0a5e8",
               "username": "Simulated approver",
               "org": "session",
               "site": "training",
@@ -5062,7 +5062,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-46",
                   "quote": "FOLLOW-001,2026-09-04T00:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,2,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5083,7 +5083,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-47",
                   "quote": "FOLLOW-002,2026-09-04T01:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,4,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5104,7 +5104,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-48",
                   "quote": "FOLLOW-003,2026-09-04T02:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,5,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5125,7 +5125,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-49",
                   "quote": "FOLLOW-004,2026-09-04T03:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,4,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5146,7 +5146,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-50",
                   "quote": "FOLLOW-005,2026-09-04T04:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,2,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5167,7 +5167,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-51",
                   "quote": "FOLLOW-006,2026-09-04T05:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,4,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5188,7 +5188,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-52",
                   "quote": "FOLLOW-007,2026-09-04T06:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,6,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5209,7 +5209,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-53",
                   "quote": "FOLLOW-008,2026-09-04T07:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,7,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5230,7 +5230,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-54",
                   "quote": "FOLLOW-009,2026-09-04T08:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,3,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5251,7 +5251,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-55",
                   "quote": "FOLLOW-010,2026-09-04T09:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,3,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5272,7 +5272,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-56",
                   "quote": "FOLLOW-011,2026-09-04T10:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,1,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5293,7 +5293,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-57",
                   "quote": "FOLLOW-012,2026-09-04T11:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,12,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5314,7 +5314,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-58",
                   "quote": "FOLLOW-013,2026-09-04T12:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,2,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5335,7 +5335,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-59",
                   "quote": "FOLLOW-014,2026-09-04T13:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,8,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5356,7 +5356,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-60",
                   "quote": "FOLLOW-015,2026-09-04T14:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,4,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5377,7 +5377,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-61",
                   "quote": "FOLLOW-016,2026-09-04T15:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,6,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5398,7 +5398,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-62",
                   "quote": "FOLLOW-017,2026-09-04T16:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5419,7 +5419,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-63",
                   "quote": "FOLLOW-018,2026-09-04T17:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,7,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5440,7 +5440,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-64",
                   "quote": "FOLLOW-019,2026-09-04T18:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,4,cosmetic,FG-C,nonconforming_units"
                 }
@@ -5461,14 +5461,14 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-65",
                   "quote": "FOLLOW-020,2026-09-04T19:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,6,cosmetic,FG-C,nonconforming_units"
                 }
               }
             ],
-            "plan_hash": "ec7a713ca57eb02c42403fc4d36d3ac2fdb30748de61ffaa48ff2d01dd8bf29d",
-            "input_hash": "0c5dbc6216e10be794861010cc711b8977bfc25aa807bd492b70475a1bc489dd",
+            "plan_hash": "52666f21fab330d11773ef8a0221a73888c0a91cc9c5d6d79cf3ba66359da919",
+            "input_hash": "c885a17f27748a9aebdf025fc1ae17b101a7ca2835ee881a8aa7eac08a6fbbd2",
             "criterion": "Follow-up nonconforming-unit rate at or below the predeclared maximum, after complete window/exposure and evidence checks",
             "max_rate": 0.02,
             "interpretation": "Observed improvement is not causal attribution. Intervals describe binomial sampling uncertainty under comparability/independence assumptions.",
@@ -5478,10 +5478,10 @@
       ],
       "answer": [
         {
-          "id": "ANSWER-fad19b14117f4a568e01700246554133",
+          "id": "ANSWER-057cf55988ac477085eb31844020fadb",
           "task": "approved-knowledge",
           "mode": "fixture",
-          "timestamp": "2026-10-16T22:54:34.261744+00:00",
+          "timestamp": "2026-10-16T23:04:28.979556+00:00",
           "prompt_version": "approved-knowledge-1",
           "input_hash": "ffe063f847f034e7f8e4bf110c71afbd68f1651fe9101cbc5fca9eacd00f1e3f",
           "status": "succeeded",
@@ -5510,7 +5510,7 @@
           },
           "elapsed_ms": 0,
           "catalog_digest": "57af09a3a80a2e48cd9d395d50ae6cf56b71796258fe23898b0379afe59d238e",
-          "case_id": "08355915f3a342448e744d1a8ab1b066",
+          "case_id": "d4dcc3f236bf42c7b298586ab8c9a8bf",
           "retrieval": {
             "status": "retrieved",
             "reason": "",
@@ -5557,7 +5557,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-1",
                 "quote": "BASE-001,2026-09-01T00:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,11,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5579,7 +5579,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-2",
                 "quote": "BASE-002,2026-09-01T01:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,16,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5601,7 +5601,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-3",
                 "quote": "BASE-003,2026-09-01T02:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5623,7 +5623,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-4",
                 "quote": "BASE-004,2026-09-01T03:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,13,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5645,7 +5645,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-5",
                 "quote": "BASE-005,2026-09-01T04:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,4,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5667,7 +5667,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-6",
                 "quote": "BASE-006,2026-09-01T05:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,10,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5689,7 +5689,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-7",
                 "quote": "BASE-007,2026-09-01T06:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5711,7 +5711,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-8",
                 "quote": "BASE-008,2026-09-01T07:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,14,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5733,7 +5733,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-9",
                 "quote": "BASE-009,2026-09-01T08:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5755,7 +5755,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-10",
                 "quote": "BASE-010,2026-09-01T09:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,15,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5777,7 +5777,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-11",
                 "quote": "BASE-011,2026-09-01T10:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,6,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5799,7 +5799,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-12",
                 "quote": "BASE-012,2026-09-01T11:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,18,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5821,7 +5821,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-13",
                 "quote": "BASE-013,2026-09-01T12:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,14,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5843,7 +5843,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-14",
                 "quote": "BASE-014,2026-09-01T13:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,15,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5865,7 +5865,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-15",
                 "quote": "BASE-015,2026-09-01T14:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5887,7 +5887,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-16",
                 "quote": "BASE-016,2026-09-01T15:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,16,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5909,7 +5909,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-17",
                 "quote": "BASE-017,2026-09-01T16:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,8,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5931,7 +5931,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-18",
                 "quote": "BASE-018,2026-09-01T17:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,19,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5953,7 +5953,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-19",
                 "quote": "BASE-019,2026-09-01T18:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,11,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -5975,13 +5975,13 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-20",
                 "quote": "BASE-020,2026-09-01T19:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,6,cosmetic,FG-A;FG-D,nonconforming_units"
               }
             }
           ],
-          "row_hash": "4381c6666ee4207474aa95e2f3715ccfc4c213309e699d5916257600df7b5403",
+          "row_hash": "488768b5905b6567edc287051d14527e9ebfac32fe7bef8e85f6c1f4c6ef3295",
           "group": {
             "site": "NORTH-01",
             "product": "Decorative housing",
@@ -6005,10 +6005,10 @@
             "Reviewer-accepted stable baseline"
           ],
           "rule": "One observation strictly outside clipped three-sigma limits; limits are not acceptance specifications.",
-          "id": "BASE-2364910a530447f89786aebf5930c6ab",
+          "id": "BASE-0832cbb38eac4a3185962757ef71d3b5",
           "review": {
             "actor": {
-              "user_id": "sim-approver-bdbb12669ed0",
+              "user_id": "sim-approver-aa4034e0a5e8",
               "username": "Simulated approver",
               "org": "session",
               "site": "training",
@@ -6017,7 +6017,7 @@
               ],
               "identity_mode": "simulated demonstration role"
             },
-            "at": "2026-10-16T22:54:33.804753+00:00",
+            "at": "2026-10-16T23:04:28.369821+00:00",
             "note": "Agent-operated synthetic browser acceptance; source reviewed for this engineering exercise, not independent human or domain validation."
           },
           "inspection_revision": 1
@@ -6043,7 +6043,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-1",
                 "quote": "BASE-001,2026-09-01T00:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,11,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6065,7 +6065,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-2",
                 "quote": "BASE-002,2026-09-01T01:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,16,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6087,7 +6087,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-3",
                 "quote": "BASE-003,2026-09-01T02:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6109,7 +6109,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-4",
                 "quote": "BASE-004,2026-09-01T03:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,13,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6131,7 +6131,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-5",
                 "quote": "BASE-005,2026-09-01T04:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,4,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6153,7 +6153,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-6",
                 "quote": "BASE-006,2026-09-01T05:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,10,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6175,7 +6175,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-7",
                 "quote": "BASE-007,2026-09-01T06:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6197,7 +6197,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-8",
                 "quote": "BASE-008,2026-09-01T07:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,14,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6219,7 +6219,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-9",
                 "quote": "BASE-009,2026-09-01T08:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6241,7 +6241,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-10",
                 "quote": "BASE-010,2026-09-01T09:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,15,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6263,7 +6263,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-11",
                 "quote": "BASE-011,2026-09-01T10:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,6,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6285,7 +6285,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-12",
                 "quote": "BASE-012,2026-09-01T11:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,18,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6307,7 +6307,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-13",
                 "quote": "BASE-013,2026-09-01T12:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,14,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6329,7 +6329,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-14",
                 "quote": "BASE-014,2026-09-01T13:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,15,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6351,7 +6351,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-15",
                 "quote": "BASE-015,2026-09-01T14:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6373,7 +6373,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-16",
                 "quote": "BASE-016,2026-09-01T15:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,16,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6395,7 +6395,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-17",
                 "quote": "BASE-017,2026-09-01T16:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,8,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6417,7 +6417,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-18",
                 "quote": "BASE-018,2026-09-01T17:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,19,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6439,7 +6439,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-19",
                 "quote": "BASE-019,2026-09-01T18:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,11,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6461,7 +6461,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-20",
                 "quote": "BASE-020,2026-09-01T19:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,6,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6483,7 +6483,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-21",
                 "quote": "STABLE-001,2026-09-02T00:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6505,7 +6505,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-22",
                 "quote": "STABLE-002,2026-09-02T01:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,15,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6527,7 +6527,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-23",
                 "quote": "STABLE-003,2026-09-02T02:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6549,7 +6549,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-24",
                 "quote": "STABLE-004,2026-09-02T03:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,17,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6571,7 +6571,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-25",
                 "quote": "STABLE-005,2026-09-02T04:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,10,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6593,7 +6593,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-26",
                 "quote": "STABLE-006,2026-09-02T05:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,14,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6615,7 +6615,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-27",
                 "quote": "STABLE-007,2026-09-02T06:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,10,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6637,7 +6637,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-28",
                 "quote": "STABLE-008,2026-09-02T07:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,19,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6659,7 +6659,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-29",
                 "quote": "STABLE-009,2026-09-02T08:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6681,7 +6681,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-30",
                 "quote": "STABLE-010,2026-09-02T09:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,16,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6703,7 +6703,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-31",
                 "quote": "STABLE-011,2026-09-02T10:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,8,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6725,7 +6725,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-32",
                 "quote": "STABLE-012,2026-09-02T11:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,19,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6747,7 +6747,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-33",
                 "quote": "STABLE-013,2026-09-02T12:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,8,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6769,7 +6769,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-34",
                 "quote": "STABLE-014,2026-09-02T13:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,22,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6791,7 +6791,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-35",
                 "quote": "STABLE-015,2026-09-02T14:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,6,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6813,7 +6813,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-36",
                 "quote": "STABLE-016,2026-09-02T15:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,20,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6835,7 +6835,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-37",
                 "quote": "STABLE-017,2026-09-02T16:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,11,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6857,7 +6857,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-38",
                 "quote": "STABLE-018,2026-09-02T17:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,14,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6879,7 +6879,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-39",
                 "quote": "STABLE-019,2026-09-02T18:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6901,7 +6901,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-40",
                 "quote": "STABLE-020,2026-09-02T19:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,16,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6923,7 +6923,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-41",
                 "quote": "SHIFT-001,2026-09-03T00:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,59,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6945,7 +6945,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-42",
                 "quote": "SHIFT-002,2026-09-03T01:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,72,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6967,7 +6967,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-43",
                 "quote": "SHIFT-003,2026-09-03T02:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,43,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -6989,7 +6989,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-44",
                 "quote": "SHIFT-004,2026-09-03T03:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,81,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -7011,7 +7011,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-e02b36e23751",
+                "document_id": "DOC-42960aacd0aa",
                 "block_id": "row-45",
                 "quote": "SHIFT-005,2026-09-03T04:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,46,cosmetic,FG-A;FG-D,nonconforming_units"
               }
@@ -7032,7 +7032,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-46",
                 "quote": "FOLLOW-001,2026-09-04T00:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,2,cosmetic,FG-C,nonconforming_units"
               }
@@ -7053,7 +7053,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-47",
                 "quote": "FOLLOW-002,2026-09-04T01:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,4,cosmetic,FG-C,nonconforming_units"
               }
@@ -7074,7 +7074,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-48",
                 "quote": "FOLLOW-003,2026-09-04T02:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,5,cosmetic,FG-C,nonconforming_units"
               }
@@ -7095,7 +7095,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-49",
                 "quote": "FOLLOW-004,2026-09-04T03:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,4,cosmetic,FG-C,nonconforming_units"
               }
@@ -7116,7 +7116,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-50",
                 "quote": "FOLLOW-005,2026-09-04T04:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,2,cosmetic,FG-C,nonconforming_units"
               }
@@ -7137,7 +7137,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-51",
                 "quote": "FOLLOW-006,2026-09-04T05:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,4,cosmetic,FG-C,nonconforming_units"
               }
@@ -7158,7 +7158,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-52",
                 "quote": "FOLLOW-007,2026-09-04T06:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,6,cosmetic,FG-C,nonconforming_units"
               }
@@ -7179,7 +7179,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-53",
                 "quote": "FOLLOW-008,2026-09-04T07:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,7,cosmetic,FG-C,nonconforming_units"
               }
@@ -7200,7 +7200,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-54",
                 "quote": "FOLLOW-009,2026-09-04T08:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,3,cosmetic,FG-C,nonconforming_units"
               }
@@ -7221,7 +7221,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-55",
                 "quote": "FOLLOW-010,2026-09-04T09:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,3,cosmetic,FG-C,nonconforming_units"
               }
@@ -7242,7 +7242,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-56",
                 "quote": "FOLLOW-011,2026-09-04T10:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,1,cosmetic,FG-C,nonconforming_units"
               }
@@ -7263,7 +7263,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-57",
                 "quote": "FOLLOW-012,2026-09-04T11:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,12,cosmetic,FG-C,nonconforming_units"
               }
@@ -7284,7 +7284,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-58",
                 "quote": "FOLLOW-013,2026-09-04T12:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,2,cosmetic,FG-C,nonconforming_units"
               }
@@ -7305,7 +7305,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-59",
                 "quote": "FOLLOW-014,2026-09-04T13:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,8,cosmetic,FG-C,nonconforming_units"
               }
@@ -7326,7 +7326,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-60",
                 "quote": "FOLLOW-015,2026-09-04T14:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,4,cosmetic,FG-C,nonconforming_units"
               }
@@ -7347,7 +7347,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-61",
                 "quote": "FOLLOW-016,2026-09-04T15:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,6,cosmetic,FG-C,nonconforming_units"
               }
@@ -7368,7 +7368,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-62",
                 "quote": "FOLLOW-017,2026-09-04T16:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-C,nonconforming_units"
               }
@@ -7389,7 +7389,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-63",
                 "quote": "FOLLOW-018,2026-09-04T17:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,7,cosmetic,FG-C,nonconforming_units"
               }
@@ -7410,7 +7410,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-64",
                 "quote": "FOLLOW-019,2026-09-04T18:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,4,cosmetic,FG-C,nonconforming_units"
               }
@@ -7431,7 +7431,7 @@
               ],
               "metric": "nonconforming_units",
               "source": {
-                "document_id": "DOC-050583eb4af4",
+                "document_id": "DOC-b6426ae6677f",
                 "block_id": "row-65",
                 "quote": "FOLLOW-020,2026-09-04T19:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,6,cosmetic,FG-C,nonconforming_units"
               }
@@ -7530,14 +7530,14 @@
       ],
       "recovery": [
         {
-          "id": "RECOVERY-db3cad82311e4af2addd5af989659a38",
-          "case_id": "08355915f3a342448e744d1a8ab1b066",
+          "id": "RECOVERY-1368160af209443b96600deb92ddf3f0",
+          "case_id": "d4dcc3f236bf42c7b298586ab8c9a8bf",
           "status": "executed",
           "snapshot": {
-            "case_id": "08355915f3a342448e744d1a8ab1b066",
+            "case_id": "d4dcc3f236bf42c7b298586ab8c9a8bf",
             "case_revision": 5,
             "inventory_revision": 4,
-            "plan_digest": "357903e01953bb29d60df64767c5e11bd1f6c86b5553c8555a55095cebccd5e2",
+            "plan_digest": "5468b304854288ffba1499fa4ee8d8c82e81c0ab138e6575d085661e67c7d316",
             "policy_revision": 1,
             "policy": {
               "id": "RECOVER-WHOLE-1",
@@ -7551,7 +7551,7 @@
                 "PROC-100@1"
               ],
               "approved_by": {
-                "user_id": "sim-preparer-bdbb12669ed0",
+                "user_id": "sim-preparer-aa4034e0a5e8",
                 "username": "Simulated preparer",
                 "org": "session",
                 "site": "training",
@@ -7561,19 +7561,19 @@
                 ],
                 "identity_mode": "simulated demonstration role"
               },
-              "at": "2026-10-16T22:54:28.935216+00:00",
+              "at": "2026-10-16T23:04:26.561335+00:00",
               "note": "Agent-operated synthetic browser acceptance; source reviewed for this engineering exercise, not independent human or domain validation.",
               "execution_boundary": "Sandbox only; no use-as-is waiver, destruction or real enterprise execution"
             },
             "catalog_digest": "57af09a3a80a2e48cd9d395d50ae6cf56b71796258fe23898b0379afe59d238e",
             "evidence": [
               {
-                "id": "REC-EVID-823da45bfcc64ed3a84a372cec24d54c",
-                "case_id": "08355915f3a342448e744d1a8ab1b066",
+                "id": "REC-EVID-3da2efd6542f45418d0939b5816806e3",
+                "case_id": "d4dcc3f236bf42c7b298586ab8c9a8bf",
                 "pool_id": "FG-C",
                 "receiving": {
                   "citation": {
-                    "document_id": "DOC-d9e2d25f764e",
+                    "document_id": "DOC-8a06c402eba6",
                     "block_id": "line-1",
                     "quote": "Receiver reconciled every receipt for FG-C. Its entire ancestry is supplier lot SUP-B, with no additional parents. Original supplier receipt REC-812 was authenticated by the receiving supervisor."
                   },
@@ -7582,7 +7582,7 @@
                 },
                 "inspection": {
                   "citation": {
-                    "document_id": "DOC-aae11aba2858",
+                    "document_id": "DOC-b088e88f2372",
                     "block_id": "line-1",
                     "quote": "FG-C: 100 pieces inspected using visual-v1; 0 nonconforming. Passed whole-pool cosmetic inspection."
                   },
@@ -7591,13 +7591,13 @@
                 },
                 "inspected_units": 100,
                 "nonconforming_units": 0,
-                "inspected_at": "2026-10-16T22:54:19.099Z",
+                "inspected_at": "2026-10-16T23:04:16.801Z",
                 "method": "visual-v1",
                 "authenticity": "reviewer verified",
                 "verification_reference": "Synthetic receiver REC-812, agent-operated engineering fixture",
                 "note": "Agent-operated synthetic browser acceptance; source reviewed for this engineering exercise, not independent human or domain validation.",
                 "actor": {
-                  "user_id": "sim-preparer-bdbb12669ed0",
+                  "user_id": "sim-preparer-aa4034e0a5e8",
                   "username": "Simulated preparer",
                   "org": "session",
                   "site": "training",
@@ -7607,13 +7607,13 @@
                   ],
                   "identity_mode": "simulated demonstration role"
                 },
-                "at": "2026-10-16T22:54:29.188132+00:00",
+                "at": "2026-10-16T23:04:26.915719+00:00",
                 "case_revision": 5
               }
             ],
             "actions": [
               {
-                "hold_id": "HOLD-6cc17885ff99dad67d92",
+                "hold_id": "HOLD-706ac9f24eca76de55c7",
                 "hold_version": 1,
                 "pool_id": "FG-C",
                 "units": 100,
@@ -7622,18 +7622,18 @@
             ],
             "other_active_restrictions": []
           },
-          "digest": "a51a3aa8b04d0f418f41b41662657e14cfe63713bc714837fcfe6b63a9ce2174",
+          "digest": "985887c8abd9632a882faa9b17240ad23e24ee60cbc4e3cc082a94c76e8c5bfa",
           "pool_ids": [
             "FG-C"
           ],
           "hold_ids": [
-            "HOLD-6cc17885ff99dad67d92"
+            "HOLD-706ac9f24eca76de55c7"
           ],
           "evidence_ids": [
-            "REC-EVID-823da45bfcc64ed3a84a372cec24d54c"
+            "REC-EVID-3da2efd6542f45418d0939b5816806e3"
           ],
           "preparer": {
-            "user_id": "sim-preparer-bdbb12669ed0",
+            "user_id": "sim-preparer-aa4034e0a5e8",
             "username": "Simulated preparer",
             "org": "session",
             "site": "training",
@@ -7643,11 +7643,11 @@
             ],
             "identity_mode": "simulated demonstration role"
           },
-          "prepared_at": "2026-10-16T22:54:29.303641+00:00",
+          "prepared_at": "2026-10-16T23:04:27.076673+00:00",
           "note": "Agent-operated synthetic browser acceptance; source reviewed for this engineering exercise, not independent human or domain validation.",
           "approval": {
             "actor": {
-              "user_id": "sim-approver-bdbb12669ed0",
+              "user_id": "sim-approver-aa4034e0a5e8",
               "username": "Simulated approver",
               "org": "session",
               "site": "training",
@@ -7656,28 +7656,28 @@
               ],
               "identity_mode": "simulated demonstration role"
             },
-            "at": "2026-10-16T22:54:29.620246+00:00",
-            "digest": "a51a3aa8b04d0f418f41b41662657e14cfe63713bc714837fcfe6b63a9ce2174"
+            "at": "2026-10-16T23:04:27.470965+00:00",
+            "digest": "985887c8abd9632a882faa9b17240ad23e24ee60cbc4e3cc082a94c76e8c5bfa"
           },
           "execution": "sandbox only",
           "receipt": {
-            "transaction_id": "REC-TX-eb2b22655f1a4030994335f367703d8c",
-            "recovery_id": "RECOVERY-db3cad82311e4af2addd5af989659a38",
-            "at": "2026-10-16T22:54:29.694057+00:00",
+            "transaction_id": "REC-TX-5285d63867da4d9cb84c0f833e0364d0",
+            "recovery_id": "RECOVERY-1368160af209443b96600deb92ddf3f0",
+            "at": "2026-10-16T23:04:27.544220+00:00",
             "execution": "SANDBOX LEDGER",
             "changes": [
               {
                 "pool_id": "FG-C",
                 "units": 100,
-                "removed_hold_id": "HOLD-6cc17885ff99dad67d92",
+                "removed_hold_id": "HOLD-706ac9f24eca76de55c7",
                 "became_available": true
               }
             ],
             "prior_inventory_version": 4,
             "current_inventory_version": 5,
-            "digest": "a51a3aa8b04d0f418f41b41662657e14cfe63713bc714837fcfe6b63a9ce2174",
+            "digest": "985887c8abd9632a882faa9b17240ad23e24ee60cbc4e3cc082a94c76e8c5bfa",
             "preparer": {
-              "user_id": "sim-preparer-bdbb12669ed0",
+              "user_id": "sim-preparer-aa4034e0a5e8",
               "username": "Simulated preparer",
               "org": "session",
               "site": "training",
@@ -7688,7 +7688,7 @@
               "identity_mode": "simulated demonstration role"
             },
             "approver": {
-              "user_id": "sim-approver-bdbb12669ed0",
+              "user_id": "sim-approver-aa4034e0a5e8",
               "username": "Simulated approver",
               "org": "session",
               "site": "training",
@@ -7709,7 +7709,7 @@
                 "PROC-100@1"
               ],
               "approved_by": {
-                "user_id": "sim-preparer-bdbb12669ed0",
+                "user_id": "sim-preparer-aa4034e0a5e8",
                 "username": "Simulated preparer",
                 "org": "session",
                 "site": "training",
@@ -7719,18 +7719,18 @@
                 ],
                 "identity_mode": "simulated demonstration role"
               },
-              "at": "2026-10-16T22:54:28.935216+00:00",
+              "at": "2026-10-16T23:04:26.561335+00:00",
               "note": "Agent-operated synthetic browser acceptance; source reviewed for this engineering exercise, not independent human or domain validation.",
               "execution_boundary": "Sandbox only; no use-as-is waiver, destruction or real enterprise execution"
             },
             "source_evidence": [
               {
-                "id": "REC-EVID-823da45bfcc64ed3a84a372cec24d54c",
-                "case_id": "08355915f3a342448e744d1a8ab1b066",
+                "id": "REC-EVID-3da2efd6542f45418d0939b5816806e3",
+                "case_id": "d4dcc3f236bf42c7b298586ab8c9a8bf",
                 "pool_id": "FG-C",
                 "receiving": {
                   "citation": {
-                    "document_id": "DOC-d9e2d25f764e",
+                    "document_id": "DOC-8a06c402eba6",
                     "block_id": "line-1",
                     "quote": "Receiver reconciled every receipt for FG-C. Its entire ancestry is supplier lot SUP-B, with no additional parents. Original supplier receipt REC-812 was authenticated by the receiving supervisor."
                   },
@@ -7739,7 +7739,7 @@
                 },
                 "inspection": {
                   "citation": {
-                    "document_id": "DOC-aae11aba2858",
+                    "document_id": "DOC-b088e88f2372",
                     "block_id": "line-1",
                     "quote": "FG-C: 100 pieces inspected using visual-v1; 0 nonconforming. Passed whole-pool cosmetic inspection."
                   },
@@ -7748,13 +7748,13 @@
                 },
                 "inspected_units": 100,
                 "nonconforming_units": 0,
-                "inspected_at": "2026-10-16T22:54:19.099Z",
+                "inspected_at": "2026-10-16T23:04:16.801Z",
                 "method": "visual-v1",
                 "authenticity": "reviewer verified",
                 "verification_reference": "Synthetic receiver REC-812, agent-operated engineering fixture",
                 "note": "Agent-operated synthetic browser acceptance; source reviewed for this engineering exercise, not independent human or domain validation.",
                 "actor": {
-                  "user_id": "sim-preparer-bdbb12669ed0",
+                  "user_id": "sim-preparer-aa4034e0a5e8",
                   "username": "Simulated preparer",
                   "org": "session",
                   "site": "training",
@@ -7764,7 +7764,7 @@
                   ],
                   "identity_mode": "simulated demonstration role"
                 },
-                "at": "2026-10-16T22:54:29.188132+00:00",
+                "at": "2026-10-16T23:04:26.915719+00:00",
                 "case_revision": 5
               }
             ],
@@ -7775,12 +7775,12 @@
       ],
       "recovery-evidence": [
         {
-          "id": "REC-EVID-823da45bfcc64ed3a84a372cec24d54c",
-          "case_id": "08355915f3a342448e744d1a8ab1b066",
+          "id": "REC-EVID-3da2efd6542f45418d0939b5816806e3",
+          "case_id": "d4dcc3f236bf42c7b298586ab8c9a8bf",
           "pool_id": "FG-C",
           "receiving": {
             "citation": {
-              "document_id": "DOC-d9e2d25f764e",
+              "document_id": "DOC-8a06c402eba6",
               "block_id": "line-1",
               "quote": "Receiver reconciled every receipt for FG-C. Its entire ancestry is supplier lot SUP-B, with no additional parents. Original supplier receipt REC-812 was authenticated by the receiving supervisor."
             },
@@ -7789,7 +7789,7 @@
           },
           "inspection": {
             "citation": {
-              "document_id": "DOC-aae11aba2858",
+              "document_id": "DOC-b088e88f2372",
               "block_id": "line-1",
               "quote": "FG-C: 100 pieces inspected using visual-v1; 0 nonconforming. Passed whole-pool cosmetic inspection."
             },
@@ -7798,13 +7798,13 @@
           },
           "inspected_units": 100,
           "nonconforming_units": 0,
-          "inspected_at": "2026-10-16T22:54:19.099Z",
+          "inspected_at": "2026-10-16T23:04:16.801Z",
           "method": "visual-v1",
           "authenticity": "reviewer verified",
           "verification_reference": "Synthetic receiver REC-812, agent-operated engineering fixture",
           "note": "Agent-operated synthetic browser acceptance; source reviewed for this engineering exercise, not independent human or domain validation.",
           "actor": {
-            "user_id": "sim-preparer-bdbb12669ed0",
+            "user_id": "sim-preparer-aa4034e0a5e8",
             "username": "Simulated preparer",
             "org": "session",
             "site": "training",
@@ -7814,7 +7814,7 @@
             ],
             "identity_mode": "simulated demonstration role"
           },
-          "at": "2026-10-16T22:54:29.188132+00:00",
+          "at": "2026-10-16T23:04:26.915719+00:00",
           "case_revision": 5
         }
       ],
@@ -7831,7 +7831,7 @@
             "PROC-100@1"
           ],
           "approved_by": {
-            "user_id": "sim-preparer-bdbb12669ed0",
+            "user_id": "sim-preparer-aa4034e0a5e8",
             "username": "Simulated preparer",
             "org": "session",
             "site": "training",
@@ -7841,7 +7841,7 @@
             ],
             "identity_mode": "simulated demonstration role"
           },
-          "at": "2026-10-16T22:54:28.935216+00:00",
+          "at": "2026-10-16T23:04:26.561335+00:00",
           "note": "Agent-operated synthetic browser acceptance; source reviewed for this engineering exercise, not independent human or domain validation.",
           "execution_boundary": "Sandbox only; no use-as-is waiver, destruction or real enterprise execution"
         }
@@ -7867,7 +7867,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-1",
                   "quote": "BASE-001,2026-09-01T00:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,11,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -7889,7 +7889,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-2",
                   "quote": "BASE-002,2026-09-01T01:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,16,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -7911,7 +7911,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-3",
                   "quote": "BASE-003,2026-09-01T02:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -7933,7 +7933,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-4",
                   "quote": "BASE-004,2026-09-01T03:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,13,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -7955,7 +7955,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-5",
                   "quote": "BASE-005,2026-09-01T04:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,4,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -7977,7 +7977,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-6",
                   "quote": "BASE-006,2026-09-01T05:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,10,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -7999,7 +7999,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-7",
                   "quote": "BASE-007,2026-09-01T06:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -8021,7 +8021,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-8",
                   "quote": "BASE-008,2026-09-01T07:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,14,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -8043,7 +8043,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-9",
                   "quote": "BASE-009,2026-09-01T08:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -8065,7 +8065,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-10",
                   "quote": "BASE-010,2026-09-01T09:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,15,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -8087,7 +8087,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-11",
                   "quote": "BASE-011,2026-09-01T10:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,6,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -8109,7 +8109,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-12",
                   "quote": "BASE-012,2026-09-01T11:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,18,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -8131,7 +8131,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-13",
                   "quote": "BASE-013,2026-09-01T12:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,14,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -8153,7 +8153,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-14",
                   "quote": "BASE-014,2026-09-01T13:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,15,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -8175,7 +8175,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-15",
                   "quote": "BASE-015,2026-09-01T14:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -8197,7 +8197,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-16",
                   "quote": "BASE-016,2026-09-01T15:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,16,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -8219,7 +8219,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-17",
                   "quote": "BASE-017,2026-09-01T16:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,8,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -8241,7 +8241,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-18",
                   "quote": "BASE-018,2026-09-01T17:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,19,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -8263,7 +8263,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-19",
                   "quote": "BASE-019,2026-09-01T18:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,11,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
@@ -8285,13 +8285,13 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-20",
                   "quote": "BASE-020,2026-09-01T19:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,6,cosmetic,FG-A;FG-D,nonconforming_units"
                 }
               }
             ],
-            "row_hash": "4381c6666ee4207474aa95e2f3715ccfc4c213309e699d5916257600df7b5403",
+            "row_hash": "488768b5905b6567edc287051d14527e9ebfac32fe7bef8e85f6c1f4c6ef3295",
             "group": {
               "site": "NORTH-01",
               "product": "Decorative housing",
@@ -8315,10 +8315,10 @@
               "Reviewer-accepted stable baseline"
             ],
             "rule": "One observation strictly outside clipped three-sigma limits; limits are not acceptance specifications.",
-            "id": "BASE-2364910a530447f89786aebf5930c6ab",
+            "id": "BASE-0832cbb38eac4a3185962757ef71d3b5",
             "review": {
               "actor": {
-                "user_id": "sim-approver-bdbb12669ed0",
+                "user_id": "sim-approver-aa4034e0a5e8",
                 "username": "Simulated approver",
                 "org": "session",
                 "site": "training",
@@ -8327,7 +8327,7 @@
                 ],
                 "identity_mode": "simulated demonstration role"
               },
-              "at": "2026-10-16T22:54:33.804753+00:00",
+              "at": "2026-10-16T23:04:28.369821+00:00",
               "note": "Agent-operated synthetic browser acceptance; source reviewed for this engineering exercise, not independent human or domain validation."
             },
             "inspection_revision": 1
@@ -8337,7 +8337,7 @@
             "baseline_inspected": 13000,
             "baseline_nonconforming": 230,
             "baseline_count": 20,
-            "baseline_hash": "4381c6666ee4207474aa95e2f3715ccfc4c213309e699d5916257600df7b5403",
+            "baseline_hash": "488768b5905b6567edc287051d14527e9ebfac32fe7bef8e85f6c1f4c6ef3295",
             "rule": "One observation strictly outside clipped three-sigma limits; limits are not acceptance specifications.",
             "group": {
               "site": "NORTH-01",
@@ -8378,7 +8378,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-21",
                   "quote": "STABLE-001,2026-09-02T00:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8405,7 +8405,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-22",
                   "quote": "STABLE-002,2026-09-02T01:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,15,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8432,7 +8432,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-23",
                   "quote": "STABLE-003,2026-09-02T02:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8459,7 +8459,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-24",
                   "quote": "STABLE-004,2026-09-02T03:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,17,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8486,7 +8486,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-25",
                   "quote": "STABLE-005,2026-09-02T04:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,10,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8513,7 +8513,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-26",
                   "quote": "STABLE-006,2026-09-02T05:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,14,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8540,7 +8540,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-27",
                   "quote": "STABLE-007,2026-09-02T06:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,10,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8567,7 +8567,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-28",
                   "quote": "STABLE-008,2026-09-02T07:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,19,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8594,7 +8594,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-29",
                   "quote": "STABLE-009,2026-09-02T08:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8621,7 +8621,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-30",
                   "quote": "STABLE-010,2026-09-02T09:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,16,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8648,7 +8648,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-31",
                   "quote": "STABLE-011,2026-09-02T10:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,8,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8675,7 +8675,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-32",
                   "quote": "STABLE-012,2026-09-02T11:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,19,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8702,7 +8702,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-33",
                   "quote": "STABLE-013,2026-09-02T12:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,8,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8729,7 +8729,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-34",
                   "quote": "STABLE-014,2026-09-02T13:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,22,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8756,7 +8756,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-35",
                   "quote": "STABLE-015,2026-09-02T14:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,6,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8783,7 +8783,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-36",
                   "quote": "STABLE-016,2026-09-02T15:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,20,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8810,7 +8810,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-37",
                   "quote": "STABLE-017,2026-09-02T16:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,11,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8837,7 +8837,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-38",
                   "quote": "STABLE-018,2026-09-02T17:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,14,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8864,7 +8864,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-39",
                   "quote": "STABLE-019,2026-09-02T18:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8891,7 +8891,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-40",
                   "quote": "STABLE-020,2026-09-02T19:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,16,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8918,7 +8918,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-41",
                   "quote": "SHIFT-001,2026-09-03T00:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,59,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8945,7 +8945,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-42",
                   "quote": "SHIFT-002,2026-09-03T01:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,72,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8972,7 +8972,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-43",
                   "quote": "SHIFT-003,2026-09-03T02:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,43,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -8999,7 +8999,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-44",
                   "quote": "SHIFT-004,2026-09-03T03:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,81,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -9026,7 +9026,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-e02b36e23751",
+                  "document_id": "DOC-42960aacd0aa",
                   "block_id": "row-45",
                   "quote": "SHIFT-005,2026-09-03T04:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,46,cosmetic,FG-A;FG-D,nonconforming_units"
                 },
@@ -9052,7 +9052,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-46",
                   "quote": "FOLLOW-001,2026-09-04T00:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,2,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9078,7 +9078,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-47",
                   "quote": "FOLLOW-002,2026-09-04T01:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,4,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9104,7 +9104,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-48",
                   "quote": "FOLLOW-003,2026-09-04T02:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,5,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9130,7 +9130,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-49",
                   "quote": "FOLLOW-004,2026-09-04T03:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,4,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9156,7 +9156,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-50",
                   "quote": "FOLLOW-005,2026-09-04T04:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,2,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9182,7 +9182,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-51",
                   "quote": "FOLLOW-006,2026-09-04T05:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,4,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9208,7 +9208,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-52",
                   "quote": "FOLLOW-007,2026-09-04T06:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,6,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9234,7 +9234,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-53",
                   "quote": "FOLLOW-008,2026-09-04T07:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,7,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9260,7 +9260,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-54",
                   "quote": "FOLLOW-009,2026-09-04T08:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,3,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9286,7 +9286,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-55",
                   "quote": "FOLLOW-010,2026-09-04T09:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,3,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9312,7 +9312,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-56",
                   "quote": "FOLLOW-011,2026-09-04T10:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,1,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9338,7 +9338,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-57",
                   "quote": "FOLLOW-012,2026-09-04T11:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,12,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9364,7 +9364,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-58",
                   "quote": "FOLLOW-013,2026-09-04T12:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,2,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9390,7 +9390,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-59",
                   "quote": "FOLLOW-014,2026-09-04T13:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,8,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9416,7 +9416,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-60",
                   "quote": "FOLLOW-015,2026-09-04T14:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,4,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9442,7 +9442,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-61",
                   "quote": "FOLLOW-016,2026-09-04T15:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,6,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9468,7 +9468,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-62",
                   "quote": "FOLLOW-017,2026-09-04T16:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9494,7 +9494,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-63",
                   "quote": "FOLLOW-018,2026-09-04T17:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,7,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9520,7 +9520,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-64",
                   "quote": "FOLLOW-019,2026-09-04T18:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,4,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9546,7 +9546,7 @@
                 ],
                 "metric": "nonconforming_units",
                 "source": {
-                  "document_id": "DOC-050583eb4af4",
+                  "document_id": "DOC-b6426ae6677f",
                   "block_id": "row-65",
                   "quote": "FOLLOW-020,2026-09-04T19:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,6,cosmetic,FG-C,nonconforming_units"
                 },
@@ -9567,13 +9567,13 @@
             ],
             "boundary": "A signal is evidence of process variation, not supplier causation, defect certainty, hold authority or release authority."
           },
-          "chart_digest": "0b3e13ca2eb5c40b53f8cc525b6cd1a0cbe9a7817d2f129ad72af6b711d1107d"
+          "chart_digest": "20186355d698c8bf0671f308459a4735adad021cfb9ee59fd3b1d762a41b1964"
         }
       ],
       "outbox": [],
       "policy_revision": 1,
       "actor": {
-        "user_id": "sim-approver-bdbb12669ed0",
+        "user_id": "sim-approver-aa4034e0a5e8",
         "username": "Simulated approver",
         "org": "session",
         "site": "training",
@@ -9582,9 +9582,9 @@
         ],
         "identity_mode": "simulated demonstration role"
       },
-      "snapshot_at": "2026-10-16T22:54:36.498879+00:00",
+      "snapshot_at": "2026-10-16T23:04:31.859194+00:00",
       "boundary": "Historical snapshots confer no action authority. Synthetic records and simulated identities are not independent human validation."
     }
   },
-  "integrity_hash": "867be459415f5138f18c166abd35aa4986932d8d119437f12fcfe3d06e82d476"
+  "integrity_hash": "49cfdd520bda426829cecd7b98138c13e5176b32011d3eacd27865fb966f98f5"
 }

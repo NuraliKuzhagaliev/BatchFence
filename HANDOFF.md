@@ -1,3 +1,31 @@
+# Enterprise candidate checkpoint — implementation complete, promotion blocked
+
+All four modules and their foundations are implemented as 0.3.0-rc.1. Clean package source: e616ff5b91bbe5716949dc3fc833be290a0802b1. Later evidence/tooling-only commits preserve these application bytes. Draft PR: https://github.com/NuraliKuzhagaliev/BatchFence/pull/1. Public web and Windows remain the protected 0.2.0 release at e70f4a0; no expanded Render rollout or new public release tag.
+
+Actual verification: 102 pytest,30 deterministic cases,12 preserved browser checks,6 connected browser groups; final installed Windows 7 core + 6 module groups,4 named default-pilot checks, offline 700-unit packet with 2 containment receipts plus recovery/module records and no external Node/Python on PATH. Actual PostgreSQL migration, distinct test accounts, connector failure/retry/process restart, idempotent ack and 16-source isolated restore passed. Actual Linux OCR processed 2 scanned pages / 52 word boxes and rejected pre-review narrowing. All review was agent-operated. Public Linux CI 38978907998 passed after correcting source storage to /var/data/sources; no permission broadening. All new model quality remains unmeasured 0/24.
+
+Candidate installer: D:\projects\BatchFence\releases\BatchFence-0.3.0-rc.1-win-x64-setup.exe. Installed: work/installed-0.3.0-rc.1/BatchFence.exe. Source ZIP and SHA256SUMS-0.3.0-rc.1.txt are in releases/. It has a separate candidate app identity and defaults to http://127.0.0.1:8788. The first candidate test installer reused the stable identity and replaced the old test installation; stable 0.2.0 was restored from its unchanged installer. Corrected candidate install verified the stable executable stayed byte-identical. Both local installations now coexist. Public assets were never replaced.
+
+Open local synthetic web: http://127.0.0.1:8794. Private named pilot: http://127.0.0.1:8788. Start pilot with `docker compose -f ops/compose.pilot.yml up --build -d`; provision real users via `docker compose -f ops/compose.pilot.yml exec app python -m scripts.pilot create-user --username YOUR_NAME --org northstar --site plant1 --roles quality_reviewer` and separate release_approver. Do not reuse engineering credentials. Full setup/restore in docs/enterprise/pilot-operations.md. For standalone synthetic mode, use the exact Uvicorn command below and set DATABASE_PATH, SOURCE_STORAGE_PATH, APP_ORIGIN and INFERENCE_MODE=fixture explicitly.
+
+Precise external blocker: configured MiMo-V2.6-Flash and every catalog entry report free=false; documented usage URL404. General free/event FAQ claims do not confirm this account's configured endpoint allowance. Zero new inference calls; no substitutions. Owner must confirm an existing zero-cost allowance for this endpoint/model, or privately configure the exact documented free event endpoint/model/key. Never paste secrets into chat. Cap remains four fresh calls. Then evaluate typed receiving, approved-procedure answers and signal explanations, preserve raw failures versus reviewed corrections, run affected checks, and only then promote a coherent version/tag/installer and existing free Render app.
+
+Other human acceptance: quality professional and 3 unfamiliar operators (currently 0), real distinct users/data-processing approval, off-device restore against owner RPO/RTO, actual Windows chooser/save/reopen. Reference connector is loopback sandbox only; real ERP/enterprise inventory action remains unauthorized. Free public SQLite is ephemeral and Windows is unsigned.
+
+Materials: submission/enterprise has the reviewed 7-slide deck, cover, 50.28-second actual synthetic walkthrough, narration and quickstart. Historical 0.2.0 AMD footage/results are identified as historical. Current public event requirements were checked; authenticated media constraints/cutoff still need owner inspection. No entry saved/submitted, external message or paid resource.
+
+Checks and exact evidence: docs/enterprise/evidence-matrix.md, candidate-artifacts.json, security.md and release-gates.md. npm production 0 findings, full 8 moderate build-tool findings remain; Python follow-up 0 known after local pip update. Publication scan includes known private pilot values and installed ASAR contents without exposing values.
+
+Reproduce from D:\projects\BatchFence:
+- `.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-NEW`
+- `.venv\Scripts\python.exe -m scripts.evaluate`
+- `node scripts/enterprise-browser.cjs` (default8794)
+- `node scripts/desktop-pilot.cjs` (installed candidate, default8788, private engineering test configuration)
+- Set BATCHFENCE_TEST_EXE/BATCHFENCE_BACKEND_ORIGIN for desktop-smoke.cjs and enterprise-browser.cjs; set BATCHFENCE_OFFLINE_PACKET/BATCHFENCE_EXPECTED_UNITS/BATCHFENCE_EXPECTED_RECEIPTS/BATCHFENCE_ENTERPRISE_PACKET for desktop-offline.cjs.
+- `.venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8794`
+
+---
+
 # Enterprise 0.3.0-rc.1 engineering candidate — release gate open
 
 Protected public app/Windows release remains e70f4a0 / v0.2.0. All four modules and shared foundations are implemented on enterprise-pilot-0.3. Current candidate is private/local; no claim of production readiness or independent human acceptance.

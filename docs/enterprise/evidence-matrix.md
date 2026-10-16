@@ -19,9 +19,9 @@ Engineering checks are agent-operated. None establishes independent human/domain
 | New model quality | frozen24items+hash; live/preflight.json; model-evaluation.json | BLOCKED0/24fresh: free=false catalog/quota404. Historical0.2.0 separated |
 | Performance | performance.json:500each pools/edges/allocations,15runs,median68.37ms,p95max75.98ms,1.44MB Python tracked | Microbenchmark only; above-limit rejection; no network/concurrent enterprise SLA |
 | Web visual/interaction | browser-core.json12checks; browser-modules.json6groups; ui/module screenshots1366/1920/390/200%zoom | Verified local agent-operated; independent comprehension pending |
-| Offline packets | test_packet_canonical.py malformed rehashed extensions; promotion strips authority | Read-only module JSON snapshots, historical quantities/receipts; installed candidate verification follows |
-| Security/dependencies | security.md; production-audit.json0; full-audit.json8moderate build-tool chain | Selected controls tested, no certification; Python/OS exhaustive advisory review not established |
+| Offline packets | test_packet_canonical.py malformed rehashed extensions; promotion strips authority | Read-only module JSON snapshots, historical quantities/receipts; installed candidate offline check passed (desktop/offline), originals still require source store |
+| Security/dependencies | security.md; production-audit.json0; full-audit.json8moderate build-tool chain | Selected controls tested, no certification; Python follow-up audit0known; OS exhaustive review not established |
 | Human benefit | operator-acceptance.md protocol | 0independent participants; no ROI, customer or savings claim |
-| Windows/container/release | candidate reports added after packaging; protected v0.2.0 unchanged | Candidate package/CI evidence pending; no public promotion until live gate |
+| Windows/container/release | candidate-artifacts.json, ci-success.json, desktop/; protected v0.2.0 unchanged | candidate-artifacts.json, desktop/, ci-success.json verify local installed and Linux paths; public promotion remains blocked |
 
 See release-gates.md for exact owner unblock action. Code and passing builds alone are not used as acceptance evidence. Final package/CI follow-up reports supersede the pending packaging row only when successful.

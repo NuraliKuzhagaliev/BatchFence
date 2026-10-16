@@ -89,6 +89,7 @@ let activeApp;
         receipt_readable: true,
         receipt_count: Number(process.env.BATCHFENCE_EXPECTED_RECEIPTS||1),
         writes_disabled: true,
+        historical_modules_checked: !!process.env.BATCHFENCE_ENTERPRISE_PACKET,
         native_dialog: "Stubbed result; bridge read and validation executed",
       },
       null,

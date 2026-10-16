@@ -1,3 +1,9 @@
+# Candidate AMD gate (2026-10-17)
+
+No fresh inference was sent for the enterprise expansion. Catalog and quota preflight are enterprise/live/preflight.json; model-evaluation.json records0/24new-task items, with deterministic retrieval separated. Historical evidence below remains historical. The configured model reports free=false and documented usage returned404, so owner confirmation of an actual zero-cost allowance or correct free configuration is required. No key was displayed or substituted.
+
+---
+
 # Current upgrade evidence — 0.2.0
 
 The new release has 65 passing regression tests, 30 unchanged frozen deterministic cases, 12 preserved plus nine upgrade browser groups on the public deployment, and installed Windows checks. Linux build and named-volume restart passed at ebd1402. These checks are separate from model quality.
