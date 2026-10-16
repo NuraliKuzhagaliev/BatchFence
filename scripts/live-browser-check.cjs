@@ -54,7 +54,7 @@ async function main() {
       assert.equal((await uploadResponse).status(), 200);
       assert.equal((await current()).revision, before.revision + 1);
       await page.getByLabel('Run mode', {exact:true}).selectOption('live');
-      if (health.live_protected) await page.getByLabel('Demonstration access key', {exact:true}).fill(process.env.BATCHFENCE_DEMO_TOKEN);
+      if (health.live_protected) await page.getByLabel('Live access key', {exact:true}).fill(process.env.BATCHFENCE_DEMO_TOKEN);
       const analysis = page.waitForResponse(r => r.url().endsWith('/analyze') && r.request().method() === 'POST', {timeout:60000});
       await click('Extract selected notice');
       const state = await (await analysis).json();
@@ -110,8 +110,8 @@ async function main() {
       await screenshot(`0${i+1}-reviewed-scope`);
       await chapter(`Deterministic plan: ${truth.hold_units} units, including 100 with unresolved ancestry. Outside scope is not a safety certification.`);
       await click('Approve exact plan');
-      await page.getByRole('button',{name:'Apply sandbox holds',exact:true}).waitFor();
-      await click('Apply sandbox holds');
+      await page.getByRole('button',{name:'Apply holds',exact:true}).waitFor();
+      await click('Apply holds');
       await page.getByRole('heading',{name:'Holds applied. Evidence preserved.',exact:true}).last().waitFor();
       const downloadPending = page.waitForEvent('download');
       await click('Export packet');
@@ -125,7 +125,7 @@ async function main() {
       await screenshot(`0${i+1}-sandbox-receipt`);
       await chapter(`Actual sandbox receipt persisted for ${truth.hold_units} units. No external inventory system or machinery is connected.`);
       await page.reload();
-      await page.locator('.case-status').filter({hasText:'Applied to sandbox'}).waitFor();
+      await page.locator('.case-status').filter({hasText:'Holds applied'}).waitFor();
       assert.deepEqual((await current()).receipts, applied.receipts);
       stage.refresh_persistence = true;
       await save();

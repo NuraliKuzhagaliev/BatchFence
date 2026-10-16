@@ -37,11 +37,11 @@ async function main() {
   };
   await page.goto(base + "/");
   await page
-    .getByRole("button", { name: "Load synthetic incident", exact: false })
+    .getByRole("button", { name: "Open example incident", exact: false })
     .waitFor();
   await shot("01-intake-1440");
   await page
-    .getByRole("button", { name: "Load synthetic incident", exact: false })
+    .getByRole("button", { name: "Open example incident", exact: false })
     .click();
   await page.getByLabel('Run mode', {exact:true}).selectOption('fixture');
   await click("Extract selected notice");
@@ -68,7 +68,7 @@ async function main() {
     ),
   );
   assert(
-    (await page.locator(".decision-main p").textContent()).includes(
+    (await page.locator(".decision-main p:not(.execution-scope)").textContent()).includes(
       "100 uncertain",
     ),
   );
@@ -106,7 +106,7 @@ async function main() {
   );
   await click("Approve exact plan");
   await page
-    .getByRole("button", { name: "Apply sandbox holds", exact: true })
+    .getByRole("button", { name: "Apply holds", exact: true })
     .waitFor();
   await click("Test excluding uncertain stock");
   await page.getByRole("alert").waitFor();
@@ -142,7 +142,7 @@ async function main() {
   await page.getByRole("tab", { name: "Revisions", exact: true }).click();
   await shot("05-revision-diff-1440");
   await click("Approve exact plan");
-  await click("Apply sandbox holds");
+  await click("Apply holds");
   await page
     .getByRole("heading", { name: "Holds applied. Evidence preserved." })
     .waitFor();
@@ -165,7 +165,7 @@ async function main() {
     .waitFor();
   assert(
     (await page.locator(".decision-main strong").textContent()).includes(
-      "Applied to sandbox",
+      "Holds applied",
     ),
   );
   checks.push("Exported packet includes actual receipt; refresh persists case");
@@ -271,7 +271,7 @@ async function main() {
   );
   assert.equal(
     await page
-      .getByRole("button", { name: "Apply sandbox holds", exact: true })
+      .getByRole("button", { name: "Apply holds", exact: true })
       .count(),
     0,
   );

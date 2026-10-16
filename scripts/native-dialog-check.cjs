@@ -7,7 +7,7 @@ const root=path.resolve(__dirname,'..');
     BATCHFENCE_USER_DATA:path.join(root,'work/native-dialog-profile')}});
   const page=await app.firstWindow();
   await app.evaluate(({BrowserWindow})=>{const w=BrowserWindow.getAllWindows()[0];w.restore();w.show();w.focus();});
-  await page.getByRole('button',{name:'Load synthetic incident',exact:false}).click();
+  await page.getByRole('button',{name:'Open example incident',exact:false}).click();
   await page.getByRole('button',{name:'Add evidence',exact:true}).waitFor();
   await page.getByRole('button',{name:'Add evidence',exact:true}).click();
   console.log('Real Import evidence dialog requested; waiting for OS selection. No inference will run.');

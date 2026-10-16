@@ -79,6 +79,18 @@ function SourceText({
     </div>
   );
 }
+const RELEASE_URL = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.1.2";
+const WINDOWS_DOWNLOAD = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.1.2/BatchFence-0.1.2-win-x64-setup.exe";
+function PlatformLinks({ openWeb }: { openWeb: () => void }) {
+  return native ? (
+    <button className="button" onClick={openWeb}><ExternalLink size={16} />Open web app</button>
+  ) : (
+    <>
+      <a className="button primary" href={WINDOWS_DOWNLOAD}><FileDown size={16} />Download for Windows</a>
+      <a className="text-button" href={RELEASE_URL} target="_blank" rel="noopener noreferrer">Release notes <ExternalLink size={14} /></a>
+    </>
+  );
+}
 function App() {
   const [data, setData] = useState<Case | null>(null),
     [packet, setPacket] = useState<Packet | null>(null),
@@ -112,7 +124,6 @@ function App() {
     packetInput = useRef<HTMLInputElement>(null);
   const [liveProtected, setLiveProtected] = useState(false);
   const [replayAvailable, setReplayAvailable] = useState(false);
-  const [publicDemo, setPublicDemo] = useState(false);
   const [temporaryStorage, setTemporaryStorage] = useState(false);
   const connectionWasAvailable = useRef(true);
   const state = packet?.case || data,
@@ -167,7 +178,6 @@ function App() {
         if (!active) return;
         setCases(all);
         setLiveProtected(health.live_protected);
-        setPublicDemo(health.public_demo);
         setTemporaryStorage(health.storage_mode === "ephemeral");
         setReplayAvailable(health.replay_available);
         setMode(
@@ -341,13 +351,13 @@ function App() {
           digest: plan.digest,
         }),
       );
-      setNotice("This exact plan is approved. Sandbox execution is available.");
+      setNotice("This exact plan is approved. Workspace holds can now be applied.");
     });
   }
   async function apply(test = false) {
     if (!state || !plan) return;
     await task(
-      test ? "Testing uncertain-stock policy" : "Applying sandbox holds",
+      test ? "Testing uncertain-stock policy" : "Applying workspace holds",
       async () => {
         const actions = test
           ? plan.actions.filter(
@@ -366,7 +376,7 @@ function App() {
         );
         setTab("receipt");
         setNotice(
-          "Sandbox transaction committed. Receipt and evidence are ready to export.",
+          "Workspace inventory updated. Receipt and evidence are ready to export.",
         );
       },
     );
@@ -447,7 +457,7 @@ function App() {
     : state?.pending_revision
       ? "Evidence changed · approval stale"
       : plan?.status === "applied"
-        ? "Applied to sandbox"
+        ? "Holds applied"
         : plan?.status === "approved"
           ? "Exact plan approved"
           : plan
@@ -507,7 +517,6 @@ function App() {
               <i />
               {online ? "Backend connected" : "Backend offline"}
             </span>
-            <span className="environment">SANDBOX</span>
             <button
               className="icon-button"
               aria-label="Technical details"
@@ -567,11 +576,11 @@ function App() {
                 {native
                   ? "Windows native shell with fixed-origin transport."
                   : "Web with same-origin backend."}{" "}
-                Default quota: 12 attempts per session.
+                Request limits apply; exhausted limits are reported before another request is made.
               </p>
             </section>
           )}
-          {temporaryStorage && <div className="feedback info" role="note"><History size={17} /><span>Free demo · temporary storage. Export your decision packet: server data can be lost on sleep, restart or redeployment.</span></div>}
+          {temporaryStorage && <div className="feedback info" role="note"><History size={17} /><span>Temporary storage. Export your decision packet: server data can be lost on sleep, restart or redeployment.</span></div>}
           {(error || notice || busy) && (
             <div
               className={
@@ -621,7 +630,7 @@ function App() {
                     onClick={demo}
                     disabled={!!busy || !online || !ready}
                   >
-                    Load synthetic incident <ArrowRight size={17} />
+                    Open example incident <ArrowRight size={17} />
                   </button>
                   <button className="button" onClick={openPacket}>
                     <FolderOpen size={16} />
@@ -631,11 +640,9 @@ function App() {
                 {replayAvailable && <button className="text-button" onClick={replayDemo} disabled={!!busy || !online}>
                   Open recorded AMD packet <History size={15} />
                 </button>}
-                <p className="demo-note">
-                  Fictional manufacturer · cosmetic coating issue
-                  <br />
-                  Synthetic walkthrough · historical AMD replay
-                  <br />{liveProtected ? "Live inference is protected. Use only synthetic data in this public demo." : "Live AMD requires server configuration."}
+                <p className="source-note">
+                  Example records are fictional. Recorded packets preserve their original provenance.
+                  {liveProtected && <><br />Live inference requires a private access key. Use synthetic records on this shared service.</>}
                 </p>
               </div>
               <div className="welcome-visual">
@@ -660,19 +667,11 @@ function App() {
                 ))}
                 <div className="welcome-foot">
                   <LockKeyhole size={18} />
-                  Human review. Deterministic policy. Auditable action.
+                  Every decision stays tied to its evidence.
                 </div>
               </div>
               <div className="distribution">
-                <a href="/" className="distribution-link">
-                  <ExternalLink size={16} />
-                  Open web app<span>{publicDemo ? "Public demo v0.1.1" : "Local v0.1.1"}</span>
-                </a>
-                <div className="distribution-link muted">
-                  <PackageCheck size={16} />
-                  Windows app
-                  <span>Unsigned installer · public download pending</span>
-                </div>
+                <PlatformLinks openWeb={() => void task("Opening web app", async () => { await native?.openWebApp(); })} />
               </div>
               {cases.length > 0 && (
                 <div className="resume">
@@ -857,10 +856,10 @@ function App() {
                       <option value="live">Live · AMD endpoint</option>
                     </select>
                     {liveProtected && mode === "live" && !packet && <>
-                      <label className="field-label" htmlFor="live-demo-access">Demonstration access key</label>
+                      <label className="field-label" htmlFor="live-demo-access">Live access key</label>
                       <input id="live-demo-access" type="password" autoComplete="off" maxLength={200}
                         onChange={(e) => setLiveDemoToken(e.target.value)} disabled={!canWrite} />
-                      <p className="caption">Provided privately by the demo owner. Kept only in this page's memory.</p>
+                      <p className="caption">Provided privately by the workspace owner. Kept only in this page's memory.</p>
                     </>}
                     <button
                       className="button primary full"
@@ -1284,12 +1283,11 @@ function App() {
                               <Check size={25} />
                             </span>
                             <span className="eyebrow">
-                              SANDBOX EXECUTION RECEIPT
+                              EXECUTION RECEIPT
                             </span>
                             <h3>Holds applied. Evidence preserved.</h3>
                             <p>
-                              A real local database transaction updated sandbox
-                              inventory.
+                              The approved transaction updated this workspace’s inventory.
                             </p>
                             <dl>
                               <dt>Transaction</dt>
@@ -1321,13 +1319,12 @@ function App() {
                               ))}
                             </div>
                             <p className="caption">
-                              Sandbox only. No machinery, supplier communication
-                              or external inventory system was involved.
+                              Changes apply to this workspace only. No external inventory system or machinery is connected, and no supplier message was sent.
                             </p>
                           </article>
                         ))
                       ) : (
-                        <Empty text="A receipt exists only after an approved plan commits to the sandbox." />
+                        <Empty text="A receipt is created when an approved plan updates workspace inventory." />
                       )}
                     </section>
                   ) : result ? (
@@ -1398,7 +1395,7 @@ function App() {
                         Extract & review notice <ArrowRight size={16} />
                       </button>
                       <span className="caption">
-                        No stock has been held. Human review comes first.
+                        No stock has been held. Review the evidence before approving.
                       </span>
                     </div>
                   )}
@@ -1566,6 +1563,7 @@ function App() {
                               state.scope.lot_ids.join(", ")
                             : "Review the notice to create the first plan."}
                     </p>
+                    {!packet && <p className="execution-scope">Holds update this workspace’s inventory. No external inventory system is connected.</p>}
                   </div>
                 </div>
                 <div className="decision-actions">
@@ -1629,7 +1627,7 @@ function App() {
                       onClick={() => apply()}
                     >
                       <PackageCheck size={16} />
-                      Apply sandbox holds
+                      Apply holds
                     </button>
                   ) : (
                     <button
@@ -1655,7 +1653,7 @@ function App() {
               <footer className="page-footer">
                 <span>
                   <ShieldCheck size={13} />
-                  Synthetic data · bounded containment prototype
+                  {state.synthetic ? "Synthetic records" : "Imported evidence"}
                 </span>
                 <button
                   className="text-button"
@@ -1665,9 +1663,7 @@ function App() {
                   <RotateCcw size={12} />
                   New isolated incident
                 </button>
-                <span>
-                  BatchFence 0.1.1 · {native ? "Windows desktop" : "Web app"}
-                </span>
+                <div className="platform-actions"><PlatformLinks openWeb={() => void task("Opening web app", async () => { await native?.openWebApp(); })} /></div>
               </footer>
             </>
           )}

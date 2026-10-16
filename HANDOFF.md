@@ -1,3 +1,13 @@
+# Windows download and presentation update — 2026-10-17
+
+Version 0.1.2 is built and installed under D:\projects\BatchFence\work\installed-0.1.2. It connects to the hosted backend, supports protected Live access and recorded packets, and opens only the fixed web URL. The website has a real Windows download action; desktop has Open web app only. Redundant demo/version badges are removed; source provenance, temporary storage and workspace-only execution remain clear.
+
+Verified: 52 tests, 30 domain scenarios, 12 web workflows, seven installed hosted workflows, offline packet opening, platform actions and restricted IPC. One fresh installed-app AMD request produced unresolved candidate facts (16,314 ms); no review or receipt was performed for that additional run. Existing model-quality caveats remain. Reports and installer digest: docs/release-0.1.2/. No private values in the packaged app; installed payload matches the build.
+
+Next: publish v0.1.2 installer/checksums, deploy the matching website, verify public download bytes and final live UI. Installer is unsigned; native dialog selection remains stubbed in current automated acceptance. All hosting/resources remain free. Export packets to retain receipts.
+
+---
+
 # Free public deployment handoff — 2026-10-16
 
 **Ready for a free synthetic demonstration; not for durable production use.**

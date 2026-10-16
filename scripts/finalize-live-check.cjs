@@ -13,7 +13,7 @@ const root = path.resolve(__dirname,'..'), dir = path.join(root,'docs/live-verif
   const base='http://127.0.0.1:8787', route=base+'/api/cases/'+report.case_id;
   try {
     await page.goto(base);
-    await page.locator('.case-status').filter({hasText:'Applied to sandbox'}).waitFor();
+    await page.locator('.case-status').filter({hasText:'Holds applied'}).waitFor();
     const state=await (await context.request.get(route)).json();
     assert.equal(state.runs.length,2);
     assert(state.runs.every(r=>r.mode==='live'&&r.status==='succeeded'));
@@ -35,7 +35,7 @@ const root = path.resolve(__dirname,'..'), dir = path.join(root,'docs/live-verif
     assert.deepEqual(packet.case.receipts,state.receipts);
     await page.screenshot({path:path.join(dir,'02-sandbox-receipt.png'),fullPage:true});
     await page.reload();
-    await page.locator('.case-status').filter({hasText:'Applied to sandbox'}).waitFor();
+    await page.locator('.case-status').filter({hasText:'Holds applied'}).waitFor();
     const persisted=await (await context.request.get(route)).json();
     assert.deepEqual(persisted.receipts,state.receipts);
     final.refresh_persistence=true;

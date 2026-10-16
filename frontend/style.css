@@ -1481,7 +1481,7 @@ td small {
 .welcome-buttons {
   margin: 26px 0;
 }
-.welcome-copy .demo-note {
+.welcome-copy .source-note {
   font-size: 11px;
   color: #8b99a9;
   line-height: 1.7;
@@ -2320,3 +2320,8 @@ td small {
     scroll-behavior: auto !important;
   }
 }
+
+.distribution, .platform-actions { align-items: center; flex-wrap: wrap; gap: 16px; }
+.platform-actions { display: flex; }
+.execution-scope { max-width: 560px; }
+.page-footer { flex-wrap: wrap; gap: 16px; }

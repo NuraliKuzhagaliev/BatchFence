@@ -40,3 +40,13 @@ Remaining external gates: supported Docker/Windows repair then container test; i
 - Exact punctuation source rerun live; conservative 1,200 hold passed. No narrowing on unresolved scope. Eight cloud calls total; no further inference needed.
 - Public packets/import/isolation and visual evidence verified. Free ephemeral state loss verified on actual redeploy. Final evidence index and handoff complete; prepare source/evidence archives/checksums and verify final documentation publication.
 - Remaining human gates: independent operator review, export retention, exact native-dialog/distribution acceptance if required. No payment, upgrades or durable-cloud claim.
+
+
+## Web presentation and Windows download follow-up
+
+- Remove redundant demo/version/promotional labels while retaining actual data provenance, temporary-storage notice and workspace-only execution scope.
+- Website: real Windows download only. Desktop: open the hosted web app only; no self-download.
+- Build a new cloud-connected 0.1.2 installer; preserve older releases. Check protected access forwarding, fixed-origin links, session isolation, workflows and offline packets.
+- Publish the verified installer and checksums as a GitHub Release, deploy the web changes, inspect both surfaces and record remaining limits. All resources remain free.
+
+Milestone: UI changes built; 52 tests, 30 scenarios, 12 browser and seven installed checks passed. New installed app completed an additional genuine AMD extraction; raw output remains unresolved and saved. Offline and restricted-transport checks passed. Installer/checksums ready; publish release assets then deploy the matching interface.

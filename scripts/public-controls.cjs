@@ -17,7 +17,7 @@ async function main(){
   }
   assert(healthy,'Health must be ready before browser verification');
   await page.goto(base+'/workspace/review');
-  await page.getByRole('button',{name:'Load synthetic incident',exact:false}).waitFor();
+  await page.getByRole('button',{name:'Open example incident',exact:false}).waitFor();
   await page.reload();
   await page.getByRole('button',{name:'Open recorded AMD packet',exact:false}).waitFor();
   checks.push('Initial loading and internal-route refresh');
@@ -34,9 +34,9 @@ async function main(){
   await page.screenshot({path:path.join(out,local?'local-replay.png':'public-replay.png'),fullPage:true});
   checks.push('Historical AMD replay labeled; no approval/execution authority');
   await page.getByRole('button',{name:'Return to live desk',exact:true}).click();
-  await page.getByRole('button',{name:'Load synthetic incident',exact:false}).click();
+  await page.getByRole('button',{name:'Open example incident',exact:false}).click();
   await page.getByLabel('Run mode',{exact:true}).selectOption('live');
-  await page.getByLabel('Demonstration access key',{exact:true}).fill('deliberately-invalid-test-value');
+  await page.getByLabel('Live access key',{exact:true}).fill('deliberately-invalid-test-value');
   const deniedPending=page.waitForResponse(r=>r.url().endsWith('/analyze')&&r.request().method()==='POST');
   await page.getByRole('button',{name:'Extract selected notice',exact:true}).click();
   const denied=await deniedPending; const detail=(await denied.json()).detail;
@@ -44,7 +44,7 @@ async function main(){
   assert(['LIVE_PROTECTED','LIVE_UNAVAILABLE'].includes(detail.code));
   await page.getByRole('alert').filter({hasText:detail.message}).waitFor();
   const health=await (await context.request.get(base+'/api/health')).json();
-  if(health.storage_mode==='ephemeral') await page.getByRole('note').filter({hasText:'Free demo · temporary storage'}).waitFor();
+  if(health.storage_mode==='ephemeral') await page.getByRole('note').filter({hasText:'Temporary storage'}).waitFor();
   const id=await page.evaluate(()=>localStorage.getItem('bf.case'));
   const state=await (await context.request.get(base+'/api/cases/'+id)).json();
   assert.equal(state.runs.length,0);

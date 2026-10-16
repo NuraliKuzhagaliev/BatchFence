@@ -144,10 +144,12 @@ export type Upload = {
 };
 export type Bridge = {
   platform: string;
+  openWebApp: () => Promise<void>;
   request: (
     method: "GET" | "POST",
     route: string,
     body?: unknown,
+    accessToken?: string,
   ) => Promise<unknown>;
   chooseFiles: () => Promise<Upload[]>;
   savePacket: (p: Packet) => Promise<boolean>;

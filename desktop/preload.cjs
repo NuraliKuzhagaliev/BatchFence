@@ -2,8 +2,9 @@ const { contextBridge, ipcRenderer } = require("electron");
 contextBridge.exposeInMainWorld(
   "batchfence",
   Object.freeze({
-    request: (method, route, body) =>
-      ipcRenderer.invoke("bf:request", method, route, body),
+    request: (method, route, body, accessToken) =>
+      ipcRenderer.invoke("bf:request", method, route, body, accessToken),
+    openWebApp: () => ipcRenderer.invoke("bf:openWebApp"),
     chooseFiles: () => ipcRenderer.invoke("bf:chooseFiles"),
     savePacket: (packet) => ipcRenderer.invoke("bf:savePacket", packet),
     openPacket: () => ipcRenderer.invoke("bf:openPacket"),

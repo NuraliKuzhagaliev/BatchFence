@@ -3,7 +3,9 @@ const fs = require("node:fs/promises"),
   path = require("node:path"),
   assert = require("node:assert/strict");
 const root = path.resolve(__dirname, "..");
+const out = process.env.BATCHFENCE_DESKTOP_REPORT_DIR || path.join(root, "docs");
 (async () => {
+  await fs.mkdir(path.join(out, "screenshots"), {recursive:true});
   const app = await electron.launch({
     executablePath: process.env.BATCHFENCE_TEST_EXE || path.join(root, "work/installed/BatchFence.exe"),
     env: {
@@ -17,7 +19,7 @@ const root = path.resolve(__dirname, "..");
   await page.getByText("Backend offline", { exact: true }).waitFor();
   assert.equal(
     await page
-      .getByRole("button", { name: "Load synthetic incident", exact: false })
+      .getByRole("button", { name: "Open example incident", exact: false })
       .isEnabled(),
     false,
   );
@@ -56,11 +58,11 @@ const root = path.resolve(__dirname, "..");
     .getByRole("heading", { name: "Holds applied. Evidence preserved." })
     .waitFor();
   await page.screenshot({
-    path: path.join(root, "docs/screenshots/13-installed-desktop-offline.png"),
+    path: path.join(out, "screenshots/13-installed-desktop-offline.png"),
     fullPage: true,
   });
   await fs.writeFile(
-    path.join(root, "docs/desktop-offline-results.json"),
+    path.join(out, "desktop-offline-results.json"),
     JSON.stringify(
       {
         at: new Date().toISOString(),

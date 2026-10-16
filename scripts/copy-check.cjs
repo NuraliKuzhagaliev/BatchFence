@@ -5,7 +5,7 @@ const root=path.resolve(__dirname,'..');let app;
  app=web?await chromium.launch({channel:'msedge',headless:true}):await electron.launch({executablePath:path.join(root,'work/installed/BatchFence.exe'),env:{...process.env,BATCHFENCE_USER_DATA:path.join(root,'work/copy-check-profile')}});
  const page=web?await app.newPage():await app.firstWindow();
  if(web)await page.goto('http://127.0.0.1:8787/');
- await page.getByRole('button',{name:'Load synthetic incident',exact:false}).click();
+ await page.getByRole('button',{name:'Open example incident',exact:false}).click();
  await page.getByLabel('Run mode',{exact:true}).selectOption('fixture');
  await page.getByRole('button',{name:'Extract selected notice',exact:true}).click();
  await require('./review-controls.cjs').fixture(page,['SUP-A']);

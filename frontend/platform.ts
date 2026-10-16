@@ -12,7 +12,7 @@ export async function request<T>(
   route: string,
   body?: unknown,
 ): Promise<T> {
-  if (native) return (await native.request(method, route, body)) as T;
+  if (native) return (await native.request(method, route, body, route.endsWith("/analyze") ? liveDemoToken : undefined)) as T;
   const response = await fetch(route, {
     method,
     credentials: "same-origin",

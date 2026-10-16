@@ -1,0 +1,16 @@
+{
+  "version": "0.1.2",
+  "installer": "BatchFence-0.1.2-win-x64-setup.exe",
+  "bytes": 113769527,
+  "sha256": "fdadf6f10ee57dd400cd8c67b5ac28d27321cad217f0be5688737a026a9e168c",
+  "backend_origin": "https://batchfence.onrender.com",
+  "download_url": "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.1.2/BatchFence-0.1.2-win-x64-setup.exe",
+  "release_url": "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.1.2",
+  "signing": "Unsigned; Get-AuthenticodeSignature returned NotSigned",
+  "installer_exit_code": 0,
+  "installed_payload_matches_build": true,
+  "known_private_values_in_asar": false,
+  "dialog_acceptance": "Automated selectors stub native dialogs; actual OS dialogs not reaccepted for this exact build",
+  "storage": "Hosted SQLite is ephemeral; export packets",
+  "distribution_status": "Prepared; publication verified separately"
+}

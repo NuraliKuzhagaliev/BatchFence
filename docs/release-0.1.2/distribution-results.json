@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-16T19:06:50.801Z",
+  "checks": [
+    "Web: download action only, retired labels absent, mobile layout within viewport",
+    "Installed desktop: no download, Open web app reaches fixed HTTPS shell target (launch intercepted)",
+    "Installed desktop reads hosted historical AMD packet through restricted transport",
+    "Installed desktop rejects wrong live key before inference; restricted URLs, methods and malformed tokens denied",
+    "Installed desktop forwards private access token; actual cloud AMD response populates unresolved source-backed candidates"
+  ],
+  "errors": [],
+  "security": {
+    "denied": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "node": "undefined",
+    "rawIpc": "undefined"
+  },
+  "live": {
+    "mode": "live",
+    "status": "succeeded",
+    "model_id": "self-dploy/MiMo-V2.6-Flash",
+    "elapsed_ms": 16314,
+    "review": "Not performed; actual response drives unresolved candidate facts only",
+    "receipt": false
+  },
+  "native_dialogs": "Not exercised by this check; other installed tests use dialog stubs."
+}

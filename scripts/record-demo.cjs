@@ -13,9 +13,9 @@ async function main(){
  const hold=async(seconds,caption)=>{chapters.push({seconds:Math.floor((Date.now()-began)/1000),caption});await page.waitForTimeout(seconds*1000)};
  const click=async name=>page.getByRole('button',{name,exact:true}).click();
  await page.goto('http://127.0.0.1:8787/');
- await page.getByRole('button',{name:'Load synthetic incident',exact:false}).waitFor();
+ await page.getByRole('button',{name:'Open example incident',exact:false}).waitFor();
  await hold(7,'Local BatchFence prototype. All records are synthetic. Live AMD verification is pending.');
- await page.getByRole('button',{name:'Load synthetic incident',exact:false}).click();
+ await page.getByRole('button',{name:'Open example incident',exact:false}).click();
  await page.getByLabel('Run mode',{exact:true}).selectOption('fixture');
  await click('Extract selected notice');
  await page.getByRole('heading',{name:'Confirm the affected supplier lots.'}).waitFor();
@@ -49,7 +49,7 @@ async function main(){
  await hold(9,'Reviewed SUP-C adds the 300-unit FG-D branch. The exact new plan holds 800 units.');
  await page.getByRole('tab',{name:'Revisions',exact:true}).click();
  await hold(6,'The timeline preserves prior and revised scope and the 500-to-800 quantity change.');
- await click('Approve exact plan');await click('Apply sandbox holds');
+ await click('Approve exact plan');await click('Apply holds');
  await page.getByRole('heading',{name:'Holds applied. Evidence preserved.'}).waitFor();
  await hold(9,'A real SQLite transaction updates sandbox inventory and writes a receipt. No external machinery or inventory system is connected.');
  const downloadEvent=page.waitForEvent('download');await click('Export packet');const download=await downloadEvent;

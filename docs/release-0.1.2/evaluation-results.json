@@ -1,0 +1,518 @@
+{
+  "kind": "Synthetic deterministic domain evaluation; no model inference",
+  "cases": 30,
+  "passed": 30,
+  "dev": {
+    "total": 18,
+    "passed": 18
+  },
+  "held_out": {
+    "total": 12,
+    "passed": 12
+  },
+  "documented_stock_truth_denominator": 29,
+  "missed_documented_stock": 0,
+  "wrong_outside_classifications": 0,
+  "raw_model_extraction": "Not part of this deterministic evaluation; see separate live AMD evidence.",
+  "records": [
+    {
+      "id": "clean-one",
+      "split": "dev",
+      "sha256": "ef19a703485ccded6d84d1fa3b9c75d01f874c21448c229d0f0c2b80f0d2453f",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1"
+        ],
+        "uncertain": [],
+        "outside": [
+          "P2",
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.819
+    },
+    {
+      "id": "clean-two",
+      "split": "dev",
+      "sha256": "362325d71f4fe3eb616307ea59e7f3b4533b250412a833153ff7bb0a6fe44754",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P2"
+        ],
+        "uncertain": [],
+        "outside": [
+          "P1",
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.087
+    },
+    {
+      "id": "clean-three",
+      "split": "dev",
+      "sha256": "fd99c4034119d79f6f2bb5b2b6e3a912cb35d97a450276796ab61e86e8b4c8e0",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P3"
+        ],
+        "uncertain": [],
+        "outside": [
+          "P1",
+          "P2"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.074
+    },
+    {
+      "id": "clean-shipped",
+      "split": "test",
+      "sha256": "75b42d45cfa5db9e85adf00f1e96201bd07e7a8a031c5b70ce199cea3f2031eb",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1"
+        ],
+        "uncertain": [],
+        "outside": [
+          "P2",
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.07
+    },
+    {
+      "id": "clean-all",
+      "split": "test",
+      "sha256": "3412e0ffc29376f11aaed727ad471b84def69137760cd0d59672273b01a5fed5",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1",
+          "P2",
+          "P3"
+        ],
+        "uncertain": [],
+        "outside": []
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.076
+    },
+    {
+      "id": "merge-whole",
+      "split": "dev",
+      "sha256": "bf47b1e90d98e68ed26b4f31187f97b91affec4c560276e116b07336babd9874",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1",
+          "P2"
+        ],
+        "uncertain": [],
+        "outside": [
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.104
+    },
+    {
+      "id": "merge-two-seeds",
+      "split": "dev",
+      "sha256": "4d5659b13f3061caa2eca629a2ce56863504fdebe2c5746b919c9be5ebe2be26",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1",
+          "P3"
+        ],
+        "uncertain": [],
+        "outside": [
+          "P2"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.083
+    },
+    {
+      "id": "merge-possible",
+      "split": "dev",
+      "sha256": "f8cdb49e7daad24a15642217d1eb7c349191c17df880d81e07e17c0d8e7b3fa9",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1"
+        ],
+        "uncertain": [
+          "P3"
+        ],
+        "outside": [
+          "P2"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.09
+    },
+    {
+      "id": "merge-duplicate",
+      "split": "test",
+      "sha256": "57b79ab762e62997431bcf36b3d741432b4a032d5a0f4910f87303f01e329a28",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1"
+        ],
+        "uncertain": [],
+        "outside": [
+          "P2",
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.096
+    },
+    {
+      "id": "merge-precedence",
+      "split": "test",
+      "sha256": "fbb1d50959208d82dc8b72fc752870095eca47735ef8e01b0d37d2f96af02665",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1",
+          "P2"
+        ],
+        "uncertain": [],
+        "outside": [
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.083
+    },
+    {
+      "id": "rework-split",
+      "split": "dev",
+      "sha256": "bf2781170d2bcdcc89290bfafca8244855365c9260c0073137f071055f0f8add",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1",
+          "P2"
+        ],
+        "uncertain": [],
+        "outside": [
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.077
+    },
+    {
+      "id": "rework-uncertain-event",
+      "split": "dev",
+      "sha256": "ab269d91fa3b7cd42fdceb3519258b54f25c64a6d62ba15667ad33ca9771eb39",
+      "passed": true,
+      "actual": {
+        "documented": [],
+        "uncertain": [
+          "P1",
+          "P2"
+        ],
+        "outside": [
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.08
+    },
+    {
+      "id": "rework-versioned",
+      "split": "dev",
+      "sha256": "f6f06225adeb958bcb682768174a86fe53e4700fc44f08fabd867dfd10a1c9f6",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1"
+        ],
+        "uncertain": [],
+        "outside": [
+          "P2",
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.078
+    },
+    {
+      "id": "rework-diamond",
+      "split": "test",
+      "sha256": "548b9f9a5d00f3dbd1ddce27fb43fcf7c5cffeb80370a78da52fed1499658e92",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1"
+        ],
+        "uncertain": [],
+        "outside": [
+          "P2",
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.092
+    },
+    {
+      "id": "rework-mixed",
+      "split": "test",
+      "sha256": "b0c4ed3b01de11368fe79c9c35b6d50495117a1c8789877e02a37aedd6eb9c99",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1"
+        ],
+        "uncertain": [
+          "P2"
+        ],
+        "outside": [
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.103
+    },
+    {
+      "id": "missing-no-receipt",
+      "split": "dev",
+      "sha256": "0def1dacda0a108518b17383c1dc9d017842b263da098575a47584bcb688ee37",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1"
+        ],
+        "uncertain": [
+          "P2"
+        ],
+        "outside": [
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.149
+    },
+    {
+      "id": "missing-no-edges",
+      "split": "dev",
+      "sha256": "28340be52199a5ced7fe7089e699a301ee5e8fb3a041584158a1ee722dea767b",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1"
+        ],
+        "uncertain": [
+          "P2",
+          "P3"
+        ],
+        "outside": []
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.06
+    },
+    {
+      "id": "missing-conflicting",
+      "split": "dev",
+      "sha256": "7e7a5efeb411e832fd027c947dcf2898833fef77b374c5be2f5bed4a1db3afab",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1"
+        ],
+        "uncertain": [
+          "P2"
+        ],
+        "outside": [
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.082
+    },
+    {
+      "id": "missing-disconnected-unknown",
+      "split": "test",
+      "sha256": "4fe8de4c335c3232d4a0a6c39b246892dbafd6412ba14198c4dcdf8f74607432",
+      "passed": true,
+      "actual": {
+        "documented": [],
+        "uncertain": [
+          "P1",
+          "P2",
+          "P3"
+        ],
+        "outside": []
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.078
+    },
+    {
+      "id": "missing-combined",
+      "split": "test",
+      "sha256": "e152e02f1218119521c86a6ac5942515f4bb697108e3aaeb73c485bb3551561e",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1"
+        ],
+        "uncertain": [
+          "P2",
+          "P3"
+        ],
+        "outside": []
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.082
+    },
+    {
+      "id": "adversarial-cycle",
+      "split": "dev",
+      "sha256": "fceae2f646b781851ccce464f6419b98455968bcc09e2c3bcfb640453ff7cb11",
+      "passed": true,
+      "actual": null,
+      "detail": "Lineage cycle; model rework with versioned event nodes",
+      "domain_elapsed_ms": 0.026
+    },
+    {
+      "id": "adversarial-dangling",
+      "split": "dev",
+      "sha256": "ebc31f51e25fc1ae0c2ded4ecbc21a39a52467a4baf9a86e9efaed4f0dd1cb4a",
+      "passed": true,
+      "actual": null,
+      "detail": "Dangling lineage target",
+      "domain_elapsed_ms": 0.018
+    },
+    {
+      "id": "adversarial-invalid-kind",
+      "split": "dev",
+      "sha256": "f58a939ef5928c52b466d13d12e430898fa6e2fc480fb8caa9f7a051d70ec595",
+      "passed": true,
+      "actual": null,
+      "detail": "Invalid lineage certainty",
+      "domain_elapsed_ms": 0.017
+    },
+    {
+      "id": "adversarial-terminal-reused",
+      "split": "test",
+      "sha256": "b51cc5dc6a4705fafd19a80afa4a263b50a416a5f0da7a9b1f87b1fc9c44dd75",
+      "passed": true,
+      "actual": null,
+      "detail": "Current terminal inventory cannot be a component",
+      "domain_elapsed_ms": 0.018
+    },
+    {
+      "id": "adversarial-negative",
+      "split": "test",
+      "sha256": "aa28c6be2645fb6376b9c461af1a48beb4843b3f1dd7b3ce05559ee7719d311a",
+      "passed": true,
+      "actual": null,
+      "detail": "Discrete stock and cents must be nonnegative integers",
+      "domain_elapsed_ms": 0.011
+    },
+    {
+      "id": "revision-expand",
+      "split": "dev",
+      "sha256": "24acc04ee408bc1869c75f7f91b72214c4e2a50016ab53daddae309331356f86",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1"
+        ],
+        "uncertain": [],
+        "outside": [
+          "P2",
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.148
+    },
+    {
+      "id": "revision-possible",
+      "split": "dev",
+      "sha256": "5ee17b459c088ee4d153b95c8483129a3bd511c55eb6bea4969dae5e62a86a82",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1"
+        ],
+        "uncertain": [
+          "P2"
+        ],
+        "outside": [
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.159
+    },
+    {
+      "id": "revision-supersede",
+      "split": "dev",
+      "sha256": "3d2796596007e979c4afe8c4c289ff20c8cb788ee867bfab0a47d3a2d14adec2",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1"
+        ],
+        "uncertain": [],
+        "outside": [
+          "P2",
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.266
+    },
+    {
+      "id": "revision-merge-expand",
+      "split": "test",
+      "sha256": "996373ea36fba6466d4b9bd66d6fea67a262c0d00082cc3c8ad430c98da80f8f",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1"
+        ],
+        "uncertain": [],
+        "outside": [
+          "P2",
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.129
+    },
+    {
+      "id": "revision-split-expand",
+      "split": "test",
+      "sha256": "91da9bf63a852305b8d9475ba9467c310b2e5861b634760552dff8e858c6299f",
+      "passed": true,
+      "actual": {
+        "documented": [
+          "P1"
+        ],
+        "uncertain": [
+          "P2"
+        ],
+        "outside": [
+          "P3"
+        ]
+      },
+      "detail": "Exact classification and accounting",
+      "domain_elapsed_ms": 0.134
+    }
+  ]
+}

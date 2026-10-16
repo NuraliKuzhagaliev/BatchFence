@@ -49,9 +49,9 @@ def inference_access(mode, supplied_token):
     expected = os.getenv('LIVE_DEMO_TOKEN', '')
     if public_demo() or expected:
         if len(expected) < 32:
-            error('LIVE_UNAVAILABLE', 'Protected live demonstration is not configured. Use Synthetic or open a historical packet.', 503)
+            error('LIVE_UNAVAILABLE', 'Protected live access is not configured. Use Synthetic or open a historical packet.', 503)
         if not supplied_token or not secrets.compare_digest(supplied_token, expected):
-            error('LIVE_PROTECTED', 'A demonstration access key is required for live AMD inference.', 403)
+            error('LIVE_PROTECTED', 'A live access key is required for live AMD inference.', 403)
     if not live_slot.acquire(blocking=False):
         error('LIVE_BUSY', 'Another live request is running. Wait for it to finish before retrying.')
     try:

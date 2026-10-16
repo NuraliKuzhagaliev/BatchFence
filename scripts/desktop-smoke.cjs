@@ -5,7 +5,9 @@ const fs = require("node:fs/promises");
 const path = require("node:path");
 const assert = require("node:assert/strict");
 const root = path.resolve(__dirname, "..");
+const out = process.env.BATCHFENCE_DESKTOP_REPORT_DIR || path.join(root, "docs");
 async function main() {
+  await fs.mkdir(path.join(out, "screenshots"), {recursive:true});
   const app = await electron.launch({
     executablePath: process.env.BATCHFENCE_TEST_EXE || path.join(root, "work/installed/BatchFence.exe"),
     env: {
@@ -19,10 +21,10 @@ async function main() {
   page.on("pageerror", (e) => errors.push(e.message));
   const checks = [];
   await page
-    .getByRole("button", { name: "Load synthetic incident", exact: false })
+    .getByRole("button", { name: "Open example incident", exact: false })
     .waitFor();
   await page
-    .getByRole("button", { name: "Load synthetic incident", exact: false })
+    .getByRole("button", { name: "Open example incident", exact: false })
     .click();
   await page.getByLabel('Run mode', {exact:true}).selectOption('fixture');
   await page
@@ -74,12 +76,12 @@ async function main() {
     .getByRole("button", { name: "Approve exact plan", exact: true })
     .click();
   await page
-    .getByRole("button", { name: "Apply sandbox holds", exact: true })
+    .getByRole("button", { name: "Apply holds", exact: true })
     .click();
   await page
     .getByRole("heading", { name: "Holds applied. Evidence preserved." })
     .waitFor();
-  const nativePacket = path.join(root, "docs/desktop-decision-packet.json");
+  const nativePacket = path.join(out, "desktop-decision-packet.json");
   await app.evaluate(({ dialog }, dest) => {
     dialog.showSaveDialog = async () => ({ canceled: false, filePath: dest });
   }, nativePacket);
@@ -186,7 +188,7 @@ async function main() {
   );
   assert.equal(
     await page
-      .getByRole("button", { name: "Apply sandbox holds", exact: true })
+      .getByRole("button", { name: "Apply holds", exact: true })
       .count(),
     0,
   );
@@ -194,7 +196,7 @@ async function main() {
     BrowserWindow.getAllWindows()[0].getBounds(),
   );
   await page.screenshot({
-    path: path.join(root, "docs/screenshots/12-installed-desktop-packet.png"),
+    path: path.join(out, "screenshots/12-installed-desktop-packet.png"),
     fullPage: true,
   });
   checks.push(
@@ -222,7 +224,7 @@ async function main() {
     exe: app.getPath("exe"),
   }));
   await fs.writeFile(
-    path.join(root, "docs/desktop-results.json"),
+    path.join(out, "desktop-results.json"),
     JSON.stringify(
       {
         at: new Date().toISOString(),

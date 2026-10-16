@@ -7,12 +7,13 @@ const {
   net,
   session,
   clipboard,
+  shell,
 } = require("electron");
 const path = require("node:path");
 const fs = require("node:fs/promises");
 const { pathToFileURL } = require("node:url");
 const { validatePacket } = require("./packet.cjs");
-// Local distribution until authorized HTTPS hosting is configured. Never accepts a renderer-provided origin.
+// Fixed backend origin; the renderer cannot select endpoints or external URLs.
 const origin = process.env.BATCHFENCE_BACKEND_ORIGIN || require("./backend-origin.json").origin;
 const url = new URL(origin);
 if (
@@ -42,7 +43,7 @@ protocol.registerSchemesAsPrivileged([
 let win,
   capability = "";
 const apiPattern =
-  /^\/api\/(?:health|cases(?:\/(?:demo|import|[a-f0-9]{32}(?:\/(?:documents|revision|analyze|reviews|approve|apply|export))?))?)$/;
+  /^\/api\/(?:health|replay|cases(?:\/(?:demo|import|[a-f0-9]{32}(?:\/(?:documents|revision|analyze|reviews|approve|apply|export))?))?)$/;
 function sender(event) {
   if (
     !win ||
@@ -79,12 +80,18 @@ app.whenReady().then(() => {
       return new Response("Denied", { status: 403 });
     return net.fetch(pathToFileURL(target).href);
   });
-  ipcMain.handle("bf:request", async (event, method, route, body) => {
+  ipcMain.handle("bf:openWebApp", async (event) => {
+    sender(event);
+    await shell.openExternal("https://batchfence.onrender.com");
+  });
+  ipcMain.handle("bf:request", async (event, method, route, body, accessToken) => {
     sender(event);
     if (
       !["GET", "POST"].includes(method) ||
       typeof route !== "string" ||
       !apiPattern.test(route) ||
+      (route === "/api/replay" && method !== "GET") ||
+      (accessToken !== undefined && (typeof accessToken !== "string" || accessToken.length > 200 || /[\r\n]/.test(accessToken))) ||
       (method === "GET" && body !== undefined) ||
       JSON.stringify(body || {}).length > 8000000
     )
@@ -97,6 +104,7 @@ app.whenReady().then(() => {
         "Content-Type": "application/json",
         "X-BF-Client": "desktop",
         ...(capability ? { "X-BF-Session": capability } : {}),
+        ...(method === "POST" && route.endsWith("/analyze") && accessToken ? { "X-BF-Demo-Token": accessToken } : {}),
       },
       ...(method === "POST" ? { body: JSON.stringify(body || {}) } : {}),
     });

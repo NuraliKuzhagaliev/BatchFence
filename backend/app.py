@@ -27,7 +27,7 @@ from .public_demo import public_demo, limiter, inference_access
 from .review_safety import REVIEW_POLICY_VERSION, mentions, scope_concerns, resolution_evidence
 
 load_dotenv(ROOT / '.env')
-app = FastAPI(title='BatchFence', version='0.1.1')
+app = FastAPI(title='BatchFence', version='0.1.2')
 DB = Path((os.getenv('DATABASE_PATH') or str(ROOT / 'work/batchfence.sqlite3')))
 DB.parent.mkdir(parents=True, exist_ok=True)
 ORIGIN = os.getenv('APP_ORIGIN') or os.getenv('RENDER_EXTERNAL_URL') or 'http://127.0.0.1:8787'
@@ -84,7 +84,7 @@ async def protection(request: Request, call_next):
             secret = secrets.token_urlsafe(32)
         request.state.owner = hashlib.sha256(secret.encode()).hexdigest()
         if public_demo() and request.url.path != '/api/health' and not limiter.allow(request.state.owner):
-            return JSONResponse({'detail': {'code': 'RATE_LIMIT', 'message': 'Demo request limit reached. Retry in one minute.'}}, 429, headers={'Retry-After': '60'})
+            return JSONResponse({'detail': {'code': 'RATE_LIMIT', 'message': 'Request limit reached. Retry in one minute.'}}, 429, headers={'Retry-After': '60'})
         if request.method not in ('GET', 'HEAD', 'OPTIONS'):
             limit = 8_000_000
             try:
@@ -157,7 +157,7 @@ def insert(state, owner):
     with connect() as db:
         db.execute('BEGIN IMMEDIATE')
         if public_demo() and db.execute('SELECT count(*) FROM cases').fetchone()[0] >= int((os.getenv('MAX_STORED_CASES') or '60')):
-            fail('DEMO_CAPACITY', 'Public demo storage is full. Historical packets remain available; contact the demo owner.', 429)
+            fail('DEMO_CAPACITY', 'Workspace storage capacity is reached. Exported packets remain available; contact the workspace owner.', 429)
         if db.execute('SELECT count(*) FROM cases WHERE owner=?', (owner,)).fetchone()[0] >= 12:
             fail('CASE_LIMIT', 'Session limit: 12 cases', 429)
         db.execute('INSERT INTO cases VALUES(?,?,?)', (state['id'], owner, json.dumps(state)))
@@ -261,7 +261,7 @@ def health():
             raise sqlite3.DatabaseError()
     except (sqlite3.Error, OSError):
         return JSONResponse({'status': 'unavailable', 'database': 'unavailable'}, 503)
-    return {'status': 'ok', 'database': 'ready', 'version': '0.1.1',
+    return {'status': 'ok', 'database': 'ready', 'version': '0.1.2',
             'commit': os.getenv('RENDER_GIT_COMMIT', 'local'),
             'inference_mode': (os.getenv('INFERENCE_MODE') or 'fixture'),
             'amd_configured': all(os.getenv(k) for k in ['AMD_API_BASE_URL', 'AMD_API_KEY', 'AMD_MODEL_ID', 'AMD_PROVIDER_EVIDENCE']),
