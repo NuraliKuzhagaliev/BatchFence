@@ -47,3 +47,15 @@ def test_negative_only_proposal_and_rejected_citation_audit(monkeypatch, support
     else:
         assert result['status'] == 'failed' and result['rejected_output'] == raw
         assert 'output' not in result
+
+
+def test_actual_public_context_citations_remain_rejected():
+    import json
+    from backend.fixtures import ROOT
+    report = json.loads((ROOT/'docs/cloud/live/browser-results.json').read_text(encoding='utf-8'))
+    stage = report['stages'][1]
+    with pytest.raises(ValueError, match='Lot identifier absent from cited quote'):
+        validate_output(stage['raw_run']['rejected_output'], [stage['source']])
+    retry = json.loads((ROOT/'docs/cloud/live/retry-stage2.json').read_text(encoding='utf-8'))
+    with pytest.raises(ValueError, match='Lot identifier absent from cited quote'):
+        validate_output(retry['raw_run']['rejected_output'], [retry['source']])
