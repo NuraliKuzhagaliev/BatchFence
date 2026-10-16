@@ -1,0 +1,2 @@
+SYNTHETIC policy CONTAIN-1 | Revision 1
+Hold all on-site documented and possible descendants. Unknown ancestry remains uncertain. Shipped stock creates shipment review. Never automatically release existing holds. Approval binds exact evidence, inventory, policy and actions.

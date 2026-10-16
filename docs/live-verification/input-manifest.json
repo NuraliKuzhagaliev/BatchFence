@@ -1,0 +1,57 @@
+{
+  "frozen_at": "2026-10-16T08:28:11.778334+00:00",
+  "synthetic": true,
+  "uploaded_filename_for_both": "supplier-message.txt",
+  "purpose": "Two live model responses must drive reviewed plans and real sandbox receipts; no fixture-parser execution.",
+  "lot_mapping": {
+    "SUP-A": "MC-7421-X",
+    "SUP-B": "RZ-2650",
+    "SUP-C": "BZ-9187",
+    "SUP-D": "PQ-4806",
+    "SUP-E": "NX-6130-Z"
+  },
+  "cases": [
+    {
+      "file": "fresh-notice.txt",
+      "sha256": "69a0fc66b1ae602a1419f9f95a1a4f597cd058d911b305a835f2cc445306a6c4",
+      "affected_lots": [
+        "MC-7421-X"
+      ],
+      "explicitly_not_affected": [
+        "NX-6130-Z"
+      ],
+      "documented_units": 400,
+      "uncertain_units": 100,
+      "hold_units": 500,
+      "outside_units": 700,
+      "hold_cents": 2000000,
+      "hold_pools": [
+        "FG-A",
+        "FG-B",
+        "FG-C"
+      ]
+    },
+    {
+      "file": "revised-notice.txt",
+      "sha256": "55be394ec3976b640f1c9a4aa448b8d9c0cbfaaffea5b88c27337352a60b01c4",
+      "affected_lots": [
+        "BZ-9187",
+        "MC-7421-X"
+      ],
+      "explicitly_not_affected": [
+        "NX-6130-Z"
+      ],
+      "documented_units": 700,
+      "uncertain_units": 100,
+      "hold_units": 800,
+      "outside_units": 400,
+      "hold_cents": 3200000,
+      "hold_pools": [
+        "FG-A",
+        "FG-B",
+        "FG-C",
+        "FG-D"
+      ]
+    }
+  ]
+}

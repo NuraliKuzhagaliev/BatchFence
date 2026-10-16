@@ -19,9 +19,9 @@ SHA-256 is finalized in releases/SHA256SUMS.txt and release-manifest.json after 
 - Device-scale overrides 1.0/1.25 passed in the installed app, with no horizontal overflow. These are renderer-scale tests; OS display settings were unchanged.
 - Packet promotion strips prior action authority; offline approve/apply remain unavailable.
 
-Actual Windows open/save dialog selection remains **unverified**. Automated native file tests supplied dialog results, then executed real file reads/writes and validation. Earlier Windows UI automation encountered desktop activity/minimization. No dialog test is represented as manual acceptance.
+Follow-up 2026-10-16: actual Windows evidence selection, Save decision packet and Open offline decision packet all completed without dialog stubs. The reopened packet was read-only. Computer-use input operated the real dialogs; this is not an independent human acceptance study. See live-verification/native-dialog-results.json and native-import.png/native-reopened.png. An initial test selector failed after successful import and is preserved separately.
 
-## Remaining manual check
+## Reproduce the actual dialog check
 
 Open the installed app. Use Add evidence to select one provided TXT/CSV/text-PDF fixture through the real OS dialog. Export a JSON packet through Save, then reopen it through Open packet. Confirm source text and read-only state. Keep the save location on D:.
 

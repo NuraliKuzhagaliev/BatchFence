@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-16T08:43:29.836594+00:00",
+  "status": "passed",
+  "case_id": "fefa2a8879bc4c25a3255401ba6dc323",
+  "method": "Actual owned uvicorn process stopped and relaunched; same private browser-session capability fetched identical runs, stock and receipts.",
+  "receipt_ids": [
+    "TX-4e1ba674d3624fdd845efb5afea0b6a3",
+    "TX-cb299057cde940038a42ccec0c4d8fe0"
+  ],
+  "held_units": 800,
+  "additional_model_calls": 0,
+  "health": {
+    "status": "ok",
+    "version": "0.1.0",
+    "inference_mode": "live",
+    "amd_configured": true,
+    "desktop_distribution": "Local unsigned installer; publication pending"
+  }
+}

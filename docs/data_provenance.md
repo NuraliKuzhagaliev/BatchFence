@@ -11,3 +11,7 @@ This is a single-author synthetic check, not independently audited industrial gr
 The adversarial bucket tests malformed graph/record integrity. Prompt injection and citation rejection are separate provider tests. The 30-case domain evaluation must not be described as 30 live narrative-extraction tests.
 
 System fonts are used. Product screenshots depict this actual local application. No customer logos, awards, endorsements or measured customer ROI are claimed.
+
+## Live follow-up inputs
+
+The fresh/revised notices and renamed genealogy were frozen under live-verification before any workflow inference. They are synthetic; genuine AMD served the model. Both were uploaded as supplier-message.txt with changed batch IDs/wording. The normal upload path labels files as uploaded (synthetic=false); their source text, containing case, frozen manifest and reports explicitly identify this test data as synthetic. Do not interpret that upload metadata as customer provenance. No prompt/schema/provider code was tuned after seeing these responses. Review was performed by Codex as test operator, not an independent person.

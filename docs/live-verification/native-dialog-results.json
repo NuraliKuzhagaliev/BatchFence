@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-16T08:41:20.247Z",
+  "status": "passed",
+  "dialog_stubs": false,
+  "checks": [
+    "actual OS evidence selection",
+    "actual OS save",
+    "actual OS reopen",
+    "read-only historical packet"
+  ],
+  "source": "fixtures/demo/supplier_notice_v2.txt",
+  "saved_packet": "work/native-dialog-packet.json",
+  "inference_calls": 0
+}

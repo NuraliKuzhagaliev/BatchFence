@@ -1,0 +1,7 @@
+{
+  "at": "2026-10-16T08:39:02.524Z",
+  "status": "blocked",
+  "dialog_stubs": false,
+  "error": "locator.waitFor: Error: strict mode violation: getByRole('heading', { name: 'supplier_notice_v2.txt', exact: true }) resolved to 2 elements:\n    1) <h3>supplier_notice_v2.txt</h3> aka locator('section').filter({ hasText: 'Source recordsSelect stock to' }).locator('h3')\n    2) <h3>supplier_notice_v2.txt</h3> aka getByRole('complementary').filter({ hasText: 'Source inspectorSELECTED' }).locator('h3')\n\nCall log:\n\u001b[2m  - waiting for getByRole('heading', { name: 'supplier_notice_v2.txt', exact: true }) to be visible\u001b[22m\n",
+  "inference_calls": 0
+}

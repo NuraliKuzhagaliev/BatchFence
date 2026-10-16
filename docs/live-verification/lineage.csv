@@ -1,0 +1,8 @@
+row_id,source,target,kind,revision,timestamp
+LIN-1,MC-7421-X,FG-A,confirmed,1,2026-10-15T12:00:00Z
+LIN-2,MC-7421-X,FG-B,confirmed,1,2026-10-15T12:00:00Z
+LIN-3,MC-7421-X,FG-C,possible,1,2026-10-15T12:00:00Z
+LIN-4,RZ-2650,FG-C,possible,1,2026-10-15T12:00:00Z
+LIN-5,BZ-9187,FG-D,confirmed,1,2026-10-15T12:00:00Z
+LIN-6,PQ-4806,FG-E,confirmed,1,2026-10-15T12:00:00Z
+LIN-7,NX-6130-Z,FG-F,confirmed,1,2026-10-15T12:00:00Z

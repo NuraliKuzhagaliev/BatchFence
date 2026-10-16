@@ -24,3 +24,9 @@ Set APP_ORIGIN to the actual HTTPS web origin. Set the owner-controlled MAX_TOTA
 Before external distribution, configure the desktop fixed backend origin to the authorized HTTPS host, build a new installer, verify fresh-session web/desktop behavior and packet parity, checksum the exact binary, and expose working web/download URLs with version/signing status. Do not claim the local build's loopback backend works on another person's machine.
 
 Verify persistence by creating a case, noting its evidence and receipt, restarting the deployed process, and reopening it in the same browser session. Local API and browser refresh persistence passed; a hosted restart has not been tested.
+
+## Follow-up state (2026-10-16)
+
+Local genuine AMD workflow and real Windows dialogs now pass their documented checks. Docker remains blocked by an observed startup failure: the Ingest server cannot rename AppData/Local/Docker/run/sailor-ingest.sock to sailor-ingest.sock.stale (file cannot be accessed by the system). WSL defaults to docker-desktop/version 2, but the Linux-engine pipe is absent. Container build/run is still unverified. Official troubleshooting: https://docs.docker.com/desktop/troubleshoot-and-support/troubleshoot/. No factory reset, unrelated data deletion or diagnostic upload was attempted.
+
+The unchanged unsigned installer still targets loopback. The follow-up source archive includes the Dockerfile, pinned dependencies and evidence but excludes .env and private sessions. Publication needs explicit authorization for the actual public repository, hosting resource/budget, HTTPS origin and installer-download destination. No purchase, deployment or external submission occurred.

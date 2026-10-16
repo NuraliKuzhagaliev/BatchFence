@@ -1,0 +1,2 @@
+SYNTHETIC receiving exception RX-103 | Revision 1
+The 100-unit consignment in FG-C has an unreadable original supplier label. Its origin is MC-7421-X or RZ-2650. No exact original-lot identity is available. Keep both possible paths.

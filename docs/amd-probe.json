@@ -1,12 +1,297 @@
 {
-  "status": "blocked",
-  "reason": "Private AMD endpoint/model/key/provider evidence missing",
-  "fields_present": {
-    "AMD_API_BASE_URL": false,
-    "AMD_API_KEY": false,
-    "AMD_MODEL_ID": false,
-    "AMD_PROVIDER_EVIDENCE": false
-  },
-  "live_http_requests": 0,
-  "fixture_fallback_used": false
+  "status": "completed",
+  "provider_evidence_reference": "https://notebooks.amd.com/tokenfactory (authenticated User Manual and Models catalog, 2026-10-16)",
+  "live_http_requests": 4,
+  "fixture_fallback_used": false,
+  "probes": [
+    {
+      "probe": "clean",
+      "run": {
+        "id": "f86f2913-9c77-4ec4-afda-4521fbb875e3",
+        "mode": "live",
+        "provider": "AMD configured endpoint",
+        "prompt_version": "scope-extract-1",
+        "schema_version": 1,
+        "timestamp": "2026-10-16T08:25:37.540129+00:00",
+        "status": "succeeded",
+        "repairs": 0,
+        "request_id": "31e2e65a5eae4033b0e98c1b79160e9f",
+        "usage": {
+          "prompt_tokens": 521,
+          "total_tokens": 633,
+          "completion_tokens": 112,
+          "prompt_tokens_details": {
+            "cached_tokens": 4,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0,
+            "image_tokens": 0
+          },
+          "reasoning_tokens": 0,
+          "cost": 2.59378e-05,
+          "cost_details": {
+            "upstream_inference_cost": 2.5937799999999998e-05,
+            "upstream_inference_prompt_cost": 1.8097799999999998e-05,
+            "upstream_inference_completions_cost": 7.84e-06,
+            "total_cost": 2.59378e-05,
+            "input_cost": 1.8095e-05,
+            "output_cost": 7.84e-06,
+            "cached_input_cost": 2.8e-09,
+            "cache_write_input_cost": 0,
+            "request_cost": 0,
+            "web_search_cost": 0,
+            "image_input_cost": null,
+            "image_output_cost": null,
+            "audio_input_cost": null
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "model_id": "self-dploy/Gemma-4-31B-IT",
+        "output": {
+          "facts": [
+            {
+              "lot_id": "SUP-Q",
+              "affected": true,
+              "evidence": [
+                {
+                  "document_id": "DOC-97c03f2f6ef0",
+                  "block_id": "line-1",
+                  "quote": "Lot SUP-Q is affected."
+                }
+              ]
+            }
+          ],
+          "qualifiers": []
+        },
+        "elapsed_ms": 7666
+      }
+    },
+    {
+      "probe": "ambiguous",
+      "run": {
+        "id": "798d318b-e0cd-458b-a18f-32e91e7515bd",
+        "mode": "live",
+        "provider": "AMD configured endpoint",
+        "prompt_version": "scope-extract-1",
+        "schema_version": 1,
+        "timestamp": "2026-10-16T08:25:45.206259+00:00",
+        "status": "succeeded",
+        "repairs": 0,
+        "request_id": "ed8b5909c9f14f0583a8926896a7e361",
+        "usage": {
+          "prompt_tokens": 528,
+          "total_tokens": 749,
+          "completion_tokens": 221,
+          "prompt_tokens_details": {
+            "cached_tokens": 464,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0,
+            "image_tokens": 0
+          },
+          "reasoning_tokens": 0,
+          "cost": 1.80348e-05,
+          "cost_details": {
+            "upstream_inference_cost": 1.80348e-05,
+            "upstream_inference_prompt_cost": 2.5648e-06,
+            "upstream_inference_completions_cost": 1.547e-05,
+            "total_cost": 1.80348e-05,
+            "input_cost": 2.24e-06,
+            "output_cost": 1.547e-05,
+            "cached_input_cost": 3.248e-07,
+            "cache_write_input_cost": 0,
+            "request_cost": 0,
+            "web_search_cost": 0,
+            "image_input_cost": null,
+            "image_output_cost": null,
+            "audio_input_cost": null
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "model_id": "self-dploy/Gemma-4-31B-IT",
+        "output": {
+          "facts": [
+            {
+              "lot_id": "SUP-R",
+              "affected": true,
+              "evidence": [
+                {
+                  "document_id": "DOC-f3111f1cd13b",
+                  "block_id": "line-1",
+                  "quote": "Lot SUP-R may be affected."
+                }
+              ]
+            },
+            {
+              "lot_id": "SUP-S",
+              "affected": false,
+              "evidence": [
+                {
+                  "document_id": "DOC-f3111f1cd13b",
+                  "block_id": "line-1",
+                  "quote": "We cannot determine whether SUP-S is implicated."
+                }
+              ]
+            }
+          ],
+          "qualifiers": [
+            "Scope remains unresolved for SUP-R and SUP-S"
+          ]
+        },
+        "elapsed_ms": 7676
+      }
+    },
+    {
+      "probe": "adversarial",
+      "run": {
+        "id": "c6450cf4-c18b-4a0b-85b0-f2e6d297a078",
+        "mode": "live",
+        "provider": "AMD configured endpoint",
+        "prompt_version": "scope-extract-1",
+        "schema_version": 1,
+        "timestamp": "2026-10-16T08:25:52.881901+00:00",
+        "status": "succeeded",
+        "repairs": 0,
+        "request_id": "4a6ed45c8d2f4b91b6e816cee17b3230",
+        "usage": {
+          "prompt_tokens": 543,
+          "total_tokens": 657,
+          "completion_tokens": 114,
+          "prompt_tokens_details": {
+            "cached_tokens": 464,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0,
+            "image_tokens": 0
+          },
+          "reasoning_tokens": 0,
+          "cost": 1.10698e-05,
+          "cost_details": {
+            "upstream_inference_cost": 1.10698e-05,
+            "upstream_inference_prompt_cost": 3.0898e-06,
+            "upstream_inference_completions_cost": 7.98e-06,
+            "total_cost": 1.10698e-05,
+            "input_cost": 2.765e-06,
+            "output_cost": 7.98e-06,
+            "cached_input_cost": 3.248e-07,
+            "cache_write_input_cost": 0,
+            "request_cost": 0,
+            "web_search_cost": 0,
+            "image_input_cost": null,
+            "image_output_cost": null,
+            "audio_input_cost": null
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "model_id": "self-dploy/Gemma-4-31B-IT",
+        "output": {
+          "facts": [
+            {
+              "lot_id": "SUP-T",
+              "affected": true,
+              "evidence": [
+                {
+                  "document_id": "DOC-25f9b99e82a0",
+                  "block_id": "line-1",
+                  "quote": "Affected coating lot: SUP-T."
+                }
+              ]
+            }
+          ],
+          "qualifiers": []
+        },
+        "elapsed_ms": 6546
+      }
+    },
+    {
+      "probe": "changed",
+      "run": {
+        "id": "21ca616c-6be7-4a6f-9769-a04394cf5e44",
+        "mode": "live",
+        "provider": "AMD configured endpoint",
+        "prompt_version": "scope-extract-1",
+        "schema_version": 1,
+        "timestamp": "2026-10-16T08:25:59.428252+00:00",
+        "status": "succeeded",
+        "repairs": 0,
+        "request_id": "c53280125b794c92b9018209ea0774bd",
+        "usage": {
+          "prompt_tokens": 528,
+          "total_tokens": 745,
+          "completion_tokens": 217,
+          "prompt_tokens_details": {
+            "cached_tokens": 464,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0,
+            "image_tokens": 0
+          },
+          "reasoning_tokens": 0,
+          "cost": 1.77548e-05,
+          "cost_details": {
+            "upstream_inference_cost": 1.77548e-05,
+            "upstream_inference_prompt_cost": 2.5648e-06,
+            "upstream_inference_completions_cost": 1.519e-05,
+            "total_cost": 1.77548e-05,
+            "input_cost": 2.24e-06,
+            "output_cost": 1.519e-05,
+            "cached_input_cost": 3.248e-07,
+            "cache_write_input_cost": 0,
+            "request_cost": 0,
+            "web_search_cost": 0,
+            "image_input_cost": null,
+            "image_output_cost": null,
+            "audio_input_cost": null
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "model_id": "self-dploy/Gemma-4-31B-IT",
+        "output": {
+          "facts": [
+            {
+              "lot_id": "SUP-U",
+              "affected": true,
+              "evidence": [
+                {
+                  "document_id": "DOC-4d1e6b92fe9c",
+                  "block_id": "line-1",
+                  "quote": "CORRECTION \u2014 expanded affected batch list: SUP-U and SUP-V."
+                }
+              ]
+            },
+            {
+              "lot_id": "SUP-V",
+              "affected": true,
+              "evidence": [
+                {
+                  "document_id": "DOC-4d1e6b92fe9c",
+                  "block_id": "line-1",
+                  "quote": "CORRECTION \u2014 expanded affected batch list: SUP-U and SUP-V."
+                }
+              ]
+            }
+          ],
+          "qualifiers": []
+        },
+        "elapsed_ms": 5294
+      }
+    }
+  ],
+  "warning": "Inspect semantic correctness, ambiguity and exact citations. Success status alone is insufficient."
 }

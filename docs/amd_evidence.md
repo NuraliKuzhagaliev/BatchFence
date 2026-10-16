@@ -1,16 +1,30 @@
-# AMD evidence and unresolved gate
+# AMD evidence — 2026-10-16
 
-**Live gate: BLOCKED. No model has run on AMD for this implementation.**
+**Genuine AMD-backed local workflow observed. Overall hosted/submission release acceptance remains incomplete.**
 
-The event portal https://notebooks.amd.com/tokenfactory showed the AMD AI Notebooks sign-in page during inspection. This session had none of AMD_API_BASE_URL, AMD_API_KEY, AMD_MODEL_ID or AMD_PROVIDER_EVIDENCE configured. docs/amd-probe.json records the preflight check: zero live HTTP requests and no fixture fallback.
+The original preflight was blocked with zero calls. After the user signed in, the authenticated Token Factory User Manual and Models catalog confirmed endpoint/model. The key was transferred without displaying it into ignored .env. No secret appeared in inspected portal panels, screenshots or logs.
 
-The server-side adapter supports a confirmed OpenAI-compatible chat endpoint with versioned instructions, bounded source blocks, 2,400 output tokens and a 45-second request timeout. JSON-schema output is opt-in only after the actual endpoint confirms support. Invalid JSON/citations fail visibly. No repair is attempted and no other provider is silently used.
+Provider evidence: https://notebooks.amd.com/tokenfactory → User Manual; sanitized findings and the observed 12-model list are in live-verification/provider-documentation.md. The manual identifies the shared service as AMD-run inference on AMD GPUs. Physical GPU identity and serving configuration were not independently measured.
 
-To unblock:
+Requested model: **Gemma-4-31B-IT**. Returned model: **self-dploy/Gemma-4-31B-IT**. Base: https://developer.amd.com.cn/radeon/api/v1. The existing OpenAI-chat adapter worked unchanged. Strict JSON schema is not documented for Gemma, so AMD_JSON_SCHEMA=false. Prompt-requested JSON passed local schema/exact-quote validation. No alternate provider, repair or fixture substitution.
 
-1. Sign in to the AMD portal yourself and inspect its authenticated inference documentation.
-2. Copy .env.example to .env privately. Set the documented AMD_API_BASE_URL, AMD_MODEL_ID, AMD_API_KEY, AMD_PROVIDER_EVIDENCE, and AMD_API_STYLE=openai-chat only if that interface is confirmed. Set INFERENCE_MODE=live. Never use VITE_ variables for secrets.
-3. Run .\.venv\Scripts\python.exe -m scripts.probe_amd. It makes four bounded synthetic capability probes, including ambiguity, injection content and changed identifiers.
-4. Inspect actual lot/citation correctness. Run a fresh UI notice and a changed notice. Preserve sanitized request IDs, model identifiers, timings and outputs. Re-run the full workflow and evaluation with real inference before any AMD eligibility claim.
+Seven sequential requests succeeded technically: four capability probes, one initial workflow request before a test-selector failure, and two completed workflow requests. Each preserved request ID, UTC start, model ID, usage, elapsed milliseconds and extracted facts. Observed range 5,294–12,261 ms, median 7,666 ms. Small mixed-prompt sample with cached tokens; no controlled benchmark or general accuracy claim.
 
-Gemma availability, model license for the selected variant, physical GPU model, serving configuration and account quotas are unknown. No Gemma/Google/Evolus integration or prize eligibility is claimed. The configured endpoint's provider provenance must be checked, not inferred from an environment variable's name.
+## Raw extraction versus reviewed behavior
+
+Clean, adversarial-document and changed-ID capability probes produced expected supported lot facts. The ambiguous probe is **not** a semantic pass: "may be affected" SUP-R became affected=true; unresolved SUP-S became affected=false. The unresolved-scope qualifier survived, but those booleans do not establish certainty. This probe was not corrected or executed as a product plan.
+
+Two new workflow notices were frozen before inference with renamed batches and independent expected sets. Both were uploaded as supplier-message.txt. First raw affected set: MC-7421-X. Revised set: BZ-9187, MC-7421-X. NX-6130-Z was explicitly excluded in both. Exact source passages support all five candidate facts. Missing/extra affected IDs: zero; operator ID corrections: zero.
+
+Codex inspected sources, exclusions, supersession and synthetic genealogy, then the browser harness exercised explicit review/approval controls. This is an agent-operated acceptance check, **not independent human validation**. The model proposed facts; CPU code calculated scope; explicit reviewed/approved state authorized sandbox execution.
+
+Observed results: 400 documented +100 uncertain =500 held units; revised 700+100=800. The second transaction retained 500 existing held units and newly held 300. Receipts:
+
+- TX-4e1ba674d3624fdd845efb5afea0b6a3
+- TX-cb299057cde940038a42ccec0c4d8fe0
+
+Both persisted after refresh and an actual process restart. An old-plan request failed with 409 STALE_APPROVAL. See live-verification/browser-results.json, packet-1.json, packet-2.json and restart-results.json. Test-selector failures are preserved separately and were not classified as model failures.
+
+## Scope of the claim
+
+AMD output genuinely powered the local workflow on synthetic input. Raw results, review choices, actions and receipts are inspectable. Ambiguity quality, broader narrative accuracy and independent reviewer performance remain unproven. No production/customer benefit, physical GPU model, prize eligibility or public deployment is claimed. Recorded mode is still not enabled; preserved live evidence is not silently replayed as live inference.

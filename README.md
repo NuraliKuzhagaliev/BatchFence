@@ -50,7 +50,7 @@ Copy .env.example to a private .env. From authenticated AMD documentation, set A
 
 This makes four bounded synthetic probes once configured. Inspect semantics/citations, then run a fresh notice and a changed notice through the application. Credentials stay server-side. Never use VITE_ secrets or commit .env.
 
-Actual result: portal required sign-in, fields absent, **zero live HTTP calls**. No genuine recording exists. The explicitly synthetic fixture parser recognizes вЂњAffected lots:вЂќ lines. Failed live attempts remain failures without fallback.
+Follow-up (2026-10-16): genuine AMD Gemma inference now drives two fresh/revised workflows through sandbox receipts, with 500 then 800 held units. Seven live requests are recorded; ambiguity remains a semantic limitation. Actual Windows open/save/reopen dialogs passed. See [AMD evidence](docs/amd_evidence.md) and [current handoff](HANDOFF.md). The original video/deck remain fixture-era materials.
 
 ## Inputs
 

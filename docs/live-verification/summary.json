@@ -1,0 +1,116 @@
+{
+  "at": "2026-10-16T08:43:29.838508+00:00",
+  "requested_model_id": "Gemma-4-31B-IT",
+  "returned_model_ids": [
+    "self-dploy/Gemma-4-31B-IT"
+  ],
+  "live_http_calls": 7,
+  "schema_and_exact_quote_validation_successes": 7,
+  "transport_failures": 0,
+  "repairs": 0,
+  "fixture_fallback_used": false,
+  "observed_latency_ms": {
+    "min": 5294,
+    "median": 7666,
+    "max": 12261,
+    "sample_count": 7,
+    "limitation": "Small sequential mixed-prompt sample with provider-reported cached tokens; not a performance benchmark."
+  },
+  "raw_semantics": {
+    "clear_capability_probes": "clean, adversarial and changed cases supported expected lot facts",
+    "ambiguous_probe": "NOT a semantic pass: SUP-R may be affected but was marked true; unresolved SUP-S was marked false. An unresolved-scope qualifier survived. These booleans do not establish confirmed affected or unaffected status.",
+    "fresh_and_revised_unique_notices": 2,
+    "missing_affected_ids": 0,
+    "extra_affected_ids": 0,
+    "explicitly_excluded_id": "NX-6130-Z correctly marked false in both",
+    "human_or_operator_corrections": 0
+  },
+  "workflow": {
+    "status": "passed_after_test_selector_recovery",
+    "review_method": "Codex source review plus automated product review/approval controls; no independent human validation",
+    "held_units": [
+      500,
+      800
+    ],
+    "newly_held_on_revision": 300,
+    "uncertain_units": [
+      100,
+      100
+    ],
+    "receipt_ids": [
+      "TX-4e1ba674d3624fdd845efb5afea0b6a3",
+      "TX-cb299057cde940038a42ccec0c4d8fe0"
+    ],
+    "stale_request": {
+      "status": 409,
+      "code": "STALE_APPROVAL"
+    },
+    "process_restart_persistence": "passed"
+  },
+  "runs": [
+    {
+      "id": "f86f2913-9c77-4ec4-afda-4521fbb875e3",
+      "request_id": "31e2e65a5eae4033b0e98c1b79160e9f",
+      "timestamp": "2026-10-16T08:25:37.540129+00:00",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "elapsed_ms": 7666,
+      "status": "succeeded"
+    },
+    {
+      "id": "798d318b-e0cd-458b-a18f-32e91e7515bd",
+      "request_id": "ed8b5909c9f14f0583a8926896a7e361",
+      "timestamp": "2026-10-16T08:25:45.206259+00:00",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "elapsed_ms": 7676,
+      "status": "succeeded"
+    },
+    {
+      "id": "c6450cf4-c18b-4a0b-85b0-f2e6d297a078",
+      "request_id": "4a6ed45c8d2f4b91b6e816cee17b3230",
+      "timestamp": "2026-10-16T08:25:52.881901+00:00",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "elapsed_ms": 6546,
+      "status": "succeeded"
+    },
+    {
+      "id": "21ca616c-6be7-4a6f-9769-a04394cf5e44",
+      "request_id": "c53280125b794c92b9018209ea0774bd",
+      "timestamp": "2026-10-16T08:25:59.428252+00:00",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "elapsed_ms": 5294,
+      "status": "succeeded"
+    },
+    {
+      "id": "b13a4aca-37ca-4898-b692-c0ad537c440c",
+      "request_id": "d8ebb6ee297140c6b05d3074a7f65f66",
+      "timestamp": "2026-10-16T08:30:51.498684+00:00",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "elapsed_ms": 12261,
+      "status": "succeeded"
+    },
+    {
+      "id": "e3e64b2e-651e-4b55-887f-1b443c622e2a",
+      "request_id": "c96e07098c784f1dab387885d6be370c",
+      "timestamp": "2026-10-16T08:33:05.338158+00:00",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "elapsed_ms": 7538,
+      "status": "succeeded"
+    },
+    {
+      "id": "57591c0f-399d-41ea-8d12-5a1b420e9a2d",
+      "request_id": "eb7d6f97dbf3460ba72b52d35944202a",
+      "timestamp": "2026-10-16T08:33:29.895472+00:00",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "elapsed_ms": 10233,
+      "status": "succeeded"
+    }
+  ],
+  "not_claimed": [
+    "broad model accuracy",
+    "independent customer/domain validation",
+    "physical GPU model",
+    "hosted deployment",
+    "public download",
+    "competition eligibility or submission acceptance"
+  ]
+}
