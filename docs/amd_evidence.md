@@ -1,6 +1,16 @@
+# Current upgrade evidence — 0.2.0
+
+The new release has 65 passing regression tests, 30 unchanged frozen deterministic cases, 12 preserved plus nine upgrade browser groups on the public deployment, and installed Windows checks. Linux build and named-volume restart passed at ebd1402. These checks are separate from model quality.
+
+[Fresh AMD report](release-0.2.0/live/README.md): four actual public AMD requests, returned model self-dploy/MiMo-V2.6-Flash, all four structurally accepted. Two notices drove reviewed 500/800 receipts. The first receiving extraction omitted SUP-B; reconciliation rejected narrowing (422), and inconclusive review retained 800. A separately clarified source returned SUP-B plus three non-lot IDs. Explicit review selected the cited supplier only, yielding a 700-unit proposal with 800 already-held units preserved. Raw responses, errors, request IDs, timestamps, latency and review packets remain separate. No independent human validation and no general model accuracy claim.
+
+[Current release checks and limits](release-0.2.0/README.md) supersede the historical release status below. Original evidence and failed attempts remain unchanged. The original 12 held-out domain cases have already been inspected and are now regression cases, not a new blind model evaluation.
+
+---
+
 # Public cloud follow-up — 2026-10-16
 
-Actual free public app: https://batchfence.onrender.com. Current verified product code 57a82bc. [Cloud evidence](cloud/README.md) separates every raw response, failure, agent review and resulting receipt. Eight cloud AMD requests: six structurally accepted and two citation-rejected; this is not an accuracy rate. Prompt-v2 responses drove 500/800 receipts and stale rejection on the unchanged frozen inputs. Two different ambiguous notices ended in conservative 1,200-unit holds; the second required fixing a terminal-period source-match defect and a fresh rerun. Raw booleans remain unreliable for pending involvement. No independent human validation.
+Actual free public app: https://batchfence.onrender.com. Historical verified product code 57a82bc. [Cloud evidence](cloud/README.md) separates every raw response, failure, agent review and resulting receipt. Eight cloud AMD requests: six structurally accepted and two citation-rejected; this is not an accuracy rate. Prompt-v2 responses drove 500/800 receipts and stale rejection on the unchanged frozen inputs. Two different ambiguous notices ended in conservative 1,200-unit holds; the second required fixing a terminal-period source-match defect and a fresh rerun. Raw booleans remain unreliable for pending involvement. No independent human validation.
 
 52 regression tests, 30 frozen domain cases, Linux image/container restart checks, 12 public Synthetic browser checks and five public controls pass. Free Render storage is ephemeral; actual redeploy lost the test receipt while its export remained valid. Full metadata and limitations are in cloud/summary.json. Earlier local evidence below remains historical and is not relabeled as cloud verification.
 

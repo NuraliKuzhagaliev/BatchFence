@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "code_commit": "7431360e2aaff1f25417a868f14971c23e830061",
+  "protected_baseline": "2402375b6dd3aecae2e1cd691b51639a07f8dac7",
+  "windows_release": "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.2.0",
+  "installer_sha256": "7fc0b61c1c232394c077d2cc990266972ac0a5dd1bf0095014fa626dcd99979d",
+  "github_run_id": 38959067118,
+  "render_service_id": "srv-db968c7btjjs73fghkog",
+  "render_plan_verified": "free",
+  "public_upgrade": "Deployed and verified: 12 preserved checks, nine upgrade groups, five public controls",
+  "fresh_amd": "Four real requests; raw omitted-parent error blocked. Explicit review gave 500/800 receipts and 700 proposed with 800 held.",
+  "native_file_dialog": "physical selection not verified; stubs used in automation",
+  "runtime_commit": "ebd14024d9c3614abb1e6a913d41f877a76c0788",
+  "render_deploy": "dep-db9857jm8hqs73fcakm0",
+  "pytest": 65,
+  "final_evidence_rollout_manifest": "Local releases/final-verification-0.2.0.json"
+}

@@ -1,0 +1,4 @@
+Synthetic supplier communication, 0.2.0 verification, revision one.
+The cosmetic coating defect is confirmed in supplier lot SUP-A.
+Complete incident boundary: SUP-A is the only affected supplier lot in this notice.
+Warehouse receiving records are separate evidence; this notice does not identify the parent of any finished pool.

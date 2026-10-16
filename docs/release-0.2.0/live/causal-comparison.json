@@ -1,0 +1,361 @@
+{
+  "before_id": "PLAN-f68d93166fec",
+  "after_id": "PLAN-36c00c4a07be",
+  "before_units": 500,
+  "after_units": 800,
+  "source_changes": {
+    "added": [
+      [
+        "DOC-4138da413687",
+        3,
+        "d2fa642d77507df76e645d47b6fd39dd69e6709bdaed3bce64df5a2fde6efca4",
+        "d2fa642d77507df76e645d47b6fd39dd69e6709bdaed3bce64df5a2fde6efca4"
+      ]
+    ],
+    "removed": [],
+    "changed": []
+  },
+  "claims_before": [
+    {
+      "facts": [
+        {
+          "lot_id": "SUP-A",
+          "affected": true,
+          "evidence": [
+            {
+              "document_id": "DOC-db2163b762b9",
+              "block_id": "line-2",
+              "quote": "The cosmetic coating defect is confirmed in supplier lot SUP-A."
+            },
+            {
+              "document_id": "DOC-db2163b762b9",
+              "block_id": "line-3",
+              "quote": "Complete incident boundary: SUP-A is the only affected supplier lot in this notice."
+            }
+          ]
+        }
+      ],
+      "qualifiers": [
+        "Document DOC-db2163b762b9 is described as a synthetic supplier communication at verification 0.2.0, revision one (block line-1); this is notice-wide context, not lot-specific evidence.",
+        "The notice states a complete incident boundary naming only one affected supplier lot, so no other lots are explicitly affected (block line-3).",
+        "The notice states that warehouse receiving records are separate evidence and that it does not identify the parent of any finished pool (block line-4); no lot identifiers appear in that block, so it is recorded only as notice-wide context.",
+        "No lots are merely mentioned without being affected: the only lot identifier appearing anywhere in the document is the one reported as affected."
+      ]
+    }
+  ],
+  "claims_after": [
+    {
+      "facts": [
+        {
+          "lot_id": "SUP-A",
+          "affected": true,
+          "evidence": [
+            {
+              "document_id": "DOC-4138da413687",
+              "block_id": "line-3",
+              "quote": "Complete incident boundary: the affected supplier lots are SUP-A and SUP-C, with no additional supplier lots implicated by this notice."
+            },
+            {
+              "document_id": "DOC-4138da413687",
+              "block_id": "line-2",
+              "quote": "Additional inspection confirms the same cosmetic coating defect in SUP-C as well as SUP-A."
+            }
+          ]
+        },
+        {
+          "lot_id": "SUP-C",
+          "affected": true,
+          "evidence": [
+            {
+              "document_id": "DOC-4138da413687",
+              "block_id": "line-3",
+              "quote": "Complete incident boundary: the affected supplier lots are SUP-A and SUP-C, with no additional supplier lots implicated by this notice."
+            },
+            {
+              "document_id": "DOC-4138da413687",
+              "block_id": "line-2",
+              "quote": "Additional inspection confirms the same cosmetic coating defect in SUP-C as well as SUP-A."
+            }
+          ]
+        }
+      ],
+      "qualifiers": [
+        "Notice-wide context: this is a synthetic supplier communication, 0.2.0 verification, revision two, and it supersedes revision one (DOC-4138da413687, block line-1).",
+        "The defect is described as a cosmetic coating defect; the notice states no additional supplier lots are implicated beyond those listed, so scope is limited to the explicitly affected lots.",
+        "Only two lots are identified in the document; no other lot identifiers appear, so no merely-mentioned (non-affected) lots could be extracted."
+      ]
+    }
+  ],
+  "scope_changes": [
+    {
+      "field": "lot_ids",
+      "before": [
+        "SUP-A"
+      ],
+      "after": [
+        "SUP-A",
+        "SUP-C"
+      ]
+    },
+    {
+      "field": "resolution_evidence",
+      "before": {
+        "document_id": "DOC-db2163b762b9",
+        "block_id": "line-3",
+        "quote": "Complete incident boundary: SUP-A is the only affected supplier lot in this notice."
+      },
+      "after": {
+        "document_id": "DOC-4138da413687",
+        "block_id": "line-3",
+        "quote": "Complete incident boundary: the affected supplier lots are SUP-A and SUP-C, with no additional supplier lots implicated by this notice."
+      }
+    }
+  ],
+  "pools": [
+    {
+      "pool_id": "FG-A",
+      "group": "still_included",
+      "before": "documented",
+      "after": "documented",
+      "units": 240,
+      "value_cents": 960000,
+      "path": [
+        "SUP-A",
+        "FG-A"
+      ],
+      "evidence": [
+        {
+          "document_id": "DOC-9e737b169b82",
+          "block_id": "row-1",
+          "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      ],
+      "lineage_edges": [
+        {
+          "row_id": "LIN-1",
+          "source": "SUP-A",
+          "target": "FG-A",
+          "kind": "confirmed",
+          "revision": "1",
+          "timestamp": "2026-10-15T12:00:00Z",
+          "evidence": {
+            "document_id": "DOC-9e737b169b82",
+            "block_id": "row-1",
+            "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
+          }
+        }
+      ],
+      "order_ids": [
+        "O-101"
+      ]
+    },
+    {
+      "pool_id": "FG-B",
+      "group": "still_included",
+      "before": "documented",
+      "after": "documented",
+      "units": 160,
+      "value_cents": 640000,
+      "path": [
+        "SUP-A",
+        "FG-B"
+      ],
+      "evidence": [
+        {
+          "document_id": "DOC-9e737b169b82",
+          "block_id": "row-2",
+          "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      ],
+      "lineage_edges": [
+        {
+          "row_id": "LIN-2",
+          "source": "SUP-A",
+          "target": "FG-B",
+          "kind": "confirmed",
+          "revision": "1",
+          "timestamp": "2026-10-15T12:00:00Z",
+          "evidence": {
+            "document_id": "DOC-9e737b169b82",
+            "block_id": "row-2",
+            "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
+          }
+        }
+      ],
+      "order_ids": [
+        "O-102"
+      ]
+    },
+    {
+      "pool_id": "FG-C",
+      "group": "still_included",
+      "before": "uncertain",
+      "after": "uncertain",
+      "units": 100,
+      "value_cents": 400000,
+      "path": [
+        "SUP-A",
+        "FG-C"
+      ],
+      "evidence": [
+        {
+          "document_id": "DOC-9e737b169b82",
+          "block_id": "row-3",
+          "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
+        }
+      ],
+      "lineage_edges": [
+        {
+          "row_id": "LIN-3",
+          "source": "SUP-A",
+          "target": "FG-C",
+          "kind": "possible",
+          "revision": "1",
+          "timestamp": "2026-10-15T12:00:00Z",
+          "evidence": {
+            "document_id": "DOC-9e737b169b82",
+            "block_id": "row-3",
+            "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
+          }
+        },
+        {
+          "row_id": "LIN-4",
+          "source": "SUP-B",
+          "target": "FG-C",
+          "kind": "possible",
+          "revision": "1",
+          "timestamp": "2026-10-15T12:00:00Z",
+          "evidence": {
+            "document_id": "DOC-9e737b169b82",
+            "block_id": "row-4",
+            "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
+          }
+        }
+      ],
+      "order_ids": [
+        "O-103"
+      ]
+    },
+    {
+      "pool_id": "FG-D",
+      "group": "newly_included",
+      "before": "outside",
+      "after": "documented",
+      "units": 300,
+      "value_cents": 1200000,
+      "path": [
+        "SUP-C",
+        "FG-D"
+      ],
+      "evidence": [
+        {
+          "document_id": "DOC-9e737b169b82",
+          "block_id": "row-5",
+          "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      ],
+      "lineage_edges": [
+        {
+          "row_id": "LIN-5",
+          "source": "SUP-C",
+          "target": "FG-D",
+          "kind": "confirmed",
+          "revision": "1",
+          "timestamp": "2026-10-15T12:00:00Z",
+          "evidence": {
+            "document_id": "DOC-9e737b169b82",
+            "block_id": "row-5",
+            "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
+          }
+        }
+      ],
+      "order_ids": [
+        "O-104"
+      ]
+    },
+    {
+      "pool_id": "FG-E",
+      "group": "outside_proposal",
+      "before": "outside",
+      "after": "outside",
+      "units": 250,
+      "value_cents": 1000000,
+      "path": [
+        "SUP-D",
+        "FG-E"
+      ],
+      "evidence": [
+        {
+          "document_id": "DOC-9e737b169b82",
+          "block_id": "row-6",
+          "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      ],
+      "lineage_edges": [
+        {
+          "row_id": "LIN-6",
+          "source": "SUP-D",
+          "target": "FG-E",
+          "kind": "confirmed",
+          "revision": "1",
+          "timestamp": "2026-10-15T12:00:00Z",
+          "evidence": {
+            "document_id": "DOC-9e737b169b82",
+            "block_id": "row-6",
+            "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
+          }
+        }
+      ],
+      "order_ids": [
+        "O-105"
+      ]
+    },
+    {
+      "pool_id": "FG-F",
+      "group": "outside_proposal",
+      "before": "outside",
+      "after": "outside",
+      "units": 150,
+      "value_cents": 600000,
+      "path": [
+        "SUP-E",
+        "FG-F"
+      ],
+      "evidence": [
+        {
+          "document_id": "DOC-9e737b169b82",
+          "block_id": "row-7",
+          "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      ],
+      "lineage_edges": [
+        {
+          "row_id": "LIN-7",
+          "source": "SUP-E",
+          "target": "FG-F",
+          "kind": "confirmed",
+          "revision": "1",
+          "timestamp": "2026-10-15T12:00:00Z",
+          "evidence": {
+            "document_id": "DOC-9e737b169b82",
+            "block_id": "row-7",
+            "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
+          }
+        }
+      ],
+      "order_ids": [
+        "O-106"
+      ]
+    }
+  ],
+  "new_order_reviews": [
+    "O-104"
+  ],
+  "prior_order_reviews": [
+    "O-101",
+    "O-102",
+    "O-103"
+  ],
+  "records_changed": true,
+  "notice": "Comparison of immutable reviewed snapshots. Multiple edits may contribute. Earlier approval remains historical and cannot be restored."
+}

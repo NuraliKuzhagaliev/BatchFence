@@ -1,0 +1,95 @@
+{
+  "id": "c6ec02e2-70bb-4e14-bc4d-eaddd59d11c1",
+  "mode": "live",
+  "clock_source": "Server UTC wall clock; latency from monotonic clock",
+  "input_hash": "2c39173a2ac616574de9061e863c29b0dc32e3bc1e2d9adbba6bc0b53ddf2f10",
+  "provider": "AMD configured endpoint",
+  "prompt_version": "scope-extract-2",
+  "schema_version": 1,
+  "timestamp": "2026-10-16T20:06:14.551842+00:00",
+  "status": "succeeded",
+  "repairs": 0,
+  "requested_model_id": "MiMo-V2.6-Flash",
+  "http_status": 200,
+  "request_id": "bfd365072d4b46f0a736dc25bda4dc59",
+  "usage": {
+    "prompt_tokens": 633,
+    "total_tokens": 1081,
+    "completion_tokens": 448,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 0.00021406,
+    "cost_details": {
+      "upstream_inference_cost": 0.00021406,
+      "upstream_inference_prompt_cost": 8.862e-05,
+      "upstream_inference_completions_cost": 0.00012544,
+      "total_cost": 0.00021406,
+      "input_cost": 8.862e-05,
+      "output_cost": 0.00012544,
+      "cached_input_cost": 0,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "model_id": "self-dploy/MiMo-V2.6-Flash",
+  "output": {
+    "facts": [
+      {
+        "lot_id": "SUP-A",
+        "affected": true,
+        "evidence": [
+          {
+            "document_id": "DOC-4138da413687",
+            "block_id": "line-3",
+            "quote": "Complete incident boundary: the affected supplier lots are SUP-A and SUP-C, with no additional supplier lots implicated by this notice."
+          },
+          {
+            "document_id": "DOC-4138da413687",
+            "block_id": "line-2",
+            "quote": "Additional inspection confirms the same cosmetic coating defect in SUP-C as well as SUP-A."
+          }
+        ]
+      },
+      {
+        "lot_id": "SUP-C",
+        "affected": true,
+        "evidence": [
+          {
+            "document_id": "DOC-4138da413687",
+            "block_id": "line-3",
+            "quote": "Complete incident boundary: the affected supplier lots are SUP-A and SUP-C, with no additional supplier lots implicated by this notice."
+          },
+          {
+            "document_id": "DOC-4138da413687",
+            "block_id": "line-2",
+            "quote": "Additional inspection confirms the same cosmetic coating defect in SUP-C as well as SUP-A."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Notice-wide context: this is a synthetic supplier communication, 0.2.0 verification, revision two, and it supersedes revision one (DOC-4138da413687, block line-1).",
+      "The defect is described as a cosmetic coating defect; the notice states no additional supplier lots are implicated beyond those listed, so scope is limited to the explicitly affected lots.",
+      "Only two lots are identified in the document; no other lot identifiers appear, so no merely-mentioned (non-affected) lots could be extracted."
+    ]
+  },
+  "elapsed_ms": 12791,
+  "revision": 3,
+  "document_id": "DOC-4138da413687",
+  "scope_concerns": []
+}

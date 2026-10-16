@@ -4,9 +4,10 @@ const fs = require("node:fs/promises"),
   assert = require("node:assert/strict");
 const root = path.resolve(__dirname, "..");
 const out = process.env.BATCHFENCE_DESKTOP_REPORT_DIR || path.join(root, "docs");
+let activeApp;
 (async () => {
   await fs.mkdir(path.join(out, "screenshots"), {recursive:true});
-  const app = await electron.launch({
+  const app = activeApp = await electron.launch({
     executablePath: process.env.BATCHFENCE_TEST_EXE || path.join(root, "work/installed/BatchFence.exe"),
     env: {
       ...process.env,
@@ -30,7 +31,7 @@ const out = process.env.BATCHFENCE_DESKTOP_REPORT_DIR || path.join(root, "docs")
         filePaths: [dest],
       });
     },
-    path.join(root, "docs/verified-decision-packet.json"),
+    process.env.BATCHFENCE_OFFLINE_PACKET || path.join(root, "docs/verified-decision-packet.json"),
   );
   await page.getByRole("button", { name: "Open packet", exact: true }).click();
   await page
@@ -38,7 +39,7 @@ const out = process.env.BATCHFENCE_DESKTOP_REPORT_DIR || path.join(root, "docs")
     .waitFor();
   assert(
     (await page.locator(".comparison .required strong").textContent()).includes(
-      "800",
+      process.env.BATCHFENCE_EXPECTED_UNITS || "800",
     ),
   );
   assert.equal(
@@ -55,8 +56,9 @@ const out = process.env.BATCHFENCE_DESKTOP_REPORT_DIR || path.join(root, "docs")
   );
   await page.getByRole("tab", { name: "Receipt", exact: true }).click();
   await page
-    .getByRole("heading", { name: "Holds applied. Evidence preserved." })
+    .getByRole("heading", { name: "Holds applied. Evidence preserved." }).first()
     .waitFor();
+  assert.equal(await page.getByRole("heading", {name:"Holds applied. Evidence preserved.",exact:true}).count(),Number(process.env.BATCHFENCE_EXPECTED_RECEIPTS||1));
   await page.screenshot({
     path: path.join(out, "screenshots/13-installed-desktop-offline.png"),
     fullPage: true,
@@ -70,8 +72,10 @@ const out = process.env.BATCHFENCE_DESKTOP_REPORT_DIR || path.join(root, "docs")
         backend: "Unreachable loopback port 9",
         child_PATH: "C:\\Windows\\System32",
         external_node_python_required: false,
-        scope_units: 800,
+        scope_units: Number(process.env.BATCHFENCE_EXPECTED_UNITS || 800),
+        source_packet: path.basename(process.env.BATCHFENCE_OFFLINE_PACKET || "verified-decision-packet.json"),
         receipt_readable: true,
+        receipt_count: Number(process.env.BATCHFENCE_EXPECTED_RECEIPTS||1),
         writes_disabled: true,
         native_dialog: "Stubbed result; bridge read and validation executed",
       },
@@ -83,7 +87,8 @@ const out = process.env.BATCHFENCE_DESKTOP_REPORT_DIR || path.join(root, "docs")
   console.log(
     "Installed app opens web packet and historical receipt without backend or external Node/Python on PATH.",
   );
-})().catch((e) => {
+})().catch(async (e) => {
+  await activeApp?.close();
   console.error(e);
   process.exitCode = 1;
 });

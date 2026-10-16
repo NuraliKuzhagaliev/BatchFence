@@ -1,7 +1,7 @@
 """Audit publishable Git history and working files without emitting secret values."""
 from pathlib import Path
 from datetime import datetime, timezone
-import io, json, re, subprocess, zipfile
+import io, json, re, subprocess, zipfile, os
 from dotenv import dotenv_values
 ROOT = Path(__file__).resolve().parents[1]
 def git(*args):
@@ -53,7 +53,7 @@ report={'at':datetime.now(timezone.utc).isoformat(),'head':git('rev-parse','HEAD
         'known_private_values_checked':len(needles),'findings':findings,
         'largest_history_files':sorted(largest,key=lambda x:x['bytes'],reverse=True)[:5],
         'limitations':'Known-value and credential-pattern scan, archive contents and prohibited-path checks; not a general security audit. Evidence records are synthetic. Image pixels are not OCR-scanned.'}
-out=ROOT/'docs/cloud'; out.mkdir(exist_ok=True)
+out=Path(os.getenv('BATCHFENCE_AUDIT_REPORT_DIR',str(ROOT/'docs/cloud'))); out.mkdir(parents=True,exist_ok=True)
 (out/'publication-audit.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
 print(json.dumps(report,indent=2))
 raise SystemExit(bool(findings))

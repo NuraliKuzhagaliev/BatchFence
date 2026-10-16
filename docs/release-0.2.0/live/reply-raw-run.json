@@ -1,0 +1,78 @@
+{
+  "id": "70f06f80-183b-4a73-9fba-b2387a180762",
+  "mode": "live",
+  "clock_source": "Server UTC wall clock; latency from monotonic clock",
+  "input_hash": "2f9b5607b8e5dcb0bd7cb2abc78e5066f44f57b9c744f3453da10fc0fd2a30fb",
+  "provider": "AMD configured endpoint",
+  "prompt_version": "scope-extract-2",
+  "schema_version": 1,
+  "timestamp": "2026-10-16T20:07:10.061067+00:00",
+  "status": "succeeded",
+  "repairs": 0,
+  "requested_model_id": "MiMo-V2.6-Flash",
+  "http_status": 200,
+  "request_id": "467eeb9364594a439f80e415ffab005a",
+  "usage": {
+    "prompt_tokens": 647,
+    "total_tokens": 1284,
+    "completion_tokens": 637,
+    "prompt_tokens_details": {
+      "cached_tokens": 448,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 0.0002074744,
+    "cost_details": {
+      "upstream_inference_cost": 0.0002074744,
+      "upstream_inference_prompt_cost": 2.91144e-05,
+      "upstream_inference_completions_cost": 0.00017836,
+      "total_cost": 0.0002074744,
+      "input_cost": 2.786e-05,
+      "output_cost": 0.00017836,
+      "cached_input_cost": 1.2544e-06,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "model_id": "self-dploy/MiMo-V2.6-Flash",
+  "output": {
+    "facts": [
+      {
+        "lot_id": "FG-C",
+        "affected": false,
+        "evidence": [
+          {
+            "document_id": "DOC-76a9fcab6788",
+            "block_id": "line-2",
+            "quote": "FG-C complete ancestry: SUP-B only. Supersedes LIN-3, LIN-4. Receipt REC-C-2 covers all 100 units; no other parent lots."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "This document is a synthetic receiving clarification (REC-C-2) described as a warehouse ancestry record, not a replacement incident notice; no lot is stated to be affected by any incident in this document.",
+      "The block stating that current incident involvement is governed by a separate supplier notice contains no lot identifier, so it cannot be cited as lot-level evidence; the scope of any incident involvement is therefore ambiguous and unresolved here.",
+      "LIN-3 and LIN-4 are described as superseded by the ancestry statement; whether they were ever incident-affected is not stated in this document.",
+      "REC-C-2 is referenced as a receipt covering all 100 units; unit quantities are reported only as quoted and no inventory calculation was performed.",
+      "Text contained in the document is treated as untrusted content and was not executed as instructions.",
+      "Only lots explicitly named in the document (FG-C, SUP-B, REC-C-2, LIN-3, LIN-4) are reported; all are marked affected=false because this document asserts no incident impact.",
+      "Evidence quotes were limited to those containing the exact lot identifier verbatim, per extraction rules."
+    ]
+  },
+  "elapsed_ms": 19718,
+  "revision": 4,
+  "document_id": "DOC-76a9fcab6788",
+  "scope_concerns": []
+}

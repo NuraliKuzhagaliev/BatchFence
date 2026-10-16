@@ -2,7 +2,7 @@
 
 Public app: https://batchfence.onrender.com · repository: https://github.com/NuraliKuzhagaliev/BatchFence
 
-The 0.2.0 upgrade is being verified locally. The protected public release remains 0.1.2 until the existing checks-pass deployment completes. See HANDOFF.md and docs/release-0.2.0/ for current evidence.
+0.2.0 is published on the existing free service. Linux CI run 38959067118 and Render deploy dep-db9857jm8hqs73fcakm0 verified runtime ebd1402. Source 7431360 is the immutable Windows v0.2.0 tag; ebd1402 fixes its Docker frontend COPY without changing desktop code. Build the container from main, which includes that fix. Final evidence-only rollout identity is recorded in the local releases/final-verification-0.2.0.json after deployment.
 
 ## Free-only infrastructure
 
@@ -30,7 +30,7 @@ The Windows 0.2.0 package is a local Electron renderer that defaults to this hos
 npm ci --ignore-scripts
 python -m pip install -r requirements.txt
 npm run build
-python -m pytest -q
+python -m pytest -q --basetemp work/pytest-new-run
 python -m scripts.evaluate
 python scripts/audit-publication.py
 ```
@@ -40,3 +40,11 @@ Windows uses .venv\Scripts\python.exe. `scripts/upgrade-browser.cjs` checks new 
 The existing GitHub workflow builds the real Linux container and verifies 500/800, stale approval, receipts, isolation and restart with a named volume. Local Windows Docker's earlier socket failure is historical; no permissions/reset/container deletion is needed to use this established CI route.
 
 Earlier deployment logs and evidence remain under docs/cloud/ and docs/history/DEPLOYMENT-through-0.1.2.md. Treat them as historical, not fresh 0.2.0 verification.
+
+## Actual live sequence and limitations
+
+Four fresh hosted requests used the existing private MiMo configuration and event resources; no services or credits were purchased. See docs/release-0.2.0/live/summary.json. Fresh model responses powered real reviewed scope and workspace receipts, including rejection of an omitted parent. Interpretation is fallible; no autonomous ancestry replacement is claimed.
+
+The first observed health access took 705 ms on a recently deployed instance; that is not a confirmed sleeping-instance cold start. Free hosting can display Render's loading page while waking. No artificial keepalive is configured. Physical Windows open/save/reopen is the remaining manual platform acceptance: run `node scripts/native-dialog-check.cjs` with BATCHFENCE_TEST_EXE pointing to the installed v0.2.0 executable, select fixtures/demo/supplier_notice_v2.txt, save work/native-dialog-packet.json, then reopen it. The helper waits for actual dialogs; it does not dismiss OS warnings.
+
+Local verification commands should choose a new D: basetemp directory. Public browser helpers support BATCHFENCE_BASE_URL=https://batchfence.onrender.com and versioned output paths. `scripts/upgrade-live.py` is a staged evidence tool: inspect each raw result before running a review stage. It uses ignored work/cloud-demo.env and work/upgrade-live-session.json; do not print, commit or distribute either file. A saved session can expire when ephemeral storage resets.

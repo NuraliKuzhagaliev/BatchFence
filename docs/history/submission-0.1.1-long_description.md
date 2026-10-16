@@ -1,0 +1,9 @@
+# BatchFence
+
+BatchFence helps a quality manager reconcile a supplier defect notice with exported inventory and production lineage. Its shared web and Windows workbench keeps model proposals separate from reviewed facts, attaches exact source passages, and calculates a deterministic containment plan.
+
+Fresh AMD MiMo responses drove the demonstrated synthetic workflow: a reviewed notice held 500 units, including 100 with unresolved ancestry; a revised notice raised the hold to 800. Exact approval became stale when evidence changed. SQLite transactions produced real sandbox receipts, preserved through a backend restart and readable in offline decision packets. No real inventory system or machine is connected.
+
+Ambiguity testing exposed a model error: unresolved involvement was collapsed into true and false. The application now starts every candidate unresolved, requires explicit dispositions and source-backed incident-boundary review, and blocks narrowing when detected source uncertainty remains. One fresh ambiguous result was reviewed into a 1,200-unit broad hold with zero exclusions. A different response failed citation validation and stopped before review or execution. Raw model quality is reported separately from the reviewed outcome; Codex operated review and approval, with no independent human validation.
+
+Forty regression checks, thirty frozen domain cases, twelve browser checks and seven installed-app checks passed. All evidence is synthetic. Outside-scope carrying value is not savings or a safety certification. The unsigned Windows prototype and local web app are verified; Docker/container execution, public hosting/downloads, independent domain review and event submission remain open. Updated media clearly labels fresh live inference, historical evidence and offline review.

@@ -1,0 +1,9 @@
+{
+  "status": 422,
+  "response": {
+    "detail": {
+      "code": "DOMAIN",
+      "message": "Interpret this reply first; review the source-backed supplier candidate"
+    }
+  }
+}

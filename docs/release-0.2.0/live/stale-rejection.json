@@ -1,0 +1,9 @@
+{
+  "status": 409,
+  "body": {
+    "detail": {
+      "code": "STALE_APPROVAL",
+      "message": "Approval is absent, stale or already consumed"
+    }
+  }
+}

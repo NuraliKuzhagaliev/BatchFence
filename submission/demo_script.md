@@ -1,11 +1,20 @@
-# Current demo — 0.1.1
+# Current recording, 0.2.0
 
-Use BatchFence-demo-0.1.1.mp4 (208.33 seconds, silent, burned captions and SRT/VTT). Actual captures at original speed; no synthetic replacement UI. No fixture inference segments occur in this version. All records remain synthetic.
+Use BatchFence-demo-0.2.0.mp4, 146.72 seconds. Original-speed actual application capture; silent with burned captions. The video contains synthetic rehearsal and historical replay of the new genuine AMD results, not a fresh request during filming.
 
-- 0:00–2:56.67: fresh AMD MiMo calls through actual browser workflow. Candidate facts start unresolved. Codex inspects source, supplies explicit review choices and triggers approval/application. First plan holds 500, revised plan 800; uncertain ancestry remains held. These are actual model responses and sandbox receipts, not independent human validation.
-- 2:56.67–3:15.94: preserved live ambiguity evidence. Two unresolved lots were proposed true/false; source guard prevents narrowing and agent-reviewed broad plan holds 1,200. A different live response failed citation validation and cannot proceed. This segment makes no new inference call and is labeled recorded evidence.
-- 3:15.94–3:28.33: actual installed Windows 0.1.1 opens the historical live packet offline. File selection is supplied by the harness; real native file reading and validation execute. Offline approval/action remains disabled.
+- 1.24s: A quality manager starts with a supplier notice and an unclassified genealogy. No hold has been decided. (SYNTHETIC REHEARSAL | No model inference | Agent-operated review)
+- 9.33s: Model proposals start unresolved. Inspect the exact source before choosing each disposition. (SYNTHETIC REHEARSAL | No model inference | Agent-operated review)
+- 18.51s: The reviewed scope proposes 500 units: 400 documented and 100 uncertain. This is inventory value, not measured savings. (SYNTHETIC REHEARSAL | No model inference | Agent-operated review)
+- 29.00s: A complete SUP-B-only receiving record could change 500 to 400. This conditional simulation has no approval authority. (SYNTHETIC REHEARSAL | No model inference | Agent-operated review)
+- 41.52s: The changed notice invalidates the prior approval. The application rejects the stale execution attempt. (SYNTHETIC REHEARSAL | No model inference | Agent-operated review)
+- 50.11s: The revision expands 500 to 800. Compare immutable reviewed snapshots; playback cannot restore authority. (SYNTHETIC REHEARSAL | No model inference | Agent-operated review)
+- 60.14s: SUP-C adds the 300-unit FG-D branch and order O-104. Other previously included stock stays included. (SYNTHETIC REHEARSAL | No model inference | Agent-operated review)
+- 70.25s: This is a saved genuine AMD run from the current release verification. The response drove a reviewed 500-unit plan and receipt. (HISTORICAL AMD REPLAY | Fresh 0.2.0 run preserved earlier | Synthetic data | Agent review)
+- 80.31s: Provider identity, timing, validation and raw output remain inspectable. Exact citations do not prove semantic truth. (HISTORICAL AMD REPLAY | Fresh 0.2.0 run preserved earlier | Synthetic data | Agent review)
+- 92.44s: The next genuine AMD response drove the 800-unit revised plan. These are recorded results; no live request is being made in this video. (HISTORICAL AMD REPLAY | Fresh 0.2.0 run preserved earlier | Synthetic data | Agent review)
+- 102.65s: The first receiving extraction omitted SUP-B and narrowing was blocked. A clearer reply supported review: 700 proposed, 800 still held. (HISTORICAL AMD REPLAY | Fresh 0.2.0 run preserved earlier | Synthetic data | Agent review)
+- 115.69s: The preserved receipt records 800 held units. A smaller proposal does not silently release stock. (HISTORICAL AMD REPLAY | Fresh 0.2.0 run preserved earlier | Synthetic data | Agent review)
+- 125.75s: Raw extraction, reviewer decisions, deterministic policy and receipts are separate. All review shown was agent-operated, not independent validation. (HISTORICAL AMD REPLAY | Fresh 0.2.0 run preserved earlier | Synthetic data | Agent review)
+- 137.82s: Export the packet for read-only web or Windows review. Free hosting is temporary; Windows is unsigned. Physical file-dialog acceptance remains a human check. (HISTORICAL AMD REPLAY | Fresh 0.2.0 run preserved earlier | Synthetic data | Agent review)
 
-The fresh segment was recorded before discovery of a numeric packet-hash mismatch. Packet envelopes were later corrected without changing any model response, review, action or receipt. Original rejected exports are preserved. The last segment uses the corrected packet. No new inference was needed for that fix.
-
-The older unversioned demo is fixture-era material, not current live evidence. Independent operator review, final narration/presentation preference, publication and submission are still human decisions.
+All reviews are agent-operated. No independent usability timing, automatic release, durable free-host storage or verified media maximum is claimed. Older scripts are preserved in docs/history.

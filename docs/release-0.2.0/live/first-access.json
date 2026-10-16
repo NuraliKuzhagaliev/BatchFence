@@ -1,0 +1,17 @@
+{
+  "health": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.2.0",
+    "commit": "ebd14024d9c3614abb1e6a913d41f877a76c0788",
+    "inference_mode": "fixture",
+    "amd_configured": true,
+    "live_protected": true,
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  },
+  "elapsed_ms": 705,
+  "at": "2026-10-16T20:03:36.886915+00:00",
+  "cold_start": "Not established; this measures a real request, not an assumed sleeping instance."
+}

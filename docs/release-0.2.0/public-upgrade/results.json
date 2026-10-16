@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-16T20:04:05.723Z",
+  "base": "https://batchfence.onrender.com",
+  "provenance": "Synthetic; agent-operated review",
+  "checks": [
+    "Unclassified genealogy visible before interpretation",
+    "Model candidate defaults unresolved",
+    "Shared boundary cause; only actual FG-C receiving gap",
+    "Standalone and duplicate joint simulation 500→400; approval preserved",
+    "Changed evidence rejects prior approval",
+    "Causal revision: SUP-C→FG-D→O-104, 300 units",
+    "Reviewed linked reply narrows proposal to 700; 800 applied units remain held",
+    "Six executable synthetic boundary challenges pass",
+    "1366/1440/1920/mobile and 200% CSS zoom without horizontal page overflow"
+  ],
+  "metrics": [
+    {
+      "width": 1366,
+      "scrollWidth": 1366
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "width": 1920,
+      "scrollWidth": 1920
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "zoom": {
+    "width": 1440,
+    "scrollWidth": 1440
+  },
+  "page_errors": []
+}

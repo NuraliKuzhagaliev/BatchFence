@@ -1,12 +1,5 @@
-# Six-slide pitch — current 0.1.1 deck
+# Current pitch, 0.2.0
 
-Use BatchFence-pitch-0.1.1-reviewed.pptx. The unversioned deck is preserved historical fixture-era material.
+Use BatchFence-pitch-0.2.0.pptx. Six slides: product and audience; source-linked receiving question; conditional 500-to-400 impact; why SUP-C adds 300 units and O-104; reviewed clarification with 700 proposed and 800 held; verification and release limits. Screens are actual application captures. The complete receiving format is bounded, and the notes preserve raw omission and extra-identifier errors. All reviews are agent-operated. The deck is editable, structurally validated and visually inspected through its rendered slides, not in native PowerPoint.
 
-1. Evidence-backed containment: supplier evidence remains attached to the reviewed decision.
-2. Every candidate starts unresolved. Review affected, unresolved and excluded lots separately; narrowing needs a supported incident boundary.
-3. Actual live MiMo response, reviewed 500-unit plan: 400 documented plus 100 uncertain.
-4. Revised live response, 800-unit plan; old approval rejected and both receipts retained.
-5. Ambiguity is contained: exact regression, 1,200 broad hold, separate citation failure blocked. Forty regression and thirty graph checks pass; model booleans remain fallible.
-6. Local prototype: proposed buyer/pilot are hypotheses. Docker repair, authorized distribution and independent review remain.
-
-All screenshots are actual application views; all inputs synthetic. Speaker notes distinguish agent review, raw errors, historical segments, native selection stubs and outstanding release gates. Six slides were rendered and inspected; package/layout/import checks passed. Native PowerPoint rendering was not tested.
+Previous versioned decks remain historical. Do not submit the unversioned or 0.1.1 deck as the current release.

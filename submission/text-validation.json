@@ -1,6 +1,8 @@
 {
-  "title_characters": 43,
-  "short_characters": 233,
-  "long_words": 246,
+  "title_characters": 36,
+  "short_characters": 244,
+  "long_characters": 1826,
+  "long_words": 251,
+  "source": "Authenticated existing team submission first step, observed 2026-10-17. Title 5\u201350, short50\u2013255, long600\u20132000 and minimum100words. Media step still unverified.",
   "passed": true
 }

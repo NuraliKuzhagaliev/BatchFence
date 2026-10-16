@@ -1,0 +1,80 @@
+{
+  "id": "431814ce-71a8-485c-b50d-c7b14ebdd0aa",
+  "mode": "live",
+  "clock_source": "Server UTC wall clock; latency from monotonic clock",
+  "input_hash": "86151e5f8bf1f018d50e292c9bd8bcfc760cefb449ee7853cce5967a98cefb15",
+  "provider": "AMD configured endpoint",
+  "prompt_version": "scope-extract-2",
+  "schema_version": 1,
+  "timestamp": "2026-10-16T20:04:58.198375+00:00",
+  "status": "succeeded",
+  "repairs": 0,
+  "requested_model_id": "MiMo-V2.6-Flash",
+  "http_status": 200,
+  "request_id": "c547152a5561461fa31a3deb6a1de19d",
+  "usage": {
+    "prompt_tokens": 646,
+    "total_tokens": 1079,
+    "completion_tokens": 433,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 0.00021168,
+    "cost_details": {
+      "upstream_inference_cost": 0.00021168,
+      "upstream_inference_prompt_cost": 9.044e-05,
+      "upstream_inference_completions_cost": 0.00012124,
+      "total_cost": 0.00021168,
+      "input_cost": 9.044e-05,
+      "output_cost": 0.00012124,
+      "cached_input_cost": 0,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "model_id": "self-dploy/MiMo-V2.6-Flash",
+  "output": {
+    "facts": [
+      {
+        "lot_id": "SUP-A",
+        "affected": true,
+        "evidence": [
+          {
+            "document_id": "DOC-db2163b762b9",
+            "block_id": "line-2",
+            "quote": "The cosmetic coating defect is confirmed in supplier lot SUP-A."
+          },
+          {
+            "document_id": "DOC-db2163b762b9",
+            "block_id": "line-3",
+            "quote": "Complete incident boundary: SUP-A is the only affected supplier lot in this notice."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Document DOC-db2163b762b9 is described as a synthetic supplier communication at verification 0.2.0, revision one (block line-1); this is notice-wide context, not lot-specific evidence.",
+      "The notice states a complete incident boundary naming only one affected supplier lot, so no other lots are explicitly affected (block line-3).",
+      "The notice states that warehouse receiving records are separate evidence and that it does not identify the parent of any finished pool (block line-4); no lot identifiers appear in that block, so it is recorded only as notice-wide context.",
+      "No lots are merely mentioned without being affected: the only lot identifier appearing anywhere in the document is the one reported as affected."
+    ]
+  },
+  "elapsed_ms": 16026,
+  "revision": 2,
+  "document_id": "DOC-db2163b762b9",
+  "scope_concerns": []
+}

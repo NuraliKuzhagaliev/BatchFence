@@ -1,0 +1,103 @@
+{
+  "app_version": "0.2.0",
+  "runtime_commit": "ebd14024d9c3614abb1e6a913d41f877a76c0788",
+  "url": "https://batchfence.onrender.com",
+  "provider_attempts": 4,
+  "transport_and_schema_accepted": 4,
+  "repairs": 0,
+  "fixture_fallbacks": 0,
+  "requested_model_id": "MiMo-V2.6-Flash",
+  "returned_model_id": "self-dploy/MiMo-V2.6-Flash",
+  "runs": [
+    {
+      "input": "notice1",
+      "id": "431814ce-71a8-485c-b50d-c7b14ebdd0aa",
+      "timestamp": "2026-10-16T20:04:58.198375+00:00",
+      "request_id": "c547152a5561461fa31a3deb6a1de19d",
+      "input_hash": "86151e5f8bf1f018d50e292c9bd8bcfc760cefb449ee7853cce5967a98cefb15",
+      "elapsed_ms": 16026,
+      "status": "succeeded",
+      "http_status": 200,
+      "model_id": "self-dploy/MiMo-V2.6-Flash",
+      "raw_ids": [
+        "SUP-A"
+      ]
+    },
+    {
+      "input": "notice2",
+      "id": "c6ec02e2-70bb-4e14-bc4d-eaddd59d11c1",
+      "timestamp": "2026-10-16T20:06:14.551842+00:00",
+      "request_id": "bfd365072d4b46f0a736dc25bda4dc59",
+      "input_hash": "2c39173a2ac616574de9061e863c29b0dc32e3bc1e2d9adbba6bc0b53ddf2f10",
+      "elapsed_ms": 12791,
+      "status": "succeeded",
+      "http_status": 200,
+      "model_id": "self-dploy/MiMo-V2.6-Flash",
+      "raw_ids": [
+        "SUP-A",
+        "SUP-C"
+      ]
+    },
+    {
+      "input": "reply",
+      "id": "70f06f80-183b-4a73-9fba-b2387a180762",
+      "timestamp": "2026-10-16T20:07:10.061067+00:00",
+      "request_id": "467eeb9364594a439f80e415ffab005a",
+      "input_hash": "2f9b5607b8e5dcb0bd7cb2abc78e5066f44f57b9c744f3453da10fc0fd2a30fb",
+      "elapsed_ms": 19718,
+      "status": "succeeded",
+      "http_status": 200,
+      "model_id": "self-dploy/MiMo-V2.6-Flash",
+      "raw_ids": [
+        "FG-C"
+      ]
+    },
+    {
+      "input": "reply2",
+      "id": "5341cb9d-dfaa-4b44-a756-bbe4f6e543ca",
+      "timestamp": "2026-10-16T20:08:20.258782+00:00",
+      "request_id": "86df63e572b042c790db76b1bc81c9d6",
+      "input_hash": "16b8fa151715fccb871e7a28e7e988d0ce31fa906ff3cf07cf53c9a7bfca7ebb",
+      "elapsed_ms": 32413,
+      "status": "succeeded",
+      "http_status": 200,
+      "model_id": "self-dploy/MiMo-V2.6-Flash",
+      "raw_ids": [
+        "FG-C",
+        "SUP-B",
+        "REC-C-2",
+        "LIN-3",
+        "LIN-4"
+      ]
+    }
+  ],
+  "raw_quality": {
+    "notice1": "Expected SUP-A, returned SUP-A; valid source quotes.",
+    "notice2": "Expected SUP-A and SUP-C, both returned; valid source quotes.",
+    "reply": "Expected supplier parent SUP-B; returned only FG-C. Qualifier claimed other identifiers reported but facts omitted them.",
+    "reply2": "Clearer source returned SUP-B and FG-C, plus three non-lot identifiers REC-C-2, LIN-3, LIN-4. Raw output retained; reviewer selected only SUP-B."
+  },
+  "application_results": {
+    "review1_units": 500,
+    "review1_orders": 3,
+    "review2_units": 800,
+    "review2_orders": 4,
+    "stale_approval_http": 409,
+    "missing_supplier_reconciliation_http": 422,
+    "inconclusive_units": 800,
+    "final_proposal_units": 700,
+    "already_held_units": 800,
+    "receipts": 2,
+    "automatic_release": false
+  },
+  "reviewer": "Agent-operated source inspection and explicit review. No independent human or manufacturing validation.",
+  "interpretation": "Four synthetic source inputs, two supplier notices and two receiving phrasings; not a held-out accuracy evaluation. Revised reply was an adaptive source clarification, not an independent test sample.",
+  "infrastructure": "Existing configured AMD event resources only; no purchase. Provider-reported cost fields are preserved as telemetry, not a charge or benchmark claim.",
+  "limitations": [
+    "An exact quote validates source occurrence, not truth.",
+    "Provider model name alone is not independently measured hardware provenance.",
+    "The first-access health request took 705 ms; a sleeping-instance cold start was not established.",
+    "Receiving replacement is bounded to explicit complete-ancestry syntax and all superseded row IDs.",
+    "Offline revision view shows saved graphs; detailed causal analysis requires an owned online case."
+  ]
+}

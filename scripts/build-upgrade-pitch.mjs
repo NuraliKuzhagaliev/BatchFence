@@ -1,0 +1,53 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+const root=path.resolve(import.meta.dirname,'..'),tmp=path.join(root,'work/pitch-0.2.0');
+const runtime='C:/Users/nural/.cache/codex-runtimes/codex-primary-runtime/dependencies';
+const modules=runtime+'/node/node_modules';
+process.env.RUNTIME_NODE_MODULES=modules;
+const pkg=JSON.parse(await fs.readFile(path.join(modules,'@oai/artifact-tool/package.json'),'utf8'));
+const entry=pkg.exports?.['.']?.import||pkg.module||pkg.main;
+const {Presentation,PresentationFile}=await import(pathToFileURL(path.join(modules,'@oai/artifact-tool',typeof entry==='string'?entry:'dist/artifact_tool.mjs')).href);
+await fs.mkdir(tmp,{recursive:true});
+const p=Presentation.create({slideSize:{width:1280,height:720}});
+function text(s,value,x,y,w,h,size=26,color='#142235',bold=false){const t=s.shapes.add({geometry:'textbox',position:{left:x,top:y,width:w,height:h},fill:'none',line:{fill:'none',width:0}});t.text=value;t.text.style={fontFamily:'Segoe UI',typeface:'Segoe UI',fontSize:size,color,bold};t.text.insets=0;return t;}
+function slide(title,notes,dark=false){const s=p.slides.add();s.background.fill=dark?'#0b172a':'#f4f6f8';text(s,title,64,48,1152,90,42,dark?'#f5f8fc':'#142235',true);s.speakerNotes.text=notes;return s;}
+async function image(s,file,x=566,y=154,w=650,h=440){const b=await fs.readFile(path.join(root,file));s.images.add({blob:new Uint8Array(b),contentType:'image/png',alt:'Actual BatchFence 0.2.0 application screenshot; provenance described on slide',fit:'contain',position:{left:x,top:y,width:w,height:h}});}
+let s=slide('BatchFence','Intended user: quality manager at a small manufacturer. Fictional decorative housings, no safety certification. Integration of cause diagnosis, evidence planning and causal revisions is a positioning hypothesis, not a world-first claim.',true);
+text(s,'Contain the right stock.\nKnow what to ask next.',64,180,1120,190,56,'#f5f8fc');
+text(s,'Source evidence, reviewed decisions and exact containment plans in one web and Windows workbench.',64,410,1000,110,29,'#b1c4db');
+text(s,'0.2.0 · Working public app · Synthetic records · Agent-operated review',64,622,1152,40,20,'#dbbd79');
+s=slide('The next evidence question','Source: docs/release-0.2.0/upgrade-browser-final/results.json and tests/test_upgrade.py. Synthetic UI check. A shared unconfirmed boundary holds 1,200; only FG-C has actual ambiguous receiving identity. Complete ancestry is not falsely described as missing.');
+text(s,'A source-linked receiving gap',64,178,470,110,34,'#142235',true);
+text(s,'FG-C has 100 units with two possible parents. The question names the exact unresolved relationship.',64,310,460,130,27,'#516174');
+text(s,'Each question points to its source, affected pools and suggested owner.',64,485,460,115,25,'#516174');
+await image(s,'docs/release-0.2.0/live/media-question.png');
+text(s,'Saved fresh AMD case · synthetic records · source-linked question',64,642,1152,32,18,'#8e621a');
+s=slide('Conditional evidence impact','Source: test_readonly_complete_identity_impact; scripts/upgrade-browser.cjs. Synthetic immutable scenario: FG-C100 at EUR40, SUP-B-only complete record changes500 to400. CompleteSUP-A or inconclusive keeps500. Standalone impacts are not additive.');
+text(s,'500 → 400 proposed units',64,180,480,100,38,'#b33e4c',true);
+text(s,'If a complete record confirms\nSUP-B-only ancestry for FG-C.',64,310,475,120,28);
+text(s,'€4,000 of inventory value changes classification. Existing holds remain.',64,480,475,115,26,'#516174');
+await image(s,'work/media-0.2.0/simulation.png');
+text(s,'Simulation · no approval authority · carrying value is not savings',64,642,1152,32,18,'#8e621a');
+s=slide('Why the revision adds 300 units','Source: docs/release-0.2.0/live/notice2-raw-run.json, review2-packet.json, causal-comparison.json. Actual fresh configured AMD response; agent-operated source review. SUP-C toFG-D300 toO-104,500to800 and3to4orders. No independent human validation.');
+text(s,'SUP-C → FG-D → O-104',64,180,485,100,34,'#b33e4c',true);
+text(s,'The revised supplier notice\nexpands the proposal to 800.\nThe earlier approval is stale.',64,310,480,160,28);
+await image(s,'docs/release-0.2.0/live/fresh-causal-revision.png');
+text(s,'Recorded view of fresh AMD evidence · synthetic data · agent review',64,642,1152,32,18,'#8e621a');
+s=slide('A reviewed answer changes the proposal','Source: docs/release-0.2.0/live/reply2-raw-run.json, review-reply-preview.json and final-packet.json. Source candidate from fresh AMD response, explicit complete receiving-record review. Proposed700; all800previouslyappliedremainheld. The first fresh reply omitted SUP-B and the app rejected narrowing (422); a clearer separately preserved reply returned SUP-B plus three non-lot IDs. Review selected only the source-backed supplier identity. Format is bounded; unclear prose stays unresolved.');
+text(s,'700 proposed · 800 still held',64,180,480,110,36,'#142235',true);
+text(s,'A clearer receiving reply\nsupports reviewed FG-C identity.\nNo stock is automatically released.',64,320,480,180,27,'#516174');
+await image(s,'docs/release-0.2.0/live/final-exposure.png');
+text(s,'Recorded fresh AMD reply · exact source review · workspace inventory only',64,642,1152,32,18,'#8e621a');
+s=slide('Verification and release boundaries','Sources: docs/release-0.2.0/pytest-results.xml,domain-results.json,installed-upgrade/results.json,installer.json,public-release.json and live evidence. Tests are synthetic, not model accuracy measurements. No customer research or independent domain/operator validation. No paid resources.');
+text(s,'65 regression tests\n30 frozen domain cases',64,180,520,145,36,'#173655',true);
+text(s,'Web and installed Windows workflows.\nSix executable boundary challenges.\nSource-backed raw AMD runs preserved.',64,365,530,170,26,'#516174');
+text(s,'Free hosting uses temporary storage. Export packets.\nUnsigned Windows installer; physical dialog check remains.\nIndependent manufacturing validation is still needed.',650,190,565,235,25,'#8e621a');
+text(s,'batchfence.onrender.com',650,505,560,55,28,'#173655',true);
+text(s,'Repository and release evidence are public on GitHub.',650,579,560,65,22,'#516174');
+for(const [i,slide] of p.slides.items.entries()){const png=await p.export({slide,format:'png',scale:1});await fs.writeFile(path.join(tmp,`slide-${i+1}.png`),new Uint8Array(await png.arrayBuffer()));}
+const candidate=path.join(tmp,'candidate.pptx');await(await PresentationFile.exportPptx(p)).save(candidate);
+const skill='C:/Users/nural/.codex/plugins/cache/openai-primary-runtime/presentations/26.1013.11914/skills/presentations';
+const {finalizePresentation}=await import(pathToFileURL(path.join(skill,'container_tools/artifact_tool_utils.mjs')).href);
+const report=await finalizePresentation({workspaceDir:root,candidatePath:candidate,finalPath:path.join(root,'submission/BatchFence-pitch-0.2.0.pptx'),pythonExecutable:runtime+'/python/python.exe',integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit'],explicitTotalSlideCount:6,requiredNativeTableOwnerSlides:[],requiredNativeChartOwnerSlides:[],fontPolicy:{basis:'design',families:['Segoe UI']},verifyArtifactToolImport:true,receiptPath:path.join(tmp,'validation.json')});
+console.log(JSON.stringify(report));

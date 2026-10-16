@@ -1,0 +1,47 @@
+process.env.PLAYWRIGHT_BROWSERS_PATH ||= require('node:path').resolve(__dirname,'../.cache/playwright');
+// Real application pixels at original speed. All inference in this video is historical replay.
+const {chromium}=require('playwright'),fs=require('node:fs/promises'),path=require('node:path');
+let activeBrowser;
+const root=path.resolve(__dirname,'..'),work=path.join(root,'work/media-0.2.0');
+process.env.PLAYWRIGHT_BROWSERS_PATH=path.join(root,'.cache/playwright');
+(async()=>{
+ await fs.mkdir(work,{recursive:true});
+ const browser=activeBrowser=await chromium.launch({channel:'msedge',headless:true});
+ const context=await browser.newContext({viewport:{width:1440,height:900},acceptDownloads:true,recordVideo:{dir:work,size:{width:1440,height:900}}});
+ const page=await context.newPage(),chapters=[],start=Date.now();
+ const hold=async(seconds,caption,provenance)=>{chapters.push({seconds:(Date.now()-start)/1000,caption,provenance});await page.waitForTimeout(seconds*1000);};
+ const click=name=>page.getByRole('button',{name,exact:true}).click();
+ const tab=name=>page.getByRole('tab',{name,exact:false}).click();
+ const synthetic='SYNTHETIC REHEARSAL | No model inference | Agent-operated review';
+ const replay='HISTORICAL AMD REPLAY | Fresh 0.2.0 run preserved earlier | Synthetic data | Agent review';
+ await page.goto('https://batchfence.onrender.com');await page.getByRole('button',{name:'Open example incident',exact:false}).click();
+ await hold(8,'A quality manager starts with a supplier notice and an unclassified genealogy. No hold has been decided.',synthetic);
+ await page.getByLabel('Run mode',{exact:true}).selectOption('fixture');await click('Extract selected notice');
+ await hold(9,'Model proposals start unresolved. Inspect the exact source before choosing each disposition.',synthetic);
+ await require('./review-controls.cjs').fixture(page,['SUP-A']);await click('Confirm scope & calculate');
+ await hold(10,'The reviewed scope proposes 500 units: 400 documented and 100 uncertain. This is inventory value, not measured savings.',synthetic);
+ await tab('Evidence requests');await page.locator('.request-card').first().screenshot({path:path.join(work,'question.png')});await page.locator('.hypothesis').filter({hasText:'FG-C: SUP-B only'}).getByRole('button',{name:'Simulate',exact:true}).click();
+ await page.locator('.impact-result').screenshot({path:path.join(work,'simulation.png')});
+ await hold(12,'A complete SUP-B-only receiving record could change 500 to 400. This conditional simulation has no approval authority.',synthetic);
+ await click('Close simulation');await click('Approve exact plan');await click('Add supplier v2');await click('Test stale approval');
+ await hold(8,'The changed notice invalidates the prior approval. The application rejects the stale execution attempt.',synthetic);
+ await click('Review current evidence');await require('./review-controls.cjs').fixture(page,['SUP-A','SUP-C']);await click('Confirm scope & calculate');await page.locator('.comparison .required strong').filter({hasText:'800'}).waitFor();await tab('Revisions');
+ await hold(10,'The revision expands 500 to 800. Compare immutable reviewed snapshots; playback cannot restore authority.',synthetic);
+ await page.locator('.causal-pool.changed-path').scrollIntoViewIfNeeded();
+ await hold(10,'SUP-C adds the 300-unit FG-D branch and order O-104. Other previously included stock stays included.',synthetic);
+ // Open genuine saved packets through the product's public offline import path.
+ const open=async file=>{const chooser=page.waitForEvent('filechooser');await click('Open packet');await(await chooser).setFiles(path.join(root,'docs/release-0.2.0/live',file));await page.getByText('Offline evidence review · historical snapshot',{exact:true}).waitFor();await page.locator('.comparison .required strong').filter({hasText:file==='review1-packet.json'?'500':file==='review2-packet.json'?'800':'700'}).waitFor();};
+ await open('review1-packet.json');await hold(10,'This is a saved genuine AMD run from the current release verification. The response drove a reviewed 500-unit plan and receipt.',replay);
+ await tab('Verification');await page.locator('.verification-run').first().scrollIntoViewIfNeeded();await hold(12,'Provider identity, timing, validation and raw output remain inspectable. Exact citations do not prove semantic truth.',replay);
+ await open('review2-packet.json');await tab('Revisions');await hold(10,'The next genuine AMD response drove the 800-unit revised plan. These are recorded results; no live request is being made in this video.',replay);
+ await open('final-packet.json');await tab('Exposure');
+ await page.getByRole('button',{name:/FG-C, 100 units/}).click();await hold(13,'The first receiving extraction omitted SUP-B and narrowing was blocked. A clearer reply supported review: 700 proposed, 800 still held.',replay);
+ await tab('Receipt');await hold(10,'The preserved receipt records 800 held units. A smaller proposal does not silently release stock.',replay);
+ await tab('Verification');await page.locator('.verification-run').last().scrollIntoViewIfNeeded();
+ await hold(12,'Raw extraction, reviewer decisions, deterministic policy and receipts are separate. All review shown was agent-operated, not independent validation.',replay);
+ await page.getByRole('button',{name:'Export packet',exact:true}).click();
+ await hold(9,'Export the packet for read-only web or Windows review. Free hosting is temporary; Windows is unsigned. Physical file-dialog acceptance remains a human check.',replay);
+ const video=page.video();await context.close();await video.saveAs(path.join(work,'walkthrough.webm'));await browser.close();
+ await fs.writeFile(path.join(work,'chapters.json'),JSON.stringify(chapters,null,2));
+ console.log(JSON.stringify({chapters:chapters.length,capture:'Actual public renderer; original speed',inference_requests:0}));
+})().catch(async e=>{console.error(e.message);await activeBrowser?.close();process.exitCode=1;});

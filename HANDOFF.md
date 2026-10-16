@@ -1,17 +1,45 @@
-# BatchFence 0.2.0 upgrade checkpoint
+# BatchFence 0.2.0 handoff
 
-Protected public baseline: 2402375 (web) and Windows v0.1.2. New recoverable foundation checkpoint: 9a0cc57. Current implementation is local; public 0.2.0 verification and installer publication are still pending at this checkpoint.
+All six core improvements are implemented and verified on the public web application and installed Windows client. Public app: https://batchfence.onrender.com. Windows: https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.2.0. Existing free Render service only; no purchases, paid disks or account-security changes.
 
-All six core improvements are implemented: source-linked shared causes, immutable impact scenarios, explicit receiving-reply reconciliation, immutable causal revisions, per-lot guided review/early genealogy, and executable verification challenges. Existing containment, approvals, receipts, isolation and historical packets are preserved.
+Runtime implementation is 7431360; ebd1402 corrects the Docker frontend COPY and isolates fresh CI artifacts. Later commits contain release evidence, capture tools and an additional exact-failure regression, with no frontend/backend/desktop changes. The immutable Windows tag is v0.2.0 at 7431360. Final published evidence commit/deployment identity is recorded locally in releases/final-verification-0.2.0.json after the final rollout. Recovery checkpoints 2402375 / v0.1.2 and 9a0cc57 remain intact.
 
-Actual local checks: 64 pytest pass (one upstream Starlette warning); 30 frozen deterministic cases pass unchanged; 12 existing browser checks pass; nine new browser acceptance groups pass, including six executed policy challenges. Screens checked at 1366×768, 1440×900, 1920×1080, 390×844 and 200% CSS zoom. All review is agent-operated. No fresh AMD calls for this upgrade yet.
+## What changed
 
-Core results: shared unresolved boundary holds 1,200 without inventing five missing receiving records. Explicit complete SUP-B-only FG-C scenario gives 500→400 / 800→700. Inconclusive or partial evidence stays held. Reviewed complete reconciliation preserves all 800 already-applied units while proposing 700. SUP-C→FG-D→O-104 explains the added 300 units and fourth order. Stale approval and uncertainty-removal attempts remain rejected.
+1. Source-linked causes distinguish unresolved incident scope from actual receiving gaps, merge overlapping questions and count unique inventory.
+2. Bounded immutable scenarios compare individual and joint assumptions; complete SUP-B-only FG-C changes 500→400 / 800→700. Partial or inconclusive evidence preserves holds.
+3. Linked receiving replies preserve raw output, require explicit source/replacement review, reject weak evidence, recalculate plans and invalidate old authority. A smaller proposal never releases applied holds.
+4. Immutable before/after comparison explains SUP-C→FG-D (300 units)→O-104. Offline packets show saved graphs; detailed causal computation requires the owned online case.
+5. Guided per-lot unresolved defaults, adjacent quotes, early genealogy, elapsed inference indicator and responsive layouts replace the old CSV-style review flow.
+6. Verification separates raw/provider evidence from review and receipts. Six isolated challenges execute actual policy functions without changing the case.
 
-Run: `.venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8793`; `npm run build`; `.venv\Scripts\python.exe -m pytest -q`; `node scripts/upgrade-browser.cjs`; `npm run package:desktop`. Use BATCHFENCE_BASE_URL and BATCHFENCE_UPGRADE_REPORT_DIR for public/versioned browser evidence.
+## Actual verification
 
-Next: install/test final Windows build, audit source/artifacts, publish release and source, wait for Linux CI and existing free Render deployment, verify public functionality with bounded fresh AMD requests, then refresh actual-screen media and final delivery evidence.
+65 pytest passed; 30 frozen deterministic cases unchanged. Local and public browsers each passed 12 preserved checks plus nine upgrade groups. Public controls passed five groups, no page errors. Installed Windows passed nine upgrade groups locally and seven core checks against its default public backend, plus distribution/IPC checks. It opened this release's fresh AMD packet and both receipts offline with unreachable backend and no external Python/Node in its PATH. Automated native-dialog selection is stubbed. Renderer scales 1.0/1.25 and web widths 1366/1440/1920/390 plus 200% CSS zoom were checked.
 
-Limits: complete receiving replacement accepts a documented explicit record syntax and exact superseded row IDs. Arbitrary prose that does not meet it stays unresolved. Free hosted SQLite remains temporary. Unsigned Windows package; physical native open/save selection and second-machine acceptance are not automated here. No independent manufacturing validation. Event public page displays Oct 18, 3:00 PM KT; authenticated submission form/media limits unavailable in the current browser session. Optional extra-model experiments deferred.
+Linux CI run 38959067118 passed the real image, dynamic port, 500/800, stale rejection, receipt, isolation and actual named-volume restart. The earlier Docker build failed on missing frontend reply examples; the exact small correction and failure log are retained. No blanket permission changes, resets or container/volume deletion were used.
 
-Older handoffs are preserved under docs/history/; they describe historical versions, not current release readiness.
+Four fresh AMD requests on the public 0.2.0 app requested MiMo-V2.6-Flash and returned self-dploy/MiMo-V2.6-Flash. The first two drove reviewed 500/800 receipts and a 409 stale rejection. The first receiving response omitted SUP-B; narrowing failed 422 and inconclusive review kept 800. A clearer separately preserved reply returned SUP-B plus three non-lot IDs. Explicit review selected the source-backed supplier and produced 700 proposed while all 800 applied units remained held. Latencies: 16,026 / 12,791 / 19,718 / 32,413 ms. This is not a general accuracy benchmark; all review was agent-operated, not independent human validation.
+
+Installer: 113,774,692 bytes; SHA256 7fc0b61c1c232394c077d2cc990266972ac0a5dd1bf0095014fa626dcd99979d. Full anonymous public download matches. Installed path: D:\projects\BatchFence\work\installed-0.2.0\BatchFence.exe. No credentials in the packaged renderer or public evidence. Source/history/asset known-value scan passed; npm audit production zero, eight moderate desktop build-tool transitive findings remain documented.
+
+## Open and reproduce
+
+- Public: https://batchfence.onrender.com. Synthetic and historical replay need no key. Live uses the separate private LIVE_DEMO_TOKEN access key, never AMD_API_KEY.
+- Local: npm run build; .venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8787. Configure ignored .env from .env.example privately. Desktop local override: BATCHFENCE_BACKEND_ORIGIN=http://127.0.0.1:8787.
+- Tests: .venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-new-run; .venv\Scripts\python.exe -m scripts.evaluate; node scripts/browser-smoke.cjs; node scripts/upgrade-browser.cjs. Choose a new D: test temp directory.
+- Public tests: set BATCHFENCE_BASE_URL=https://batchfence.onrender.com and versioned report locations. See DEPLOYMENT.md and scripts' environment options.
+- Installed: set BATCHFENCE_TEST_EXE to the path above; node scripts/desktop-smoke.cjs; node scripts/desktop-offline.cjs. New packet path/expected units/receipts are configurable in the offline helper.
+- Package: npm run package:desktop. Never overwrite the published v0.2.0 binary with a different build.
+
+Artifacts: docs/release-0.2.0/ (raw evidence, test reports and screenshots); submission/ (versioned video, pitch, cover and current form text); releases/ (installer, checksums and final local deployment manifest). Private session/configuration stays in ignored work/ and .env.
+
+## Remaining limits and human actions
+
+The free host uses ephemeral SQLite: export packets; this is not durable production storage. Complete ancestry replacement uses a bounded explicit record syntax and every superseded parent row. Model omissions and false candidates still require source inspection. Unkeyed packet hashes detect changes but do not authenticate supplier truth. No ERP, machinery or automatic release integration exists.
+
+The Windows installer is unsigned. Complete real OS Import evidence, Save packet and Open packet once on your machine (node scripts/native-dialog-check.cjs), and independently review the quality-domain workflow before operational use. Native automation is unavailable in this environment; no second-machine acceptance is claimed.
+
+The existing authenticated event form's first-step text limits were checked. Media-step constraints and authenticated cutoff still require advancing the team draft; use the current prepared submission files, review them, then submit. No event form was saved or submitted. Optional Gemma and portable recomputation/recovery work was deliberately deferred.
+
+Full claims and exact checks: docs/claims-to-evidence.md. Original evidence and older handoffs remain under docs/history, docs/cloud and docs/ambiguity-fix.

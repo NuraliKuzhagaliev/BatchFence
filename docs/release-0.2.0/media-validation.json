@@ -1,0 +1,18 @@
+{
+  "video_seconds": 146.72,
+  "video_requests": 0,
+  "video_pixels": "Actual public UI, caption band added outside UI; original speed",
+  "video_modes": [
+    "synthetic rehearsal",
+    "historical AMD replay"
+  ],
+  "pptx_slides": 6,
+  "pptx_checks": "All rendered slides inspected; structure/layout/font/first-party import passed",
+  "native_powerpoint_checked": false,
+  "cover_pixels": [
+    1920,
+    1080
+  ],
+  "human_review": "Agent-operated only",
+  "checksums": "submission/SHA256SUMS-0.2.0.txt"
+}

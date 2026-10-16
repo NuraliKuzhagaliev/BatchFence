@@ -6,7 +6,7 @@ Determine what to contain, what evidence to request next, and why a supplier rev
 
 0.2.0 adds cause-aware questions, conditional impact scenarios, reviewed supplier replies, causal revision comparison, guided per-lot review and executable verification challenges. It preserves the existing deterministic containment, source citations, exact-plan approval, stale rejection, receipts and offline packet viewer.
 
-![Actual 0.2.0 synthetic workflow](docs/release-0.2.0/upgrade-browser-final/05-causal-after.png)
+![Actual 0.2.0 public workflow after reviewed fresh AMD evidence](submission/cover-0.2.0.png)
 
 ## One incident, three decisions
 
@@ -34,10 +34,12 @@ Windows x64 installers are **unsigned**. The current hosted-client package uses 
 
 ## Evidence and limits
 
-Current upgrade checks: 64 pytest, 30 unchanged frozen domain cases, 12 preserved browser checks and nine new acceptance groups. These are synthetic/agent-operated, not customer or independent human validation. Fresh AMD results, installed and public checks are recorded separately in the versioned release evidence as completed.
+Verified upgrade: 65 pytest, 30 unchanged frozen domain cases, 12 existing and nine new browser groups on the public app, nine installed upgrade groups locally, and seven installed checks against the public backend. Four fresh AMD requests drove reviewed 500/800 receipts and a receiving clarification. The first reply omitted SUP-B and narrowing was rejected; a clearer reply supported a 700-unit proposal while all 800 applied units remained held. Raw model errors and explicit agent reviews are separate. No independent human validation.
 
 Source interpretation is fallible; raw output and corrections remain inspectable. Exact citations do not prove supplier truth. Complete receiving replacement currently accepts the explicit record syntax documented in DEPLOYMENT.md; other prose needs clarification. Simulations cannot approve or execute. Inventory carrying value is not cash savings; overlaps are counted once.
 
 Free Render SQLite is temporary and can lose receipts on restart/redeploy: export packets. Holds update workspace inventory only; no ERP, machinery or supplier messaging integration is connected. Physical OS dialog acceptance and independent domain validation remain separate release limitations. No paid resources or optional extra-model integrations are added.
 
-[Deployment and security](DEPLOYMENT.md) · [Morning handoff](HANDOFF.md) · [Historical AMD evidence](docs/amd_evidence.md) · [Upgrade plan](UPGRADE_PLAN.md)
+[Deployment and security](DEPLOYMENT.md) · [Morning handoff](HANDOFF.md) · [AMD evidence and limitations](docs/amd_evidence.md) · [Upgrade plan](UPGRADE_PLAN.md)
+
+Current media: [walkthrough](submission/BatchFence-demo-0.2.0.mp4), [six-slide pitch](submission/BatchFence-pitch-0.2.0.pptx), [provenance and submission notes](submission/README.md). Synthetic rehearsal and historical AMD replay are explicitly labeled.

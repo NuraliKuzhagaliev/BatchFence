@@ -17,7 +17,9 @@ base=os.getenv('BATCHFENCE_BASE_URL','https://batchfence.onrender.com')
 step=sys.argv[1]
 private=json.loads(PRIVATE.read_text()) if PRIVATE.exists() else {}
 token=dotenv_values(ROOT/'work/cloud-demo.env').get('LIVE_DEMO_TOKEN')
-client=httpx.Client(base_url=base,cookies=private.get('cookies',{}),timeout=75)
+client=httpx.Client(base_url=base,timeout=75)
+for name,value in private.get('cookies',{}).items():
+    client.cookies.set(name,value,domain=httpx.URL(base).host,path='/')
 def call(method,path,data=None,live=False):
     r=client.request(method,path,json=data,headers={'X-BF-Demo-Token':token} if live else {})
     if r.status_code>=400:
@@ -38,14 +40,15 @@ if step=='notice1':
 route='/api/cases/'+private['case_id']
 try:
     s=call('GET',route)
-    if step in ('notice1','notice2','reply'):
+    if step in ('notice1','notice2','reply','reply2'):
         texts={
           'notice1': 'Synthetic supplier communication, 0.2.0 verification, revision one.\nThe cosmetic coating defect is confirmed in supplier lot SUP-A.\nComplete incident boundary: SUP-A is the only affected supplier lot in this notice.\nWarehouse receiving records are separate evidence; this notice does not identify the parent of any finished pool.',
           'notice2': 'Synthetic supplier communication, 0.2.0 verification, revision two. This document supersedes revision one.\nAdditional inspection confirms the same cosmetic coating defect in SUP-C as well as SUP-A.\nComplete incident boundary: the affected supplier lots are SUP-A and SUP-C, with no additional supplier lots implicated by this notice.',
           'reply': 'Synthetic receiving clarification REC-C-2. This is a warehouse ancestry record, not a replacement incident notice.\nFG-C complete ancestry: SUP-B only. Supersedes LIN-3, LIN-4. Receipt REC-C-2 covers all 100 units; no other parent lots.\nThe identity above establishes the parent supplier lot; the current incident involvement remains governed by the separate supplier notice.'}
+        texts['reply2']=texts['reply']+'\nSupplier lot SUP-B is the sole parent lot in receipt REC-C-2. Supplier lot SUP-B is identified by this receiving record; incident involvement comes from the separate supplier notice.'
         text=texts[step]
         (OUT/(step+'-input.txt')).write_text(text,encoding='utf-8')
-        q=next(q for q in s['plan']['result']['requests'] if q['kind']=='possible_ancestry') if step=='reply' else None
+        q=next(q for q in s['plan']['result']['requests'] if q['kind']=='possible_ancestry') if step.startswith('reply') else None
         s=upload(text,'fresh-'+step+'-communication.txt',q['id'] if q else None)
         if step=='notice2':
             stale=client.post(route+'/apply',json={**private['old_action'],'idempotency_key':'upgrade-live-stale-new-attempt'})
@@ -71,19 +74,22 @@ try:
         save(step+'-packet',call('GET',route+'/export'))
         if step=='review2':save('causal-comparison',call('GET',route+'/comparison'))
         print(json.dumps({'stage':step,'hold_units':s['plan']['result']['hold_units'],'orders':len(s['plan']['result']['orders']),'receipts':len(s['receipts']),'reviewer':'Agent-operated; no independent human validation'}))
-    elif step=='review-reply':
+    elif step in ('review-reply','review-inconclusive'):
         run=s['runs'][-1];assert run['status']=='succeeded' and run['mode']=='live'
         doc=s['documents'][-1]
         body={'revision':s['revision'],'document_id':doc['id'],'pool_id':'FG-C','supplier_lot_id':'SUP-B','outcome':'resolved','complete':True,
             'quote':doc['blocks'][1]['text'],'reviewed':True,'replacement_reviewed':True,
             'note':'Agent-operated explicit review: REC-C-2 covers all FG-C units and explicitly supersedes both LIN-3 and LIN-4. SUP-B identity is source-backed; prior applied holds must remain.'}
-        preview=call('POST',route+'/reply-preview',body);save('reply-preview',preview)
+        if step=='review-inconclusive':
+            body.update(outcome='inconclusive',complete=False,replacement_reviewed=False,note='Agent-operated review: the raw receiving extraction omitted supplier lot SUP-B. The current interpretation cannot support reconciliation; all uncertain ancestry and applied holds remain.')
+        preview=call('POST',route+'/reply-preview',body);save(step+'-preview',preview)
         s=call('POST',route+'/reply-review',body)
-        assert s['plan']['result']['hold_units']==700 and sum(p['units'] for p in s['stocks'] if p['status']=='held')==800
-        save('final-packet',call('GET',route+'/export'))
-        print(json.dumps({'hold_proposal':700,'already_held':800,'receipts':len(s['receipts']),'reviewer':'Agent-operated','automatic_release':False}))
+        expected=800 if step=='review-inconclusive' else 700
+        assert s['plan']['result']['hold_units']==expected and sum(p['units'] for p in s['stocks'] if p['status']=='held')==800
+        save('inconclusive-packet' if step=='review-inconclusive' else 'final-packet',call('GET',route+'/export'))
+        print(json.dumps({'hold_proposal':expected,'already_held':800,'receipts':len(s['receipts']),'reviewer':'Agent-operated','automatic_release':False}))
     else: raise ValueError('Unknown staged step')
 finally:
-    private['cookies']=dict(client.cookies)
+    private['cookies']={c.name:c.value for c in client.cookies.jar}
     PRIVATE.write_text(json.dumps(private),encoding='utf-8')
     client.close()

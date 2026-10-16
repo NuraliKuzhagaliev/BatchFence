@@ -147,3 +147,25 @@ def test_scenario_api_session_and_immutable_authority(client):
     assert TestClient(app).post(route+'/simulate',json=args).status_code==404
     post(client,route+'/simulate',args)
     assert client.get(route).json()==s
+
+
+def test_observed_live_receiving_omission_stays_uncertain():
+    """Replay the exact 0.2.0 raw omission; no provider request or human validation."""
+    import json
+    from types import SimpleNamespace
+    from backend.reconciliation import preview_reply, commit_reply
+    s=json.loads((ROOT/'docs/release-0.2.0/live/reply-before-review.json').read_text(encoding='utf-8'))['case']
+    doc=s['documents'][-1]
+    assert [f['lot_id'] for f in s['runs'][-1]['output']['facts']]==['FG-C']
+    data=SimpleNamespace(document_id=doc['id'],revision=s['revision'],pool_id='FG-C',
+        supplier_lot_id='SUP-B',quote=doc['blocks'][1]['text'],outcome='resolved',
+        complete=True,reviewed=True,replacement_reviewed=True,note='Replay of observed missing supplier candidate; preserve existing holds.')
+    before=copy.deepcopy(s)
+    with pytest.raises(ValueError,match='source-backed supplier candidate'):
+        preview_reply(s,data)
+    assert s==before
+    data.outcome='inconclusive';data.complete=False
+    commit_reply(s,data,'historical regression replay')
+    assert s['plan']['result']['hold_units']==800
+    assert sum(p['units'] for p in s['stocks'] if p['status']=='held')==800
+    assert any(q['kind']=='possible_ancestry' for q in s['plan']['result']['requests'])

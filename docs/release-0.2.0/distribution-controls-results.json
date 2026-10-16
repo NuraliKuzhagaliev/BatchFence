@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-16T20:05:35.261Z",
+  "checks": [
+    "Web: download action only, retired labels absent, mobile layout within viewport",
+    "Installed desktop: no download, Open web app reaches fixed HTTPS shell target (launch intercepted)",
+    "Installed desktop reads hosted historical AMD packet through restricted transport",
+    "Installed desktop rejects wrong live key before inference; restricted URLs, methods and malformed tokens denied"
+  ],
+  "errors": [],
+  "security": {
+    "denied": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "node": "undefined",
+    "rawIpc": "undefined"
+  },
+  "live": null,
+  "native_dialogs": "Not exercised by this check; other installed tests use dialog stubs."
+}

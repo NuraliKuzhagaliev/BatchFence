@@ -1,0 +1,17 @@
+Actual GitHub Actions run 38959067118, job117169240259, head ebd14024d9c3614abb1e6a913d41f877a76c0788. Success. Selected exact log lines:
+2026-10-16T20:00:56.6062690Z > batchfence@0.2.0 build
+2026-10-16T20:01:01.3279802Z 64 passed, 1 warning in 2.94s
+2026-10-16T20:01:01.4944548Z   "passed": 30,
+2026-10-16T20:01:01.4946246Z     "passed": 18
+2026-10-16T20:01:01.4948790Z     "passed": 12
+2026-10-16T20:01:17.6508603Z #20 0.294 > batchfence@0.2.0 build
+2026-10-16T20:01:20.2959381Z #25 writing image sha256:b41466ac9ce116547b0621c051cdf9d5dbc4d371bd1c127c4f582802be884b43 done
+2026-10-16T20:01:23.3552852Z   "checks": [
+2026-10-16T20:01:23.3553180Z     "dynamic PORT=8795",
+2026-10-16T20:01:23.3553648Z     "500 to 800 synthetic workflow",
+2026-10-16T20:01:23.3554126Z     "stale approval rejected",
+2026-10-16T20:01:23.3554525Z     "sandbox receipt",
+2026-10-16T20:01:23.3554881Z     "two-session isolation",
+2026-10-16T20:01:23.3555403Z     "same SQLite volume survives actual container restart",
+2026-10-16T20:01:23.3556029Z     "SPA refresh and missing API routing"
+2026-10-16T20:01:23.3556752Z   "passed": true

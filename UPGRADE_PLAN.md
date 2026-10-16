@@ -12,6 +12,10 @@ Dependency order and gates:
 
 All reviews in automated verification are agent-operated, not independent human validation. Live AMD, historical replay and synthetic cases stay distinct. No paid resources, optional model experiments, or architecture rewrite. Free storage remains temporary; workspace holds never automatically release.
 
-Status: implementation started. Exact authenticated submission cutoff not yet available; no deadline assumed. Optional experiments deferred until all core gates pass.
+Status: all six core implementations and behavior gates pass. Public web 0.2.0, installed Windows and fresh AMD workflow verified. Optional experiments deferred. Remaining human-only checks are physical OS dialogs, independent domain acceptance and event form completion.
 
 Commands: `.venv\Scripts\python.exe -m pytest -q`; `npm run build`; `node scripts/browser-smoke.cjs`; `npm run package:desktop`. Versioned evidence will be recorded under `docs/release-0.2.0/` and `releases/`.
+
+Release milestone: all six implementations and local web/installed checks pass; Windows v0.2.0 published with verified full-download hash. First Linux gate found missing frontend-stage reply examples; Docker COPY fixed in ebd1402. The corrected Linux gate passed and Render deployed ebd1402. Public and installed-hosted checks passed. Four fresh AMD responses, including an omitted-parent failure and adaptive clarification, are preserved. The final evidence-only commit will use the same automatic check/deploy route; its actual identity is recorded in releases/final-verification-0.2.0.json.
+
+Final regression milestone: 65 passing tests including replay of the exact fresh receiving omission. Both old and new offline packet/receipt checks pass. Finalize media checksums and sanitized evidence publication, then verify the deployed commit without additional AMD calls.

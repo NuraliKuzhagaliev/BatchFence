@@ -1,0 +1,83 @@
+{
+  "duration_seconds": 146.72,
+  "sha256": "6ecf478e95f4f0464059a41d5375664dca8d74db439c504ffaf29982921f04b2",
+  "bytes": 3730919,
+  "chapters": [
+    {
+      "seconds": 1.237,
+      "caption": "A quality manager starts with a supplier notice and an unclassified genealogy. No hold has been decided.",
+      "provenance": "SYNTHETIC REHEARSAL | No model inference | Agent-operated review"
+    },
+    {
+      "seconds": 9.33,
+      "caption": "Model proposals start unresolved. Inspect the exact source before choosing each disposition.",
+      "provenance": "SYNTHETIC REHEARSAL | No model inference | Agent-operated review"
+    },
+    {
+      "seconds": 18.507,
+      "caption": "The reviewed scope proposes 500 units: 400 documented and 100 uncertain. This is inventory value, not measured savings.",
+      "provenance": "SYNTHETIC REHEARSAL | No model inference | Agent-operated review"
+    },
+    {
+      "seconds": 29.001,
+      "caption": "A complete SUP-B-only receiving record could change 500 to 400. This conditional simulation has no approval authority.",
+      "provenance": "SYNTHETIC REHEARSAL | No model inference | Agent-operated review"
+    },
+    {
+      "seconds": 41.516,
+      "caption": "The changed notice invalidates the prior approval. The application rejects the stale execution attempt.",
+      "provenance": "SYNTHETIC REHEARSAL | No model inference | Agent-operated review"
+    },
+    {
+      "seconds": 50.113,
+      "caption": "The revision expands 500 to 800. Compare immutable reviewed snapshots; playback cannot restore authority.",
+      "provenance": "SYNTHETIC REHEARSAL | No model inference | Agent-operated review"
+    },
+    {
+      "seconds": 60.137,
+      "caption": "SUP-C adds the 300-unit FG-D branch and order O-104. Other previously included stock stays included.",
+      "provenance": "SYNTHETIC REHEARSAL | No model inference | Agent-operated review"
+    },
+    {
+      "seconds": 70.252,
+      "caption": "This is a saved genuine AMD run from the current release verification. The response drove a reviewed 500-unit plan and receipt.",
+      "provenance": "HISTORICAL AMD REPLAY | Fresh 0.2.0 run preserved earlier | Synthetic data | Agent review"
+    },
+    {
+      "seconds": 80.308,
+      "caption": "Provider identity, timing, validation and raw output remain inspectable. Exact citations do not prove semantic truth.",
+      "provenance": "HISTORICAL AMD REPLAY | Fresh 0.2.0 run preserved earlier | Synthetic data | Agent review"
+    },
+    {
+      "seconds": 92.445,
+      "caption": "The next genuine AMD response drove the 800-unit revised plan. These are recorded results; no live request is being made in this video.",
+      "provenance": "HISTORICAL AMD REPLAY | Fresh 0.2.0 run preserved earlier | Synthetic data | Agent review"
+    },
+    {
+      "seconds": 102.65,
+      "caption": "The first receiving extraction omitted SUP-B and narrowing was blocked. A clearer reply supported review: 700 proposed, 800 still held.",
+      "provenance": "HISTORICAL AMD REPLAY | Fresh 0.2.0 run preserved earlier | Synthetic data | Agent review"
+    },
+    {
+      "seconds": 115.685,
+      "caption": "The preserved receipt records 800 held units. A smaller proposal does not silently release stock.",
+      "provenance": "HISTORICAL AMD REPLAY | Fresh 0.2.0 run preserved earlier | Synthetic data | Agent review"
+    },
+    {
+      "seconds": 125.745,
+      "caption": "Raw extraction, reviewer decisions, deterministic policy and receipts are separate. All review shown was agent-operated, not independent validation.",
+      "provenance": "HISTORICAL AMD REPLAY | Fresh 0.2.0 run preserved earlier | Synthetic data | Agent review"
+    },
+    {
+      "seconds": 137.819,
+      "caption": "Export the packet for read-only web or Windows review. Free hosting is temporary; Windows is unsigned. Physical file-dialog acceptance remains a human check.",
+      "provenance": "HISTORICAL AMD REPLAY | Fresh 0.2.0 run preserved earlier | Synthetic data | Agent review"
+    }
+  ],
+  "capture": "Actual public application; original speed; synthetic rehearsal and historical AMD replay explicitly captioned. No new model calls in recording.",
+  "audio": "Silent with burned captions",
+  "event_media_constraints": "Authenticated form first-step limits verified; later media steps require advancing the empty team draft. No duration maximum established.",
+  "reviewer": "Agent-operated; no independent human validation",
+  "fresh_evidence": "docs/release-0.2.0/live/ contains the underlying fresh runs, failures if any, and review receipts.",
+  "visual_review": "Final frames inspected at 15,45,65,85,115,140 seconds; actual causal card, model telemetry, reviewed hold status and provenance captions visible."
+}

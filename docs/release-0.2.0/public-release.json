@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-16T19:55:57.117014+00:00",
+  "url": "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.2.0",
+  "id": 415327959,
+  "tag": "v0.2.0",
+  "draft": false,
+  "assets": [
+    {
+      "name": "BatchFence-0.2.0-win-x64-setup.exe",
+      "url": "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.2.0/BatchFence-0.2.0-win-x64-setup.exe",
+      "size": 113774692,
+      "digest": "sha256:7fc0b61c1c232394c077d2cc990266972ac0a5dd1bf0095014fa626dcd99979d"
+    },
+    {
+      "name": "SHA256SUMS-0.2.0.txt",
+      "url": "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.2.0/SHA256SUMS-0.2.0.txt",
+      "size": 102,
+      "digest": "sha256:c8f58321e531e976f0aa90ad909a9c813c2747b9e55d94dd4f96e1aeb45878e5"
+    }
+  ],
+  "anonymous_full_download": {
+    "bytes": 113774692,
+    "sha256": "7fc0b61c1c232394c077d2cc990266972ac0a5dd1bf0095014fa626dcd99979d",
+    "matches_local": true
+  }
+}
