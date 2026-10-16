@@ -116,7 +116,7 @@ export function Graph({
                 (data.scope.lot_ids.includes(id) ? "affected-text" : "")
               }
             >
-              {data.scope.lot_ids.includes(id) ? "AFFECTED" : "LOT"}
+              {data.scope.lot_ids.includes(id) ? "AFFECTED" : data.scope.uncertain_lot_ids?.includes(id) ? "UNRESOLVED" : "LOT"}
             </text>
           </g>
         ))}
@@ -259,23 +259,9 @@ function EventGraph({
       (layers[levels.get(id) || 0].indexOf(id) * (height - 80)) /
         Math.max(1, layers[levels.get(id) || 0].length - 1),
   });
-  const reached = new Map<string, boolean>();
-  const walk = (id: string, uncertain: boolean) => {
-    const previous = reached.get(id);
-    if (previous === false || (previous === true && uncertain)) return;
-    reached.set(id, uncertain);
-    data.edges
-      .filter((e) => e.source === id)
-      .forEach((e) => walk(e.target, uncertain || e.kind === "possible"));
-  };
-  data.scope.lot_ids.forEach((id) => walk(id, false));
-  const status = (id: string) =>
-    result.rows.find((r) => r.id === id)?.classification ||
-    (reached.has(id)
-      ? reached.get(id)
-        ? "uncertain"
-        : "documented"
-      : "outside");
+  // Server annotations include unresolved seeds and possible paths. Historical
+  // packets without annotations keep intermediates uncertain rather than outside.
+  const status = (id: string) => result.rows.find((r) => r.id === id)?.classification || result.node_states?.[id] || "uncertain";
   const path = result.rows.find((r) => r.id === selected)?.path || [];
   return (
     <div className="graph event-graph">
@@ -416,4 +402,15 @@ function EventGraph({
       </div>
     </div>
   );
+}
+
+export function GenealogyPreview({data}: {data: Case}) {
+  return <section className="genealogy-preview" aria-label="Genealogy not yet evaluated">
+    <div className="graph-topline"><span>GENEALOGY PREVIEW</span><span>NOT YET EVALUATED</span></div>
+    <p>Existing source records only. No exposure classification or hold decision yet.</p>
+    {data.stocks.map(s => <div className="preview-path" key={s.id}>
+      <span>{data.edges.filter(e=>e.target===s.id).map(e=>e.source+(e.kind==='possible'?' (?)':'')).join(' / ') || 'Unknown ancestry'}</span>
+      <span aria-hidden="true">→</span><strong>{s.id}</strong><span>{s.units} units</span>
+    </div>)}
+  </section>;
 }

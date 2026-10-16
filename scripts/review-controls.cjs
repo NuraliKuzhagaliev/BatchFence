@@ -1,8 +1,8 @@
 // Test operator input, not independent human validation.
 module.exports = async function reviewControls(page, choice) {
-  await page.getByLabel('Accepted affected lots · comma separated', {exact:true}).fill(choice.affected.join(', '));
-  await page.getByLabel('Unresolved lots · comma separated', {exact:true}).fill((choice.uncertain || []).join(', '));
-  await page.getByLabel('Explicitly excluded lots · comma separated', {exact:true}).fill((choice.excluded || []).join(', '));
+  for (const id of choice.affected) await page.getByLabel('Disposition of '+id,{exact:true}).selectOption('affected');
+  for (const id of choice.uncertain || []) await page.getByLabel('Disposition of '+id,{exact:true}).selectOption('unresolved');
+  for (const id of choice.excluded || []) await page.getByLabel('Disposition of '+id,{exact:true}).selectOption('excluded');
   await page.getByLabel('Incident scope certainty', {exact:true}).selectOption(choice.resolved ? 'resolved' : 'unresolved');
   if (choice.resolved) {
     await page.getByLabel('Scope resolution basis · exact source quote', {exact:true}).fill(choice.quote);

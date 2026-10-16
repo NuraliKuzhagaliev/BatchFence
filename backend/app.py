@@ -27,7 +27,7 @@ from .public_demo import public_demo, limiter, inference_access
 from .review_safety import REVIEW_POLICY_VERSION, mentions, scope_concerns, resolution_evidence
 
 load_dotenv(ROOT / '.env')
-app = FastAPI(title='BatchFence', version='0.1.2')
+app = FastAPI(title='BatchFence', version='0.2.0')
 DB = Path((os.getenv('DATABASE_PATH') or str(ROOT / 'work/batchfence.sqlite3')))
 DB.parent.mkdir(parents=True, exist_ok=True)
 ORIGIN = os.getenv('APP_ORIGIN') or os.getenv('RENDER_EXTERNAL_URL') or 'http://127.0.0.1:8787'
@@ -219,6 +219,7 @@ class Review(Strict):
     run_id: str
     revision: int
     lot_ids: list[str] = Field(max_length=80)
+    lot_corrections: dict[str,str] = Field(default_factory=dict,max_length=80)
     uncertain_lot_ids: list[str] = Field(default_factory=list, max_length=80)
     excluded_lot_ids: list[str] = Field(default_factory=list, max_length=80)
     incident_scope_status: Literal['unresolved', 'resolved'] = 'unresolved'
@@ -289,7 +290,7 @@ def health():
             raise sqlite3.DatabaseError()
     except (sqlite3.Error, OSError):
         return JSONResponse({'status': 'unavailable', 'database': 'unavailable'}, 503)
-    return {'status': 'ok', 'database': 'ready', 'version': '0.1.2',
+    return {'status': 'ok', 'database': 'ready', 'version': '0.2.0',
             'commit': os.getenv('RENDER_GIT_COMMIT', 'local'),
             'inference_mode': (os.getenv('INFERENCE_MODE') or 'fixture'),
             'amd_configured': all(os.getenv(k) for k in ['AMD_API_BASE_URL', 'AMD_API_KEY', 'AMD_MODEL_ID', 'AMD_PROVIDER_EVIDENCE']),
@@ -476,6 +477,9 @@ def review(case_id: str, data: Review, request: Request):
             if not lot or len(lot) > 80 or not any(mentions(lot, b['text']) for b in source['blocks']):
                 fail('UNSUPPORTED_LOT', 'Corrected lot must occur in the selected source; upload evidence first', 422)
         candidates = {f['lot_id'] for f in runs[0]['output']['facts']}
+        if not set(data.lot_corrections) <= candidates or (data.lot_corrections and len(data.note.strip()) < 20):
+            fail('CORRECTION_REVIEW','Identifier corrections need an original candidate and a review explanation',422)
+        candidates = {data.lot_corrections.get(c,c).strip() for c in candidates}
         if not candidates <= set(lots + uncertain + excluded):
             fail('UNREVIEWED_LOTS', 'Review every model candidate, including negative proposals; keep unresolved lots uncertain', 422)
         concerns = scope_concerns(source)
@@ -521,6 +525,7 @@ def review(case_id: str, data: Review, request: Request):
                              'suggested_lots': [f['lot_id'] for f in runs[0]['output']['facts'] if f['affected']],
                              'accepted_lots': lots, 'previous_lots': prior,
                              'revision': s['revision'], 'note': data.note,
+                             'lot_corrections':data.lot_corrections,
                              'uncertain_lot_ids': uncertain, 'excluded_lot_ids': excluded,
                              'incident_scope_status': data.incident_scope_status, 'resolution_evidence': basis,
                              'review_policy_version': REVIEW_POLICY_VERSION,
@@ -571,7 +576,7 @@ def comparison(case_id: str, request: Request):
 def approve(case_id: str, data: Approve, request: Request):
     with transaction(case_id, request.state.owner) as (_, s):
         p = s['plan']
-        if not p or s['pending_revision'] or p['status'] != 'proposed' or p['id'] != data.plan_id or p['digest'] != data.digest or make_plan(s)['digest'] != p['digest']:
+        if not approval_current(s,data.plan_id,data.digest):
             fail('STALE_APPROVAL', 'Only the current reviewed exact plan can be approved')
         p['status'] = 'approved'
         p['approval'] = {'at': now(), 'reviewer': 'Anonymous session reviewer',
@@ -597,7 +602,7 @@ def apply(case_id: str, data: Apply, request: Request):
             fail('STALE_APPROVAL', 'Approval is absent, stale or already consumed')
         fresh = make_plan(s)
         actions = [a.model_dump() for a in data.actions]
-        if actions != fresh['actions']:
+        if not actions_exact(actions,fresh):
             fail('POLICY_VIOLATION', 'Exact required hold set must include uncertain stock; edited or unsupported actions are rejected')
         if p['digest'] != fresh['digest']:
             fail('STALE_INVENTORY', 'Evidence, inventory or policy changed after approval')
@@ -621,6 +626,22 @@ def apply(case_id: str, data: Apply, request: Request):
                              'message': 'Sandbox inventory committed atomically: ' + receipt['transaction_id']})
         db.execute('INSERT INTO receipts VALUES(?,?,?,?)', (owner, data.idempotency_key, fingerprint, json.dumps(receipt)))
     return s
+
+
+def approval_current(s,plan_id,plan_digest):
+    p=s.get('plan')
+    return bool(p and not s['pending_revision'] and p['status']=='proposed' and p['id']==plan_id and p['digest']==plan_digest and make_plan(s)['digest']==p['digest'])
+
+
+def actions_exact(actions,plan):
+    return actions == plan['actions']
+
+
+@app.post('/api/challenges')
+def challenges():
+    from .challenges import run_challenges
+    return {'provenance':'Synthetic in-memory policy checks','timestamp':now(),
+            'checks':run_challenges(approval_current,actions_exact)}
 
 
 @app.get('/api/cases/{case_id}/export')

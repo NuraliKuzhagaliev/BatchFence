@@ -32,7 +32,8 @@ import {
   copyDraft,
 } from "./platform";
 import type { Case, Document, Evidence, Packet, Upload, Run } from "./types";
-import { Graph, labels } from "./Graph";
+import { Graph, GenealogyPreview, labels } from "./Graph";
+import { EvidencePlanner, RevisionComparison, VerificationPanel, Elapsed } from "./UpgradePanels";
 import "./style.css";
 const euro = (n: number) =>
   new Intl.NumberFormat("en-IE", {
@@ -79,8 +80,8 @@ function SourceText({
     </div>
   );
 }
-const RELEASE_URL = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.1.2";
-const WINDOWS_DOWNLOAD = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.1.2/BatchFence-0.1.2-win-x64-setup.exe";
+const RELEASE_URL = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.2.0";
+const WINDOWS_DOWNLOAD = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.2.0/BatchFence-0.2.0-win-x64-setup.exe";
 function PlatformLinks({ openWeb }: { openWeb: () => void }) {
   return native ? (
     <button className="button" onClick={openWeb}><ExternalLink size={16} />Open web app</button>
@@ -110,6 +111,7 @@ function App() {
     [lots, setLots] = useState(""),
     [uncertainLots, setUncertainLots] = useState(""),
     [excludedLots, setExcludedLots] = useState(""),
+    [corrections, setCorrections] = useState<Record<string,string>>({}),
     [scopeResolved, setScopeResolved] = useState(false),
     [resolutionQuote, setResolutionQuote] = useState(""),
     [reviewNote, setReviewNote] = useState(""),
@@ -280,12 +282,13 @@ function App() {
         const r = s.runs.at(-1);
         if (r?.status !== "succeeded")
           throw Error(r?.error || "Interpretation failed");
-        beginReview(r);
+        if (doc.request_id) { setReview(false); setTab("requests"); } else beginReview(r);
         setMobile("map");
       },
     );
   }
   function beginReview(r: Run) {
+    setCorrections({});
     setLots("");
     setUncertainLots([...new Set(r.output!.facts.map(f => f.lot_id))].join(", "));
     setExcludedLots("");
@@ -308,6 +311,7 @@ function App() {
             .map((l) => l.trim())
             .filter(Boolean),
           accept_scope: checked,
+          lot_corrections: corrections,
           uncertain_lot_ids: uncertainLots.split(",").map(l => l.trim()).filter(Boolean),
           excluded_lot_ids: excludedLots.split(",").map(l => l.trim()).filter(Boolean),
           incident_scope_status: scopeResolved ? "resolved" : "unresolved",
@@ -595,7 +599,7 @@ function App() {
               ) : (
                 <Check size={17} />
               )}
-              <span>{error || busy || notice}</span>
+              <span>{error || (busy ? <Elapsed label={busy}/> : notice)}</span>
               {!busy && (
                 <button
                   className="icon-button"
@@ -711,7 +715,7 @@ function App() {
                 </span>
                 <span>Evidence r{state.revision}</span>
                 <span>Stock v{state.inventory_version}</span>
-                <span className="case-status">
+                <span className={"case-status " + (plan?.status==='applied' && !state.pending_revision ? 'status-applied' : 'status-review')}>
                   <i />
                   {status}
                 </span>
@@ -920,6 +924,13 @@ function App() {
                       </button>
                     )}
                   </div>
+                  <nav className="guided-steps" aria-label="Incident guide">
+                    <button onClick={()=>setTab('sources')}>1 · Notice</button>
+                    <button onClick={()=>{setTab('map');if(currentRun && !doc?.request_id && run)beginReview(run);}}>2 · Review exposure</button>
+                    <button onClick={()=>setTab('requests')}>3 · Resolve a question</button>
+                    <button onClick={()=>setTab('timeline')}>4 · Revision consequences</button>
+                    <button onClick={()=>setTab('verify')}>5 · Verify & export</button>
+                  </nav>
                   <div
                     className="tabs"
                     role="tablist"
@@ -931,6 +942,7 @@ function App() {
                       ["orders", "Order review"],
                       ["timeline", "Revisions"],
                       ["receipt", "Receipt"],
+                      ["verify", "Verification"],
                     ].map(([k, t]) => (
                       <button
                         role="tab"
@@ -999,35 +1011,24 @@ function App() {
                         reviewed group after inspecting its source. Negative proposals
                         do not establish exclusions.
                       </p>
-                      {run?.output?.facts.map((f, i) => (
-                        <button
-                          className="candidate"
-                          key={i}
-                          onClick={() => showEvidence(f.evidence[0])}
-                        >
-                          <code>{f.lot_id}</code>
-                          <span>
-                            {f.affected
-                              ? "Affected candidate"
-                              : "Negative proposal"}
-                          </span>
-                          <small>
-                            Inspect quote <ChevronRight size={12} />
-                          </small>
-                        </button>
-                      ))}
-                      <label className="field-label" htmlFor="review-lots">
-                        Accepted affected lots · comma separated
-                      </label>
-                      <input
-                        id="review-lots"
-                        value={lots}
-                        onChange={(e) => setLots(e.target.value)}
-                      />
-                      <label className="field-label" htmlFor="review-uncertain">Unresolved lots · comma separated</label>
-                      <input id="review-uncertain" value={uncertainLots} onChange={e => setUncertainLots(e.target.value)} />
-                      <label className="field-label" htmlFor="review-excluded">Explicitly excluded lots · comma separated</label>
-                      <input id="review-excluded" value={excludedLots} onChange={e => setExcludedLots(e.target.value)} />
+                      {Array.from(new Set(run?.output?.facts.map(f=>f.lot_id))).map((id) => {
+                        const f=run!.output!.facts.find(f=>f.lot_id===id)!;
+                        const reviewedId=corrections[id]||id;
+                        const disposition=lots.split(',').map(x=>x.trim()).includes(reviewedId)?'affected':excludedLots.split(',').map(x=>x.trim()).includes(reviewedId)?'excluded':'unresolved';
+                        function choose(value:string,newId=reviewedId){
+                          const clean=(text:string)=>text.split(',').map(x=>x.trim()).filter(x=>x&&x!==reviewedId&&x!==id&&x!==newId);
+                          setLots([...clean(lots),...(value==='affected'?[newId]:[])].join(', '));
+                          setUncertainLots([...clean(uncertainLots),...(value==='unresolved'?[newId]:[])].join(', '));
+                          setExcludedLots([...clean(excludedLots),...(value==='excluded'?[newId]:[])].join(', '));
+                        }
+                        return <article className="lot-review-card" key={id}>
+                          <button className="candidate" onClick={()=>showEvidence(f.evidence[0])}><code>{id}</code><span>{f.affected?'Affected candidate':'Negative proposal'}</span><small>Inspect quote <ChevronRight size={12}/></small></button>
+                          <blockquote>{f.evidence[0]?.quote}</blockquote>
+                          <label className="field-label" htmlFor={'disposition-'+id}>Disposition of {id}</label>
+                          <select id={'disposition-'+id} value={disposition} onChange={e=>choose(e.target.value)}><option value="unresolved">Unresolved</option><option value="affected">Affected</option><option value="excluded">Explicitly excluded</option></select>
+                          <details><summary>Correct source identifier</summary><p>Use an exact ID from this source. The original proposal remains in the audit trail; explain the correction below.</p><label>Source-backed identifier<input aria-label={'Correct identifier '+id} value={corrections[id]??id} onChange={e=>{setCorrections({...corrections,[id]:e.target.value});choose('unresolved',e.target.value);}}/></label></details>
+                        </article>;
+                      })}
                       {run?.scope_concerns?.length ? <p className="review-qualifier" role="status">
                         This notice explicitly leaves scope unresolved. Keep implicated lots uncertain.
                         Clarifying evidence is required before narrowing.
@@ -1084,8 +1085,11 @@ function App() {
                         Confirm scope & calculate
                       </button>
                     </section>
+                  ) : tab === "verify" ? (
+                    <VerificationPanel state={state} replay={!!packet} readOnly={readOnly}/>
                   ) : tab === "timeline" ? (
                     <section className="timeline">
+                      <RevisionComparison state={state} readOnly={readOnly} onEvidence={showEvidence}/>
                       {state.history.length ? (
                         state.history.map((h, i) => (
                           <div
@@ -1136,64 +1140,7 @@ function App() {
                       <SourceText doc={doc} />
                     </section>
                   ) : tab === "requests" ? (
-                    <section className="queue">
-                      {result?.requests.length ? (
-                        <>
-                          <div className="queue-summary">
-                            <CircleHelp size={22} />
-                            <p>
-                              <strong>
-                                {num(result.request_unique_units)} units ·{" "}
-                                {euro(result.request_unique_cents)}
-                              </strong>
-                              <br />
-                              Maximum inventory value potentially clarified,
-                              deduplicated. A record may confirm exposure.
-                            </p>
-                          </div>
-                          {result.requests.map((r, i) => (
-                            <article className="request-card" key={r.id}>
-                              <b className="request-rank">0{i + 1}</b>
-                              <div>
-                                <h3>{r.missing}</h3>
-                                <span className="pill uncertainty">
-                                  {r.units} uncertain units ·{" "}
-                                  {euro(r.value_cents)}
-                                </span>
-                                <p>{r.reason}</p>
-                                <textarea
-                                  readOnly
-                                  aria-label={"Draft for " + r.id}
-                                  value={r.draft}
-                                />
-                                <button
-                                  className="button small"
-                                  onClick={() =>
-                                    task("Copying request draft", async () => {
-                                      await copyDraft(r.draft);
-                                      setNotice(
-                                        "Draft copied. No message was sent.",
-                                      );
-                                    })
-                                  }
-                                >
-                                  <ClipboardCopy size={14} />
-                                  Copy request draft
-                                </button>
-                                <button
-                                  className="text-button"
-                                  onClick={() => selectStock(r.pool_ids[0])}
-                                >
-                                  Inspect gap <ArrowRight size={13} />
-                                </button>
-                              </div>
-                            </article>
-                          ))}
-                        </>
-                      ) : (
-                        <Empty text="Review scope first, or all relevant ancestry is resolved." />
-                      )}
-                    </section>
+                    <EvidencePlanner state={state} readOnly={readOnly||!!busy} mode={mode} onUpdate={s=>{accept(s);setNotice('');setError('');}} onEvidence={showEvidence}/>
                   ) : tab === "orders" ? (
                     <section>
                       {result ? (
@@ -1380,24 +1327,7 @@ function App() {
                       />
                     )
                   ) : (
-                    <div className="map-empty">
-                      <Network size={55} />
-                      <h3>Your evidence is ready.</h3>
-                      <p>
-                        Extract the notice, check candidate lot IDs, then
-                        calculate containment.
-                      </p>
-                      <button
-                        className="button light"
-                        disabled={!canWrite}
-                        onClick={analyze}
-                      >
-                        Extract & review notice <ArrowRight size={16} />
-                      </button>
-                      <span className="caption">
-                        No stock has been held. Review the evidence before approving.
-                      </span>
-                    </div>
+                    <div><GenealogyPreview data={state}/><div className="preview-action"><button className="button primary" disabled={!canWrite} onClick={analyze}>Extract & review notice <ArrowRight size={16}/></button><p>No stock has been held. Review the evidence before approving.</p></div></div>
                   )}
                 </section>
                 <aside

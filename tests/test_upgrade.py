@@ -71,6 +71,15 @@ def test_scenario_overlaps_recompute_not_add():
     assert simulate(s,[h,h])['changed_units'] == 100
     with pytest.raises(ValueError):
         simulate(s,[h]*7)
+    with pytest.raises(ValueError):
+        simulate(s,[h,{**h,'supplier_lot_id':'SUP-A'}])
+
+
+def test_executable_challenges_do_not_change_visitor_case(client):
+    s=prepare(client)
+    result=post(client,'/api/challenges')
+    assert len(result['checks'])==6 and all(c['passed'] for c in result['checks'])
+    assert client.get(f"/api/cases/{s['id']}").json()==s
 
 
 def reply_case(c, filename='receiving-complete.txt', applied=False):

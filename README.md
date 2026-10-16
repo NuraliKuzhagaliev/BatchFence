@@ -1,96 +1,43 @@
 # BatchFence
 
-Evidence-backed lot containment for a small manufacturer's quality manager. A supplier notice becomes a reviewed scope, a deterministic hold plan and a real **sandbox** receipt. Changed evidence invalidates approval.
+Determine what to contain, what evidence to request next, and why a supplier revision changes the decision. Built for a small manufacturer's quality manager, demonstrated with fictional decorative-housing records.
 
-**Working web and installed Windows 0.1.2 application, with genuine local AMD-driven synthetic workflows and ambiguity containment. Free public demo is deployed. Fresh live AMD responses drove reviewed 500/800-unit receipts and conservative ambiguity handling. Earlier rejected responses and the fixes are preserved.** Raw model errors and agent-operated review are disclosed; no independent human validation or savings are claimed.
+[Web app](https://batchfence.onrender.com) · [Windows releases](https://github.com/NuraliKuzhagaliev/BatchFence/releases) · [Release evidence](docs/release-0.2.0/README.md) · [Claims and checks](docs/claims-to-evidence.md)
 
-![Actual synthetic workbench](docs/screenshots/03-exposure-1440.png)
+0.2.0 adds cause-aware questions, conditional impact scenarios, reviewed supplier replies, causal revision comparison, guided per-lot review and executable verification challenges. It preserves the existing deterministic containment, source citations, exact-plan approval, stale rejection, receipts and offline packet viewer.
 
-Repository: [NuraliKuzhagaliev/BatchFence](https://github.com/NuraliKuzhagaliev/BatchFence).
+![Actual 0.2.0 synthetic workflow](docs/release-0.2.0/upgrade-browser-final/05-causal-after.png)
 
-Public app: **https://batchfence.onrender.com**. See [deployment status, cost and verification gates](DEPLOYMENT.md). The free Render service serves FastAPI + React from one HTTPS origin. Its SQLite storage is temporary: export packets before sleep, restart or redeployment. Durable cloud persistence is not provided. Public Synthetic and historical AMD Replay are separated from protected Live inference.
+## One incident, three decisions
 
-## Open
+1. Open example incident, select Synthetic for a rehearsal or protected Live AMD for fresh interpretation. Historical AMD Replay is a separate read-only path.
+2. Review each lot's source and disposition; candidates start unresolved. A narrowed boundary requires an exact quote and explicit review. The frozen v1 example proposes 500 units (400 documented + 100 uncertain), compared with a 1,200-unit blanket hold.
+3. Open Evidence requests. FG-C has possible SUP-A/SUP-B ancestry. A complete SUP-B-only receiving record could change 500→400; this is a conditional simulation, not a release. Shared boundary gaps are distinguished from missing receiving records.
+4. Approve, add supplier v2, and test the old approval: it is rejected. Review v2; the proposal expands to 800, through SUP-C → FG-D (300 units) → O-104. Use Revisions to inspect both immutable plans.
+5. From the receiving question, attach a reply and interpret it. Inspect raw proposals, choose the reviewed identity, preview the effect and explicitly confirm the replacement. An inconclusive reply cannot narrow. A complete answer can propose 700 while all 800 already-held units remain held.
+6. Run isolated synthetic boundary challenges, export the receipt packet, and reopen it on web or Windows without approval authority.
 
-Project: D:\projects\BatchFence.
+## Run locally
 
-    cd D:\projects\BatchFence
-    .\.venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8787
+```
+cd D:\projects\BatchFence
+npm ci --cache .cache/npm
+python -m venv .venv
+.venv\Scripts\python.exe -m pip install --cache-dir .cache/pip -r requirements.txt
+npm run build
+.venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8787
+```
 
-Open **http://127.0.0.1:8787**. Health: /api/health. API schema: /openapi.json.
+Open http://127.0.0.1:8787. Copy .env.example to private .env and configure actual AMD provider values for Live. No provider credentials are required for Synthetic or historical replay. Hosted Live uses the separate LIVE_DEMO_TOKEN access key; never paste AMD_API_KEY into the frontend.
 
-Windows: [Download 0.1.2](https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.1.2/BatchFence-0.1.2-win-x64-setup.exe), [release notes and checksums](https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.1.2). Windows x64, **unsigned**. Installed verification executable: work/installed-0.1.2/BatchFence.exe. See [release evidence](docs/release-0.1.2/README.md).
+Windows x64 installers are **unsigned**. The current hosted-client package uses https://batchfence.onrender.com; BATCHFENCE_BACKEND_ORIGIN can select the existing local backend. No Python installation is needed for the hosted client. Saved packets open offline; new inference and actions require a backend. Download verified versioned assets and SHA256SUMS from Releases; do not replace a published binary under the same version.
 
-The 0.1.2 desktop connects to https://batchfence.onrender.com. No local Python server is required. Saved packets open offline without external Node/Python; new analysis/actions need connectivity. Live inference uses the separate private access key, never the AMD provider key. Earlier 0.1.0/0.1.1 installers still target localhost. Hosted records remain temporary: export packets.
+## Evidence and limits
 
-## Walkthrough
+Current upgrade checks: 64 pytest, 30 unchanged frozen domain cases, 12 preserved browser checks and nine new acceptance groups. These are synthetic/agent-operated, not customer or independent human validation. Fresh AMD results, installed and public checks are recorded separately in the versioned release evidence as completed.
 
-1. Open the example incident (synthetic records) and select its supplier notice.
-2. Select Fixture mode for a deterministic rehearsal, or Live for a real AMD request. All candidates start unresolved. Review affected/unresolved/excluded groups; narrowing needs an explicit complete incident boundary, exact source quote and explanation.
-3. Inspect 500 held units: 400 documented and 100 uncertain. Open requests and order review.
-4. Approve. Test excluding uncertain stock to see server policy rejection.
-5. Add supplier v2 and test stale approval. Extract/review the revised notice.
-6. The new scope produces 800 held units and four open orders needing review. Approve/apply.
-7. Export the packet with its genuine sandbox receipt. Open on desktop for offline read-only review.
+Source interpretation is fallible; raw output and corrections remain inspectable. Exact citations do not prove supplier truth. Complete receiving replacement currently accepts the explicit record syntax documented in DEPLOYMENT.md; other prose needs clarification. Simulations cannot approve or execute. Inventory carrying value is not cash savings; overlaps are counted once.
 
-The blanket comparison is 1,200 units /РІвЂљВ¬48,000. Under v1,РІвЂљВ¬28,000 of carrying value is outside the proposed broad hold. This is not measured cash savings.
+Free Render SQLite is temporary and can lose receipts on restart/redeploy: export packets. Holds update workspace inventory only; no ERP, machinery or supplier messaging integration is connected. Physical OS dialog acceptance and independent domain validation remain separate release limitations. No paid resources or optional extra-model integrations are added.
 
-## Setup
-
-Tested with Windows 11 build 26200, Node 22.20.0 and Python 3.13.2. Lockfiles pin installed dependencies. Source, cache, virtual environment and release files reside on D:.
-
-    npm ci --cache .cache/npm
-    python -m venv .venv
-    .\.venv\Scripts\python.exe -m pip install --cache-dir .cache/pip -r requirements.txt
-    npm run build
-
-Run the server above. Optional scripts/setup.ps1 and scripts/start.ps1 work when allowed by existing shell policy. No policy change is required. npm run dev starts Vite with a proxy to the same backend.
-
-## AMD
-
-Copy .env.example to a private .env; its empty placeholders contain no provider credentials or assumed endpoint. See DEPLOYMENT.md for public configuration. From authenticated AMD documentation, set AMD_API_BASE_URL, AMD_API_KEY, AMD_MODEL_ID and AMD_PROVIDER_EVIDENCE. Confirm AMD_API_STYLE=openai-chat only if documented. Set INFERENCE_MODE=live. Enable AMD_JSON_SCHEMA only after support is verified.
-
-    .\.venv\Scripts\python.exe -m scripts.probe_amd
-
-This makes four bounded synthetic probes once configured. Inspect semantics/citations, then run a fresh notice and a changed notice through the application. Credentials stay server-side. Never use VITE_ secrets or commit .env.
-
-Current evidence: genuine MiMo responses drove 500/800-unit plans and receipts. Ambiguous scope now yields a 1,200-unit hold; a separate invalid citation blocks review. Gemma failures and raw MiMo errors remain recorded. See [AMD evidence](docs/amd_evidence.md), [ambiguity audit](docs/ambiguity-fix/README.md) and [handoff](HANDOFF.md). Current submission assets have explicit 0.1.1 filenames.
-
-## Inputs
-
-UTF-8 TXT, strict CSV and selectable-text PDF: 2 MB/file, 24 documents/case, 80,000 normalized characters/document. Image-only PDFs receive an unsupported result. CSV headers are in fixtures/demo. Dataset replacements remain pending until review, reconcile quantities and preserve existing holds.
-
-Native choose/save/open exposes bounded file bytes. Actual Windows dialogs passed on the prior 0.1.0 checkpoint. Current 0.1.1 automated checks use dialog stubs; recheck real dialogs on the exact release before distribution.
-
-Packets preserve historical evidence, reviews and receipts without session authority. Hashes detect changes and do not authenticate suppliers. Offline packets cannot infer/approve/apply/queue writes. Reconnection reloads current state. Promotion creates a new draft.
-
-## Verify
-
-    npm run build
-    .\.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-verify
-    .\.venv\Scripts\python.exe -m scripts.evaluate
-    node scripts/browser-smoke.cjs
-    node scripts/desktop-smoke.cjs
-    node scripts/desktop-offline.cjs
-
-Start the server first. Browser tests use installed Microsoft Edge. Desktop tests use the real installer installed under work/installed-0.1.1 (set BATCHFENCE_TEST_EXE), with stubbed dialogs for repeatability.
-
-Current local publication checks: 48 pytest checks and 30/30 frozen domain cases (18 development, 12 held out), real web/installed workflows and offline review without external Node/Python on child PATH. Exact results are in docs/*results.json. [Evaluation](docs/evaluation.md) separates these from unmeasured model performance.
-
-Windows packaging:
-
-    $env:ELECTRON_CACHE='D:\projects\BatchFence\.cache\electron'
-    $env:ELECTRON_BUILDER_CACHE='D:\projects\BatchFence\.cache\electron-builder'
-    npm run package:desktop
-
-The build is unsigned. Do not disable OS protections. Signing/distribution require authorized configuration.
-
-## Materials
-
-[Architecture](docs/architecture.md), [acceptance](docs/feature_acceptance.md), [visual review](docs/visual_review.md), [AMD evidence](docs/amd_evidence.md), [limitations](docs/limitations.md), [deployment](DEPLOYMENT.md), [provenance](docs/data_provenance.md).
-
-Submission drafts, a six-slide PowerPoint, actual cover screenshot and recording guide are under submission/. Source and the free hosted app are published and cloud checks are recorded. Windows 0.1.2 has its own release download. Video upload and final event submission have not occurred. Confirm the authenticated deadline and form.
-
-Original code: MIT. Dependencies retain their licenses. See [notices](docs/third_party_notices.md). No model weights are redistributed.
-
-Media: submission/BatchFence-demo.mp4 is a silent113.73-second real application recording with selectable captions, under2MB. Source and native-dialog limitations are disclosed in the captions. The1920Г—1080 cover is an actual screen capture. Set a public BATCHFENCE_BACKEND_ORIGIN before packaging an authorized remote desktop release; AMD credentials are never baked.
+[Deployment and security](DEPLOYMENT.md) · [Morning handoff](HANDOFF.md) · [Historical AMD evidence](docs/amd_evidence.md) · [Upgrade plan](UPGRADE_PLAN.md)

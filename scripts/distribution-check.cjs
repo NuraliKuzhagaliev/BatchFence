@@ -1,6 +1,6 @@
 const { _electron: electron, chromium } = require('playwright');
 const fs = require('node:fs/promises'), path = require('node:path'), assert = require('node:assert/strict');
-const root=path.resolve(__dirname,'..'), out=path.join(root,'docs/release-0.1.2');
+const root=path.resolve(__dirname,'..'), out=path.join(root,'docs/release-0.2.0');
 (async()=>{
  await fs.mkdir(out,{recursive:true});
  const checks=[], errors=[];
@@ -12,7 +12,7 @@ const root=path.resolve(__dirname,'..'), out=path.join(root,'docs/release-0.1.2'
   assert.equal(await page.getByRole('button',{name:'Open web app',exact:true}).count(),0);
   assert.equal(await page.getByRole('link',{name:/Open web app/}).count(),0);
   const link=page.getByRole('link',{name:'Download for Windows',exact:true});
-  assert.equal(await link.getAttribute('href'),'https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.1.2/BatchFence-0.1.2-win-x64-setup.exe');
+  assert.equal(await link.getAttribute('href'),'https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.2.0/BatchFence-0.2.0-win-x64-setup.exe');
   const body=await page.locator('body').innerText();
   for(const text of ['SANDBOX','Human review','Free demo','Public demo','BatchFence 0.1.1','public download pending']) assert(!body.includes(text),text);
   await page.screenshot({path:path.join(out,'web-landing.png'),fullPage:true});
@@ -22,7 +22,7 @@ const root=path.resolve(__dirname,'..'), out=path.join(root,'docs/release-0.1.2'
   await page.screenshot({path:path.join(out,'web-mobile.png'),fullPage:true});
   checks.push('Web: download action only, retired labels absent, mobile layout within viewport');
  }finally{await browser.close()}
- const app=await electron.launch({executablePath:path.join(root,'work/installed-0.1.2/BatchFence.exe'),env:{...process.env,BATCHFENCE_USER_DATA:path.join(root,'work/desktop-distribution-012')},timeout:30000});
+ const app=await electron.launch({executablePath:path.join(root,'work/installed-0.2.0/BatchFence.exe'),env:{...process.env,BATCHFENCE_USER_DATA:path.join(root,'work/desktop-distribution-020')},timeout:30000});
  try{
   const page=await app.firstWindow(); page.on('pageerror',e=>errors.push(e.message));
   await page.getByRole('button',{name:'Open example incident',exact:true}).waitFor();

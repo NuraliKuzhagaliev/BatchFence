@@ -48,6 +48,8 @@ def validate_output(raw, docs):
 def extract(docs, mode):
     started = time.perf_counter()
     run = {'id': str(uuid.uuid4()), 'mode': mode,
+           'clock_source':'Server UTC wall clock; latency from monotonic clock',
+           'input_hash':__import__('hashlib').sha256(json.dumps(docs,sort_keys=True).encode()).hexdigest(),
            'provider': 'Synthetic fixture' if mode == 'fixture' else 'AMD configured endpoint',
            'prompt_version': PROMPT_VERSION, 'schema_version': 1,
            'timestamp': datetime.now(timezone.utc).isoformat(), 'status': 'running', 'repairs': 0}
@@ -76,12 +78,14 @@ def extract(docs, mode):
                 {'role': 'user', 'content': json.dumps({'schema': Extraction.model_json_schema(),
                  'documents': [{'id': d['id'], 'blocks': d['blocks']} for d in docs]}, ensure_ascii=False)}
             ], 'max_tokens': 2400, 'temperature': 0}
+            run['requested_model_id'] = os.environ['AMD_MODEL_ID']
             if os.getenv('AMD_JSON_SCHEMA', 'false').lower() == 'true':
                 payload['response_format'] = {'type': 'json_schema', 'json_schema': {
                     'name': 'scope_extraction', 'strict': True, 'schema': Extraction.model_json_schema()}}
             with httpx.Client(timeout=45, follow_redirects=False) as client:
                 response = client.post(base + '/chat/completions',
                     headers={'Authorization': 'Bearer ' + os.environ['AMD_API_KEY']}, json=payload)
+                run['http_status'] = response.status_code
                 if response.status_code >= 400:
                     raise ValueError(f'AMD request failed with HTTP {response.status_code}; no fallback was used')
                 body = response.json()

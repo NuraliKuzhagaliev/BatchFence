@@ -1,54 +1,19 @@
-# BatchFence ambiguity follow-up — complete local work
+# BatchFence 0.2.0 upgrade
 
-Starting checkpoint ed6a2b0. Product architecture/features preserved; release 0.1.1.
+Protected release: `2402375b6dd3aecae2e1cd691b51639a07f8dac7` (web); Windows `v0.1.2` at `45280e8`. Preserve these and frozen 500/800 fixtures. The research brief predates the verified Windows download; retain it until a new verified installer exists.
 
-Completed and verified:
-- Exact old Gemma failure replay proved unsupported SUP-S exclusion reachable through review/approval/receipt.
-- Explicit lot dispositions, unresolved default, source-backed incident scope and independent ancestry uncertainty contain that regression; legacy approval digests invalidated.
-- Two fresh ambiguous notices: one agent-reviewed broad 1,200 hold and receipt; one invalid citation blocked before review. Raw quality remains separate and poor. Three Gemma failures retained; MiMo selected explicitly from actual catalog.
-- Fresh live MiMo 500/800 workflow, two receipts, stale apply 409, plus actual restart persistence of all three cases.
-- Failed-run message persists after reload. Actual packet handoff exposed a cross-runtime number hash bug; fixed with pinned canonicalization, original exports retained, equivalent payloads reissued and fresh export verified.
-- 40 pytest, 30 frozen domain, 12 browser, 7 installed checks pass. Final packet/failure UI and malformed packet checks pass.
-- Docker diagnosis identifies exact command/log/process/AF_UNIX socket failure. No permission, socket or data changes.
-- Unsigned 0.1.1 rebuilt/installed. Updated live demo, six-slide editable deck, cover and descriptions prepared with explicit limits.
+Dependency order and gates:
 
-Finalization: sanitized evidence, source/evidence/media archives and checksums are in releases/manifest-0.1.1.json. See HANDOFF.md for commands and precise remaining human actions.
+1. Cause-aware queue and shared graph semantics. Reproduce boundary/receiving confusion and unresolved intermediate nodes; distinguish actual missing records from source review. Deduplicate causes and pool totals.
+2. Read-only impact planner. Verify 500→400 / 800→700 conditional complete SUP-B identity, unchanged exposure/inconclusive cases, overlapping and joint assumptions, preservation of real approvals/holds.
+3. Linked reply reconciliation and immutable causal comparison. Exact citations, explicit replacement review, inconclusive/conflicting evidence stays open, stale approval rejection, 300-unit SUP-C→FG-D→O-104 path.
+4. Per-lot review, early genealogy, guided steps, elapsed inference time, responsive/reduced-motion presentation. No automatic acknowledgements or authority from playback.
+5. Executable verification challenges, full regressions, web/desktop acceptance, free Render deployment, sanitized release/media and checksums.
 
-Remaining external gates: supported Docker/Windows repair then container test; independent domain/operator review and exact-release native dialog acceptance; authorized host/repository/download and resource budget; hosted checks, event eligibility and submission. No external publication occurred. Next useful action is the human review of the current packets and Docker repair, not more cosmetic changes or repeated unchanged probes.
+All reviews in automated verification are agent-operated, not independent human validation. Live AMD, historical replay and synthetic cases stay distinct. No paid resources, optional model experiments, or architecture rewrite. Free storage remains temporary; workspace holds never automatically release.
 
+Status: implementation started. Exact authenticated submission cutoff not yet available; no deadline assumed. Optional experiments deferred until all core gates pass.
 
-## Authorized publication follow-up
+Commands: `.venv\Scripts\python.exe -m pytest -q`; `npm run build`; `node scripts/browser-smoke.cjs`; `npm run package:desktop`. Versioned evidence will be recorded under `docs/release-0.2.0/` and `releases/`.
 
-- Inspected source, clean checkpoint 9a38eec, empty authorized remote, history and private-file exclusions.
-- Prepared same-origin Render Docker, protected public demo, correct SPA assets and meaningful database health. Latest user constraint requires free-only hosting; Blueprint now has no disk and labels ephemeral SQLite.
-- New local verification: build; 48 pytest; 30 frozen domain cases; 12 browser workflow checks; five public controls. No fresh AMD calls or cloud results claimed.
-- Added GitHub CI including Linux container build and actual volume/restart verification.
-- Published and independently verified via GitHub API: 43abcf8 on main. Linux CI passed, including real Docker restart with a named volume.
-- Workspace explicitly selected. Paid approval revoked before any resource creation. Proceed only with free hosting; no payment method or upgrades. Actual public workflows remain pending; durable cloud persistence is unavailable on the selected free architecture. See DEPLOYMENT.md.
-
-## Free public verification milestone
-
-- Free service deployed at https://batchfence.onrender.com; health and CI-gated auto-deploy configured. No paid resources.
-- Real public Synthetic and public-control browser checks pass; exported storage test confirms state loss on actual redeploy.
-- Five fresh cloud AMD calls: 500-unit reviewed receipt, two contained revised-notice citation failures, two ambiguous responses with one conservative receipt and one source-punctuation review defect.
-- Terminal-period source match fixed; exact regression reproduced before fix, 51 pytest and 30 frozen domain checks pass. Next: publish/deploy patch and repeat only the affected ambiguous notice, retaining original results.
-
-## Final free deployment milestone
-
-- Product code 57a82bc deployed after successful CI: 52 pytest, 30 frozen cases, Linux build and named-volume restart.
-- Fresh prompt-v2 public AMD 500/800 receipts and stale rejection passed on the unchanged frozen notices. Original v1 failures remain preserved.
-- Exact punctuation source rerun live; conservative 1,200 hold passed. No narrowing on unresolved scope. Eight cloud calls total; no further inference needed.
-- Public packets/import/isolation and visual evidence verified. Free ephemeral state loss verified on actual redeploy. Final evidence index and handoff complete; prepare source/evidence archives/checksums and verify final documentation publication.
-- Remaining human gates: independent operator review, export retention, exact native-dialog/distribution acceptance if required. No payment, upgrades or durable-cloud claim.
-
-
-## Web presentation and Windows download follow-up
-
-- Remove redundant demo/version/promotional labels while retaining actual data provenance, temporary-storage notice and workspace-only execution scope.
-- Website: real Windows download only. Desktop: open the hosted web app only; no self-download.
-- Build a new cloud-connected 0.1.2 installer; preserve older releases. Check protected access forwarding, fixed-origin links, session isolation, workflows and offline packets.
-- Publish the verified installer and checksums as a GitHub Release, deploy the web changes, inspect both surfaces and record remaining limits. All resources remain free.
-
-Milestone: UI changes built; 52 tests, 30 scenarios, 12 browser and seven installed checks passed. New installed app completed an additional genuine AMD extraction; raw output remains unresolved and saved. Offline and restricted-transport checks passed. Installer/checksums ready; publish release assets then deploy the matching interface.
-
-Publication milestone: v0.1.2 installer and SHA-256 file published to GitHub Releases. Complete anonymous 113,769,527-byte download matches the installed/tested build. Source tag 45280e8 preserved. Main will deploy the matching presentation through passing CI; final public verification and artifact delivery state are recorded in releases/manifest-0.1.2.json.
+Milestone: core/UI implemented; 64 tests, 30 frozen domain cases, 12 legacy browser and nine upgrade groups pass. Packaging, public release/live evidence and media are next.

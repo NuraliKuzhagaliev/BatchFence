@@ -1,5 +1,7 @@
 export type Evidence = { document_id: string; block_id: string; quote: string };
 export type Document = {
+  request_id?: string;
+  request_snapshot?: Question;
   id: string;
   filename: string;
   revision: number;
@@ -26,6 +28,7 @@ export type Row = Stock & {
 };
 export type Action = { type: "hold"; pool_id: string };
 export type Result = {
+  node_states?: Record<string, "documented" | "uncertain" | "outside">;
   rows: Row[];
   documented_units: number;
   uncertain_units: number;
@@ -37,15 +40,7 @@ export type Result = {
   excluded_cents: number;
   reduction_percent: number;
   actions: Action[];
-  requests: {
-    id: string;
-    pool_ids: string[];
-    units: number;
-    value_cents: number;
-    missing: string;
-    reason: string;
-    draft: string;
-  }[];
+  requests: Question[];
   request_unique_units: number;
   request_unique_cents: number;
   orders: {
@@ -59,7 +54,34 @@ export type Result = {
   shipment_reviews: string[];
   narrowing_available: boolean;
 };
+export type Hypothesis = {kind: "identity" | "boundary" | "inconclusive"; pool_id?: string; supplier_lot_id?: string; complete?: boolean; lot_ids?: string[]; uncertain_lot_ids?: string[]};
+export type Question = {
+    id: string;
+    pool_ids: string[];
+    units: number;
+    value_cents: number;
+    missing: string;
+    reason: string;
+    draft: string;
+    kind?: string;
+    evidence?: Evidence[];
+    suggested_role?: string;
+    review_existing_first?: boolean;
+    global?: boolean;
+    hypotheses?: Hypothesis[];
+    impact_note?: string;
+    sort_reason?: string;
+};
+export type Simulation = {label:string; before:Result; after:Result; changed_units:number; changed_value_cents:number; changed_pool_ids:string[]; new_order_reviews:string[]; removed_order_reviews:string[]; applied_hold_units:number; warning:string; remaining_blockers:Question[]};
 export type Run = {
+  timestamp?: string;
+  clock_source?: string;
+  prompt_version?: string;
+  schema_version?: number;
+  usage?: Record<string, unknown>;
+  request_id?: string;
+  http_status?: number;
+  input_hash?: string;
   id: string;
   mode: string;
   status: string;
@@ -76,6 +98,7 @@ export type Run = {
   };
 };
 export type Plan = {
+  inputs?: {lineage: Case['edges']; stocks: Stock[]; reviewed_scope: Case['scope']};
   id: string;
   digest: string;
   status: string;

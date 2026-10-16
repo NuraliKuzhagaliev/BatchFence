@@ -71,10 +71,36 @@ def evidence_queue(state, result):
             add('conflicting_evidence',conflict['document_id'],conflict['pool_ids'],'Conflicting supplier reply',
                 'The reviewed reply conflicts with existing records; uncertainty remains until an explicit superseding complete record is reviewed.',
                 [conflict['evidence']],'Supplier quality contact')
+    # One complete receiving record can answer identity and completeness. Keep
+    # both cause identities while presenting one question for the same record.
+    for c in causes:
+        c['causes']=[{'id':c['id'],'kind':c['kind']}]
+    for c in list(causes):
+        if c['kind']=='incomplete_ancestry':
+            shared=next((q for q in causes if q['kind']=='possible_ancestry' and q['pool_ids']==c['pool_ids']),None)
+            if shared:
+                shared['causes']+=c['causes']
+                shared['reason']+=' The completeness manifest also needs confirmation.'
+                causes.remove(c)
+    # Bound automatic ranking work; the explicit scenario API remains capped at
+    # six hypotheses. Do not invent precise impacts for unenumerated boundaries.
+    from .domain import calculate
+    from .scenarios import apply_hypotheses
+    remaining=12
+    for c in causes:
+        changes=[]
+        for h in c['hypotheses']:
+            if remaining<=0:
+                break
+            remaining-=1
+            candidate=apply_hypotheses(state,[h])
+            r=calculate(candidate['stocks'],candidate['edges'],candidate['scope']['lot_ids'],candidate['allocations'],result['narrowing_available'],candidate['scope'].get('uncertain_lot_ids',[]))
+            changes.append(abs(result['hold_units']-r['hold_units']))
+        c['decision_change_units']=max(changes) if changes else None
     # Group by actual gap; global blockers precede potentially decision-changing
     # identity questions, then earliest affected open order. Value is secondary.
-    causes.sort(key=lambda c:(not c['global'],not bool(c['hypotheses']),c['earliest_order_due'] or '9999',-c['value_cents'],c['id']))
+    causes.sort(key=lambda c:(not c['global'],not bool(c['decision_change_units']),c['earliest_order_due'] or '9999',-c['value_cents'],c['id']))
     for c in causes:
-        c['sort_reason'] = ('Global scope blocker first' if c['global'] else 'Conditional identity decision first' if c['hypotheses'] else 'Remaining evidence gap') + '; earliest affected order, then inventory carrying value.'
+        c['sort_reason'] = ('Global scope blocker first' if c['global'] else f"Conditional change up to {c['decision_change_units']} proposed units" if c['decision_change_units'] is not None else 'Impact not computed within bounded ranking') + '; decision-changing questions first, then earliest affected order, then inventory carrying value.'
     unique = {p for c in causes for p in c['pool_ids']}
     return causes, sum(rows[p]['units'] for p in unique), sum(rows[p]['units']*rows[p]['unit_cents'] for p in unique)

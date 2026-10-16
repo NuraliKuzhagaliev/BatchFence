@@ -43,7 +43,7 @@ protocol.registerSchemesAsPrivileged([
 let win,
   capability = "";
 const apiPattern =
-  /^\/api\/(?:health|replay|cases(?:\/(?:demo|import|[a-f0-9]{32}(?:\/(?:documents|revision|analyze|reviews|approve|apply|export))?))?)$/;
+  /^\/api\/(?:health|replay|challenges|cases(?:\/(?:demo|import|[a-f0-9]{32}(?:\/(?:documents|revision|analyze|reviews|approve|apply|export|simulate|reply-preview|reply-review|comparison))?))?)$/;
 function sender(event) {
   if (
     !win ||

@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-16T19:48:59.074840+00:00",
+  "head": "9a0cc572342e96a2ddaec80da27c2313c4a085f6",
+  "commits": 12,
+  "history_blobs": 580,
+  "files_and_archive_members": 1273,
+  "known_private_values_checked": 10,
+  "findings": [],
+  "largest_history_files": [
+    {
+      "file": "submission/BatchFence-demo-0.1.1.mp4",
+      "bytes": 5391989
+    },
+    {
+      "file": "submission/BatchFence-demo.mp4",
+      "bytes": 1778738
+    },
+    {
+      "file": "submission/BatchFence-pitch-0.1.1-reviewed.pptx",
+      "bytes": 928630
+    },
+    {
+      "file": "submission/BatchFence-pitch.pptx",
+      "bytes": 774465
+    },
+    {
+      "file": "docs/release-0.1.2/desktop-live-candidates.png",
+      "bytes": 271488
+    }
+  ],
+  "limitations": "Known-value and credential-pattern scan, archive contents and prohibited-path checks; not a general security audit. Evidence records are synthetic. Image pixels are not OCR-scanned."
+}

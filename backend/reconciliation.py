@@ -31,8 +31,11 @@ def preview_reply(state, data):
             # Bounded accepted receiving-record syntax. A narrative preferred-lot
             # mention cannot silently discard other parents. All replaced row IDs
             # must be explicitly superseded in the cited source.
-            phrase = re.escape(data.pool_id)+r'\s+complete ancestry:\s*'+re.escape(data.supplier_lot_id)+r'\s+only\.'
-            if not re.search(phrase,data.quote,re.I) or 'supersedes' not in data.quote.lower() or not all(e.get('row_id') and mentions(e['row_id'],data.quote) for e in old):
+            phrase = '^'+re.escape(data.pool_id)+r'\s+complete ancestry:\s*'+re.escape(data.supplier_lot_id)+r'\s+only\.\s+Supersedes\s+([A-Za-z0-9_, -]+)\.'
+            match=re.search(phrase,data.quote,re.I)
+            full_block=next(b['text'] for b in doc['blocks'] if b['id']==basis['block_id'])
+            replaced={x.strip() for x in match.group(1).split(',')} if match else set()
+            if not match or data.quote!=full_block or replaced != {e.get('row_id') for e in old}:
                 raise DomainError('Complete replacement requires "POOL complete ancestry: LOT only." and an explicit Supersedes list of every replaced row ID')
         elif not re.search(re.escape(data.pool_id)+r'\s+confirmed parent:\s*'+re.escape(data.supplier_lot_id)+r'\.',data.quote,re.I):
             raise DomainError('Partial confirmation requires "POOL confirmed parent: LOT."; alternative paths remain')

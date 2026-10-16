@@ -8,7 +8,13 @@ def apply_hypotheses(state, hypotheses):
     if not hypotheses or len(hypotheses) > 6:
         raise DomainError('Provide 1–6 explicit hypotheses')
     s = copy.deepcopy(state)
+    replacements={}
     for h in hypotheses:
+        if h['kind']=='identity' and h.get('complete'):
+            prior=replacements.get(h.get('pool_id'))
+            if prior and prior != h.get('supplier_lot_id'):
+                raise DomainError('Joint scenario supplies conflicting complete identities for one pool')
+            replacements[h.get('pool_id')]=h.get('supplier_lot_id')
         if h['kind'] == 'inconclusive':
             continue
         if h['kind'] == 'boundary':

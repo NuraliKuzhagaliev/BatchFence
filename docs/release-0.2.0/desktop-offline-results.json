@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-16T19:49:29.464Z",
+  "packaged": true,
+  "backend": "Unreachable loopback port 9",
+  "child_PATH": "C:\\Windows\\System32",
+  "external_node_python_required": false,
+  "scope_units": 800,
+  "receipt_readable": true,
+  "writes_disabled": true,
+  "native_dialog": "Stubbed result; bridge read and validation executed"
+}

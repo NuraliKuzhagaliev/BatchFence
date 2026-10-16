@@ -1,0 +1,17 @@
+{
+  "installer": "BatchFence-0.2.0-win-x64-setup.exe",
+  "bytes": 113774692,
+  "sha256": "7fc0b61c1c232394c077d2cc990266972ac0a5dd1bf0095014fa626dcd99979d",
+  "signed": false,
+  "installed_payload_matches_build": true,
+  "known_private_values_in_payload": false,
+  "native_dialog_selection": "Automated stubs only; physical OS acceptance outstanding",
+  "default_backend": "https://batchfence.onrender.com",
+  "local_mode_tested": "http://127.0.0.1:8793",
+  "installed_upgrade_checks": 9,
+  "offline_packet": "passed",
+  "renderer_scaling": [
+    1,
+    1.25
+  ]
+}
