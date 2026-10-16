@@ -3,13 +3,16 @@ const fs = require("node:fs/promises");
 const path = require("node:path");
 const assert = require("node:assert/strict");
 const root = path.resolve(__dirname, "..");
-const out = path.join(root, "docs/screenshots");
+const out = process.env.BATCHFENCE_SCREENSHOTS || path.join(root, "docs/screenshots");
+const base = process.env.BATCHFENCE_BASE_URL || "http://127.0.0.1:8787";
+const evidence = process.env.BATCHFENCE_BROWSER_REPORT || path.join(root,"docs/browser-results.json");
 async function main() {
   await fs.mkdir(out, { recursive: true });
   const browser = await chromium.launch({ channel: "msedge", headless: true });
   const context = await browser.newContext({
     viewport: { width: 1440, height: 900 },
     acceptDownloads: true,
+    ignoreHTTPSErrors: process.env.BATCHFENCE_LOCAL_CERT_TEST === "true" && new URL(base).hostname === "127.0.0.1",
   });
   const page = await context.newPage();
   const errors = [];
@@ -32,7 +35,7 @@ async function main() {
       .getByRole("button", { name: "Approve exact plan", exact: true })
       .waitFor();
   };
-  await page.goto("http://127.0.0.1:8787/");
+  await page.goto(base + "/");
   await page
     .getByRole("button", { name: "Load synthetic incident", exact: false })
     .waitFor();
@@ -147,7 +150,7 @@ async function main() {
   const downloadPromise = page.waitForEvent("download");
   await click("Export packet");
   const download = await downloadPromise;
-  const packetPath = path.join(root, "docs", "verified-decision-packet.json");
+  const packetPath = process.env.BATCHFENCE_TEST_PACKET || path.join(root, "docs", "verified-decision-packet.json");
   await download.saveAs(packetPath);
   const packet = JSON.parse(await fs.readFile(packetPath, "utf8"));
   assert.equal(packet.case.receipts.length, 1);
@@ -189,7 +192,7 @@ async function main() {
   await page.setViewportSize({ width: 1440, height: 900 });
   // Separate imported genealogy exercises actual versioned event rendering.
   let imported = await (
-    await context.request.post("http://127.0.0.1:8787/api/cases/demo", {
+    await context.request.post(base + "/api/cases/demo", {
       data: {},
     })
   ).json();
@@ -197,7 +200,7 @@ async function main() {
     "row_id,source,target,kind,revision\nE1,SUP-A,EV-A,confirmed,1\nE2,EV-A,FG-A,confirmed,1\nE3,EV-A,FG-B,confirmed,1\nE4,SUP-A,FG-C,possible,1\nE5,SUP-B,FG-C,possible,1\nE6,SUP-C,FG-D,confirmed,1\nE7,SUP-D,FG-E,confirmed,1\nE8,SUP-E,FG-F,confirmed,1";
   imported = await (
     await context.request.post(
-      "http://127.0.0.1:8787/api/cases/" + imported.id + "/documents",
+      base + "/api/cases/" + imported.id + "/documents",
       {
         data: {
           filename: "event-lineage.csv",
@@ -212,13 +215,13 @@ async function main() {
   );
   imported = await (
     await context.request.post(
-      "http://127.0.0.1:8787/api/cases/" + imported.id + "/analyze",
+      base + "/api/cases/" + imported.id + "/analyze",
       { data: { document_id: narrative.id, mode: "fixture" } },
     )
   ).json();
   imported = await (
     await context.request.post(
-      "http://127.0.0.1:8787/api/cases/" + imported.id + "/reviews",
+      base + "/api/cases/" + imported.id + "/reviews",
       {
         data: {
           run_id: imported.runs.at(-1).id,
@@ -287,7 +290,7 @@ async function main() {
     .getByText("Backend offline", { exact: true })
     .waitFor({ timeout: 22000 });
   await context.request.post(
-    "http://127.0.0.1:8787/api/cases/" + id + "/documents",
+    base + "/api/cases/" + id + "/documents",
     {
       data: {
         filename: "post-execution-note.txt",
@@ -315,11 +318,12 @@ async function main() {
   checks.push("Reconnect fetches changed backend evidence before live actions");
   assert.deepEqual(errors, []);
   await fs.writeFile(
-    path.join(root, "docs/browser-results.json"),
+    evidence,
     JSON.stringify(
       {
         at: new Date().toISOString(),
         browser: "Microsoft Edge, Playwright headless",
+        url: base, provenance: "Synthetic fixture; no live inference",
         checks,
         errors,
         case_id: id,
@@ -339,6 +343,6 @@ async function main() {
   );
 }
 main().catch((e) => {
-  console.error(e);
-  process.exitCode = 1;
+  console.error(String(e.message || e).split("\n")[0]);
+  process.exit(1);
 });

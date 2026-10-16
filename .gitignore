@@ -13,3 +13,9 @@ __pycache__/
 docs/BatchFence_Codex_Master_Prompt.md
 docs/AMD_ACT_III_Research_and_Winning_Strategy.md
 .codex-finalizer/
+
+# Private transport/access material
+*.pem
+*.p12
+*.key
+*.log

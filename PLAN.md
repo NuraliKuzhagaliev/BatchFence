@@ -15,3 +15,13 @@ Completed and verified:
 Finalization: sanitized evidence, source/evidence/media archives and checksums are in releases/manifest-0.1.1.json. See HANDOFF.md for commands and precise remaining human actions.
 
 Remaining external gates: supported Docker/Windows repair then container test; independent domain/operator review and exact-release native dialog acceptance; authorized host/repository/download and resource budget; hosted checks, event eligibility and submission. No external publication occurred. Next useful action is the human review of the current packets and Docker repair, not more cosmetic changes or repeated unchanged probes.
+
+
+## Authorized publication follow-up
+
+- Inspected source, clean checkpoint 9a38eec, empty authorized remote, history and private-file exclusions.
+- Prepared same-origin Render Docker + durable SQLite Blueprint, protected public demo, correct SPA assets and meaningful database health.
+- New local verification: build; 48 pytest; 30 frozen domain cases; 12 browser workflow checks; five public controls. No fresh AMD calls or cloud results claimed.
+- Added GitHub CI including Linux container build and actual volume/restart verification.
+- In progress: sanitized source push; remote CI verification.
+- External gate: Render connector requires explicit workspace choice; paid disk/compute budget not yet approved. Do not provision before approval. Remaining cloud acceptance is in DEPLOYMENT.md.

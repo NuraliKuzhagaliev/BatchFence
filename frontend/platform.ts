@@ -1,6 +1,8 @@
 import type { Packet, Upload } from "./types";
 import { validateShape } from "../desktop/packet-shape.mjs";
 export const native = window.batchfence;
+let liveDemoToken = "";
+export function setLiveDemoToken(value: string) { liveDemoToken = value; }
 export async function copyDraft(text: string) {
   if (native) await native.copyDraft(text);
   else await navigator.clipboard.writeText(text);
@@ -14,7 +16,9 @@ export async function request<T>(
   const response = await fetch(route, {
     method,
     credentials: "same-origin",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json",
+      ...(route.endsWith("/analyze") && liveDemoToken ? {"X-BF-Demo-Token": liveDemoToken} : {}),
+    },
     ...(body === undefined ? {} : { body: JSON.stringify(body) }),
   });
   const json = await response.json();

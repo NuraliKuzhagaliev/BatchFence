@@ -1,0 +1,46 @@
+name: Verify BatchFence
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      INFERENCE_MODE: fixture
+      DATABASE_PATH: work/ci.sqlite3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.20.0'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - run: npm ci --ignore-scripts
+      - run: pip install -r requirements.txt
+      - run: npm run build
+      - run: python -m pytest -q
+      - run: python -m scripts.evaluate
+      - run: python scripts/audit-publication.py
+      - name: Build Linux container and verify restart persistence
+        run: |
+          docker build -t batchfence:ci .
+          docker volume create batchfence-ci
+          docker run -d --name batchfence-ci -p 8795:8795 -e PORT=8795 -e INFERENCE_MODE=fixture -v batchfence-ci:/var/data batchfence:ci
+          python scripts/container-check.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification-evidence
+          path: |
+            docs/cloud/container-results.json
+            docs/cloud/publication-audit.json
+            docs/evaluation-results.json

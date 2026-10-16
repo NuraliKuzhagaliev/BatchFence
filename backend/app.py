@@ -1,3 +1,4 @@
+import asyncio
 import base64
 import copy
 import csv
@@ -15,33 +16,51 @@ from typing import Literal
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, Request, HTTPException
-from fastapi.responses import JSONResponse, FileResponse
+from fastapi.responses import JSONResponse, FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
 from pypdf import PdfReader
 from .domain import DomainError, calculate, digest, make_plan, validate_dataset
 from .fixtures import ROOT, load_demo, document, now
 from .provider import extract
+from .public_demo import public_demo, limiter, inference_access
 from .review_safety import REVIEW_POLICY_VERSION, mentions, scope_concerns, resolution_evidence
 
 load_dotenv(ROOT / '.env')
 app = FastAPI(title='BatchFence', version='0.1.1')
-DB = Path(os.getenv('DATABASE_PATH', str(ROOT / 'work/batchfence.sqlite3')))
+DB = Path((os.getenv('DATABASE_PATH') or str(ROOT / 'work/batchfence.sqlite3')))
 DB.parent.mkdir(parents=True, exist_ok=True)
-ORIGIN = os.getenv('APP_ORIGIN', 'http://127.0.0.1:8787')
+ORIGIN = os.getenv('APP_ORIGIN') or os.getenv('RENDER_EXTERNAL_URL') or 'http://127.0.0.1:8787'
+if public_demo() and not ORIGIN.startswith('https://'):
+    raise RuntimeError('PUBLIC_DEMO requires APP_ORIGIN or RENDER_EXTERNAL_URL with HTTPS')
+
+
+class ClosingConnection(sqlite3.Connection):
+    def __exit__(self, *args):
+        try:
+            return super().__exit__(*args)
+        finally:
+            self.close()
 
 
 def connect():
-    db = sqlite3.connect(DB, timeout=15)
+    db = sqlite3.connect(DB, timeout=15, factory=ClosingConnection)
+    version = db.execute('PRAGMA user_version').fetchone()[0]
+    if version not in (0, 1):
+        db.close()
+        raise sqlite3.DatabaseError('Unsupported database schema; migration required')
     db.execute('PRAGMA foreign_keys=ON')
     db.execute('PRAGMA journal_mode=WAL')
     db.execute('CREATE TABLE IF NOT EXISTS cases(id TEXT PRIMARY KEY, owner TEXT NOT NULL, state TEXT NOT NULL)')
+    db.execute('CREATE INDEX IF NOT EXISTS cases_owner ON cases(owner)')
     db.execute('CREATE TABLE IF NOT EXISTS receipts(owner TEXT NOT NULL, key TEXT NOT NULL, request_digest TEXT NOT NULL, receipt TEXT NOT NULL, PRIMARY KEY(owner,key))')
+    if version == 0:
+        db.execute('PRAGMA user_version=1')
     return db
 
 
-with connect() as db:
-    db.execute('PRAGMA user_version=1')
+with connect():
+    pass
 
 
 def fail(code, message, status=409):
@@ -55,17 +74,36 @@ async def protection(request: Request, call_next):
             return JSONResponse({'detail': {'code': 'CSRF', 'message': 'Cross-site API access denied'}}, 403)
         if request.method not in ('GET', 'HEAD', 'OPTIONS'):
             origin = request.headers.get('origin')
-            if origin and origin not in {ORIGIN, 'http://127.0.0.1:5173', 'http://localhost:5173'}:
+            allowed = {ORIGIN} if public_demo() else {ORIGIN, 'http://127.0.0.1:5173', 'http://localhost:5173'}
+            if origin and origin not in allowed:
                 return JSONResponse({'detail': {'code': 'ORIGIN', 'message': 'Origin denied'}}, 403)
             if 'application/json' not in request.headers.get('content-type', ''):
                 return JSONResponse({'detail': {'code': 'CONTENT_TYPE', 'message': 'JSON required'}}, 415)
-            body = await request.body()
-            if len(body) > 8_000_000:
-                return JSONResponse({'detail': {'code': 'SIZE', 'message': 'Request exceeds 8 MB'}}, 413)
         secret = request.headers.get('x-bf-session') or request.cookies.get('bf_session')
         if not secret or len(secret) < 32 or len(secret) > 200:
             secret = secrets.token_urlsafe(32)
         request.state.owner = hashlib.sha256(secret.encode()).hexdigest()
+        if public_demo() and request.url.path != '/api/health' and not limiter.allow(request.state.owner):
+            return JSONResponse({'detail': {'code': 'RATE_LIMIT', 'message': 'Demo request limit reached. Retry in one minute.'}}, 429, headers={'Retry-After': '60'})
+        if request.method not in ('GET', 'HEAD', 'OPTIONS'):
+            limit = 8_000_000
+            try:
+                if int(request.headers.get('content-length', '0')) > limit:
+                    return JSONResponse({'detail': {'code': 'SIZE', 'message': 'Request exceeds 8 MB'}}, 413)
+                async def bounded_body():
+                    chunks = []; size = 0
+                    async for chunk in request.stream():
+                        size += len(chunk)
+                        if size > limit:
+                            raise OverflowError()
+                        chunks.append(chunk)
+                    # Starlette's cached request replays this bounded body to routing.
+                    request._body = b''.join(chunks)
+                await asyncio.wait_for(bounded_body(), timeout=15)
+            except OverflowError:
+                return JSONResponse({'detail': {'code': 'SIZE', 'message': 'Request exceeds 8 MB'}}, 413)
+            except (ValueError, asyncio.TimeoutError):
+                return JSONResponse({'detail': {'code': 'BODY', 'message': 'Invalid or incomplete request body'}}, 400)
         response = await call_next(request)
         response.set_cookie('bf_session', secret, httponly=True, samesite='strict',
                             secure=ORIGIN.startswith('https://'), max_age=604800)
@@ -95,7 +133,10 @@ def transaction(case_id, owner):
             fail('NOT_FOUND', 'Case unavailable in this session', 404)
         state = json.loads(row[0])
         yield db, state
-        db.execute('UPDATE cases SET state=? WHERE id=? AND owner=?', (json.dumps(state), case_id, owner))
+        encoded = json.dumps(state)
+        if len(encoded.encode()) > 6_000_000:
+            fail('CASE_SIZE', 'Case storage limit reached; export this case before continuing in a new draft.', 413)
+        db.execute('UPDATE cases SET state=? WHERE id=? AND owner=?', (encoded, case_id, owner))
         db.commit()
     except Exception:
         db.rollback()
@@ -114,6 +155,9 @@ def read(case_id, owner):
 
 def insert(state, owner):
     with connect() as db:
+        db.execute('BEGIN IMMEDIATE')
+        if public_demo() and db.execute('SELECT count(*) FROM cases').fetchone()[0] >= int((os.getenv('MAX_STORED_CASES') or '60')):
+            fail('DEMO_CAPACITY', 'Public demo storage is full. Historical packets remain available; contact the demo owner.', 429)
         if db.execute('SELECT count(*) FROM cases WHERE owner=?', (owner,)).fetchone()[0] >= 12:
             fail('CASE_LIMIT', 'Session limit: 12 cases', 429)
         db.execute('INSERT INTO cases VALUES(?,?,?)', (state['id'], owner, json.dumps(state)))
@@ -209,9 +253,25 @@ def validate_packet(packet):
 
 @app.get('/api/health')
 def health():
-    return {'status': 'ok', 'version': '0.1.1', 'inference_mode': os.getenv('INFERENCE_MODE', 'fixture'),
+    try:
+        with connect() as db:
+            db.execute('SELECT count(*) FROM cases').fetchone()
+            schema = db.execute('PRAGMA user_version').fetchone()[0]
+        if schema != 1:
+            raise sqlite3.DatabaseError()
+    except (sqlite3.Error, OSError):
+        return JSONResponse({'status': 'unavailable', 'database': 'unavailable'}, 503)
+    return {'status': 'ok', 'database': 'ready', 'version': '0.1.1',
+            'commit': os.getenv('RENDER_GIT_COMMIT', 'local'),
+            'inference_mode': (os.getenv('INFERENCE_MODE') or 'fixture'),
             'amd_configured': all(os.getenv(k) for k in ['AMD_API_BASE_URL', 'AMD_API_KEY', 'AMD_MODEL_ID', 'AMD_PROVIDER_EVIDENCE']),
-            'desktop_distribution': 'Local unsigned installer; publication pending'}
+            'live_protected': public_demo() or bool(os.getenv('LIVE_DEMO_TOKEN')),
+            'public_demo': public_demo(), 'replay_available': (ROOT / 'fixtures/replay/amd-reviewed.json').exists()}
+
+
+@app.get('/api/replay')
+def replay():
+    return FileResponse(ROOT / 'fixtures/replay/amd-reviewed.json', media_type='application/json')
 
 
 @app.get('/api/cases')
@@ -327,40 +387,40 @@ def revision(case_id: str, request: Request):
 
 @app.post('/api/cases/{case_id}/analyze')
 def analyze(case_id: str, data: Analyze, request: Request):
-    with transaction(case_id, request.state.owner) as (_, s):
-        if len(s['runs']) >= int(os.getenv('MAX_RUNS_PER_SESSION', '12')):
-            fail('RUN_LIMIT', 'Case inference limit reached', 429)
-        # Sum across cases to bound session usage as well.
-        with connect() as db:
-            total = sum(len(json.loads(r[0])['runs']) for r in
-                        db.execute('SELECT state FROM cases WHERE owner=?', (request.state.owner,)))
-        if total >= int(os.getenv('MAX_RUNS_PER_SESSION', '12')):
-            fail('RUN_LIMIT', 'Session inference limit reached', 429)
-        if data.mode == 'live':
+    with inference_access(data.mode, request.headers.get('x-bf-demo-token', '')):
+        with transaction(case_id, request.state.owner) as (_, s):
+            if len(s['runs']) >= int((os.getenv('MAX_RUNS_PER_SESSION') or '12')):
+                fail('RUN_LIMIT', 'Case inference limit reached', 429)
+            # Sum across cases to bound session usage as well.
             with connect() as db:
-                all_live = sum(sum(r.get('mode') == 'live' for r in json.loads(row[0])['runs'])
-                               for row in db.execute('SELECT state FROM cases'))
-            if all_live >= int(os.getenv('MAX_TOTAL_LIVE_RUNS', '100')):
-                fail('OWNER_BUDGET', 'Owner-controlled total live request limit reached', 429)
-        docs = [d for d in s['documents'] if d['id'] == data.document_id]
-        if not docs:
-            fail('DOCUMENT', 'Select an existing narrative source', 422)
-        if data.mode == 'fixture' and not docs[0]['synthetic']:
-            fail('FIXTURE_ONLY', 'Fixture parser accepts explicitly synthetic documents only', 422)
-        rev = s['revision']
-        slot = uuid.uuid4().hex
-        s['runs'].append({'id': slot, 'mode': data.mode, 'status': 'running', 'revision': rev})
-    run = extract(docs, data.mode)
-    run['revision'] = rev
-    run['document_id'] = data.document_id
-    run['scope_concerns'] = scope_concerns(docs[0])
-    with transaction(case_id, request.state.owner) as (_, s):
-        if s['revision'] != rev:
-            run['status'] = 'stale'
-            run['error'] = 'Evidence changed during inference; analyze current sources'
-        s['runs'] = [run if r['id'] == slot else r for r in s['runs']]
-    return s
-
+                total = sum(len(json.loads(r[0])['runs']) for r in
+                            db.execute('SELECT state FROM cases WHERE owner=?', (request.state.owner,)))
+            if total >= int((os.getenv('MAX_RUNS_PER_SESSION') or '12')):
+                fail('RUN_LIMIT', 'Session inference limit reached', 429)
+            if data.mode == 'live':
+                with connect() as db:
+                    all_live = sum(sum(r.get('mode') == 'live' for r in json.loads(row[0])['runs'])
+                                   for row in db.execute('SELECT state FROM cases'))
+                if all_live >= int((os.getenv('MAX_TOTAL_LIVE_RUNS') or '100')):
+                    fail('OWNER_BUDGET', 'Owner-controlled total live request limit reached', 429)
+            docs = [d for d in s['documents'] if d['id'] == data.document_id]
+            if not docs:
+                fail('DOCUMENT', 'Select an existing narrative source', 422)
+            if data.mode == 'fixture' and not docs[0]['synthetic']:
+                fail('FIXTURE_ONLY', 'Fixture parser accepts explicitly synthetic documents only', 422)
+            rev = s['revision']
+            slot = uuid.uuid4().hex
+            s['runs'].append({'id': slot, 'mode': data.mode, 'status': 'running', 'revision': rev, 'timestamp': now()})
+        run = extract(docs, data.mode)
+        run['revision'] = rev
+        run['document_id'] = data.document_id
+        run['scope_concerns'] = scope_concerns(docs[0])
+        with transaction(case_id, request.state.owner) as (_, s):
+            if s['revision'] != rev:
+                run['status'] = 'stale'
+                run['error'] = 'Evidence changed during inference; analyze current sources'
+            s['runs'] = [run if r['id'] == slot else r for r in s['runs']]
+        return s
 
 @app.post('/api/cases/{case_id}/reviews')
 def review(case_id: str, data: Review, request: Request):
@@ -510,4 +570,13 @@ if (ROOT / 'dist').exists():
 def index():
     if not (ROOT / 'dist/index.html').exists():
         return JSONResponse({'message': 'Run npm run build, then restart backend'}, 503)
-    return FileResponse(ROOT / 'dist/index.html')
+    # Keep desktop file:// assets relative; web navigation resolves from its origin.
+    return HTMLResponse((ROOT / 'dist/index.html').read_text(encoding='utf-8').replace('src="./assets/', 'src="/assets/').replace('href="./assets/', 'href="/assets/'))
+
+
+@app.get('/{path:path}')
+def spa(path: str, request: Request):
+    # Never turn a missing API or asset into a successful HTML response.
+    if path.startswith(('api/', 'assets/')) or '.' in path.rsplit('/', 1)[-1] or 'text/html' not in request.headers.get('accept', ''):
+        raise HTTPException(404, 'Not found')
+    return index()

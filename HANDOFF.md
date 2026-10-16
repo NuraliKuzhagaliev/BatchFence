@@ -1,3 +1,19 @@
+# Publication follow-up — 2026-10-16
+
+Continued from 9a38eec, preserving its full history. Source publication to the authorized GitHub repository is in progress. **Public cloud release remains incomplete until workspace/cost approval, deployment and actual cloud verification.** No paid resource has been created. No public application URL or cloud AMD success is claimed.
+
+Prepared one Render Docker Web Service with one persistent SQLite disk, dynamic PORT, real DB health, safe schema-version initialization, same-origin API/UI and internal-route asset loading. Local Windows Docker failure does not block the remote build route. Added GitHub CI, including a real Linux container restart/volume check.
+
+Protected Live demo requires a separate access key, one inference at a time, persistent attempt budgets and bounded requests/storage. Public Synthetic and a clearly labeled historical AMD replay remain available. Core domain/review/approval/receipt logic is preserved. Existing unsigned desktop installer remains unchanged and local.
+
+Actual new local checks: build, 48 pytest tests, 30 frozen domain cases, 12 browser workflow checks and five public-mode controls passed. No new live AMD calls were made. Original raw model errors and agent review remain disclosed. History/current-file audit found no known private values or credential literals; all four starting commits were inspected. Local screenshots/results and test-harness/routing failures are preserved in docs/cloud/.
+
+Run commands and exact pending cloud gate are in [DEPLOYMENT.md](DEPLOYMENT.md). Next: finish normal source push and inspect CI; obtain the Render connector's required workspace selection and a specific cost approval if no suitable existing resource can be reused; deploy, transfer private AMD configuration and verify real cloud workflows/restart. Do not label local browser/CI evidence as cloud AMD verification.
+
+---
+
+Historical local-release handoff follows; its publication-authorization statements describe the earlier checkpoint only.
+
 # BatchFence 0.1.1 handoff — 2026-10-16
 
 Continued from ed6a2b0. **Ready for local demonstration/review; not ready for production or completed public/submission release.** The ambiguity failure was unsafe and is now contained in the reproduced paths. Raw AMD ambiguity quality remains imperfect; no independent human validation occurred.

@@ -2,9 +2,13 @@
 
 Evidence-backed lot containment for a small manufacturer's quality manager. A supplier notice becomes a reviewed scope, a deterministic hold plan and a real **sandbox** receipt. Changed evidence invalidates approval.
 
-**Working local web and installed Windows 0.1.1 prototype, with genuine AMD-driven synthetic workflows and ambiguity containment. Public/production release gates remain open.** Raw model errors and agent-operated review are disclosed; no independent human validation or savings are claimed.
+**Working web and installed Windows 0.1.1 prototype, with genuine local AMD-driven synthetic workflows and ambiguity containment. Public hosting is prepared but awaits durable-resource approval and cloud verification.** Raw model errors and agent-operated review are disclosed; no independent human validation or savings are claimed.
 
 ![Actual synthetic workbench](docs/screenshots/03-exposure-1440.png)
+
+Repository: [NuraliKuzhagaliev/BatchFence](https://github.com/NuraliKuzhagaliev/BatchFence).
+
+Public app URL: **not deployed yet**. See [deployment status, cost and verification gates](DEPLOYMENT.md). The proposed Render service serves FastAPI + React from one HTTPS origin with SQLite on a persistent disk. Public Synthetic and historical AMD Replay are separated from protected Live inference.
 
 ## Open
 
@@ -44,7 +48,7 @@ Run the server above. Optional scripts/setup.ps1 and scripts/start.ps1 work when
 
 ## AMD
 
-Copy .env.example to a private .env. From authenticated AMD documentation, set AMD_API_BASE_URL, AMD_API_KEY, AMD_MODEL_ID and AMD_PROVIDER_EVIDENCE. Confirm AMD_API_STYLE=openai-chat only if documented. Set INFERENCE_MODE=live. Enable AMD_JSON_SCHEMA only after support is verified.
+Copy .env.example to a private .env; its empty placeholders contain no provider credentials or assumed endpoint. See DEPLOYMENT.md for public configuration. From authenticated AMD documentation, set AMD_API_BASE_URL, AMD_API_KEY, AMD_MODEL_ID and AMD_PROVIDER_EVIDENCE. Confirm AMD_API_STYLE=openai-chat only if documented. Set INFERENCE_MODE=live. Enable AMD_JSON_SCHEMA only after support is verified.
 
     .\.venv\Scripts\python.exe -m scripts.probe_amd
 
@@ -71,7 +75,7 @@ Packets preserve historical evidence, reviews and receipts without session autho
 
 Start the server first. Browser tests use installed Microsoft Edge. Desktop tests use the real installer installed under work/installed-0.1.1 (set BATCHFENCE_TEST_EXE), with stubbed dialogs for repeatability.
 
-Observed: 40 pytest checks,30/30 frozen domain cases (18 development, 12 held out), real web/installed workflows and offline review without external Node/Python on child PATH. Exact results are in docs/*results.json. [Evaluation](docs/evaluation.md) separates these from unmeasured model performance.
+Current local publication checks: 48 pytest checks and 30/30 frozen domain cases (18 development, 12 held out), real web/installed workflows and offline review without external Node/Python on child PATH. Exact results are in docs/*results.json. [Evaluation](docs/evaluation.md) separates these from unmeasured model performance.
 
 Windows packaging:
 
@@ -83,9 +87,9 @@ The build is unsigned. Do not disable OS protections. Signing/distribution requi
 
 ## Materials
 
-[Architecture](docs/architecture.md), [acceptance](docs/feature_acceptance.md), [visual review](docs/visual_review.md), [AMD evidence](docs/amd_evidence.md), [limitations](docs/limitations.md), [deployment](docs/deployment.md), [provenance](docs/data_provenance.md).
+[Architecture](docs/architecture.md), [acceptance](docs/feature_acceptance.md), [visual review](docs/visual_review.md), [AMD evidence](docs/amd_evidence.md), [limitations](docs/limitations.md), [deployment](DEPLOYMENT.md), [provenance](docs/data_provenance.md).
 
-Submission drafts, a six-slide PowerPoint, actual cover screenshot and recording guide are under submission/. Repository publication, hosting, video upload and final submission have not occurred. Confirm the authenticated deadline and form.
+Submission drafts, a six-slide PowerPoint, actual cover screenshot and recording guide are under submission/. Source publication is authorized; hosting awaits cost approval and cloud checks. Video upload and final event submission have not occurred. Confirm the authenticated deadline and form.
 
 Original code: MIT. Dependencies retain their licenses. See [notices](docs/third_party_notices.md). No model weights are redistributed.
 

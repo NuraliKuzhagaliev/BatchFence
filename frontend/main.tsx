@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import {
   request,
+  setLiveDemoToken,
   native,
   savePacket,
   fileUpload,
@@ -109,6 +110,9 @@ function App() {
     >([]),
     input = useRef<HTMLInputElement>(null),
     packetInput = useRef<HTMLInputElement>(null);
+  const [liveProtected, setLiveProtected] = useState(false);
+  const [replayAvailable, setReplayAvailable] = useState(false);
+  const [publicDemo, setPublicDemo] = useState(false);
   const connectionWasAvailable = useRef(true);
   const state = packet?.case || data,
     plan = state?.plan,
@@ -153,12 +157,18 @@ function App() {
         const health = await request<{
           inference_mode: string;
           amd_configured: boolean;
+          live_protected: boolean;
+          public_demo: boolean;
+          replay_available: boolean;
         }>("GET", "/api/health");
         const all = await request<typeof cases>("GET", "/api/cases");
         if (!active) return;
         setCases(all);
+        setLiveProtected(health.live_protected);
+        setPublicDemo(health.public_demo);
+        setReplayAvailable(health.replay_available);
         setMode(
-          health.amd_configured && health.inference_mode === "live"
+          health.amd_configured && health.inference_mode === "live" && !health.live_protected
             ? "live"
             : "fixture",
         );
@@ -232,6 +242,13 @@ function App() {
       setNotice(
         "Synthetic evidence loaded. Extract and review the supplier notice to calculate a plan.",
       );
+    });
+  }
+  async function replayDemo() {
+    await task("Opening historical AMD evidence", async () => {
+      const p = await validatePacket(await request<Packet>("GET", "/api/replay"));
+      setPacket(p); setReview(false); setSource(""); setEvidence(null); setTab("map");
+      setNotice("Replay · historical live AMD response on synthetic records. Agent-operated review; no new inference or independent human validation.");
     });
   }
   async function analyze() {
@@ -607,11 +624,14 @@ function App() {
                     Review a packet
                   </button>
                 </div>
+                {replayAvailable && <button className="text-button" onClick={replayDemo} disabled={!!busy || !online}>
+                  Open recorded AMD packet <History size={15} />
+                </button>}
                 <p className="demo-note">
                   Fictional manufacturer · cosmetic coating issue
                   <br />
-                  Fixture walkthrough is labeled. Live AMD requires
-                  configuration.
+                  Synthetic walkthrough · historical AMD replay
+                  <br />{liveProtected ? "Live inference is protected. Use only synthetic data in this public demo." : "Live AMD requires server configuration."}
                 </p>
               </div>
               <div className="welcome-visual">
@@ -642,7 +662,7 @@ function App() {
               <div className="distribution">
                 <a href="/" className="distribution-link">
                   <ExternalLink size={16} />
-                  Open web app<span>Local v0.1.1</span>
+                  Open web app<span>{publicDemo ? "Public demo v0.1.1" : "Local v0.1.1"}</span>
                 </a>
                 <div className="distribution-link muted">
                   <PackageCheck size={16} />
@@ -832,6 +852,12 @@ function App() {
                       </option>
                       <option value="live">Live · AMD endpoint</option>
                     </select>
+                    {liveProtected && mode === "live" && !packet && <>
+                      <label className="field-label" htmlFor="live-demo-access">Demonstration access key</label>
+                      <input id="live-demo-access" type="password" autoComplete="off" maxLength={200}
+                        onChange={(e) => setLiveDemoToken(e.target.value)} disabled={!canWrite} />
+                      <p className="caption">Provided privately by the demo owner. Kept only in this page's memory.</p>
+                    </>}
                     <button
                       className="button primary full"
                       disabled={!canWrite || !doc}

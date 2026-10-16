@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-16T17:35:28.370Z",
+  "url": "https://127.0.0.1:8790",
+  "environment": "local HTTPS simulation",
+  "live_calls": 0,
+  "checks": [
+    "Initial loading and internal-route refresh",
+    "Built assets and API 404",
+    "Historical AMD replay labeled; no approval/execution authority",
+    "Live access denied before provider reservation; second browser session cannot read case or receipt",
+    "Protected-live error remains usable and access key not persisted"
+  ],
+  "errors": []
+}

@@ -6,16 +6,16 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 const assert = require('node:assert/strict');
 const root = path.resolve(__dirname, '..');
-const inputDir = path.join(root, 'docs/live-verification');
+const inputDir = process.env.BATCHFENCE_INPUT_DIR || path.join(root, 'docs/live-verification');
 const dir = process.env.BATCHFENCE_EVIDENCE_DIR || inputDir;
 const reviewControls = require('./review-controls.cjs');
 const scratch = path.join(root, 'work/live-verification', process.argv[2] || 'review-session');
-const base = 'http://127.0.0.1:8787';
+const base = process.env.BATCHFENCE_BASE_URL || 'http://127.0.0.1:8787';
 async function main() {
   await fs.mkdir(scratch, { recursive: true });
   await fs.mkdir(dir, { recursive: true });
   const manifest = JSON.parse(await fs.readFile(path.join(inputDir, 'input-manifest.json'), 'utf8'));
-  const report = { started_at: new Date().toISOString(), mode: 'live', synthetic_inputs: true,
+  const report = { started_at: new Date().toISOString(), mode: 'live', url:base, synthetic_inputs: true,
     fixture_fallback_used: false, review_method: 'Operator examines raw output and source, then supplies accepted lots. UI review/approval clicks are automated.',
     independent_human_validation: false, review_directory:scratch, stages: [], errors: [] };
   const reportFile = path.join(dir, 'browser-results.json');
@@ -33,10 +33,10 @@ async function main() {
   const screenshot = name => page.screenshot({ path: path.join(dir, name + '.png'), fullPage: true });
   try {
     await page.goto(base);
-    await chapter('Actual local web recording. Synthetic records; fresh live AMD requests. Review is agent-operated, not independent human validation.');
+    await chapter('Actual web recording at '+base+'. Synthetic records; fresh live AMD requests. Review is agent-operated, not independent human validation.');
     const health = await (await context.request.get(base + '/api/health')).json();
     assert.equal(health.amd_configured, true);
-    assert.equal(health.inference_mode, 'live');
+    if (health.live_protected) assert(process.env.BATCHFENCE_DEMO_TOKEN, 'Protected demonstration token must be configured privately');
     await page.locator('input[type=file][accept=".json"]').setInputFiles(path.join(inputDir, 'input-packet.json'));
     await click('Promote to new draft');
     await page.getByText('New draft created. Historical approval does not transfer.', {exact:true}).waitFor();
@@ -54,6 +54,7 @@ async function main() {
       assert.equal((await uploadResponse).status(), 200);
       assert.equal((await current()).revision, before.revision + 1);
       await page.getByLabel('Run mode', {exact:true}).selectOption('live');
+      if (health.live_protected) await page.getByLabel('Demonstration access key', {exact:true}).fill(process.env.BATCHFENCE_DEMO_TOKEN);
       const analysis = page.waitForResponse(r => r.url().endsWith('/analyze') && r.request().method() === 'POST', {timeout:60000});
       await click('Extract selected notice');
       const state = await (await analysis).json();
@@ -150,4 +151,4 @@ async function main() {
     await browser.close();
   }
 }
-main().catch(e=>{console.error(e.message);process.exitCode=1;});
+main().catch(e=>{console.error(String(e.message).split("\n")[0]);process.exitCode=1;});

@@ -1,0 +1,50 @@
+# Creates paid resources. Apply only after explicit cost approval.
+services:
+  - type: web
+    name: batchfence
+    runtime: docker
+    repo: https://github.com/NuraliKuzhagaliev/BatchFence
+    branch: main
+    region: frankfurt
+    plan: 0.5c-512mb
+    numInstances: 1
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeployTrigger: checksPass
+    disk:
+      name: batchfence-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: PUBLIC_DEMO
+        value: "true"
+      - key: DATABASE_PATH
+        value: /var/data/batchfence.sqlite3
+      # APP_ORIGIN uses Render's injected RENDER_EXTERNAL_URL, never localhost.
+      - key: INFERENCE_MODE
+        value: fixture
+      - key: MAX_RUNS_PER_SESSION
+        value: "8"
+      - key: MAX_TOTAL_LIVE_RUNS
+        value: "20"
+      - key: MAX_STORED_CASES
+        value: "60"
+      - key: MAX_REQUESTS_PER_MINUTE
+        value: "300"
+      - key: MAX_SESSION_REQUESTS_PER_MINUTE
+        value: "90"
+      - key: LIVE_DEMO_TOKEN
+        generateValue: true
+      - key: AMD_API_BASE_URL
+        sync: false
+      - key: AMD_API_KEY
+        sync: false
+      - key: AMD_MODEL_ID
+        sync: false
+      - key: AMD_PROVIDER_EVIDENCE
+        sync: false
+      - key: AMD_API_STYLE
+        sync: false
+      - key: AMD_JSON_SCHEMA
+        value: "false"

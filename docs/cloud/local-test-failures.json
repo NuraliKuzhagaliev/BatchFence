@@ -1,0 +1,12 @@
+[
+  {
+    "check": "public-mode browser workflow",
+    "failure": "A remaining test URL used local port 8787 instead of configured 8790. Product workflow passed earlier steps; test harness corrected.",
+    "credentials_recorded": false
+  },
+  {
+    "check": "internal route refresh",
+    "failure": "Relative Vite assets requested /workspace/assets and returned 404. Web HTML now includes an origin-root base; desktop assets remain relative.",
+    "resolution": "Server HTML rewrites built asset URLs to the origin root. An initial base-element approach was blocked by the existing CSP and was replaced; desktop HTML stays untouched."
+  }
+]
