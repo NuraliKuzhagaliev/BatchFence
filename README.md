@@ -2,7 +2,7 @@
 
 Evidence-backed lot containment for a small manufacturer's quality manager. A supplier notice becomes a reviewed scope, a deterministic hold plan and a real **sandbox** receipt. Changed evidence invalidates approval.
 
-**Working web and installed Windows 0.1.1 prototype, with genuine local AMD-driven synthetic workflows and ambiguity containment. Free public demo is deployed. A live AMD response drove a reviewed 500-unit receipt; the revised 800-unit live request was rejected for invalid citations.** Raw model errors and agent-operated review are disclosed; no independent human validation or savings are claimed.
+**Working web and installed Windows 0.1.1 prototype, with genuine local AMD-driven synthetic workflows and ambiguity containment. Free public demo is deployed. Fresh live AMD responses drove reviewed 500/800-unit receipts and conservative ambiguity handling. Earlier rejected responses and the fixes are preserved.** Raw model errors and agent-operated review are disclosed; no independent human validation or savings are claimed.
 
 ![Actual synthetic workbench](docs/screenshots/03-exposure-1440.png)
 

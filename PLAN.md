@@ -32,3 +32,11 @@ Remaining external gates: supported Docker/Windows repair then container test; i
 - Real public Synthetic and public-control browser checks pass; exported storage test confirms state loss on actual redeploy.
 - Five fresh cloud AMD calls: 500-unit reviewed receipt, two contained revised-notice citation failures, two ambiguous responses with one conservative receipt and one source-punctuation review defect.
 - Terminal-period source match fixed; exact regression reproduced before fix, 51 pytest and 30 frozen domain checks pass. Next: publish/deploy patch and repeat only the affected ambiguous notice, retaining original results.
+
+## Final free deployment milestone
+
+- Product code 57a82bc deployed after successful CI: 52 pytest, 30 frozen cases, Linux build and named-volume restart.
+- Fresh prompt-v2 public AMD 500/800 receipts and stale rejection passed on the unchanged frozen notices. Original v1 failures remain preserved.
+- Exact punctuation source rerun live; conservative 1,200 hold passed. No narrowing on unresolved scope. Eight cloud calls total; no further inference needed.
+- Public packets/import/isolation and visual evidence verified. Free ephemeral state loss verified on actual redeploy. Final evidence index and handoff complete; prepare source/evidence archives/checksums and verify final documentation publication.
+- Remaining human gates: independent operator review, export retention, exact native-dialog/distribution acceptance if required. No payment, upgrades or durable-cloud claim.

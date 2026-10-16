@@ -14,5 +14,7 @@
   "private_configuration_saved_without_displaying_values": true,
   "storage": "ephemeral",
   "baseline_hosting_cost_usd": 0,
-  "paid_resources_created": 0
+  "paid_resources_created": 0,
+  "verified_product_commit": "57a82bc299c9c1a76decac0529403b8ca03b6712",
+  "verified_product_deploy": "dep-db96ngrm8hqs73e4rdf0"
 }

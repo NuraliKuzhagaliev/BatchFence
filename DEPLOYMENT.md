@@ -2,7 +2,7 @@
 
 Repository: https://github.com/NuraliKuzhagaliev/BatchFence
 
-Public application: **https://batchfence.onrender.com**. Deployed source adec404; Linux CI passed. Free service ID: srv-db968c7btjjs73fghkog. Health path /api/health; actual auto-deploy trigger checksPass.
+Public application: **https://batchfence.onrender.com**. Product code verified at 57a82bc; Linux CI passed. Free service ID: srv-db968c7btjjs73fghkog. Health path /api/health; actual auto-deploy trigger checksPass.
 
 ## Free-only constraint
 
@@ -46,7 +46,7 @@ Earlier local HTTPS verification passed 12 browser workflow checks and five publ
 
 History, working deliverables and built assets were scanned for known private values and credential patterns, including nested presentation archives. This is not a general security audit or OCR scan. Historical raw AMD quality errors remain disclosed; all performed review is agent-operated, not independent human validation.
 
-## Pending public acceptance
+## Public acceptance procedure (results below)
 
 1. Record real URL, service ID, commit/deploy ID, build/start logs and actual free plan/no disk.
 2. Inspect HTTPS UI, temporary-storage notice, assets/internal refresh, protected-live failure and separate sessions.
@@ -70,8 +70,12 @@ Windows uses `.\.venv\Scripts\python.exe`. `scripts/container-check.py` uses a r
 
 The existing unsigned Windows 0.1.1 installer remains local under `releases/` and targets `127.0.0.1:8787`. Its hash remains verified and it has not been rebuilt or published as a cloud installer. No paid signing, domain or installer hosting is introduced. Native dialog/operator review limitations remain in the historical HANDOFF. This is a demonstrator, not a production release.
 
-## Public verification update
+## Final public verification
 
-The public HTTPS app passed 12 Synthetic browser checks and five public access controls. A fresh actual AMD response drove a 500-unit receipt after agent review. The revised 800-unit notice failed citation validation twice (one explicit retry), and review/execution remained blocked. Two different ambiguous live notices are preserved; one completed a conservative 1,200-unit hold. The other exposed a terminal-period source-match bug; patch and exact regression pass locally, with deployment/recheck pending. See docs/cloud/README.md for the final evidence index.
+See [cloud evidence index](docs/cloud/README.md) and summary.json. Verified code 57a82bc passed 52 tests, 30 frozen domain cases and rebuilt Linux container checks. The actual public app completed fresh AMD 500/800 flows with two receipts and stale apply rejection under scope-extract-2. Two different ambiguous sources yielded conservative 1,200-unit holds after agent review; raw uncertainty errors are disclosed. Exact source-punctuation defect was fixed and rechecked live. Earlier citation failures under scope-extract-1 remain rejected and preserved.
 
-An actual configuration redeploy removed the exported 500-unit synthetic storage-test case: same session received 404 afterward. The saved packet still validates. This demonstrates the free storage limitation; it does not satisfy durable persistence. Client timestamps are about 80 seconds behind provider HTTP time; raw timestamps are retained with their clock source.
+Public Synthetic browser checks (12), access controls (5), offline live packet import, actual live session isolation and known-secret asset scan passed. Screenshots preserve Live, historical Replay and Synthetic provenance. Eight cloud AMD calls were made with existing authorized trial resources; no purchase or paid service was introduced. Provider usage.cost fields are retained as accounting metadata, not proof of an invoice.
+
+An actual configuration redeploy removed a saved synthetic receipt: the same session got 404 afterward. Its export remains valid. The durability gate is unmet by design under the free-only constraint. Client timestamps are about 80 seconds behind provider HTTP time; raw timestamps are retained with their clock sources.
+
+Verdict: free synthetic demonstrator ready; production/durable-storage and independent domain-review gates remain open. The current private LIVE_DEMO_TOKEN is in ignored work/cloud-demo.env; use only that value for protected live demonstrations.

@@ -1,0 +1,144 @@
+{
+  "public_url": "https://batchfence.onrender.com",
+  "verified_product_commit": "57a82bc299c9c1a76decac0529403b8ca03b6712",
+  "product_deploy_id": "dep-db96ngrm8hqs73e4rdf0",
+  "hosting_plan": "free",
+  "paid_resources_created": 0,
+  "durable_cloud_persistence": false,
+  "inference_requests": 8,
+  "accepted_structured_responses": 6,
+  "rejected_responses": 2,
+  "fixture_fallback_used": false,
+  "independent_human_validation": false,
+  "live_500_800": {
+    "status": "passed",
+    "held_units": [
+      500,
+      800
+    ],
+    "receipts": [
+      "TX-79c87071a22343878df6a01c077e1a36",
+      "TX-d90b7d42c8924ca3a236671bd3ed9ef6"
+    ],
+    "stale_apply": {
+      "status": 409,
+      "code": "STALE_APPROVAL"
+    }
+  },
+  "ambiguity_after_review": [
+    {
+      "name": "uncertain-involvement",
+      "hold_units": 1200,
+      "outside_units": 0
+    },
+    {
+      "name": "confirmed-plus-pending",
+      "hold_units": 1200,
+      "outside_units": 0
+    }
+  ],
+  "observations": [
+    {
+      "case": "clear-v1-1",
+      "id": "9304eaa5-6059-4538-90d7-e6119009a0ec",
+      "model_id": "self-dploy/MiMo-V2.6-Flash",
+      "prompt_version": "scope-extract-1",
+      "timestamp": "2026-10-16T18:07:24.550808+00:00",
+      "http_status": 200,
+      "request_id": "ab29a93098964cda8165186e6fba5eaa",
+      "elapsed_ms": 26062,
+      "status": "succeeded",
+      "error": null
+    },
+    {
+      "case": "clear-v1-2",
+      "id": "32161a7b-c9a1-4046-9452-77704c56efb5",
+      "model_id": "self-dploy/MiMo-V2.6-Flash",
+      "prompt_version": "scope-extract-1",
+      "timestamp": "2026-10-16T18:08:20.536048+00:00",
+      "http_status": 200,
+      "request_id": "e5556b4ab112439ea75b343e18dfaf72",
+      "elapsed_ms": 31281,
+      "status": "failed",
+      "error": "Lot identifier absent from cited quote"
+    },
+    {
+      "case": "clear-v1-retry",
+      "id": "3a09f84f-7b8c-438e-867c-0a1f9dad4532",
+      "model_id": "self-dploy/MiMo-V2.6-Flash",
+      "prompt_version": "scope-extract-1",
+      "timestamp": "2026-10-16T18:15:43.112792+00:00",
+      "http_status": 200,
+      "request_id": "f85e973a0bd142d5bab45e7d742eed42",
+      "elapsed_ms": 38883,
+      "status": "failed",
+      "error": "Lot identifier absent from cited quote"
+    },
+    {
+      "case": "uncertain-involvement-before-patch",
+      "id": "9548fafb-1db4-4c9c-9ef0-31563c1508cb",
+      "model_id": "self-dploy/MiMo-V2.6-Flash",
+      "prompt_version": "scope-extract-1",
+      "timestamp": "2026-10-16T18:16:37.962594+00:00",
+      "http_status": 200,
+      "request_id": "3709be99b83c43c0ae4b246e120d5f90",
+      "elapsed_ms": 20245,
+      "status": "succeeded",
+      "error": null
+    },
+    {
+      "case": "confirmed-plus-pending-before-patch",
+      "id": "8a1ddd4f-676e-4b02-88e1-2c0906fe831d",
+      "model_id": "self-dploy/MiMo-V2.6-Flash",
+      "prompt_version": "scope-extract-1",
+      "timestamp": "2026-10-16T18:16:58.753613+00:00",
+      "http_status": 200,
+      "request_id": "bf3b02accc124903b428cc2709fed401",
+      "elapsed_ms": 22066,
+      "status": "succeeded",
+      "error": null
+    },
+    {
+      "case": "clear-v2-1",
+      "id": "13746c45-8015-403e-96e0-277c5fb2a46a",
+      "model_id": "self-dploy/MiMo-V2.6-Flash",
+      "prompt_version": "scope-extract-2",
+      "timestamp": "2026-10-16T18:24:47.953820+00:00",
+      "http_status": 200,
+      "request_id": "b227b583ac0048c4899db959bf313d14",
+      "elapsed_ms": 25236,
+      "status": "succeeded",
+      "error": null
+    },
+    {
+      "case": "clear-v2-2",
+      "id": "e11c1c3c-2fd0-402e-b594-14c922dcdbf2",
+      "model_id": "self-dploy/MiMo-V2.6-Flash",
+      "prompt_version": "scope-extract-2",
+      "timestamp": "2026-10-16T18:25:39.228675+00:00",
+      "http_status": 200,
+      "request_id": "3e3ee6c2f7b04b2ca94d7819bb237980",
+      "elapsed_ms": 31182,
+      "status": "succeeded",
+      "error": null
+    },
+    {
+      "case": "ambiguity-after-patch",
+      "id": "bb12fad0-3a58-40ee-95d5-9518d4d5c475",
+      "model_id": "self-dploy/MiMo-V2.6-Flash",
+      "prompt_version": "scope-extract-2",
+      "timestamp": "2026-10-16T18:26:48.133922+00:00",
+      "http_status": 200,
+      "request_id": "504aab3bf3b741aab99286ffda15cae2",
+      "elapsed_ms": 30775,
+      "status": "succeeded",
+      "error": null
+    }
+  ],
+  "limitations": [
+    "Small synthetic evaluation, not an accuracy or performance benchmark.",
+    "Boolean proposals still confuse pending involvement; explicit source review remains necessary.",
+    "Client clock is about 80 seconds behind provider HTTP time; timestamps retained with their sources.",
+    "Free SQLite is ephemeral; exported packets remain usable after server data loss."
+  ]
+}

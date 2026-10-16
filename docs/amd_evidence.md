@@ -1,3 +1,11 @@
+# Public cloud follow-up — 2026-10-16
+
+Actual free public app: https://batchfence.onrender.com. Current verified product code 57a82bc. [Cloud evidence](cloud/README.md) separates every raw response, failure, agent review and resulting receipt. Eight cloud AMD requests: six structurally accepted and two citation-rejected; this is not an accuracy rate. Prompt-v2 responses drove 500/800 receipts and stale rejection on the unchanged frozen inputs. Two different ambiguous notices ended in conservative 1,200-unit holds; the second required fixing a terminal-period source-match defect and a fresh rerun. Raw booleans remain unreliable for pending involvement. No independent human validation.
+
+52 regression tests, 30 frozen domain cases, Linux image/container restart checks, 12 public Synthetic browser checks and five public controls pass. Free Render storage is ephemeral; actual redeploy lost the test receipt while its export remained valid. Full metadata and limitations are in cloud/summary.json. Earlier local evidence below remains historical and is not relabeled as cloud verification.
+
+---
+
 # AMD evidence — 0.1.1, 2026-10-16
 
 Genuine AMD model responses drive the local product workflow. Raw ambiguity quality remains inadequate; the application now contains the reproduced failure. No production accuracy claim is made.

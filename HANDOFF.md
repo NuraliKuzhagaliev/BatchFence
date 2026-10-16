@@ -1,18 +1,49 @@
 # Free public deployment handoff — 2026-10-16
 
-Public app: https://batchfence.onrender.com. Source: https://github.com/NuraliKuzhagaliev/BatchFence. Render service srv-db968c7btjjs73fghkog is Free, one instance, no disk or paid add-ons. The user requires everything free; paid approval was revoked before creation. No payment method or account upgrade was added.
+**Ready for a free synthetic demonstration; not for durable production use.**
 
-Actual public checks: 12 browser Synthetic workflow checks (500/800, stale approval rejection, receipt, export/import, responsive layout and reconnect); five public controls (routing/assets, historical Replay, Live key rejection, isolation); exact configured-secret scan of public assets/responses with no findings. Actual redeployment lost the test receipt as documented; its export remains valid. The visible temporary-storage notice is required. Durable cloud receipts are NOT provided.
+Open https://batchfence.onrender.com. Source: https://github.com/NuraliKuzhagaliev/BatchFence. Verified product code: 57a82bc; evidence-only follow-up commits do not change that runtime. One Free Render Docker service (srv-db968c7btjjs73fghkog), same-origin React/FastAPI, ephemeral SQLite, no disk or paid add-ons. The user revoked costs before creation; no payment method, purchase, account upgrade or paid resource was added. Free limits/cold starts apply.
 
-Private AMD configuration was uploaded without displaying values after the extension permission was enabled. Real cloud MiMo-V2.6-Flash: first notice drove a reviewed 500-unit receipt; revised 800-unit request failed citation validation, as did one explicit unchanged retry. Both raw rejected outputs are retained; failed review returns 422 and stale apply 409. No 800-unit cloud Live success is claimed. No fallback. Five new cloud inference requests so far, all using existing authorized trial resources; provider cost metadata is not a purchase receipt.
+## What actually works
 
-Two different ambiguous notices: first raw true/false proposals required correction to unresolved; agent review produced a 1,200-unit hold, zero exclusions. Second extracted confirmed/pending/excluded candidates but review hit a real sentence-terminal-period identifier bug. Fixed locally without allowing dotted/suffixed identifier prefixes. Exact regression fails before the patch; 51 pytest and 30 frozen domain cases pass afterward. New patch deployment and exact-source live recheck are next. All reviews are agent-operated, not independent human validation.
+- Fresh public AMD MiMo-V2.6-Flash responses, prompt scope-extract-2, drove reviewed 500 then 800 units, two sandbox receipts and 409 STALE_APPROVAL. Exact same frozen notices previously failed under prompt v1; those failures remain preserved. No fixture fallback or model-output repair.
+- Two meaningfully different ambiguous notices were reviewed conservatively: 1,200 held, zero exclusions. Raw model booleans remain imperfect. Pending involvement and possible ancestry stay uncertain; unsupported narrowing returns 422. All review was Codex-operated, not independent human validation.
+- Public browser: 12 Synthetic checks, five access/routing/replay checks, actual live packet export/import and isolated-session 404. Screens inspected at desktop/mobile sizes. No configured secrets in sampled public assets/API responses.
+- Local 52 pytest and 30 frozen domain cases pass. Linux CI also passes all 52, build/audit and genuine Docker 500/800/receipt/isolation plus named-volume restart. Docker image rebuilt. Native Windows Docker socket issue remains a separate local limitation.
 
-Current deployed product commit: adec404. CI passes for that commit, including actual Linux Docker named-volume restart. /api/health is configured; auto-deploy now waits for passing CI. Historical Docker desktop failure does not block cloud/CI verification.
+## Findings and fixes
 
-Evidence: docs/cloud/, including live/, ambiguity/, storage-results.json and public-controls.json. Commands: DEPLOYMENT.md. Local project and all artifacts remain on D:. Original unsigned desktop 0.1.1 installer remains unchanged and local; it is not a cloud installer. Existing submission media show historical local workflows; current public screenshots are separately labeled.
+A source sentence ending in QL-6304-P. was incorrectly rejected by review. Exact live evidence reproduces the defect before the fix. Terminal periods are now accepted while dotted/suffixed identifier prefixes remain rejected. The exact notice was rerun live and completed conservative review/receipt.
 
-Release verdict: working free demonstrator, incomplete full live acceptance and unsuitable for durable production storage. Next: deploy the punctuation fix, recheck the affected source, record final results, retain all failures and update this handoff. Do not buy resources or weaken validation to force an 800-unit result.
+The provider request omitted the existing validator's per-citation lot-ID rule. Prompt version 2 now states that contract explicitly. Validation and approval guards are unchanged; regressions still reject both original bad responses. Eight cloud inference requests total: six structurally accepted, two rejected. This is not an accuracy rate. Qualifier interpretation still required agent correction. See docs/cloud/summary.json and README.md.
+
+## Storage and opening evidence
+
+Actual Render configuration redeployment lost a synthetic receipt: same session received 404 afterward. Exported packet still validates. Free server data may disappear on sleep/restart/redeploy; the UI warns to export. Do not describe this as durable persistence.
+
+Open packet in the web or local desktop:
+- docs/cloud/live-v2/packet-2.json: actual public live 500/800 history and two receipts.
+- docs/cloud/ambiguity-after-punctuation/confirmed-plus-pending-packet.json: conservative 1,200-unit live result.
+- docs/cloud/live/final-failed-v2-packet.json: retained earlier citation failures.
+
+Local project: D:\projects\BatchFence. Existing unsigned Windows installer remains local and unchanged; no desktop release URL was published. Public screenshots are under docs/cloud/; earlier submission videos remain labeled historical local captures. New cloud artifact manifests/checksums are under releases/.
+
+## Exact commands
+
+    .\.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-next
+    .\.venv\Scripts\python.exe -m scripts.evaluate
+    npm run build
+    .\.venv\Scripts\python.exe scripts/audit-publication.py
+    $env:BATCHFENCE_BASE_URL='https://batchfence.onrender.com'
+    node scripts/public-controls.cjs
+
+scripts/live-browser-check.cjs and scripts/cloud-ambiguity-check.py make real calls; do not rerun them merely to open evidence. The private demonstration key is LIVE_DEMO_TOKEN in ignored work/cloud-demo.env. Enter only that value in the app, never AMD_API_KEY or the whole file. No secrets need to be shared in chat.
+
+## Remaining human actions
+
+For a free demo: use Synthetic or recorded AMD without a key, or privately use LIVE_DEMO_TOKEN for Live. Export packets to retain receipts. No hosting payment or upgrade is required.
+
+Before real operational use: obtain independent domain/operator validation. Durable hosted storage is not met by this free architecture. Exact 0.1.1 native OS dialog acceptance and signing/distribution remain unverified here; original unsigned binary is not advertised as a cloud installer. Competition submission/installer publication was not performed. No account or platform control was bypassed.
 
 ---
 
