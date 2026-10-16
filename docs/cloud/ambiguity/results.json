@@ -1,0 +1,725 @@
+{
+  "at": "2026-10-16T18:15:17.578564+00:00",
+  "url": "https://batchfence.onrender.com",
+  "synthetic_inputs": true,
+  "live_calls": 2,
+  "fallback_used": false,
+  "independent_human_validation": false,
+  "cases": [
+    {
+      "name": "uncertain-involvement",
+      "case_id": "0fe9d128c06b473bb88f475894d8bbbc",
+      "source": {
+        "id": "DOC-823e15fde20a",
+        "filename": "supplier-message.txt",
+        "media_type": "text/plain",
+        "revision": 2,
+        "ingested_at": "2026-10-16T18:16:37.797484+00:00",
+        "original_hash": "eb8ab998350ac1f16317fe5917d2bcb375904524753f00a6b0a746934cb0749e",
+        "text_hash": "eb8ab998350ac1f16317fe5917d2bcb375904524753f00a6b0a746934cb0749e",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC VERIFICATION DATA. QL-6304-P may have a coating defect.",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "Our investigation has not determined whether UT-5529 is involved.",
+            "page": null
+          },
+          {
+            "id": "line-3",
+            "text": "This supplier incident list is incomplete; the scope remains unresolved.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      "raw_run": {
+        "id": "9548fafb-1db4-4c9c-9ef0-31563c1508cb",
+        "mode": "live",
+        "provider": "AMD configured endpoint",
+        "prompt_version": "scope-extract-1",
+        "schema_version": 1,
+        "timestamp": "2026-10-16T18:16:37.962594+00:00",
+        "status": "succeeded",
+        "repairs": 0,
+        "http_status": 200,
+        "request_id": "3709be99b83c43c0ae4b246e120d5f90",
+        "usage": {
+          "prompt_tokens": 580,
+          "total_tokens": 1041,
+          "completion_tokens": 461,
+          "prompt_tokens_details": {
+            "cached_tokens": 448,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0,
+            "image_tokens": 0
+          },
+          "reasoning_tokens": 0,
+          "cost": 0.0001488144,
+          "cost_details": {
+            "upstream_inference_cost": 0.00014881440000000002,
+            "upstream_inference_prompt_cost": 1.97344e-05,
+            "upstream_inference_completions_cost": 0.00012908,
+            "total_cost": 0.0001488144,
+            "input_cost": 1.848e-05,
+            "output_cost": 0.00012908,
+            "cached_input_cost": 1.2544e-06,
+            "cache_write_input_cost": 0,
+            "request_cost": 0,
+            "web_search_cost": 0,
+            "image_input_cost": null,
+            "image_output_cost": null,
+            "audio_input_cost": null
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "model_id": "self-dploy/MiMo-V2.6-Flash",
+        "output": {
+          "facts": [
+            {
+              "lot_id": "QL-6304-P",
+              "affected": true,
+              "evidence": [
+                {
+                  "document_id": "DOC-823e15fde20a",
+                  "block_id": "line-1",
+                  "quote": "SYNTHETIC VERIFICATION DATA. QL-6304-P may have a coating defect."
+                }
+              ]
+            },
+            {
+              "lot_id": "UT-5529",
+              "affected": false,
+              "evidence": [
+                {
+                  "document_id": "DOC-823e15fde20a",
+                  "block_id": "line-2",
+                  "quote": "Our investigation has not determined whether UT-5529 is involved."
+                }
+              ]
+            }
+          ],
+          "qualifiers": [
+            "QL-6304-P is only potentially affected: the document states it \"may have a coating defect\" \u2014 the defect is not confirmed.",
+            "UT-5529 is merely mentioned; its involvement is undetermined, so it is not established as affected.",
+            "The supplier incident list is explicitly incomplete and the scope remains unresolved, so no lot set can be treated as exhaustive.",
+            "Data is labeled SYNTHETIC VERIFICATION DATA, so findings may not reflect real conditions.",
+            "No document instructions were executed; content is treated as untrusted source text."
+          ]
+        },
+        "elapsed_ms": 20245,
+        "revision": 2,
+        "document_id": "DOC-823e15fde20a",
+        "scope_concerns": [
+          {
+            "document_id": "DOC-823e15fde20a",
+            "block_id": "line-3",
+            "quote": "This supplier incident list is incomplete; the scope remains unresolved."
+          }
+        ]
+      },
+      "before_review": {
+        "scope": {
+          "lot_ids": [],
+          "revision": 0,
+          "qualifiers": []
+        },
+        "plan": null,
+        "receipts": []
+      },
+      "review_status": "agent_reviewed",
+      "raw_quality": {
+        "expected_confirmed": [],
+        "proposed_true": [
+          "QL-6304-P"
+        ],
+        "extra_confirmed": [
+          "QL-6304-P"
+        ],
+        "missing_confirmed": [],
+        "schema_limitation": "Boolean proposals cannot represent unresolved involvement; reviewed dispositions are separate.",
+        "unresolved_lots_marked_false": [
+          "UT-5529"
+        ]
+      },
+      "unsupported_narrowing": {
+        "status": 422,
+        "detail": {
+          "code": "UNRESOLVED_SCOPE",
+          "message": "Unresolved incident scope cannot authorize narrowed exclusions"
+        }
+      },
+      "review": {
+        "run_id": "9548fafb-1db4-4c9c-9ef0-31563c1508cb",
+        "source_hash": "eb8ab998350ac1f16317fe5917d2bcb375904524753f00a6b0a746934cb0749e",
+        "affected": [],
+        "uncertain": [
+          "QL-6304-P",
+          "UT-5529"
+        ],
+        "excluded": [],
+        "note": "Agent-operated source review. QL-6304-P may have a defect, not confirmed; UT-5529 involvement is undetermined. Both are unresolved despite the raw true/false proposals. The source expressly says incomplete/unresolved. No narrowed exclusion is authorized; retain all current stock conservatively."
+      },
+      "result_after_review": {
+        "rows": [
+          {
+            "id": "FG-A",
+            "units": 240,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-1",
+            "snapshot_version": 1,
+            "classification": "uncertain",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "path": [
+              "QL-6304-P",
+              "FG-A"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-0c087625bb4b",
+                "block_id": "row-1",
+                "quote": "LIN-1,QL-6304-P,FG-A,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-B",
+            "units": 160,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-2",
+            "snapshot_version": 1,
+            "classification": "uncertain",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "path": [
+              "QL-6304-P",
+              "FG-B"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-0c087625bb4b",
+                "block_id": "row-2",
+                "quote": "LIN-2,QL-6304-P,FG-B,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-C",
+            "units": 100,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": false,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-3",
+            "snapshot_version": 1,
+            "classification": "uncertain",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "path": [
+              "QL-6304-P",
+              "FG-C"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-0c087625bb4b",
+                "block_id": "row-3",
+                "quote": "LIN-3,QL-6304-P,FG-C,possible,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-D",
+            "units": 300,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-4",
+            "snapshot_version": 1,
+            "classification": "uncertain",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "path": [
+              "UT-5529",
+              "FG-D"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-0c087625bb4b",
+                "block_id": "row-5",
+                "quote": "LIN-5,UT-5529,FG-D,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-E",
+            "units": 250,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-5",
+            "snapshot_version": 1,
+            "classification": "uncertain",
+            "reason": "Insufficient reviewed ancestry or bounded scope. Narrowed exclusion is unavailable.",
+            "path": [],
+            "evidence": []
+          },
+          {
+            "id": "FG-F",
+            "units": 150,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-6",
+            "snapshot_version": 1,
+            "classification": "uncertain",
+            "reason": "Insufficient reviewed ancestry or bounded scope. Narrowed exclusion is unavailable.",
+            "path": [],
+            "evidence": []
+          }
+        ],
+        "documented_units": 0,
+        "uncertain_units": 1200,
+        "hold_units": 1200,
+        "outside_units": 0,
+        "broad_units": 1200,
+        "hold_cents": 4800000,
+        "broad_cents": 4800000,
+        "excluded_cents": 0,
+        "reduction_percent": 0.0,
+        "actions": [
+          {
+            "type": "hold",
+            "pool_id": "FG-A"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-B"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-C"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-D"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-E"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-F"
+          }
+        ],
+        "requests": [
+          {
+            "id": "REQ-FG-D",
+            "pool_ids": [
+              "FG-D"
+            ],
+            "units": 300,
+            "value_cents": 1200000,
+            "missing": "Receiving identity / complete ancestry for FG-D",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "draft": "Please provide the original receiving lot record for FG-D (300 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
+          },
+          {
+            "id": "REQ-FG-E",
+            "pool_ids": [
+              "FG-E"
+            ],
+            "units": 250,
+            "value_cents": 1000000,
+            "missing": "Receiving identity / complete ancestry for FG-E",
+            "reason": "Insufficient reviewed ancestry or bounded scope. Narrowed exclusion is unavailable.",
+            "draft": "Please provide the original receiving lot record for FG-E (250 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
+          },
+          {
+            "id": "REQ-FG-A",
+            "pool_ids": [
+              "FG-A"
+            ],
+            "units": 240,
+            "value_cents": 960000,
+            "missing": "Receiving identity / complete ancestry for FG-A",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "draft": "Please provide the original receiving lot record for FG-A (240 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
+          },
+          {
+            "id": "REQ-FG-B",
+            "pool_ids": [
+              "FG-B"
+            ],
+            "units": 160,
+            "value_cents": 640000,
+            "missing": "Receiving identity / complete ancestry for FG-B",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "draft": "Please provide the original receiving lot record for FG-B (160 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
+          },
+          {
+            "id": "REQ-FG-F",
+            "pool_ids": [
+              "FG-F"
+            ],
+            "units": 150,
+            "value_cents": 600000,
+            "missing": "Receiving identity / complete ancestry for FG-F",
+            "reason": "Insufficient reviewed ancestry or bounded scope. Narrowed exclusion is unavailable.",
+            "draft": "Please provide the original receiving lot record for FG-F (150 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
+          },
+          {
+            "id": "REQ-FG-C",
+            "pool_ids": [
+              "FG-C"
+            ],
+            "units": 100,
+            "value_cents": 400000,
+            "missing": "Receiving identity / complete ancestry for FG-C",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "draft": "Please provide the original receiving lot record for FG-C (100 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
+          }
+        ],
+        "request_unique_units": 1200,
+        "request_unique_cents": 4800000,
+        "orders": [
+          {
+            "order_id": "O-101",
+            "due_date": "2026-10-19",
+            "pool_ids": [
+              "FG-A"
+            ],
+            "units": 240,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-1"
+            ]
+          },
+          {
+            "order_id": "O-102",
+            "due_date": "2026-10-20",
+            "pool_ids": [
+              "FG-B"
+            ],
+            "units": 160,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-2"
+            ]
+          },
+          {
+            "order_id": "O-103",
+            "due_date": "2026-10-21",
+            "pool_ids": [
+              "FG-C"
+            ],
+            "units": 100,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-3"
+            ]
+          },
+          {
+            "order_id": "O-104",
+            "due_date": "2026-10-22",
+            "pool_ids": [
+              "FG-D"
+            ],
+            "units": 300,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-4"
+            ]
+          },
+          {
+            "order_id": "O-105",
+            "due_date": "2026-10-23",
+            "pool_ids": [
+              "FG-E"
+            ],
+            "units": 250,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-5"
+            ]
+          },
+          {
+            "order_id": "O-106",
+            "due_date": "2026-10-24",
+            "pool_ids": [
+              "FG-F"
+            ],
+            "units": 150,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-6"
+            ]
+          }
+        ],
+        "shipment_reviews": [],
+        "narrowing_available": false
+      },
+      "receipt": {
+        "transaction_id": "TX-1b254520db494767bca5d5a4cd91b16d",
+        "at": "2026-10-16T18:17:54.745721+00:00",
+        "execution": "SANDBOX INVENTORY",
+        "plan_id": "PLAN-15004e76be19",
+        "digest": "15004e76be1920bd135ee8f8678c8ba7067b1fa89884d34adc8a912f225aa93b",
+        "idempotency_key": "cloud-ambiguity-uncertain-involvement",
+        "changes": [
+          {
+            "pool_id": "FG-A",
+            "units": 240,
+            "before": "available",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-B",
+            "units": 160,
+            "before": "available",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-C",
+            "units": 100,
+            "before": "available",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-D",
+            "units": 300,
+            "before": "available",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-E",
+            "units": 250,
+            "before": "available",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-F",
+            "units": 150,
+            "before": "available",
+            "after": "held"
+          }
+        ],
+        "prior_inventory_version": 1,
+        "current_inventory_version": 2,
+        "evidence_revision": 2
+      }
+    },
+    {
+      "name": "confirmed-plus-pending",
+      "case_id": "76b95495c17640559e2b10f3ebbe6446",
+      "source": {
+        "id": "DOC-3eecd19f654c",
+        "filename": "supplier-message.txt",
+        "media_type": "text/plain",
+        "revision": 2,
+        "ingested_at": "2026-10-16T18:16:58.561168+00:00",
+        "original_hash": "778b1ff5326fd23a97f2febe0ae3d86ad69e3a47faa304e66456b748850c929b",
+        "text_hash": "778b1ff5326fd23a97f2febe0ae3d86ad69e3a47faa304e66456b748850c929b",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC VERIFICATION DATA. Coating failure is confirmed in QL-6304-P.",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "UT-5529 is awaiting test results and has not been cleared.",
+            "page": null
+          },
+          {
+            "id": "line-3",
+            "text": "The incident batch list is not final. CZ-8031 is expressly excluded from this incident.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      "raw_run": {
+        "id": "8a1ddd4f-676e-4b02-88e1-2c0906fe831d",
+        "mode": "live",
+        "provider": "AMD configured endpoint",
+        "prompt_version": "scope-extract-1",
+        "schema_version": 1,
+        "timestamp": "2026-10-16T18:16:58.753613+00:00",
+        "status": "succeeded",
+        "repairs": 0,
+        "http_status": 200,
+        "request_id": "bf3b02accc124903b428cc2709fed401",
+        "usage": {
+          "prompt_tokens": 590,
+          "total_tokens": 1054,
+          "completion_tokens": 464,
+          "prompt_tokens_details": {
+            "cached_tokens": 448,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0,
+            "image_tokens": 0
+          },
+          "reasoning_tokens": 0,
+          "cost": 0.0001510544,
+          "cost_details": {
+            "upstream_inference_cost": 0.0001510544,
+            "upstream_inference_prompt_cost": 2.11344e-05,
+            "upstream_inference_completions_cost": 0.00012992,
+            "total_cost": 0.0001510544,
+            "input_cost": 1.988e-05,
+            "output_cost": 0.00012992,
+            "cached_input_cost": 1.2544e-06,
+            "cache_write_input_cost": 0,
+            "request_cost": 0,
+            "web_search_cost": 0,
+            "image_input_cost": null,
+            "image_output_cost": null,
+            "audio_input_cost": null
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "model_id": "self-dploy/MiMo-V2.6-Flash",
+        "output": {
+          "facts": [
+            {
+              "lot_id": "QL-6304-P",
+              "affected": true,
+              "evidence": [
+                {
+                  "document_id": "DOC-3eecd19f654c",
+                  "block_id": "line-1",
+                  "quote": "SYNTHETIC VERIFICATION DATA. Coating failure is confirmed in QL-6304-P."
+                }
+              ]
+            },
+            {
+              "lot_id": "UT-5529",
+              "affected": false,
+              "evidence": [
+                {
+                  "document_id": "DOC-3eecd19f654c",
+                  "block_id": "line-2",
+                  "quote": "UT-5529 is awaiting test results and has not been cleared."
+                }
+              ]
+            },
+            {
+              "lot_id": "CZ-8031",
+              "affected": false,
+              "evidence": [
+                {
+                  "document_id": "DOC-3eecd19f654c",
+                  "block_id": "line-3",
+                  "quote": "The incident batch list is not final. CZ-8031 is expressly excluded from this incident."
+                }
+              ]
+            }
+          ],
+          "qualifiers": [
+            "Only QL-6304-P is explicitly confirmed as affected; coating failure is stated as confirmed for that lot only.",
+            "UT-5529 is merely mentioned with pending status: it awaits test results and has not been cleared, so its affected status is ambiguous and cannot be determined from the document.",
+            "CZ-8031 is merely mentioned and expressly excluded from the incident, so it is not affected.",
+            "The incident batch list is stated as not final, so the set of affected lots may be incomplete or subject to change.",
+            "The document text is labeled SYNTHETIC VERIFICATION DATA, and any instructions appearing inside documents are treated as untrusted content rather than directives."
+          ]
+        },
+        "elapsed_ms": 22066,
+        "revision": 2,
+        "document_id": "DOC-3eecd19f654c",
+        "scope_concerns": [
+          {
+            "document_id": "DOC-3eecd19f654c",
+            "block_id": "line-2",
+            "quote": "UT-5529 is awaiting test results and has not been cleared."
+          }
+        ]
+      },
+      "before_review": {
+        "scope": {
+          "lot_ids": [],
+          "revision": 0,
+          "qualifiers": []
+        },
+        "plan": null,
+        "receipts": []
+      },
+      "review_status": "blocked_source_identifier_punctuation",
+      "raw_quality": {
+        "expected_confirmed": [
+          "QL-6304-P"
+        ],
+        "proposed_true": [
+          "QL-6304-P"
+        ],
+        "extra_confirmed": [],
+        "missing_confirmed": [],
+        "schema_limitation": "Boolean proposals cannot represent unresolved involvement; reviewed dispositions are separate.",
+        "unresolved_lots_marked_false": [
+          "UT-5529"
+        ]
+      },
+      "review_attempt": {
+        "status": 422,
+        "code": "UNSUPPORTED_LOT",
+        "cause": "Terminal sentence period was treated as part of a longer lot identifier. Exact regression reproduced before patch."
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "name": "uncertain-involvement",
+      "text": "SYNTHETIC VERIFICATION DATA. QL-6304-P may have a coating defect.\nOur investigation has not determined whether UT-5529 is involved.\nThis supplier incident list is incomplete; the scope remains unresolved.",
+      "affected": [],
+      "uncertain": [
+        "QL-6304-P",
+        "UT-5529"
+      ],
+      "excluded": [],
+      "documented_units": 0,
+      "uncertain_units": 1200,
+      "sha256": "eb8ab998350ac1f16317fe5917d2bcb375904524753f00a6b0a746934cb0749e"
+    },
+    {
+      "name": "confirmed-plus-pending",
+      "text": "SYNTHETIC VERIFICATION DATA. Coating failure is confirmed in QL-6304-P.\nUT-5529 is awaiting test results and has not been cleared.\nThe incident batch list is not final. CZ-8031 is expressly excluded from this incident.",
+      "affected": [
+        "QL-6304-P"
+      ],
+      "uncertain": [
+        "UT-5529"
+      ],
+      "excluded": [
+        "CZ-8031"
+      ],
+      "documented_units": 400,
+      "uncertain_units": 800,
+      "sha256": "778b1ff5326fd23a97f2febe0ae3d86ad69e3a47faa304e66456b748850c929b"
+    }
+  ]
+}

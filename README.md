@@ -2,13 +2,13 @@
 
 Evidence-backed lot containment for a small manufacturer's quality manager. A supplier notice becomes a reviewed scope, a deterministic hold plan and a real **sandbox** receipt. Changed evidence invalidates approval.
 
-**Working web and installed Windows 0.1.1 prototype, with genuine local AMD-driven synthetic workflows and ambiguity containment. Free-only public hosting is being deployed and cloud verification remains pending.** Raw model errors and agent-operated review are disclosed; no independent human validation or savings are claimed.
+**Working web and installed Windows 0.1.1 prototype, with genuine local AMD-driven synthetic workflows and ambiguity containment. Free public demo is deployed. A live AMD response drove a reviewed 500-unit receipt; the revised 800-unit live request was rejected for invalid citations.** Raw model errors and agent-operated review are disclosed; no independent human validation or savings are claimed.
 
 ![Actual synthetic workbench](docs/screenshots/03-exposure-1440.png)
 
 Repository: [NuraliKuzhagaliev/BatchFence](https://github.com/NuraliKuzhagaliev/BatchFence).
 
-Public app URL: **not deployed yet**. See [deployment status, cost and verification gates](DEPLOYMENT.md). The free Render service serves FastAPI + React from one HTTPS origin. Its SQLite storage is temporary: export packets before sleep, restart or redeployment. Durable cloud persistence is not provided. Public Synthetic and historical AMD Replay are separated from protected Live inference.
+Public app: **https://batchfence.onrender.com**. See [deployment status, cost and verification gates](DEPLOYMENT.md). The free Render service serves FastAPI + React from one HTTPS origin. Its SQLite storage is temporary: export packets before sleep, restart or redeployment. Durable cloud persistence is not provided. Public Synthetic and historical AMD Replay are separated from protected Live inference.
 
 ## Open
 
@@ -21,7 +21,7 @@ Open **http://127.0.0.1:8787**. Health: /api/health. API schema: /openapi.json.
 
 Windows installer: releases/BatchFence-0.1.1-win-x64-setup.exe. Version 0.1.1, Windows 11 x64, **unsigned**. See [desktop release](docs/desktop_release.md) and releases/SHA256SUMS-0.1.1.txt. Installed verification executable: work/installed-0.1.1/BatchFence.exe.
 
-The desktop uses the local backend at 127.0.0.1:8787. Its installed renderer opens saved packets offline without external Node/Python. New analysis/actions need the backend. Public web/download URLs await authorized hosting. This local installer is not advertised as a cloud release for another person's machine.
+The desktop uses the local backend at 127.0.0.1:8787. Its installed renderer opens saved packets offline without external Node/Python. New analysis/actions need the backend. The public web demo is available; no installer download has been published. This local installer is not advertised as a cloud release for another person's machine.
 
 ## Walkthrough
 

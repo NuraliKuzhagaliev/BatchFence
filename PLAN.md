@@ -25,3 +25,10 @@ Remaining external gates: supported Docker/Windows repair then container test; i
 - Added GitHub CI including Linux container build and actual volume/restart verification.
 - Published and independently verified via GitHub API: 43abcf8 on main. Linux CI passed, including real Docker restart with a named volume.
 - Workspace explicitly selected. Paid approval revoked before any resource creation. Proceed only with free hosting; no payment method or upgrades. Actual public workflows remain pending; durable cloud persistence is unavailable on the selected free architecture. See DEPLOYMENT.md.
+
+## Free public verification milestone
+
+- Free service deployed at https://batchfence.onrender.com; health and CI-gated auto-deploy configured. No paid resources.
+- Real public Synthetic and public-control browser checks pass; exported storage test confirms state loss on actual redeploy.
+- Five fresh cloud AMD calls: 500-unit reviewed receipt, two contained revised-notice citation failures, two ambiguous responses with one conservative receipt and one source-punctuation review defect.
+- Terminal-period source match fixed; exact regression reproduced before fix, 51 pytest and 30 frozen domain checks pass. Next: publish/deploy patch and repeat only the affected ambiguous notice, retaining original results.

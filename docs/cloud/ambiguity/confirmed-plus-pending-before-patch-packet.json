@@ -1,0 +1,649 @@
+{
+  "schema_version": 1,
+  "exported_at": "2026-10-16T18:21:19.426246+00:00",
+  "label": "Historical read-only packet. Hash is change detection, not supplier authentication.",
+  "case": {
+    "id": "76b95495c17640559e2b10f3ebbe6446",
+    "name": "Northstar \u00b7 fresh live verification",
+    "incident": "Cosmetic coating defect \u00b7 decorative housings",
+    "synthetic": true,
+    "revision": 2,
+    "inventory_version": 1,
+    "documents": [
+      {
+        "id": "DOC-e5042d4e5f2c",
+        "filename": "ambiguous_receipt.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-16T18:05:40.687488+00:00",
+        "original_hash": "cf7351bbe29e392b464be5c25125d956792aa0f3d643a4ac77b8be361c41894c",
+        "text_hash": "cf7351bbe29e392b464be5c25125d956792aa0f3d643a4ac77b8be361c41894c",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC receiving exception RX-103 | Revision 1",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "The 100-unit consignment in FG-C has an unreadable original supplier label. Its origin is QL-6304-P or TN-2476. No exact original-lot identity is available. Keep both possible paths.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-b1149dee91b0",
+        "filename": "completeness_manifest.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-16T18:05:40.687654+00:00",
+        "original_hash": "90e479db7ca8b4150669e066ecd3f574db0a4c2033e6faec68057b8f224f5bbf",
+        "text_hash": "90e479db7ca8b4150669e066ecd3f574db0a4c2033e6faec68057b8f224f5bbf",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC bounded scope manifest | Dataset 1 | Reviewed fixture assumptions",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "Universe: NORTH-01 decorative housings, six distinct current finished-stock pools. FG-A/B/D/E/F have reviewed complete ancestry. FG-C has unresolved receiving identity. No additional current finished inventory exists in this synthetic snapshot. All units are on site.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-120261f4a679",
+        "filename": "containment_policy.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-16T18:05:40.687764+00:00",
+        "original_hash": "111e8cb436255ca15cba1d977b5048994d08f9f77545a6451e6479faec10b54f",
+        "text_hash": "111e8cb436255ca15cba1d977b5048994d08f9f77545a6451e6479faec10b54f",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC policy CONTAIN-1 | Revision 1",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "Hold all on-site documented and possible descendants. Unknown ancestry remains uncertain. Shipped stock creates shipment review. Never automatically release existing holds. Approval binds exact evidence, inventory, policy and actions.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-d2ff7f9f96b9",
+        "filename": "inventory.csv",
+        "media_type": "text/csv",
+        "revision": 1,
+        "ingested_at": "2026-10-16T18:05:40.687890+00:00",
+        "original_hash": "387d0938e077d4cb613a64aa5bff1b300a4f40eec7e36ce642cae0d327cdfa00",
+        "text_hash": "387d0938e077d4cb613a64aa5bff1b300a4f40eec7e36ce642cae0d327cdfa00",
+        "blocks": [
+          {
+            "id": "row-0",
+            "text": "row_id,pool_id,units,unit_cents,status,ancestry_complete,site,product_family,timestamp,dataset_version",
+            "page": null
+          },
+          {
+            "id": "row-1",
+            "text": "INV-1,FG-A,240,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          },
+          {
+            "id": "row-2",
+            "text": "INV-2,FG-B,160,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          },
+          {
+            "id": "row-3",
+            "text": "INV-3,FG-C,100,4000,available,false,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          },
+          {
+            "id": "row-4",
+            "text": "INV-4,FG-D,300,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          },
+          {
+            "id": "row-5",
+            "text": "INV-5,FG-E,250,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          },
+          {
+            "id": "row-6",
+            "text": "INV-6,FG-F,150,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-0c087625bb4b",
+        "filename": "lineage.csv",
+        "media_type": "text/csv",
+        "revision": 1,
+        "ingested_at": "2026-10-16T18:05:40.688001+00:00",
+        "original_hash": "1fd06dec82f54f47ed2f2952995bea9cce499889781646e15f36a7cf11fdc418",
+        "text_hash": "1fd06dec82f54f47ed2f2952995bea9cce499889781646e15f36a7cf11fdc418",
+        "blocks": [
+          {
+            "id": "row-0",
+            "text": "row_id,source,target,kind,revision,timestamp",
+            "page": null
+          },
+          {
+            "id": "row-1",
+            "text": "LIN-1,QL-6304-P,FG-A,confirmed,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-2",
+            "text": "LIN-2,QL-6304-P,FG-B,confirmed,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-3",
+            "text": "LIN-3,QL-6304-P,FG-C,possible,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-4",
+            "text": "LIN-4,TN-2476,FG-C,possible,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-5",
+            "text": "LIN-5,UT-5529,FG-D,confirmed,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-6",
+            "text": "LIN-6,HA-1092,FG-E,confirmed,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-7",
+            "text": "LIN-7,CZ-8031,FG-F,confirmed,1,2026-10-15T12:00:00Z",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-a8efe57a67fb",
+        "filename": "order_allocations.csv",
+        "media_type": "text/csv",
+        "revision": 1,
+        "ingested_at": "2026-10-16T18:05:40.688140+00:00",
+        "original_hash": "9f26dfea42ceef6cfd9501566e23ba64ca8176b77f8fd12a9bf702178bc900d3",
+        "text_hash": "9f26dfea42ceef6cfd9501566e23ba64ca8176b77f8fd12a9bf702178bc900d3",
+        "blocks": [
+          {
+            "id": "row-0",
+            "text": "row_id,order_id,pool_id,units,due_date,revision,status",
+            "page": null
+          },
+          {
+            "id": "row-1",
+            "text": "ALLOC-1,O-101,FG-A,240,2026-10-19,1,open",
+            "page": null
+          },
+          {
+            "id": "row-2",
+            "text": "ALLOC-2,O-102,FG-B,160,2026-10-20,1,open",
+            "page": null
+          },
+          {
+            "id": "row-3",
+            "text": "ALLOC-3,O-103,FG-C,100,2026-10-21,1,open",
+            "page": null
+          },
+          {
+            "id": "row-4",
+            "text": "ALLOC-4,O-104,FG-D,300,2026-10-22,1,open",
+            "page": null
+          },
+          {
+            "id": "row-5",
+            "text": "ALLOC-5,O-105,FG-E,250,2026-10-23,1,open",
+            "page": null
+          },
+          {
+            "id": "row-6",
+            "text": "ALLOC-6,O-106,FG-F,150,2026-10-24,1,open",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-8415b2fb79ec",
+        "filename": "production_travelers.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-16T18:05:40.688248+00:00",
+        "original_hash": "f7d85f1a0195d6e8b2ed7d8cf8b253e8b49135914a01eaef21e3b0a3dcd39d2f",
+        "text_hash": "f7d85f1a0195d6e8b2ed7d8cf8b253e8b49135914a01eaef21e3b0a3dcd39d2f",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC traveler manifest | Revision 1",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "TR-A\u2192FG-A; TR-B\u2192FG-B; TR-C\u2192FG-C; TR-D\u2192FG-D; TR-E\u2192FG-E; TR-F\u2192FG-F. The accompanying lineage.csv provides confirmed and possible relations. This manifest does not add inventory.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-8e757875b15d",
+        "filename": "receiving_register.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-16T18:05:40.688345+00:00",
+        "original_hash": "3c14f1ecbdaf7e75f18897d11eee0d242d1c090fb1bb26b6fc85349272b2b9de",
+        "text_hash": "3c14f1ecbdaf7e75f18897d11eee0d242d1c090fb1bb26b6fc85349272b2b9de",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC receiving register | Dataset 1",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "RX-101/102: QL-6304-P for FG-A/B. RX-103: unresolved FG-C identity. RX-104: UT-5529 for FG-D. RX-105: HA-1092 for FG-E. RX-106: CZ-8031 for FG-F. Quantities exist only at terminal stock; this is not an extra ledger.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-3eecd19f654c",
+        "filename": "supplier-message.txt",
+        "media_type": "text/plain",
+        "revision": 2,
+        "ingested_at": "2026-10-16T18:16:58.561168+00:00",
+        "original_hash": "778b1ff5326fd23a97f2febe0ae3d86ad69e3a47faa304e66456b748850c929b",
+        "text_hash": "778b1ff5326fd23a97f2febe0ae3d86ad69e3a47faa304e66456b748850c929b",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC VERIFICATION DATA. Coating failure is confirmed in QL-6304-P.",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "UT-5529 is awaiting test results and has not been cleared.",
+            "page": null
+          },
+          {
+            "id": "line-3",
+            "text": "The incident batch list is not final. CZ-8031 is expressly excluded from this incident.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      }
+    ],
+    "stocks": [
+      {
+        "id": "FG-A",
+        "units": 240,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-1",
+        "snapshot_version": 1
+      },
+      {
+        "id": "FG-B",
+        "units": 160,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-2",
+        "snapshot_version": 1
+      },
+      {
+        "id": "FG-C",
+        "units": 100,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": false,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-3",
+        "snapshot_version": 1
+      },
+      {
+        "id": "FG-D",
+        "units": 300,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-4",
+        "snapshot_version": 1
+      },
+      {
+        "id": "FG-E",
+        "units": 250,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-5",
+        "snapshot_version": 1
+      },
+      {
+        "id": "FG-F",
+        "units": 150,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-6",
+        "snapshot_version": 1
+      }
+    ],
+    "edges": [
+      {
+        "row_id": "LIN-1",
+        "source": "QL-6304-P",
+        "target": "FG-A",
+        "kind": "confirmed",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-0c087625bb4b",
+          "block_id": "row-1",
+          "quote": "LIN-1,QL-6304-P,FG-A,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-2",
+        "source": "QL-6304-P",
+        "target": "FG-B",
+        "kind": "confirmed",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-0c087625bb4b",
+          "block_id": "row-2",
+          "quote": "LIN-2,QL-6304-P,FG-B,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-3",
+        "source": "QL-6304-P",
+        "target": "FG-C",
+        "kind": "possible",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-0c087625bb4b",
+          "block_id": "row-3",
+          "quote": "LIN-3,QL-6304-P,FG-C,possible,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-4",
+        "source": "TN-2476",
+        "target": "FG-C",
+        "kind": "possible",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-0c087625bb4b",
+          "block_id": "row-4",
+          "quote": "LIN-4,TN-2476,FG-C,possible,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-5",
+        "source": "UT-5529",
+        "target": "FG-D",
+        "kind": "confirmed",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-0c087625bb4b",
+          "block_id": "row-5",
+          "quote": "LIN-5,UT-5529,FG-D,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-6",
+        "source": "HA-1092",
+        "target": "FG-E",
+        "kind": "confirmed",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-0c087625bb4b",
+          "block_id": "row-6",
+          "quote": "LIN-6,HA-1092,FG-E,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-7",
+        "source": "CZ-8031",
+        "target": "FG-F",
+        "kind": "confirmed",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-0c087625bb4b",
+          "block_id": "row-7",
+          "quote": "LIN-7,CZ-8031,FG-F,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      }
+    ],
+    "allocations": [
+      {
+        "row_id": "ALLOC-1",
+        "order_id": "O-101",
+        "pool_id": "FG-A",
+        "units": 240,
+        "due_date": "2026-10-19",
+        "revision": "1",
+        "status": "open"
+      },
+      {
+        "row_id": "ALLOC-2",
+        "order_id": "O-102",
+        "pool_id": "FG-B",
+        "units": 160,
+        "due_date": "2026-10-20",
+        "revision": "1",
+        "status": "open"
+      },
+      {
+        "row_id": "ALLOC-3",
+        "order_id": "O-103",
+        "pool_id": "FG-C",
+        "units": 100,
+        "due_date": "2026-10-21",
+        "revision": "1",
+        "status": "open"
+      },
+      {
+        "row_id": "ALLOC-4",
+        "order_id": "O-104",
+        "pool_id": "FG-D",
+        "units": 300,
+        "due_date": "2026-10-22",
+        "revision": "1",
+        "status": "open"
+      },
+      {
+        "row_id": "ALLOC-5",
+        "order_id": "O-105",
+        "pool_id": "FG-E",
+        "units": 250,
+        "due_date": "2026-10-23",
+        "revision": "1",
+        "status": "open"
+      },
+      {
+        "row_id": "ALLOC-6",
+        "order_id": "O-106",
+        "pool_id": "FG-F",
+        "units": 150,
+        "due_date": "2026-10-24",
+        "revision": "1",
+        "status": "open"
+      }
+    ],
+    "bounded": true,
+    "policy": {
+      "id": "CONTAIN-1",
+      "revision": 1,
+      "rule": "Hold every documented or possible on-site descendant. Never automatically release existing holds."
+    },
+    "scope": {
+      "lot_ids": [],
+      "revision": 0,
+      "qualifiers": []
+    },
+    "runs": [
+      {
+        "id": "8a1ddd4f-676e-4b02-88e1-2c0906fe831d",
+        "mode": "live",
+        "provider": "AMD configured endpoint",
+        "prompt_version": "scope-extract-1",
+        "schema_version": 1,
+        "timestamp": "2026-10-16T18:16:58.753613+00:00",
+        "status": "succeeded",
+        "repairs": 0,
+        "http_status": 200,
+        "request_id": "bf3b02accc124903b428cc2709fed401",
+        "usage": {
+          "prompt_tokens": 590,
+          "total_tokens": 1054,
+          "completion_tokens": 464,
+          "prompt_tokens_details": {
+            "cached_tokens": 448,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0,
+            "image_tokens": 0
+          },
+          "reasoning_tokens": 0,
+          "cost": 0.0001510544,
+          "cost_details": {
+            "upstream_inference_cost": 0.0001510544,
+            "upstream_inference_prompt_cost": 2.11344e-05,
+            "upstream_inference_completions_cost": 0.00012992,
+            "total_cost": 0.0001510544,
+            "input_cost": 1.988e-05,
+            "output_cost": 0.00012992,
+            "cached_input_cost": 1.2544e-06,
+            "cache_write_input_cost": 0,
+            "request_cost": 0,
+            "web_search_cost": 0,
+            "image_input_cost": null,
+            "image_output_cost": null,
+            "audio_input_cost": null
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "model_id": "self-dploy/MiMo-V2.6-Flash",
+        "output": {
+          "facts": [
+            {
+              "lot_id": "QL-6304-P",
+              "affected": true,
+              "evidence": [
+                {
+                  "document_id": "DOC-3eecd19f654c",
+                  "block_id": "line-1",
+                  "quote": "SYNTHETIC VERIFICATION DATA. Coating failure is confirmed in QL-6304-P."
+                }
+              ]
+            },
+            {
+              "lot_id": "UT-5529",
+              "affected": false,
+              "evidence": [
+                {
+                  "document_id": "DOC-3eecd19f654c",
+                  "block_id": "line-2",
+                  "quote": "UT-5529 is awaiting test results and has not been cleared."
+                }
+              ]
+            },
+            {
+              "lot_id": "CZ-8031",
+              "affected": false,
+              "evidence": [
+                {
+                  "document_id": "DOC-3eecd19f654c",
+                  "block_id": "line-3",
+                  "quote": "The incident batch list is not final. CZ-8031 is expressly excluded from this incident."
+                }
+              ]
+            }
+          ],
+          "qualifiers": [
+            "Only QL-6304-P is explicitly confirmed as affected; coating failure is stated as confirmed for that lot only.",
+            "UT-5529 is merely mentioned with pending status: it awaits test results and has not been cleared, so its affected status is ambiguous and cannot be determined from the document.",
+            "CZ-8031 is merely mentioned and expressly excluded from the incident, so it is not affected.",
+            "The incident batch list is stated as not final, so the set of affected lots may be incomplete or subject to change.",
+            "The document text is labeled SYNTHETIC VERIFICATION DATA, and any instructions appearing inside documents are treated as untrusted content rather than directives."
+          ]
+        },
+        "elapsed_ms": 22066,
+        "revision": 2,
+        "document_id": "DOC-3eecd19f654c",
+        "scope_concerns": [
+          {
+            "document_id": "DOC-3eecd19f654c",
+            "block_id": "line-2",
+            "quote": "UT-5529 is awaiting test results and has not been cleared."
+          }
+        ]
+      }
+    ],
+    "reviews": [],
+    "plans": [],
+    "plan": null,
+    "history": [
+      {
+        "at": "2026-10-16T18:16:58.395816+00:00",
+        "type": "imported",
+        "message": "New draft from historical packet; approvals are not transferable."
+      },
+      {
+        "at": "2026-10-16T18:16:58.562691+00:00",
+        "type": "evidence_changed",
+        "message": "New source: supplier-message.txt. Re-extract and review current evidence.",
+        "revision": 2
+      }
+    ],
+    "receipts": [],
+    "pending_data": null,
+    "pending_revision": true
+  },
+  "integrity_hash": "8c48ff0088b86bd067afd5ef8038c7226c8b34b2cdeb573d3e7cd71a7dd9eaec"
+}

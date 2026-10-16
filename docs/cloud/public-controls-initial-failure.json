@@ -1,0 +1,8 @@
+{
+  "status": "failed",
+  "scope": "test harness",
+  "error": "locator.waitFor timeout at historical snapshot label",
+  "cause": "Windows default text decoding corrupted the middle-dot in two test selectors during editing",
+  "fix": "Read and write UTF-8 explicitly; restore exact displayed selectors",
+  "live_calls": 0
+}

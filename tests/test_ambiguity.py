@@ -140,3 +140,39 @@ def test_incomplete_disposition_and_fabricated_resolution_quote_rejected(client)
     assert client.post(route, json=request).json()['detail']['code'] == 'SCOPE_BASIS_REQUIRED'
     request.update(uncertain_lot_ids=['SUP-A'])
     assert client.post(route, json=request).json()['detail']['code'] == 'CONFLICTING_REVIEW'
+
+
+def test_public_notice_with_sentence_ending_lot_reaches_conservative_receipt(client, monkeypatch):
+    # Exact live MiMo response and source observed on the public free service.
+    item = json.loads((ROOT / 'docs/cloud/ambiguity/results.json').read_text(encoding='utf-8'))['cases'][1]
+    raw, d = copy.deepcopy(item['raw_run']), copy.deepcopy(item['source'])
+    s = post(client, '/api/cases/demo')
+    owner = hashlib.sha256(client.cookies.get('bf_session').encode()).hexdigest()
+    with module.transaction(s['id'], owner) as (_, current):
+        current['documents'].append(d)
+        for edge in current['edges']:
+            edge['source'] = {'SUP-A':'QL-6304-P', 'SUP-C':'UT-5529', 'SUP-E':'CZ-8031'}.get(edge['source'], edge['source'])
+    monkeypatch.setattr(module, 'extract', lambda docs, mode: copy.deepcopy(raw))
+    route = '/api/cases/' + s['id']
+    s = post(client, route + '/analyze', {'document_id':d['id'], 'mode':'fixture'})
+    body = {'run_id':raw['id'], 'revision':s['revision'], 'lot_ids':['QL-6304-P'],
+        'uncertain_lot_ids':['UT-5529'], 'excluded_lot_ids':['CZ-8031'], 'accept_scope':True,
+        'incident_scope_status':'unresolved', 'bounded_scope_reviewed':False,
+        'note':'Regression agent review: confirmed QL, pending UT, explicitly excluded CZ; incident scope is incomplete.'}
+    blocked = client.post(route+'/reviews', json={**body, 'bounded_scope_reviewed':True})
+    assert blocked.status_code == 422 and blocked.json()['detail']['code'] == 'UNRESOLVED_SCOPE'
+    s = post(client, route + '/reviews', body)
+    r = s['plan']['result']
+    assert (r['hold_units'],r['documented_units'],r['uncertain_units'],r['outside_units']) == (1200,400,800,0)
+    s = approve(client,s)
+    s = post(client, route+'/apply', payload(s,'sentence-period-regression'))
+    assert sum(x['units'] for x in s['receipts'][-1]['changes']) == 1200
+    assert s['runs'][-1]['output'] == raw['output']
+
+
+def test_sentence_punctuation_does_not_allow_identifier_prefix_matches():
+    from backend.review_safety import mentions
+    assert mentions('QL-6304-P','Failure confirmed in QL-6304-P.')
+    assert mentions('A.2','Affected lot A.2.')
+    for longer in ['QL-6304-P.2','QL-6304-PX','XQL-6304-P','QL-6304-P/2','QL-6304-P..2']:
+        assert not mentions('QL-6304-P',longer)

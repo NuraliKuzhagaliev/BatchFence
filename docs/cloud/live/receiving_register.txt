@@ -1,0 +1,2 @@
+SYNTHETIC receiving register | Dataset 1
+RX-101/102: QL-6304-P for FG-A/B. RX-103: unresolved FG-C identity. RX-104: UT-5529 for FG-D. RX-105: HA-1092 for FG-E. RX-106: CZ-8031 for FG-F. Quantities exist only at terminal stock; this is not an extra ledger.

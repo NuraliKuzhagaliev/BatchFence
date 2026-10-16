@@ -19,7 +19,9 @@ UNRESOLVED = re.compile(
 
 
 def mentions(lot, text):
-    return re.search(r'(?<![A-Za-z0-9._/-])' + re.escape(lot) + r'(?![A-Za-z0-9._/-])', text) is not None
+    # A terminal period is sentence punctuation; a dot followed by identifier
+    # characters still belongs to a longer lot ID and must not match a prefix.
+    return re.search(r'(?<![A-Za-z0-9._/-])' + re.escape(lot) + r'(?![A-Za-z0-9_/-]|\.[A-Za-z0-9._/-])', text) is not None
 
 
 def scope_concerns(source):

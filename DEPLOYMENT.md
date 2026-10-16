@@ -2,7 +2,7 @@
 
 Repository: https://github.com/NuraliKuzhagaliev/BatchFence
 
-Public application: **deployment pending**. Source 43abcf8 is published and Linux CI passed. No cloud AMD result is claimed yet.
+Public application: **https://batchfence.onrender.com**. Deployed source adec404; Linux CI passed. Free service ID: srv-db968c7btjjs73fghkog. Health path /api/health; actual auto-deploy trigger checksPass.
 
 ## Free-only constraint
 
@@ -69,3 +69,9 @@ Windows uses `.\.venv\Scripts\python.exe`. `scripts/container-check.py` uses a r
 ## Desktop and release limits
 
 The existing unsigned Windows 0.1.1 installer remains local under `releases/` and targets `127.0.0.1:8787`. Its hash remains verified and it has not been rebuilt or published as a cloud installer. No paid signing, domain or installer hosting is introduced. Native dialog/operator review limitations remain in the historical HANDOFF. This is a demonstrator, not a production release.
+
+## Public verification update
+
+The public HTTPS app passed 12 Synthetic browser checks and five public access controls. A fresh actual AMD response drove a 500-unit receipt after agent review. The revised 800-unit notice failed citation validation twice (one explicit retry), and review/execution remained blocked. Two different ambiguous live notices are preserved; one completed a conservative 1,200-unit hold. The other exposed a terminal-period source-match bug; patch and exact regression pass locally, with deployment/recheck pending. See docs/cloud/README.md for the final evidence index.
+
+An actual configuration redeploy removed the exported 500-unit synthetic storage-test case: same session received 404 afterward. The saved packet still validates. This demonstrates the free storage limitation; it does not satisfy durable persistence. Client timestamps are about 80 seconds behind provider HTTP time; raw timestamps are retained with their clock source.

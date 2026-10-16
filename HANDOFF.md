@@ -1,14 +1,18 @@
-# Publication follow-up — free-only — 2026-10-16
+# Free public deployment handoff — 2026-10-16
 
-Source is published at https://github.com/NuraliKuzhagaliev/BatchFence, commit 43abcf8. GitHub CI completed successfully: 48 pytest checks, 30 frozen domain cases, Linux Docker build, synthetic 500/800 workflow, stale approval rejection, isolation, receipt and actual container restart with a named volume. These are CI results, not live cloud verification.
+Public app: https://batchfence.onrender.com. Source: https://github.com/NuraliKuzhagaliev/BatchFence. Render service srv-db968c7btjjs73fghkog is Free, one instance, no disk or paid add-ons. The user requires everything free; paid approval was revoked before creation. No payment method or account upgrade was added.
 
-The user revoked cost approval before any Render resource was created. All further hosting must be free. The selected workspace is confirmed. Three existing unrelated free services are preserved. No paid disk, compute, upgrade, payment method or overage is authorized.
+Actual public checks: 12 browser Synthetic workflow checks (500/800, stale approval rejection, receipt, export/import, responsive layout and reconnect); five public controls (routing/assets, historical Replay, Live key rejection, isolation); exact configured-secret scan of public assets/responses with no findings. Actual redeployment lost the test receipt as documented; its export remains valid. The visible temporary-storage notice is required. Durable cloud receipts are NOT provided.
 
-The free-only Blueprint uses one free Docker service with temporary SQLite and an explicit in-app export/storage notice. Server state and its usage counters can be lost on sleep, restart or redeployment; durable cloud persistence remains unmet. Same-origin FastAPI/React, one worker, protected Live, Synthetic and historical AMD Replay are preserved. Existing unsigned local desktop binary is unchanged.
+Private AMD configuration was uploaded without displaying values after the extension permission was enabled. Real cloud MiMo-V2.6-Flash: first notice drove a reviewed 500-unit receipt; revised 800-unit request failed citation validation, as did one explicit unchanged retry. Both raw rejected outputs are retained; failed review returns 422 and stale apply 409. No 800-unit cloud Live success is claimed. No fallback. Five new cloud inference requests so far, all using existing authorized trial resources; provider cost metadata is not a purchase receipt.
 
-Actual local checks before the free-storage notice: build, 48 pytest, 30 frozen domain cases, 12 browser workflow checks and five public controls. No fresh cloud AMD calls are claimed. Current free-only code and public URL verification are pending. Exact commands and limits: DEPLOYMENT.md. Sanitized CI results: docs/cloud/ci-results.json and container-results.json.
+Two different ambiguous notices: first raw true/false proposals required correction to unresolved; agent review produced a 1,200-unit hold, zero exclusions. Second extracted confirmed/pending/excluded candidates but review hit a real sentence-terminal-period identifier bug. Fixed locally without allowing dotted/suffixed identifier prefixes. Exact regression fails before the patch; 51 pytest and 30 frozen domain cases pass afterward. New patch deployment and exact-source live recheck are next. All reviews are agent-operated, not independent human validation.
 
-Next: publish tested free-only configuration, create only a free service, configure authorized private AMD trial credentials and demonstrate actual public workflows. Do not label an ephemeral restart as persistence, or agent review as independent human validation.
+Current deployed product commit: adec404. CI passes for that commit, including actual Linux Docker named-volume restart. /api/health is configured; auto-deploy now waits for passing CI. Historical Docker desktop failure does not block cloud/CI verification.
+
+Evidence: docs/cloud/, including live/, ambiguity/, storage-results.json and public-controls.json. Commands: DEPLOYMENT.md. Local project and all artifacts remain on D:. Original unsigned desktop 0.1.1 installer remains unchanged and local; it is not a cloud installer. Existing submission media show historical local workflows; current public screenshots are separately labeled.
+
+Release verdict: working free demonstrator, incomplete full live acceptance and unsuitable for durable production storage. Next: deploy the punctuation fix, recheck the affected source, record final results, retain all failures and update this handoff. Do not buy resources or weaken validation to force an 800-unit result.
 
 ---
 

@@ -1,0 +1,52 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+__ test_public_notice_with_sentence_ending_lot_reaches_conservative_receipt ___
+
+client = <starlette.testclient.TestClient object at 0x0000022A421C9FD0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000022A44247490>
+
+    def test_public_notice_with_sentence_ending_lot_reaches_conservative_receipt(client, monkeypatch):
+        # Exact live MiMo response and source observed on the public free service.
+        item = json.loads((ROOT / 'docs/cloud/ambiguity/results.json').read_text(encoding='utf-8'))['cases'][1]
+        raw, d = copy.deepcopy(item['raw_run']), copy.deepcopy(item['source'])
+        s = post(client, '/api/cases/demo')
+        owner = hashlib.sha256(client.cookies.get('bf_session').encode()).hexdigest()
+        with module.transaction(s['id'], owner) as (_, current):
+            current['documents'].append(d)
+            for edge in current['edges']:
+                edge['source'] = {'SUP-A':'QL-6304-P', 'SUP-C':'UT-5529', 'SUP-E':'CZ-8031'}.get(edge['source'], edge['source'])
+        monkeypatch.setattr(module, 'extract', lambda docs, mode: copy.deepcopy(raw))
+        route = '/api/cases/' + s['id']
+        s = post(client, route + '/analyze', {'document_id':d['id'], 'mode':'fixture'})
+        body = {'run_id':raw['id'], 'revision':s['revision'], 'lot_ids':['QL-6304-P'],
+            'uncertain_lot_ids':['UT-5529'], 'excluded_lot_ids':['CZ-8031'], 'accept_scope':True,
+            'incident_scope_status':'unresolved', 'bounded_scope_reviewed':False,
+            'note':'Regression agent review: confirmed QL, pending UT, explicitly excluded CZ; incident scope is incomplete.'}
+        blocked = client.post(route+'/reviews', json={**body, 'bounded_scope_reviewed':True})
+>       assert blocked.status_code == 422 and blocked.json()['detail']['code'] == 'UNRESOLVED_SCOPE'
+E       AssertionError: assert (422 == 422 and 'UNSUPPORTED_LOT' == 'UNRESOLVED_SCOPE'
+E        +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+E         
+E         - UNRESOLVED_SCOPE
+E         + UNSUPPORTED_LOT)
+
+tests\test_ambiguity.py:163: AssertionError
+_____ test_sentence_punctuation_does_not_allow_identifier_prefix_matches ______
+
+    def test_sentence_punctuation_does_not_allow_identifier_prefix_matches():
+        from backend.review_safety import mentions
+>       assert mentions('QL-6304-P','Failure confirmed in QL-6304-P.')
+E       AssertionError: assert False
+E        +  where False = <function mentions at 0x0000022A43D6F560>('QL-6304-P', 'Failure confirmed in QL-6304-P.')
+
+tests\test_ambiguity.py:175: AssertionError
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\projects\BatchFence\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_ambiguity.py::test_public_notice_with_sentence_ending_lot_reaches_conservative_receipt
+FAILED tests/test_ambiguity.py::test_sentence_punctuation_does_not_allow_identifier_prefix_matches
+2 failed, 8 deselected, 1 warning in 0.65s

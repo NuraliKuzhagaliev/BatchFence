@@ -1,0 +1,8 @@
+row_id,source,target,kind,revision,timestamp
+LIN-1,QL-6304-P,FG-A,confirmed,1,2026-10-15T12:00:00Z
+LIN-2,QL-6304-P,FG-B,confirmed,1,2026-10-15T12:00:00Z
+LIN-3,QL-6304-P,FG-C,possible,1,2026-10-15T12:00:00Z
+LIN-4,TN-2476,FG-C,possible,1,2026-10-15T12:00:00Z
+LIN-5,UT-5529,FG-D,confirmed,1,2026-10-15T12:00:00Z
+LIN-6,HA-1092,FG-E,confirmed,1,2026-10-15T12:00:00Z
+LIN-7,CZ-8031,FG-F,confirmed,1,2026-10-15T12:00:00Z

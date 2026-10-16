@@ -1,0 +1,6 @@
+SYNTHETIC VERIFICATION DATA — not a real customer or supplier notice.
+Cedar Surface Works replacement advisory CSW-2026-1016-B.
+This message supersedes advisory A in its entirety, because additional inspection confirmed another defective batch.
+The complete set of defective coating batches is QL-6304-P plus UT-5529; retain on-site descendants of both.
+CZ-8031 remains outside this supplier notice. A missing warehouse receiving record does not establish that mixed stock is unaffected.
+Do not release previously contained stock automatically.

@@ -1,0 +1,18 @@
+{
+  "url": "https://batchfence.onrender.com",
+  "service_id": "srv-db968c7btjjs73fghkog",
+  "region": "frankfurt",
+  "plan": "free",
+  "instances": 1,
+  "persistent_disk": false,
+  "health_check": "/api/health",
+  "auto_deploy_trigger": "checksPass",
+  "source_commit": "adec4044e6a8128f2625f96e0bea55db384684a5",
+  "initial_deploy": "dep-db968cnbtjjs73fghm6g",
+  "health_deploy": "dep-db96c5vf3r2c73a9f0n0",
+  "private_configuration_deploy": "dep-db96evvavr4c73fm1m90",
+  "private_configuration_saved_without_displaying_values": true,
+  "storage": "ephemeral",
+  "baseline_hosting_cost_usd": 0,
+  "paid_resources_created": 0
+}

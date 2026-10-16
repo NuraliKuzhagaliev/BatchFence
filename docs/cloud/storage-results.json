@@ -1,0 +1,28 @@
+{
+  "url": "https://batchfence.onrender.com",
+  "before_at": "2026-10-16T18:03:57.164039+00:00",
+  "provenance": "Synthetic fixture, agent-operated review; no live inference",
+  "case_id": "867d477964c448ebae3be9f10c14fda7",
+  "receipt_ids": [
+    "TX-daabc86b36334d8c8995976b632e8f35"
+  ],
+  "held_units": 500,
+  "after_deploy_status": "lost_as_documented",
+  "harness_correction": "Receipt/export succeeded, but reporting initially used id instead of transaction_id and raised KeyError. Report recovered from the actual exported receipt, without repeating the transaction.",
+  "after_at": "2026-10-16T18:05:41.339365+00:00",
+  "after_health": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.1.1",
+    "commit": "adec4044e6a8128f2625f96e0bea55db384684a5",
+    "inference_mode": "fixture",
+    "amd_configured": true,
+    "live_protected": true,
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  },
+  "after_case_status": 404,
+  "export_still_valid": true,
+  "durable_cloud_persistence_verified": false
+}

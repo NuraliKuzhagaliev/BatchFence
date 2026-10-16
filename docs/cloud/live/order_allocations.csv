@@ -1,0 +1,7 @@
+row_id,order_id,pool_id,units,due_date,revision,status
+ALLOC-1,O-101,FG-A,240,2026-10-19,1,open
+ALLOC-2,O-102,FG-B,160,2026-10-20,1,open
+ALLOC-3,O-103,FG-C,100,2026-10-21,1,open
+ALLOC-4,O-104,FG-D,300,2026-10-22,1,open
+ALLOC-5,O-105,FG-E,250,2026-10-23,1,open
+ALLOC-6,O-106,FG-F,150,2026-10-24,1,open

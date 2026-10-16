@@ -1,0 +1,19 @@
+{
+  "stale_apply": {
+    "status": 409,
+    "detail": {
+      "code": "STALE_APPROVAL",
+      "message": "Approval is absent, stale or already consumed"
+    }
+  },
+  "failed_review": {
+    "status": 422,
+    "detail": {
+      "code": "REVIEW_REQUIRED",
+      "message": "A successful current extraction and explicit scope review are required"
+    }
+  },
+  "receipts_before_retry": 1,
+  "held_units_before_retry": 500,
+  "harness_correction": "Read the old applied plan from the actual exported packet; current plans history list was empty after revision."
+}

@@ -1,0 +1,6 @@
+SYNTHETIC VERIFICATION DATA — not a real customer or supplier notice.
+Cedar Surface Works containment advisory CSW-2026-1016-A.
+Inspection of the coating finish has confirmed a defect in supplier batch QL-6304-P.
+Contain warehouse stock with ancestry from QL-6304-P pending quality review.
+Batch CZ-8031 appears on the delivery paperwork for traceability only; it is not covered by this defect notice.
+This is the complete supplier batch scope for this advisory. Warehouse lots with uncertain ancestry still require conservative review.

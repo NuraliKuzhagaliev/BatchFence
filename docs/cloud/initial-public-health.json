@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-16T17:57:55.288720+00:00",
+  "url": "https://batchfence.onrender.com",
+  "health": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.1.1",
+    "commit": "adec4044e6a8128f2625f96e0bea55db384684a5",
+    "inference_mode": "fixture",
+    "amd_configured": false,
+    "live_protected": true,
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  }
+}

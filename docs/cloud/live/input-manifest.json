@@ -1,0 +1,57 @@
+{
+  "frozen_at": "2026-10-16T18:05:40.692743+00:00",
+  "synthetic": true,
+  "uploaded_filename_for_both": "supplier-message.txt",
+  "purpose": "Two live model responses must drive reviewed plans and real sandbox receipts; no fixture-parser execution.",
+  "lot_mapping": {
+    "SUP-A": "QL-6304-P",
+    "SUP-B": "TN-2476",
+    "SUP-C": "UT-5529",
+    "SUP-D": "HA-1092",
+    "SUP-E": "CZ-8031"
+  },
+  "cases": [
+    {
+      "file": "fresh-notice.txt",
+      "sha256": "e16c0e0c0a889d1999f1bd660cd210ae808b59b67aa5b071b76e0b84c346ddfd",
+      "affected_lots": [
+        "QL-6304-P"
+      ],
+      "explicitly_not_affected": [
+        "CZ-8031"
+      ],
+      "documented_units": 400,
+      "uncertain_units": 100,
+      "hold_units": 500,
+      "outside_units": 700,
+      "hold_cents": 2000000,
+      "hold_pools": [
+        "FG-A",
+        "FG-B",
+        "FG-C"
+      ]
+    },
+    {
+      "file": "revised-notice.txt",
+      "sha256": "dd2b94427a9ff3f54217c720c3b07142a72842d4c961528da1c9a1fb846e16c2",
+      "affected_lots": [
+        "UT-5529",
+        "QL-6304-P"
+      ],
+      "explicitly_not_affected": [
+        "CZ-8031"
+      ],
+      "documented_units": 700,
+      "uncertain_units": 100,
+      "hold_units": 800,
+      "outside_units": 400,
+      "hold_cents": 3200000,
+      "hold_pools": [
+        "FG-A",
+        "FG-B",
+        "FG-C",
+        "FG-D"
+      ]
+    }
+  ]
+}

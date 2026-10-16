@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-16T18:14:59.782509+00:00",
+  "server_http_date": "Fri, 16 Oct 2026 18:16:19 GMT",
+  "url": "https://batchfence.onrender.com",
+  "checks": [
+    {
+      "path": "/",
+      "sha256": "8885f25ffdbd979a57a3acea0f6c2070d533d45abd736865e1bd44d97211ff25",
+      "bytes": 691
+    },
+    {
+      "path": "/api/health",
+      "sha256": "cb44345c94746e4188b2727f4d416add787cc32f3ad21c8966e8edd447209d59",
+      "bytes": 245
+    },
+    {
+      "path": "/api/replay",
+      "sha256": "4a71f3c121f40720cbabb2c4ee8332ddaa6b5861039ac2a190f4dfe96a4df859",
+      "bytes": 75487
+    },
+    {
+      "path": "/assets/index-V8ql5qYg.js",
+      "sha256": "1dbcc0f717d37ae88b29198e90763fce8c165a775648283ac0c1b9c1255f755c",
+      "bytes": 275132
+    },
+    {
+      "path": "/assets/index-B0fSetYm.css",
+      "sha256": "f96909dc763499d81cdadaea8881810d0cf79cf0d7dd449db936a22e50ede3b7",
+      "bytes": 30334
+    }
+  ],
+  "known_private_values_checked": 2,
+  "findings": [],
+  "limitation": "Exact configured-secret scan; not a general security audit. Client and provider clocks are recorded separately."
+}

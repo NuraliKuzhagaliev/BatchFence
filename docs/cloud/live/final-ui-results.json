@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-16T18:16:08.902Z",
+  "url": "https://batchfence.onrender.com",
+  "live_calls": 0,
+  "passed": true,
+  "checks": [
+    "Fresh exported packet validates with all three actual model runs and single receipt",
+    "Failed revised live extraction persists after reload and offers no approval",
+    "500-unit actual live receipt opens as historical read-only packet",
+    "Separate session cannot read or export actual live case"
+  ]
+}

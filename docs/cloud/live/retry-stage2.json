@@ -1,0 +1,155 @@
+{
+  "reason": "One explicit bounded repeat after a schema/citation rejection. Exact frozen source, model and prompt unchanged. Original rejected output retained; no automatic fallback or repair. No further unchanged retry planned.",
+  "case_id": "7bc0324773f642d89a5f3c1b3a08f2d2",
+  "source": {
+    "id": "DOC-9d7bd09cab9e",
+    "filename": "supplier-message.txt",
+    "media_type": "text/plain",
+    "revision": 3,
+    "ingested_at": "2026-10-16T18:08:20.019576+00:00",
+    "original_hash": "dd2b94427a9ff3f54217c720c3b07142a72842d4c961528da1c9a1fb846e16c2",
+    "text_hash": "dd2b94427a9ff3f54217c720c3b07142a72842d4c961528da1c9a1fb846e16c2",
+    "blocks": [
+      {
+        "id": "line-1",
+        "text": "SYNTHETIC VERIFICATION DATA \u2014 not a real customer or supplier notice.",
+        "page": null
+      },
+      {
+        "id": "line-2",
+        "text": "Cedar Surface Works replacement advisory CSW-2026-1016-B.",
+        "page": null
+      },
+      {
+        "id": "line-3",
+        "text": "This message supersedes advisory A in its entirety, because additional inspection confirmed another defective batch.",
+        "page": null
+      },
+      {
+        "id": "line-4",
+        "text": "The complete set of defective coating batches is QL-6304-P plus UT-5529; retain on-site descendants of both.",
+        "page": null
+      },
+      {
+        "id": "line-5",
+        "text": "CZ-8031 remains outside this supplier notice. A missing warehouse receiving record does not establish that mixed stock is unaffected.",
+        "page": null
+      },
+      {
+        "id": "line-6",
+        "text": "Do not release previously contained stock automatically.",
+        "page": null
+      }
+    ],
+    "synthetic": false
+  },
+  "raw_run": {
+    "id": "3a09f84f-7b8c-438e-867c-0a1f9dad4532",
+    "mode": "live",
+    "provider": "AMD configured endpoint",
+    "prompt_version": "scope-extract-1",
+    "schema_version": 1,
+    "timestamp": "2026-10-16T18:15:43.112792+00:00",
+    "status": "failed",
+    "repairs": 0,
+    "http_status": 200,
+    "request_id": "f85e973a0bd142d5bab45e7d742eed42",
+    "usage": {
+      "prompt_tokens": 701,
+      "total_tokens": 1591,
+      "completion_tokens": 890,
+      "prompt_tokens_details": {
+        "cached_tokens": 448,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.0002858744,
+      "cost_details": {
+        "upstream_inference_cost": 0.0002858744,
+        "upstream_inference_prompt_cost": 3.66744e-05,
+        "upstream_inference_completions_cost": 0.0002492,
+        "total_cost": 0.0002858744,
+        "input_cost": 3.542e-05,
+        "output_cost": 0.0002492,
+        "cached_input_cost": 1.2544e-06,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "model_id": "self-dploy/MiMo-V2.6-Flash",
+    "rejected_output": {
+      "facts": [
+        {
+          "lot_id": "QL-6304-P",
+          "affected": true,
+          "evidence": [
+            {
+              "document_id": "DOC-9d7bd09cab9e",
+              "block_id": "line-4",
+              "quote": "The complete set of defective coating batches is QL-6304-P plus UT-5529; retain on-site descendants of both."
+            },
+            {
+              "document_id": "DOC-9d7bd09cab9e",
+              "block_id": "line-2",
+              "quote": "Cedar Surface Works replacement advisory CSW-2026-1016-B."
+            }
+          ]
+        },
+        {
+          "lot_id": "UT-5529",
+          "affected": true,
+          "evidence": [
+            {
+              "document_id": "DOC-9d7bd09cab9e",
+              "block_id": "line-4",
+              "quote": "The complete set of defective coating batches is QL-6304-P plus UT-5529; retain on-site descendants of both."
+            },
+            {
+              "document_id": "DOC-9d7bd09cab9e",
+              "block_id": "line-3",
+              "quote": "This message supersedes advisory A in its entirety, because additional inspection confirmed another defective batch."
+            }
+          ]
+        },
+        {
+          "lot_id": "CZ-8031",
+          "affected": false,
+          "evidence": [
+            {
+              "document_id": "DOC-9d7bd09cab9e",
+              "block_id": "line-5",
+              "quote": "CZ-8031 remains outside this supplier notice. A missing warehouse receiving record does not establish that mixed stock is unaffected."
+            }
+          ]
+        }
+      ],
+      "qualifiers": [
+        "Advisory CSW-2026-1016-B supersedes advisory A in its entirety; the scope of advisory A is not described in this document, so any earlier advisory content cannot be verified here (line-3).",
+        "The document states the defective set is QL-6304-P plus UT-5529 and directs retention of on-site descendants of both, but does not define what constitutes a 'descendant' or identify specific descendant lots (line-4).",
+        "'Mixed stock' is mentioned without a lot identifier; its scope is ambiguous and it is not established as affected or unaffected \u2014 the document only says a missing warehouse receiving record does not establish it is unaffected (line-5).",
+        "CZ-8031 is explicitly excluded from this supplier notice (merely mentioned, not affected), yet the same line warns that absence of a receiving record does not prove mixed stock is unaffected, leaving any mixed-stock lots' status unresolved (line-5).",
+        "The document instructs not to release previously contained stock automatically, but does not identify which lots are 'previously contained' (line-6).",
+        "The document is labeled synthetic verification data, not a real customer or supplier notice (line-1)."
+      ]
+    },
+    "error_kind": "validation_or_configuration",
+    "error": "Lot identifier absent from cited quote",
+    "elapsed_ms": 38883,
+    "revision": 3,
+    "document_id": "DOC-9d7bd09cab9e",
+    "scope_concerns": []
+  },
+  "review_status": "blocked_failed_extraction"
+}
