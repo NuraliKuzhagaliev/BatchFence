@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "factor": 1,
+      "metrics": {
+        "innerWidth": 1344,
+        "innerHeight": 712,
+        "dpr": 1,
+        "scrollWidth": 1329
+      },
+      "method": "Chromium device-scale override in the real installed executable. OS display settings unchanged."
+    },
+    {
+      "factor": 1.25,
+      "metrics": {
+        "innerWidth": 1350,
+        "innerHeight": 724,
+        "dpr": 1.25,
+        "scrollWidth": 1335
+      },
+      "method": "Chromium device-scale override in the real installed executable. OS display settings unchanged."
+    }
+  ]
+}

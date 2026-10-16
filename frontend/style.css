@@ -719,22 +719,22 @@ select {
   cursor: pointer;
   outline: none;
 }
-.stock-node > rect:first-child {
+.stock-node > rect:first-of-type {
   fill: #102238;
   stroke: #29405a;
   transition:
     stroke 0.15s,
     fill 0.15s;
 }
-.stock-node.documented > rect:first-child {
+.stock-node.documented > rect:first-of-type {
   stroke: #773547;
   fill: #261d30;
 }
-.stock-node.uncertain > rect:first-child {
+.stock-node.uncertain > rect:first-of-type {
   stroke: #86682d;
   fill: #29251e;
 }
-.stock-node.outside > rect:first-child {
+.stock-node.outside > rect:first-of-type {
   stroke: #23534f;
   fill: #102a31;
 }
@@ -747,9 +747,9 @@ select {
 .stock-node.uncertain .node-accent {
   fill: #e0b359;
 }
-.stock-node.node-selected > rect:first-child,
-.stock-node:hover > rect:first-child,
-.stock-node:focus-visible > rect:first-child {
+.stock-node.node-selected > rect:first-of-type,
+.stock-node:hover > rect:first-of-type,
+.stock-node:focus-visible > rect:first-of-type {
   stroke: #e4ecfa;
   stroke-width: 1.8;
 }
@@ -2187,7 +2187,15 @@ td small {
 .mobile-lineage {
   display: none;
 }
-.event-graph-scroll{overflow:auto}.event-graph svg{max-height:none}.event-graph .node-sub{font-size:8px}
+.event-graph-scroll {
+  overflow: auto;
+}
+.event-graph svg {
+  max-height: none;
+}
+.event-graph .node-sub {
+  font-size: 8px;
+}
 @media (min-width: 768px) and (max-width: 1499px) {
   .graph svg {
     max-height: 335px;

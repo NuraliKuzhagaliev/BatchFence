@@ -1,4 +1,5 @@
 const { createHash } = require("node:crypto");
+const { validateShape } = require("./packet-shape.mjs");
 function canonical(v) {
   if (Array.isArray(v)) return "[" + v.map(canonical).join(",") + "]";
   if (v && typeof v === "object")
@@ -13,6 +14,7 @@ function canonical(v) {
   return JSON.stringify(v);
 }
 function validatePacket(packet) {
+  validateShape(packet);
   if (
     !packet ||
     packet.schema_version !== 1 ||

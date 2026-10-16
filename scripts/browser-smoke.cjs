@@ -184,6 +184,68 @@ async function main() {
   await shot("10-decision-mobile-390");
   checks.push("Responsive layout no horizontal overflow at 1280 and 390");
   await page.setViewportSize({ width: 1440, height: 900 });
+  // Separate imported genealogy exercises actual versioned event rendering.
+  let imported = await (
+    await context.request.post("http://127.0.0.1:8787/api/cases/demo", {
+      data: {},
+    })
+  ).json();
+  const genealogy =
+    "row_id,source,target,kind,revision\nE1,SUP-A,EV-A,confirmed,1\nE2,EV-A,FG-A,confirmed,1\nE3,EV-A,FG-B,confirmed,1\nE4,SUP-A,FG-C,possible,1\nE5,SUP-B,FG-C,possible,1\nE6,SUP-C,FG-D,confirmed,1\nE7,SUP-D,FG-E,confirmed,1\nE8,SUP-E,FG-F,confirmed,1";
+  imported = await (
+    await context.request.post(
+      "http://127.0.0.1:8787/api/cases/" + imported.id + "/documents",
+      {
+        data: {
+          filename: "event-lineage.csv",
+          content_base64: Buffer.from(genealogy).toString("base64"),
+          synthetic: true,
+        },
+      },
+    )
+  ).json();
+  const narrative = imported.documents.find(
+    (d) => d.filename === "supplier_notice_v1.txt",
+  );
+  imported = await (
+    await context.request.post(
+      "http://127.0.0.1:8787/api/cases/" + imported.id + "/analyze",
+      { data: { document_id: narrative.id, mode: "fixture" } },
+    )
+  ).json();
+  imported = await (
+    await context.request.post(
+      "http://127.0.0.1:8787/api/cases/" + imported.id + "/reviews",
+      {
+        data: {
+          run_id: imported.runs.at(-1).id,
+          revision: imported.revision,
+          lot_ids: ["SUP-A"],
+          accept_scope: true,
+          bounded_scope_reviewed: true,
+        },
+      },
+    )
+  ).json();
+  await page.evaluate(
+    (caseId) => localStorage.setItem("bf.case", caseId),
+    imported.id,
+  );
+  await page.reload();
+  await page.locator(".event-graph").waitFor();
+  assert((await page.locator(".event-graph").textContent()).includes("EV-A"));
+  assert(
+    (await page.locator(".comparison .required strong").textContent()).includes(
+      "500",
+    ),
+  );
+  await shot("14-imported-versioned-event-graph");
+  checks.push("Imported CSV preserves split/rework event nodes in real graph");
+  await page.evaluate((caseId) => localStorage.setItem("bf.case", caseId), id);
+  await page.reload();
+  await page
+    .getByRole("heading", { name: "Northstar Enclosures", exact: true })
+    .waitFor();
   const before = await page.locator("input[type=file]").count();
   assert.equal(before, 2);
   await page
@@ -215,6 +277,35 @@ async function main() {
       .isVisible(),
   );
   checks.push("Already opened packet remains readable without network");
+  await page
+    .getByText("Backend offline", { exact: true })
+    .waitFor({ timeout: 22000 });
+  await context.request.post(
+    "http://127.0.0.1:8787/api/cases/" + id + "/documents",
+    {
+      data: {
+        filename: "post-execution-note.txt",
+        content_base64: Buffer.from(
+          "Synthetic new evidence for reconnect validation. No release is authorized.",
+        ).toString("base64"),
+        synthetic: true,
+      },
+    },
+  );
+  await context.setOffline(false);
+  await page
+    .getByText(
+      "Backend reconnected. Current evidence and action state reloaded.",
+      { exact: true },
+    )
+    .waitFor({ timeout: 22000 });
+  await click("Return to live desk");
+  assert(
+    (await page.locator(".decision-main strong").textContent()).includes(
+      "Evidence changed",
+    ),
+  );
+  checks.push("Reconnect fetches changed backend evidence before live actions");
   assert.deepEqual(errors, []);
   await fs.writeFile(
     path.join(root, "docs/browser-results.json"),

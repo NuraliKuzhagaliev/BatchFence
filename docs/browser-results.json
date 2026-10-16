@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-16T02:05:15.380Z",
+  "at": "2026-10-16T03:08:33.630Z",
   "browser": "Microsoft Edge, Playwright headless",
   "checks": [
     "Exact source citation reachable from candidate",
@@ -10,10 +10,12 @@
     "V2 800-unit plan and 4 orders",
     "Exported packet includes actual receipt; refresh persists case",
     "Responsive layout no horizontal overflow at 1280 and 390",
+    "Imported CSV preserves split/rework event nodes in real graph",
     "Web packet opens read-only without approval/apply authority",
-    "Already opened packet remains readable without network"
+    "Already opened packet remains readable without network",
+    "Reconnect fetches changed backend evidence before live actions"
   ],
   "errors": [],
-  "case_id": "2121f362f9c74a82b056ed52d907c489",
+  "case_id": "61e3f3a2e4e44a9dafe701df4043d61e",
   "packet": "D:\\projects\\BatchFence\\docs\\verified-decision-packet.json"
 }

@@ -10,7 +10,7 @@ The optional scripts/start.ps1 wrapper runs the same command when scripts are pe
 
     .\.venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8787
 
-Open http://127.0.0.1:8787. The application health endpoint is /api/health. OpenAPI is /docs.
+Open http://127.0.0.1:8787. The application health endpoint is /api/health. OpenAPI is /openapi.json.
 
 On an authorized Docker host:
 

@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "surface": "Microsoft Edge web client",
+  "operation": "Explicit user-gesture clipboard write succeeded. Existing clipboard content was never read."
+}

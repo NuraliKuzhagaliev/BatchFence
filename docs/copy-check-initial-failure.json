@@ -1,0 +1,7 @@
+{
+  "surface": "Installed Windows executable",
+  "passed": false,
+  "observed": "Timed out after 5000 ms waiting for the Draft copied success notice.",
+  "scope": "The evidence request remained visible. No message was sent and no clipboard content was read.",
+  "fix": "Use an explicit sender-validated, 4000-byte native clipboard write for the request draft. Keep renderer permissions denied."
+}

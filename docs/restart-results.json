@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "case_id": "f1467680974f46449925905a467567bf",
+  "receipt_transaction_id": "TX-24a6530c1df548838418346a2a7d8a30",
+  "held_units": 500,
+  "mechanism": "Actual owned uvicorn listener stopped and relaunched; same HTTP client session recovered exact case and receipt from SQLite."
+}

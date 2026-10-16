@@ -2,6 +2,7 @@
 import hashlib
 import json
 from collections import defaultdict
+from datetime import date
 
 
 class DomainError(ValueError):
@@ -26,11 +27,19 @@ def digest(value):
 
 
 def validate_dataset(stocks, edges, allocations):
+    if not all(isinstance(x, list) and len(x) <= 500 for x in (stocks, edges, allocations)):
+        raise DomainError('Each record dataset must have at most 500 rows')
+    if not all(isinstance(x, dict) for x in stocks + edges + allocations):
+        raise DomainError('Record rows must be objects')
     ids = [s['id'] for s in stocks]
+    if any(not isinstance(x, str) or not x or len(x) > 160 for x in ids):
+        raise DomainError('Stock identifiers must be nonempty bounded strings')
     if len(ids) != len(set(ids)) or not ids:
         raise DomainError('Duplicate logical stock or empty inventory')
     by_id = {s['id']: s for s in stocks}
     for s in stocks:
+        if type(s.get('complete', False)) is not bool:
+            raise DomainError('Completeness must be an explicit reviewed boolean')
         for k in ('units', 'unit_cents'):
             if type(s[k]) is not int or s[k] < 0 or s[k] > 9_000_000_000_000:
                 raise DomainError('Discrete stock and cents must be nonnegative integers')
@@ -39,6 +48,8 @@ def validate_dataset(stocks, edges, allocations):
     graph = defaultdict(list)
     sources = {e['source'] for e in edges}
     for e in edges:
+        if any(not isinstance(e[k], str) or not e[k] or len(e[k]) > 160 for k in ('source', 'target')):
+            raise DomainError('Lineage identifiers must be nonempty bounded strings')
         if e['kind'] not in ('confirmed', 'possible'):
             raise DomainError('Invalid lineage certainty')
         if e['target'] not in sources | set(ids):
@@ -64,6 +75,10 @@ def validate_dataset(stocks, edges, allocations):
     sums = defaultdict(int)
     rowids = set()
     for a in allocations:
+        try:
+            date.fromisoformat(a['due_date'])
+        except (ValueError, TypeError):
+            raise DomainError('Order due date must be a valid ISO calendar date')
         if a['row_id'] in rowids:
             raise DomainError('Duplicate allocation row')
         rowids.add(a['row_id'])

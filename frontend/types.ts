@@ -151,6 +151,7 @@ export type Bridge = {
   chooseFiles: () => Promise<Upload[]>;
   savePacket: (p: Packet) => Promise<boolean>;
   openPacket: () => Promise<Packet | null>;
+  copyDraft: (draft: string) => Promise<void>;
 };
 declare global {
   interface Window {

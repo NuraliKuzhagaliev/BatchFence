@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "path": "D:\\projects\\BatchFence\\releases\\BatchFence-0.1.0-win-x64-setup.exe",
+  "bytes": 113768001,
+  "sha256": "37bd0d13878d11632ca3cd90538df1aa43299e636893770526a0106378ec7e80",
+  "signing": "Unsigned \u2014 verified with Get-AuthenticodeSignature",
+  "target": "Windows 11 x64",
+  "observed_os": "Windows 11 Home Single Language x64, 10.0.26200",
+  "installed_path": "D:\\projects\\BatchFence\\work\\installed\\BatchFence.exe",
+  "installer_exit_code": 0,
+  "public_distribution": "Pending authorization; no public URL",
+  "default_backend_origin": "http://127.0.0.1:8787",
+  "verification_reports": [
+    "pytest-results.xml",
+    "browser-results.json",
+    "desktop-results.json",
+    "desktop-offline-results.json",
+    "desktop-scale-results.json",
+    "copy-check.json",
+    "copy-web-check.json",
+    "restart-results.json",
+    "secret-scan.json"
+  ]
+}

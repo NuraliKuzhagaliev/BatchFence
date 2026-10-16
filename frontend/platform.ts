@@ -1,5 +1,10 @@
 import type { Packet, Upload } from "./types";
+import { validateShape } from "../desktop/packet-shape.mjs";
 export const native = window.batchfence;
+export async function copyDraft(text: string) {
+  if (native) await native.copyDraft(text);
+  else await navigator.clipboard.writeText(text);
+}
 export async function request<T>(
   method: "GET" | "POST",
   route: string,
@@ -58,6 +63,7 @@ function canonical(v: unknown): string {
   return JSON.stringify(v);
 }
 export async function validatePacket(v: unknown): Promise<Packet> {
+  validateShape(v);
   const p = v as Packet;
   if (
     !p ||

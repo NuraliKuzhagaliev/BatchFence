@@ -31,7 +31,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.068
+      "domain_elapsed_ms": 0.422
     },
     {
       "id": "clean-two",
@@ -49,7 +49,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.051
+      "domain_elapsed_ms": 0.11
     },
     {
       "id": "clean-three",
@@ -67,7 +67,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.079
+      "domain_elapsed_ms": 0.083
     },
     {
       "id": "clean-shipped",
@@ -85,7 +85,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.048
+      "domain_elapsed_ms": 0.064
     },
     {
       "id": "clean-all",
@@ -102,7 +102,7 @@
         "outside": []
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.046
+      "domain_elapsed_ms": 0.077
     },
     {
       "id": "merge-whole",
@@ -120,7 +120,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.051
+      "domain_elapsed_ms": 0.089
     },
     {
       "id": "merge-two-seeds",
@@ -138,7 +138,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.045
+      "domain_elapsed_ms": 0.35
     },
     {
       "id": "merge-possible",
@@ -157,7 +157,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.051
+      "domain_elapsed_ms": 0.102
     },
     {
       "id": "merge-duplicate",
@@ -175,7 +175,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.048
+      "domain_elapsed_ms": 0.086
     },
     {
       "id": "merge-precedence",
@@ -193,7 +193,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.047
+      "domain_elapsed_ms": 0.078
     },
     {
       "id": "rework-split",
@@ -211,7 +211,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.048
+      "domain_elapsed_ms": 0.114
     },
     {
       "id": "rework-uncertain-event",
@@ -229,7 +229,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.224
+      "domain_elapsed_ms": 0.116
     },
     {
       "id": "rework-versioned",
@@ -247,7 +247,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.05
+      "domain_elapsed_ms": 0.11
     },
     {
       "id": "rework-diamond",
@@ -265,7 +265,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.05
+      "domain_elapsed_ms": 0.093
     },
     {
       "id": "rework-mixed",
@@ -284,7 +284,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.065
+      "domain_elapsed_ms": 0.068
     },
     {
       "id": "missing-no-receipt",
@@ -303,7 +303,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.059
+      "domain_elapsed_ms": 0.061
     },
     {
       "id": "missing-no-edges",
@@ -321,7 +321,7 @@
         "outside": []
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.091
+      "domain_elapsed_ms": 0.083
     },
     {
       "id": "missing-conflicting",
@@ -340,7 +340,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.045
+      "domain_elapsed_ms": 0.083
     },
     {
       "id": "missing-disconnected-unknown",
@@ -357,7 +357,7 @@
         "outside": []
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.047
+      "domain_elapsed_ms": 0.067
     },
     {
       "id": "missing-combined",
@@ -375,7 +375,7 @@
         "outside": []
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.045
+      "domain_elapsed_ms": 0.071
     },
     {
       "id": "adversarial-cycle",
@@ -384,7 +384,7 @@
       "passed": true,
       "actual": null,
       "detail": "Lineage cycle; model rework with versioned event nodes",
-      "domain_elapsed_ms": 0.017
+      "domain_elapsed_ms": 0.032
     },
     {
       "id": "adversarial-dangling",
@@ -393,7 +393,7 @@
       "passed": true,
       "actual": null,
       "detail": "Dangling lineage target",
-      "domain_elapsed_ms": 0.011
+      "domain_elapsed_ms": 0.023
     },
     {
       "id": "adversarial-invalid-kind",
@@ -402,7 +402,7 @@
       "passed": true,
       "actual": null,
       "detail": "Invalid lineage certainty",
-      "domain_elapsed_ms": 0.011
+      "domain_elapsed_ms": 0.022
     },
     {
       "id": "adversarial-terminal-reused",
@@ -411,7 +411,7 @@
       "passed": true,
       "actual": null,
       "detail": "Current terminal inventory cannot be a component",
-      "domain_elapsed_ms": 0.011
+      "domain_elapsed_ms": 0.023
     },
     {
       "id": "adversarial-negative",
@@ -420,7 +420,7 @@
       "passed": true,
       "actual": null,
       "detail": "Discrete stock and cents must be nonnegative integers",
-      "domain_elapsed_ms": 0.007
+      "domain_elapsed_ms": 0.012
     },
     {
       "id": "revision-expand",
@@ -438,7 +438,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.079
+      "domain_elapsed_ms": 0.101
     },
     {
       "id": "revision-possible",
@@ -457,7 +457,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.087
+      "domain_elapsed_ms": 0.152
     },
     {
       "id": "revision-supersede",
@@ -475,7 +475,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.077
+      "domain_elapsed_ms": 0.136
     },
     {
       "id": "revision-merge-expand",
@@ -493,7 +493,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.072
+      "domain_elapsed_ms": 0.201
     },
     {
       "id": "revision-split-expand",
@@ -512,7 +512,7 @@
         ]
       },
       "detail": "Exact classification and accounting",
-      "domain_elapsed_ms": 0.082
+      "domain_elapsed_ms": 0.166
     }
   ]
 }

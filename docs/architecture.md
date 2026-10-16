@@ -22,7 +22,7 @@ Each anonymous browser receives a random HttpOnly SameSite=Strict session cookie
 
 Electron packages the same React build under batchfence://app/. Node integration is off, context isolation and renderer sandbox are on. CSP prohibits remote scripts. Main denies permissions, arbitrary windows and navigation. It validates IPC sender/frame, limits API methods/routes/body sizes and uses a configured fixed origin. HTTPS is required for remote servers; loopback HTTP supports local verification.
 
-The preload exposes only request, chooseFiles, savePacket and openPacket. It does not expose raw IPC, shell commands or general filesystem operations. Main handles bounded bytes from explicit OS file dialogs. API credentials remain server-side. The installer includes neither Python nor model weights.
+The preload exposes request, chooseFiles, savePacket, openPacket and a bounded request-draft clipboard write. The clipboard method validates the sender and limits text to4000 UTF-8 bytes. It never reads clipboard content. No raw IPC, shell commands or general filesystem operations are exposed. Main handles bounded bytes from explicit OS file dialogs. Credentials remain server-side. The installer includes neither Python nor model weights.
 
 Packets hold historical evidence, reviews, scope and receipts without session tokens. Their hashes detect changed content and do not authenticate suppliers. Offline packets are read-only. Promotion creates a new draft and strips historical plan/approval/receipt authority. Reconnection refreshes current case state before enabling actions.
 

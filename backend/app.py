@@ -181,7 +181,23 @@ def validate_packet(packet):
                 'reviews', 'receipts', 'history', 'revision', 'name', 'bounded'}
     if not required.issubset(s) or len(json.dumps(s)) > 6_000_000:
         fail('PACKET_INVALID', 'Incomplete or oversized decision packet', 422)
-    validate_dataset(s['stocks'], s['edges'], s['allocations'])
+    try:
+        if not isinstance(s['name'], str) or not isinstance(s.get('incident'), str) or type(s.get('synthetic')) is not bool or type(s['bounded']) is not bool:
+            raise ValueError()
+        if not isinstance(s['policy'], dict) or not all(isinstance(s['policy'][k], str) for k in ('id', 'rule')):
+            raise ValueError()
+        if not isinstance(s['documents'], list) or len(s['documents']) > 24:
+            raise ValueError()
+        for d in s['documents']:
+            if not all(isinstance(d[k], str) for k in ('id', 'filename', 'media_type', 'original_hash', 'text_hash')):
+                raise ValueError()
+            if type(d['revision']) is not int or d['revision'] < 1 or type(d['synthetic']) is not bool or len(d['blocks']) > 5000:
+                raise ValueError()
+            if not all(isinstance(b['id'], str) and isinstance(b['text'], str) for b in d['blocks']) or sum(len(b['text']) for b in d['blocks']) > 80000:
+                raise ValueError()
+        validate_dataset(s['stocks'], s['edges'], s['allocations'])
+    except (KeyError, TypeError, ValueError, AttributeError, RecursionError):
+        fail('PACKET_INVALID', 'Malformed packet records or unsupported dataset schema', 422)
     return s
 
 
@@ -266,6 +282,8 @@ def upload(case_id: str, data: Upload, request: Request):
             doc['media_type'] = 'application/pdf'
         else:
             doc = document(data.filename, raw, synthetic=data.synthetic)
+    except csv.Error:
+        fail('CSV', 'Malformed CSV record quoting', 422)
     except (ValueError, UnicodeDecodeError):
         fail('INPUT', 'Invalid UTF-8 or base64 input', 422)
     except HTTPException:

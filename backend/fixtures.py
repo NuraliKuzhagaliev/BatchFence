@@ -1,6 +1,7 @@
 from pathlib import Path
 import csv
 import hashlib
+import io
 import uuid
 from datetime import datetime, timezone
 
@@ -13,10 +14,23 @@ def now():
 
 def document(filename, raw, revision=1, synthetic=True):
     text = raw.decode('utf-8-sig')
-    blocks = [{'id': f'line-{i+1}', 'text': line, 'page': None}
-              for i, line in enumerate(text.splitlines()) if line.strip()]
+    if filename.lower().endswith('.csv'):
+        # CSV fields may contain quoted newlines. A block must cover the entire
+        # physical record, rather than falsely citing its first physical line.
+        physical = text.splitlines(keepends=True)
+        reader = csv.reader(io.StringIO(text, newline=''), strict=True)
+        blocks = []
+        start = 0
+        for row in reader:
+            quote = ''.join(physical[start:reader.line_num]).rstrip('\r\n')
+            start = reader.line_num
+            if row:
+                blocks.append({'id': f'row-{len(blocks)}', 'text': quote, 'page': None})
+    else:
+        blocks = [{'id': f'line-{i+1}', 'text': line, 'page': None}
+                  for i, line in enumerate(text.splitlines()) if line.strip()]
     return {'id': 'DOC-' + uuid.uuid4().hex[:12], 'filename': filename,
-            'media_type': 'text/csv' if filename.endswith('.csv') else 'text/plain',
+            'media_type': 'text/csv' if filename.lower().endswith('.csv') else 'text/plain',
             'revision': revision, 'ingested_at': now(),
             'original_hash': hashlib.sha256(raw).hexdigest(),
             'text_hash': hashlib.sha256(text.encode()).hexdigest(),

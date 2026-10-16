@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "surface": "Installed Windows executable",
+  "operation": "Explicit user-gesture clipboard write succeeded. Existing clipboard content was never read."
+}

@@ -1,17 +1,35 @@
-# BatchFence execution
+# Final execution checkpoint
 
-Phase 0: Windows 11 x64 build 26200; Node 22.20.0, Python 3.13.2, Git available. No existing BatchFence repository at selected location. Project lives entirely on D:.
+Project: D:\projects\BatchFence. Original specification/research retained privately under docs and excluded from source publication preparation.
 
-AMD portal redirects to sign-in; AMD environment fields absent. Live gate blocked pending private endpoint/model/key and provider provenance. No fixture run will be labeled live.
+- Phase0: inspected Windows/tooling/instructions, created repository, proved real installer build/install/launch. AMD portal required sign-in. Authenticated deadline still unconfirmed.
+- Phase1 passed: exact500РІвЂ вЂ™800 and3РІвЂ вЂ™4 results, conservative uncertainty, cents/accounting, actual persisted sandbox actions.
+- Phase2 implemented but live gate blocked: server adapter, exact citations, critical review, bounded requests and explicit fixture/live failure modes. Zero AMD HTTP calls because private configuration is absent.
+- Phase3 local fixture slices passed: shared workbench, graph/table, comparison, timeline, evidence/order queues, approval/apply/receipt, native byte transfer and offline packet view. F1 live and actual OS file-dialog acceptance remain open.
+- Phase4 evidence: 28 pytest checks; 30 frozen domain cases (18 dev/12 held out);12 browser checks;7 installed checks; web/native copy;5 malformed shared-packet cases; actual backend restart; installed offline runtime; renderer scales 1.0/1.25. Actual results and known initial failures are retained.
+- Phase5: optional F9/Evolus omitted. No unsupported eligibility claims.
+- Phase6 prepared: README, architecture/limits/provenance/acceptance, Dockerfile, actual installer, source archive, checksums/manifest, six-slide PowerPoint, real1920Р“вЂ”1080 cover and113.73-second silent demo with honest captions. Public repository, hosting, downloads and submission were not published.
 
-- [x] Phase 0 feasibility: installer built, installed and launched on Windows 11 x64. AMD portal requires sign-in.
-- [x] Phase 1: exact 500→800 / 3→4 results; 25 domain/API tests pass. Frozen 30-case domain pack passes 18 development + 12 held-out.
-- [ ] Phase 2 live gate: adapter, citation validation, review and fixture mode implemented. Private AMD configuration absent; zero live HTTP calls. Four-probe script prepared.
-- [x] Phase 3 fixture slices: web and installed desktop review, plan, approval, sandbox execution, receipt, queues and packet handoff verified.
-- [ ] Phase 4 full gate: 10 browser checks, 7 installed checks, isolated offline runtime passed. Actual native OS dialog selection and genuine AMD remain incomplete. Screenshots captured and mobile readability fixed.
-- [ ] Phase 5: optional F9/Evolus omitted while required external gates remain open.
-- [ ] Phase 6: release/submission assets in progress. Publication/submission unauthorized. Docker daemon unavailable.
+Docker Desktop launch was attempted once after its engine pipe was absent. The Linux engine remained unavailable; no container-build success is claimed. A needed shared-schema COPY was added to the prepared Dockerfile.
 
-Run: .\.venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8787
+Remaining gates require private AMD account configuration, native OS-dialog human input, working Docker engine for container verification, hosting/publication authorization, participant form/deadline review and independent visual/domain feedback. No routine implementation decision is waiting for the user.
 
-Checks: npm run build; .\.venv\Scripts\python.exe -m pytest -q --basetemp work\pytest-verify; .\.venv\Scripts\python.exe -m scripts.evaluate; node scripts\browser-smoke.cjs; node scripts\desktop-smoke.cjs; node scripts\desktop-offline.cjs.
+## Run and reproduce
+
+    cd D:\projects\BatchFence
+    .\.venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8787
+
+Open http://127.0.0.1:8787.
+
+    npm run build
+    .\.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-verify
+    .\.venv\Scripts\python.exe -m scripts.evaluate
+    node scripts/browser-smoke.cjs
+    node scripts/desktop-smoke.cjs
+    node scripts/desktop-offline.cjs
+    node scripts/copy-check.cjs
+    node scripts/copy-check.cjs --web
+
+Release checkpoint and artifact hashes: releases/release-manifest.json. Local Git history contains implementation and final handoff checkpoints. No remote was created or pushed.
+
+Implementation checkpoint:4ad2d92. Final release checkpoint is recorded in releases/release-manifest.json after source archival.

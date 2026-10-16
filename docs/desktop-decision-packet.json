@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "exported_at": "2026-10-16T02:08:13.767920+00:00",
+  "exported_at": "2026-10-16T03:20:01.544913+00:00",
   "label": "Historical read-only packet. Hash is change detection, not supplier authentication.",
   "case": {
-    "id": "b6203e7971cc4f35a49c703f19e08bac",
+    "id": "c0d9e783b7574b2289e38f2611946d45",
     "name": "Northstar Enclosures",
     "incident": "Cosmetic coating defect · decorative housings",
     "synthetic": true,
@@ -11,11 +11,11 @@
     "inventory_version": 2,
     "documents": [
       {
-        "id": "DOC-af902d0a5030",
+        "id": "DOC-62da0af15a55",
         "filename": "ambiguous_receipt.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T02:08:13.057604+00:00",
+        "ingested_at": "2026-10-16T03:20:00.976010+00:00",
         "original_hash": "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
         "text_hash": "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
         "blocks": [
@@ -33,11 +33,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-ac5dea9b82c5",
+        "id": "DOC-4575dbd8c84b",
         "filename": "completeness_manifest.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T02:08:13.057889+00:00",
+        "ingested_at": "2026-10-16T03:20:00.976164+00:00",
         "original_hash": "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
         "text_hash": "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
         "blocks": [
@@ -55,11 +55,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-4a315f4ad96f",
+        "id": "DOC-97be83a9f325",
         "filename": "containment_policy.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T02:08:13.058041+00:00",
+        "ingested_at": "2026-10-16T03:20:00.976261+00:00",
         "original_hash": "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
         "text_hash": "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
         "blocks": [
@@ -77,46 +77,46 @@
         "synthetic": true
       },
       {
-        "id": "DOC-453dab0f1b12",
+        "id": "DOC-13e9d084d084",
         "filename": "inventory.csv",
         "media_type": "text/csv",
         "revision": 1,
-        "ingested_at": "2026-10-16T02:08:13.058150+00:00",
+        "ingested_at": "2026-10-16T03:20:00.976374+00:00",
         "original_hash": "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
         "text_hash": "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
         "blocks": [
           {
-            "id": "line-1",
+            "id": "row-0",
             "text": "row_id,pool_id,units,unit_cents,status,ancestry_complete,site,product_family,timestamp,dataset_version",
             "page": null
           },
           {
-            "id": "line-2",
+            "id": "row-1",
             "text": "INV-1,FG-A,240,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
             "page": null
           },
           {
-            "id": "line-3",
+            "id": "row-2",
             "text": "INV-2,FG-B,160,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
             "page": null
           },
           {
-            "id": "line-4",
+            "id": "row-3",
             "text": "INV-3,FG-C,100,4000,available,false,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
             "page": null
           },
           {
-            "id": "line-5",
+            "id": "row-4",
             "text": "INV-4,FG-D,300,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
             "page": null
           },
           {
-            "id": "line-6",
+            "id": "row-5",
             "text": "INV-5,FG-E,250,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
             "page": null
           },
           {
-            "id": "line-7",
+            "id": "row-6",
             "text": "INV-6,FG-F,150,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
             "page": null
           }
@@ -124,51 +124,51 @@
         "synthetic": true
       },
       {
-        "id": "DOC-13f427753af2",
+        "id": "DOC-5e55e3129194",
         "filename": "lineage.csv",
         "media_type": "text/csv",
         "revision": 1,
-        "ingested_at": "2026-10-16T02:08:13.058517+00:00",
+        "ingested_at": "2026-10-16T03:20:00.976477+00:00",
         "original_hash": "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
         "text_hash": "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
         "blocks": [
           {
-            "id": "line-1",
+            "id": "row-0",
             "text": "row_id,source,target,kind,revision,timestamp",
             "page": null
           },
           {
-            "id": "line-2",
+            "id": "row-1",
             "text": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z",
             "page": null
           },
           {
-            "id": "line-3",
+            "id": "row-2",
             "text": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z",
             "page": null
           },
           {
-            "id": "line-4",
+            "id": "row-3",
             "text": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z",
             "page": null
           },
           {
-            "id": "line-5",
+            "id": "row-4",
             "text": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z",
             "page": null
           },
           {
-            "id": "line-6",
+            "id": "row-5",
             "text": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z",
             "page": null
           },
           {
-            "id": "line-7",
+            "id": "row-6",
             "text": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z",
             "page": null
           },
           {
-            "id": "line-8",
+            "id": "row-7",
             "text": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z",
             "page": null
           }
@@ -176,46 +176,46 @@
         "synthetic": true
       },
       {
-        "id": "DOC-aff2ade8cd24",
+        "id": "DOC-90f90a735c6f",
         "filename": "order_allocations.csv",
         "media_type": "text/csv",
         "revision": 1,
-        "ingested_at": "2026-10-16T02:08:13.058769+00:00",
+        "ingested_at": "2026-10-16T03:20:00.976580+00:00",
         "original_hash": "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
         "text_hash": "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
         "blocks": [
           {
-            "id": "line-1",
+            "id": "row-0",
             "text": "row_id,order_id,pool_id,units,due_date,revision,status",
             "page": null
           },
           {
-            "id": "line-2",
+            "id": "row-1",
             "text": "ALLOC-1,O-101,FG-A,240,2026-10-19,1,open",
             "page": null
           },
           {
-            "id": "line-3",
+            "id": "row-2",
             "text": "ALLOC-2,O-102,FG-B,160,2026-10-20,1,open",
             "page": null
           },
           {
-            "id": "line-4",
+            "id": "row-3",
             "text": "ALLOC-3,O-103,FG-C,100,2026-10-21,1,open",
             "page": null
           },
           {
-            "id": "line-5",
+            "id": "row-4",
             "text": "ALLOC-4,O-104,FG-D,300,2026-10-22,1,open",
             "page": null
           },
           {
-            "id": "line-6",
+            "id": "row-5",
             "text": "ALLOC-5,O-105,FG-E,250,2026-10-23,1,open",
             "page": null
           },
           {
-            "id": "line-7",
+            "id": "row-6",
             "text": "ALLOC-6,O-106,FG-F,150,2026-10-24,1,open",
             "page": null
           }
@@ -223,11 +223,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-8d473dd2d2a7",
+        "id": "DOC-2f820f9edb38",
         "filename": "production_travelers.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T02:08:13.059023+00:00",
+        "ingested_at": "2026-10-16T03:20:00.976671+00:00",
         "original_hash": "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
         "text_hash": "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
         "blocks": [
@@ -245,11 +245,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-461d2f492414",
+        "id": "DOC-2e5281c2fe43",
         "filename": "receiving_register.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T02:08:13.059335+00:00",
+        "ingested_at": "2026-10-16T03:20:00.976763+00:00",
         "original_hash": "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
         "text_hash": "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
         "blocks": [
@@ -267,11 +267,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-4f71612c249e",
+        "id": "DOC-cedb0c2e1287",
         "filename": "supplier_notice_v1.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T02:08:13.059618+00:00",
+        "ingested_at": "2026-10-16T03:20:00.976849+00:00",
         "original_hash": "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
         "text_hash": "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
         "blocks": [
@@ -304,11 +304,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-a3750bfcddbf",
+        "id": "DOC-64e69ffe3453",
         "filename": "supplier_notice_v2.txt",
         "media_type": "text/plain",
         "revision": 2,
-        "ingested_at": "2026-10-16T02:08:13.410606+00:00",
+        "ingested_at": "2026-10-16T03:20:01.224973+00:00",
         "original_hash": "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d",
         "text_hash": "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d",
         "blocks": [
@@ -418,8 +418,8 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-13f427753af2",
-          "block_id": "line-2",
+          "document_id": "DOC-5e55e3129194",
+          "block_id": "row-1",
           "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
         }
       },
@@ -431,8 +431,8 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-13f427753af2",
-          "block_id": "line-3",
+          "document_id": "DOC-5e55e3129194",
+          "block_id": "row-2",
           "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
         }
       },
@@ -444,8 +444,8 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-13f427753af2",
-          "block_id": "line-4",
+          "document_id": "DOC-5e55e3129194",
+          "block_id": "row-3",
           "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
         }
       },
@@ -457,8 +457,8 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-13f427753af2",
-          "block_id": "line-5",
+          "document_id": "DOC-5e55e3129194",
+          "block_id": "row-4",
           "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
         }
       },
@@ -470,8 +470,8 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-13f427753af2",
-          "block_id": "line-6",
+          "document_id": "DOC-5e55e3129194",
+          "block_id": "row-5",
           "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
         }
       },
@@ -483,8 +483,8 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-13f427753af2",
-          "block_id": "line-7",
+          "document_id": "DOC-5e55e3129194",
+          "block_id": "row-6",
           "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
         }
       },
@@ -496,8 +496,8 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-13f427753af2",
-          "block_id": "line-8",
+          "document_id": "DOC-5e55e3129194",
+          "block_id": "row-7",
           "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
         }
       }
@@ -573,16 +573,16 @@
       "qualifiers": [
         "Synthetic deterministic walkthrough. Confirm scope against the original notice."
       ],
-      "source_document_id": "DOC-a3750bfcddbf"
+      "source_document_id": "DOC-64e69ffe3453"
     },
     "runs": [
       {
-        "id": "af5ec83f-e5f0-46b7-8712-9d8cae737852",
+        "id": "7a548e42-3627-49b5-8c22-124ec7ba569b",
         "mode": "fixture",
         "provider": "Synthetic fixture",
         "prompt_version": "scope-extract-1",
         "schema_version": 1,
-        "timestamp": "2026-10-16T02:08:13.144384+00:00",
+        "timestamp": "2026-10-16T03:20:01.038253+00:00",
         "status": "succeeded",
         "repairs": 0,
         "model_id": "fixture-parser-v1",
@@ -593,7 +593,7 @@
               "affected": true,
               "evidence": [
                 {
-                  "document_id": "DOC-4f71612c249e",
+                  "document_id": "DOC-cedb0c2e1287",
                   "block_id": "line-4",
                   "quote": "Affected lots: SUP-A"
                 }
@@ -604,17 +604,17 @@
             "Synthetic deterministic walkthrough. Confirm scope against the original notice."
           ]
         },
-        "elapsed_ms": 1,
+        "elapsed_ms": 0,
         "revision": 1,
-        "document_id": "DOC-4f71612c249e"
+        "document_id": "DOC-cedb0c2e1287"
       },
       {
-        "id": "bce5ee28-7577-447c-ab41-de7d97bbf494",
+        "id": "25c3803b-8f0b-473e-bf0c-2f0030ee0df2",
         "mode": "fixture",
         "provider": "Synthetic fixture",
         "prompt_version": "scope-extract-1",
         "schema_version": 1,
-        "timestamp": "2026-10-16T02:08:13.534779+00:00",
+        "timestamp": "2026-10-16T03:20:01.322247+00:00",
         "status": "succeeded",
         "repairs": 0,
         "model_id": "fixture-parser-v1",
@@ -625,7 +625,7 @@
               "affected": true,
               "evidence": [
                 {
-                  "document_id": "DOC-a3750bfcddbf",
+                  "document_id": "DOC-64e69ffe3453",
                   "block_id": "line-4",
                   "quote": "Affected lots: SUP-A, SUP-C"
                 }
@@ -636,7 +636,7 @@
               "affected": true,
               "evidence": [
                 {
-                  "document_id": "DOC-a3750bfcddbf",
+                  "document_id": "DOC-64e69ffe3453",
                   "block_id": "line-4",
                   "quote": "Affected lots: SUP-A, SUP-C"
                 }
@@ -649,14 +649,14 @@
         },
         "elapsed_ms": 0,
         "revision": 2,
-        "document_id": "DOC-a3750bfcddbf"
+        "document_id": "DOC-64e69ffe3453"
       }
     ],
     "reviews": [
       {
-        "at": "2026-10-16T02:08:13.252004+00:00",
+        "at": "2026-10-16T03:20:01.107790+00:00",
         "reviewer": "Anonymous session reviewer",
-        "run_id": "af5ec83f-e5f0-46b7-8712-9d8cae737852",
+        "run_id": "7a548e42-3627-49b5-8c22-124ec7ba569b",
         "suggested_lots": [
           "SUP-A"
         ],
@@ -669,9 +669,9 @@
         "bounded_scope_reviewed": true
       },
       {
-        "at": "2026-10-16T02:08:13.605362+00:00",
+        "at": "2026-10-16T03:20:01.402846+00:00",
         "reviewer": "Anonymous session reviewer",
-        "run_id": "bce5ee28-7577-447c-ab41-de7d97bbf494",
+        "run_id": "25c3803b-8f0b-473e-bf0c-2f0030ee0df2",
         "suggested_lots": [
           "SUP-A",
           "SUP-C"
@@ -690,8 +690,8 @@
     ],
     "plans": [
       {
-        "id": "PLAN-b81074b10398",
-        "digest": "b81074b10398a628cd6b9bf7108e1ee5f1c8c7c4d5c72dafbdbb6e561c82e0cd",
+        "id": "PLAN-d9cbed96768c",
+        "digest": "d9cbed96768c6cdabd2a77b521770019520379d4b18b54e9611a593e8765932c",
         "status": "stale",
         "revision": 1,
         "inventory_version": 1,
@@ -729,8 +729,8 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-13f427753af2",
-                  "block_id": "line-2",
+                  "document_id": "DOC-5e55e3129194",
+                  "block_id": "row-1",
                   "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
                 }
               ]
@@ -753,8 +753,8 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-13f427753af2",
-                  "block_id": "line-3",
+                  "document_id": "DOC-5e55e3129194",
+                  "block_id": "row-2",
                   "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
                 }
               ]
@@ -777,8 +777,8 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-13f427753af2",
-                  "block_id": "line-4",
+                  "document_id": "DOC-5e55e3129194",
+                  "block_id": "row-3",
                   "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
                 }
               ]
@@ -801,8 +801,8 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-13f427753af2",
-                  "block_id": "line-6",
+                  "document_id": "DOC-5e55e3129194",
+                  "block_id": "row-5",
                   "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
                 }
               ]
@@ -825,8 +825,8 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-13f427753af2",
-                  "block_id": "line-7",
+                  "document_id": "DOC-5e55e3129194",
+                  "block_id": "row-6",
                   "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
                 }
               ]
@@ -849,8 +849,8 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-13f427753af2",
-                  "block_id": "line-8",
+                  "document_id": "DOC-5e55e3129194",
+                  "block_id": "row-7",
                   "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
                 }
               ]
@@ -936,62 +936,63 @@
           "narrowing_available": true
         },
         "inputs": {
+          "incident_id": "c0d9e783b7574b2289e38f2611946d45",
           "evidence_revision": 1,
           "inventory_version": 1,
           "documents": [
             [
-              "DOC-13f427753af2",
-              1,
-              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
-              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5"
-            ],
-            [
-              "DOC-453dab0f1b12",
+              "DOC-13e9d084d084",
               1,
               "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
               "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46"
             ],
             [
-              "DOC-461d2f492414",
+              "DOC-2e5281c2fe43",
               1,
               "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
               "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e"
             ],
             [
-              "DOC-4a315f4ad96f",
-              1,
-              "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
-              "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6"
-            ],
-            [
-              "DOC-4f71612c249e",
-              1,
-              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
-              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404"
-            ],
-            [
-              "DOC-8d473dd2d2a7",
+              "DOC-2f820f9edb38",
               1,
               "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
               "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e"
             ],
             [
-              "DOC-ac5dea9b82c5",
+              "DOC-4575dbd8c84b",
               1,
               "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
               "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3"
             ],
             [
-              "DOC-af902d0a5030",
+              "DOC-5e55e3129194",
+              1,
+              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
+              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5"
+            ],
+            [
+              "DOC-62da0af15a55",
               1,
               "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
               "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9"
             ],
             [
-              "DOC-aff2ade8cd24",
+              "DOC-90f90a735c6f",
               1,
               "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
               "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee"
+            ],
+            [
+              "DOC-97be83a9f325",
+              1,
+              "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
+              "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6"
+            ],
+            [
+              "DOC-cedb0c2e1287",
+              1,
+              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
+              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404"
             ]
           ],
           "reviewed_scope": {
@@ -1002,7 +1003,7 @@
             "qualifiers": [
               "Synthetic deterministic walkthrough. Confirm scope against the original notice."
             ],
-            "source_document_id": "DOC-4f71612c249e"
+            "source_document_id": "DOC-cedb0c2e1287"
           },
           "stocks": [
             {
@@ -1081,8 +1082,8 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-13f427753af2",
-                "block_id": "line-2",
+                "document_id": "DOC-5e55e3129194",
+                "block_id": "row-1",
                 "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
               }
             },
@@ -1094,8 +1095,8 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-13f427753af2",
-                "block_id": "line-3",
+                "document_id": "DOC-5e55e3129194",
+                "block_id": "row-2",
                 "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
               }
             },
@@ -1107,8 +1108,8 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-13f427753af2",
-                "block_id": "line-4",
+                "document_id": "DOC-5e55e3129194",
+                "block_id": "row-3",
                 "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
               }
             },
@@ -1120,8 +1121,8 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-13f427753af2",
-                "block_id": "line-5",
+                "document_id": "DOC-5e55e3129194",
+                "block_id": "row-4",
                 "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
               }
             },
@@ -1133,8 +1134,8 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-13f427753af2",
-                "block_id": "line-6",
+                "document_id": "DOC-5e55e3129194",
+                "block_id": "row-5",
                 "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
               }
             },
@@ -1146,8 +1147,8 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-13f427753af2",
-                "block_id": "line-7",
+                "document_id": "DOC-5e55e3129194",
+                "block_id": "row-6",
                 "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
               }
             },
@@ -1159,8 +1160,8 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-13f427753af2",
-                "block_id": "line-8",
+                "document_id": "DOC-5e55e3129194",
+                "block_id": "row-7",
                 "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
               }
             }
@@ -1243,16 +1244,16 @@
           ]
         },
         "approval": {
-          "at": "2026-10-16T02:08:13.364488+00:00",
+          "at": "2026-10-16T03:20:01.188723+00:00",
           "reviewer": "Anonymous session reviewer",
-          "digest": "b81074b10398a628cd6b9bf7108e1ee5f1c8c7c4d5c72dafbdbb6e561c82e0cd",
-          "plan_id": "PLAN-b81074b10398"
+          "digest": "d9cbed96768c6cdabd2a77b521770019520379d4b18b54e9611a593e8765932c",
+          "plan_id": "PLAN-d9cbed96768c"
         }
       }
     ],
     "plan": {
-      "id": "PLAN-b4599e1994af",
-      "digest": "b4599e1994afc49c5fd057f83f354e6f5334820f126550f719ca53518591d4cd",
+      "id": "PLAN-01c24ff21a58",
+      "digest": "01c24ff21a58fabbf4022f88fa608b368d61c9cb04cad871f62d7e4f7aace70f",
       "status": "applied",
       "revision": 2,
       "inventory_version": 1,
@@ -1294,8 +1295,8 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-13f427753af2",
-                "block_id": "line-2",
+                "document_id": "DOC-5e55e3129194",
+                "block_id": "row-1",
                 "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
               }
             ]
@@ -1318,8 +1319,8 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-13f427753af2",
-                "block_id": "line-3",
+                "document_id": "DOC-5e55e3129194",
+                "block_id": "row-2",
                 "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
               }
             ]
@@ -1342,8 +1343,8 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-13f427753af2",
-                "block_id": "line-4",
+                "document_id": "DOC-5e55e3129194",
+                "block_id": "row-3",
                 "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
               }
             ]
@@ -1366,8 +1367,8 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-13f427753af2",
-                "block_id": "line-6",
+                "document_id": "DOC-5e55e3129194",
+                "block_id": "row-5",
                 "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
               }
             ]
@@ -1390,8 +1391,8 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-13f427753af2",
-                "block_id": "line-7",
+                "document_id": "DOC-5e55e3129194",
+                "block_id": "row-6",
                 "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
               }
             ]
@@ -1414,8 +1415,8 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-13f427753af2",
-                "block_id": "line-8",
+                "document_id": "DOC-5e55e3129194",
+                "block_id": "row-7",
                 "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
               }
             ]
@@ -1517,68 +1518,69 @@
         "narrowing_available": true
       },
       "inputs": {
+        "incident_id": "c0d9e783b7574b2289e38f2611946d45",
         "evidence_revision": 2,
         "inventory_version": 1,
         "documents": [
           [
-            "DOC-13f427753af2",
-            1,
-            "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
-            "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5"
-          ],
-          [
-            "DOC-453dab0f1b12",
+            "DOC-13e9d084d084",
             1,
             "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
             "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46"
           ],
           [
-            "DOC-461d2f492414",
+            "DOC-2e5281c2fe43",
             1,
             "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
             "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e"
           ],
           [
-            "DOC-4a315f4ad96f",
-            1,
-            "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
-            "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6"
-          ],
-          [
-            "DOC-4f71612c249e",
-            1,
-            "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
-            "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404"
-          ],
-          [
-            "DOC-8d473dd2d2a7",
+            "DOC-2f820f9edb38",
             1,
             "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
             "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e"
           ],
           [
-            "DOC-a3750bfcddbf",
-            2,
-            "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d",
-            "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d"
-          ],
-          [
-            "DOC-ac5dea9b82c5",
+            "DOC-4575dbd8c84b",
             1,
             "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
             "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3"
           ],
           [
-            "DOC-af902d0a5030",
+            "DOC-5e55e3129194",
+            1,
+            "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
+            "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5"
+          ],
+          [
+            "DOC-62da0af15a55",
             1,
             "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
             "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9"
           ],
           [
-            "DOC-aff2ade8cd24",
+            "DOC-64e69ffe3453",
+            2,
+            "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d",
+            "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d"
+          ],
+          [
+            "DOC-90f90a735c6f",
             1,
             "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
             "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee"
+          ],
+          [
+            "DOC-97be83a9f325",
+            1,
+            "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
+            "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6"
+          ],
+          [
+            "DOC-cedb0c2e1287",
+            1,
+            "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
+            "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404"
           ]
         ],
         "reviewed_scope": {
@@ -1590,7 +1592,7 @@
           "qualifiers": [
             "Synthetic deterministic walkthrough. Confirm scope against the original notice."
           ],
-          "source_document_id": "DOC-a3750bfcddbf"
+          "source_document_id": "DOC-64e69ffe3453"
         },
         "stocks": [
           {
@@ -1669,8 +1671,8 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-13f427753af2",
-              "block_id": "line-2",
+              "document_id": "DOC-5e55e3129194",
+              "block_id": "row-1",
               "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
             }
           },
@@ -1682,8 +1684,8 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-13f427753af2",
-              "block_id": "line-3",
+              "document_id": "DOC-5e55e3129194",
+              "block_id": "row-2",
               "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
             }
           },
@@ -1695,8 +1697,8 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-13f427753af2",
-              "block_id": "line-4",
+              "document_id": "DOC-5e55e3129194",
+              "block_id": "row-3",
               "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
             }
           },
@@ -1708,8 +1710,8 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-13f427753af2",
-              "block_id": "line-5",
+              "document_id": "DOC-5e55e3129194",
+              "block_id": "row-4",
               "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
             }
           },
@@ -1721,8 +1723,8 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-13f427753af2",
-              "block_id": "line-6",
+              "document_id": "DOC-5e55e3129194",
+              "block_id": "row-5",
               "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
             }
           },
@@ -1734,8 +1736,8 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-13f427753af2",
-              "block_id": "line-7",
+              "document_id": "DOC-5e55e3129194",
+              "block_id": "row-6",
               "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
             }
           },
@@ -1747,8 +1749,8 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-13f427753af2",
-              "block_id": "line-8",
+              "document_id": "DOC-5e55e3129194",
+              "block_id": "row-7",
               "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
             }
           }
@@ -1835,15 +1837,15 @@
         ]
       },
       "approval": {
-        "at": "2026-10-16T02:08:13.676157+00:00",
+        "at": "2026-10-16T03:20:01.448831+00:00",
         "reviewer": "Anonymous session reviewer",
-        "digest": "b4599e1994afc49c5fd057f83f354e6f5334820f126550f719ca53518591d4cd",
-        "plan_id": "PLAN-b4599e1994af"
+        "digest": "01c24ff21a58fabbf4022f88fa608b368d61c9cb04cad871f62d7e4f7aace70f",
+        "plan_id": "PLAN-01c24ff21a58"
       }
     },
     "history": [
       {
-        "at": "2026-10-16T02:08:13.252460+00:00",
+        "at": "2026-10-16T03:20:01.108476+00:00",
         "type": "reviewed",
         "revision": 1,
         "previous_lots": [],
@@ -1851,23 +1853,26 @@
           "SUP-A"
         ],
         "old_units": null,
+        "suggested_lots": [
+          "SUP-A"
+        ],
         "new_units": 500,
         "message": "Critical scope and completeness reviewed; new exact plan calculated."
       },
       {
-        "at": "2026-10-16T02:08:13.364498+00:00",
+        "at": "2026-10-16T03:20:01.188738+00:00",
         "type": "approved",
         "revision": 1,
-        "message": "Approved exact plan PLAN-b81074b10398"
+        "message": "Approved exact plan PLAN-d9cbed96768c"
       },
       {
-        "at": "2026-10-16T02:08:13.410653+00:00",
+        "at": "2026-10-16T03:20:01.225007+00:00",
         "type": "evidence_changed",
         "message": "Supplier correction expands affected lots. Previous approval is stale immediately.",
         "revision": 2
       },
       {
-        "at": "2026-10-16T02:08:13.605935+00:00",
+        "at": "2026-10-16T03:20:01.403544+00:00",
         "type": "reviewed",
         "revision": 2,
         "previous_lots": [
@@ -1878,30 +1883,34 @@
           "SUP-C"
         ],
         "old_units": 500,
+        "suggested_lots": [
+          "SUP-A",
+          "SUP-C"
+        ],
         "new_units": 800,
         "message": "Critical scope and completeness reviewed; new exact plan calculated."
       },
       {
-        "at": "2026-10-16T02:08:13.676171+00:00",
+        "at": "2026-10-16T03:20:01.448839+00:00",
         "type": "approved",
         "revision": 2,
-        "message": "Approved exact plan PLAN-b4599e1994af"
+        "message": "Approved exact plan PLAN-01c24ff21a58"
       },
       {
-        "at": "2026-10-16T02:08:13.707694+00:00",
+        "at": "2026-10-16T03:20:01.490763+00:00",
         "type": "applied",
         "revision": 2,
-        "message": "Sandbox inventory committed atomically: TX-5ad3b645a55545c3bad600d349331f3f"
+        "message": "Sandbox inventory committed atomically: TX-5208055678454be3b805294e21e360a6"
       }
     ],
     "receipts": [
       {
-        "transaction_id": "TX-5ad3b645a55545c3bad600d349331f3f",
-        "at": "2026-10-16T02:08:13.707686+00:00",
+        "transaction_id": "TX-5208055678454be3b805294e21e360a6",
+        "at": "2026-10-16T03:20:01.490752+00:00",
         "execution": "SANDBOX INVENTORY",
-        "plan_id": "PLAN-b4599e1994af",
-        "digest": "b4599e1994afc49c5fd057f83f354e6f5334820f126550f719ca53518591d4cd",
-        "idempotency_key": "720c4b34-3d83-4df9-8136-f3973134e4b7",
+        "plan_id": "PLAN-01c24ff21a58",
+        "digest": "01c24ff21a58fabbf4022f88fa608b368d61c9cb04cad871f62d7e4f7aace70f",
+        "idempotency_key": "c2aa2208-79de-46c8-a865-f1970ab00073",
         "changes": [
           {
             "pool_id": "FG-A",
@@ -1936,5 +1945,5 @@
     "pending_data": null,
     "pending_revision": false
   },
-  "integrity_hash": "bcfc9b7baaba68a977a57c0e0ad13bb5c818828c07675e50f33b1d507d2a7ec3"
+  "integrity_hash": "71e3f90e769f6081aaad3cd8dd0c9e803cb985580bf4847479d061a6a2558a25"
 }

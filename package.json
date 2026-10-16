@@ -10,7 +10,7 @@
     "dev": "vite --host 127.0.0.1",
     "build": "tsc --noEmit && vite build",
     "desktop": "electron .",
-    "package:desktop": "npm run build && electron-builder --win nsis --x64",
+    "package:desktop": "npm run build && node scripts/configure-desktop.cjs && electron-builder --win nsis --x64",
     "test:web": "node scripts/browser-smoke.cjs"
   },
   "dependencies": {

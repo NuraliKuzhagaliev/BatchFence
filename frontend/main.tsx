@@ -28,6 +28,7 @@ import {
   savePacket,
   fileUpload,
   validatePacket,
+  copyDraft,
 } from "./platform";
 import type { Case, Document, Evidence, Packet, Upload } from "./types";
 import { Graph, labels } from "./Graph";
@@ -144,11 +145,18 @@ function App() {
     let active = true;
     async function boot() {
       try {
-        const health = await request<{inference_mode:string;amd_configured:boolean}>("GET", "/api/health");
+        const health = await request<{
+          inference_mode: string;
+          amd_configured: boolean;
+        }>("GET", "/api/health");
         const all = await request<typeof cases>("GET", "/api/cases");
         if (!active) return;
         setCases(all);
-        setMode(health.amd_configured && health.inference_mode === "live" ? "live" : "fixture");
+        setMode(
+          health.amd_configured && health.inference_mode === "live"
+            ? "live"
+            : "fixture",
+        );
         const id = localStorage.getItem("bf.case");
         if (id && all.some((c) => c.id === id)) {
           const c = await request<Case>("GET", "/api/cases/" + id);
@@ -172,13 +180,17 @@ function App() {
             if (!connectionWasAvailable.current) {
               const all = await request<typeof cases>("GET", "/api/cases");
               const id = localStorage.getItem("bf.case");
-              const current = id && all.some(c => c.id === id)
-                ? await request<Case>("GET", "/api/cases/" + id) : null;
+              const current =
+                id && all.some((c) => c.id === id)
+                  ? await request<Case>("GET", "/api/cases/" + id)
+                  : null;
               if (!active) return;
               setCases(all);
               setData(current);
               setReview(false);
-              setNotice("Backend reconnected. Current evidence and action state reloaded.");
+              setNotice(
+                "Backend reconnected. Current evidence and action state reloaded.",
+              );
             }
             connectionWasAvailable.current = true;
             setOnline(true);
@@ -655,7 +667,9 @@ function App() {
                   {packet
                     ? "HISTORICAL PACKET"
                     : run?.mode === "live"
-                      ? run.status === "succeeded" ? "LIVE AMD" : "LIVE REQUEST FAILED"
+                      ? run.status === "succeeded"
+                        ? "LIVE AMD"
+                        : "LIVE REQUEST FAILED"
                       : run?.mode === "recorded"
                         ? "RECORDED REPLAY"
                         : "SYNTHETIC FIXTURE"}
@@ -1023,7 +1037,10 @@ function App() {
                             <h3>{h.type.replaceAll("_", " ")}</h3>
                             <p>{h.message}</p>
                             {h.type === "reviewed" && h.suggested_lots && (
-                              <p>Candidate lots: {h.suggested_lots.join(", ")}. Accepted lots: {h.lot_ids?.join(", ")}.</p>
+                              <p>
+                                Candidate lots: {h.suggested_lots.join(", ")}.
+                                Accepted lots: {h.lot_ids?.join(", ")}.
+                              </p>
                             )}
                             {h.lot_ids && (
                               <div className="revision-diff">
@@ -1087,9 +1104,7 @@ function App() {
                                   className="button small"
                                   onClick={() =>
                                     task("Copying request draft", async () => {
-                                      await navigator.clipboard.writeText(
-                                        r.draft,
-                                      );
+                                      await copyDraft(r.draft);
                                       setNotice(
                                         "Draft copied. No message was sent.",
                                       );
@@ -1172,6 +1187,19 @@ function App() {
                             Order quantities refer to existing inventory and are
                             not added to exposure totals.
                           </p>
+                          {result.shipment_reviews.length > 0 && (
+                            <div className="queue-summary">
+                              <AlertTriangle size={20} />
+                              <p>
+                                <strong>
+                                  Shipped stock needs shipment review
+                                </strong>
+                                <br />
+                                Warehouse holds cannot apply to shipped goods:{" "}
+                                {result.shipment_reviews.join(", ")}.
+                              </p>
+                            </div>
+                          )}
                         </>
                       ) : (
                         <Empty text="Review scope to identify allocated open orders." />

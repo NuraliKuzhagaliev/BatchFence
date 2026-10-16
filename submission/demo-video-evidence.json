@@ -1,0 +1,9 @@
+{
+  "duration_seconds": 113.72999999999999,
+  "byte_count": 1778738,
+  "web_clip_seconds": 93.53,
+  "installed_desktop_clip_seconds": 20.2,
+  "audio": "Silent recording. Embedded selectable captions and sidecar SRT/VTT.",
+  "provenance": "Actual local web workflow and actual installed offline renderer. Fixture parser. Native dialog selection supplied by test harness and disclosed in captions.",
+  "live_amd": false
+}

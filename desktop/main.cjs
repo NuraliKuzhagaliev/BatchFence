@@ -6,13 +6,14 @@ const {
   protocol,
   net,
   session,
+  clipboard,
 } = require("electron");
 const path = require("node:path");
 const fs = require("node:fs/promises");
 const { pathToFileURL } = require("node:url");
 const { validatePacket } = require("./packet.cjs");
 // Local distribution until authorized HTTPS hosting is configured. Never accepts a renderer-provided origin.
-const origin = process.env.BATCHFENCE_BACKEND_ORIGIN || "http://127.0.0.1:8787";
+const origin = process.env.BATCHFENCE_BACKEND_ORIGIN || require("./backend-origin.json").origin;
 const url = new URL(origin);
 if (
   !(
@@ -55,6 +56,16 @@ function packetSize(p) {
   return validatePacket(p);
 }
 app.whenReady().then(() => {
+  ipcMain.handle("bf:copyDraft", (event, draft) => {
+    sender(event);
+    if (
+      typeof draft !== "string" ||
+      !draft.length ||
+      Buffer.byteLength(draft, "utf8") > 4000
+    )
+      throw Error("Invalid request draft");
+    clipboard.writeText(draft);
+  });
   session.defaultSession.setPermissionRequestHandler((_w, _p, cb) => cb(false));
   session.defaultSession.setPermissionCheckHandler(() => false);
   protocol.handle("batchfence", (request) => {

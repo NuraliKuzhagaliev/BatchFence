@@ -1,0 +1,76 @@
+// Authentic recordings of the application. Reading pauses do not simulate model progress.
+const path=require('node:path'),fs=require('node:fs/promises');
+const root=path.resolve(__dirname,'..'),clips=path.join(root,'work/demo');
+process.env.PLAYWRIGHT_BROWSERS_PATH=path.join(root,'.cache/playwright');
+const {chromium,_electron:electron}=require('playwright');
+const chapters=[];
+function stamp(seconds){const h=Math.floor(seconds/3600),m=Math.floor(seconds/60)%60,s=seconds%60;return [h,m,s].map(x=>String(x).padStart(2,'0')).join(':')+'.000'}
+async function main(){
+ await fs.mkdir(clips,{recursive:true});
+ const browser=await chromium.launch({channel:'msedge',headless:true});
+ const context=await browser.newContext({viewport:{width:1600,height:900},recordVideo:{dir:clips,size:{width:1280,height:720},fps:15}});
+ const page=await context.newPage(),began=Date.now();
+ const hold=async(seconds,caption)=>{chapters.push({seconds:Math.floor((Date.now()-began)/1000),caption});await page.waitForTimeout(seconds*1000)};
+ const click=async name=>page.getByRole('button',{name,exact:true}).click();
+ await page.goto('http://127.0.0.1:8787/');
+ await page.getByRole('button',{name:'Load synthetic incident',exact:false}).waitFor();
+ await hold(7,'Local BatchFence prototype. All records are synthetic. Live AMD verification is pending.');
+ await page.getByRole('button',{name:'Load synthetic incident',exact:false}).click();
+ await click('Extract selected notice');
+ await page.getByRole('heading',{name:'Confirm the affected supplier lots.'}).waitFor();
+ await hold(8,'The labeled fixture parser proposes SUP-A. A reviewer checks critical identifiers and scope.');
+ await page.getByRole('button',{name:'SUP-A Affected candidate Inspect quote',exact:false}).click();
+ await hold(7,'The exact supporting source quote is inspectable. A quote establishes source existence, not semantic correctness.');
+ await page.getByLabel('I checked lot IDs, exclusions, qualifiers and whether this notice supersedes prior scope.').check();
+ await click('Confirm scope & calculate');
+ await page.getByRole('button',{name:'Approve exact plan',exact:true}).waitFor();
+ if(await page.getByRole('button',{name:'Dismiss message',exact:true}).isVisible())await click('Dismiss message');
+ await page.getByRole('button',{name:/FG-C, 100 units/}).click();
+ await page.screenshot({path:path.join(root,'submission/cover.png'),fullPage:false});
+ await hold(10,'400 documented plus 100 uncertain units require a 500-unit hold. The broad comparison contains 1,200 current units.');
+ await page.getByRole('tab',{name:'Evidence requests'}).click();
+ await hold(8,'The unresolved receiving identity may clarify 100 units / EUR4,000 of carrying value. This is not a release or savings promise.');
+ await page.getByRole('tab',{name:'Order review'}).click();
+ await hold(7,'Three explicitly allocated open orders need review. No delay prediction is made.');
+ await page.getByRole('tab',{name:'Exposure',exact:true}).click();
+ await click('Approve exact plan');await click('Test excluding uncertain stock');
+ await page.getByRole('alert').waitFor();
+ await hold(8,'The server rejects an edited action set that omits uncertain stock.');
+ await click('Add supplier v2');await click('Test stale approval');
+ await page.getByRole('alert').waitFor();
+ await hold(9,'New supplier evidence immediately invalidates the previous approval. The stale request is rejected.');
+ await click('Review current evidence');
+ await page.getByLabel('I checked lot IDs, exclusions, qualifiers and whether this notice supersedes prior scope.').check();
+ await click('Confirm scope & calculate');
+ await page.getByRole('button',{name:'Approve exact plan',exact:true}).waitFor();
+ await hold(9,'Reviewed SUP-C adds the 300-unit FG-D branch. The exact new plan holds 800 units.');
+ await page.getByRole('tab',{name:'Revisions',exact:true}).click();
+ await hold(6,'The timeline preserves prior and revised scope and the 500-to-800 quantity change.');
+ await click('Approve exact plan');await click('Apply sandbox holds');
+ await page.getByRole('heading',{name:'Holds applied. Evidence preserved.'}).waitFor();
+ await hold(9,'A real SQLite transaction updates sandbox inventory and writes a receipt. No external machinery or inventory system is connected.');
+ const downloadEvent=page.waitForEvent('download');await click('Export packet');const download=await downloadEvent;
+ const packet=path.join(clips,'recorded-decision.json');await download.saveAs(packet);
+ await hold(4,'The exported packet includes sources, review history and the actual historical receipt, without session authority.');
+ const webVideo=page.video();await context.close();await webVideo.saveAs(path.join(clips,'web.webm'));await browser.close();
+ const desktopChapters=[],desktopStart=Date.now();
+ const app=await electron.launch({executablePath:path.join(root,'work/installed/BatchFence.exe'),args:['--force-device-scale-factor=1'],
+  env:{...process.env,PATH:'C:\\Windows\\System32',BATCHFENCE_BACKEND_ORIGIN:'http://127.0.0.1:9',BATCHFENCE_USER_DATA:path.join(root,'work/demo-desktop-profile')},
+  recordVideo:{dir:clips,size:{width:1280,height:720},fps:15}});
+ const desktop=await app.firstWindow();const desktopVideo=desktop.video();
+ await desktop.getByText('Backend offline',{exact:true}).waitFor();
+ await app.evaluate(({dialog},dest)=>{dialog.showOpenDialog=async()=>({canceled:false,filePaths:[dest]})},packet);
+ await desktop.getByRole('button',{name:'Open packet',exact:true}).click();
+ await desktop.getByText('Offline evidence review · historical snapshot',{exact:true}).waitFor();
+ desktopChapters.push({seconds:Math.floor((Date.now()-desktopStart)/1000),caption:'Installed Windows renderer, backend unreachable. Dialog selection is supplied by the test harness; real file reading and validation run.'});
+ await desktop.waitForTimeout(10000);
+ await desktop.getByRole('tab',{name:'Receipt',exact:true}).click();
+ await desktop.getByRole('heading',{name:'Holds applied. Evidence preserved.'}).waitFor();
+ await desktop.locator('.receipt-card').scrollIntoViewIfNeeded();
+ desktopChapters.push({seconds:Math.floor((Date.now()-desktopStart)/1000),caption:'The web-exported receipt is readable offline. Inference, approval and apply are disabled. External Node/Python are absent from the child PATH.'});
+ await desktop.waitForTimeout(10000);
+ await app.close();await desktopVideo.saveAs(path.join(clips,'desktop.webm'));
+ await fs.writeFile(path.join(clips,'chapters.json'),JSON.stringify({web:chapters,desktop:desktopChapters,video:'Authentic local screen recordings. Silent; sidecar captions disclose fixtures and stubbed dialog selection.'},null,2));
+ console.log('Recorded actual web flow, installed offline renderer, and 1600x900 actual cover.');
+}
+main().catch(e=>{console.error(e);process.exit(1)});
