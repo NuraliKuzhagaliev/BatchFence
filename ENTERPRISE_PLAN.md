@@ -22,3 +22,5 @@ Engineering owner: Codex (agent-operated checks, not independent human). Human a
 Baseline inspected; entire enterprise brief read. First implementation phase: persistence, identities, data contracts and restore tooling. Existing public 0.2.0 is unchanged.
 
 Foundation milestone: 73 tests pass; actual PostgreSQL migration/runtime restrictions, 500/800/stale/concurrent duplicate and 11-source isolated restore pass. Private Compose build acceptance in progress. Named users are test identities; no independent human acceptance. No AMD calls/prompt changes.
+
+Backend integration milestone: all four module server workflows are implemented with targeted synthetic checks; full client integration and release acceptance remain pending. 800→700→100 recovery checks preserve other incident holds. Frozen effectiveness plan and recurrence mechanics pass targeted tests. Raw fresh AMD evaluation not yet run.

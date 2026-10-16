@@ -43,7 +43,7 @@ protocol.registerSchemesAsPrivileged([
 let win,
   capability = "";
 const apiPattern =
-  /^\/api\/(?:health|replay|challenges|cases(?:\/(?:demo|import|[a-f0-9]{32}(?:\/(?:documents|revision|analyze|reviews|approve|apply|export|simulate|reply-preview|reply-review|comparison))?))?)$/;
+  /^\/api\/(?:health|replay|challenges|audit|inspections|intake\/profiles|jobs(?:\/[a-f0-9-]+\/cancel)?|auth\/(?:login|logout|me|membership)|cases(?:\/(?:demo|import|[a-f0-9]{32}(?:\/(?:documents(?:\/DOC-[a-f0-9]{12}\/pages\/[1-8])?|revision|analyze|reviews|approve|apply|export|simulate|reply-preview|reply-review|comparison|intake-preview|intake-review|ocr-review))?))?)$/;
 function sender(event) {
   if (
     !win ||
@@ -99,7 +99,7 @@ app.whenReady().then(() => {
     const response = await fetch(origin + route, {
       method,
       redirect: "error",
-      signal: AbortSignal.timeout(55000),
+      signal: AbortSignal.timeout(route.endsWith("/documents") ? 120000 : 55000),
       headers: {
         "Content-Type": "application/json",
         "X-BF-Client": "desktop",
@@ -108,7 +108,7 @@ app.whenReady().then(() => {
       },
       ...(method === "POST" ? { body: JSON.stringify(body || {}) } : {}),
     });
-    if (response.headers.get("x-bf-session"))
+    if (response.headers.has("x-bf-session"))
       capability = response.headers.get("x-bf-session");
     const text = await response.text();
     if (text.length > 8000000) throw Error("Backend response too large");

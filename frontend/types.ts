@@ -1,5 +1,6 @@
 export type Evidence = { document_id: string; block_id: string; quote: string };
 export type Document = {
+  ocr?: {engine:string;critical_fields_confirmed:boolean;pages:{page:number;image_hash:string}[]};
   request_id?: string;
   request_snapshot?: Question;
   id: string;
@@ -116,6 +117,7 @@ export type Receipt = {
   changes: { pool_id: string; units: number; before: string; after: string }[];
 };
 export type Case = {
+  quantities?: {applied_hold_units:number;recovery_pending_units:number;confirmed_recovery_units:number};
   id: string;
   name: string;
   incident: string;

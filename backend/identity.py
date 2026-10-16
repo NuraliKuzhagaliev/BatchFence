@@ -122,7 +122,7 @@ def recheck(db, required=None):
 
 def approval_identity():
     p = principal.get()
-    return public_actor(p) | {'membership_revision': p['membership_revision']} if p else None
+    return public_actor(p) | {'membership_revision': p.get('membership_revision',0)} if p else None
 
 
 def approval_still_authorized(db, approval, required):
@@ -137,7 +137,8 @@ def approval_still_authorized(db, approval, required):
 def route_role(path, method):
     if method == 'GET': return None
     end = path.rsplit('/', 1)[-1]
-    if end in {'reviews', 'approve', 'apply', 'reply-review', 'receiving-review'}: return 'quality_reviewer'
+    if end in {'release-approve','recovery-execute','connector-dispatch','connector-enqueue'}:return 'release_approver'
+    if end in {'reviews', 'approve', 'apply', 'reply-review', 'receiving-review','intake-review','ocr-review','baseline-review','procedure-review','knowledge-check','policy-review','recovery-evidence','recovery-prepare','investigation-review','plan-review','implementation-review','monitoring-start','outcome-review','recurrence-review','reopen-review'}: return 'quality_reviewer'
     if path.startswith('/api/auth/'): return None
     if end == 'challenges': return None
     return 'reporter'

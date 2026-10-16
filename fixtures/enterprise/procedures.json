@@ -1,0 +1,86 @@
+[
+  {
+    "id": "PROC-100",
+    "version": 1,
+    "status": "approved",
+    "valid_from": "2026-01-01T00:00:00+00:00",
+    "valid_to": null,
+    "products": [
+      "Decorative housing"
+    ],
+    "processes": [
+      "coating"
+    ],
+    "owner": "Synthetic Northstar quality training reference; not a manufacturer approval",
+    "passages": [
+      {
+        "id": "P1",
+        "page": 1,
+        "text": "Before considering recovery, verify receiving-source authenticity, review complete lot ancestry, and record a passed visual inspection for the exact held pool. A proposed scope change alone is insufficient."
+      },
+      {
+        "id": "P2",
+        "page": 1,
+        "text": "Receiving-source authenticity must be checked against a known supplier contact or original controlled receiving system. Record who verified it, the source reference, and the verification date. An exact quote or document hash does not authenticate a supplier."
+      },
+      {
+        "id": "P3",
+        "page": 1,
+        "text": "A complete receiving replacement records the stock pool, every confirmed supplier parent, all superseded lineage row identifiers, and the supporting source passage. Unresolved contradictions retain the restriction."
+      },
+      {
+        "id": "P4",
+        "page": 1,
+        "text": "A quality reviewer prepares the exact whole-pool recovery action. A distinct authorized release approver checks the same evidence and policy revision. Other active restrictions remain effective."
+      }
+    ],
+    "source_hash": "627168b204127da543acb63ede31b0cfa725cea4ece2da62a1bc39f5426fb9ac",
+    "synthetic": true
+  },
+  {
+    "id": "PROC-101",
+    "version": 1,
+    "status": "approved",
+    "valid_from": "2026-01-01T00:00:00+00:00",
+    "valid_to": null,
+    "products": [
+      "Decorative housing"
+    ],
+    "processes": [
+      "coating"
+    ],
+    "owner": "Synthetic Northstar quality training reference; not a manufacturer approval",
+    "passages": [
+      {
+        "id": "P1",
+        "page": 1,
+        "text": "The visual inspection record identifies the stock pool, inspected and nonconforming unit counts, method, date, inspector and original source. Record the pass or fail against the owner-approved inspection criteria; statistical control limits are not product acceptance specifications."
+      }
+    ],
+    "source_hash": "9c726139accd6e777eff3bd1446b09024c316b999da15077c8ba8f44a1677d9f",
+    "synthetic": true
+  },
+  {
+    "id": "PROC-100",
+    "version": 0,
+    "status": "obsolete",
+    "valid_from": "2026-01-01T00:00:00+00:00",
+    "valid_to": null,
+    "products": [
+      "Decorative housing"
+    ],
+    "processes": [
+      "coating"
+    ],
+    "owner": "Synthetic Northstar quality training reference; not a manufacturer approval",
+    "passages": [
+      {
+        "id": "P1",
+        "page": 1,
+        "text": "Historical training note: use the old receiving worksheet. This obsolete revision is not applicable."
+      }
+    ],
+    "source_hash": "1db774ed48aa2b99943ad8584785534687772c9f90c79a39f0c07f5fdba74f09",
+    "synthetic": true
+  }
+]

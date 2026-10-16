@@ -34,6 +34,7 @@ import {
 import type { Case, Document, Evidence, Packet, Upload, Run } from "./types";
 import { Graph, GenealogyPreview, labels } from "./Graph";
 import { EvidencePlanner, RevisionComparison, VerificationPanel, Elapsed } from "./UpgradePanels";
+import {PilotLogin,QuantityStrip,IntakePanel,OcrReview} from "./FoundationPanels";
 import "./style.css";
 const euro = (n: number) =>
   new Intl.NumberFormat("en-IE", {
@@ -124,6 +125,8 @@ function App() {
     >([]),
     input = useRef<HTMLInputElement>(null),
     packetInput = useRef<HTMLInputElement>(null);
+  const [requiresSignIn,setRequiresSignIn]=useState(false);
+  const [pilotIdentity,setPilotIdentity]=useState<string>('');
   const [liveProtected, setLiveProtected] = useState(false);
   const [replayAvailable, setReplayAvailable] = useState(false);
   const [temporaryStorage, setTemporaryStorage] = useState(false);
@@ -169,6 +172,7 @@ function App() {
     async function boot() {
       try {
         const health = await request<{
+          profile?: string;
           inference_mode: string;
           amd_configured: boolean;
           live_protected: boolean;
@@ -176,6 +180,10 @@ function App() {
           storage_mode: string;
           replay_available: boolean;
         }>("GET", "/api/health");
+        if(health.profile==='pilot'){
+          try {const me=await request<{actor:{username:string}}>('GET','/api/auth/me');if(active)setPilotIdentity(me.actor.username);}
+          catch {if(active){setRequiresSignIn(true);setOnline(true);}return;}
+        }
         const all = await request<typeof cases>("GET", "/api/cases");
         if (!active) return;
         setCases(all);
@@ -202,39 +210,10 @@ function App() {
       }
     }
     void boot();
-    const t = setInterval(
-      () =>
-        request("GET", "/api/health")
-          .then(async () => {
-            if (!active) return;
-            if (!connectionWasAvailable.current) {
-              const all = await request<typeof cases>("GET", "/api/cases");
-              const id = localStorage.getItem("bf.case");
-              const current =
-                id && all.some((c) => c.id === id)
-                  ? await request<Case>("GET", "/api/cases/" + id)
-                  : null;
-              if (!active) return;
-              setCases(all);
-              setData(current);
-              setReview(false);
-              setNotice(
-                "Backend reconnected. Current evidence and action state reloaded.",
-              );
-            }
-            connectionWasAvailable.current = true;
-            setOnline(true);
-          })
-          .catch(() => {
-            connectionWasAvailable.current = false;
-            if (active) setOnline(false);
-          }),
-      15000,
-    );
-    return () => {
-      active = false;
-      clearInterval(t);
-    };
+    // User activity checks connectivity without keeping a free host awake.
+    const focus = () => { if(document.visibilityState==='visible') void boot(); };
+    window.addEventListener('focus',focus);
+    return () => {active=false;window.removeEventListener('focus',focus);};
   }, []);
   useEffect(() => {
     if (state)
@@ -470,6 +449,7 @@ function App() {
   const diff = state?.history
     .filter((h) => h.type === "reviewed" && h.old_units != null)
     .at(-1);
+  if(requiresSignIn&&!packet)return <PilotLogin onSuccess={()=>location.reload()} onPacket={openPacket}/>;
   return (
     <div className="app-shell">
       <aside className="rail">
@@ -517,6 +497,8 @@ function App() {
             <span className="workspace-name">Containment desk</span>
           </div>
           <div className="top-actions">
+            {pilotIdentity&&<><span className="caption">{pilotIdentity}</span><button className="text-button" onClick={async()=>{await request('POST','/api/auth/logout',{});location.reload();}}>Sign out</button></>}
+            {!online&&<button className="text-button" onClick={()=>location.reload()}>Retry connection</button>}
             <span className={"connection " + (!online ? "offline" : "")}>
               <i />
               {online ? "Backend connected" : "Backend offline"}
@@ -960,6 +942,7 @@ function App() {
                       </button>
                     ))}
                   </div>
+                  <QuantityStrip state={state}/>
                   {result && (
                     <div
                       className={
@@ -981,7 +964,7 @@ function App() {
                         <span>
                           {state.pending_revision
                             ? "Previous plan · stale"
-                            : "Policy-required hold"}
+                            : "Proposed hold"}
                         </span>
                         <strong>
                           {num(result.hold_units)} <small>units</small>
@@ -1137,7 +1120,9 @@ function App() {
                   ) : tab === "sources" ? (
                     <section className="source-page">
                       <h3>{doc?.filename}</h3>
+                      {doc&&<OcrReview key={doc.id} state={state} doc={doc} readOnly={readOnly} onUpdate={accept}/>}
                       <SourceText doc={doc} />
+                      <IntakePanel key={state.id} state={state} readOnly={readOnly} onUpdate={accept}/>
                     </section>
                   ) : tab === "requests" ? (
                     <EvidencePlanner state={state} readOnly={readOnly||!!busy} mode={mode} onUpdate={s=>{accept(s);setNotice('');setError('');}} onEvidence={showEvidence}/>

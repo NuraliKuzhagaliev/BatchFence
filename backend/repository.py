@@ -18,6 +18,7 @@ from .migrations.v002 import TABLES
 class Connection:
     def __init__(self, raw, postgres=False):
         self.raw, self.postgres = raw, postgres
+        self.created_sources=[]
 
     def execute(self, sql, params=()):
         if self.postgres:
@@ -29,9 +30,21 @@ class Connection:
             sql = sql.replace('?', '%s')
         return self.raw.execute(sql, params)
 
-    def commit(self): self.raw.commit()
-    def rollback(self): self.raw.rollback()
-    def close(self): self.raw.close()
+    def commit(self):
+        self.raw.commit()
+        self.created_sources.clear()
+    def rollback(self):
+        # Remove only files created by this uncommitted writer, while its database
+        # lock still prevents another writer from adopting them.
+        for path,root in self.created_sources:
+            resolved=path.resolve()
+            if not resolved.is_relative_to(root):raise RuntimeError('Source cleanup escaped its owned directory')
+            resolved.unlink(missing_ok=True)
+        self.created_sources.clear()
+        self.raw.rollback()
+    def close(self):
+        if self.created_sources:self.rollback()
+        self.raw.close()
     def __enter__(self): return self
     def __exit__(self, kind, value, trace):
         try:
@@ -110,7 +123,7 @@ def get_record(db, owner, kind, key, default=None):
 
 
 def put_record(db, owner, kind, key, value, expected=None):
-    revision, _ = get_record(db, owner, kind, key)
+    revision, previous = get_record(db, owner, kind, key)
     if expected is not None and revision != expected:
         from .domain import DomainError
         raise DomainError('Record changed; refresh and review the new revision')
@@ -118,6 +131,14 @@ def put_record(db, owner, kind, key, value, expected=None):
     if len(encoded.encode()) > 6_000_000:
         from .domain import DomainError
         raise DomainError('Workspace record exceeds the supported 6 MB envelope')
+    count=db.execute('SELECT count(*) FROM bf_records WHERE owner=?',(owner,)).fetchone()[0]
+    size_expr='OCTET_LENGTH(data)' if db.postgres else 'LENGTH(CAST(data AS BLOB))'
+    owner_size=db.execute(f'SELECT COALESCE(SUM({size_expr}),0) FROM bf_records WHERE owner=?',(owner,)).fetchone()[0]
+    global_size=db.execute(f'SELECT COALESCE(SUM({size_expr}),0) FROM bf_records').fetchone()[0]
+    delta=len(encoded.encode())-(len(json.dumps(previous,ensure_ascii=False).encode()) if revision else 0)
+    if (not revision and count>=300) or owner_size+delta>24_000_000 or global_size+delta>128_000_000:
+        from .domain import DomainError
+        raise DomainError('Workspace record storage limit reached; no partial authoritative write')
     db.execute('INSERT INTO bf_records VALUES(?,?,?,?,?) ON CONFLICT(owner,kind,id) DO UPDATE SET revision=excluded.revision,data=excluded.data',
                (owner, kind, key, revision + 1, encoded))
     return revision + 1
@@ -149,10 +170,18 @@ def source_path(owner, sha):
 def save_source(db, owner, raw):
     """Content addressed immutable bytes. An aborted write can leave an unreferenced blob only."""
     sha = hashlib.sha256(raw).hexdigest()
+    existing=db.execute('SELECT size FROM bf_sources WHERE owner=? AND hash=?',(owner,sha)).fetchone()
+    if not existing:
+        owner_size=db.execute('SELECT COALESCE(SUM(size),0) FROM bf_sources WHERE owner=?',(owner,)).fetchone()[0]
+        global_size=db.execute('SELECT COALESCE(SUM(size),0) FROM bf_sources').fetchone()[0]
+        if len(raw)>4_000_000 or owner_size+len(raw)>64_000_000 or global_size+len(raw)>256_000_000:
+            from .domain import DomainError
+            raise DomainError('Original source storage limit reached; no partial authoritative write')
     path = source_path(owner, sha)
     path.parent.mkdir(parents=True, exist_ok=True)
     try:
         with path.open('xb') as file:
+            db.created_sources.append((path,source_root().resolve()))
             file.write(raw)
             file.flush()
             os.fsync(file.fileno())

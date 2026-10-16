@@ -22,6 +22,25 @@ class Membership(BaseModel):
     active: bool
 
 
+class SimulatedRole(BaseModel):
+    model_config=ConfigDict(extra='forbid')
+    role: str = Field(pattern='^(preparer|approver)$')
+    acknowledge_simulation:bool
+
+
+@router.post('/api/auth/simulate')
+def simulate_role(data:SimulatedRole,request:Request):
+    from .app import connect
+    if identity.pilot() or not data.acknowledge_simulation:identity.deny('Simulation is available only outside the named pilot profile')
+    roles=['reporter','quality_reviewer'] if data.role=='preparer' else ['release_approver']
+    actor={'user_id':'sim-'+data.role+'-'+request.state.owner[:12],'username':'Simulated '+data.role,'org':'session','site':'training',
+           'roles':roles,'identity_mode':'simulated demonstration role'}
+    with repository.write(connect) as db:
+        repository.put_record(db,request.state.owner,'simulated-identity','current',actor)
+        repository.audit(db,request.state.owner,actor,'simulation.role_selected',{},actor)
+    return actor
+
+
 @router.post('/api/auth/login')
 def login(data: Login, request: Request):
     from .app import connect, ORIGIN

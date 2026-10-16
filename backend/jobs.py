@@ -24,6 +24,9 @@ def start(db, owner, key, kind, inputs, mode):
     if any(j['status']=='running' for j in jobs): raise DomainError('Another organization/session job is running')
     if len(jobs) >= 60: raise DomainError('Workspace job history limit reached')
     if mode == 'live':
+        all_jobs=[json.loads(r[0]) for r in db.execute("SELECT data FROM bf_records WHERE kind='job'").fetchall()]
+        if sum(j['mode']=='live' for j in all_jobs)>=int(os.getenv('MAX_TOTAL_LIVE_RUNS') or '100'):
+            raise DomainError('Owner-controlled global live-job budget reached')
         org_count = sum(j['mode']=='live' for j in jobs)
         user_count = sum(j['mode']=='live' and j['actor'].get('user_id')==actor.get('user_id') for j in jobs)
         if org_count >= int(os.getenv('MAX_ORG_LIVE_JOBS') or '20') or user_count >= int(os.getenv('MAX_USER_LIVE_JOBS') or '8'):

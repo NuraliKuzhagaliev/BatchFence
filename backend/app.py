@@ -35,7 +35,7 @@ if public_demo() and not ORIGIN.startswith('https://'):
     raise RuntimeError('PUBLIC_DEMO requires APP_ORIGIN or RENDER_EXTERNAL_URL with HTTPS')
 
 
-from . import repository, identity
+from . import repository, identity, workspace
 
 
 def connect():
@@ -78,6 +78,10 @@ async def protection(request: Request, call_next):
                 auth_context = identity.principal.set(actor)
             except HTTPException as exc:
                 return JSONResponse({'detail': exc.detail}, exc.status_code)
+        if not identity.pilot() and request.url.path != '/api/health':
+            with connect() as db:
+                _,actor = repository.get_record(db, request.state.owner, 'simulated-identity', 'current')
+            if actor: auth_context = identity.principal.set(actor)
         if identity.pilot() and not limiter.allow('pilot:' + (request.client.host if request.client else 'local')):
             if auth_context is not None: identity.principal.reset(auth_context)
             return JSONResponse({'detail': {'code':'RATE_LIMIT','message':'Request limit reached'}},429)
@@ -134,8 +138,10 @@ def transaction(case_id, owner):
         if not row:
             fail('NOT_FOUND', 'Case unavailable in this session', 404)
         state = json.loads(row[0])
+        workspace.hydrate(db,owner,state)
         before_state = copy.deepcopy(state)
         yield db, state
+        workspace.synchronize(db,owner,before_state,state)
         if identity.pilot():
             identity.recheck(db)
             repository.audit(db, owner, identity.current_actor(), 'case.updated', before_state, state, [d['original_hash'] for d in state['documents']])
@@ -154,9 +160,10 @@ def transaction(case_id, owner):
 def read(case_id, owner):
     with connect() as db:
         row = db.execute('SELECT state FROM cases WHERE id=? AND owner=?', (case_id, owner)).fetchone()
-    if not row:
-        fail('NOT_FOUND', 'Case unavailable in this session', 404)
-    return json.loads(row[0])
+        if not row:
+            fail('NOT_FOUND', 'Case unavailable in this session', 404)
+        state = json.loads(row[0])
+        return workspace.hydrate(db,owner,state)
 
 
 def insert(state, owner):
@@ -173,6 +180,9 @@ def insert(state, owner):
                 raw = candidate.read_bytes()
                 if hashlib.sha256(raw).hexdigest() == doc['original_hash']:
                     repository.save_source(db, owner, raw)
+        if workspace.enabled(state):
+            workspace.initialize(db,owner,state)
+            workspace.hydrate(db,owner,state)
         db.execute('INSERT INTO cases VALUES(?,?,?)', (state['id'], owner, json.dumps(state)))
         if identity.pilot():
             repository.audit(db, owner, identity.current_actor(), 'case.created', {}, state)
@@ -371,32 +381,33 @@ def parse_csv(doc):
 
 @app.post('/api/cases/{case_id}/documents')
 def upload(case_id: str, data: Upload, request: Request):
+    read(case_id, request.state.owner)  # Authorize before expensive untrusted parsing.
     if '/' in data.filename or '\\' in data.filename:
         fail('FILENAME', 'Use a plain filename', 422)
     suffix = Path(data.filename).suffix.lower()
     if suffix not in ('.txt', '.csv', '.pdf'):
         fail('FORMAT', 'Supported inputs: UTF-8 TXT/CSV and text PDF', 422)
+    ocr_images = []
     try:
         raw = base64.b64decode(data.content_base64, validate=True)
         if not raw or len(raw) > 2_000_000:
             fail('SIZE', 'File limit: 2 MB', 413)
         if suffix == '.pdf':
-            reader = PdfReader(io.BytesIO(raw))
-            if len(reader.pages) > 30:
-                fail('PDF', 'PDF limit: 30 pages', 422)
-            text = '\n'.join(page.extract_text() or '' for page in reader.pages)
-            if not text.strip():
-                fail('OCR_UNSUPPORTED', 'Image-only PDF is unsupported; upload selectable text', 422)
-            doc = document(data.filename, text.encode(), synthetic=data.synthetic)
-            doc['original_hash'] = hashlib.sha256(raw).hexdigest()
-            doc['media_type'] = 'application/pdf'
+            from .documents import process_pdf
+            try:
+                doc, ocr_images = process_pdf(raw,data.filename,data.synthetic,request.state.owner,case_id,connect)
+            except DomainError as exc:
+                if 'engine unavailable' in str(exc): fail('OCR_UNSUPPORTED',str(exc),422)
+                raise
         else:
             doc = document(data.filename, raw, synthetic=data.synthetic)
     except csv.Error:
         fail('CSV', 'Malformed CSV record quoting', 422)
+    except DomainError:
+        raise
     except (ValueError, UnicodeDecodeError):
         fail('INPUT', 'Invalid UTF-8 or base64 input', 422)
-    except HTTPException:
+    except (HTTPException, DomainError):
         raise
     except Exception:
         fail('PDF', 'PDF could not be read; use a supported text PDF', 422)
@@ -405,6 +416,8 @@ def upload(case_id: str, data: Upload, request: Request):
     pending = parse_csv(doc) if suffix == '.csv' else None
     with transaction(case_id, request.state.owner) as (db, s):
         repository.save_source(db, request.state.owner, raw)
+        for page in ocr_images:
+            repository.save_source(db, request.state.owner, page['raw'])
         if len(s['documents']) >= 24:
             fail('DOCUMENT_LIMIT', 'Case limit: 24 documents', 429)
         if data.request_id:
@@ -489,6 +502,9 @@ def review(case_id: str, data: Review, request: Request):
         if not runs or not data.accept_scope:
             fail('REVIEW_REQUIRED', 'A successful current extraction and explicit scope review are required', 422)
         source = next(d for d in s['documents'] if d['id'] == runs[0]['document_id'])
+        if data.incident_scope_status == 'resolved':
+            from .ocr import require_visual_review
+            require_visual_review(source)
         if source.get('request_id'):
             fail('REPLY_REVIEW','Use linked reply reconciliation; receiving candidates cannot replace incident scope',422)
         lots = sorted(set(l.strip() for l in data.lot_ids))
@@ -678,6 +694,20 @@ def export(case_id: str, request: Request):
 
 from .auth_routes import router as auth_router
 app.include_router(auth_router)
+from .intake_routes import router as intake_router
+app.include_router(intake_router)
+from .signal_routes import router as signal_router
+from .knowledge_routes import router as knowledge_router
+from .enterprise_routes import router as enterprise_router
+app.include_router(signal_router)
+app.include_router(knowledge_router)
+app.include_router(enterprise_router)
+from .receiving_routes import router as receiving_router
+app.include_router(receiving_router)
+from .recovery_routes import router as recovery_router
+app.include_router(recovery_router)
+from .action_routes import router as action_router
+app.include_router(action_router)
 
 
 if (ROOT / 'dist').exists():

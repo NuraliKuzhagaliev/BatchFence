@@ -1,3 +1,17 @@
+# Enterprise development checkpoint — backend integration in progress
+
+Protected public release remains e70f4a0 / v0.2.0. Foundation local checkpoint is 84cf9a8; later enterprise work remains on enterprise-pilot-0.3. Nothing from this expansion has been published.
+
+Implemented backend paths now cover mapped inventory/lineage/allocation/inspection imports; bounded local OCR integration and critical-field review; typed receiving review preserving old syntax; frozen p-chart signals and linked investigations; applicable approved-procedure retrieval and exact quoted AMD answers; shared whole-pool hold reasons; distinct-identity recovery and a persisted reference-connector outbox; corrective action, frozen effectiveness criteria and recurrence/reopen. Full web/desktop module UI, fresh AMD evaluation, final security/performance/media/package/deployment gates are still pending. Do not call these modules delivered yet.
+
+Verified since foundation: 83 tests through Signals/Knowledge and shared inventory; four targeted recovery tests pass including actual 800/700/100 API sequence, denied self/revoked approval, overlapping second-incident hold, duplicate execution, failed reference acknowledgement and explicit idempotent retry. Two effectiveness tests plus seven existing record tests pass. Reviews/test identities are agent-operated. OCR engine has been installed in the private Linux image; actual scanned-page test is next. The full latest suite is being rerun; use its actual result rather than summing overlapping test subsets.
+
+Local servers: development Uvicorn 127.0.0.1:8794 was started before the latest backend edits and needs restart for new routes. Private Compose app 127.0.0.1:8788 and PostgreSQL are running from a previous development build. Isolated PostgreSQL evaluator is on 127.0.0.1:55439. All new data/config is under ignored D:\projects\BatchFence\work. Never print private config contents. No existing unrelated containers were changed or deleted.
+
+Next: finish all module UI and integrated acceptance; preserve the verified release until gates pass. Existing native-dialog/human-domain/RPO-RTO acceptance remains pending. Frozen model set is evals/enterprise/frozen-v1.json (24 synthetic agent-labeled items), with a finite cap of four fresh authorized requests; none used yet.
+
+---
+
 # Enterprise upgrade in progress — protected 0.2.0 remains published
 
 Development branch: enterprise-pilot-0.3. Entire enterprise brief read; no existing 0.2.1 work found. Do not publish the expansion until its gates pass. New implementation is currently foundations only, not four delivered modules.
