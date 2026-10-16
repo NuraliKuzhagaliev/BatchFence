@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-16T02:05:15.380Z",
+  "browser": "Microsoft Edge, Playwright headless",
+  "checks": [
+    "Exact source citation reachable from candidate",
+    "Evidence queue 100 units / €4,000",
+    "V1 order review 3 orders",
+    "Uncertain exclusion rejected server-side through UI",
+    "Stale approval rejected through UI",
+    "V2 800-unit plan and 4 orders",
+    "Exported packet includes actual receipt; refresh persists case",
+    "Responsive layout no horizontal overflow at 1280 and 390",
+    "Web packet opens read-only without approval/apply authority",
+    "Already opened packet remains readable without network"
+  ],
+  "errors": [],
+  "case_id": "2121f362f9c74a82b056ed52d907c489",
+  "packet": "D:\\projects\\BatchFence\\docs\\verified-decision-packet.json"
+}

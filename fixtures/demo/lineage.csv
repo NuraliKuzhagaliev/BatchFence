@@ -1,0 +1,8 @@
+row_id,source,target,kind,revision,timestamp
+LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z
+LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z
+LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z
+LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z
+LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z
+LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z
+LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z

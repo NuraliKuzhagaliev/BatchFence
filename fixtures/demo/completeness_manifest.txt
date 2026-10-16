@@ -1,0 +1,2 @@
+SYNTHETIC bounded scope manifest | Dataset 1 | Reviewed fixture assumptions
+Universe: NORTH-01 decorative housings, six distinct current finished-stock pools. FG-A/B/D/E/F have reviewed complete ancestry. FG-C has unresolved receiving identity. No additional current finished inventory exists in this synthetic snapshot. All units are on site.

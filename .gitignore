@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+.venv/
+.cache/
+node_modules/
+dist/
+releases/
+work/
+__pycache__/
+.pytest_cache/
+*.sqlite*
+docs/BatchFence_Codex_Master_Prompt.md
+docs/AMD_ACT_III_Research_and_Winning_Strategy.md
+.codex-finalizer/

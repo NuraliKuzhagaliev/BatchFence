@@ -1,0 +1,12 @@
+{
+  "status": "blocked",
+  "reason": "Private AMD endpoint/model/key/provider evidence missing",
+  "fields_present": {
+    "AMD_API_BASE_URL": false,
+    "AMD_API_KEY": false,
+    "AMD_MODEL_ID": false,
+    "AMD_PROVIDER_EVIDENCE": false
+  },
+  "live_http_requests": 0,
+  "fixture_fallback_used": false
+}

@@ -1,0 +1,57 @@
+{
+  "name": "batchfence",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Evidence-backed lot containment workbench",
+  "author": "BatchFence",
+  "license": "MIT",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "desktop": "electron .",
+    "package:desktop": "npm run build && electron-builder --win nsis --x64",
+    "test:web": "node scripts/browser-smoke.cjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.577.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "electron": "44.7.2",
+    "electron-builder": "26.15.3",
+    "playwright": "^1.58.0",
+    "prettier": "3.9.10",
+    "typescript": "7.0.2",
+    "vite": "8.3.4"
+  },
+  "build": {
+    "appId": "app.batchfence.desktop",
+    "productName": "BatchFence",
+    "directories": {
+      "output": "releases"
+    },
+    "files": [
+      "dist/**/*",
+      "desktop/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "desktop/icon.ico",
+      "signExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": false,
+      "artifactName": "BatchFence-${version}-win-x64-setup.${ext}",
+      "createStartMenuShortcut": false
+    }
+  },
+  "type": "module"
+}

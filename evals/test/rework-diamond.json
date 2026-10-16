@@ -1,0 +1,83 @@
+{
+  "id": "rework-diamond",
+  "bucket": "rework",
+  "synthetic": true,
+  "notice": "Synthetic supplier notice. Affected lots: SUP-A",
+  "seeds": [
+    "SUP-A"
+  ],
+  "bounded": true,
+  "stocks": [
+    {
+      "id": "P1",
+      "units": 7,
+      "unit_cents": 1000,
+      "complete": true,
+      "status": "available"
+    },
+    {
+      "id": "P2",
+      "units": 11,
+      "unit_cents": 2000,
+      "complete": true,
+      "status": "available"
+    },
+    {
+      "id": "P3",
+      "units": 13,
+      "unit_cents": 3000,
+      "complete": true,
+      "status": "available"
+    }
+  ],
+  "edges": [
+    {
+      "source": "SUP-A",
+      "target": "E1",
+      "kind": "confirmed"
+    },
+    {
+      "source": "SUP-A",
+      "target": "E2",
+      "kind": "confirmed"
+    },
+    {
+      "source": "E1",
+      "target": "E3",
+      "kind": "confirmed"
+    },
+    {
+      "source": "E2",
+      "target": "E3",
+      "kind": "confirmed"
+    },
+    {
+      "source": "E3",
+      "target": "P1",
+      "kind": "confirmed"
+    },
+    {
+      "source": "SUP-B",
+      "target": "P2",
+      "kind": "confirmed"
+    },
+    {
+      "source": "SUP-C",
+      "target": "P3",
+      "kind": "confirmed"
+    }
+  ],
+  "allocations": [],
+  "expected_error": false,
+  "truth": {
+    "documented": [
+      "P1"
+    ],
+    "uncertain": [],
+    "outside": [
+      "P2",
+      "P3"
+    ]
+  },
+  "second_scope": null
+}

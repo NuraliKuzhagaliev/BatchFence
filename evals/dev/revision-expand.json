@@ -1,0 +1,78 @@
+{
+  "id": "revision-expand",
+  "bucket": "revision",
+  "synthetic": true,
+  "notice": "Synthetic supplier notice. Affected lots: SUP-A",
+  "seeds": [
+    "SUP-A"
+  ],
+  "bounded": true,
+  "stocks": [
+    {
+      "id": "P1",
+      "units": 7,
+      "unit_cents": 1000,
+      "complete": true,
+      "status": "available"
+    },
+    {
+      "id": "P2",
+      "units": 11,
+      "unit_cents": 2000,
+      "complete": true,
+      "status": "available"
+    },
+    {
+      "id": "P3",
+      "units": 13,
+      "unit_cents": 3000,
+      "complete": true,
+      "status": "available"
+    }
+  ],
+  "edges": [
+    {
+      "source": "SUP-A",
+      "target": "P1",
+      "kind": "confirmed"
+    },
+    {
+      "source": "SUP-B",
+      "target": "P2",
+      "kind": "confirmed"
+    },
+    {
+      "source": "SUP-C",
+      "target": "P3",
+      "kind": "confirmed"
+    }
+  ],
+  "allocations": [],
+  "expected_error": false,
+  "truth": {
+    "documented": [
+      "P1"
+    ],
+    "uncertain": [],
+    "outside": [
+      "P2",
+      "P3"
+    ]
+  },
+  "second_scope": {
+    "seeds": [
+      "SUP-A",
+      "SUP-B"
+    ],
+    "truth": {
+      "documented": [
+        "P1",
+        "P2"
+      ],
+      "uncertain": [],
+      "outside": [
+        "P3"
+      ]
+    }
+  }
+}

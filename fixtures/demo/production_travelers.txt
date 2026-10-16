@@ -1,0 +1,2 @@
+SYNTHETIC traveler manifest | Revision 1
+TR-A→FG-A; TR-B→FG-B; TR-C→FG-C; TR-D→FG-D; TR-E→FG-E; TR-F→FG-F. The accompanying lineage.csv provides confirmed and possible relations. This manifest does not add inventory.
