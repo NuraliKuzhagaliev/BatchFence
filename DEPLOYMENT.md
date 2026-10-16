@@ -1,5 +1,7 @@
 # Free deployment status and operations
 
+Current presentation/Windows update: 0.1.2 removes redundant demo/version badges, preserves provenance and storage disclosure, and provides the verified hosted-client [Windows release](https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.1.2). The website has Download for Windows; desktop has Open web app. Source and exact installer evidence are under docs/release-0.1.2/. The historical 0.1.1 desktop paragraph below describes that older local-only binary. The Live access field is now labeled **Live access key**, still backed by LIVE_DEMO_TOKEN.
+
 Repository: https://github.com/NuraliKuzhagaliev/BatchFence
 
 Public application: **https://batchfence.onrender.com**. Product code verified at 57a82bc; Linux CI passed. Free service ID: srv-db968c7btjjs73fghkog. Health path /api/health; actual auto-deploy trigger checksPass.

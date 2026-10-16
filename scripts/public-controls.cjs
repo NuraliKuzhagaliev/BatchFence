@@ -1,8 +1,9 @@
 const {chromium}=require('playwright');
 const fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),base=process.env.BATCHFENCE_BASE_URL||'https://127.0.0.1:8790';
-const out=path.join(root,'docs/cloud');
+const out=process.env.BATCHFENCE_PUBLIC_REPORT_DIR || path.join(root,'docs/cloud');
 async function main(){
+ await fs.mkdir(out,{recursive:true});
  const browser=await chromium.launch({channel:'msedge',headless:true});
  const local=new URL(base).hostname==='127.0.0.1';
  const context=await browser.newContext({viewport:{width:1440,height:1000},ignoreHTTPSErrors:local});

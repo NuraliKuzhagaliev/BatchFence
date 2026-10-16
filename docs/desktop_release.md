@@ -1,3 +1,15 @@
+# Windows release 0.1.2
+
+Current installer: [BatchFence-0.1.2-win-x64-setup.exe](https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.1.2/BatchFence-0.1.2-win-x64-setup.exe). [Release notes and SHA-256](https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.1.2).
+
+Connects to the hosted HTTPS backend without requiring local Python. Protected Live access and read-only historical replay are supported. Desktop shows Open web app only; the website shows Download for Windows only. Provider credentials are never bundled. Installed workflow and additional genuine AMD candidate checks are in [release checks](release-0.1.2/README.md).
+
+The installer is unsigned. It installed with exit 0 on the current Windows 11 x64 host, and the installed app.asar matches the built payload. Automated file dialogs use selection stubs; physical OS dialog acceptance and a second-machine installation remain unverified for this exact build. Server storage is ephemeral; export receipts before closing or redeployment. No paid signing or hosting was introduced.
+
+---
+
+Historical local installer details follow unchanged.
+
 # Windows release 0.1.1
 
 Installer: releases/BatchFence-0.1.1-win-x64-setup.exe. Installed verification copy: work/installed-0.1.1/BatchFence.exe. SHA-256 and exact size are in releases/manifest-0.1.1.json and SHA256SUMS-0.1.1.txt. The earlier 0.1.0 installer remains unchanged.

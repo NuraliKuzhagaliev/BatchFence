@@ -50,3 +50,5 @@ Remaining external gates: supported Docker/Windows repair then container test; i
 - Publish the verified installer and checksums as a GitHub Release, deploy the web changes, inspect both surfaces and record remaining limits. All resources remain free.
 
 Milestone: UI changes built; 52 tests, 30 scenarios, 12 browser and seven installed checks passed. New installed app completed an additional genuine AMD extraction; raw output remains unresolved and saved. Offline and restricted-transport checks passed. Installer/checksums ready; publish release assets then deploy the matching interface.
+
+Publication milestone: v0.1.2 installer and SHA-256 file published to GitHub Releases. Complete anonymous 113,769,527-byte download matches the installed/tested build. Source tag 45280e8 preserved. Main will deploy the matching presentation through passing CI; final public verification and artifact delivery state are recorded in releases/manifest-0.1.2.json.

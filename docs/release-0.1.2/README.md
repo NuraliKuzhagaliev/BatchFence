@@ -19,3 +19,7 @@ The Windows x64 installer connects to https://batchfence.onrender.com without re
 The installer is unsigned. Windows may show a publisher warning. Hosted SQLite remains temporary and records can be lost on inactivity, restart or redeployment; export packets. Holds update this workspace's inventory only, not an external inventory system. Existing AMD trial resources only; no purchase, account upgrade or paid signing/hosting.
 
 The original local 0.1.0/0.1.1 installers and evidence remain unchanged. New release URLs and download digest are in installer.json; public availability is verified separately after upload. This release does not establish production readiness or independent domain validation.
+
+## Published download
+
+[Windows 0.1.2 and checksums](https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.1.2) are public. The complete anonymous download matches the original installer hash. See public-release.json. The first upload timed out; bounded streaming succeeded without any resource/permission change.

@@ -1,14 +1,14 @@
-# Windows download and presentation update — 2026-10-17
+# Windows download and presentation update вЂ” 2026-10-17
 
 Version 0.1.2 is built and installed under D:\projects\BatchFence\work\installed-0.1.2. It connects to the hosted backend, supports protected Live access and recorded packets, and opens only the fixed web URL. The website has a real Windows download action; desktop has Open web app only. Redundant demo/version badges are removed; source provenance, temporary storage and workspace-only execution remain clear.
 
 Verified: 52 tests, 30 domain scenarios, 12 web workflows, seven installed hosted workflows, offline packet opening, platform actions and restricted IPC. One fresh installed-app AMD request produced unresolved candidate facts (16,314 ms); no review or receipt was performed for that additional run. Existing model-quality caveats remain. Reports and installer digest: docs/release-0.1.2/. No private values in the packaged app; installed payload matches the build.
 
-Next: publish v0.1.2 installer/checksums, deploy the matching website, verify public download bytes and final live UI. Installer is unsigned; native dialog selection remains stubbed in current automated acceptance. All hosting/resources remain free. Export packets to retain receipts.
+Published: https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.1.2. The complete anonymous installer download matches SHA-256 fdadf6f10ee57dd400cd8c67b5ac28d27321cad217f0be5688737a026a9e168c. Matching web changes deploy from main after CI; final deployment verification is saved in releases/manifest-0.1.2.json. Installer is unsigned; native dialog selection remains stubbed in current automated acceptance. All hosting/resources remain free. Export packets to retain receipts.
 
 ---
 
-# Free public deployment handoff — 2026-10-16
+# Free public deployment handoff вЂ” 2026-10-16
 
 **Ready for a free synthetic demonstration; not for durable production use.**
 
@@ -59,7 +59,7 @@ Before real operational use: obtain independent domain/operator validation. Dura
 
 Historical local-release handoff follows; its publication-authorization statements describe the earlier checkpoint only.
 
-# BatchFence 0.1.1 handoff — 2026-10-16
+# BatchFence 0.1.1 handoff вЂ” 2026-10-16
 
 Continued from ed6a2b0. **Ready for local demonstration/review; not ready for production or completed public/submission release.** The ambiguity failure was unsafe and is now contained in the reproduced paths. Raw AMD ambiguity quality remains imperfect; no independent human validation occurred.
 
@@ -121,11 +121,11 @@ Smoke scripts explicitly use fixture mode. scripts/live-evidence-check.cjs and s
 
 ## Artifacts
 
-- releases/BatchFence-0.1.1-win-x64-setup.exe — rebuilt unsigned local-backend installer.
-- releases/manifest-0.1.1.json and SHA256SUMS-0.1.1.txt — exact artifacts/hashes, source checkpoint, verification state.
-- releases/BatchFence-0.1.1-source.zip, -evidence.zip, -media.zip — sanitized release bundles.
+- releases/BatchFence-0.1.1-win-x64-setup.exe вЂ” rebuilt unsigned local-backend installer.
+- releases/manifest-0.1.1.json and SHA256SUMS-0.1.1.txt вЂ” exact artifacts/hashes, source checkpoint, verification state.
+- releases/BatchFence-0.1.1-source.zip, -evidence.zip, -media.zip вЂ” sanitized release bundles.
 - submission/BatchFence-demo-0.1.1.mp4, .srt, .vtt; BatchFence-pitch-0.1.1-reviewed.pptx; cover-0.1.1.png; updated descriptions/checklist.
-- docs/ambiguity-fix/README.md and summary.json — exact trace, raw failures versus review, evidence index and limitations.
+- docs/ambiguity-fix/README.md and summary.json вЂ” exact trace, raw failures versus review, evidence index and limitations.
 
 The old unversioned media and 0.1.0 installer are preserved historical artifacts. Nothing has been uploaded, published or submitted.
 
@@ -135,4 +135,4 @@ The old unversioned media and 0.1.0 installer are preserved historical artifacts
 2. Review the packets/media and have a manufacturing/operator reviewer assess uncertainty and scope decisions. The bounded English rules can miss or over-block phrasing; review can still be wrong. Recheck real import/save/open dialogs on the exact 0.1.1 binary and decide signing/distribution requirements.
 3. Authorize the actual public repository, HTTPS host/storage/resource budget and installer-download destination. Then configure origins/server secrets, rebuild for that origin and verify hosted web/desktop, persistence and downloads. Confirm participant deadline/form/eligibility and authorize submission. No purchase/publication authorization is assumed.
 
-Final offline provenance correction: the disabled mode selector now shows the packet’s recorded model mode, with an explicit historical/no-new-inference caption. It no longer displays a default fixture selection for a live AMD packet.
+Final offline provenance correction: the disabled mode selector now shows the packetвЂ™s recorded model mode, with an explicit historical/no-new-inference caption. It no longer displays a default fixture selection for a live AMD packet.

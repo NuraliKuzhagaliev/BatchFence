@@ -12,5 +12,5 @@
   "known_private_values_in_asar": false,
   "dialog_acceptance": "Automated selectors stub native dialogs; actual OS dialogs not reaccepted for this exact build",
   "storage": "Hosted SQLite is ephemeral; export packets",
-  "distribution_status": "Prepared; publication verified separately"
+  "distribution_status": "Published and complete anonymous download verified; see public-release.json"
 }

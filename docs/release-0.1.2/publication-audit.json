@@ -1,9 +1,9 @@
 {
-  "at": "2026-10-16T19:07:53.042023+00:00",
-  "head": "7cd82e3e323561f1f13829f2a22f498dc660530a",
-  "commits": 9,
-  "history_blobs": 503,
-  "files_and_archive_members": 1125,
+  "at": "2026-10-16T19:14:22.349879+00:00",
+  "head": "45280e8690f2fc0a67dc4f494237ba702a7fa47e",
+  "commits": 10,
+  "history_blobs": 557,
+  "files_and_archive_members": 1185,
   "known_private_values_checked": 10,
   "findings": [],
   "largest_history_files": [
@@ -24,8 +24,8 @@
       "bytes": 774465
     },
     {
-      "file": "docs/ambiguity-fix/installed-live-packet.png",
-      "bytes": 261164
+      "file": "docs/release-0.1.2/desktop-live-candidates.png",
+      "bytes": 271488
     }
   ],
   "limitations": "Known-value and credential-pattern scan, archive contents and prohibited-path checks; not a general security audit. Evidence records are synthetic. Image pixels are not OCR-scanned."

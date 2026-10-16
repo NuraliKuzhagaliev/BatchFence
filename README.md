@@ -2,7 +2,7 @@
 
 Evidence-backed lot containment for a small manufacturer's quality manager. A supplier notice becomes a reviewed scope, a deterministic hold plan and a real **sandbox** receipt. Changed evidence invalidates approval.
 
-**Working web and installed Windows 0.1.1 prototype, with genuine local AMD-driven synthetic workflows and ambiguity containment. Free public demo is deployed. Fresh live AMD responses drove reviewed 500/800-unit receipts and conservative ambiguity handling. Earlier rejected responses and the fixes are preserved.** Raw model errors and agent-operated review are disclosed; no independent human validation or savings are claimed.
+**Working web and installed Windows 0.1.2 application, with genuine local AMD-driven synthetic workflows and ambiguity containment. Free public demo is deployed. Fresh live AMD responses drove reviewed 500/800-unit receipts and conservative ambiguity handling. Earlier rejected responses and the fixes are preserved.** Raw model errors and agent-operated review are disclosed; no independent human validation or savings are claimed.
 
 ![Actual synthetic workbench](docs/screenshots/03-exposure-1440.png)
 
@@ -19,13 +19,13 @@ Project: D:\projects\BatchFence.
 
 Open **http://127.0.0.1:8787**. Health: /api/health. API schema: /openapi.json.
 
-Windows installer: releases/BatchFence-0.1.1-win-x64-setup.exe. Version 0.1.1, Windows 11 x64, **unsigned**. See [desktop release](docs/desktop_release.md) and releases/SHA256SUMS-0.1.1.txt. Installed verification executable: work/installed-0.1.1/BatchFence.exe.
+Windows: [Download 0.1.2](https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.1.2/BatchFence-0.1.2-win-x64-setup.exe), [release notes and checksums](https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.1.2). Windows x64, **unsigned**. Installed verification executable: work/installed-0.1.2/BatchFence.exe. See [release evidence](docs/release-0.1.2/README.md).
 
-The desktop uses the local backend at 127.0.0.1:8787. Its installed renderer opens saved packets offline without external Node/Python. New analysis/actions need the backend. The public web demo is available; no installer download has been published. This local installer is not advertised as a cloud release for another person's machine.
+The 0.1.2 desktop connects to https://batchfence.onrender.com. No local Python server is required. Saved packets open offline without external Node/Python; new analysis/actions need connectivity. Live inference uses the separate private access key, never the AMD provider key. Earlier 0.1.0/0.1.1 installers still target localhost. Hosted records remain temporary: export packets.
 
 ## Walkthrough
 
-1. Load the labeled synthetic incident and select its supplier notice.
+1. Open the example incident (synthetic records) and select its supplier notice.
 2. Select Fixture mode for a deterministic rehearsal, or Live for a real AMD request. All candidates start unresolved. Review affected/unresolved/excluded groups; narrowing needs an explicit complete incident boundary, exact source quote and explanation.
 3. Inspect 500 held units: 400 documented and 100 uncertain. Open requests and order review.
 4. Approve. Test excluding uncertain stock to see server policy rejection.
@@ -89,7 +89,7 @@ The build is unsigned. Do not disable OS protections. Signing/distribution requi
 
 [Architecture](docs/architecture.md), [acceptance](docs/feature_acceptance.md), [visual review](docs/visual_review.md), [AMD evidence](docs/amd_evidence.md), [limitations](docs/limitations.md), [deployment](DEPLOYMENT.md), [provenance](docs/data_provenance.md).
 
-Submission drafts, a six-slide PowerPoint, actual cover screenshot and recording guide are under submission/. Source is published on GitHub; hosting awaits cost approval and cloud checks. Video upload and final event submission have not occurred. Confirm the authenticated deadline and form.
+Submission drafts, a six-slide PowerPoint, actual cover screenshot and recording guide are under submission/. Source and the free hosted app are published and cloud checks are recorded. Windows 0.1.2 has its own release download. Video upload and final event submission have not occurred. Confirm the authenticated deadline and form.
 
 Original code: MIT. Dependencies retain their licenses. See [notices](docs/third_party_notices.md). No model weights are redistributed.
 
