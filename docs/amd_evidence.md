@@ -1,30 +1,17 @@
-# AMD evidence — 2026-10-16
+# AMD evidence — 0.1.1, 2026-10-16
 
-**Genuine AMD-backed local workflow observed. Overall hosted/submission release acceptance remains incomplete.**
+Genuine AMD model responses drive the local product workflow. Raw ambiguity quality remains inadequate; the application now contains the reproduced failure. No production accuracy claim is made.
 
-The original preflight was blocked with zero calls. After the user signed in, the authenticated Token Factory User Manual and Models catalog confirmed endpoint/model. The key was transferred without displaying it into ignored .env. No secret appeared in inspected portal panels, screenshots or logs.
+Provider manual/catalog evidence is retained in live-verification/provider-documentation.md from the authenticated https://notebooks.amd.com/tokenfactory portal. The observed base is https://developer.amd.com.cn/radeon/api/v1, API style openai-chat, strict schema disabled because support was not documented. The manual identifies AMD GPU service; physical hardware and serving configuration were not independently measured. Credentials remain in ignored private .env, never in frontend/distribution/evidence.
 
-Provider evidence: https://notebooks.amd.com/tokenfactory → User Manual; sanitized findings and the observed 12-model list are in live-verification/provider-documentation.md. The manual identifies the shared service as AMD-run inference on AMD GPUs. Physical GPU identity and serving configuration were not independently measured.
+Historical checkpoint ed6a2b0 recorded seven technically successful Gemma calls. Their semantic ambiguity failure is preserved in amd-probe.json, not reclassified as correct. This follow-up made eight additional inference attempts: three Gemma failures (first untyped, then two confirmed timeouts), one explicit MiMo probe, two ambiguous MiMo notices and two clear MiMo notices. Four MiMo responses passed structural/quote validation; a fifth failed citation validation. No automatic fallback, fixture substitution, repair or fabricated successful response occurred.
 
-Requested model: **Gemma-4-31B-IT**. Returned model: **self-dploy/Gemma-4-31B-IT**. Base: https://developer.amd.com.cn/radeon/api/v1. The existing OpenAI-chat adapter worked unchanged. Strict JSON schema is not documented for Gemma, so AMD_JSON_SCHEMA=false. Prompt-requested JSON passed local schema/exact-quote validation. No alternate provider, repair or fixture substitution.
+Requested current model MiMo-V2.6-Flash; returned model self-dploy/MiMo-V2.6-Flash. The read-only catalog confirmed the exact identifier before explicit selection. Each actual accepted response retains model ID, request ID, UTC timestamp, usage and elapsed time. Small mixed-prompt observations are not a performance benchmark. Transport failures do not measure extraction accuracy.
 
-Seven sequential requests succeeded technically: four capability probes, one initial workflow request before a test-selector failure, and two completed workflow requests. Each preserved request ID, UTC start, model ID, usage, elapsed milliseconds and extracted facts. Observed range 5,294–12,261 ms, median 7,666 ms. Small mixed-prompt sample with cached tokens; no controlled benchmark or general accuracy claim.
+The ambiguity probe and the first fresh ambiguous notice still collapse uncertainty into true/false. The application now starts every candidate unresolved, rejects omitted dispositions and explicit unresolved narrowing, and preserves uncertain ancestry. Agent review produced a 1,200-unit broad hold with zero exclusions and a real receipt. The differently worded notice failed exact citation validation and stopped before review/plan/action. Its invalid raw payload was not retained at the time; metadata/error are preserved. Future rejected structured output is retained separately from accepted output.
 
-## Raw extraction versus reviewed behavior
+Two fresh clear MiMo notices produced the expected affected IDs, then drove reviewed 500/800-unit plans, stale-approval rejection and two real receipts. Zero ID corrections were needed; the operator did correct qualifier interpretation about warehouse ancestry versus the supplier boundary. Codex reviewed sources and operated the workflow through tools. This is not independent human validation.
 
-Clean, adversarial-document and changed-ID capability probes produced expected supported lot facts. The ambiguous probe is **not** a semantic pass: "may be affected" SUP-R became affected=true; unresolved SUP-S became affected=false. The unresolved-scope qualifier survived, but those booleans do not establish certainty. This probe was not corrected or executed as a product plan.
+All three actual live receipts and the rejected case survived a real backend process restart. Live packet hashing exposed and received a separate cross-runtime numeric serialization fix; original failed exports remain preserved and reissued case payloads are unchanged. The installed client opens the corrected live packet offline.
 
-Two new workflow notices were frozen before inference with renamed batches and independent expected sets. Both were uploaded as supplier-message.txt. First raw affected set: MC-7421-X. Revised set: BZ-9187, MC-7421-X. NX-6130-Z was explicitly excluded in both. Exact source passages support all five candidate facts. Missing/extra affected IDs: zero; operator ID corrections: zero.
-
-Codex inspected sources, exclusions, supersession and synthetic genealogy, then the browser harness exercised explicit review/approval controls. This is an agent-operated acceptance check, **not independent human validation**. The model proposed facts; CPU code calculated scope; explicit reviewed/approved state authorized sandbox execution.
-
-Observed results: 400 documented +100 uncertain =500 held units; revised 700+100=800. The second transaction retained 500 existing held units and newly held 300. Receipts:
-
-- TX-4e1ba674d3624fdd845efb5afea0b6a3
-- TX-cb299057cde940038a42ccec0c4d8fe0
-
-Both persisted after refresh and an actual process restart. An old-plan request failed with 409 STALE_APPROVAL. See live-verification/browser-results.json, packet-1.json, packet-2.json and restart-results.json. Test-selector failures are preserved separately and were not classified as model failures.
-
-## Scope of the claim
-
-AMD output genuinely powered the local workflow on synthetic input. Raw results, review choices, actions and receipts are inspectable. Ambiguity quality, broader narrative accuracy and independent reviewer performance remain unproven. No production/customer benefit, physical GPU model, prize eligibility or public deployment is claimed. Recorded mode is still not enabled; preserved live evidence is not silently replayed as live inference.
+See ambiguity-fix/README.md for the exact failure trace, ambiguity-fix/live-ambiguity.json for all attempts, ambiguity-fix/clear-live for raw/reviewed results, and ambiguity-fix/summary.json for the compact result. Historical evidence in live-verification remains distinct. Recorded media segments are labeled; application recorded-inference mode remains disabled.

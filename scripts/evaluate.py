@@ -42,7 +42,7 @@ report = {'kind': 'Synthetic deterministic domain evaluation; no model inference
           'held_out': {'total':12, 'passed':sum(r['passed'] for r in records if r['split']=='test')},
           'documented_stock_truth_denominator': expected_documented,
           'missed_documented_stock':missed, 'wrong_outside_classifications':wrong_outside,
-          'raw_model_extraction':'NOT RUN — live AMD unavailable', 'records':records}
+          'raw_model_extraction':'Not part of this deterministic evaluation; see separate live AMD evidence.', 'records':records}
 (ROOT / 'docs/evaluation-results.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
 print(json.dumps({k:v for k,v in report.items() if k!='records'}, indent=2))
 if not all(r['passed'] for r in records):

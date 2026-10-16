@@ -1,0 +1,116 @@
+{
+  "at": "2026-10-16T10:05:38.839765+00:00",
+  "starting_checkpoint": "ed6a2b0",
+  "version": "0.1.1",
+  "verdict": "Local demo/review ready; production/public/submission release incomplete",
+  "current_followup_inference_attempts": 8,
+  "prior_checkpoint_calls": 7,
+  "attempts": [
+    {
+      "run_id": "fb41ab36-f9e4-4a4d-861a-3b0cd66b426a",
+      "status": "failed",
+      "returned_model": null,
+      "request_id": null,
+      "timestamp": "2026-10-16T09:25:58.148451+00:00",
+      "elapsed_ms": 46650,
+      "error": "Invalid provider output or network failure; no fallback was used",
+      "error_kind": null
+    },
+    {
+      "run_id": "281d1c8c-992d-4e31-85f0-0e4af3e78384",
+      "status": "failed",
+      "returned_model": null,
+      "request_id": null,
+      "timestamp": "2026-10-16T09:28:26.166549+00:00",
+      "elapsed_ms": 45972,
+      "error": "Invalid provider output or network failure; no fallback was used",
+      "error_kind": "transport_timeout"
+    },
+    {
+      "run_id": "3a0bbb5c-a577-4c9a-ace5-8813918c284d",
+      "status": "failed",
+      "returned_model": null,
+      "request_id": null,
+      "timestamp": "2026-10-16T09:29:12.161346+00:00",
+      "elapsed_ms": 47262,
+      "error": "Invalid provider output or network failure; no fallback was used",
+      "error_kind": "transport_timeout"
+    },
+    {
+      "run_id": "5ccb18fa-82be-4d5a-b5fe-c2f182beeb62",
+      "status": "succeeded",
+      "returned_model": "self-dploy/MiMo-V2.6-Flash",
+      "request_id": "25d774b8c6ad4527814091127b0b3a0e",
+      "timestamp": "2026-10-16T09:30:50.466752+00:00",
+      "elapsed_ms": 19929,
+      "error": null,
+      "error_kind": null
+    },
+    {
+      "run_id": "eea6bc63-f294-4c82-bc2f-a14ac5e29880",
+      "status": "succeeded",
+      "returned_model": "self-dploy/MiMo-V2.6-Flash",
+      "request_id": "72263489830b4cbaa45564d9ecd5504e",
+      "timestamp": "2026-10-16T09:32:13.152225+00:00",
+      "elapsed_ms": 26728,
+      "error": null,
+      "error_kind": null
+    },
+    {
+      "run_id": "ce821274-a8d3-4ff9-9859-be6ddab0ad8d",
+      "status": "failed",
+      "returned_model": "self-dploy/MiMo-V2.6-Flash",
+      "request_id": "b858c70f5c8f4a5998a03bed0a47cb30",
+      "timestamp": "2026-10-16T09:32:39.902950+00:00",
+      "elapsed_ms": 17219,
+      "error": "Lot identifier absent from cited quote",
+      "error_kind": "validation_or_configuration"
+    },
+    {
+      "run_id": "6ff5194a-db4b-4fb1-aa35-cb5cf8b37a67",
+      "status": "succeeded",
+      "returned_model": "self-dploy/MiMo-V2.6-Flash",
+      "request_id": "20ceb28bb25a4821a7066fa36b2dbc8e",
+      "timestamp": "2026-10-16T09:36:45.674419+00:00",
+      "elapsed_ms": 21497,
+      "error": null,
+      "error_kind": null
+    },
+    {
+      "run_id": "feb63cbf-9eba-4c88-8648-c132fe23b28a",
+      "status": "succeeded",
+      "returned_model": "self-dploy/MiMo-V2.6-Flash",
+      "request_id": "ae2bbe2b33cc4f308e79ce8919483fea",
+      "timestamp": "2026-10-16T09:38:14.370092+00:00",
+      "elapsed_ms": 27885,
+      "error": null,
+      "error_kind": null
+    }
+  ],
+  "model_selection": "MiMo-V2.6-Flash explicitly selected from actual AMD catalog after three Gemma failures; no automatic fallback",
+  "raw_quality": "Ambiguity booleans remain wrong. One distinct notice failed citation validation. Clear IDs correct; qualifier interpretation corrected during review.",
+  "review": "Codex source inspection plus automated UI/API operation; no independent human validation",
+  "checks": {
+    "pytest": 40,
+    "domain": 30,
+    "browser": 12,
+    "installed": 7,
+    "malformed_packets": 5,
+    "final_ui_export": 3,
+    "actual_process_restart": true
+  },
+  "receipts": {
+    "ambiguous_hold": 1200,
+    "clear_sequence": [
+      500,
+      800
+    ],
+    "citation_failure_receipts": 0,
+    "stale_apply_http": 409
+  },
+  "native_dialog_scope": "Current 0.1.1 stubs; actual OS dialogs previously passed on 0.1.0",
+  "container": "Blocked by exact diagnosed Docker AF_UNIX reparse error 1920; no permission/data changes",
+  "publication": "Not authorized/performed",
+  "fixture_fallback": false,
+  "missing_evidence": "One citation-rejected live response payload was not retained; metadata/error remain. First Gemma failure lacks typed cause."
+}

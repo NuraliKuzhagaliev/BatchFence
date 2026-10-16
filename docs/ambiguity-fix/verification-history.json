@@ -1,0 +1,45 @@
+{
+  "failures_preserved": [
+    {
+      "kind": "product",
+      "failure": "Exact original ambiguity replay allowed unsupported exclusion",
+      "resolution": "Explicit dispositions/source boundary and conservative ancestry checks"
+    },
+    {
+      "kind": "harness",
+      "failure": "Browser expected old reason text; reconnect assertion did not wait for refresh",
+      "resolution": "Updated assertion and bounded locator wait; final 12 checks pass"
+    },
+    {
+      "kind": "harness",
+      "failure": "Initial recording lacked project Playwright ffmpeg path before any inference call",
+      "resolution": "Set PLAYWRIGHT_BROWSERS_PATH"
+    },
+    {
+      "kind": "product",
+      "failure": "Failed extraction error disappeared after reload",
+      "resolution": "Persisted run.error is rendered; final UI check passed"
+    },
+    {
+      "kind": "product",
+      "failure": "Actual installed live packet rejected due Python/JS small-number hash mismatch",
+      "resolution": "Pinned RFC 8785 canonicalization; cross-runtime regressions, original exports preserved and envelopes reissued"
+    },
+    {
+      "kind": "harness",
+      "failure": "Windows restart verifier capture pipes stayed open in detached child",
+      "resolution": "Use output file and bounded PowerShell wait; actual persistence check passed"
+    },
+    {
+      "kind": "artifact tooling",
+      "failure": "Initial deck load API unavailable; first refresh lacked installed screenshot",
+      "resolution": "ImportPptx used, screenshot completed; final six-slide package/layout/import passed"
+    },
+    {
+      "kind": "product",
+      "failure": "Offline selector showed the default fixture mode for a historical live AMD packet",
+      "resolution": "Read recorded mode from packet; label historical run/no new inference; targeted browser and installed checks repeated"
+    }
+  ],
+  "live_failures": "See live-ambiguity.json; no fallback or successful semantic claim for rejected output"
+}

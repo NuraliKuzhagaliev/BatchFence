@@ -5,7 +5,8 @@ const {chromium}=require('playwright'),path=require('node:path');
  const post=async(route,data={})=>{const r=await api.post(base+route,{data});if(!r.ok())throw Error(await r.text());return r.json()};
  let s=await post('/api/cases/demo');const d=s.documents.find(d=>d.filename==='supplier_notice_v1.txt');
  s=await post('/api/cases/'+s.id+'/analyze',{document_id:d.id,mode:'fixture'});
- s=await post('/api/cases/'+s.id+'/reviews',{run_id:s.runs.at(-1).id,revision:s.revision,lot_ids:['SUP-A'],accept_scope:true,bounded_scope_reviewed:true});
+ s=await post('/api/cases/'+s.id+'/reviews',{run_id:s.runs.at(-1).id,revision:s.revision,lot_ids:['SUP-A'],accept_scope:true,bounded_scope_reviewed:true,
+ incident_scope_status:'resolved',resolution_quote:'Affected lots: SUP-A',note:'Automated fixture review of the complete incident boundary.'});
  const p=await c.newPage();await p.goto(base);await p.evaluate(id=>localStorage.setItem('bf.case',id),s.id);await p.reload();
  await p.getByRole('button',{name:'Approve exact plan',exact:true}).waitFor();
  await p.evaluate(()=>scrollTo(0,0));

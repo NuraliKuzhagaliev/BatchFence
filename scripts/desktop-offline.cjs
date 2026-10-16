@@ -5,7 +5,7 @@ const fs = require("node:fs/promises"),
 const root = path.resolve(__dirname, "..");
 (async () => {
   const app = await electron.launch({
-    executablePath: path.join(root, "work/installed/BatchFence.exe"),
+    executablePath: process.env.BATCHFENCE_TEST_EXE || path.join(root, "work/installed/BatchFence.exe"),
     env: {
       ...process.env,
       PATH: "C:\\Windows\\System32",

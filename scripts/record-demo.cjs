@@ -16,12 +16,14 @@ async function main(){
  await page.getByRole('button',{name:'Load synthetic incident',exact:false}).waitFor();
  await hold(7,'Local BatchFence prototype. All records are synthetic. Live AMD verification is pending.');
  await page.getByRole('button',{name:'Load synthetic incident',exact:false}).click();
+ await page.getByLabel('Run mode',{exact:true}).selectOption('fixture');
  await click('Extract selected notice');
  await page.getByRole('heading',{name:'Confirm the affected supplier lots.'}).waitFor();
  await hold(8,'The labeled fixture parser proposes SUP-A. A reviewer checks critical identifiers and scope.');
  await page.getByRole('button',{name:'SUP-A Affected candidate Inspect quote',exact:false}).click();
  await hold(7,'The exact supporting source quote is inspectable. A quote establishes source existence, not semantic correctness.');
  await page.getByLabel('I checked lot IDs, exclusions, qualifiers and whether this notice supersedes prior scope.').check();
+ await require('./review-controls.cjs').fixture(page,['SUP-A']);
  await click('Confirm scope & calculate');
  await page.getByRole('button',{name:'Approve exact plan',exact:true}).waitFor();
  if(await page.getByRole('button',{name:'Dismiss message',exact:true}).isVisible())await click('Dismiss message');
@@ -40,6 +42,7 @@ async function main(){
  await page.getByRole('alert').waitFor();
  await hold(9,'New supplier evidence immediately invalidates the previous approval. The stale request is rejected.');
  await click('Review current evidence');
+ await require('./review-controls.cjs').fixture(page,['SUP-A','SUP-C']);
  await page.getByLabel('I checked lot IDs, exclusions, qualifiers and whether this notice supersedes prior scope.').check();
  await click('Confirm scope & calculate');
  await page.getByRole('button',{name:'Approve exact plan',exact:true}).waitFor();

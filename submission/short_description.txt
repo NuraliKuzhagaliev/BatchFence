@@ -1,1 +1,1 @@
-A containment desk that turns supplier notices and production records into traceable inventory holds, exposes missing evidence, and invalidates approvals when facts change. Web and Windows prototype; live AMD verification pending.
+BatchFence turns supplier notices into source-backed containment plans. Live AMD proposes facts; explicit review, conservative uncertainty, deterministic scope and exact approval produce auditable sandbox receipts on web and Windows.

@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-16T10:12:25.164Z",
+  "passed": true,
+  "new_inference_calls": 0,
+  "checks": [
+    "Fresh server export hash accepted by desktop validator; same model runs and receipts",
+    "Reissued packet accepted by browser; offline approval absent",
+    "Failed live extraction error persists after reload; candidate review and approval absent"
+  ],
+  "cover": "Actual live-case 800-unit view at 1920x1080, synthetic data; no new inference for screenshot"
+}

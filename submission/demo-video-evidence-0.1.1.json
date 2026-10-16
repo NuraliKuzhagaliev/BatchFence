@@ -1,0 +1,29 @@
+{
+  "duration_seconds": 208.33,
+  "bytes": 5391989,
+  "segments": [
+    {
+      "file": "work\\live-verification\\ambiguity-fix-live\\live-workflow.webm",
+      "seconds": 176.67000000000002,
+      "sha256": "04dd62c12b184e386aa0687827de37a01c0a09861309fe444444bfbb4056baeb",
+      "label": "FRESH LIVE AMD | Synthetic data | Agent-operated review"
+    },
+    {
+      "file": "work\\media-0.1.1\\recorded.webm",
+      "seconds": 19.27,
+      "sha256": "c602a737959a220437839c9c3cc33fab86a2dfb6227b3b383c3268096e95fe0d",
+      "label": "RECORDED LIVE EVIDENCE | No new inference | Synthetic data"
+    },
+    {
+      "file": "work\\media-0.1.1\\desktop.webm",
+      "seconds": 12.4,
+      "sha256": "47399238eea65491450450f23e63a873086e069059bad9bd7a7085800b217c46",
+      "label": "INSTALLED WINDOWS | Historical live packet | Offline read-only"
+    }
+  ],
+  "capture": "Actual browser and installed Electron pixels, original speed, no fabricated UI or model response.",
+  "audio": "Silent. Burned captions plus SRT/VTT sidecars.",
+  "fixture_segments": 0,
+  "disclosures": "Synthetic data; agent-operated review; historical segments labeled; native dialog selection stubbed in recording. No independent human validation.",
+  "packet_reissue": "Saved packet hashes were reissued after number serialization fix; underlying runs/reviews/receipts unchanged. See docs/ambiguity-fix/packet-reissue.json."
+}

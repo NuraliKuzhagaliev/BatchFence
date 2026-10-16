@@ -1,0 +1,17 @@
+{
+  "slides": 6,
+  "all_previews_inspected": true,
+  "slide_findings": "No clipped text or overlaps observed; original layout/Segoe UI preserved.",
+  "video_frames_inspected_seconds": [
+    84.9,
+    170,
+    180,
+    200,
+    206
+  ],
+  "caption_findings": "Burned mode/synthetic/review captions legible; source UI preserved; raw/reviewed distinction visible.",
+  "cover": "Actual 1920x1080 live-case screenshot inspected",
+  "native_powerpoint_tested": false,
+  "new_inference_calls_for_review": 0,
+  "duration_seconds": 208.33
+}

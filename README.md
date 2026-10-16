@@ -2,7 +2,7 @@
 
 Evidence-backed lot containment for a small manufacturer's quality manager. A supplier notice becomes a reviewed scope, a deterministic hold plan and a real **sandbox** receipt. Changed evidence invalidates approval.
 
-**Working local web and installed Windows x64 prototype with synthetic fixtures. AMD live verification, hosted distribution and final submission remain incomplete.** No live model performance, customer validation or savings are claimed.
+**Working local web and installed Windows 0.1.1 prototype, with genuine AMD-driven synthetic workflows and ambiguity containment. Public/production release gates remain open.** Raw model errors and agent-operated review are disclosed; no independent human validation or savings are claimed.
 
 ![Actual synthetic workbench](docs/screenshots/03-exposure-1440.png)
 
@@ -15,14 +15,14 @@ Project: D:\projects\BatchFence.
 
 Open **http://127.0.0.1:8787**. Health: /api/health. API schema: /openapi.json.
 
-Windows installer: releases/BatchFence-0.1.0-win-x64-setup.exe. Version 0.1.0, Windows 11 x64, **unsigned**. See [desktop release](docs/desktop_release.md) and releases/SHA256SUMS.txt. Installed verification executable: work/installed/BatchFence.exe.
+Windows installer: releases/BatchFence-0.1.1-win-x64-setup.exe. Version 0.1.1, Windows 11 x64, **unsigned**. See [desktop release](docs/desktop_release.md) and releases/SHA256SUMS-0.1.1.txt. Installed verification executable: work/installed-0.1.1/BatchFence.exe.
 
 The desktop uses the local backend at 127.0.0.1:8787. Its installed renderer opens saved packets offline without external Node/Python. New analysis/actions need the backend. Public web/download URLs await authorized hosting. This local installer is not advertised as a cloud release for another person's machine.
 
 ## Walkthrough
 
 1. Load the labeled synthetic incident and select its supplier notice.
-2. Extract in Fixture mode. Inspect the exact quote, review lot IDs/completeness, then confirm.
+2. Select Fixture mode for a deterministic rehearsal, or Live for a real AMD request. All candidates start unresolved. Review affected/unresolved/excluded groups; narrowing needs an explicit complete incident boundary, exact source quote and explanation.
 3. Inspect 500 held units: 400 documented and 100 uncertain. Open requests and order review.
 4. Approve. Test excluding uncertain stock to see server policy rejection.
 5. Add supplier v2 and test stale approval. Extract/review the revised notice.
@@ -50,13 +50,13 @@ Copy .env.example to a private .env. From authenticated AMD documentation, set A
 
 This makes four bounded synthetic probes once configured. Inspect semantics/citations, then run a fresh notice and a changed notice through the application. Credentials stay server-side. Never use VITE_ secrets or commit .env.
 
-Follow-up (2026-10-16): genuine AMD Gemma inference now drives two fresh/revised workflows through sandbox receipts, with 500 then 800 held units. Seven live requests are recorded; ambiguity remains a semantic limitation. Actual Windows open/save/reopen dialogs passed. See [AMD evidence](docs/amd_evidence.md) and [current handoff](HANDOFF.md). The original video/deck remain fixture-era materials.
+Current evidence: genuine MiMo responses drove 500/800-unit plans and receipts. Ambiguous scope now yields a 1,200-unit hold; a separate invalid citation blocks review. Gemma failures and raw MiMo errors remain recorded. See [AMD evidence](docs/amd_evidence.md), [ambiguity audit](docs/ambiguity-fix/README.md) and [handoff](HANDOFF.md). Current submission assets have explicit 0.1.1 filenames.
 
 ## Inputs
 
 UTF-8 TXT, strict CSV and selectable-text PDF: 2 MB/file, 24 documents/case, 80,000 normalized characters/document. Image-only PDFs receive an unsupported result. CSV headers are in fixtures/demo. Dataset replacements remain pending until review, reconcile quantities and preserve existing holds.
 
-Native choose/save/open exposes bounded file bytes. Installed tests verified the bridge using dialog-result stubs; actual OS dialog selection remains an acceptance item.
+Native choose/save/open exposes bounded file bytes. Actual Windows dialogs passed on the prior 0.1.0 checkpoint. Current 0.1.1 automated checks use dialog stubs; recheck real dialogs on the exact release before distribution.
 
 Packets preserve historical evidence, reviews and receipts without session authority. Hashes detect changes and do not authenticate suppliers. Offline packets cannot infer/approve/apply/queue writes. Reconnection reloads current state. Promotion creates a new draft.
 
@@ -69,9 +69,9 @@ Packets preserve historical evidence, reviews and receipts without session autho
     node scripts/desktop-smoke.cjs
     node scripts/desktop-offline.cjs
 
-Start the server first. Browser tests use installed Microsoft Edge. Desktop tests use the real installer installed under work/installed, with stubbed dialogs for repeatability.
+Start the server first. Browser tests use installed Microsoft Edge. Desktop tests use the real installer installed under work/installed-0.1.1 (set BATCHFENCE_TEST_EXE), with stubbed dialogs for repeatability.
 
-Observed: 28 pytest checks,30/30 frozen domain cases (18 development, 12 held out), real web/installed workflows and offline review without external Node/Python on child PATH. Exact results are in docs/*results.json. [Evaluation](docs/evaluation.md) separates these from unmeasured model performance.
+Observed: 40 pytest checks,30/30 frozen domain cases (18 development, 12 held out), real web/installed workflows and offline review without external Node/Python on child PATH. Exact results are in docs/*results.json. [Evaluation](docs/evaluation.md) separates these from unmeasured model performance.
 
 Windows packaging:
 

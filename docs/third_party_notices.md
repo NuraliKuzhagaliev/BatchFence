@@ -12,3 +12,5 @@ Original BatchFence source is MIT. Supplied research/master documents are user r
 - Uvicorn/HTTPX/pypdf:BSD-3-Clause. pytest:MIT.
 
 Distributions retain upstream license files. Python packages are not embedded in the installer. Segoe UI is a system font and is not bundled. No model weights, customer logos, stock photos or private records are redistributed. The original icon and actual screenshots were created for this project. This list does not replace complete upstream notices or lockfiles.
+
+- rfc8785 0.1.4: Apache-2.0, https://github.com/trailofbits/rfc8785.py. Server-side JSON canonicalization; not embedded in the Windows installer.

@@ -7,7 +7,7 @@ import httpx
 
 ROOT=Path(__file__).resolve().parents[1]
 client=httpx.Client(base_url='http://127.0.0.1:8787',timeout=10)
-assert client.get('/api/health').json()['version']=='0.1.0'
+assert client.get('/api/health').json()['version']=='0.1.1'
 def post(route,data=None):
     r=client.post(route,json=data or {})
     r.raise_for_status()
@@ -16,7 +16,8 @@ s=post('/api/cases/demo')
 doc=next(d for d in s['documents'] if d['filename']=='supplier_notice_v1.txt')
 s=post(f"/api/cases/{s['id']}/analyze",{'document_id':doc['id'],'mode':'fixture'})
 run=s['runs'][-1]
-s=post(f"/api/cases/{s['id']}/reviews",{'run_id':run['id'],'revision':1,'lot_ids':['SUP-A'],'accept_scope':True,'bounded_scope_reviewed':True})
+s=post(f"/api/cases/{s['id']}/reviews",{'run_id':run['id'],'revision':1,'lot_ids':['SUP-A'],'accept_scope':True,'bounded_scope_reviewed':True,
+    'incident_scope_status':'resolved','resolution_quote':'Affected lots: SUP-A','note':'Automated synthetic review of the complete fixture incident boundary.'})
 s=post(f"/api/cases/{s['id']}/approve",{'plan_id':s['plan']['id'],'digest':s['plan']['digest']})
 s=post(f"/api/cases/{s['id']}/apply",{'plan_id':s['plan']['id'],'digest':s['plan']['digest'],'actions':s['plan']['actions'],'idempotency_key':'restart-proof-request'})
 receipt=s['receipts'][0]

@@ -19,7 +19,9 @@ async function main() {
     page.screenshot({ path: path.join(out, name + ".png"), fullPage: true });
   const click = async (name) =>
     page.getByRole("button", { name, exact: true }).click();
+  let reviewNumber = 0;
   const review = async () => {
+    await require('./review-controls.cjs').fixture(page, ++reviewNumber === 1 ? ['SUP-A'] : ['SUP-A', 'SUP-C']);
     await page
       .getByLabel(
         "I checked lot IDs, exclusions, qualifiers and whether this notice supersedes prior scope.",
@@ -38,6 +40,7 @@ async function main() {
   await page
     .getByRole("button", { name: "Load synthetic incident", exact: false })
     .click();
+  await page.getByLabel('Run mode', {exact:true}).selectOption('fixture');
   await click("Extract selected notice");
   await page
     .getByRole("heading", { name: "Confirm the affected supplier lots." })
@@ -95,7 +98,7 @@ async function main() {
   await page.getByRole("button", { name: /FG-C, 100 units/ }).click();
   assert(
     (await page.locator(".inspector-stock").textContent()).includes(
-      "Possible ancestry",
+      "Unresolved incident involvement or possible ancestry",
     ),
   );
   await click("Approve exact plan");
@@ -223,6 +226,9 @@ async function main() {
           lot_ids: ["SUP-A"],
           accept_scope: true,
           bounded_scope_reviewed: true,
+          incident_scope_status: 'resolved',
+          resolution_quote: 'Affected lots: SUP-A',
+          note: 'Automated synthetic review: fixture notice defines the complete supplier scope.',
         },
       },
     )
@@ -300,6 +306,7 @@ async function main() {
     )
     .waitFor({ timeout: 22000 });
   await click("Return to live desk");
+  await page.locator('.decision-main strong').filter({hasText:'Evidence changed'}).waitFor();
   assert(
     (await page.locator(".decision-main strong").textContent()).includes(
       "Evidence changed",

@@ -1,46 +1,40 @@
-# Evaluation
+# Evaluation — 0.1.1
 
-All input records are synthetic. The narrow live-model observations below do not establish general accuracy, customer outcomes or production reliability.
+All inputs are synthetic. Codex authored/inspected review choices; no independent human or manufacturing-domain validation occurred.
 
-## Domain and action integrity
+| Check | Actual result | Evidence |
+|---|---|---|
+| Unit/API/provider/hash regression | 40 passed; one existing Starlette HTTPX deprecation warning | ambiguity-fix/pytest-results.xml |
+| Frozen deterministic evaluation | 30/30: 18 development, 12 held-out; 0 wrong outside labels; 0 missed documented pools across 29 labels | evaluation-results.json |
+| Browser fixture workflow | 12 checks, zero page errors | browser-results.json |
+| Installed Windows 0.1.1 fixture workflow | 7 checks, zero page errors; packaged executable | desktop-results.json |
+| Live clear workflow | 500 then 800 units; two receipts; stale apply 409 | ambiguity-fix/clear-live/browser-results.json |
+| Two new live ambiguous notices | One broad 1,200 receipt, one citation failure blocked before review | ambiguity-fix/live-ambiguity.json |
+| Real backend restart | Exact runs/scope/plans/receipts/stocks/history preserved for all three cases | ambiguity-fix/restart-results.json |
+| Packet and persisted-error UI | Fresh export validated, browser read-only packet accepted, failure visible after reload | ambiguity-fix/final-ui-results.json |
+| Packet corruption | Valid packet accepted; 5 malformed/cyclic mutations rejected despite recomputed hashes | scripts/packet-tests.cjs |
+| Installed offline live packet | Actual packaged client, unreachable backend, external Node/Python absent from child PATH; dialog selection stubbed | ambiguity-fix/installed-live-packet.png; submission/demo-video-evidence-0.1.1.json |
 
-Current unit/API suite: **28 passing checks**. Coverage includes exact v1/v2 units/cents/order counts, unknown provenance, complete-scope failures, whole-pool merges, confirmed-path precedence, duplicate/reordered paths, widening, shipped review, invalid quantities/cycles/references/allocations, stale evidence/inventory, modified/unsupported actions, cross-session access, concurrent revision/apply, duplicate execution, packet promotion, malformed uploads, unsupported scans and no automatic release after uncertainty resolution.
+The exact original Gemma failure was reproduced against old code: review/approval/apply accepted an unsupported SUP-S branch exclusion. New regressions reject that route, require explicit dispositions and scope resolution, preserve possible ancestry beyond selected affected branches, and invalidate legacy approvals. Two different ambiguous wordings with deliberately bad qualifier-free proposals are included. Prompt/schema were not strengthened to claim a fix.
 
-Frozen graph evaluation: **30/30**, consisting of **18/18 development** and **12/12 held-out** cases, five per six buckets. Across 29 documented stock-pool labels in non-invalid first scopes: zero missed documented pools. Zero wrong outside-scope classifications. Designed invalid graphs are rejected. All expected units/cents reconcile from literal truth membership. Revised scenarios also compare expected new sets. Exact case IDs, hashes, denominators and timings are in evaluation-results.json. These timings are CPU-domain measurements, not end-to-end AMD latency.
+Raw model quality remains separate: MiMo repeated the unresolved boolean error; one other notice failed citation validation. Clear-notice IDs were correct, while qualifiers conflated supplier scope with warehouse ancestry and required agent interpretation. Eight current attempts and seven historical requests are separate populations. There is no general accuracy rate, p95, customer benefit, direct-model-answer baseline or independent review success rate.
 
-The pack was frozen before its first run. Held-out outcomes were then inspected; no model tuning used them. One author created and reviewed the synthetic truth. There was no independent manufacturing-domain audit.
+The deterministic pack was frozen before its first run. Held-out results were then inspected; no model tuning used them. Domain timing is CPU-only, not AMD latency. Whole-pool containment, merges/splits, unknown sources, invalid cycles/quantities, allocations, stale and modified actions, concurrency/idempotency, ownership, persistence and no automatic release remain checked. Original literal 500/800 expected units and carrying values are unchanged.
 
-## Browser and desktop
+Observed additional failures: browser assertions needed changed reason text and a reconnect wait; first video launch lacked the configured Playwright ffmpeg cache path; media review exposed a real disappearing failure message, now fixed; installed media exposed real packet hash incompatibility, now fixed. A restart verifier initially waited on inherited Windows capture pipes; file-based output resolved the harness wait. Original live request failures and original rejected exports remain preserved. See ambiguity-fix/verification-history.json.
 
-browser-results.json records twelve completed checks in Microsoft Edge through Playwright, with no page errors: real UI/API data flow, exact source passage, queue value, order counts, policy/stale conflicts, receipt/export, refresh persistence, responsive overflow and read-only packet behavior.
+Historical actual Windows dialogs passed at ed6a2b0 on 0.1.0 without stubs. Current 0.1.1 automated checks/capture use dialog stubs. No new physical-machine or independent human acceptance is claimed.
 
-desktop-results.json retains the prior seven installed-executable checks with dialog stubs. The new live-verification/native-dialog-results.json separately records actual Windows evidence selection, save, reopen and read-only packet behavior through computer-use input, with no stubs.
+Commands from D:\projects\BatchFence:
 
-desktop-offline-results.json records a separate installed launch against an unreachable backend with PATH limited to C:\Windows\System32. The exported 800-unit packet and receipt remained readable, inference/action controls were disabled, and external Node/Python were not required by the installed renderer. The local online backend still requires Python until hosted deployment is authorized.
-
-## Model evaluation and baselines
-
-Follow-up: seven actual AMD requests, all valid JSON/schema/exact quotes, no transport failure, repair or fallback. Three clear capability probes passed their expected facts; the ambiguous probe did not establish correct certainty (SUP-R=true for “may”, SUP-S=false for unresolved, qualifier retained). Two unique fresh/revised workflow notices had zero missing/extra affected IDs and zero operator corrections. The initial first-notice call was repeated after a test-only selector failure; it is included in the seven-call denominator. Requested Gemma-4-31B-IT; returned self-dploy/Gemma-4-31B-IT. See live-verification/summary.json and raw reports. No model prompt tuning occurred.
-
-Broad-hold baseline is calculated from the same on-site stock: 1,200 units / EUR 48,000. Reviewed graph output is 500 / EUR 20,000 under v1 and 800 / EUR 32,000 under v2. Direct-model-answer baseline is **not run**. Fixture extraction is not a substitute for that baseline.
-
-Do not describe 12/12 held-out synthetic graphs as universal accuracy. A failed live gate remains failed even when every deterministic test passes.
-
-## Reproduce
-
-    npm run build
-    .\.venv\Scripts\python.exe -m pytest -q --basetemp work\pytest-verify
+    .\.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-verify
     .\.venv\Scripts\python.exe -m scripts.evaluate
-    node scripts\browser-smoke.cjs
-    node scripts\desktop-smoke.cjs
-    node scripts\desktop-offline.cjs
+    node scripts/browser-smoke.cjs
+    $env:BATCHFENCE_TEST_EXE='D:\projects\BatchFence\work\installed-0.1.1\BatchFence.exe'
+    node scripts/desktop-smoke.cjs
+    node scripts/desktop-offline.cjs
+    node scripts/packet-tests.cjs
+    node scripts/live-evidence-check.cjs
+    .\.venv\Scripts\python.exe scripts/restart-live-check.py
 
-Start the server before browser/online desktop checks. The historical browser/desktop smoke scripts require a fixture-configured test server or explicit fixture selection; the normal server now defaults to live. Build/install the current Windows release under work/installed before the installed tests. Test reports include actual timestamps and do not claim an external audit.
-
-Additional final evidence: real text-PDF and multiline CSV source-span tests pass. docs/pytest-results.xml retains all28 test cases. Native/web draft-copy checks, five malformed shared-packet cases, real backend restart and1.0/1.25 renderer-scale checks passed. The initial installed copy failure and its correction remain documented. Production dependency audit reported zero advisories; eight moderate packaging-development advisories remain.
-
-## Live workflow follow-up
-
-Fresh/revised inputs and literal truth were frozen at 2026-10-16T08:28:11Z. Both uploads used supplier-message.txt, while batch IDs differed from the original fixture parser. Raw extracted facts and exact passages were inspected before review markers allowed the UI to proceed. Codex was the test operator; review/approval clicks were automated and no independent human validation is claimed. Plans held 500 then 800 units, preserving the uncertain 100 and adding 300 newly held units. Two real receipts survived refresh and actual server restart. Reusing an old plan with a new execution key returned 409 STALE_APPROVAL.
-
-Live request elapsed times: min 5,294 ms, median 7,666 ms, max 12,261 ms across seven mixed prompts. Cached tokens are reported by the provider. This is neither a latency benchmark nor a reliable p95 estimate. Two browser-test duplicate-label selectors and one native-test selector failed after successful application behavior; failures are retained and selectors corrected. Recovery of the final receipts used zero extra inference calls. All 28 pytest cases were rerun after private live configuration and passed (one existing deprecation warning).
+The last two require ignored local private verification sessions and existing cases; they make zero inference calls. Fresh AMD probes consume quota and should be run only when useful. Browser/desktop smoke scripts explicitly select fixture mode. Docker/container/hosted checks remain blocked/unrun.

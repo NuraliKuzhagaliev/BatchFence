@@ -31,3 +31,9 @@ Packets hold historical evidence, reviews, scope and receipts without session to
 One container builds the frontend, then serves assets and API from Python on port 8787. Mount /data persistently for SQLite. APP_ORIGIN must match the final HTTPS origin. No hosted deployment was created: external publication was not authorized. Docker daemon was unavailable, so the Dockerfile is prepared and not build-verified.
 
 Primary design references checked on 2026-10-16: [Electron security](https://www.electronjs.org/docs/latest/tutorial/security), [context isolation](https://www.electronjs.org/docs/latest/tutorial/context-isolation), [IPC](https://www.electronjs.org/docs/latest/tutorial/ipc), [FastAPI](https://fastapi.tiangolo.com/tutorial/).
+
+## 0.1.1 safety corrections
+
+Architecture and delivery targets are unchanged. backend/review_safety.py performs conservative source checks independently of model qualifiers. Explicit affected/unresolved/excluded dispositions and source-backed incident boundary are recorded before deterministic calculation. Unresolved incident scope disables narrowing; possible ancestry is propagated regardless of affected seed selection. Review policy version participates in exact-plan inputs. Failed-run display persists after refresh. Python canonical JSON now uses rfc8785 to match existing JavaScript packet hashing for actual AMD numeric metadata.
+
+Final offline provenance correction: the disabled mode selector now shows the packet’s recorded model mode, with an explicit historical/no-new-inference caption. It no longer displays a default fixture selection for a live AMD packet.

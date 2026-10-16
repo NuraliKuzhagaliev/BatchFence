@@ -6,6 +6,7 @@ import uuid
 from datetime import datetime, timezone
 import httpx
 from pydantic import BaseModel, ConfigDict, Field
+from pydantic import ValidationError
 
 
 class Citation(BaseModel):
@@ -84,6 +85,7 @@ def extract(docs, mode):
                 if response.status_code >= 400:
                     raise ValueError(f'AMD request failed with HTTP {response.status_code}; no fallback was used')
                 body = response.json()
+                run['http_status'] = response.status_code
                 run['request_id'] = response.headers.get('x-request-id', body.get('id'))
                 run['usage'] = body.get('usage')
                 run['model_id'] = body.get('model', os.environ['AMD_MODEL_ID'])
@@ -95,12 +97,30 @@ def extract(docs, mode):
                 raw = json.loads(answer)
         else:
             raise ValueError('Recorded mode requires a preserved genuine run; none is configured')
-        run['output'] = validate_output(raw, docs)
-        if not any(f['affected'] for f in run['output']['facts']):
-            raise ValueError('No supported affected lot candidates. Review the notice or use live AMD interpretation.')
+        try:
+            run['output'] = validate_output(raw, docs)
+        except ValueError:
+            # Preserve rejected structured proposals for audit without granting
+            # review authority. Never save unbounded response bodies or secrets.
+            try:
+                rejected = json.dumps(Extraction.model_validate(raw).model_dump())
+                key = os.getenv('AMD_API_KEY')
+                if key:
+                    rejected = rejected.replace(key, '[REDACTED]')
+                run['rejected_output'] = json.loads(rejected)
+            except (ValueError, TypeError):
+                pass
+            raise
+        if not run['output']['facts']:
+            raise ValueError('No supported lot candidates. Review the notice or use live AMD interpretation.')
         run['status'] = 'succeeded'
     except Exception as e:
         run['status'] = 'failed'
+        run['error_kind'] = ('transport_timeout' if isinstance(e, httpx.TimeoutException) else
+                             'transport_error' if isinstance(e, httpx.HTTPError) else
+                             'invalid_json' if isinstance(e, json.JSONDecodeError) else
+                             'schema_validation' if isinstance(e, ValidationError) else
+                             'validation_or_configuration' if type(e) is ValueError else 'invalid_provider_response')
         # Pydantic errors may echo input. Keep provider messages limited to our explicit errors.
         run['error'] = str(e) if type(e) is ValueError else 'Invalid provider output or network failure; no fallback was used'
     run['elapsed_ms'] = round((time.perf_counter() - started) * 1000)

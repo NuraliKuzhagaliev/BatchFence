@@ -1,0 +1,907 @@
+{
+  "frozen_at": "2026-10-16T09:25:58.109698+00:00",
+  "method": "Fresh AMD requests through application API; synthetic inputs; no fallback.",
+  "review_method": "Codex inspected sources/raw results and supplied choices; API review/approval/apply were automated. No independent human validation.",
+  "cases": [
+    {
+      "name": "unknown-involvement",
+      "case_id": "e91b185a9e4c43188b934b5b4b5a5cd5",
+      "source": {
+        "id": "DOC-25db1c353414",
+        "filename": "supplier-message.txt",
+        "media_type": "text/plain",
+        "revision": 2,
+        "ingested_at": "2026-10-16T09:32:13.139940+00:00",
+        "original_hash": "a37a143d6de8424e596c9a83512836c79be4e224ff4411cc49ceb0ee655d93bf",
+        "text_hash": "a37a143d6de8424e596c9a83512836c79be4e224ff4411cc49ceb0ee655d93bf",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "MC-7421-X may be affected by the coating defect.",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "We cannot determine whether BZ-9187 is implicated.",
+            "page": null
+          },
+          {
+            "id": "line-3",
+            "text": "Scope remains unresolved; the current notice is not a complete list.",
+            "page": null
+          },
+          {
+            "id": "line-4",
+            "text": "Synthetic verification notice only.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      "raw_run": {
+        "id": "eea6bc63-f294-4c82-bc2f-a14ac5e29880",
+        "mode": "live",
+        "provider": "AMD configured endpoint",
+        "prompt_version": "scope-extract-1",
+        "schema_version": 1,
+        "timestamp": "2026-10-16T09:32:13.152225+00:00",
+        "status": "succeeded",
+        "repairs": 0,
+        "http_status": 200,
+        "request_id": "72263489830b4cbaa45564d9ecd5504e",
+        "usage": {
+          "prompt_tokens": 595,
+          "total_tokens": 1244,
+          "completion_tokens": 649,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0,
+            "image_tokens": 0
+          },
+          "reasoning_tokens": 0,
+          "cost": 0.00026502,
+          "cost_details": {
+            "upstream_inference_cost": 0.00026502,
+            "upstream_inference_prompt_cost": 8.33e-05,
+            "upstream_inference_completions_cost": 0.00018172,
+            "total_cost": 0.00026502,
+            "input_cost": 8.33e-05,
+            "output_cost": 0.00018172,
+            "cached_input_cost": 0,
+            "cache_write_input_cost": 0,
+            "request_cost": 0,
+            "web_search_cost": 0,
+            "image_input_cost": null,
+            "image_output_cost": null,
+            "audio_input_cost": null
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "model_id": "self-dploy/MiMo-V2.6-Flash",
+        "output": {
+          "facts": [
+            {
+              "lot_id": "MC-7421-X",
+              "affected": true,
+              "evidence": [
+                {
+                  "document_id": "DOC-25db1c353414",
+                  "block_id": "line-1",
+                  "quote": "MC-7421-X may be affected by the coating defect."
+                }
+              ]
+            },
+            {
+              "lot_id": "BZ-9187",
+              "affected": false,
+              "evidence": [
+                {
+                  "document_id": "DOC-25db1c353414",
+                  "block_id": "line-2",
+                  "quote": "We cannot determine whether BZ-9187 is implicated."
+                }
+              ]
+            }
+          ],
+          "qualifiers": [
+            "Ambiguous scope for MC-7421-X: the source states it 'may be affected', which is conditional rather than a confirmed explicit effect; treated as affected with uncertainty.",
+            "BZ-9187 is merely mentioned, not affected: the source states it cannot be determined whether it is implicated.",
+            "Scope remains unresolved and the notice is not a complete list, so additional lots may exist beyond those listed (DOC-25db1c353414, line-3).",
+            "Document is described as a synthetic verification notice only (DOC-25db1c353414, line-4), so its authority and completeness are unverified."
+          ]
+        },
+        "elapsed_ms": 26728,
+        "revision": 2,
+        "document_id": "DOC-25db1c353414",
+        "scope_concerns": [
+          {
+            "document_id": "DOC-25db1c353414",
+            "block_id": "line-1",
+            "quote": "MC-7421-X may be affected by the coating defect."
+          },
+          {
+            "document_id": "DOC-25db1c353414",
+            "block_id": "line-2",
+            "quote": "We cannot determine whether BZ-9187 is implicated."
+          },
+          {
+            "document_id": "DOC-25db1c353414",
+            "block_id": "line-3",
+            "quote": "Scope remains unresolved; the current notice is not a complete list."
+          }
+        ]
+      },
+      "raw_boolean_quality": {
+        "proposed_true": [
+          "MC-7421-X"
+        ],
+        "expected_confirmed": [],
+        "extra_as_confirmed": [
+          "MC-7421-X"
+        ],
+        "missing_confirmed": [],
+        "limitation": "The boolean schema cannot represent unresolved involvement. Raw output is never rewritten."
+      },
+      "review_status": "agent_reviewed",
+      "narrowing_attempt": {
+        "http_status": 422,
+        "error": {
+          "code": "UNRESOLVED_SCOPE",
+          "message": "Unresolved incident scope cannot authorize narrowed exclusions"
+        }
+      },
+      "reviewed_choices": {
+        "run_id": "eea6bc63-f294-4c82-bc2f-a14ac5e29880",
+        "source_hash": "a37a143d6de8424e596c9a83512836c79be4e224ff4411cc49ceb0ee655d93bf",
+        "affected": [],
+        "uncertain": [
+          "MC-7421-X",
+          "BZ-9187"
+        ],
+        "excluded": [],
+        "note": "Codex test operator: original passages leave involvement and the supplier boundary unresolved. No independent human validation."
+      },
+      "result_after_review": {
+        "rows": [
+          {
+            "id": "FG-A",
+            "units": 240,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-1",
+            "snapshot_version": 1,
+            "classification": "uncertain",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "path": [
+              "MC-7421-X",
+              "FG-A"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-64385ae7f162",
+                "block_id": "row-1",
+                "quote": "LIN-1,MC-7421-X,FG-A,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-B",
+            "units": 160,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-2",
+            "snapshot_version": 1,
+            "classification": "uncertain",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "path": [
+              "MC-7421-X",
+              "FG-B"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-64385ae7f162",
+                "block_id": "row-2",
+                "quote": "LIN-2,MC-7421-X,FG-B,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-C",
+            "units": 100,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": false,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-3",
+            "snapshot_version": 1,
+            "classification": "uncertain",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "path": [
+              "MC-7421-X",
+              "FG-C"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-64385ae7f162",
+                "block_id": "row-3",
+                "quote": "LIN-3,MC-7421-X,FG-C,possible,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-D",
+            "units": 300,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-4",
+            "snapshot_version": 1,
+            "classification": "uncertain",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "path": [
+              "BZ-9187",
+              "FG-D"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-64385ae7f162",
+                "block_id": "row-5",
+                "quote": "LIN-5,BZ-9187,FG-D,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-E",
+            "units": 250,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-5",
+            "snapshot_version": 1,
+            "classification": "uncertain",
+            "reason": "Insufficient reviewed ancestry or bounded scope. Narrowed exclusion is unavailable.",
+            "path": [],
+            "evidence": []
+          },
+          {
+            "id": "FG-F",
+            "units": 150,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-6",
+            "snapshot_version": 1,
+            "classification": "uncertain",
+            "reason": "Insufficient reviewed ancestry or bounded scope. Narrowed exclusion is unavailable.",
+            "path": [],
+            "evidence": []
+          }
+        ],
+        "documented_units": 0,
+        "uncertain_units": 1200,
+        "hold_units": 1200,
+        "outside_units": 0,
+        "broad_units": 1200,
+        "hold_cents": 4800000,
+        "broad_cents": 4800000,
+        "excluded_cents": 0,
+        "reduction_percent": 0.0,
+        "actions": [
+          {
+            "type": "hold",
+            "pool_id": "FG-A"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-B"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-C"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-D"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-E"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-F"
+          }
+        ],
+        "requests": [
+          {
+            "id": "REQ-FG-D",
+            "pool_ids": [
+              "FG-D"
+            ],
+            "units": 300,
+            "value_cents": 1200000,
+            "missing": "Receiving identity / complete ancestry for FG-D",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "draft": "Please provide the original receiving lot record for FG-D (300 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
+          },
+          {
+            "id": "REQ-FG-E",
+            "pool_ids": [
+              "FG-E"
+            ],
+            "units": 250,
+            "value_cents": 1000000,
+            "missing": "Receiving identity / complete ancestry for FG-E",
+            "reason": "Insufficient reviewed ancestry or bounded scope. Narrowed exclusion is unavailable.",
+            "draft": "Please provide the original receiving lot record for FG-E (250 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
+          },
+          {
+            "id": "REQ-FG-A",
+            "pool_ids": [
+              "FG-A"
+            ],
+            "units": 240,
+            "value_cents": 960000,
+            "missing": "Receiving identity / complete ancestry for FG-A",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "draft": "Please provide the original receiving lot record for FG-A (240 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
+          },
+          {
+            "id": "REQ-FG-B",
+            "pool_ids": [
+              "FG-B"
+            ],
+            "units": 160,
+            "value_cents": 640000,
+            "missing": "Receiving identity / complete ancestry for FG-B",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "draft": "Please provide the original receiving lot record for FG-B (160 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
+          },
+          {
+            "id": "REQ-FG-F",
+            "pool_ids": [
+              "FG-F"
+            ],
+            "units": 150,
+            "value_cents": 600000,
+            "missing": "Receiving identity / complete ancestry for FG-F",
+            "reason": "Insufficient reviewed ancestry or bounded scope. Narrowed exclusion is unavailable.",
+            "draft": "Please provide the original receiving lot record for FG-F (150 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
+          },
+          {
+            "id": "REQ-FG-C",
+            "pool_ids": [
+              "FG-C"
+            ],
+            "units": 100,
+            "value_cents": 400000,
+            "missing": "Receiving identity / complete ancestry for FG-C",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "draft": "Please provide the original receiving lot record for FG-C (100 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
+          }
+        ],
+        "request_unique_units": 1200,
+        "request_unique_cents": 4800000,
+        "orders": [
+          {
+            "order_id": "O-101",
+            "due_date": "2026-10-19",
+            "pool_ids": [
+              "FG-A"
+            ],
+            "units": 240,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-1"
+            ]
+          },
+          {
+            "order_id": "O-102",
+            "due_date": "2026-10-20",
+            "pool_ids": [
+              "FG-B"
+            ],
+            "units": 160,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-2"
+            ]
+          },
+          {
+            "order_id": "O-103",
+            "due_date": "2026-10-21",
+            "pool_ids": [
+              "FG-C"
+            ],
+            "units": 100,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-3"
+            ]
+          },
+          {
+            "order_id": "O-104",
+            "due_date": "2026-10-22",
+            "pool_ids": [
+              "FG-D"
+            ],
+            "units": 300,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-4"
+            ]
+          },
+          {
+            "order_id": "O-105",
+            "due_date": "2026-10-23",
+            "pool_ids": [
+              "FG-E"
+            ],
+            "units": 250,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-5"
+            ]
+          },
+          {
+            "order_id": "O-106",
+            "due_date": "2026-10-24",
+            "pool_ids": [
+              "FG-F"
+            ],
+            "units": 150,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-6"
+            ]
+          }
+        ],
+        "shipment_reviews": [],
+        "narrowing_available": false
+      },
+      "receipt": {
+        "transaction_id": "TX-4eac38d420d242369a4dca4b55ed30ac",
+        "at": "2026-10-16T09:34:27.605798+00:00",
+        "execution": "SANDBOX INVENTORY",
+        "plan_id": "PLAN-4bc15929e65f",
+        "digest": "4bc15929e65fdf739901b53642be0333c2ed88613b7827f2f77b1250fa3ff318",
+        "idempotency_key": "ambiguity-unknown-involvement",
+        "changes": [
+          {
+            "pool_id": "FG-A",
+            "units": 240,
+            "before": "available",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-B",
+            "units": 160,
+            "before": "available",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-C",
+            "units": 100,
+            "before": "available",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-D",
+            "units": 300,
+            "before": "available",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-E",
+            "units": 250,
+            "before": "available",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-F",
+            "units": 150,
+            "before": "available",
+            "after": "held"
+          }
+        ],
+        "prior_inventory_version": 1,
+        "current_inventory_version": 2,
+        "evidence_revision": 2
+      },
+      "refresh_persistence": true
+    },
+    {
+      "name": "partial-confirmation",
+      "case_id": "cd81a6e2f058497fa8ff14349e8ab061",
+      "source": {
+        "id": "DOC-aa86ba9d61eb",
+        "filename": "supplier-message.txt",
+        "media_type": "text/plain",
+        "revision": 2,
+        "ingested_at": "2026-10-16T09:32:39.892207+00:00",
+        "original_hash": "a50129a0dbde96d258f8ec58e38da7f52f139fa945315e2d377d06728268dc5a",
+        "text_hash": "a50129a0dbde96d258f8ec58e38da7f52f139fa945315e2d377d06728268dc5a",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "Confirmed defect: MC-7421-X.",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "BZ-9187 is awaiting laboratory results; it has not been cleared.",
+            "page": null
+          },
+          {
+            "id": "line-3",
+            "text": "The affected batch list is not yet final.",
+            "page": null
+          },
+          {
+            "id": "line-4",
+            "text": "NX-6130-Z is expressly excluded from this supplier incident.",
+            "page": null
+          },
+          {
+            "id": "line-5",
+            "text": "Synthetic verification notice only.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      "raw_run": {
+        "id": "ce821274-a8d3-4ff9-9859-be6ddab0ad8d",
+        "mode": "live",
+        "provider": "AMD configured endpoint",
+        "prompt_version": "scope-extract-1",
+        "schema_version": 1,
+        "timestamp": "2026-10-16T09:32:39.902950+00:00",
+        "status": "failed",
+        "repairs": 0,
+        "http_status": 200,
+        "request_id": "b858c70f5c8f4a5998a03bed0a47cb30",
+        "usage": {
+          "prompt_tokens": 621,
+          "total_tokens": 1066,
+          "completion_tokens": 445,
+          "prompt_tokens_details": {
+            "cached_tokens": 448,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0,
+            "image_tokens": 0
+          },
+          "reasoning_tokens": 0,
+          "cost": 0.0001500744,
+          "cost_details": {
+            "upstream_inference_cost": 0.0001500744,
+            "upstream_inference_prompt_cost": 2.5474399999999998e-05,
+            "upstream_inference_completions_cost": 0.0001246,
+            "total_cost": 0.0001500744,
+            "input_cost": 2.422e-05,
+            "output_cost": 0.0001246,
+            "cached_input_cost": 1.2544e-06,
+            "cache_write_input_cost": 0,
+            "request_cost": 0,
+            "web_search_cost": 0,
+            "image_input_cost": null,
+            "image_output_cost": null,
+            "audio_input_cost": null
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "model_id": "self-dploy/MiMo-V2.6-Flash",
+        "error_kind": "validation_or_configuration",
+        "error": "Lot identifier absent from cited quote",
+        "elapsed_ms": 17219,
+        "revision": 2,
+        "document_id": "DOC-aa86ba9d61eb",
+        "scope_concerns": [
+          {
+            "document_id": "DOC-aa86ba9d61eb",
+            "block_id": "line-2",
+            "quote": "BZ-9187 is awaiting laboratory results; it has not been cleared."
+          },
+          {
+            "document_id": "DOC-aa86ba9d61eb",
+            "block_id": "line-3",
+            "quote": "The affected batch list is not yet final."
+          }
+        ]
+      },
+      "raw_boolean_quality": {
+        "status": "not_evaluated_no_accepted_output",
+        "error": "Lot identifier absent from cited quote"
+      },
+      "review_status": "blocked_failed_extraction",
+      "review_attempt": {
+        "http_status": 422,
+        "error": {
+          "code": "REVIEW_REQUIRED",
+          "message": "A successful current extraction and explicit scope review are required"
+        }
+      },
+      "result_after_review": null
+    }
+  ],
+  "inputs": [
+    {
+      "name": "unknown-involvement",
+      "text": "MC-7421-X may be affected by the coating defect.\nWe cannot determine whether BZ-9187 is implicated.\nScope remains unresolved; the current notice is not a complete list.\nSynthetic verification notice only.",
+      "expected": {
+        "affected": [],
+        "uncertain": [
+          "MC-7421-X",
+          "BZ-9187"
+        ],
+        "excluded": [],
+        "documented_units": 0,
+        "uncertain_units": 1200
+      },
+      "sha256": "a37a143d6de8424e596c9a83512836c79be4e224ff4411cc49ceb0ee655d93bf"
+    },
+    {
+      "name": "partial-confirmation",
+      "text": "Confirmed defect: MC-7421-X.\nBZ-9187 is awaiting laboratory results; it has not been cleared.\nThe affected batch list is not yet final.\nNX-6130-Z is expressly excluded from this supplier incident.\nSynthetic verification notice only.",
+      "expected": {
+        "affected": [
+          "MC-7421-X"
+        ],
+        "uncertain": [
+          "BZ-9187"
+        ],
+        "excluded": [
+          "NX-6130-Z"
+        ],
+        "documented_units": 400,
+        "uncertain_units": 800
+      },
+      "sha256": "a50129a0dbde96d258f8ec58e38da7f52f139fa945315e2d377d06728268dc5a"
+    }
+  ],
+  "failed_attempts": [
+    {
+      "name": "unknown-involvement",
+      "case_id": "7d2cfe22904e4e2891ea9d0c462d930d",
+      "source": {
+        "id": "DOC-7b7b75532b3a",
+        "filename": "supplier-message.txt",
+        "media_type": "text/plain",
+        "revision": 2,
+        "ingested_at": "2026-10-16T09:25:58.131409+00:00",
+        "original_hash": "a37a143d6de8424e596c9a83512836c79be4e224ff4411cc49ceb0ee655d93bf",
+        "text_hash": "a37a143d6de8424e596c9a83512836c79be4e224ff4411cc49ceb0ee655d93bf",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "MC-7421-X may be affected by the coating defect.",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "We cannot determine whether BZ-9187 is implicated.",
+            "page": null
+          },
+          {
+            "id": "line-3",
+            "text": "Scope remains unresolved; the current notice is not a complete list.",
+            "page": null
+          },
+          {
+            "id": "line-4",
+            "text": "Synthetic verification notice only.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      "raw_run": {
+        "id": "fb41ab36-f9e4-4a4d-861a-3b0cd66b426a",
+        "mode": "live",
+        "provider": "AMD configured endpoint",
+        "prompt_version": "scope-extract-1",
+        "schema_version": 1,
+        "timestamp": "2026-10-16T09:25:58.148451+00:00",
+        "status": "failed",
+        "repairs": 0,
+        "error": "Invalid provider output or network failure; no fallback was used",
+        "elapsed_ms": 46650,
+        "revision": 2,
+        "document_id": "DOC-7b7b75532b3a",
+        "scope_concerns": [
+          {
+            "document_id": "DOC-7b7b75532b3a",
+            "block_id": "line-1",
+            "quote": "MC-7421-X may be affected by the coating defect."
+          },
+          {
+            "document_id": "DOC-7b7b75532b3a",
+            "block_id": "line-2",
+            "quote": "We cannot determine whether BZ-9187 is implicated."
+          },
+          {
+            "document_id": "DOC-7b7b75532b3a",
+            "block_id": "line-3",
+            "quote": "Scope remains unresolved; the current notice is not a complete list."
+          }
+        ]
+      },
+      "raw_boolean_quality": {
+        "status": "not_evaluated_no_model_result"
+      },
+      "review_status": "blocked_no_model_result"
+    },
+    {
+      "name": "unknown-involvement",
+      "case_id": "ba58deb9069f442a90fccca61b3d2429",
+      "source": {
+        "id": "DOC-29568ae08b91",
+        "filename": "supplier-message.txt",
+        "media_type": "text/plain",
+        "revision": 2,
+        "ingested_at": "2026-10-16T09:28:26.154069+00:00",
+        "original_hash": "a37a143d6de8424e596c9a83512836c79be4e224ff4411cc49ceb0ee655d93bf",
+        "text_hash": "a37a143d6de8424e596c9a83512836c79be4e224ff4411cc49ceb0ee655d93bf",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "MC-7421-X may be affected by the coating defect.",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "We cannot determine whether BZ-9187 is implicated.",
+            "page": null
+          },
+          {
+            "id": "line-3",
+            "text": "Scope remains unresolved; the current notice is not a complete list.",
+            "page": null
+          },
+          {
+            "id": "line-4",
+            "text": "Synthetic verification notice only.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      "raw_run": {
+        "id": "281d1c8c-992d-4e31-85f0-0e4af3e78384",
+        "mode": "live",
+        "provider": "AMD configured endpoint",
+        "prompt_version": "scope-extract-1",
+        "schema_version": 1,
+        "timestamp": "2026-10-16T09:28:26.166549+00:00",
+        "status": "failed",
+        "repairs": 0,
+        "error_kind": "transport_timeout",
+        "error": "Invalid provider output or network failure; no fallback was used",
+        "elapsed_ms": 45972,
+        "revision": 2,
+        "document_id": "DOC-29568ae08b91",
+        "scope_concerns": [
+          {
+            "document_id": "DOC-29568ae08b91",
+            "block_id": "line-1",
+            "quote": "MC-7421-X may be affected by the coating defect."
+          },
+          {
+            "document_id": "DOC-29568ae08b91",
+            "block_id": "line-2",
+            "quote": "We cannot determine whether BZ-9187 is implicated."
+          },
+          {
+            "document_id": "DOC-29568ae08b91",
+            "block_id": "line-3",
+            "quote": "Scope remains unresolved; the current notice is not a complete list."
+          }
+        ]
+      },
+      "raw_boolean_quality": {
+        "status": "not_evaluated_no_model_result"
+      },
+      "review_status": "blocked_no_model_result"
+    },
+    {
+      "name": "partial-confirmation",
+      "case_id": "509f8b0d6f79476489211f012de6cc8e",
+      "source": {
+        "id": "DOC-8e79ded35883",
+        "filename": "supplier-message.txt",
+        "media_type": "text/plain",
+        "revision": 2,
+        "ingested_at": "2026-10-16T09:29:12.150744+00:00",
+        "original_hash": "a50129a0dbde96d258f8ec58e38da7f52f139fa945315e2d377d06728268dc5a",
+        "text_hash": "a50129a0dbde96d258f8ec58e38da7f52f139fa945315e2d377d06728268dc5a",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "Confirmed defect: MC-7421-X.",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "BZ-9187 is awaiting laboratory results; it has not been cleared.",
+            "page": null
+          },
+          {
+            "id": "line-3",
+            "text": "The affected batch list is not yet final.",
+            "page": null
+          },
+          {
+            "id": "line-4",
+            "text": "NX-6130-Z is expressly excluded from this supplier incident.",
+            "page": null
+          },
+          {
+            "id": "line-5",
+            "text": "Synthetic verification notice only.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      "raw_run": {
+        "id": "3a0bbb5c-a577-4c9a-ace5-8813918c284d",
+        "mode": "live",
+        "provider": "AMD configured endpoint",
+        "prompt_version": "scope-extract-1",
+        "schema_version": 1,
+        "timestamp": "2026-10-16T09:29:12.161346+00:00",
+        "status": "failed",
+        "repairs": 0,
+        "error_kind": "transport_timeout",
+        "error": "Invalid provider output or network failure; no fallback was used",
+        "elapsed_ms": 47262,
+        "revision": 2,
+        "document_id": "DOC-8e79ded35883",
+        "scope_concerns": [
+          {
+            "document_id": "DOC-8e79ded35883",
+            "block_id": "line-2",
+            "quote": "BZ-9187 is awaiting laboratory results; it has not been cleared."
+          },
+          {
+            "document_id": "DOC-8e79ded35883",
+            "block_id": "line-3",
+            "quote": "The affected batch list is not yet final."
+          }
+        ]
+      },
+      "raw_boolean_quality": {
+        "status": "not_evaluated_no_model_result"
+      },
+      "review_status": "blocked_no_model_result"
+    }
+  ],
+  "retry_reason": "One bounded retry after read-only catalog availability check; original failure retained.",
+  "explicit_alternate_selection": "MiMo-V2.6-Flash selected after a successful separately labeled probe; Gemma attempts retained. Not automatic fallback.",
+  "completed_at": "2026-10-16T09:34:27.636382+00:00",
+  "status": "safety_checks_passed_one_live_workflow_one_extraction_blocked"
+}

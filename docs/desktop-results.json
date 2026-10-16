@@ -1,12 +1,12 @@
 {
-  "at": "2026-10-16T03:20:01.943Z",
+  "at": "2026-10-16T10:12:54.082Z",
   "releaseInfo": {
     "electron": "44.7.2",
     "node": "24.21.0",
     "platform": "win32",
     "arch": "x64",
     "packaged": true,
-    "exe": "D:\\projects\\BatchFence\\work\\installed\\BatchFence.exe"
+    "exe": "D:\\projects\\BatchFence\\work\\installed-0.1.1\\BatchFence.exe"
   },
   "windowSize": {
     "x": 170,

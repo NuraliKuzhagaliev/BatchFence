@@ -1,14 +1,17 @@
-# Current execution checkpoint — AMD follow-up
+# BatchFence ambiguity follow-up — complete local work
 
-Continued from 54745c5; application code and architecture preserved.
+Starting checkpoint ed6a2b0. Product architecture/features preserved; release 0.1.1.
 
-- Authenticated AMD provider manual/catalog confirmed endpoint/model; private ignored .env configured without displaying the key.
-- Existing four probes ran live. Gemma response IDs/latency/usage/facts retained. Ambiguity semantics remain a limitation.
-- Two frozen fresh/revised notices with new IDs and identical uploaded filename drove actual review controls, 500/800-unit calculations, approvals and sandbox receipts. Zero ID corrections; agent-operated review, not independent human validation.
-- Seven live calls total including the initial workflow call before a selector failure; no fallback/repair/transport failures.
-- Both receipts survived refresh and a real process restart; stale-plan execution rejected. 28 pytest cases pass.
-- Real Windows import/save/reopen completed without dialog stubs. Initial automation/test-selector failures retained.
-- Docker startup blocked by inaccessible sailor-ingest.sock rename; no destructive remediation attempted.
-- Deployment/source/evidence preparation complete; public hosting/repository/download/submission still require explicit authorization and destination. Old pitch/video require refreshing before submission.
+Completed and verified:
+- Exact old Gemma failure replay proved unsupported SUP-S exclusion reachable through review/approval/receipt.
+- Explicit lot dispositions, unresolved default, source-backed incident scope and independent ancestry uncertainty contain that regression; legacy approval digests invalidated.
+- Two fresh ambiguous notices: one agent-reviewed broad 1,200 hold and receipt; one invalid citation blocked before review. Raw quality remains separate and poor. Three Gemma failures retained; MiMo selected explicitly from actual catalog.
+- Fresh live MiMo 500/800 workflow, two receipts, stale apply 409, plus actual restart persistence of all three cases.
+- Failed-run message persists after reload. Actual packet handoff exposed a cross-runtime number hash bug; fixed with pinned canonicalization, original exports retained, equivalent payloads reissued and fresh export verified.
+- 40 pytest, 30 frozen domain, 12 browser, 7 installed checks pass. Final packet/failure UI and malformed packet checks pass.
+- Docker diagnosis identifies exact command/log/process/AF_UNIX socket failure. No permission, socket or data changes.
+- Unsigned 0.1.1 rebuilt/installed. Updated live demo, six-slide editable deck, cover and descriptions prepared with explicit limits.
 
-Evidence and exact commands: HANDOFF.md, docs/amd_evidence.md, docs/evaluation.md and docs/live-verification. Follow-up artifact checkpoint/hashes: releases/followup-manifest.json.
+Finalization: sanitized evidence, source/evidence/media archives and checksums are in releases/manifest-0.1.1.json. See HANDOFF.md for commands and precise remaining human actions.
+
+Remaining external gates: supported Docker/Windows repair then container test; independent domain/operator review and exact-release native dialog acceptance; authorized host/repository/download and resource budget; hosted checks, event eligibility and submission. No external publication occurred. Next useful action is the human review of the current packets and Docker repair, not more cosmetic changes or repeated unchanged probes.

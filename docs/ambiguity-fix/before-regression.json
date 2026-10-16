@@ -1,0 +1,351 @@
+{
+  "method": "Offline regression replay of the exact preserved AMD response against ed6a2b0; zero new model calls; isolated test database.",
+  "input": "Lot SUP-R may be affected. We cannot determine whether SUP-S is implicated. Scope remains unresolved.",
+  "expected": "SUP-R and SUP-S remain unresolved; scope is not bounded; no narrowed exclusion is supported.",
+  "original_run": {
+    "id": "798d318b-e0cd-458b-a18f-32e91e7515bd",
+    "mode": "live",
+    "provider": "AMD configured endpoint",
+    "prompt_version": "scope-extract-1",
+    "schema_version": 1,
+    "timestamp": "2026-10-16T08:25:45.206259+00:00",
+    "status": "succeeded",
+    "repairs": 0,
+    "request_id": "ed8b5909c9f14f0583a8926896a7e361",
+    "usage": {
+      "prompt_tokens": 528,
+      "total_tokens": 749,
+      "completion_tokens": 221,
+      "prompt_tokens_details": {
+        "cached_tokens": 464,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 1.80348e-05,
+      "cost_details": {
+        "upstream_inference_cost": 1.80348e-05,
+        "upstream_inference_prompt_cost": 2.5648e-06,
+        "upstream_inference_completions_cost": 1.547e-05,
+        "total_cost": 1.80348e-05,
+        "input_cost": 2.24e-06,
+        "output_cost": 1.547e-05,
+        "cached_input_cost": 3.248e-07,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "output": {
+      "facts": [
+        {
+          "lot_id": "SUP-R",
+          "affected": true,
+          "evidence": [
+            {
+              "document_id": "DOC-f3111f1cd13b",
+              "block_id": "line-1",
+              "quote": "Lot SUP-R may be affected."
+            }
+          ]
+        },
+        {
+          "lot_id": "SUP-S",
+          "affected": false,
+          "evidence": [
+            {
+              "document_id": "DOC-f3111f1cd13b",
+              "block_id": "line-1",
+              "quote": "We cannot determine whether SUP-S is implicated."
+            }
+          ]
+        }
+      ],
+      "qualifiers": [
+        "Scope remains unresolved for SUP-R and SUP-S"
+      ]
+    },
+    "elapsed_ms": 7676
+  },
+  "review_request": {
+    "run_id": "798d318b-e0cd-458b-a18f-32e91e7515bd",
+    "revision": 1,
+    "lot_ids": [
+      "SUP-R"
+    ],
+    "accept_scope": true,
+    "bounded_scope_reviewed": true
+  },
+  "review_http_status": 200,
+  "approval_http_status": 200,
+  "execution_http_status": 200,
+  "result": {
+    "rows": [
+      {
+        "id": "FG-A",
+        "units": 240,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-1",
+        "snapshot_version": 1,
+        "classification": "documented",
+        "reason": "Confirmed ancestry reaches a reviewed affected lot.",
+        "path": [
+          "SUP-R",
+          "FG-A"
+        ],
+        "evidence": [
+          {
+            "document_id": "DOC-fb051ee8323e",
+            "block_id": "row-1",
+            "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": "FG-B",
+        "units": 160,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-2",
+        "snapshot_version": 1,
+        "classification": "documented",
+        "reason": "Confirmed ancestry reaches a reviewed affected lot.",
+        "path": [
+          "SUP-R",
+          "FG-B"
+        ],
+        "evidence": [
+          {
+            "document_id": "DOC-fb051ee8323e",
+            "block_id": "row-2",
+            "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": "FG-C",
+        "units": 100,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": false,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-3",
+        "snapshot_version": 1,
+        "classification": "uncertain",
+        "reason": "Possible ancestry reaches an affected lot. Missing receiving identity remains in the hold.",
+        "path": [
+          "SUP-R",
+          "FG-C"
+        ],
+        "evidence": [
+          {
+            "document_id": "DOC-fb051ee8323e",
+            "block_id": "row-3",
+            "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": "FG-D",
+        "units": 300,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-4",
+        "snapshot_version": 1,
+        "classification": "outside",
+        "reason": "Reviewed complete ancestry has no affected-lot path within the declared incident universe.",
+        "path": [
+          "SUP-S",
+          "FG-D"
+        ],
+        "evidence": [
+          {
+            "document_id": "DOC-fb051ee8323e",
+            "block_id": "row-5",
+            "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": "FG-E",
+        "units": 250,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-5",
+        "snapshot_version": 1,
+        "classification": "outside",
+        "reason": "Reviewed complete ancestry has no affected-lot path within the declared incident universe.",
+        "path": [
+          "SUP-D",
+          "FG-E"
+        ],
+        "evidence": [
+          {
+            "document_id": "DOC-fb051ee8323e",
+            "block_id": "row-6",
+            "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
+          }
+        ]
+      },
+      {
+        "id": "FG-F",
+        "units": 150,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-6",
+        "snapshot_version": 1,
+        "classification": "outside",
+        "reason": "Reviewed complete ancestry has no affected-lot path within the declared incident universe.",
+        "path": [
+          "SUP-E",
+          "FG-F"
+        ],
+        "evidence": [
+          {
+            "document_id": "DOC-fb051ee8323e",
+            "block_id": "row-7",
+            "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
+          }
+        ]
+      }
+    ],
+    "documented_units": 400,
+    "uncertain_units": 100,
+    "hold_units": 500,
+    "outside_units": 700,
+    "broad_units": 1200,
+    "hold_cents": 2000000,
+    "broad_cents": 4800000,
+    "excluded_cents": 2800000,
+    "reduction_percent": 58.3,
+    "actions": [
+      {
+        "type": "hold",
+        "pool_id": "FG-A"
+      },
+      {
+        "type": "hold",
+        "pool_id": "FG-B"
+      },
+      {
+        "type": "hold",
+        "pool_id": "FG-C"
+      }
+    ],
+    "requests": [
+      {
+        "id": "REQ-FG-C",
+        "pool_ids": [
+          "FG-C"
+        ],
+        "units": 100,
+        "value_cents": 400000,
+        "missing": "Receiving identity / complete ancestry for FG-C",
+        "reason": "Possible ancestry reaches an affected lot. Missing receiving identity remains in the hold.",
+        "draft": "Please provide the original receiving lot record for FG-C (100 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
+      }
+    ],
+    "request_unique_units": 100,
+    "request_unique_cents": 400000,
+    "orders": [
+      {
+        "order_id": "O-101",
+        "due_date": "2026-10-19",
+        "pool_ids": [
+          "FG-A"
+        ],
+        "units": 240,
+        "reason": "Allocated stock intersects exposure; needs review.",
+        "source_rows": [
+          "ALLOC-1"
+        ]
+      },
+      {
+        "order_id": "O-102",
+        "due_date": "2026-10-20",
+        "pool_ids": [
+          "FG-B"
+        ],
+        "units": 160,
+        "reason": "Allocated stock intersects exposure; needs review.",
+        "source_rows": [
+          "ALLOC-2"
+        ]
+      },
+      {
+        "order_id": "O-103",
+        "due_date": "2026-10-21",
+        "pool_ids": [
+          "FG-C"
+        ],
+        "units": 100,
+        "reason": "Allocated stock intersects exposure; needs review.",
+        "source_rows": [
+          "ALLOC-3"
+        ]
+      }
+    ],
+    "shipment_reviews": [],
+    "narrowing_available": true
+  },
+  "receipt": {
+    "transaction_id": "TX-6bfcc5e39a2d4e189404c95ddb1bf711",
+    "at": "2026-10-16T09:17:44.726420+00:00",
+    "execution": "SANDBOX INVENTORY",
+    "plan_id": "PLAN-f9cfc47209ff",
+    "digest": "f9cfc47209ffbd1ebff54bc8850635e5a500055c3d5400b75c247c4acf3f827a",
+    "idempotency_key": "before-regression-only",
+    "changes": [
+      {
+        "pool_id": "FG-A",
+        "units": 240,
+        "before": "available",
+        "after": "held"
+      },
+      {
+        "pool_id": "FG-B",
+        "units": 160,
+        "before": "available",
+        "after": "held"
+      },
+      {
+        "pool_id": "FG-C",
+        "units": 100,
+        "before": "available",
+        "after": "held"
+      }
+    ],
+    "prior_inventory_version": 1,
+    "current_inventory_version": 2,
+    "evidence_revision": 1
+  },
+  "finding": "FG-D descends from SUP-S but is classified outside. Generic review plus default bounded scope permits unsupported exclusion."
+}

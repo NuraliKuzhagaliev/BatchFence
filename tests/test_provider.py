@@ -17,3 +17,33 @@ def test_unseen_fixture_notice_and_adversarial_source_not_authority():
     r = extract([d], 'fixture')
     assert r['mode'] == 'fixture' and r['output']['facts'][0]['lot_id'] == 'SUP-Q'
     assert 'approval' not in r
+
+
+@pytest.mark.parametrize('supported', [True, False])
+def test_negative_only_proposal_and_rejected_citation_audit(monkeypatch, supported):
+    from backend import provider
+    d = document('pending.txt', b'SUP-Q is unresolved. Overall scope is unresolved.')
+    raw = {'facts': [{'lot_id': 'SUP-Q', 'affected': False, 'evidence': [{
+        'document_id': d['id'], 'block_id': 'line-1',
+        'quote': 'SUP-Q is unresolved.' if supported else 'Overall scope is unresolved.'}]}], 'qualifiers': ['Unresolved']}
+    class Response:
+        status_code = 200
+        headers = {}
+        def json(self):
+            import json
+            return {'id': 'mock-request', 'model': 'test-model', 'choices': [{'message': {'content': json.dumps(raw)}}]}
+    class Client:
+        def __init__(self, **kwargs): pass
+        def __enter__(self): return self
+        def __exit__(self, *args): pass
+        def post(self, *args, **kwargs): return Response()
+    for name, value in {'AMD_API_BASE_URL': 'https://example.invalid/v1', 'AMD_API_KEY': 'unit-test-only',
+                         'AMD_MODEL_ID': 'test-model', 'AMD_PROVIDER_EVIDENCE': 'test-double', 'AMD_API_STYLE': 'openai-chat'}.items():
+        monkeypatch.setenv(name, value)
+    monkeypatch.setattr(provider.httpx, 'Client', Client)
+    result = provider.extract([d], 'live')
+    if supported:
+        assert result['status'] == 'succeeded' and result['output'] == raw
+    else:
+        assert result['status'] == 'failed' and result['rejected_output'] == raw
+        assert 'output' not in result

@@ -30,7 +30,7 @@ import {
   validatePacket,
   copyDraft,
 } from "./platform";
-import type { Case, Document, Evidence, Packet, Upload } from "./types";
+import type { Case, Document, Evidence, Packet, Upload, Run } from "./types";
 import { Graph, labels } from "./Graph";
 import "./style.css";
 const euro = (n: number) =>
@@ -95,8 +95,13 @@ function App() {
     [mobile, setMobile] = useState("map");
   const [review, setReview] = useState(false),
     [lots, setLots] = useState(""),
+    [uncertainLots, setUncertainLots] = useState(""),
+    [excludedLots, setExcludedLots] = useState(""),
+    [scopeResolved, setScopeResolved] = useState(false),
+    [resolutionQuote, setResolutionQuote] = useState(""),
+    [reviewNote, setReviewNote] = useState(""),
     [checked, setChecked] = useState(false),
-    [bounded, setBounded] = useState(true),
+    [bounded, setBounded] = useState(false),
     [mode, setMode] = useState("fixture"),
     [technical, setTechnical] = useState(false);
   const [cases, setCases] = useState<
@@ -245,18 +250,21 @@ function App() {
         const r = s.runs.at(-1);
         if (r?.status !== "succeeded")
           throw Error(r?.error || "Interpretation failed");
-        setLots(
-          r
-            .output!.facts.filter((f) => f.affected)
-            .map((f) => f.lot_id)
-            .join(", "),
-        );
-        setChecked(false);
-        setBounded(s.bounded);
-        setReview(true);
+        beginReview(r);
         setMobile("map");
       },
     );
+  }
+  function beginReview(r: Run) {
+    setLots("");
+    setUncertainLots([...new Set(r.output!.facts.map(f => f.lot_id))].join(", "));
+    setExcludedLots("");
+    setChecked(false);
+    setBounded(false);
+    setScopeResolved(false);
+    setResolutionQuote("");
+    setReviewNote("");
+    setReview(true);
   }
   async function confirm() {
     if (!state || !run) return;
@@ -270,8 +278,12 @@ function App() {
             .map((l) => l.trim())
             .filter(Boolean),
           accept_scope: checked,
+          uncertain_lot_ids: uncertainLots.split(",").map(l => l.trim()).filter(Boolean),
+          excluded_lot_ids: excludedLots.split(",").map(l => l.trim()).filter(Boolean),
+          incident_scope_status: scopeResolved ? "resolved" : "unresolved",
+          resolution_quote: resolutionQuote,
           bounded_scope_reviewed: bounded,
-          note: "Checked source context, lot IDs, exclusions and completeness in workbench.",
+          note: reviewNote,
         }),
       );
       setReview(false);
@@ -630,7 +642,7 @@ function App() {
               <div className="distribution">
                 <a href="/" className="distribution-link">
                   <ExternalLink size={16} />
-                  Open web app<span>Local v0.1.0</span>
+                  Open web app<span>Local v0.1.1</span>
                 </a>
                 <div className="distribution-link muted">
                   <PackageCheck size={16} />
@@ -811,7 +823,7 @@ function App() {
                     </label>
                     <select
                       id="inference-mode"
-                      value={mode}
+                      value={packet ? run?.mode || "fixture" : mode}
                       disabled={readOnly || !!busy}
                       onChange={(e) => setMode(e.target.value)}
                     >
@@ -829,23 +841,25 @@ function App() {
                       Extract selected notice
                     </button>
                     <p className="caption">
-                      {mode === "fixture"
+                      {packet
+                        ? "Historical model run · no new inference."
+                        : mode === "fixture"
                         ? "Synthetic walkthrough. No AI inference is claimed."
                         : "Fresh AMD request. Failures stay visible."}
                     </p>
+                    {run?.status === "failed" && (
+                      <div className="feedback error" role="alert">
+                        <AlertTriangle size={17} />
+                        <span>
+                          Extraction failed: {run.error || "Invalid provider response"}.
+                          No candidate facts were accepted from this run.
+                        </span>
+                      </div>
+                    )}
                     {currentRun && !review && !packet && (
                       <button
                         className="text-button"
-                        onClick={() => {
-                          setLots(
-                            run!
-                              .output!.facts.filter((f) => f.affected)
-                              .map((f) => f.lot_id)
-                              .join(", "),
-                          );
-                          setChecked(false);
-                          setReview(true);
-                        }}
+                        onClick={() => beginReview(run!)}
                       >
                         Review candidate facts <ArrowRight size={13} />
                       </button>
@@ -952,8 +966,9 @@ function App() {
                       </span>
                       <h3>Confirm the affected supplier lots.</h3>
                       <p>
-                        Interpretation proposes facts. Your review determines
-                        scope and supersession.
+                        Model proposals start unresolved. Move each lot into one
+                        reviewed group after inspecting its source. Negative proposals
+                        do not establish exclusions.
                       </p>
                       {run?.output?.facts.map((f, i) => (
                         <button
@@ -965,7 +980,7 @@ function App() {
                           <span>
                             {f.affected
                               ? "Affected candidate"
-                              : "Mentioned only"}
+                              : "Negative proposal"}
                           </span>
                           <small>
                             Inspect quote <ChevronRight size={12} />
@@ -980,10 +995,32 @@ function App() {
                         value={lots}
                         onChange={(e) => setLots(e.target.value)}
                       />
+                      <label className="field-label" htmlFor="review-uncertain">Unresolved lots · comma separated</label>
+                      <input id="review-uncertain" value={uncertainLots} onChange={e => setUncertainLots(e.target.value)} />
+                      <label className="field-label" htmlFor="review-excluded">Explicitly excluded lots · comma separated</label>
+                      <input id="review-excluded" value={excludedLots} onChange={e => setExcludedLots(e.target.value)} />
+                      {run?.scope_concerns?.length ? <p className="review-qualifier" role="status">
+                        This notice explicitly leaves scope unresolved. Keep implicated lots uncertain.
+                        Clarifying evidence is required before narrowing.
+                      </p> : null}
+                      <label className="field-label" htmlFor="review-scope-status">Incident scope certainty</label>
+                      <select id="review-scope-status" value={scopeResolved ? "resolved" : "unresolved"}
+                        onChange={e => { setScopeResolved(e.target.value === "resolved"); setBounded(false); }}>
+                        <option value="unresolved">Unresolved · no narrowed exclusions</option>
+                        <option value="resolved" disabled={!!run?.scope_concerns?.length}>Resolved · complete boundary reviewed</option>
+                      </select>
+                      {scopeResolved && <>
+                        <label className="field-label" htmlFor="review-basis">Scope resolution basis · exact source quote</label>
+                        <textarea id="review-basis" value={resolutionQuote} onChange={e => setResolutionQuote(e.target.value)} />
+                      </>}
+                      <label className="field-label" htmlFor="review-note">Review explanation · scope and exclusions</label>
+                      <textarea id="review-note" value={reviewNote} onChange={e => setReviewNote(e.target.value)}
+                        placeholder="Explain the source-backed boundary and any excluded lots. Leave unresolved claims uncertain." />
                       <label className="checkbox">
                         <input
                           type="checkbox"
                           checked={bounded}
+                          disabled={!scopeResolved}
                           onChange={(e) => setBounded(e.target.checked)}
                         />
                         I reviewed inventory, lineage and the bounded
@@ -1011,7 +1048,7 @@ function App() {
                       )}
                       <button
                         className="button primary"
-                        disabled={!checked || !canWrite}
+                        disabled={!checked || !canWrite || (scopeResolved && (resolutionQuote.trim().length < 8 || reviewNote.trim().length < 20))}
                         onClick={confirm}
                       >
                         <Check size={16} />
@@ -1599,7 +1636,7 @@ function App() {
                   New isolated incident
                 </button>
                 <span>
-                  BatchFence 0.1.0 · {native ? "Windows desktop" : "Web app"}
+                  BatchFence 0.1.1 · {native ? "Windows desktop" : "Web app"}
                 </span>
               </footer>
             </>

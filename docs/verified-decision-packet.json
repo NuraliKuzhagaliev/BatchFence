@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "exported_at": "2026-10-16T03:08:02.423318+00:00",
+  "exported_at": "2026-10-16T09:56:33.196751+00:00",
   "label": "Historical read-only packet. Hash is change detection, not supplier authentication.",
   "case": {
-    "id": "61e3f3a2e4e44a9dafe701df4043d61e",
+    "id": "0c1a8a0f325945488d344f4c190b8737",
     "name": "Northstar Enclosures",
     "incident": "Cosmetic coating defect · decorative housings",
     "synthetic": true,
@@ -11,11 +11,11 @@
     "inventory_version": 2,
     "documents": [
       {
-        "id": "DOC-2eda4d26bbe4",
+        "id": "DOC-2c4c37222dcd",
         "filename": "ambiguous_receipt.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T03:08:01.130900+00:00",
+        "ingested_at": "2026-10-16T09:56:31.950193+00:00",
         "original_hash": "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
         "text_hash": "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
         "blocks": [
@@ -33,11 +33,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-13c9bbfff76a",
+        "id": "DOC-9ffe939457ba",
         "filename": "completeness_manifest.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T03:08:01.131147+00:00",
+        "ingested_at": "2026-10-16T09:56:31.950539+00:00",
         "original_hash": "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
         "text_hash": "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
         "blocks": [
@@ -55,11 +55,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-a013d0a0f7b0",
+        "id": "DOC-f92cf57da111",
         "filename": "containment_policy.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T03:08:01.131363+00:00",
+        "ingested_at": "2026-10-16T09:56:31.950709+00:00",
         "original_hash": "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
         "text_hash": "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
         "blocks": [
@@ -77,11 +77,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-0ad9e6d0c960",
+        "id": "DOC-d964e32d9436",
         "filename": "inventory.csv",
         "media_type": "text/csv",
         "revision": 1,
-        "ingested_at": "2026-10-16T03:08:01.131604+00:00",
+        "ingested_at": "2026-10-16T09:56:31.950874+00:00",
         "original_hash": "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
         "text_hash": "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
         "blocks": [
@@ -124,11 +124,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-135e3c1ed3e1",
+        "id": "DOC-c0b61cdc1be0",
         "filename": "lineage.csv",
         "media_type": "text/csv",
         "revision": 1,
-        "ingested_at": "2026-10-16T03:08:01.131828+00:00",
+        "ingested_at": "2026-10-16T09:56:31.951001+00:00",
         "original_hash": "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
         "text_hash": "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
         "blocks": [
@@ -176,11 +176,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-958a0353c31b",
+        "id": "DOC-5e073d113afe",
         "filename": "order_allocations.csv",
         "media_type": "text/csv",
         "revision": 1,
-        "ingested_at": "2026-10-16T03:08:01.132047+00:00",
+        "ingested_at": "2026-10-16T09:56:31.951109+00:00",
         "original_hash": "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
         "text_hash": "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
         "blocks": [
@@ -223,11 +223,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-43b0fd9ef0cd",
+        "id": "DOC-bcece2342b47",
         "filename": "production_travelers.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T03:08:01.132250+00:00",
+        "ingested_at": "2026-10-16T09:56:31.951210+00:00",
         "original_hash": "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
         "text_hash": "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
         "blocks": [
@@ -245,11 +245,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-5ae1f76b2875",
+        "id": "DOC-058a1e1bb961",
         "filename": "receiving_register.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T03:08:01.132498+00:00",
+        "ingested_at": "2026-10-16T09:56:31.951305+00:00",
         "original_hash": "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
         "text_hash": "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
         "blocks": [
@@ -267,11 +267,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-d8f607d0e049",
+        "id": "DOC-08e9bdbae30d",
         "filename": "supplier_notice_v1.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T03:08:01.132638+00:00",
+        "ingested_at": "2026-10-16T09:56:31.951389+00:00",
         "original_hash": "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
         "text_hash": "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
         "blocks": [
@@ -304,11 +304,11 @@
         "synthetic": true
       },
       {
-        "id": "DOC-35446433de5a",
+        "id": "DOC-7823b53b391f",
         "filename": "supplier_notice_v2.txt",
         "media_type": "text/plain",
         "revision": 2,
-        "ingested_at": "2026-10-16T03:08:01.822551+00:00",
+        "ingested_at": "2026-10-16T09:56:32.627328+00:00",
         "original_hash": "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d",
         "text_hash": "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d",
         "blocks": [
@@ -418,7 +418,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-135e3c1ed3e1",
+          "document_id": "DOC-c0b61cdc1be0",
           "block_id": "row-1",
           "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
         }
@@ -431,7 +431,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-135e3c1ed3e1",
+          "document_id": "DOC-c0b61cdc1be0",
           "block_id": "row-2",
           "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
         }
@@ -444,7 +444,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-135e3c1ed3e1",
+          "document_id": "DOC-c0b61cdc1be0",
           "block_id": "row-3",
           "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
         }
@@ -457,7 +457,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-135e3c1ed3e1",
+          "document_id": "DOC-c0b61cdc1be0",
           "block_id": "row-4",
           "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
         }
@@ -470,7 +470,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-135e3c1ed3e1",
+          "document_id": "DOC-c0b61cdc1be0",
           "block_id": "row-5",
           "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
         }
@@ -483,7 +483,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-135e3c1ed3e1",
+          "document_id": "DOC-c0b61cdc1be0",
           "block_id": "row-6",
           "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
         }
@@ -496,7 +496,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-135e3c1ed3e1",
+          "document_id": "DOC-c0b61cdc1be0",
           "block_id": "row-7",
           "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
         }
@@ -573,16 +573,27 @@
       "qualifiers": [
         "Synthetic deterministic walkthrough. Confirm scope against the original notice."
       ],
-      "source_document_id": "DOC-35446433de5a"
+      "source_document_id": "DOC-7823b53b391f",
+      "uncertain_lot_ids": [],
+      "excluded_lot_ids": [],
+      "incident_scope_status": "resolved",
+      "resolution_evidence": {
+        "document_id": "DOC-7823b53b391f",
+        "block_id": "line-4",
+        "quote": "Affected lots: SUP-A, SUP-C"
+      },
+      "review_policy_version": 2,
+      "resolution_note": "Automated synthetic test review: the fixture notice defines the complete supplier scope.",
+      "scope_concerns": []
     },
     "runs": [
       {
-        "id": "3812e37f-b2f9-461d-bdf3-1a3e16515d60",
+        "id": "1245f58b-a8f2-4186-b6ab-f9284a460d2b",
         "mode": "fixture",
         "provider": "Synthetic fixture",
         "prompt_version": "scope-extract-1",
         "schema_version": 1,
-        "timestamp": "2026-10-16T03:08:01.188662+00:00",
+        "timestamp": "2026-10-16T09:56:32.011031+00:00",
         "status": "succeeded",
         "repairs": 0,
         "model_id": "fixture-parser-v1",
@@ -593,7 +604,7 @@
               "affected": true,
               "evidence": [
                 {
-                  "document_id": "DOC-d8f607d0e049",
+                  "document_id": "DOC-08e9bdbae30d",
                   "block_id": "line-4",
                   "quote": "Affected lots: SUP-A"
                 }
@@ -606,15 +617,16 @@
         },
         "elapsed_ms": 0,
         "revision": 1,
-        "document_id": "DOC-d8f607d0e049"
+        "document_id": "DOC-08e9bdbae30d",
+        "scope_concerns": []
       },
       {
-        "id": "167bfc0a-5f3d-49dd-9da4-6bdc548cfbba",
+        "id": "e8a932b5-bd0e-410d-92a6-29054d7a2a4f",
         "mode": "fixture",
         "provider": "Synthetic fixture",
         "prompt_version": "scope-extract-1",
         "schema_version": 1,
-        "timestamp": "2026-10-16T03:08:01.975286+00:00",
+        "timestamp": "2026-10-16T09:56:32.766107+00:00",
         "status": "succeeded",
         "repairs": 0,
         "model_id": "fixture-parser-v1",
@@ -625,7 +637,7 @@
               "affected": true,
               "evidence": [
                 {
-                  "document_id": "DOC-35446433de5a",
+                  "document_id": "DOC-7823b53b391f",
                   "block_id": "line-4",
                   "quote": "Affected lots: SUP-A, SUP-C"
                 }
@@ -636,7 +648,7 @@
               "affected": true,
               "evidence": [
                 {
-                  "document_id": "DOC-35446433de5a",
+                  "document_id": "DOC-7823b53b391f",
                   "block_id": "line-4",
                   "quote": "Affected lots: SUP-A, SUP-C"
                 }
@@ -649,14 +661,15 @@
         },
         "elapsed_ms": 0,
         "revision": 2,
-        "document_id": "DOC-35446433de5a"
+        "document_id": "DOC-7823b53b391f",
+        "scope_concerns": []
       }
     ],
     "reviews": [
       {
-        "at": "2026-10-16T03:08:01.401282+00:00",
+        "at": "2026-10-16T09:56:32.269254+00:00",
         "reviewer": "Anonymous session reviewer",
-        "run_id": "3812e37f-b2f9-461d-bdf3-1a3e16515d60",
+        "run_id": "1245f58b-a8f2-4186-b6ab-f9284a460d2b",
         "suggested_lots": [
           "SUP-A"
         ],
@@ -665,13 +678,22 @@
         ],
         "previous_lots": [],
         "revision": 1,
-        "note": "Checked source context, lot IDs, exclusions and completeness in workbench.",
+        "note": "Automated synthetic test review: the fixture notice defines the complete supplier scope.",
+        "uncertain_lot_ids": [],
+        "excluded_lot_ids": [],
+        "incident_scope_status": "resolved",
+        "resolution_evidence": {
+          "document_id": "DOC-08e9bdbae30d",
+          "block_id": "line-4",
+          "quote": "Affected lots: SUP-A"
+        },
+        "review_policy_version": 2,
         "bounded_scope_reviewed": true
       },
       {
-        "at": "2026-10-16T03:08:02.085763+00:00",
+        "at": "2026-10-16T09:56:32.897566+00:00",
         "reviewer": "Anonymous session reviewer",
-        "run_id": "167bfc0a-5f3d-49dd-9da4-6bdc548cfbba",
+        "run_id": "e8a932b5-bd0e-410d-92a6-29054d7a2a4f",
         "suggested_lots": [
           "SUP-A",
           "SUP-C"
@@ -684,14 +706,23 @@
           "SUP-A"
         ],
         "revision": 2,
-        "note": "Checked source context, lot IDs, exclusions and completeness in workbench.",
+        "note": "Automated synthetic test review: the fixture notice defines the complete supplier scope.",
+        "uncertain_lot_ids": [],
+        "excluded_lot_ids": [],
+        "incident_scope_status": "resolved",
+        "resolution_evidence": {
+          "document_id": "DOC-7823b53b391f",
+          "block_id": "line-4",
+          "quote": "Affected lots: SUP-A, SUP-C"
+        },
+        "review_policy_version": 2,
         "bounded_scope_reviewed": true
       }
     ],
     "plans": [
       {
-        "id": "PLAN-15f28142b72b",
-        "digest": "15f28142b72b0573b035c9fce64bed8d2add72a5e933372f10ada6a7baedd496",
+        "id": "PLAN-c94bb3a982f5",
+        "digest": "c94bb3a982f519c8f7b1e7a3c9bf2e5e6650762a418cc9b21f0c5cd777d311c1",
         "status": "stale",
         "revision": 1,
         "inventory_version": 1,
@@ -729,7 +760,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-135e3c1ed3e1",
+                  "document_id": "DOC-c0b61cdc1be0",
                   "block_id": "row-1",
                   "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -753,7 +784,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-135e3c1ed3e1",
+                  "document_id": "DOC-c0b61cdc1be0",
                   "block_id": "row-2",
                   "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -770,14 +801,14 @@
               "row_id": "INV-3",
               "snapshot_version": 1,
               "classification": "uncertain",
-              "reason": "Possible ancestry reaches an affected lot. Missing receiving identity remains in the hold.",
+              "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
               "path": [
                 "SUP-A",
                 "FG-C"
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-135e3c1ed3e1",
+                  "document_id": "DOC-c0b61cdc1be0",
                   "block_id": "row-3",
                   "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
                 }
@@ -801,7 +832,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-135e3c1ed3e1",
+                  "document_id": "DOC-c0b61cdc1be0",
                   "block_id": "row-5",
                   "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -825,7 +856,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-135e3c1ed3e1",
+                  "document_id": "DOC-c0b61cdc1be0",
                   "block_id": "row-6",
                   "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -849,7 +880,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-135e3c1ed3e1",
+                  "document_id": "DOC-c0b61cdc1be0",
                   "block_id": "row-7",
                   "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -888,7 +919,7 @@
               "units": 100,
               "value_cents": 400000,
               "missing": "Receiving identity / complete ancestry for FG-C",
-              "reason": "Possible ancestry reaches an affected lot. Missing receiving identity remains in the hold.",
+              "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
               "draft": "Please provide the original receiving lot record for FG-C (100 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
             }
           ],
@@ -936,63 +967,64 @@
           "narrowing_available": true
         },
         "inputs": {
-          "incident_id": "61e3f3a2e4e44a9dafe701df4043d61e",
+          "incident_id": "0c1a8a0f325945488d344f4c190b8737",
+          "review_policy_version": 2,
           "evidence_revision": 1,
           "inventory_version": 1,
           "documents": [
             [
-              "DOC-0ad9e6d0c960",
-              1,
-              "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
-              "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46"
-            ],
-            [
-              "DOC-135e3c1ed3e1",
-              1,
-              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
-              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5"
-            ],
-            [
-              "DOC-13c9bbfff76a",
-              1,
-              "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
-              "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3"
-            ],
-            [
-              "DOC-2eda4d26bbe4",
-              1,
-              "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
-              "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9"
-            ],
-            [
-              "DOC-43b0fd9ef0cd",
-              1,
-              "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
-              "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e"
-            ],
-            [
-              "DOC-5ae1f76b2875",
+              "DOC-058a1e1bb961",
               1,
               "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
               "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e"
             ],
             [
-              "DOC-958a0353c31b",
+              "DOC-08e9bdbae30d",
+              1,
+              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
+              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404"
+            ],
+            [
+              "DOC-2c4c37222dcd",
+              1,
+              "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
+              "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9"
+            ],
+            [
+              "DOC-5e073d113afe",
               1,
               "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
               "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee"
             ],
             [
-              "DOC-a013d0a0f7b0",
+              "DOC-9ffe939457ba",
+              1,
+              "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
+              "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3"
+            ],
+            [
+              "DOC-bcece2342b47",
+              1,
+              "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
+              "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e"
+            ],
+            [
+              "DOC-c0b61cdc1be0",
+              1,
+              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
+              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5"
+            ],
+            [
+              "DOC-d964e32d9436",
+              1,
+              "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
+              "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46"
+            ],
+            [
+              "DOC-f92cf57da111",
               1,
               "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
               "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6"
-            ],
-            [
-              "DOC-d8f607d0e049",
-              1,
-              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
-              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404"
             ]
           ],
           "reviewed_scope": {
@@ -1003,7 +1035,18 @@
             "qualifiers": [
               "Synthetic deterministic walkthrough. Confirm scope against the original notice."
             ],
-            "source_document_id": "DOC-d8f607d0e049"
+            "source_document_id": "DOC-08e9bdbae30d",
+            "uncertain_lot_ids": [],
+            "excluded_lot_ids": [],
+            "incident_scope_status": "resolved",
+            "resolution_evidence": {
+              "document_id": "DOC-08e9bdbae30d",
+              "block_id": "line-4",
+              "quote": "Affected lots: SUP-A"
+            },
+            "review_policy_version": 2,
+            "resolution_note": "Automated synthetic test review: the fixture notice defines the complete supplier scope.",
+            "scope_concerns": []
           },
           "stocks": [
             {
@@ -1082,7 +1125,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-135e3c1ed3e1",
+                "document_id": "DOC-c0b61cdc1be0",
                 "block_id": "row-1",
                 "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1095,7 +1138,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-135e3c1ed3e1",
+                "document_id": "DOC-c0b61cdc1be0",
                 "block_id": "row-2",
                 "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1108,7 +1151,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-135e3c1ed3e1",
+                "document_id": "DOC-c0b61cdc1be0",
                 "block_id": "row-3",
                 "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
               }
@@ -1121,7 +1164,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-135e3c1ed3e1",
+                "document_id": "DOC-c0b61cdc1be0",
                 "block_id": "row-4",
                 "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
               }
@@ -1134,7 +1177,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-135e3c1ed3e1",
+                "document_id": "DOC-c0b61cdc1be0",
                 "block_id": "row-5",
                 "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1147,7 +1190,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-135e3c1ed3e1",
+                "document_id": "DOC-c0b61cdc1be0",
                 "block_id": "row-6",
                 "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1160,7 +1203,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-135e3c1ed3e1",
+                "document_id": "DOC-c0b61cdc1be0",
                 "block_id": "row-7",
                 "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1244,16 +1287,16 @@
           ]
         },
         "approval": {
-          "at": "2026-10-16T03:08:01.727870+00:00",
+          "at": "2026-10-16T09:56:32.540270+00:00",
           "reviewer": "Anonymous session reviewer",
-          "digest": "15f28142b72b0573b035c9fce64bed8d2add72a5e933372f10ada6a7baedd496",
-          "plan_id": "PLAN-15f28142b72b"
+          "digest": "c94bb3a982f519c8f7b1e7a3c9bf2e5e6650762a418cc9b21f0c5cd777d311c1",
+          "plan_id": "PLAN-c94bb3a982f5"
         }
       }
     ],
     "plan": {
-      "id": "PLAN-5f56bbeaa18f",
-      "digest": "5f56bbeaa18f331d429ed1ee4ff0d1da639e90af36827df3122a4e3b9803f34c",
+      "id": "PLAN-efa0396c17f7",
+      "digest": "efa0396c17f7c235c903333da0926fa0d897bfe11e2bf78ed53f663f11df87d8",
       "status": "applied",
       "revision": 2,
       "inventory_version": 1,
@@ -1295,7 +1338,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-135e3c1ed3e1",
+                "document_id": "DOC-c0b61cdc1be0",
                 "block_id": "row-1",
                 "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1319,7 +1362,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-135e3c1ed3e1",
+                "document_id": "DOC-c0b61cdc1be0",
                 "block_id": "row-2",
                 "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1336,14 +1379,14 @@
             "row_id": "INV-3",
             "snapshot_version": 1,
             "classification": "uncertain",
-            "reason": "Possible ancestry reaches an affected lot. Missing receiving identity remains in the hold.",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
             "path": [
               "SUP-A",
               "FG-C"
             ],
             "evidence": [
               {
-                "document_id": "DOC-135e3c1ed3e1",
+                "document_id": "DOC-c0b61cdc1be0",
                 "block_id": "row-3",
                 "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
               }
@@ -1367,7 +1410,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-135e3c1ed3e1",
+                "document_id": "DOC-c0b61cdc1be0",
                 "block_id": "row-5",
                 "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1391,7 +1434,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-135e3c1ed3e1",
+                "document_id": "DOC-c0b61cdc1be0",
                 "block_id": "row-6",
                 "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1415,7 +1458,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-135e3c1ed3e1",
+                "document_id": "DOC-c0b61cdc1be0",
                 "block_id": "row-7",
                 "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1458,7 +1501,7 @@
             "units": 100,
             "value_cents": 400000,
             "missing": "Receiving identity / complete ancestry for FG-C",
-            "reason": "Possible ancestry reaches an affected lot. Missing receiving identity remains in the hold.",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
             "draft": "Please provide the original receiving lot record for FG-C (100 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
           }
         ],
@@ -1518,69 +1561,70 @@
         "narrowing_available": true
       },
       "inputs": {
-        "incident_id": "61e3f3a2e4e44a9dafe701df4043d61e",
+        "incident_id": "0c1a8a0f325945488d344f4c190b8737",
+        "review_policy_version": 2,
         "evidence_revision": 2,
         "inventory_version": 1,
         "documents": [
           [
-            "DOC-0ad9e6d0c960",
-            1,
-            "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
-            "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46"
-          ],
-          [
-            "DOC-135e3c1ed3e1",
-            1,
-            "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
-            "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5"
-          ],
-          [
-            "DOC-13c9bbfff76a",
-            1,
-            "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
-            "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3"
-          ],
-          [
-            "DOC-2eda4d26bbe4",
-            1,
-            "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
-            "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9"
-          ],
-          [
-            "DOC-35446433de5a",
-            2,
-            "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d",
-            "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d"
-          ],
-          [
-            "DOC-43b0fd9ef0cd",
-            1,
-            "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
-            "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e"
-          ],
-          [
-            "DOC-5ae1f76b2875",
+            "DOC-058a1e1bb961",
             1,
             "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
             "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e"
           ],
           [
-            "DOC-958a0353c31b",
+            "DOC-08e9bdbae30d",
+            1,
+            "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
+            "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404"
+          ],
+          [
+            "DOC-2c4c37222dcd",
+            1,
+            "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
+            "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9"
+          ],
+          [
+            "DOC-5e073d113afe",
             1,
             "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
             "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee"
           ],
           [
-            "DOC-a013d0a0f7b0",
+            "DOC-7823b53b391f",
+            2,
+            "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d",
+            "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d"
+          ],
+          [
+            "DOC-9ffe939457ba",
+            1,
+            "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
+            "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3"
+          ],
+          [
+            "DOC-bcece2342b47",
+            1,
+            "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
+            "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e"
+          ],
+          [
+            "DOC-c0b61cdc1be0",
+            1,
+            "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
+            "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5"
+          ],
+          [
+            "DOC-d964e32d9436",
+            1,
+            "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
+            "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46"
+          ],
+          [
+            "DOC-f92cf57da111",
             1,
             "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
             "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6"
-          ],
-          [
-            "DOC-d8f607d0e049",
-            1,
-            "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
-            "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404"
           ]
         ],
         "reviewed_scope": {
@@ -1592,7 +1636,18 @@
           "qualifiers": [
             "Synthetic deterministic walkthrough. Confirm scope against the original notice."
           ],
-          "source_document_id": "DOC-35446433de5a"
+          "source_document_id": "DOC-7823b53b391f",
+          "uncertain_lot_ids": [],
+          "excluded_lot_ids": [],
+          "incident_scope_status": "resolved",
+          "resolution_evidence": {
+            "document_id": "DOC-7823b53b391f",
+            "block_id": "line-4",
+            "quote": "Affected lots: SUP-A, SUP-C"
+          },
+          "review_policy_version": 2,
+          "resolution_note": "Automated synthetic test review: the fixture notice defines the complete supplier scope.",
+          "scope_concerns": []
         },
         "stocks": [
           {
@@ -1671,7 +1726,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-135e3c1ed3e1",
+              "document_id": "DOC-c0b61cdc1be0",
               "block_id": "row-1",
               "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
             }
@@ -1684,7 +1739,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-135e3c1ed3e1",
+              "document_id": "DOC-c0b61cdc1be0",
               "block_id": "row-2",
               "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
             }
@@ -1697,7 +1752,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-135e3c1ed3e1",
+              "document_id": "DOC-c0b61cdc1be0",
               "block_id": "row-3",
               "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
             }
@@ -1710,7 +1765,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-135e3c1ed3e1",
+              "document_id": "DOC-c0b61cdc1be0",
               "block_id": "row-4",
               "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
             }
@@ -1723,7 +1778,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-135e3c1ed3e1",
+              "document_id": "DOC-c0b61cdc1be0",
               "block_id": "row-5",
               "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
             }
@@ -1736,7 +1791,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-135e3c1ed3e1",
+              "document_id": "DOC-c0b61cdc1be0",
               "block_id": "row-6",
               "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
             }
@@ -1749,7 +1804,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-135e3c1ed3e1",
+              "document_id": "DOC-c0b61cdc1be0",
               "block_id": "row-7",
               "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
             }
@@ -1837,15 +1892,15 @@
         ]
       },
       "approval": {
-        "at": "2026-10-16T03:08:02.245219+00:00",
+        "at": "2026-10-16T09:56:33.043053+00:00",
         "reviewer": "Anonymous session reviewer",
-        "digest": "5f56bbeaa18f331d429ed1ee4ff0d1da639e90af36827df3122a4e3b9803f34c",
-        "plan_id": "PLAN-5f56bbeaa18f"
+        "digest": "efa0396c17f7c235c903333da0926fa0d897bfe11e2bf78ed53f663f11df87d8",
+        "plan_id": "PLAN-efa0396c17f7"
       }
     },
     "history": [
       {
-        "at": "2026-10-16T03:08:01.401668+00:00",
+        "at": "2026-10-16T09:56:32.272199+00:00",
         "type": "reviewed",
         "revision": 1,
         "previous_lots": [],
@@ -1860,19 +1915,19 @@
         "message": "Critical scope and completeness reviewed; new exact plan calculated."
       },
       {
-        "at": "2026-10-16T03:08:01.727882+00:00",
+        "at": "2026-10-16T09:56:32.540280+00:00",
         "type": "approved",
         "revision": 1,
-        "message": "Approved exact plan PLAN-15f28142b72b"
+        "message": "Approved exact plan PLAN-c94bb3a982f5"
       },
       {
-        "at": "2026-10-16T03:08:01.822581+00:00",
+        "at": "2026-10-16T09:56:32.627355+00:00",
         "type": "evidence_changed",
         "message": "Supplier correction expands affected lots. Previous approval is stale immediately.",
         "revision": 2
       },
       {
-        "at": "2026-10-16T03:08:02.086483+00:00",
+        "at": "2026-10-16T09:56:32.898503+00:00",
         "type": "reviewed",
         "revision": 2,
         "previous_lots": [
@@ -1891,26 +1946,26 @@
         "message": "Critical scope and completeness reviewed; new exact plan calculated."
       },
       {
-        "at": "2026-10-16T03:08:02.245230+00:00",
+        "at": "2026-10-16T09:56:33.043061+00:00",
         "type": "approved",
         "revision": 2,
-        "message": "Approved exact plan PLAN-5f56bbeaa18f"
+        "message": "Approved exact plan PLAN-efa0396c17f7"
       },
       {
-        "at": "2026-10-16T03:08:02.302533+00:00",
+        "at": "2026-10-16T09:56:33.089860+00:00",
         "type": "applied",
         "revision": 2,
-        "message": "Sandbox inventory committed atomically: TX-af8794600bbf483e91a12bbbcfadfb1d"
+        "message": "Sandbox inventory committed atomically: TX-a9b77f5639ae47a4950609d5fc436d5a"
       }
     ],
     "receipts": [
       {
-        "transaction_id": "TX-af8794600bbf483e91a12bbbcfadfb1d",
-        "at": "2026-10-16T03:08:02.302521+00:00",
+        "transaction_id": "TX-a9b77f5639ae47a4950609d5fc436d5a",
+        "at": "2026-10-16T09:56:33.089835+00:00",
         "execution": "SANDBOX INVENTORY",
-        "plan_id": "PLAN-5f56bbeaa18f",
-        "digest": "5f56bbeaa18f331d429ed1ee4ff0d1da639e90af36827df3122a4e3b9803f34c",
-        "idempotency_key": "5a3629d4-3e97-4eb8-8e64-724999a36ed8",
+        "plan_id": "PLAN-efa0396c17f7",
+        "digest": "efa0396c17f7c235c903333da0926fa0d897bfe11e2bf78ed53f663f11df87d8",
+        "idempotency_key": "43c78868-b54a-4807-816e-c142131e818c",
         "changes": [
           {
             "pool_id": "FG-A",
@@ -1945,5 +2000,5 @@
     "pending_data": null,
     "pending_revision": false
   },
-  "integrity_hash": "5d3c0ac1494c58ef8649a7c9b6d812359eadd8f7a60411c9500746cd7331b737"
+  "integrity_hash": "7a6eb0f586a0a69da539ab8688a46af139ba9c744de75111f02b1f0e06587eaa"
 }

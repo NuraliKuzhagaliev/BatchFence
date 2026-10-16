@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-16T09:54:22.030478+00:00",
+  "cause": "Python scientific notation differed from JavaScript decimal serialization for AMD usage-cost metadata. Original packet integrity guards rejected these exports.",
+  "method": "Reissued integrity envelope with RFC 8785 canonical serialization. Case payload, model response, reviews and receipts unchanged. Original exports preserved; no new inference or execution.",
+  "packets": [
+    {
+      "path": "clear-live/packet-1.json",
+      "original_file_sha256": "c950080c51512a92cdc5218b4581f68b3c4793d73e3134e6a696ce3fcc165285",
+      "original_integrity_hash": "3e7a0a578215f963241f9f65a19a3acc5eb2d6f339355b2833e176f57776b2c3",
+      "reissued_integrity_hash": "064447cb321e2becf9c2943723c82179a77bc003ac4f2e5ecd1aab13f89c31b3",
+      "case_payload_equal": true
+    },
+    {
+      "path": "clear-live/packet-2.json",
+      "original_file_sha256": "4e9f3eb8ffcd0499ab5d65155132008d4a0bc84fc5e2e3a8b9a808abc41ff6e9",
+      "original_integrity_hash": "bc476fb26d98c50e4661496174456816e91ae47fff581cd1b0716e6ede7980b2",
+      "reissued_integrity_hash": "676348106a43d0ed98a9efc2da99e0466b41e6634871819999048a28fd1077f7",
+      "case_payload_equal": true
+    },
+    {
+      "path": "unknown-involvement-packet.json",
+      "original_file_sha256": "e16b3f4f136ff55d8004845490d1d9e902be60038410d672e7a86f6434b92dc7",
+      "original_integrity_hash": "2dabed7bd13cec8f1fef603f29bab9d801bfc19972f8ce91ace1fef680aab5b3",
+      "reissued_integrity_hash": "11ac5f0fd5438184b76a81f30c92defab297412898d5fcd1d9d9dddebb90a09b",
+      "case_payload_equal": true
+    }
+  ]
+}

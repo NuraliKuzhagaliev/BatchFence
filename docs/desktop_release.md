@@ -1,34 +1,13 @@
-# Windows release 0.1.0
+# Windows release 0.1.1
 
-Target: Windows 11 x64. Actual host: Windows 11 Home Single Language,10.0.26200,x64. Electron 44.7.2 bundles Node 24.21.0. The app launches from an actual installed NSIS package, not a development Electron window.
+Installer: releases/BatchFence-0.1.1-win-x64-setup.exe. Installed verification copy: work/installed-0.1.1/BatchFence.exe. SHA-256 and exact size are in releases/manifest-0.1.1.json and SHA256SUMS-0.1.1.txt. The earlier 0.1.0 installer remains unchanged.
 
-Installer: D:\projects\BatchFence\releases\BatchFence-0.1.0-win-x64-setup.exe
+The NSIS build and silent installation completed with exit 0 on Windows 11 build 26200 x64. Seven final installed workflow checks passed, no page errors. Electron 44.7.2 includes Node 24.21.0. This is an actual installed executable, not development Electron. The installer is unsigned; no OS protections were bypassed, second-machine install or native signing claimed.
 
-Installed executable: D:\projects\BatchFence\work\installed\BatchFence.exe
+The installed app opens the corrected live 800-unit packet and receipts offline against unreachable port 9 with child PATH restricted to C:\Windows\System32. Native file reading and packet validation execute; selection in automated checks/media is stubbed. Actual OS import/save/reopen passed previously at ed6a2b0 with 0.1.0. A real-dialog recheck of this exact 0.1.1 binary remains a human release action.
 
-Installer size: 113,768,001 bytes. Signing: **unsigned**, checked with Get-AuthenticodeSignature. Do not disable OS protections. Public download is pending authorized publication.
+Current backend origin is loopback 8787. New inference/review/action requires the local Python backend. The renderer does not contain AMD credentials, Python or weights. Before external distribution, authorize/configure BATCHFENCE_BACKEND_ORIGIN to the chosen HTTPS host, rebuild, reinstall and recheck; do not advertise the local installer as a hosted service.
 
-SHA-256 is finalized in releases/SHA256SUMS.txt and release-manifest.json after the final packaging check. Those files identify the exact binary; no signature or second-machine installation is claimed.
+The same sandboxed, context-isolated fixed-origin transport and bounded native file bridge remain. Session capabilities stay in main-process memory and do not transfer in packets. Offline review is historical and read-only; promotion strips prior authority.
 
-## Observed verification
-
-- NSIS installer exit0. App metadata reports BatchFence0.1.0.
-- Seven installed-app workflow checks, zero page errors: 500РІвЂ вЂ™800 scope, stale approval rejection, real sandbox receipt, web/desktop normalized parity, bounded native file bytes, invalid-packet rejection and restricted transport.
-- A separate installed offline launch opened a web-exported packet/receipt with backend unreachable and PATH restricted to C:\Windows\System32. The renderer required no external Node/Python executable. This is not a clean-machine test with development tools uninstalled.
-- Request-draft copying initially failed. A bounded sender-validated native clipboard write fixed it, and the installed and web copy checks now pass. Existing clipboard content was never read.
-- Device-scale overrides 1.0/1.25 passed in the installed app, with no horizontal overflow. These are renderer-scale tests; OS display settings were unchanged.
-- Packet promotion strips prior action authority; offline approve/apply remain unavailable.
-
-Follow-up 2026-10-16: actual Windows evidence selection, Save decision packet and Open offline decision packet all completed without dialog stubs. The reopened packet was read-only. Computer-use input operated the real dialogs; this is not an independent human acceptance study. See live-verification/native-dialog-results.json and native-import.png/native-reopened.png. An initial test selector failed after successful import and is preserved separately.
-
-## Reproduce the actual dialog check
-
-Open the installed app. Use Add evidence to select one provided TXT/CSV/text-PDF fixture through the real OS dialog. Export a JSON packet through Save, then reopen it through Open packet. Confirm source text and read-only state. Keep the save location on D:.
-
-## Backend configuration
-
-The installer bakes only desktop/backend-origin.json. Before an authorized remote release, set BATCHFENCE_BACKEND_ORIGIN to the public HTTPS service and run npm run package:desktop. The packaging script validates and saves that public origin. It never reads AMD keys or private .env data. Current distribution uses loopback 8787 and requires the local backend for online operations.
-
-The renderer is isolated/sandboxed with no raw Node,IPC,shell or filesystem bridge. Sessions remain in main-process memory. Closing/restarting desktop starts a fresh capability; use packets for historical handoff. Python and model weights are not embedded.
-
-Final installer SHA-256: 37bd0d13878d11632ca3cd90538df1aa43299e636893770526a0106378ec7e80
+Rebuild with npm run package:desktop. Install to the project test directory, then set BATCHFENCE_TEST_EXE and run scripts/desktop-smoke.cjs and scripts/desktop-offline.cjs. Keep cache locations on D. No installer/download publication occurred.

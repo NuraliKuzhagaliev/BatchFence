@@ -1,0 +1,934 @@
+{
+  "started_at": "2026-10-16T09:36:41.417Z",
+  "mode": "live",
+  "synthetic_inputs": true,
+  "fixture_fallback_used": false,
+  "review_method": "Operator examines raw output and source, then supplies accepted lots. UI review/approval clicks are automated.",
+  "independent_human_validation": false,
+  "review_directory": "D:\\projects\\BatchFence\\work\\live-verification\\ambiguity-fix-live",
+  "stages": [
+    {
+      "sequence": 1,
+      "source": {
+        "id": "DOC-f3cc806fd0da",
+        "filename": "supplier-message.txt",
+        "media_type": "text/plain",
+        "revision": 2,
+        "ingested_at": "2026-10-16T09:36:45.621535+00:00",
+        "original_hash": "69a0fc66b1ae602a1419f9f95a1a4f597cd058d911b305a835f2cc445306a6c4",
+        "text_hash": "69a0fc66b1ae602a1419f9f95a1a4f597cd058d911b305a835f2cc445306a6c4",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC VERIFICATION DATA — not a real customer or supplier notice.",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "Meridian Coatings containment advisory MC-2026-1016-A.",
+            "page": null
+          },
+          {
+            "id": "line-3",
+            "text": "Our adhesion audit confirmed a cosmetic coating defect in material batch MC-7421-X.",
+            "page": null
+          },
+          {
+            "id": "line-4",
+            "text": "Please contain all on-site stock descended from MC-7421-X pending quality review.",
+            "page": null
+          },
+          {
+            "id": "line-5",
+            "text": "Batch NX-6130-Z appears on the delivery paperwork for traceability only; it is not covered by this defect notice.",
+            "page": null
+          },
+          {
+            "id": "line-6",
+            "text": "This is the complete supplier batch scope for this advisory. Warehouse lots with uncertain ancestry still require conservative review.",
+            "page": null
+          }
+        ],
+        "synthetic": false
+      },
+      "raw_run": {
+        "id": "6ff5194a-db4b-4fb1-aa35-cb5cf8b37a67",
+        "mode": "live",
+        "provider": "AMD configured endpoint",
+        "prompt_version": "scope-extract-1",
+        "schema_version": 1,
+        "timestamp": "2026-10-16T09:36:45.674419+00:00",
+        "status": "succeeded",
+        "repairs": 0,
+        "http_status": 200,
+        "request_id": "20ceb28bb25a4821a7066fa36b2dbc8e",
+        "usage": {
+          "prompt_tokens": 701,
+          "total_tokens": 1218,
+          "completion_tokens": 517,
+          "prompt_tokens_details": {
+            "cached_tokens": 448,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0,
+            "image_tokens": 0
+          },
+          "reasoning_tokens": 0,
+          "cost": 0.0001814344,
+          "cost_details": {
+            "upstream_inference_cost": 0.00018143439999999999,
+            "upstream_inference_prompt_cost": 0.0000366744,
+            "upstream_inference_completions_cost": 0.00014476,
+            "total_cost": 0.0001814344,
+            "input_cost": 0.00003542,
+            "output_cost": 0.00014476,
+            "cached_input_cost": 0.0000012544,
+            "cache_write_input_cost": 0,
+            "request_cost": 0,
+            "web_search_cost": 0,
+            "image_input_cost": null,
+            "image_output_cost": null,
+            "audio_input_cost": null
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "model_id": "self-dploy/MiMo-V2.6-Flash",
+        "output": {
+          "facts": [
+            {
+              "lot_id": "MC-7421-X",
+              "affected": true,
+              "evidence": [
+                {
+                  "document_id": "DOC-f3cc806fd0da",
+                  "block_id": "line-3",
+                  "quote": "Our adhesion audit confirmed a cosmetic coating defect in material batch MC-7421-X."
+                },
+                {
+                  "document_id": "DOC-f3cc806fd0da",
+                  "block_id": "line-4",
+                  "quote": "Please contain all on-site stock descended from MC-7421-X pending quality review."
+                }
+              ]
+            },
+            {
+              "lot_id": "NX-6130-Z",
+              "affected": false,
+              "evidence": [
+                {
+                  "document_id": "DOC-f3cc806fd0da",
+                  "block_id": "line-5",
+                  "quote": "Batch NX-6130-Z appears on the delivery paperwork for traceability only; it is not covered by this defect notice."
+                }
+              ]
+            }
+          ],
+          "qualifiers": [
+            "Scope is ambiguous: line-6 calls this 'the complete supplier batch scope for this advisory' yet also states 'Warehouse lots with uncertain ancestry still require conservative review', so additional lots of unknown identity may fall outside the named scope.",
+            "MC-7421-X is affected as a batch/lot identifier; the containment request extends to 'all on-site stock descended from MC-7421-X', but descendant lot identifiers are not enumerated in the document.",
+            "NX-6130-Z is merely mentioned for traceability and is explicitly excluded from the defect notice; it is not an affected lot.",
+            "MC-2026-1016-A is an advisory identifier, not a lot identifier.",
+            "Source document is labeled synthetic verification data, not a real customer or supplier notice (DOC-f3cc806fd0da, line-1)."
+          ]
+        },
+        "elapsed_ms": 21497,
+        "revision": 2,
+        "document_id": "DOC-f3cc806fd0da",
+        "scope_concerns": []
+      },
+      "raw_evaluation": {
+        "expected": [
+          "MC-7421-X"
+        ],
+        "extracted": [
+          "MC-7421-X"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "review_status": "reviewed",
+      "review": {
+        "run_id": "6ff5194a-db4b-4fb1-aa35-cb5cf8b37a67",
+        "source_hash": "69a0fc66b1ae602a1419f9f95a1a4f597cd058d911b305a835f2cc445306a6c4",
+        "accepted_lots": [
+          "MC-7421-X"
+        ],
+        "uncertain_lots": [],
+        "excluded_lots": [
+          "NX-6130-Z"
+        ],
+        "scope_resolved": true,
+        "resolution_quote": "This is the complete supplier batch scope for this advisory.",
+        "note": "Codex test operator reviewed the explicit complete supplier boundary and NX exclusion. The model qualifier conflates supplier scope with warehouse ancestry; the latter remains uncertain in the 100-unit pool. No independent human validation.",
+        "at": "2026-10-16T09:38:01.802935+00:00"
+      },
+      "corrections": {
+        "removed": [],
+        "added": []
+      },
+      "result_after_review": {
+        "rows": [
+          {
+            "id": "FG-A",
+            "units": 240,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-1",
+            "snapshot_version": 1,
+            "classification": "documented",
+            "reason": "Confirmed ancestry reaches a reviewed affected lot.",
+            "path": [
+              "MC-7421-X",
+              "FG-A"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-64385ae7f162",
+                "block_id": "row-1",
+                "quote": "LIN-1,MC-7421-X,FG-A,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-B",
+            "units": 160,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-2",
+            "snapshot_version": 1,
+            "classification": "documented",
+            "reason": "Confirmed ancestry reaches a reviewed affected lot.",
+            "path": [
+              "MC-7421-X",
+              "FG-B"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-64385ae7f162",
+                "block_id": "row-2",
+                "quote": "LIN-2,MC-7421-X,FG-B,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-C",
+            "units": 100,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": false,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-3",
+            "snapshot_version": 1,
+            "classification": "uncertain",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "path": [
+              "MC-7421-X",
+              "FG-C"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-64385ae7f162",
+                "block_id": "row-3",
+                "quote": "LIN-3,MC-7421-X,FG-C,possible,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-D",
+            "units": 300,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-4",
+            "snapshot_version": 1,
+            "classification": "outside",
+            "reason": "Reviewed complete ancestry has no affected-lot path within the declared incident universe.",
+            "path": [
+              "BZ-9187",
+              "FG-D"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-64385ae7f162",
+                "block_id": "row-5",
+                "quote": "LIN-5,BZ-9187,FG-D,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-E",
+            "units": 250,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-5",
+            "snapshot_version": 1,
+            "classification": "outside",
+            "reason": "Reviewed complete ancestry has no affected-lot path within the declared incident universe.",
+            "path": [
+              "PQ-4806",
+              "FG-E"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-64385ae7f162",
+                "block_id": "row-6",
+                "quote": "LIN-6,PQ-4806,FG-E,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-F",
+            "units": 150,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-6",
+            "snapshot_version": 1,
+            "classification": "outside",
+            "reason": "Reviewed complete ancestry has no affected-lot path within the declared incident universe.",
+            "path": [
+              "NX-6130-Z",
+              "FG-F"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-64385ae7f162",
+                "block_id": "row-7",
+                "quote": "LIN-7,NX-6130-Z,FG-F,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          }
+        ],
+        "documented_units": 400,
+        "uncertain_units": 100,
+        "hold_units": 500,
+        "outside_units": 700,
+        "broad_units": 1200,
+        "hold_cents": 2000000,
+        "broad_cents": 4800000,
+        "excluded_cents": 2800000,
+        "reduction_percent": 58.3,
+        "actions": [
+          {
+            "type": "hold",
+            "pool_id": "FG-A"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-B"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-C"
+          }
+        ],
+        "requests": [
+          {
+            "id": "REQ-FG-C",
+            "pool_ids": [
+              "FG-C"
+            ],
+            "units": 100,
+            "value_cents": 400000,
+            "missing": "Receiving identity / complete ancestry for FG-C",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "draft": "Please provide the original receiving lot record for FG-C (100 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
+          }
+        ],
+        "request_unique_units": 100,
+        "request_unique_cents": 400000,
+        "orders": [
+          {
+            "order_id": "O-101",
+            "due_date": "2026-10-19",
+            "pool_ids": [
+              "FG-A"
+            ],
+            "units": 240,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-1"
+            ]
+          },
+          {
+            "order_id": "O-102",
+            "due_date": "2026-10-20",
+            "pool_ids": [
+              "FG-B"
+            ],
+            "units": 160,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-2"
+            ]
+          },
+          {
+            "order_id": "O-103",
+            "due_date": "2026-10-21",
+            "pool_ids": [
+              "FG-C"
+            ],
+            "units": 100,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-3"
+            ]
+          }
+        ],
+        "shipment_reviews": [],
+        "narrowing_available": true
+      },
+      "receipt": {
+        "transaction_id": "TX-1ebf4bab1886438894d5031e31537649",
+        "at": "2026-10-16T09:38:10.087230+00:00",
+        "execution": "SANDBOX INVENTORY",
+        "plan_id": "PLAN-4916f3f5c96c",
+        "digest": "4916f3f5c96c68105152c49ba45d60f2103cea986695eb1128a5b04678ca8ca4",
+        "idempotency_key": "b2962607-666a-4ae3-8e98-e12848df1384",
+        "changes": [
+          {
+            "pool_id": "FG-A",
+            "units": 240,
+            "before": "available",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-B",
+            "units": 160,
+            "before": "available",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-C",
+            "units": 100,
+            "before": "available",
+            "after": "held"
+          }
+        ],
+        "prior_inventory_version": 1,
+        "current_inventory_version": 2,
+        "evidence_revision": 2
+      },
+      "held_units_persisted": 500,
+      "refresh_persistence": true
+    },
+    {
+      "sequence": 2,
+      "source": {
+        "id": "DOC-112d3509706f",
+        "filename": "supplier-message.txt",
+        "media_type": "text/plain",
+        "revision": 3,
+        "ingested_at": "2026-10-16T09:38:14.277131+00:00",
+        "original_hash": "55be394ec3976b640f1c9a4aa448b8d9c0cbfaaffea5b88c27337352a60b01c4",
+        "text_hash": "55be394ec3976b640f1c9a4aa448b8d9c0cbfaaffea5b88c27337352a60b01c4",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC VERIFICATION DATA — not a real customer or supplier notice.",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "Meridian Coatings replacement advisory MC-2026-1016-B.",
+            "page": null
+          },
+          {
+            "id": "line-3",
+            "text": "This message supersedes advisory A in its entirety, following our second inspection.",
+            "page": null
+          },
+          {
+            "id": "line-4",
+            "text": "The complete set of defective coating batches is now BZ-9187 together with MC-7421-X; retain on-site descendants of both.",
+            "page": null
+          },
+          {
+            "id": "line-5",
+            "text": "NX-6130-Z remains outside this supplier notice. A missing warehouse receiving record does not establish that mixed stock is unaffected.",
+            "page": null
+          },
+          {
+            "id": "line-6",
+            "text": "Do not release previously contained stock automatically.",
+            "page": null
+          }
+        ],
+        "synthetic": false
+      },
+      "raw_run": {
+        "id": "feb63cbf-9eba-4c88-8648-c132fe23b28a",
+        "mode": "live",
+        "provider": "AMD configured endpoint",
+        "prompt_version": "scope-extract-1",
+        "schema_version": 1,
+        "timestamp": "2026-10-16T09:38:14.370092+00:00",
+        "status": "succeeded",
+        "repairs": 0,
+        "http_status": 200,
+        "request_id": "ae2bbe2b33cc4f308e79ce8919483fea",
+        "usage": {
+          "prompt_tokens": 702,
+          "total_tokens": 1307,
+          "completion_tokens": 605,
+          "prompt_tokens_details": {
+            "cached_tokens": 448,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0,
+            "image_tokens": 0
+          },
+          "reasoning_tokens": 0,
+          "cost": 0.0002062144,
+          "cost_details": {
+            "upstream_inference_cost": 0.0002062144,
+            "upstream_inference_prompt_cost": 0.0000368144,
+            "upstream_inference_completions_cost": 0.0001694,
+            "total_cost": 0.0002062144,
+            "input_cost": 0.00003556,
+            "output_cost": 0.0001694,
+            "cached_input_cost": 0.0000012544,
+            "cache_write_input_cost": 0,
+            "request_cost": 0,
+            "web_search_cost": 0,
+            "image_input_cost": null,
+            "image_output_cost": null,
+            "audio_input_cost": null
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "model_id": "self-dploy/MiMo-V2.6-Flash",
+        "output": {
+          "facts": [
+            {
+              "lot_id": "BZ-9187",
+              "affected": true,
+              "evidence": [
+                {
+                  "document_id": "DOC-112d3509706f",
+                  "block_id": "line-4",
+                  "quote": "The complete set of defective coating batches is now BZ-9187 together with MC-7421-X; retain on-site descendants of both."
+                }
+              ]
+            },
+            {
+              "lot_id": "MC-7421-X",
+              "affected": true,
+              "evidence": [
+                {
+                  "document_id": "DOC-112d3509706f",
+                  "block_id": "line-4",
+                  "quote": "The complete set of defective coating batches is now BZ-9187 together with MC-7421-X; retain on-site descendants of both."
+                }
+              ]
+            },
+            {
+              "lot_id": "NX-6130-Z",
+              "affected": false,
+              "evidence": [
+                {
+                  "document_id": "DOC-112d3509706f",
+                  "block_id": "line-5",
+                  "quote": "NX-6130-Z remains outside this supplier notice. A missing warehouse receiving record does not establish that mixed stock is unaffected."
+                }
+              ]
+            }
+          ],
+          "qualifiers": [
+            "Scope conflict: line-5 states NX-6130-Z is outside the supplier notice, but the same block adds that a missing warehouse receiving record does not establish that mixed stock is unaffected, leaving the status of mixed stock containing NX-6130-Z ambiguous.",
+            "The advisory is identified as MC-2026-1016-B and is stated to supersede advisory A in its entirety (line-3); advisory A is mentioned only as a superseded document, not as a lot.",
+            "Line-6 instructs not to release previously contained stock automatically; this is an instruction in the document, not an authorization or approval, and its application to specific lots is not further specified.",
+            "Line-1 marks the data as synthetic verification data, not a real customer or supplier notice.",
+            "Only BZ-9187 and MC-7421-X are explicitly identified as defective batches; NX-6130-Z is merely mentioned as outside the notice."
+          ]
+        },
+        "elapsed_ms": 27885,
+        "revision": 3,
+        "document_id": "DOC-112d3509706f",
+        "scope_concerns": []
+      },
+      "raw_evaluation": {
+        "expected": [
+          "BZ-9187",
+          "MC-7421-X"
+        ],
+        "extracted": [
+          "BZ-9187",
+          "MC-7421-X"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "review_status": "reviewed",
+      "review": {
+        "run_id": "feb63cbf-9eba-4c88-8648-c132fe23b28a",
+        "source_hash": "55be394ec3976b640f1c9a4aa448b8d9c0cbfaaffea5b88c27337352a60b01c4",
+        "accepted_lots": [
+          "BZ-9187",
+          "MC-7421-X"
+        ],
+        "uncertain_lots": [],
+        "excluded_lots": [
+          "NX-6130-Z"
+        ],
+        "scope_resolved": true,
+        "resolution_quote": "The complete set of defective coating batches is now BZ-9187 together with MC-7421-X; retain on-site descendants of both.",
+        "note": "Codex test operator: the replacement notice declares the complete supplier scope and explicitly excludes NX. The model qualifier conflates unresolved warehouse ancestry with supplier involvement; the 100-unit mixed pool remains held. No independent human validation.",
+        "at": "2026-10-16T09:39:26.092427+00:00"
+      },
+      "corrections": {
+        "removed": [],
+        "added": []
+      },
+      "result_after_review": {
+        "rows": [
+          {
+            "id": "FG-A",
+            "units": 240,
+            "unit_cents": 4000,
+            "status": "held",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-1",
+            "snapshot_version": 1,
+            "classification": "documented",
+            "reason": "Confirmed ancestry reaches a reviewed affected lot.",
+            "path": [
+              "MC-7421-X",
+              "FG-A"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-64385ae7f162",
+                "block_id": "row-1",
+                "quote": "LIN-1,MC-7421-X,FG-A,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-B",
+            "units": 160,
+            "unit_cents": 4000,
+            "status": "held",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-2",
+            "snapshot_version": 1,
+            "classification": "documented",
+            "reason": "Confirmed ancestry reaches a reviewed affected lot.",
+            "path": [
+              "MC-7421-X",
+              "FG-B"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-64385ae7f162",
+                "block_id": "row-2",
+                "quote": "LIN-2,MC-7421-X,FG-B,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-C",
+            "units": 100,
+            "unit_cents": 4000,
+            "status": "held",
+            "complete": false,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-3",
+            "snapshot_version": 1,
+            "classification": "uncertain",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "path": [
+              "MC-7421-X",
+              "FG-C"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-64385ae7f162",
+                "block_id": "row-3",
+                "quote": "LIN-3,MC-7421-X,FG-C,possible,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-D",
+            "units": 300,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-4",
+            "snapshot_version": 1,
+            "classification": "documented",
+            "reason": "Confirmed ancestry reaches a reviewed affected lot.",
+            "path": [
+              "BZ-9187",
+              "FG-D"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-64385ae7f162",
+                "block_id": "row-5",
+                "quote": "LIN-5,BZ-9187,FG-D,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-E",
+            "units": 250,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-5",
+            "snapshot_version": 1,
+            "classification": "outside",
+            "reason": "Reviewed complete ancestry has no affected-lot path within the declared incident universe.",
+            "path": [
+              "PQ-4806",
+              "FG-E"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-64385ae7f162",
+                "block_id": "row-6",
+                "quote": "LIN-6,PQ-4806,FG-E,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-F",
+            "units": 150,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-6",
+            "snapshot_version": 1,
+            "classification": "outside",
+            "reason": "Reviewed complete ancestry has no affected-lot path within the declared incident universe.",
+            "path": [
+              "NX-6130-Z",
+              "FG-F"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-64385ae7f162",
+                "block_id": "row-7",
+                "quote": "LIN-7,NX-6130-Z,FG-F,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          }
+        ],
+        "documented_units": 700,
+        "uncertain_units": 100,
+        "hold_units": 800,
+        "outside_units": 400,
+        "broad_units": 1200,
+        "hold_cents": 3200000,
+        "broad_cents": 4800000,
+        "excluded_cents": 1600000,
+        "reduction_percent": 33.3,
+        "actions": [
+          {
+            "type": "hold",
+            "pool_id": "FG-A"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-B"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-C"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-D"
+          }
+        ],
+        "requests": [
+          {
+            "id": "REQ-FG-C",
+            "pool_ids": [
+              "FG-C"
+            ],
+            "units": 100,
+            "value_cents": 400000,
+            "missing": "Receiving identity / complete ancestry for FG-C",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "draft": "Please provide the original receiving lot record for FG-C (100 units), including supplier lot ID, receipt row and revision. An inconclusive response preserves uncertainty. This request does not authorize release."
+          }
+        ],
+        "request_unique_units": 100,
+        "request_unique_cents": 400000,
+        "orders": [
+          {
+            "order_id": "O-101",
+            "due_date": "2026-10-19",
+            "pool_ids": [
+              "FG-A"
+            ],
+            "units": 240,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-1"
+            ]
+          },
+          {
+            "order_id": "O-102",
+            "due_date": "2026-10-20",
+            "pool_ids": [
+              "FG-B"
+            ],
+            "units": 160,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-2"
+            ]
+          },
+          {
+            "order_id": "O-103",
+            "due_date": "2026-10-21",
+            "pool_ids": [
+              "FG-C"
+            ],
+            "units": 100,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-3"
+            ]
+          },
+          {
+            "order_id": "O-104",
+            "due_date": "2026-10-22",
+            "pool_ids": [
+              "FG-D"
+            ],
+            "units": 300,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-4"
+            ]
+          }
+        ],
+        "shipment_reviews": [],
+        "narrowing_available": true
+      },
+      "receipt": {
+        "transaction_id": "TX-09547b219fff426b9419351b3559a46e",
+        "at": "2026-10-16T09:39:33.663249+00:00",
+        "execution": "SANDBOX INVENTORY",
+        "plan_id": "PLAN-99c6ee443a66",
+        "digest": "99c6ee443a669e2865ed362d49b5e74be86b1b600f6000b3b82ef393e1888a93",
+        "idempotency_key": "dc5fe7bf-7859-446a-970e-e3b1954e2c1e",
+        "changes": [
+          {
+            "pool_id": "FG-A",
+            "units": 240,
+            "before": "held",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-B",
+            "units": 160,
+            "before": "held",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-C",
+            "units": 100,
+            "before": "held",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-D",
+            "units": 300,
+            "before": "available",
+            "after": "held"
+          }
+        ],
+        "prior_inventory_version": 2,
+        "current_inventory_version": 3,
+        "evidence_revision": 3
+      },
+      "held_units_persisted": 800,
+      "refresh_persistence": true
+    }
+  ],
+  "errors": [],
+  "chapters": [
+    {
+      "seconds": 0.186,
+      "caption": "Actual local web recording. Synthetic records; fresh live AMD requests. Review is agent-operated, not independent human validation."
+    },
+    {
+      "seconds": 25.424,
+      "caption": "Live AMD response received. Every candidate starts unresolved; model booleans have no action authority."
+    },
+    {
+      "seconds": 80.871,
+      "caption": "Agent-operated source review: affected and excluded IDs, explicit incident boundary, exact source quote and explanation."
+    },
+    {
+      "seconds": 84.707,
+      "caption": "Deterministic plan: 500 units, including 100 with unresolved ancestry. Outside scope is not a safety certification."
+    },
+    {
+      "seconds": 88.856,
+      "caption": "Actual sandbox receipt persisted for 500 units. No external inventory system or machinery is connected."
+    },
+    {
+      "seconds": 120.487,
+      "caption": "Live AMD response received. Every candidate starts unresolved; model booleans have no action authority."
+    },
+    {
+      "seconds": 164.6,
+      "caption": "Agent-operated source review: affected and excluded IDs, explicit incident boundary, exact source quote and explanation."
+    },
+    {
+      "seconds": 168.292,
+      "caption": "Deterministic plan: 800 units, including 100 with unresolved ancestry. Outside scope is not a safety certification."
+    },
+    {
+      "seconds": 172.142,
+      "caption": "Actual sandbox receipt persisted for 800 units. No external inventory system or machinery is connected."
+    }
+  ],
+  "case_id": "38f02ee223af4dd490f7df2be1f913c5",
+  "stale_request_recheck": {
+    "status": 409,
+    "code": "STALE_APPROVAL"
+  },
+  "finished_at": "2026-10-16T09:39:37.561Z",
+  "status": "passed"
+}

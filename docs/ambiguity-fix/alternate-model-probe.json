@@ -1,0 +1,83 @@
+{
+  "selection": "Explicit evaluation of documented catalog model MiMo-V2.6-Flash after three Gemma timeouts; not an automatic fallback. Private default configuration unchanged.",
+  "run": {
+    "id": "5ccb18fa-82be-4d5a-b5fe-c2f182beeb62",
+    "mode": "live",
+    "provider": "AMD configured endpoint",
+    "prompt_version": "scope-extract-1",
+    "schema_version": 1,
+    "timestamp": "2026-10-16T09:30:50.466752+00:00",
+    "status": "succeeded",
+    "repairs": 0,
+    "http_status": 200,
+    "request_id": "25d774b8c6ad4527814091127b0b3a0e",
+    "usage": {
+      "prompt_tokens": 515,
+      "total_tokens": 955,
+      "completion_tokens": 440,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.0001953,
+      "cost_details": {
+        "upstream_inference_cost": 0.00019530000000000003,
+        "upstream_inference_prompt_cost": 7.21e-05,
+        "upstream_inference_completions_cost": 0.0001232,
+        "total_cost": 0.0001953,
+        "input_cost": 7.21e-05,
+        "output_cost": 0.0001232,
+        "cached_input_cost": 0,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "model_id": "self-dploy/MiMo-V2.6-Flash",
+    "output": {
+      "facts": [
+        {
+          "lot_id": "SUP-R",
+          "affected": true,
+          "evidence": [
+            {
+              "document_id": "DOC-e1cd6f3616e8",
+              "block_id": "line-1",
+              "quote": "Lot SUP-R may be affected."
+            }
+          ]
+        },
+        {
+          "lot_id": "SUP-S",
+          "affected": false,
+          "evidence": [
+            {
+              "document_id": "DOC-e1cd6f3616e8",
+              "block_id": "line-1",
+              "quote": "We cannot determine whether SUP-S is implicated."
+            }
+          ]
+        }
+      ],
+      "qualifiers": [
+        "SUP-R status is ambiguous: the source says it 'may be affected', not that it is confirmed affected; recorded as affected=true only on that tentative basis.",
+        "SUP-S is merely mentioned, not established as affected: the source states its implication cannot be determined; recorded as affected=false, which reflects absence of determination rather than a confirmed negative.",
+        "Overall scope is explicitly unresolved per the source: 'Scope remains unresolved.'",
+        "No other lots are mentioned in the supplied document block."
+      ]
+    },
+    "elapsed_ms": 19929
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-16T09:27:08.045812+00:00",
+  "docker_version": "4.91.0.239619",
+  "exact_command": "C:\\Users\\nural\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe info",
+  "exit_code": 1,
+  "stderr": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n",
+  "socket": "%LOCALAPPDATA%/Docker/run/sailor-ingest.sock",
+  "attributes": 1056,
+  "reparse_tag": "0x80000023",
+  "read_method": "FindFirstFileW directory metadata only; no open/write/rename/delete or permission changes.",
+  "recent_failure": "[2026-10-16T08:17:43.170896700Z][com.docker.backend.exe] backend cancelling with error: starting services: initializing Ingest server: listening on unix://%LOCALAPPDATA%/Docker/run/sailor-ingest.sock: rename %LOCALAPPDATA%/Docker/run/sailor-ingest.sock %LOCALAPPDATA%/Docker/run/sailor-ingest.sock.stale: The file cannot be accessed by the system. (listener: The file cannot be accessed by the system.)",
+  "process_snapshot": {
+    "ProcessId": 6272,
+    "ParentProcessId": 1776,
+    "Name": "wslservice.exe",
+    "ExecutablePath": null
+  },
+  "afunix_driver": {
+    "Name": "afunix",
+    "State": "Running",
+    "StartMode": "System",
+    "PathName": "C:\\WINDOWS\\system32\\drivers\\afunix.sys"
+  },
+  "parent_acl_observation": "Current user, SYSTEM and Administrators have FullControl. Direct Get-Acl and fsutil query on socket fail with ERROR_CANT_ACCESS_FILE (1920), not access-denied (5).",
+  "conclusion": "Docker backend startup fails at its own Ingest endpoint before the Linux engine becomes available. No Docker process is currently running; the persisted socket is an AF_UNIX reparse entry. No current live owner was established.",
+  "changes_made": [],
+  "remaining_action": "Use Docker/Microsoft supported repair of the Windows AF_UNIX/reparse access failure; no blanket ACL change, reset, container or volume deletion."
+}

@@ -1,10 +1,12 @@
-# Six-slide pitch source
+# Six-slide pitch — current 0.1.1 deck
 
-The editable deck is BatchFence-pitch.pptx. It uses actual application screenshots and evidence notes.
+Use BatchFence-pitch-0.1.1-reviewed.pptx. The unversioned deck is preserved historical fixture-era material.
 
-1. **BatchFence** — Evidence-backed lot containment. Shared web/Windows prototype. Synthetic walkthrough and pending AMD stated.
-2. **The quality manager’s incident** — Supplier notice, exported stock/lineage, unresolved receipt. User pain remains a hypothesis.
-3. **The reviewed containment plan** — 400 documented plus 100 uncertain equals 500. Sources and reasons remain inspectable.
-4. **Changed evidence invalidates approval** — SUP-C adds FG-D,500 becomes 800, and old approval cannot execute.
-5. **Verification and technology** —30/30 domain cases,18 development/12 held out; actual browser/installed sandbox and packet flows. No AMD run.
-6. **A bounded manufacturing pilot** —Proposed quality-manager buyer, redacted exports, time to accepted plan and unsupported exclusions as future measures.
+1. Evidence-backed containment: supplier evidence remains attached to the reviewed decision.
+2. Every candidate starts unresolved. Review affected, unresolved and excluded lots separately; narrowing needs a supported incident boundary.
+3. Actual live MiMo response, reviewed 500-unit plan: 400 documented plus 100 uncertain.
+4. Revised live response, 800-unit plan; old approval rejected and both receipts retained.
+5. Ambiguity is contained: exact regression, 1,200 broad hold, separate citation failure blocked. Forty regression and thirty graph checks pass; model booleans remain fallible.
+6. Local prototype: proposed buyer/pilot are hypotheses. Docker repair, authorized distribution and independent review remain.
+
+All screenshots are actual application views; all inputs synthetic. Speaker notes distinguish agent review, raw errors, historical segments, native selection stubs and outstanding release gates. Six slides were rendered and inspected; package/layout/import checks passed. Native PowerPoint rendering was not tested.

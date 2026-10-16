@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "at": "2026-10-16T09:56:11.742919+00:00",
+  "mechanism": "Actual verified project uvicorn process stopped and relaunched",
+  "processes": {
+    "stopped_pid": 31004,
+    "launcher_pid": 24900
+  },
+  "new_inference_calls": 0,
+  "cases": [
+    {
+      "case_id": "e91b185a9e4c43188b934b5b4b5a5cd5",
+      "equal_fields": [
+        "runs",
+        "scope",
+        "plan",
+        "receipts",
+        "stocks",
+        "history"
+      ],
+      "receipts": 1,
+      "held_units": 1200,
+      "plan_status": "applied"
+    },
+    {
+      "case_id": "cd81a6e2f058497fa8ff14349e8ab061",
+      "equal_fields": [
+        "runs",
+        "scope",
+        "plan",
+        "receipts",
+        "stocks",
+        "history"
+      ],
+      "receipts": 0,
+      "held_units": 0,
+      "plan_status": null
+    },
+    {
+      "case_id": "38f02ee223af4dd490f7df2be1f913c5",
+      "equal_fields": [
+        "runs",
+        "scope",
+        "plan",
+        "receipts",
+        "stocks",
+        "history"
+      ],
+      "receipts": 2,
+      "held_units": 800,
+      "plan_status": "applied"
+    }
+  ]
+}

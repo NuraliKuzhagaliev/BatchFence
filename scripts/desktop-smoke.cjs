@@ -7,7 +7,7 @@ const assert = require("node:assert/strict");
 const root = path.resolve(__dirname, "..");
 async function main() {
   const app = await electron.launch({
-    executablePath: path.join(root, "work/installed/BatchFence.exe"),
+    executablePath: process.env.BATCHFENCE_TEST_EXE || path.join(root, "work/installed/BatchFence.exe"),
     env: {
       ...process.env,
       BATCHFENCE_USER_DATA: path.join(root, "work/desktop-smoke-profile"),
@@ -24,14 +24,11 @@ async function main() {
   await page
     .getByRole("button", { name: "Load synthetic incident", exact: false })
     .click();
+  await page.getByLabel('Run mode', {exact:true}).selectOption('fixture');
   await page
     .getByRole("button", { name: "Extract selected notice", exact: true })
     .click();
-  await page
-    .getByLabel(
-      "I checked lot IDs, exclusions, qualifiers and whether this notice supersedes prior scope.",
-    )
-    .check();
+  await require('./review-controls.cjs').fixture(page, ['SUP-A']);
   await page
     .getByRole("button", { name: "Confirm scope & calculate", exact: true })
     .click();
@@ -60,11 +57,7 @@ async function main() {
   await page
     .getByRole("button", { name: "Review current evidence", exact: true })
     .click();
-  await page
-    .getByLabel(
-      "I checked lot IDs, exclusions, qualifiers and whether this notice supersedes prior scope.",
-    )
-    .check();
+  await require('./review-controls.cjs').fixture(page, ['SUP-A', 'SUP-C']);
   await page
     .getByRole("button", { name: "Confirm scope & calculate", exact: true })
     .click();

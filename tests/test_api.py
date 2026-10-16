@@ -32,7 +32,9 @@ def review(c, s, revision=False):
     assert run['status'] == 'succeeded', run
     return post(c, f"/api/cases/{s['id']}/reviews", {'run_id': run['id'], 'revision': s['revision'],
         'lot_ids': [f['lot_id'] for f in run['output']['facts']], 'accept_scope': True,
-        'bounded_scope_reviewed': True})
+        'bounded_scope_reviewed': True, 'incident_scope_status': 'resolved',
+        'resolution_quote': next(b['text'] for b in doc['blocks'] if b['text'].startswith('Affected lots:')),
+        'note': 'Test operator reviewed the synthetic notice as the complete incident boundary.'})
 
 
 def approve(c, s):

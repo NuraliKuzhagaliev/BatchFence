@@ -69,6 +69,7 @@ export type Run = {
   model_id?: string;
   elapsed_ms?: number;
   error?: string;
+  scope_concerns?: Evidence[];
   output?: {
     facts: { lot_id: string; affected: boolean; evidence: Evidence[] }[];
     qualifiers: string[];
@@ -101,7 +102,7 @@ export type Case = {
   documents: Document[];
   stocks: Stock[];
   edges: { source: string; target: string; kind: string; evidence: Evidence }[];
-  scope: { lot_ids: string[]; revision: number };
+  scope: { lot_ids: string[]; revision: number; uncertain_lot_ids?: string[]; excluded_lot_ids?: string[]; incident_scope_status?: "unresolved" | "resolved" };
   bounded: boolean;
   policy: { id: string; rule: string };
   runs: Run[];

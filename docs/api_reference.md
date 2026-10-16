@@ -26,3 +26,9 @@ Core action payload:
 This abbreviated example must never be used in place of the exact server-generated action list. Omitting uncertain required stock fails with POLICY_VIOLATION. Stale evidence, inventory or approval yields a409 conflict. Unknown ownership returns404. Unsupported input and schema errors return422, oversized uploads413, and quota limits429. Live-provider failures remain recorded failures with no fallback.
 
 Exports contain no session cookie or AMD credential. Packet hashes detect changes and do not authenticate the supplier.
+
+## Review policy 2
+
+Review payload adds uncertain_lot_ids, excluded_lot_ids, incident_scope_status (default unresolved), resolution_quote and note. Every candidate, including negative model proposals, must occur in exactly one reviewed group; all IDs must occur in the selected source. Bounded narrowing requires resolved scope, exact source basis and an explanation. Explicit unresolved source blocks narrowing and uncertain-lot reassignment. Omissions return UNREVIEWED_LOTS; contradictions UNRESOLVED_LOT/UNRESOLVED_SCOPE; unsupported resolution SCOPE_BASIS_REQUIRED. Failed runs return REVIEW_REQUIRED. Unresolved scope can be reviewed into a broad conservative plan. Model output is retained unchanged. Legacy approvals fail stale checks.
+
+Packet hashes now use RFC 8785-compatible canonical JSON across Python and JavaScript, including fractional provider usage metadata. Reissued earlier exports preserve their case payloads; originals remain in docs/ambiguity-fix/pre-fix-packets.

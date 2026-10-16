@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-16T03:08:33.630Z",
+  "at": "2026-10-16T09:57:04.435Z",
   "browser": "Microsoft Edge, Playwright headless",
   "checks": [
     "Exact source citation reachable from candidate",
@@ -16,6 +16,6 @@
     "Reconnect fetches changed backend evidence before live actions"
   ],
   "errors": [],
-  "case_id": "61e3f3a2e4e44a9dafe701df4043d61e",
+  "case_id": "0c1a8a0f325945488d344f4c190b8737",
   "packet": "D:\\projects\\BatchFence\\docs\\verified-decision-packet.json"
 }

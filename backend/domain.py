@@ -1,8 +1,9 @@
 """Deterministic containment. Narrative model output cannot authorize actions."""
 import hashlib
-import json
+import rfc8785
 from collections import defaultdict
 from datetime import date
+from .review_safety import REVIEW_POLICY_VERSION
 
 
 class DomainError(ValueError):
@@ -10,16 +11,9 @@ class DomainError(ValueError):
 
 
 def canonical(value):
-    # Integral floats serialize as integers in JavaScript; align portable packet hashes.
-    def normalize(v):
-        if isinstance(v, float) and v.is_integer():
-            return int(v)
-        if isinstance(v, dict):
-            return {k: normalize(x) for k, x in v.items()}
-        if isinstance(v, list) or isinstance(v, tuple):
-            return [normalize(x) for x in v]
-        return v
-    return json.dumps(normalize(value), sort_keys=True, separators=(',', ':'), ensure_ascii=False)
+    # Match JS number formatting and UTF-16 key ordering, including tiny AMD
+    # usage costs. Python json.dumps(8.33e-5) differs from JSON.stringify.
+    return rfc8785.dumps(value).decode('utf-8')
 
 
 def digest(value):
@@ -91,10 +85,11 @@ def validate_dataset(stocks, edges, allocations):
         raise DomainError('Inventory value exceeds portable exact-integer range')
 
 
-def calculate(stocks, edges, seeds, allocations, bounded=True):
+def calculate(stocks, edges, seeds, allocations, bounded=True, uncertain_seeds=None):
     validate_dataset(stocks, edges, allocations)
-    if not seeds:
-        raise DomainError('Review at least one affected lot')
+    uncertain_seeds = uncertain_seeds or []
+    if not seeds and not uncertain_seeds and bounded:
+        raise DomainError('Review at least one affected or unresolved lot')
     graph = defaultdict(list)
     for e in edges:
         graph[e['source']].append(e)
@@ -111,8 +106,15 @@ def calculate(stocks, edges, seeds, allocations, bounded=True):
 
     for seed in sorted(set(seeds)):
         walk(seed, False, [seed], [])
+    for seed in sorted(set(uncertain_seeds)):
+        walk(seed, True, [seed], [])
+    # Possible ancestry is unresolved even outside the chosen seed branches.
+    # A completeness flag cannot convert a possible link into a proven exclusion.
+    for e in sorted(edges, key=canonical):
+        if e['kind'] == 'possible':
+            walk(e['target'], True, [e['source'], e['target']], [e.get('evidence')])
     known = {e['source'] for e in edges}
-    narrow = bounded and all(seed in known for seed in seeds)
+    narrow = bounded and all(seed in known for seed in set(seeds) | set(uncertain_seeds))
     rows = []
     for s in sorted(stocks, key=lambda x: x['id']):
         sid, path, refs = s['id'], [], []
@@ -123,7 +125,7 @@ def calculate(stocks, edges, seeds, allocations, bounded=True):
         elif sid in possible:
             classification = 'uncertain'
             path, refs = possible[sid]
-            reason = 'Possible ancestry reaches an affected lot. Missing receiving identity remains in the hold.'
+            reason = 'Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.'
         elif not narrow or not s.get('complete', False) or not any(e['target'] == sid for e in edges):
             classification = 'uncertain'
             reason = 'Insufficient reviewed ancestry or bounded scope. Narrowed exclusion is unavailable.'
@@ -186,6 +188,7 @@ def calculate(stocks, edges, seeds, allocations, bounded=True):
 def plan_inputs(state, actions):
     return {
         'incident_id': state['id'],
+        'review_policy_version': REVIEW_POLICY_VERSION,
         'evidence_revision': state['revision'],
         'inventory_version': state['inventory_version'],
         'documents': sorted([(d['id'], d['revision'], d['original_hash'], d['text_hash'])
@@ -198,8 +201,11 @@ def plan_inputs(state, actions):
 
 
 def make_plan(state):
+    scope = state['scope']
+    bounded = (state['bounded'] and scope.get('incident_scope_status') == 'resolved'
+               and scope.get('review_policy_version') == REVIEW_POLICY_VERSION)
     result = calculate(state['stocks'], state['edges'], state['scope']['lot_ids'],
-                       state['allocations'], state['bounded'])
+                       state['allocations'], bounded, scope.get('uncertain_lot_ids', []))
     inputs = plan_inputs(state, result['actions'])
     return {'id': 'PLAN-' + digest(inputs)[:12], 'digest': digest(inputs),
             'status': 'proposed', 'revision': state['revision'],

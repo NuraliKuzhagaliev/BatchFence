@@ -11,6 +11,7 @@ import sqlite3
 import uuid
 from contextlib import contextmanager
 from urllib.parse import urlparse
+from typing import Literal
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, Request, HTTPException
@@ -21,9 +22,10 @@ from pypdf import PdfReader
 from .domain import DomainError, calculate, digest, make_plan, validate_dataset
 from .fixtures import ROOT, load_demo, document, now
 from .provider import extract
+from .review_safety import REVIEW_POLICY_VERSION, mentions, scope_concerns, resolution_evidence
 
 load_dotenv(ROOT / '.env')
-app = FastAPI(title='BatchFence', version='0.1.0')
+app = FastAPI(title='BatchFence', version='0.1.1')
 DB = Path(os.getenv('DATABASE_PATH', str(ROOT / 'work/batchfence.sqlite3')))
 DB.parent.mkdir(parents=True, exist_ok=True)
 ORIGIN = os.getenv('APP_ORIGIN', 'http://127.0.0.1:8787')
@@ -144,7 +146,11 @@ class Upload(Strict):
 class Review(Strict):
     run_id: str
     revision: int
-    lot_ids: list[str] = Field(min_length=1, max_length=80)
+    lot_ids: list[str] = Field(max_length=80)
+    uncertain_lot_ids: list[str] = Field(default_factory=list, max_length=80)
+    excluded_lot_ids: list[str] = Field(default_factory=list, max_length=80)
+    incident_scope_status: Literal['unresolved', 'resolved'] = 'unresolved'
+    resolution_quote: str = Field(default='', max_length=3000)
     accept_scope: bool
     bounded_scope_reviewed: bool
     note: str = Field(default='', max_length=2000)
@@ -203,7 +209,7 @@ def validate_packet(packet):
 
 @app.get('/api/health')
 def health():
-    return {'status': 'ok', 'version': '0.1.0', 'inference_mode': os.getenv('INFERENCE_MODE', 'fixture'),
+    return {'status': 'ok', 'version': '0.1.1', 'inference_mode': os.getenv('INFERENCE_MODE', 'fixture'),
             'amd_configured': all(os.getenv(k) for k in ['AMD_API_BASE_URL', 'AMD_API_KEY', 'AMD_MODEL_ID', 'AMD_PROVIDER_EVIDENCE']),
             'desktop_distribution': 'Local unsigned installer; publication pending'}
 
@@ -347,6 +353,7 @@ def analyze(case_id: str, data: Analyze, request: Request):
     run = extract(docs, data.mode)
     run['revision'] = rev
     run['document_id'] = data.document_id
+    run['scope_concerns'] = scope_concerns(docs[0])
     with transaction(case_id, request.state.owner) as (_, s):
         if s['revision'] != rev:
             run['status'] = 'stale'
@@ -365,9 +372,30 @@ def review(case_id: str, data: Review, request: Request):
             fail('REVIEW_REQUIRED', 'A successful current extraction and explicit scope review are required', 422)
         source = next(d for d in s['documents'] if d['id'] == runs[0]['document_id'])
         lots = sorted(set(l.strip() for l in data.lot_ids))
-        for lot in lots:
-            if not lot or len(lot) > 80 or not any(lot in b['text'] for b in source['blocks']):
+        uncertain = sorted(set(l.strip() for l in data.uncertain_lot_ids))
+        excluded = sorted(set(l.strip() for l in data.excluded_lot_ids))
+        if set(lots) & set(uncertain) or set(lots) & set(excluded) or set(uncertain) & set(excluded):
+            fail('CONFLICTING_REVIEW', 'A lot must have exactly one reviewed disposition', 422)
+        for lot in lots + uncertain + excluded:
+            if not lot or len(lot) > 80 or not any(mentions(lot, b['text']) for b in source['blocks']):
                 fail('UNSUPPORTED_LOT', 'Corrected lot must occur in the selected source; upload evidence first', 422)
+        candidates = {f['lot_id'] for f in runs[0]['output']['facts']}
+        if not candidates <= set(lots + uncertain + excluded):
+            fail('UNREVIEWED_LOTS', 'Review every model candidate, including negative proposals; keep unresolved lots uncertain', 422)
+        concerns = scope_concerns(source)
+        if any(mentions(lot, c['quote']) for c in concerns for lot in lots + excluded):
+            fail('UNRESOLVED_LOT', 'The source leaves this lot unresolved. Keep it uncertain or upload a clarifying notice', 422)
+        if data.bounded_scope_reviewed and data.incident_scope_status != 'resolved':
+            fail('UNRESOLVED_SCOPE', 'Unresolved incident scope cannot authorize narrowed exclusions', 422)
+        if concerns and data.incident_scope_status == 'resolved':
+            fail('UNRESOLVED_SCOPE', 'The source explicitly leaves scope unresolved. Upload clarifying evidence before narrowing', 422)
+        basis = None
+        if data.incident_scope_status == 'resolved':
+            basis = resolution_evidence(source, data.resolution_quote)
+            if basis is None or len(data.note.strip()) < 20:
+                fail('SCOPE_BASIS_REQUIRED', 'A resolved scope needs an exact notice quote and your explanation of its complete boundary', 422)
+        if excluded and len(data.note.strip()) < 20:
+            fail('EXCLUSION_REVIEW_REQUIRED', 'Explain explicit exclusions; a model false proposal is not an exclusion', 422)
         if s['plan']:
             old = copy.deepcopy(s['plan'])
             if old['status'] != 'applied':
@@ -389,11 +417,17 @@ def review(case_id: str, data: Review, request: Request):
         old_units = s['plan']['result']['hold_units'] if s['plan'] else None
         s['bounded'] = data.bounded_scope_reviewed
         s['scope'] = {'lot_ids': lots, 'revision': s['revision'], 'qualifiers': runs[0]['output']['qualifiers'],
-                      'source_document_id': source['id']}
+                      'source_document_id': source['id'], 'uncertain_lot_ids': uncertain,
+                      'excluded_lot_ids': excluded, 'incident_scope_status': data.incident_scope_status,
+                      'resolution_evidence': basis, 'review_policy_version': REVIEW_POLICY_VERSION,
+                      'resolution_note': data.note, 'scope_concerns': concerns}
         s['reviews'].append({'at': now(), 'reviewer': 'Anonymous session reviewer', 'run_id': data.run_id,
                              'suggested_lots': [f['lot_id'] for f in runs[0]['output']['facts'] if f['affected']],
                              'accepted_lots': lots, 'previous_lots': prior,
                              'revision': s['revision'], 'note': data.note,
+                             'uncertain_lot_ids': uncertain, 'excluded_lot_ids': excluded,
+                             'incident_scope_status': data.incident_scope_status, 'resolution_evidence': basis,
+                             'review_policy_version': REVIEW_POLICY_VERSION,
                              'bounded_scope_reviewed': data.bounded_scope_reviewed})
         s['plan'] = make_plan(s)
         s['pending_revision'] = False
