@@ -1,3 +1,15 @@
+# Enterprise 0.3.0-rc.1 engineering candidate — release gate open
+
+Protected public app/Windows release remains e70f4a0 / v0.2.0. All four modules and shared foundations are implemented on enterprise-pilot-0.3. Current candidate is private/local; no claim of production readiness or independent human acceptance.
+
+Verified: 102 pytest passed (one deprecation warning); 30/30 frozen deterministic cases; six connected browser groups and 12 preserved core checks with zero page errors. Actual PostgreSQL named test identities exercised 800 applied / 700 proposed / exact 100 recovery, failed connector then explicit retry, connector process restart/idempotent acknowledgement, immutable original receipts, SQLite migration and isolated restore of all 16 source hashes. Restore 179 ms for this tiny same-device test; owner RPO/RTO unset. Actual Linux OCR 2 pages/52 boxes, pre-review narrowing rejected. Statistical simulation and 500-record microbenchmark are labeled synthetic, not field/capacity evidence.
+
+Fresh AMD: zero new inference calls. Current catalog free=false for every model; documented quota endpoint 404. Keep free-only. See docs/enterprise/release-gates.md and live/preflight.json. All 24 frozen new-task items remain unmeasured by fresh inference. Existing 0.2.0 live evidence remains historical, never relabeled.
+
+Next independent work: installed candidate/package/offline/default-pilot transport, coherent source/container build, dependency/security publication scan, operator/media deliverables. Promotion and Render update wait for new-task AMD gate. See docs/enterprise/evidence-matrix.md and ENTERPRISE_PLAN.md. Exact run commands are in docs/enterprise/pilot-operations.md; local web http://127.0.0.1:8794 and private pilot http://127.0.0.1:8788. Private files remain in ignored work/ and .env, all on D:.
+
+---
+
 # Enterprise client and OCR checkpoint — not yet released
 
 Protected release remains e70f4a0 / v0.2.0; development branch enterprise-pilot-0.3. Local backend checkpoint 28b0b5a follows foundation 84cf9a8. The four module interfaces, proposed/applied quantities, typed receiving review, recovery controls, pilot login, mapped imports, source OCR review, and module packet snapshots are now connected. Desktop IPC explicitly allows the new routes. No new public deployment or installer yet.

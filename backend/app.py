@@ -27,7 +27,7 @@ from .public_demo import public_demo, limiter, inference_access
 from .review_safety import REVIEW_POLICY_VERSION, mentions, scope_concerns, resolution_evidence
 
 load_dotenv(ROOT / '.env')
-app = FastAPI(title='BatchFence', version='0.2.0')
+app = FastAPI(title='BatchFence', version='0.3.0-rc.1')
 DB = Path((os.getenv('DATABASE_PATH') or str(ROOT / 'work/batchfence.sqlite3')))
 DB.parent.mkdir(parents=True, exist_ok=True)
 ORIGIN = os.getenv('APP_ORIGIN') or os.getenv('RENDER_EXTERNAL_URL') or 'http://127.0.0.1:8787'
@@ -86,11 +86,13 @@ async def protection(request: Request, call_next):
             if auth_context is not None: identity.principal.reset(auth_context)
             return JSONResponse({'detail': {'code':'RATE_LIMIT','message':'Request limit reached'}},429)
         if public_demo() and request.url.path != '/api/health' and not limiter.allow(request.state.owner):
+            if auth_context is not None: identity.principal.reset(auth_context)
             return JSONResponse({'detail': {'code': 'RATE_LIMIT', 'message': 'Request limit reached. Retry in one minute.'}}, 429, headers={'Retry-After': '60'})
         if request.method not in ('GET', 'HEAD', 'OPTIONS'):
             limit = 8_000_000
             try:
                 if int(request.headers.get('content-length', '0')) > limit:
+                    if auth_context is not None: identity.principal.reset(auth_context)
                     return JSONResponse({'detail': {'code': 'SIZE', 'message': 'Request exceeds 8 MB'}}, 413)
                 async def bounded_body():
                     chunks = []; size = 0
@@ -103,8 +105,10 @@ async def protection(request: Request, call_next):
                     request._body = b''.join(chunks)
                 await asyncio.wait_for(bounded_body(), timeout=15)
             except OverflowError:
+                if auth_context is not None: identity.principal.reset(auth_context)
                 return JSONResponse({'detail': {'code': 'SIZE', 'message': 'Request exceeds 8 MB'}}, 413)
             except (ValueError, asyncio.TimeoutError):
+                if auth_context is not None: identity.principal.reset(auth_context)
                 return JSONResponse({'detail': {'code': 'BODY', 'message': 'Invalid or incomplete request body'}}, 400)
         try:
             response = await call_next(request)
@@ -315,7 +319,7 @@ def health():
             raise sqlite3.DatabaseError()
     except Exception:
         return JSONResponse({'status': 'unavailable', 'database': 'unavailable'}, 503)
-    return {'status': 'ok', 'database': 'ready', 'version': '0.2.0',
+    return {'status': 'ok', 'database': 'ready', 'version': '0.3.0-rc.1',
             'commit': os.getenv('RENDER_GIT_COMMIT', 'local'),
             'inference_mode': (os.getenv('INFERENCE_MODE') or 'fixture'),
             'amd_configured': all(os.getenv(k) for k in ['AMD_API_BASE_URL', 'AMD_API_KEY', 'AMD_MODEL_ID', 'AMD_PROVIDER_EVIDENCE']),

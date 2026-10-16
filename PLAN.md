@@ -27,3 +27,5 @@ Release milestone: all six implementations and local web/installed checks pass; 
 Final regression milestone: 65 passing tests including replay of the exact fresh receiving omission. Both old and new offline packet/receipt checks pass. Finalize media checksums and sanitized evidence publication, then verify the deployed commit without additional AMD calls.
 
 Publication milestone: 011502d passed final Linux checks, deployed, and matched tested asset hashes; six policy challenges passed on that build. Cold-start measurement is inconclusive because an existing client polls health. Final metadata-only rollout is tracked in releases/final-verification-0.2.0.json; core work is complete, remaining human acceptance is documented in HANDOFF.md.
+
+Integrated candidate milestone: 102 tests, 30 domain cases, six connected browser groups, actual PostgreSQL recovery/connector restart/migration/16-source restore, actual OCR, statistical and bounded performance evidence. New-task live gate blocked at 0/24 by free-only catalog/quota conflict. Preserve main0.2.0. Candidate0.3.0-rc.1 packaging/publication preparation continues independently.

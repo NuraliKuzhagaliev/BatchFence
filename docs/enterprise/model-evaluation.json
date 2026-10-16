@@ -1,0 +1,128 @@
+{
+  "at": "2026-10-16T22:37:39.267415+00:00",
+  "frozen_hash": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "full_denominator": 24,
+  "fresh_model_requests": 0,
+  "model_accuracy": "Not measured; 0/24 fresh model items run",
+  "blocker": "Configured MiMo-V2.6-Flash and all current catalog entries report free=false; documented quota endpoint returned 404. Free-only budget requires confirmation of the actual account allowance before new inference. No fallback or model substitution.",
+  "preflight": "live/preflight.json",
+  "provenance": "Offline deterministic retrieval only, agent-authored synthetic labels; no independent held-out or human validation",
+  "product_mapping": {
+    "decorative-housings": "Decorative housing"
+  },
+  "retrieval_only": [
+    {
+      "id": "KNW-01",
+      "retrieval_status": "retrieved",
+      "retrieved_sources": [
+        "PROC-100@1"
+      ],
+      "expected_sources": [
+        "PROC-100@1"
+      ],
+      "note": "Retrieval candidates are not an answer. Unanswerable adversarial questions may retrieve related text; AMD abstention/semantic quality not measured."
+    },
+    {
+      "id": "KNW-02",
+      "retrieval_status": "retrieved",
+      "retrieved_sources": [
+        "PROC-100@1",
+        "PROC-101@1"
+      ],
+      "expected_sources": [
+        "PROC-100@1"
+      ],
+      "note": "Retrieval candidates are not an answer. Unanswerable adversarial questions may retrieve related text; AMD abstention/semantic quality not measured."
+    },
+    {
+      "id": "KNW-03",
+      "retrieval_status": "retrieved",
+      "retrieved_sources": [
+        "PROC-100@1",
+        "PROC-101@1"
+      ],
+      "expected_sources": [
+        "PROC-101@1"
+      ],
+      "note": "Retrieval candidates are not an answer. Unanswerable adversarial questions may retrieve related text; AMD abstention/semantic quality not measured."
+    },
+    {
+      "id": "KNW-04",
+      "retrieval_status": "retrieved",
+      "retrieved_sources": [
+        "PROC-100@1"
+      ],
+      "expected_sources": [],
+      "note": "Retrieval candidates are not an answer. Unanswerable adversarial questions may retrieve related text; AMD abstention/semantic quality not measured."
+    },
+    {
+      "id": "KNW-05",
+      "retrieval_status": "insufficient",
+      "retrieved_sources": [],
+      "expected_sources": [],
+      "note": "Retrieval candidates are not an answer. Unanswerable adversarial questions may retrieve related text; AMD abstention/semantic quality not measured."
+    },
+    {
+      "id": "KNW-06",
+      "retrieval_status": "insufficient",
+      "retrieved_sources": [],
+      "expected_sources": [],
+      "note": "Retrieval candidates are not an answer. Unanswerable adversarial questions may retrieve related text; AMD abstention/semantic quality not measured."
+    },
+    {
+      "id": "KNW-07",
+      "retrieval_status": "retrieved",
+      "retrieved_sources": [
+        "PROC-100@1"
+      ],
+      "expected_sources": [],
+      "note": "Retrieval candidates are not an answer. Unanswerable adversarial questions may retrieve related text; AMD abstention/semantic quality not measured."
+    },
+    {
+      "id": "KNW-08",
+      "retrieval_status": "insufficient",
+      "retrieved_sources": [],
+      "expected_sources": [],
+      "note": "Retrieval candidates are not an answer. Unanswerable adversarial questions may retrieve related text; AMD abstention/semantic quality not measured."
+    },
+    {
+      "id": "KNW-09",
+      "retrieval_status": "retrieved",
+      "retrieved_sources": [
+        "PROC-100@1"
+      ],
+      "expected_sources": [],
+      "note": "Retrieval candidates are not an answer. Unanswerable adversarial questions may retrieve related text; AMD abstention/semantic quality not measured."
+    },
+    {
+      "id": "KNW-10",
+      "retrieval_status": "insufficient",
+      "retrieved_sources": [],
+      "expected_sources": [],
+      "note": "Retrieval candidates are not an answer. Unanswerable adversarial questions may retrieve related text; AMD abstention/semantic quality not measured."
+    },
+    {
+      "id": "KNW-11",
+      "retrieval_status": "retrieved",
+      "retrieved_sources": [
+        "PROC-100@1"
+      ],
+      "expected_sources": [
+        "PROC-100@1"
+      ],
+      "note": "Retrieval candidates are not an answer. Unanswerable adversarial questions may retrieve related text; AMD abstention/semantic quality not measured."
+    },
+    {
+      "id": "KNW-12",
+      "retrieval_status": "retrieved",
+      "retrieved_sources": [
+        "PROC-100@1",
+        "PROC-101@1"
+      ],
+      "expected_sources": [],
+      "note": "Retrieval candidates are not an answer. Unanswerable adversarial questions may retrieve related text; AMD abstention/semantic quality not measured."
+    }
+  ],
+  "historical_live_reference": "../release-0.2.0/live/README.md",
+  "new_task_live_verification": "incomplete"
+}

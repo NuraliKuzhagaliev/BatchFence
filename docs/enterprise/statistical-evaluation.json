@@ -1,0 +1,634 @@
+{
+  "at": "2026-10-16T22:37:38.052346+00:00",
+  "provenance": "Synthetic independent binomial draws; fixed reviewed-baseline assumption, not field performance",
+  "generation": {
+    "baseline_p": 0.02,
+    "shift_p": 0.05,
+    "baseline_count": 20,
+    "stable_count": 100,
+    "shift_count": 20,
+    "sample_sizes": [
+      500,
+      800
+    ],
+    "trials": 100,
+    "seed_sets": [
+      1000,
+      2000,
+      3000
+    ]
+  },
+  "policy": {
+    "min_observations": 20,
+    "min_inspected": 5000,
+    "min_expected": 5,
+    "sigma": 3
+  },
+  "false_alerts": 36,
+  "stable_denominator": 10000,
+  "trials_with_detected_shift": 100,
+  "median_detection_delay_observations": 1.0,
+  "per_trial": [
+    {
+      "seed": 0,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 1,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 2,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 3,
+      "false_alerts": 2,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 4,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 5,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 6,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 7,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 8,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 2
+    },
+    {
+      "seed": 9,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 10,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 2
+    },
+    {
+      "seed": 11,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 2
+    },
+    {
+      "seed": 12,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 13,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 14,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 15,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 16,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 17,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 18,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 19,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 20,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 21,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 22,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 23,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 24,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 25,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 26,
+      "false_alerts": 2,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 27,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 28,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 29,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 2
+    },
+    {
+      "seed": 30,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 31,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 32,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 33,
+      "false_alerts": 2,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 34,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 35,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 36,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 37,
+      "false_alerts": 2,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 38,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 2
+    },
+    {
+      "seed": 39,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 40,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 41,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 2
+    },
+    {
+      "seed": 42,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 43,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 44,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 45,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 46,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 2
+    },
+    {
+      "seed": 47,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 2
+    },
+    {
+      "seed": 48,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 49,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 50,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 2
+    },
+    {
+      "seed": 51,
+      "false_alerts": 2,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 52,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 3
+    },
+    {
+      "seed": 53,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 54,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 55,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 56,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 57,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 58,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 59,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 60,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 61,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 62,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 63,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 64,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 65,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 66,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 67,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 68,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 69,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 70,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 2
+    },
+    {
+      "seed": 71,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 72,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 2
+    },
+    {
+      "seed": 73,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 74,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 75,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 76,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 77,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 78,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 79,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 80,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 81,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 82,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 83,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 2
+    },
+    {
+      "seed": 84,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 85,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 86,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 87,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 88,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 89,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 90,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 91,
+      "false_alerts": 3,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 92,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 93,
+      "false_alerts": 1,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 94,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 95,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 96,
+      "false_alerts": 2,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 97,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 98,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    },
+    {
+      "seed": 99,
+      "false_alerts": 0,
+      "stable_observations": 100,
+      "first_shift_detection_observation": 1
+    }
+  ],
+  "limitations": "Synthetic calibration of this one p-chart rule. False alerts within a trial share an estimated baseline and are correlated; no pooled independent-binomial confidence interval is claimed. No supplier causality or acceptance authority."
+}

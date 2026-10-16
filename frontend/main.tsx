@@ -897,7 +897,7 @@ function App() {
                   <div className="map-heading">
                     <div>
                       <h2>
-                        {tab === "timeline"
+                        {tab === "recovery" ? "Controlled recovery" : tab === "timeline"
                           ? "Evidence revision timeline"
                           : tab === "sources"
                             ? "Source records"
@@ -957,7 +957,7 @@ function App() {
                     ))}
                   </div>
                   <QuantityStrip state={state}/>
-                  {result && (
+                  {result && tab!=="recovery" && (
                     <div
                       className={
                         "comparison " +
@@ -1377,7 +1377,7 @@ function App() {
                             <code>{row.row_id}</code>
                           </dd>
                           <dt>Current state</dt>
-                          <dd>{row.status}</dd>
+                          <dd>{state.stocks.find(stock=>stock.id===row.id)?.status??row.status}</dd>
                         </dl>
                       </div>
                       <div className="inspector-sources">

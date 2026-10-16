@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-16T22:37:39.096784+00:00",
+  "os": "Windows-11-10.0.26200-SP0",
+  "architecture": "AMD64",
+  "logical_cpu_count": 20,
+  "provenance": "Actual local timings of deterministic Python calculations on synthetic 500-pool/500-edge/500-allocation data; tracemalloc enabled",
+  "iterations": 15,
+  "median_ms": 68.37,
+  "p95_ms": 75.98,
+  "maximum_ms": 75.98,
+  "python_tracked_peak_bytes": 1443314,
+  "serialized_result_bytes": 264940,
+  "above_500_records_rejected": true,
+  "hold_units": 7265,
+  "outside_units": 19200,
+  "limitations": "Single-machine microbenchmark, not browser/network latency, process RSS, a load test or enterprise capacity. Repository serializes committing writers; no scalability claim."
+}

@@ -1,23 +1,27 @@
 # Enterprise evidence matrix
 
-Status begins pending; code presence is not verification. Evidence is versioned and separated from 0.2.0 history. Owner E = engineering agent; H = human/domain owner.
+Engineering checks are agent-operated. None establishes independent human/domain validation. 0.3.0-rc.1 is a candidate; protected public0.2.0 remains published.
 
-| Requirement | Owner / surface | Positive acceptance | Negative acceptance | Evidence / status |
-|---|---|---|---|---|
-| Baseline preservation | E / branch, legacy tests | 65 prior tests; immutable release | no published tag replacement | baseline pytest: 65 passed; e70f4a0 protected |
-| Persistence/migration | E / repository, migrations | SQLite to PostgreSQL hashes/counts | legacy approval not named authority | tests/test_foundations.py; pending |
-| Restore | E+H / backup CLI | isolated records+sources+receipt workflow, measured age/time | corrupt/unsafe archive rejected | docs/enterprise/restore.json; pending; owner RPO/RTO unset |
-| Identity/access | E+H / auth, API, desktop | named scoped membership | revoked role, other org/site, self-release | tests/test_identity.py; pending |
-| Audit/concurrency/jobs | E / transactions, jobs | atomic audit, exact once, bounded jobs | stale/duplicate/cancel/restart | tests/test_foundations.py; pending |
-| Mapped imports/OCR | E+H / intake | reviewed provenance, source image+text | duplicate/cycle/overflow/unknown/unconfirmed OCR | tests/test_onboarding.py; pending |
-| Typed receiving | E+H / reconciliation | explicit old/new complete replacement | missing/uncertain parent not exclusion | tests/test_receiving.py; pending |
-| Quality Signals | E+H / signals | reference pooled p and linked observations | drift/mix/missing/degenerate/correction | tests/test_signals.py; pending |
-| Approved Knowledge | E+H / retrieval, AMD | approved applicable passages/check evidence | malicious/expired/conflict/cross-org | tests/test_knowledge.py; pending |
-| Controlled Recovery | E+H / ledger,outbox | 800 applied/700 proposed, exact 100 recovery | second hold/stale/self/timeout/race | tests/test_recovery.py; pending |
-| Corrective Action | E+H / actions | frozen plan, follow-up, recurrence | early close/missing/confounded | tests/test_effectiveness.py; pending |
-| Model quality | E+H / frozen 24 inputs | raw precision/recall/support + correction | ambiguous/adversarial no authority | evaluation/enterprise; pending; synthetic agent labels |
-| Performance | E / bounded datasets | multi-case and shared-stock measurements | bounds reject atomically | docs/enterprise/performance.json; pending |
-| Visual/platform | E+H / React,Electron | actual screenshots/scaling/offline packet | offline action, denied/loading states | docs/enterprise/ui; pending; native dialogs may require H |
-| Security | E / threat model, tests | selected OWASP controls | traversal/SSRF/session/exhaustion/injection | docs/enterprise/security.md; pending; no certification |
-| Human benefit | H / operator protocol | 3 unfamiliar participants + domain review | equivalent manual comparison and negative value | pending; no invented participants |
-| Packaging/deployment | E / tag, CI, existing free Render | clean source-tag image and signed hashes | no changed old assets/paid resource | pending; 0.2.0 remains live |
+| Requirement | Actual evidence | Status / remaining acceptance |
+|---|---|---|
+| Preserved incident workflow | pytest-rc.xml:102 tests; ../evaluation-results.json:30/30; browser-core.json:12checks | Passed tested synthetic scope, no regression in500/800/stale/receipt behavior |
+| SQLite/PostgreSQL persistence and migration | test_foundations.py; foundation-postgres.json; modules-postgres.json actual SQLitev1 import with exact cases/receipts | Verified local PG17.11 and SQLite; legacy authority not assigned to named users |
+| Original bytes and restore | modules-postgres.json:16sources exact hashes, records/users/members restored, sessions0;179ms; test unsafe/corrupt archive | Same-device drill only, owner RPO/RTO/off-device acceptance pending |
+| Identity/access | test_foundations scoped source/export/audit, selector/logout, revoked approval; modules-postgres distinct test users | Implemented and tested; real identities/SSO/MFA/domain ownership pending |
+| Audit/concurrency/jobs | append-only/runtime privilege tests, rollback, duplicate concurrent apply, cancellation/interrupted lease | Verified bounded local conditions, no distributed throughput claim |
+| Mapped intake/OCR | test_onboarding.py; templates; ocr/actual-ocr.json and review-behavior.json; retained actual pages | Actual Tesseract5.3.0 Linux2pages52boxes; agent page review, no independent OCR acceptance |
+| Typed receiving | test_upgrade.py, test_recovery.py; browser-modules.json natural structured review | Synthetic source review700proposed/800held; fresh typed AMD task pending |
+| Quality Signals | test_signals_knowledge.py independent unequal-n reference; statistical-evaluation.json; browser-modules.json | Frozen baseline/invalid correction/mix/insufficient bounds verified;100 synthetic trials, no factory performance claim |
+| Approved Knowledge | exact/cross-scope/conflict/stale tests, model-evaluation.json retrieval-only; browser forms | Applicable approved exact passages verified synthetically; fresh AMD and domain SOP acceptance pending |
+| Controlled Recovery | test_recovery.py; modules-postgres.json named test users; browser modules | Exact100, second hold preserved, stale/self/revoked rejected, duplicate receipt safe; no enterprise inventory action |
+| Reference connector | modules-postgres.json actual connection refusal, explicit retry, separate process restart and same ack | Sandbox loopback connector verified; real ERP integration not implemented/authorized |
+| Corrective Action | test_effectiveness.py; browser module lifecycle and withheld synthetic follow-up | Frozen criteria, missing-data block, recurrence/reopen verified; synthetic replay not prospective causal evidence |
+| New model quality | frozen24items+hash; live/preflight.json; model-evaluation.json | BLOCKED0/24fresh: free=false catalog/quota404. Historical0.2.0 separated |
+| Performance | performance.json:500each pools/edges/allocations,15runs,median68.37ms,p95max75.98ms,1.44MB Python tracked | Microbenchmark only; above-limit rejection; no network/concurrent enterprise SLA |
+| Web visual/interaction | browser-core.json12checks; browser-modules.json6groups; ui/module screenshots1366/1920/390/200%zoom | Verified local agent-operated; independent comprehension pending |
+| Offline packets | test_packet_canonical.py malformed rehashed extensions; promotion strips authority | Read-only module JSON snapshots, historical quantities/receipts; installed candidate verification follows |
+| Security/dependencies | security.md; production-audit.json0; full-audit.json8moderate build-tool chain | Selected controls tested, no certification; Python/OS exhaustive advisory review not established |
+| Human benefit | operator-acceptance.md protocol | 0independent participants; no ROI, customer or savings claim |
+| Windows/container/release | candidate reports added after packaging; protected v0.2.0 unchanged | Candidate package/CI evidence pending; no public promotion until live gate |
+
+See release-gates.md for exact owner unblock action. Code and passing builds alone are not used as acceptance evidence. Final package/CI follow-up reports supersede the pending packaging row only when successful.

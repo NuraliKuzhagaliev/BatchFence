@@ -79,6 +79,14 @@ export function validateShape(p) {
   )
     throw Error("Invalid decision packet schema");
   const c = p.case;
+  // Extension snapshots are read-only JSON evidence, never hydrated action authority.
+  // Validate fields also used by the preserved incident view before rendering them.
+  if ((c.enterprise_packet !== undefined && !object(c.enterprise_packet)) ||
+      ['receiving_runs','hold_ledger','recovery_receipts','procedure_checks'].some(k =>
+        c[k] !== undefined && (!Array.isArray(c[k]) || c[k].length > 2000 || !c[k].every(object))) ||
+      (c.quantities !== undefined && (!object(c.quantities) ||
+        !['applied_hold_units','recovery_pending_units','confirmed_recovery_units'].every(k => integer(c.quantities[k])))))
+    throw Error('Invalid historical module evidence');
   const arrays = [
     "documents",
     "stocks",
@@ -113,6 +121,9 @@ export function validateShape(p) {
         typeof d.synthetic === "boolean" &&
         str(d.original_hash) &&
         str(d.text_hash) &&
+        (d.ocr === undefined || (object(d.ocr) && str(d.ocr.engine) &&
+          typeof d.ocr.critical_fields_confirmed === 'boolean' && Array.isArray(d.ocr.pages) &&
+          d.ocr.pages.length <= 8 && d.ocr.pages.every(p => object(p) && integer(p.page) && p.page > 0 && str(p.image_hash)))) &&
         Array.isArray(d.blocks) &&
         d.blocks.length <= 5000 &&
         d.blocks.every((b) => object(b) && str(b.id) && str(b.text)),

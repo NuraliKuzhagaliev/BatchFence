@@ -1,3 +1,9 @@
+# Candidate deployment boundary
+
+The enterprise-pilot-0.3 branch is a 0.3.0-rc.1 local/private candidate. Follow docs/enterprise/pilot-operations.md and release-gates.md. The public 0.2.0 destination below remains protected. The candidate Windows default is loopback8788 and requires the private Compose backend. Do not point it at public0.2.0 for new modules. No new cloud service or paid resource.
+
+---
+
 # BatchFence deployment and operations
 
 Public app: https://batchfence.onrender.com · repository: https://github.com/NuraliKuzhagaliev/BatchFence
