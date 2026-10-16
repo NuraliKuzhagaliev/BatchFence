@@ -1,7 +1,7 @@
 """CI container integration: dynamic port, exact workflow, real Docker restart."""
 from pathlib import Path
 from datetime import datetime, timezone
-import json, subprocess, time
+import json, subprocess, time, os
 import httpx
 
 base='http://127.0.0.1:8795'
@@ -54,6 +54,6 @@ except Exception as e:
     report['passed']=False; report['failure_type']=type(e).__name__
     raise
 finally:
-    out=Path('docs/cloud');out.mkdir(exist_ok=True)
+    out=Path(os.getenv('BATCHFENCE_CONTAINER_REPORT_DIR','docs/cloud'));out.mkdir(parents=True,exist_ok=True)
     (out/'container-results.json').write_text(json.dumps(report,indent=2))
     print(json.dumps(report,indent=2))

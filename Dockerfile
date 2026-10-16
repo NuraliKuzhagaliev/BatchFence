@@ -3,6 +3,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci --ignore-scripts
 COPY frontend ./frontend
+COPY fixtures/resolution ./fixtures/resolution
 COPY desktop/packet-shape.mjs desktop/packet-shape.d.mts ./desktop/
 COPY index.html tsconfig.json vite.config.ts ./
 RUN npm run build

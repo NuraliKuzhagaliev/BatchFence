@@ -12,6 +12,7 @@ jobs:
     env:
       INFERENCE_MODE: fixture
       DATABASE_PATH: work/ci.sqlite3
+      BATCHFENCE_CONTAINER_REPORT_DIR: work/ci-evidence
     steps:
       - uses: actions/checkout@v4
         with:
@@ -41,6 +42,6 @@ jobs:
         with:
           name: verification-evidence
           path: |
-            docs/cloud/container-results.json
+            work/ci-evidence/container-results.json
             docs/cloud/publication-audit.json
             docs/evaluation-results.json
