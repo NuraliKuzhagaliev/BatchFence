@@ -113,6 +113,7 @@ function App() {
   const [liveProtected, setLiveProtected] = useState(false);
   const [replayAvailable, setReplayAvailable] = useState(false);
   const [publicDemo, setPublicDemo] = useState(false);
+  const [temporaryStorage, setTemporaryStorage] = useState(false);
   const connectionWasAvailable = useRef(true);
   const state = packet?.case || data,
     plan = state?.plan,
@@ -159,6 +160,7 @@ function App() {
           amd_configured: boolean;
           live_protected: boolean;
           public_demo: boolean;
+          storage_mode: string;
           replay_available: boolean;
         }>("GET", "/api/health");
         const all = await request<typeof cases>("GET", "/api/cases");
@@ -166,6 +168,7 @@ function App() {
         setCases(all);
         setLiveProtected(health.live_protected);
         setPublicDemo(health.public_demo);
+        setTemporaryStorage(health.storage_mode === "ephemeral");
         setReplayAvailable(health.replay_available);
         setMode(
           health.amd_configured && health.inference_mode === "live" && !health.live_protected
@@ -568,6 +571,7 @@ function App() {
               </p>
             </section>
           )}
+          {temporaryStorage && <div className="feedback info" role="note"><History size={17} /><span>Free demo · temporary storage. Export your decision packet: server data can be lost on sleep, restart or redeployment.</span></div>}
           {(error || notice || busy) && (
             <div
               className={

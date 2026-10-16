@@ -1,67 +1,61 @@
-# Deployment status and operations
+# Free deployment status and operations
 
 Repository: https://github.com/NuraliKuzhagaliev/BatchFence
 
-Public application: **not deployed**. A paid durable service has not been provisioned. Cloud AMD connectivity, public HTTPS workflows and cloud restart persistence remain unverified. Local results below are explicitly local.
+Public application: **deployment pending**. Source 43abcf8 is published and Linux CI passed. No cloud AMD result is claimed yet.
 
-## Selected architecture
+## Free-only constraint
 
-One Render Docker Web Service builds React with the locked npm dependencies, then runs FastAPI and serves both the UI and API from the same origin. SQLite, its WAL and receipts live at `/var/data/batchfence.sqlite3` on a 1 GB persistent disk. One service instance and one Uvicorn worker are required. No Vercel split or database migration is needed.
+The owner requires everything to remain free. The earlier paid proposal was revoked before resource creation. Use only the Free compute plan in the selected Render workspace; no disk, paid service, account upgrade, payment method, purchased inference credit or chargeable add-on is authorized. Existing unrelated services are preserved.
 
-`backend.serve` binds `0.0.0.0:$PORT`, limits concurrent connections to 24, and starts the existing database schema without overwriting an unknown version. Health checks query the database; inaccessible/unsupported storage returns 503. Internal browser navigation resolves root asset URLs; the installed desktop keeps relative file URLs. Docker runs as UID 10001. Disk write access must be verified in the actual Render runtime, not assumed from a successful build.
+The selected workspace was inspected: free allowances remain and no payment method is configured. Keep this unchanged. Render suspends free services/builds when their applicable allowances are exhausted without a payment method; do not upgrade to restore them. See [Render free limits](https://render.com/docs/free). GitHub source/CI use this public repository's available free allowance. AMD requests may use only the already authorized trial resources; provider accounting metadata is not evidence of a monetary purchase.
 
-Render disks require paid compute, are available only at runtime, and attach to a single instance. Disk deployments have a brief outage. Ephemeral storage does not preserve receipts. See [persistent disks](https://render.com/docs/disks) and [Blueprint specification](https://render.com/docs/blueprint-spec).
+## Architecture and storage tradeoff
 
-## Proposed cost; approval pending
+One Free Render Docker Web Service builds the locked React dependencies and runs FastAPI from the same HTTPS origin. One instance and one Uvicorn worker are required. `backend.serve` binds `0.0.0.0:$PORT`. Health queries SQLite and rejects unsupported schema versions without overwriting them. Internal browser navigation resolves root assets; installed desktop retains relative file URLs.
 
-Current pricing checked 2026-10-16: `0.5c-512mb` compute is **US$7/month** and a 1 GB disk is **US$0.25/month**, totaling **US$7.25/month baseline**, before taxes or an existing workspace subscription. A Hobby workspace adds no subscription fee; no workspace upgrade is proposed. [Render pricing](https://render.com/pricing).
+`DATABASE_PATH=/var/data/batchfence.sqlite3` is an image-writable directory, **not a persistent disk**. `STORAGE_MODE=ephemeral` makes the UI explicitly ask visitors to export packets. SQLite records, receipts, sessions and database usage counters can disappear on sleep, restart or redeployment. The original durable cloud receipt requirement remains unmet. Exported packets can be reopened read-only. Local desktop storage and CI named-volume verification are separate from this cloud limitation.
 
-Hobby includes 5 GB outbound bandwidth and 500 standard build minutes per month, shared with other services. Overage is $0.15/GB and $5 per additional 1,000 build minutes. Actual remaining workspace allowance must be inspected before provisioning; no unlimited overage budget is assumed. AMD usage is separate and remains within the existing authorized key's limits. [Workspace pricing](https://render.com/blog/better-pricing-for-fast-growing-teams), [build pipeline](https://render.com/docs/build-pipeline).
-
-The connector lists one workspace, `Kuzhagaliev Nurali's workspace`, but explicitly requires user confirmation before selecting its ID. Existing services/billing have not yet been inspected. Do not infer that there are no reusable resources.
+Free services sleep after inactivity, may take about a minute to start, and share workspace quotas. No keep-alive automation or database migration is introduced. See [Render free services](https://render.com/docs/free).
 
 ## Configuration and deployment
 
-After workspace selection and cost approval, inspect existing services first. Apply `render.yaml` to the authorized repository's `main` branch. It specifies Frankfurt, the paid compute tier, one instance, a 1 GB disk and `/api/health`. No preview resources are configured. CI on GitHub builds/tests the application and runs a Linux container workflow; Render auto-deploy is configured for passing checks. The local Docker socket failure is unrelated to a remote Git build.
+`render.yaml` defines only `plan: free`, one Docker web service, Frankfurt, no disk and no previews. The direct connector can create this same free service; then confirm settings in the dashboard. The Blueprint's health path is `/api/health` and auto-deploy preference is passing checks. Never issue a duplicate deploy when a Git push already triggers one.
 
-Set these privately in Render's protected server environment, using the already verified local configuration; never paste values into issues, logs or chat:
+Set private server environment variables from the existing verified local configuration, without printing or publishing values:
 
 - `AMD_API_BASE_URL`, `AMD_API_KEY`, `AMD_MODEL_ID`, `AMD_PROVIDER_EVIDENCE`, `AMD_API_STYLE`.
-- `AMD_JSON_SCHEMA=false` for the currently verified adapter configuration.
-- `LIVE_DEMO_TOKEN`: a random value of at least 32 characters, kept separate from the provider key. Blueprint generates it. Transfer privately to authorized demonstrators only.
+- `AMD_JSON_SCHEMA=false` for the verified adapter.
+- `LIVE_DEMO_TOKEN`: separate random demonstration key, at least 32 characters. Never distribute the provider key.
 
-`PUBLIC_DEMO=true` enables the public limits. `DATABASE_PATH=/var/data/batchfence.sqlite3`. `APP_ORIGIN` defaults to Render's injected HTTPS `RENDER_EXTERNAL_URL`; use the exact custom origin if one is later configured. Never set it to localhost on Render. Public visitors default to `INFERENCE_MODE=fixture`, accurately labeled Synthetic; protected Live remains selectable. The historical replay contains actual prior local AMD output and agent review, with no new inference claim.
+`PUBLIC_DEMO=true`, `STORAGE_MODE=ephemeral`, `INFERENCE_MODE=fixture`. `APP_ORIGIN` uses Render's injected HTTPS `RENDER_EXTERNAL_URL`. Public visitors start in Synthetic mode; Live is protected; historical AMD Replay is explicitly labeled and makes no new inference request. No secret is a frontend variable, Docker build argument or installer field. `.env.example` has empty placeholders. `.env`, databases and verification sessions are excluded from the image and Git.
 
-No secret is a Docker build argument, a frontend variable or an installer field. `.env.example` contains empty placeholders only. The container copies neither `.env`, local databases nor private verification sessions.
+## Public controls
 
-## Public demo controls
+Cookie-owned workspaces use HttpOnly, Secure, SameSite=Strict cookies. Every case read/write/export checks ownership. Live needs a separate access key, retained only in browser page memory, and allows one inference at a time. Failed calls never fall back to fixtures.
 
-- Cookie-owned workspaces; HttpOnly, Secure, SameSite=Strict. Each read/write/export checks ownership. Desktop capability transport remains supported.
-- Live inference requires the demonstration key in a header over HTTPS. The UI retains it only in page memory. Failure remains visible; no fixture fallback.
-- At most one live request at once; 8 extraction attempts per session and 20 live attempts across the entire persistent database. Failed and interrupted reservations count. Restart does not reset that total. Exhaustion requires an intentional owner decision; no automated reset or retry loop.
-- 300 API requests/minute globally and 90/session, excluding health checks. These single-process minute counters restart with the process. Session rotation cannot evade the global ceiling. This is bounded demo protection, not a DDoS service.
-- 8 MB bounded request body, 15-second body timeout; existing 2 MB/file and 24-document limits. 60 stored cases, maximum serialized case size 6 MB. Capacity returns a clear error; no visitor can delete another workspace to free space.
-- Public data is synthetic. Do not upload real supplier/customer records. Session loss means that visitor cannot recover their private workspace; exported packets remain readable.
+Limits: 8 extraction attempts per session, 20 live attempts per current database lifetime, 60 cases, 6 MB per serialized case, 8 MB bounded request bodies and a 15-second body timeout. Failed/interrupted reservations count. **Free storage loss resets database counters; these are not a durable account spending cap.** Provider trial limits and keeping the demo key private remain necessary. API rate ceilings are 300/minute globally and 90/session, excluding health. These counters restart with the process.
 
-## Actual checks so far
+Use only synthetic supplier/customer data. Export before closing or losing the session; no public reset/delete endpoint permits deleting another visitor's workspace.
 
-Local Windows build passed. 48 pytest checks passed, including existing ambiguity, stale approval, exact actions, packet hashing and isolation regressions plus live-access/concurrency/budget/rate/body/storage/readiness checks. The frozen deterministic evaluation passed 30/30, with zero missed documented stock and zero wrong outside classifications. These are not model-quality measurements.
+## Actual verification
 
-Against the isolated **local** HTTPS server: 12 browser workflow checks passed, including 500/800 synthetic plans, receipt and offline packet behavior. Five additional browser control checks passed: internal refresh/assets/API 404, labeled historical AMD replay, denied live requests before any provider call, independent-session isolation and usable protected-live errors. No live calls were made in these tests. The internal-route asset defect found during testing was fixed. See `docs/cloud/`.
+CI on commit 43abcf8 passed: 48 pytest, 30 frozen domain cases, Linux Docker build, dynamic PORT, synthetic 500 to 800, stale approval rejection, sandbox receipt, session isolation, SPA routing and an actual container restart with the same named volume. Evidence: `docs/cloud/ci-results.json`, `container-results.json`. This establishes neither Render persistence nor cloud live inference.
 
-Git history and current deliverables were scanned for known private values, credential literals, private paths, databases and installers, including nested presentation parts. This is not a general security audit or OCR scan. All previous raw AMD evidence remains historical and agent-reviewed; independent human validation has not occurred.
+Earlier local HTTPS verification passed 12 browser workflow checks and five public-mode checks, with no provider calls. Live access was denied correctly before provider use; historical AMD replay was labeled; offline packet import worked. A discovered internal-route asset defect was fixed. Evidence and actual failures are in `docs/cloud/`.
 
-## Cloud acceptance gate — still pending
+History, working deliverables and built assets were scanned for known private values and credential patterns, including nested presentation archives. This is not a general security audit or OCR scan. Historical raw AMD quality errors remain disclosed; all performed review is agent-operated, not independent human validation.
 
-1. Record actual service URL, service/commit/deploy IDs and successful remote build/startup logs. Confirm DB writable under the mounted disk and one service instance.
-2. Run `BATCHFENCE_BASE_URL=<actual HTTPS URL> node scripts/public-controls.cjs` (PowerShell: set the environment variable separately). Never bypass certificate verification for the public host.
-3. Run `scripts/live-browser-check.cjs` against the public origin with a privately supplied `BATCHFENCE_DEMO_TOKEN`, a new `BATCHFENCE_EVIDENCE_DIR` and private review directory. The script pauses after each raw model response. Inspect the exact source/proposals and provide source-specific review files; do not prefill model output. Record agent-operated review accurately.
-4. Complete actual live 500 → 800 plans, stale apply rejection and sandbox receipts; run an ambiguous notice and record raw errors separately from reviewed outcomes. Keep failures, timestamps, model/request IDs and latency. Never turn failed extraction into a successful replay.
-5. Verify packet export/import, two browser sessions and no known server secrets in responses/assets. Store cookies and access keys only under ignored `work/` or private environment configuration.
-6. Restart/redeploy the real Render service; use the same private browser session to compare saved receipts, stock, runs and review state. A second HTTP client without a process restart is insufficient.
-7. Update this document with actual results. Until these pass, the public release is incomplete.
+## Pending public acceptance
 
-## Reproduce independent checks
+1. Record real URL, service ID, commit/deploy ID, build/start logs and actual free plan/no disk.
+2. Inspect HTTPS UI, temporary-storage notice, assets/internal refresh, protected-live failure and separate sessions.
+3. Run fresh live AMD 500/800 and ambiguous notices with raw response preserved before source-specific agent review. Report failures separately; never relabel replay as live.
+4. Export/import packets, stale approval rejection, isolation and inspect responses/assets for known secrets.
+5. Export all test packets before a controlled real restart. Verify and record ephemeral state loss honestly; reopening the export does not prove cloud persistence.
+6. Update this document and HANDOFF with actual results. Durable cloud storage remains unavailable under the current free-only architecture.
+
+## Reproduce checks
 
     npm ci --ignore-scripts
     npm run build
@@ -70,10 +64,8 @@ Git history and current deliverables were scanned for known private values, cred
     python -m scripts.evaluate
     python scripts/audit-publication.py
 
-Windows uses `.\.venv\Scripts\python.exe` for the Python commands. CI additionally builds Docker and runs `scripts/container-check.py`, which performs a real container restart with a named volume. CI synthetic success does not establish Render persistence or live AMD connectivity.
+Windows uses `.\.venv\Scripts\python.exe`. `scripts/container-check.py` uses a real Docker container and named volume in CI. `BATCHFENCE_BASE_URL` selects the public origin for `scripts/public-controls.cjs` and `scripts/live-browser-check.cjs`. The latter needs private `BATCHFENCE_DEMO_TOKEN`, a new evidence directory, and pauses for review files after actual model output. Do not prefill review blindly.
 
-## Recovery and desktop
+## Desktop and release limits
 
-Use SQLite's backup API for a consistent backup while the service is running; keep it private. Do not copy only the main SQLite file while WAL writes are active. Test any backup restoration separately before relying on it. No automatic retention/deletion/reset is implemented. Disk snapshots alone do not establish a tested database recovery process.
-
-The existing unsigned Windows 0.1.1 installer and checksums remain local in `releases/`; it targets a local backend at `127.0.0.1:8787`. It is not advertised as a cloud-connected installer and no GitHub binary release has been published. The hosted frontend changes do not modify that existing installer. No signing, OS protection changes or new desktop integration are assumed.
+The existing unsigned Windows 0.1.1 installer remains local under `releases/` and targets `127.0.0.1:8787`. Its hash remains verified and it has not been rebuilt or published as a cloud installer. No paid signing, domain or installer hosting is introduced. Native dialog/operator review limitations remain in the historical HANDOFF. This is a demonstrator, not a production release.

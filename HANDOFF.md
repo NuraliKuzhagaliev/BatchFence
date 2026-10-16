@@ -1,14 +1,14 @@
-# Publication follow-up — 2026-10-16
+# Publication follow-up — free-only — 2026-10-16
 
-Continued from 9a38eec, preserving its full history. Source publication to the authorized GitHub repository is in progress. **Public cloud release remains incomplete until workspace/cost approval, deployment and actual cloud verification.** No paid resource has been created. No public application URL or cloud AMD success is claimed.
+Source is published at https://github.com/NuraliKuzhagaliev/BatchFence, commit 43abcf8. GitHub CI completed successfully: 48 pytest checks, 30 frozen domain cases, Linux Docker build, synthetic 500/800 workflow, stale approval rejection, isolation, receipt and actual container restart with a named volume. These are CI results, not live cloud verification.
 
-Prepared one Render Docker Web Service with one persistent SQLite disk, dynamic PORT, real DB health, safe schema-version initialization, same-origin API/UI and internal-route asset loading. Local Windows Docker failure does not block the remote build route. Added GitHub CI, including a real Linux container restart/volume check.
+The user revoked cost approval before any Render resource was created. All further hosting must be free. The selected workspace is confirmed. Three existing unrelated free services are preserved. No paid disk, compute, upgrade, payment method or overage is authorized.
 
-Protected Live demo requires a separate access key, one inference at a time, persistent attempt budgets and bounded requests/storage. Public Synthetic and a clearly labeled historical AMD replay remain available. Core domain/review/approval/receipt logic is preserved. Existing unsigned desktop installer remains unchanged and local.
+The free-only Blueprint uses one free Docker service with temporary SQLite and an explicit in-app export/storage notice. Server state and its usage counters can be lost on sleep, restart or redeployment; durable cloud persistence remains unmet. Same-origin FastAPI/React, one worker, protected Live, Synthetic and historical AMD Replay are preserved. Existing unsigned local desktop binary is unchanged.
 
-Actual new local checks: build, 48 pytest tests, 30 frozen domain cases, 12 browser workflow checks and five public-mode controls passed. No new live AMD calls were made. Original raw model errors and agent review remain disclosed. History/current-file audit found no known private values or credential literals; all four starting commits were inspected. Local screenshots/results and test-harness/routing failures are preserved in docs/cloud/.
+Actual local checks before the free-storage notice: build, 48 pytest, 30 frozen domain cases, 12 browser workflow checks and five public controls. No fresh cloud AMD calls are claimed. Current free-only code and public URL verification are pending. Exact commands and limits: DEPLOYMENT.md. Sanitized CI results: docs/cloud/ci-results.json and container-results.json.
 
-Run commands and exact pending cloud gate are in [DEPLOYMENT.md](DEPLOYMENT.md). Next: finish normal source push and inspect CI; obtain the Render connector's required workspace selection and a specific cost approval if no suitable existing resource can be reused; deploy, transfer private AMD configuration and verify real cloud workflows/restart. Do not label local browser/CI evidence as cloud AMD verification.
+Next: publish tested free-only configuration, create only a free service, configure authorized private AMD trial credentials and demonstrate actual public workflows. Do not label an ephemeral restart as persistence, or agent review as independent human validation.
 
 ---
 

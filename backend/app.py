@@ -266,7 +266,7 @@ def health():
             'inference_mode': (os.getenv('INFERENCE_MODE') or 'fixture'),
             'amd_configured': all(os.getenv(k) for k in ['AMD_API_BASE_URL', 'AMD_API_KEY', 'AMD_MODEL_ID', 'AMD_PROVIDER_EVIDENCE']),
             'live_protected': public_demo() or bool(os.getenv('LIVE_DEMO_TOKEN')),
-            'public_demo': public_demo(), 'replay_available': (ROOT / 'fixtures/replay/amd-reviewed.json').exists()}
+            'public_demo': public_demo(), 'storage_mode': os.getenv('STORAGE_MODE') or 'local', 'replay_available': (ROOT / 'fixtures/replay/amd-reviewed.json').exists()}
 
 
 @app.get('/api/replay')

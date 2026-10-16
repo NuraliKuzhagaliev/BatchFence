@@ -20,8 +20,8 @@ Remaining external gates: supported Docker/Windows repair then container test; i
 ## Authorized publication follow-up
 
 - Inspected source, clean checkpoint 9a38eec, empty authorized remote, history and private-file exclusions.
-- Prepared same-origin Render Docker + durable SQLite Blueprint, protected public demo, correct SPA assets and meaningful database health.
+- Prepared same-origin Render Docker, protected public demo, correct SPA assets and meaningful database health. Latest user constraint requires free-only hosting; Blueprint now has no disk and labels ephemeral SQLite.
 - New local verification: build; 48 pytest; 30 frozen domain cases; 12 browser workflow checks; five public controls. No fresh AMD calls or cloud results claimed.
 - Added GitHub CI including Linux container build and actual volume/restart verification.
-- In progress: sanitized source push; remote CI verification.
-- External gate: Render connector requires explicit workspace choice; paid disk/compute budget not yet approved. Do not provision before approval. Remaining cloud acceptance is in DEPLOYMENT.md.
+- Published and independently verified via GitHub API: 43abcf8 on main. Linux CI passed, including real Docker restart with a named volume.
+- Workspace explicitly selected. Paid approval revoked before any resource creation. Proceed only with free hosting; no payment method or upgrades. Actual public workflows remain pending; durable cloud persistence is unavailable on the selected free architecture. See DEPLOYMENT.md.

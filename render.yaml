@@ -1,4 +1,4 @@
-# Creates paid resources. Apply only after explicit cost approval.
+# Free-only deployment. No disk, paid compute, preview or account upgrade.
 services:
   - type: web
     name: batchfence
@@ -6,17 +6,15 @@ services:
     repo: https://github.com/NuraliKuzhagaliev/BatchFence
     branch: main
     region: frankfurt
-    plan: 0.5c-512mb
+    plan: free
     numInstances: 1
     dockerfilePath: ./Dockerfile
     dockerContext: .
     healthCheckPath: /api/health
     autoDeployTrigger: checksPass
-    disk:
-      name: batchfence-data
-      mountPath: /var/data
-      sizeGB: 1
     envVars:
+      - key: STORAGE_MODE
+        value: ephemeral
       - key: PUBLIC_DEMO
         value: "true"
       - key: DATABASE_PATH

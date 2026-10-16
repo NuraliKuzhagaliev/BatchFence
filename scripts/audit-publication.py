@@ -6,7 +6,8 @@ from dotenv import dotenv_values
 ROOT = Path(__file__).resolve().parents[1]
 def git(*args):
     return subprocess.check_output(['git', *args], cwd=ROOT)
-needles = {v.encode() for k,v in dotenv_values(ROOT/'.env').items()
+needles = {v.encode() for private_file in (ROOT/'.env', ROOT/'work/cloud-demo.env')
+           for k,v in dotenv_values(private_file).items()
            if v and any(x in k.upper() for x in ('KEY', 'TOKEN', 'SECRET', 'PASSWORD'))}
 def sessions(x):
     if isinstance(x, dict):

@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-16T17:40:57.045726+00:00",
+  "mode": "fixture",
+  "live_inference": false,
+  "checks": [
+    "dynamic PORT=8795",
+    "500 to 800 synthetic workflow",
+    "stale approval rejected",
+    "sandbox receipt",
+    "two-session isolation",
+    "same SQLite volume survives actual container restart",
+    "SPA refresh and missing API routing"
+  ],
+  "passed": true
+}

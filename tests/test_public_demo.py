@@ -116,3 +116,10 @@ def test_public_replay_is_historical_and_navigation_keeps_api_404(public_client)
     html=public_client.get('/workspace/review',headers={'Accept':'text/html'})
     assert html.status_code==200 and 'src="/assets/' in html.text and 'href="/assets/' in html.text
     assert 'test-only-access' not in json.dumps(replay)
+
+
+def test_health_identifies_ephemeral_storage(public_client, monkeypatch):
+    monkeypatch.setenv("STORAGE_MODE", "ephemeral")
+    health = public_client.get("/api/health").json()
+    assert health["storage_mode"] == "ephemeral"
+    assert health["public_demo"] is True

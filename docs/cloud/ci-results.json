@@ -1,0 +1,25 @@
+{
+  "run_url": "https://github.com/NuraliKuzhagaliev/BatchFence/actions/runs/38941445239",
+  "commit": "43abcf8b651e9823be4c1c7b7c3d32cfd600a440",
+  "container": {
+    "at": "2026-10-16T17:40:57.045726+00:00",
+    "mode": "fixture",
+    "live_inference": false,
+    "checks": [
+      "dynamic PORT=8795",
+      "500 to 800 synthetic workflow",
+      "stale approval rejected",
+      "sandbox receipt",
+      "two-session isolation",
+      "same SQLite volume survives actual container restart",
+      "SPA refresh and missing API routing"
+    ],
+    "passed": true
+  },
+  "pytest": "48 passed, 1 warning in 2.21s",
+  "image": "writing image sha256:0234ecfba5d2b5cf7b55b5b20361fe824b22bd4c647d8c5155f690f2ddbdb26e",
+  "artifact_url": "https://github.com/NuraliKuzhagaliev/BatchFence/actions/runs/38941445239/artifacts/12062279943",
+  "status": "completed",
+  "conclusion": "success",
+  "updated_at": "2026-10-16T17:41:09Z"
+}

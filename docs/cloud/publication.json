@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-16T17:39:40.381988+00:00",
+  "repository": "https://github.com/NuraliKuzhagaliev/BatchFence",
+  "published_commit": "43abcf8b651e9823be4c1c7b7c3d32cfd600a440",
+  "remote_verified_via": "GitHub API main ref and root contents",
+  "required_paths_verified": [
+    "backend",
+    "frontend",
+    "desktop",
+    "tests",
+    "package-lock.json",
+    "requirements.txt",
+    "Dockerfile",
+    "render.yaml",
+    ".github",
+    "DEPLOYMENT.md"
+  ],
+  "history_preserved": true,
+  "push": "normal, no force",
+  "desktop_installer": {
+    "path": "releases/BatchFence-0.1.1-win-x64-setup.exe",
+    "sha256": "09d961af5a25a611ecfd78ea6b3c9580dc4e7dbd506ef066858ed79db2ee9325",
+    "unchanged": true,
+    "published": false
+  },
+  "public_application_url": null,
+  "cloud_live_inference": "not run",
+  "cloud_restart_persistence": "not run",
+  "ci_run": "https://github.com/NuraliKuzhagaliev/BatchFence/actions/runs/38941445239",
+  "ci_status": "in progress"
+}

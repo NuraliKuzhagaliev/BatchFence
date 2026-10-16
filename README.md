@@ -2,13 +2,13 @@
 
 Evidence-backed lot containment for a small manufacturer's quality manager. A supplier notice becomes a reviewed scope, a deterministic hold plan and a real **sandbox** receipt. Changed evidence invalidates approval.
 
-**Working web and installed Windows 0.1.1 prototype, with genuine local AMD-driven synthetic workflows and ambiguity containment. Public hosting is prepared but awaits durable-resource approval and cloud verification.** Raw model errors and agent-operated review are disclosed; no independent human validation or savings are claimed.
+**Working web and installed Windows 0.1.1 prototype, with genuine local AMD-driven synthetic workflows and ambiguity containment. Free-only public hosting is being deployed and cloud verification remains pending.** Raw model errors and agent-operated review are disclosed; no independent human validation or savings are claimed.
 
 ![Actual synthetic workbench](docs/screenshots/03-exposure-1440.png)
 
 Repository: [NuraliKuzhagaliev/BatchFence](https://github.com/NuraliKuzhagaliev/BatchFence).
 
-Public app URL: **not deployed yet**. See [deployment status, cost and verification gates](DEPLOYMENT.md). The proposed Render service serves FastAPI + React from one HTTPS origin with SQLite on a persistent disk. Public Synthetic and historical AMD Replay are separated from protected Live inference.
+Public app URL: **not deployed yet**. See [deployment status, cost and verification gates](DEPLOYMENT.md). The free Render service serves FastAPI + React from one HTTPS origin. Its SQLite storage is temporary: export packets before sleep, restart or redeployment. Durable cloud persistence is not provided. Public Synthetic and historical AMD Replay are separated from protected Live inference.
 
 ## Open
 
@@ -33,7 +33,7 @@ The desktop uses the local backend at 127.0.0.1:8787. Its installed renderer ope
 6. The new scope produces 800 held units and four open orders needing review. Approve/apply.
 7. Export the packet with its genuine sandbox receipt. Open on desktop for offline read-only review.
 
-The blanket comparison is 1,200 units /в‚¬48,000. Under v1,в‚¬28,000 of carrying value is outside the proposed broad hold. This is not measured cash savings.
+The blanket comparison is 1,200 units /РІвЂљВ¬48,000. Under v1,РІвЂљВ¬28,000 of carrying value is outside the proposed broad hold. This is not measured cash savings.
 
 ## Setup
 
@@ -89,8 +89,8 @@ The build is unsigned. Do not disable OS protections. Signing/distribution requi
 
 [Architecture](docs/architecture.md), [acceptance](docs/feature_acceptance.md), [visual review](docs/visual_review.md), [AMD evidence](docs/amd_evidence.md), [limitations](docs/limitations.md), [deployment](DEPLOYMENT.md), [provenance](docs/data_provenance.md).
 
-Submission drafts, a six-slide PowerPoint, actual cover screenshot and recording guide are under submission/. Source publication is authorized; hosting awaits cost approval and cloud checks. Video upload and final event submission have not occurred. Confirm the authenticated deadline and form.
+Submission drafts, a six-slide PowerPoint, actual cover screenshot and recording guide are under submission/. Source is published on GitHub; hosting awaits cost approval and cloud checks. Video upload and final event submission have not occurred. Confirm the authenticated deadline and form.
 
 Original code: MIT. Dependencies retain their licenses. See [notices](docs/third_party_notices.md). No model weights are redistributed.
 
-Media: submission/BatchFence-demo.mp4 is a silent113.73-second real application recording with selectable captions, under2MB. Source and native-dialog limitations are disclosed in the captions. The1920×1080 cover is an actual screen capture. Set a public BATCHFENCE_BACKEND_ORIGIN before packaging an authorized remote desktop release; AMD credentials are never baked.
+Media: submission/BatchFence-demo.mp4 is a silent113.73-second real application recording with selectable captions, under2MB. Source and native-dialog limitations are disclosed in the captions. The1920Г—1080 cover is an actual screen capture. Set a public BATCHFENCE_BACKEND_ORIGIN before packaging an authorized remote desktop release; AMD credentials are never baked.
