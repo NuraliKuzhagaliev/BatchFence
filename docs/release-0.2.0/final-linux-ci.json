@@ -1,0 +1,66 @@
+{
+  "commit": "011502dcc8d7e6c31997d1b3657b444d14e887cd",
+  "run_id": 38962137655,
+  "job_id": 117179564959,
+  "conclusion": "success",
+  "log_excerpt": [
+    "2026-10-16T20:25:59.4349005Z 65 passed, 1 warning in 3.01s",
+    "2026-10-16T20:25:59.6176519Z   \"passed\": 30,",
+    "2026-10-16T20:26:20.1341257Z     \"stale approval rejected\",",
+    "2026-10-16T20:26:20.1341690Z     \"sandbox receipt\",",
+    "2026-10-16T20:26:20.1342951Z     \"same SQLite volume survives actual container restart\","
+  ],
+  "service": {
+    "autoDeploy": "yes",
+    "autoDeployTrigger": "checksPass",
+    "branch": "main",
+    "createdAt": "2026-10-16T17:51:46.014992Z",
+    "dashboardUrl": "https://dashboard.render.com/web/srv-db968c7btjjs73fghkog",
+    "id": "srv-db968c7btjjs73fghkog",
+    "name": "batchfence",
+    "notifyOnFail": "default",
+    "ownerId": "tea-d3pt0sbipnbc73a5v810",
+    "repo": "https://github.com/NuraliKuzhagaliev/BatchFence",
+    "rootDir": "",
+    "serviceDetails": {
+      "buildPlan": "starter",
+      "cache": {
+        "profile": "no-cache"
+      },
+      "env": "docker",
+      "envSpecificDetails": {
+        "dockerCommand": "",
+        "dockerContext": ".",
+        "dockerfilePath": "./Dockerfile"
+      },
+      "healthCheckPath": "/api/health",
+      "ipAllowList": [
+        {
+          "cidrBlock": "0.0.0.0/0",
+          "description": "everywhere"
+        }
+      ],
+      "maintenanceMode": {
+        "enabled": false,
+        "uri": ""
+      },
+      "numInstances": 1,
+      "openPorts": [],
+      "plan": "free",
+      "previews": {
+        "generation": "off"
+      },
+      "pullRequestPreviewsEnabled": "no",
+      "region": "frankfurt",
+      "renderSubdomainPolicy": "enabled",
+      "runtime": "docker",
+      "sshAddress": "srv-db968c7btjjs73fghkog@ssh.frankfurt.render.com",
+      "url": "https://batchfence.onrender.com"
+    },
+    "slug": "batchfence",
+    "suspended": "not_suspended",
+    "suspenders": [],
+    "type": "web_service",
+    "updatedAt": "2026-10-16T20:02:49.34232Z"
+  }
+}

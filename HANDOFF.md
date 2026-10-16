@@ -43,3 +43,11 @@ The Windows installer is unsigned. Complete real OS Import evidence, Save packet
 The existing authenticated event form's first-step text limits were checked. Media-step constraints and authenticated cutoff still require advancing the team draft; use the current prepared submission files, review them, then submit. No event form was saved or submitted. Optional Gemma and portable recomputation/recovery work was deliberately deferred.
 
 Full claims and exact checks: docs/claims-to-evidence.md. Original evidence and older handoffs remain under docs/history, docs/cloud and docs/ambiguity-fix.
+
+## Final published-build observation
+
+Commit 011502d passed Linux CI run 38962137655 (65 tests, 30 domain cases, container build and named-volume restart) and deployed as dep-db98gstg1s2s73bu200g. Its public JS/CSS hashes exactly matched the tested local build, early genealogy loaded in a new session, and all six real policy challenges passed. See docs/release-0.2.0/published-011502d.json. The corrected 011502d source archive and checksum were added to the existing release and their anonymous full download verified; the Windows binary was not replaced.
+
+Cold-start acceptance remains inconclusive. An existing Chrome tab was open on BatchFence, whose existing connection-status code polls health every 15 seconds. The planned idle wait was cancelled, preserving that tab; the measured 1,075 ms application readiness was warm access, not a cold-start result. To check sleep/wake independently, first export work, close all BatchFence browser/desktop clients, leave the service without client traffic for at least 16 minutes, then reopen it. Other visitors can still keep the public service awake. No external keepalive service was introduced.
+
+The final documentation-only rollout retains identical app and installer bytes. Its final commit/asset verification is stored locally in releases/final-verification-0.2.0.json. The temporary local verification server was stopped; local mode can be started with the documented command.

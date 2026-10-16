@@ -1,0 +1,89 @@
+{
+  "expected_commit": "011502dcc8d7e6c31997d1b3657b444d14e887cd",
+  "version": "0.2.0",
+  "idle_started_at": "2026-10-16T20:27:37.843Z",
+  "idle_ms": 0,
+  "network_during_idle": "No requests from this verification process. Other visitors cannot be controlled.",
+  "live_inference_calls": 0,
+  "first_request_at": "2026-10-16T20:27:38.181Z",
+  "initial_dom_ms": 913,
+  "initial_title": "BatchFence \u00b7 Containment desk",
+  "initial_text": "Incident\nSources\nHistory\nPackets\nN\nBatchFence\n/\nContainment desk\nBackend connected\nQUALITY OPERATIONS\nINCIDENT WORKBENCH\nEvidence to action.\n\nContain the right stock. Keep every decision tied to its evidence.\n\nOpen packet\nEVIDENCE-BACKED CONTAINMENT\nOne notice.\nA defensible next step.\n\nTrace supplier evidence through current stock, surface missing records, and approve the exact plan you reviewed.\n\nOpen example incident\nReview a packet\n\nExample records are fictional. Recorded packets preserve their original provenance.\n\nTHE DECISION CHAIN\n01\nRead the evidence\nInspect exact source passages\n02\nReview the scope\nKeep uncertainty visible\n03\nApprove this version\nChanged evidence invalidates approval\nEvery decision stays tied to its evidence.\nDownload for Windows\nRelease notes",
+  "render_wake_page_observed": false,
+  "application_ready_ms": 1075,
+  "health": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.2.0",
+    "commit": "011502dcc8d7e6c31997d1b3657b444d14e887cd",
+    "inference_mode": "fixture",
+    "amd_configured": true,
+    "live_protected": true,
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  },
+  "assets": [
+    {
+      "path": "/assets/index-Cuqp__3M.js",
+      "sha256": "08787baeadffe82207032701a6f8612cd72c20ed044bea8b6c23332325682aa2",
+      "matches_tested_local_build": true
+    },
+    {
+      "path": "/assets/index-DgFlPKQY.css",
+      "sha256": "b1eb6b50cfef5eb1f6da0e77f9f40f66ec6514ff6fcf82c1664a064e12b25f12",
+      "matches_tested_local_build": true
+    }
+  ],
+  "policy_challenges": [
+    {
+      "name": "Ambiguous boundary cannot exclude stock",
+      "passed": true,
+      "actual": {
+        "hold_units": 1200,
+        "outside_units": 0
+      }
+    },
+    {
+      "name": "Changed evidence invalidates approval",
+      "passed": true,
+      "actual": {
+        "approval_current": false
+      }
+    },
+    {
+      "name": "Uncertain stock cannot be removed from actions",
+      "passed": true,
+      "actual": {
+        "accepted": false,
+        "removed": "FG-C"
+      }
+    },
+    {
+      "name": "Fabricated citation is rejected",
+      "passed": true,
+      "actual": {
+        "citation_rejected": true
+      }
+    },
+    {
+      "name": "Overlapping ancestry counts unique stock once",
+      "passed": true,
+      "actual": {
+        "hold_units": 500,
+        "unique_pools": 6
+      }
+    },
+    {
+      "name": "Inconclusive answer cannot narrow",
+      "passed": true,
+      "actual": {
+        "before": 500,
+        "after": 500
+      }
+    }
+  ],
+  "passed": true,
+  "completed_at": "2026-10-16T20:27:40.981Z",
+  "cold_start_interpretation": "Inconclusive: a pre-existing Chrome tab was open at batchfence.onrender.com. The preserved app polls /api/health every 15000 ms (frontend/main.tsx). The planned idle wait was cancelled; the final check deliberately used idle_ms=0. Initial access was warm, not a measured cold start. No user tab was closed."
+}

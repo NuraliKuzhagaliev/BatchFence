@@ -8,3 +8,5 @@ Remaining human actions:
 3. Open the existing authenticated team submission form, use the prepared title/descriptions, and verify the later media fields' size/duration limits and cutoff. Upload the reviewed current artifacts and perform the final submission. No event draft was saved or submitted by the agent.
 
 Do not enter AMD_API_KEY in the app. Use the separate private Live access token when fresh inference is needed. Export packets because free hosting is ephemeral. No hosting payment is required.
+
+Optional final platform acceptance: export and close all active BatchFence clients, wait at least 16 minutes without client traffic, then reopen to observe natural free-host waking. The automated run preserved an existing user tab and therefore could not establish autosleep.
