@@ -345,13 +345,14 @@ export function ContinuationPanel({
                     </span>
                   </div>
                   <p>{r.error || r.authority}</p>
+                  {r.stale && <p className="caption">Historical proposal · evidence or reviewed facts changed. Start a current interpretation before revising this decision.</p>}
                   {r.correction && (
                     <p className="assist-uncertain">
                       Manually corrected after {r.raw_quality_status}. The
                       original model response and failure remain in provenance.
                     </p>
                   )}
-                  {r.status === "failed validation" && (
+                  {r.status === "failed validation" && !r.stale && (
                     <SourceCorrection
                       record={r}
                       disabled={disabled}
@@ -426,7 +427,7 @@ export function ContinuationPanel({
                   ) && (
                     <button
                       className="button primary"
-                      disabled={disabled}
+                      disabled={disabled || !!r.stale}
                       onClick={() =>
                         void op.act(async () => {
                           const s = await request<Case>(

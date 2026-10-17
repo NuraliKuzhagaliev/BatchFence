@@ -1,5 +1,5 @@
 {
-  "status": "Configuration corrected and reverified; actual v2 execution pending",
+  "status": "Remote configuration reverified after source/structure drift guard; no new inference",
   "manifest": {
     "connection_id": "f2f3d7ea-d7a9-4ddd-b09a-913df0b695ba",
     "provider_base_url": "https://developer.amd.com.cn/radeon/api/v1",
@@ -23,7 +23,8 @@
       "input_step_ids": [],
       "input_mode": 1,
       "prompt": null,
-      "step_order": 1
+      "step_order": 1,
+      "structure_prompt_hash": "fa7063561bc602d13526f7ff7159a6ea22c11aa3d8e6cbbe3a4c8075adf207dd"
     },
     "agent": {
       "resource_id": "971b2c6f-29c5-4828-b335-76cdc9c7850c",
@@ -37,7 +38,8 @@
       ],
       "input_mode": 4,
       "prompt": null,
-      "step_order": 2
+      "step_order": 2,
+      "structure_prompt_hash": "ab2c622f475aa05b8af75352399250a29919e577b25ce70a17a1d4a1d15254ba"
     },
     "workflow_id": "36dd7029-87f4-4a97-8f06-43968a7e9c45",
     "output": {
@@ -52,16 +54,16 @@
     "library_id": "eae0f36e-5fca-f111-bf5b-6045bd9ce552"
   },
   "verification": {
-    "checked_at": "2026-10-17T19:21:03.659803+00:00",
-    "configuration_hash": "25bffae10b887877ed2628b22a85eb9ceb2d255d62d799faa8aa66b0a8b44111",
+    "checked_at": "2026-10-17T19:35:40.915906+00:00",
+    "configuration_hash": "1383948c5171ffd30486e98ee3471d77aee5f87f37a135e610acbdb5538becb1",
     "requests": [
       {
         "provider": "Evolus",
-        "at": "2026-10-17T19:20:59.826785+00:00",
+        "at": "2026-10-17T19:35:37.045282+00:00",
         "method": "GET",
         "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45",
         "http_status": 200,
-        "elapsed_ms": 743,
+        "elapsed_ms": 919,
         "response_hash": "77020673dce3773b44db628bb8eb53bde40d3d9ec6ac54bc17e8a571f526bf81",
         "request_id": null,
         "execution_header": null,
@@ -69,11 +71,11 @@
       },
       {
         "provider": "Evolus",
-        "at": "2026-10-17T19:21:00.574938+00:00",
+        "at": "2026-10-17T19:35:37.804265+00:00",
         "method": "GET",
         "path": "/api/v1/own-models/connections",
         "http_status": 200,
-        "elapsed_ms": 748,
+        "elapsed_ms": 752,
         "response_hash": "de7041054aec06fccd2ae5fe81056f40c1699707e57310b7d7e4277bddf5d549",
         "request_id": null,
         "execution_header": null,
@@ -81,11 +83,11 @@
       },
       {
         "provider": "Evolus",
-        "at": "2026-10-17T19:21:01.327839+00:00",
+        "at": "2026-10-17T19:35:38.526547+00:00",
         "method": "GET",
         "path": "/api/v1/agents/0412148a-94de-4696-8aed-23e08ae2b1ab",
         "http_status": 200,
-        "elapsed_ms": 753,
+        "elapsed_ms": 715,
         "response_hash": "9c13a2a7bcced7d215bca1e2e9305449cbaf93776bb7a1b9d21f89c34c2219fa",
         "request_id": null,
         "execution_header": null,
@@ -93,11 +95,11 @@
       },
       {
         "provider": "Evolus",
-        "at": "2026-10-17T19:21:02.035692+00:00",
+        "at": "2026-10-17T19:35:39.356210+00:00",
         "method": "GET",
         "path": "/api/v1/agents/0412148a-94de-4696-8aed-23e08ae2b1ab/json/f56aab1b-9b7e-45c8-af13-24ecee68b34c",
         "http_status": 200,
-        "elapsed_ms": 708,
+        "elapsed_ms": 823,
         "response_hash": "ad76cbaae7b635f0a1e3d935fe7cfe907d252d3941af148ab297262e105a840d",
         "request_id": null,
         "execution_header": null,
@@ -105,11 +107,11 @@
       },
       {
         "provider": "Evolus",
-        "at": "2026-10-17T19:21:02.841027+00:00",
+        "at": "2026-10-17T19:35:40.150596+00:00",
         "method": "GET",
         "path": "/api/v1/agents/971b2c6f-29c5-4828-b335-76cdc9c7850c",
         "http_status": 200,
-        "elapsed_ms": 803,
+        "elapsed_ms": 788,
         "response_hash": "b1689ad2cbc9bbc321a1efc6a3773a3c37c09955ba48c9f7403864e537aab058",
         "request_id": null,
         "execution_header": null,
@@ -117,11 +119,11 @@
       },
       {
         "provider": "Evolus",
-        "at": "2026-10-17T19:21:03.659690+00:00",
+        "at": "2026-10-17T19:35:40.915699+00:00",
         "method": "GET",
         "path": "/api/v1/agents/971b2c6f-29c5-4828-b335-76cdc9c7850c/json/d9fcfc23-ae08-4336-a1fe-62c223412591",
         "http_status": 200,
-        "elapsed_ms": 819,
+        "elapsed_ms": 758,
         "response_hash": "80627e57f679d906768bf264fd4b9329db785790954f09ddc85df551904b9949",
         "request_id": null,
         "execution_header": null,

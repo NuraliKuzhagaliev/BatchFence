@@ -77,6 +77,7 @@ def verify_workflow(manifest,before_call=lambda:None,transport=None):
         if step.get('stepType')!=step_type or step.get('inputStepIds',[])!=(expected_step.get('input_step_ids') or []):raise DomainError('Workflow dependency graph changed')
         if step.get('inputMode')!=expected_step['input_mode'] or step.get('prompt')!=expected_step.get('prompt'):
             raise DomainError('Workflow original-source input or step instructions changed')
+        if step.get('stepConfigJson'):raise DomainError('Unexpected workflow block configuration; external or platform tools are not permitted')
         if kind=='output':continue
         aid=identifier(expected_step['resource_id']);oid=identifier(expected_step['output_structure_id'])
         if step.get('agentId')!=aid or step.get('outputStructureId')!=oid:raise DomainError('Workflow agent/output structure changed')
@@ -90,7 +91,7 @@ def verify_workflow(manifest,before_call=lambda:None,transport=None):
         structure=read(f'/api/v1/agents/{aid}/json/{oid}',personal=True)
         schema=structure.get('structure')
         if isinstance(schema,str):schema=json.loads(schema)
-        if digest(schema)!=expected_step['schema_hash'] or structure.get('maxCorrections')!=0 or structure.get('canUseOCR') or structure.get('webhookId') or structure.get('webhookUrl'):
+        if digest(schema)!=expected_step['schema_hash'] or digest(structure.get('userPrompt'))!=expected_step['structure_prompt_hash'] or structure.get('checkScript') or structure.get('maxCorrections')!=0 or structure.get('canUseOCR') or structure.get('webhookId') or structure.get('webhookUrl'):
             raise DomainError('Extractor/output contract changed or automatic correction, OCR or webhook delivery was enabled')
     return {'checked_at':now(),'configuration_hash':digest(manifest),'requests':evidence,
         'model_identity_basis':'Verified own-model configuration; WorkflowExecution does not return runtime model ID',

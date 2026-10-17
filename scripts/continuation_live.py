@@ -61,7 +61,9 @@ def refresh_quota(label):
         'upper_bound_basis':'At most full 262144-token context at manual 0.50/M input plus 1600 output at 3/M, rounded upward to .14. Text inputs are additionally bounded to 20 KB.',
         'hosting_kind':'managed-amd-shared; no GPU VM/storage/network resource allocated'}
     safe_save(PROOF,proof);os.environ['GEMMA_COST_APPROVAL_FILE']=str(PROOF)
-    safe_save(OUT/('quota-'+label+'.json'),{'at':current,'http_status':response.status_code,
+    quota_path=OUT/('quota-'+label+'.json')
+    if quota_path.exists():quota_path=OUT/('quota-'+label+'-'+str(time.time_ns())+'.json')
+    safe_save(quota_path,{'at':current,'http_status':response.status_code,
         'remaining_nonmonetary_points':remaining,'used_nonmonetary_points':quota['daily_cost_used_usd'],
         'reset_at':quota['daily_reset_at'],'today_requests':quota.get('today',{}).get('requests'),
         'today_errors':quota.get('today',{}).get('errors'),'not_monetary_charges':True})

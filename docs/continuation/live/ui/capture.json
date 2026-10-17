@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-17T20:03:57.044Z",
+  "provenance": "Stored genuine AMD/Evolus results. Synthetic sources and inventory. Agent-operated reviews. Read-only capture, no inference.",
+  "reports": [
+    {
+      "profile": "evolus",
+      "case_id": "02405e36583f42e6ac9417536dc33101",
+      "applied": 800,
+      "quantity_origin": "executed containment plan (case has no recovery)",
+      "receipts": 2,
+      "tabs": [
+        "Sources",
+        "Recovery"
+      ],
+      "writes": [],
+      "errors": []
+    },
+    {
+      "profile": "gemma",
+      "case_id": "4b898b8974074959b2c7c7bc401a7765",
+      "applied": 700,
+      "quantity_origin": "hold ledger",
+      "receipts": 2,
+      "tabs": [
+        "Sources",
+        "Requests",
+        "Recovery",
+        "Revisions",
+        "Handover"
+      ],
+      "writes": [],
+      "errors": []
+    }
+  ]
+}

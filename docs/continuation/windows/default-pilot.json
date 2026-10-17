@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-17T19:59:07.811Z",
+  "release": {
+    "version": "0.4.0-rc.1",
+    "packaged": true,
+    "exe": "D:\\projects\\BatchFence\\work\\installed-0.4.0-rc.1\\BatchFence Preview.exe"
+  },
+  "backend_origin": "http://127.0.0.1:8804",
+  "checks": [
+    "Explicit http://127.0.0.1:8804 pilot origin: named engineering sign-in through installed restricted transport",
+    "All module read routes and jobs available to named scoped identity",
+    "Native transport rejects non-enumerated source/traversal target",
+    "Pilot logout removes current session authority"
+  ],
+  "errors": [],
+  "review": "Agent-operated test identity, not independent human validation"
+}

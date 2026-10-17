@@ -1,3 +1,25 @@
+# BatchFence 0.4.0-rc.1 engineering preview
+
+All six connected extensions and Gemma/Evolus integration are implemented. Actual evidence: docs/continuation/scope-map.md, evaluation/README.md, cost-and-lifecycle.md and operator-walkthrough.md. Raw failures remain; mandatory critical review, conservative uncertainty, exact plan approval and stale rejection remain active. Model reliability is insufficient for autonomous decisions.
+
+Verified: 171 pytest,30 domain cases,12 preserved web checks,6 connected groups,8 new shared web groups; installed Preview7 core,6 connected groups,8 new groups,4 named PostgreSQL pilot groups, offline retained actual packet,100%/125% renderer scaling. Owner-operated actual Windows source/image/save/reopen passed with no stubs. Actual Linux container restart preserved receipts/stock/image bytes/translation/handover. Docker socket failure was sandbox npipe access; host access required no ACL changes. Existing pilot PostgreSQL was stopped, causing DNS startup failure; starting that existing container restored stable8788 without deletion/reset.
+
+Real direct Gemma500/800 then reviewed700 versus800 applied, separate100 recovery and two original receipts passed. Genuine Evolus extractor+agent ran3 workflows, zero reported workflow credits. Configuration failure and invented document ID were rejected; attributed correction then separate review reached800. Actual isolated Blob retrieval and exact passage-key retest passed after a retained caveat-omission failure. Direct runtime model self-dploy/Gemma-4-31B-IT; Evolus verified configured own/gemma-4-31b-it, runtime ID unavailable.
+
+Original frozen12 unchanged: Gemma5/12 and historical MiMo6/12. Fresh equivalent held-out pairs each supplier statuses2/2, scope1/2 (conflict labeledpartial), four unreviewed proposals and no actions. Full post-fix12 rerun remains unrun. All48 phase reservations used, including2 MiMo and6 Evolus steps; no further inference authorized. Last quota0.998201071517542 nonmonetary points is historical. Account displayed50000 Evolus credits, expiry2026-11-16; published offer2026-10-31. No owned ADC/vLLM or prize eligibility verified. No purchases, paid resources, external messages, event submission or real inventory actions.
+
+Windows installer: releases/BatchFence-0.4.0-rc.1-win-x64-setup.exe; installed work/installed-0.4.0-rc.1/BatchFence Preview.exe, separate from stable0.3.0. Preview defaults to existing HTTPS backend. Public rollout/source tag/checksums status is recorded in docs/continuation/release-publication.json when completed. Until that evidence exists, do not infer deployment from this handoff. Stable0.3.0 tag/assets are preserved.
+
+Local current web http://127.0.0.1:8801; retained-result capture backend8802 has no model keys; new container8803 and named PostgreSQL preview8804. Stable private pilot8788 remains0.3.0. See cost-and-lifecycle.md for safe stop commands, expiry/export and free Render limitations.
+
+Run from D:\projects\BatchFence: `npm run build`; `.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-NEW`; `.venv\Scripts\python.exe -m scripts.evaluate`. Do not rerun one-shot live scripts or reset reservation ledgers. All actual review was agent-operated except owner native dialogs. Remaining human acceptance: independent quality/language/physical-photo/three-operator checks, actual scoped users/data approval, off-device backup with RPO/RTO, private rotation of the previously portal-exposed key. Cloud new live configuration/budget remains gated; current public capability must be checked separately.
+
+Release verdict: controlled engineering preview with explicit unresolved model and operational limitations. No production/enterprise certification, universal correctness, productivity gain or award claim.
+
+---
+
+Historical checkpoints below describe their state at that time.
+
 # BatchFence 0.3.0 released and verified
 
 Web: https://batchfence.onrender.com. Windows: https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.3.0. Installer/source tag v0.3.0 is effa9fd0bc2c6f32b24ea4d51e6da31359707818. Full public workflow checks passed at merge dd06d974a2cc721ed9366724853e14078567f6f8. Subsequent evidence-only commits preserve application bytes; latest observed served identity is retained in releases/final-publication-0.3.0.json. Existing Render service remains one Free instance, ephemeral storage. Previous releases are preserved.
@@ -37,7 +59,7 @@ The enterprise-pilot-0.3 branch is a 0.3.0-rc.1 local/private candidate. Follow 
 
 # BatchFence deployment and operations
 
-Public app: https://batchfence.onrender.com · repository: https://github.com/NuraliKuzhagaliev/BatchFence
+Public app: https://batchfence.onrender.com В· repository: https://github.com/NuraliKuzhagaliev/BatchFence
 
 0.2.0 is published on the existing free service. Linux CI run 38959067118 and Render deploy dep-db9857jm8hqs73fcakm0 verified runtime ebd1402. Source 7431360 is the immutable Windows v0.2.0 tag; ebd1402 fixes its Docker frontend COPY without changing desktop code. Build the container from main, which includes that fix. Final evidence-only rollout identity is recorded in the local releases/final-verification-0.2.0.json after deployment.
 

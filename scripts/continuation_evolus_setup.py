@@ -56,7 +56,7 @@ def main():
         structure=create(kind+'-structure',f'/api/v1/agents/{aid}/json',{'title':prefix+' '+kind+' JSON','pages':None,
             'structure':json.dumps(example),'userPrompt':'Return JSON data conforming to this schema (not the schema itself): '+json.dumps(schema.model_json_schema()),
             'canUseOCR':False,'maxCorrections':0,'webhookId':None,'webhookUrl':None},personal=True)
-        manifest[kind]={'resource_id':aid,'output_structure_id':structure['id'],'model_key':model['id'],'schema_hash':digest(example),'prompt_hash':digest(prompt)}
+        manifest[kind]={'resource_id':aid,'output_structure_id':structure['id'],'model_key':model['id'],'schema_hash':digest(example),'prompt_hash':digest(prompt),'structure_prompt_hash':digest(structure.get('userPrompt'))}
     flow=create('workflow','/api/v1/workflows',{'name':prefix+' document review','description':'Native text extractor -> own AMD Gemma agent -> output. No OCR, messages, webhooks, schedule, tools or fallback.',
         'isActive':False,'multiFileMode':1,'emailPollingEnabled':False,'enableAuditKpi':False,'parameters':[]});wid=flow['id'];manifest['workflow_id']=wid
     for kind,typ,mode in [('extractor',13,1),('agent',1,4),('output',14,0)]:

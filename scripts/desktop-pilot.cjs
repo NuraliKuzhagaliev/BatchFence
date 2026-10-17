@@ -12,7 +12,7 @@ const root=path.resolve(__dirname,'..'),out=process.env.BATCHFENCE_DESKTOP_REPOR
  await page.getByRole('button',{name:'Sign in',exact:true}).click();
  await page.getByRole('heading',{name:'Sign in to your quality workspace',exact:true}).waitFor({state:'hidden'});
  const call=(method,route,body)=>page.evaluate(p=>window.batchfence.request(p.method,p.route,p.body),{method,route,body});
- const me=await call('GET','/api/auth/me');assert.equal(me.actor.username,credentials.username);checks.push('Explicit loopback8788 pilot origin: named engineering sign-in through installed restricted transport');
+ const me=await call('GET','/api/auth/me');assert.equal(me.actor.username,credentials.username);checks.push('Explicit '+env.BATCHFENCE_BACKEND_ORIGIN+' pilot origin: named engineering sign-in through installed restricted transport');
  const health=await call('GET','/api/health');assert.equal(health.version,require('../package.json').version);
  for(const route of ['/api/signals','/api/knowledge','/api/actions','/api/jobs'])await call('GET',route);
  checks.push('All module read routes and jobs available to named scoped identity');
@@ -22,5 +22,5 @@ const root=path.resolve(__dirname,'..'),out=process.env.BATCHFENCE_DESKTOP_REPOR
  await call('POST','/api/auth/logout',{});await assert.rejects(call('GET','/api/cases'));
  checks.push('Pilot logout removes current session authority');assert.deepEqual(errors,[]);
  const release=await app.evaluate(({app})=>({version:app.getVersion(),packaged:app.isPackaged,exe:app.getPath('exe')}));
- await fs.writeFile(path.join(out,'default-pilot.json'),JSON.stringify({at:new Date().toISOString(),release,checks,errors,review:'Agent-operated test identity, not independent human validation'},null,2));await app.close();console.log(JSON.stringify({checks,errors}));
+ await fs.writeFile(path.join(out,'default-pilot.json'),JSON.stringify({at:new Date().toISOString(),release,backend_origin:env.BATCHFENCE_BACKEND_ORIGIN,checks,errors,review:'Agent-operated test identity, not independent human validation'},null,2));await app.close();console.log(JSON.stringify({checks,errors}));
 })().catch(async()=>{await app?.close();console.error('Default pilot acceptance failed. Inspect the private local test environment; credentials were not logged.');process.exitCode=1});

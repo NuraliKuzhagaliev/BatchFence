@@ -137,6 +137,8 @@ def view(case_id:str,request:Request):
     state=read(case_id,request.state.owner)
     with connect() as db:
         result={k:a.records(db,request.state.owner,k,case_id) for k in a.KINDS}
+        current_snapshot=fingerprint(state,catalog(db,request.state.owner))
+        for proposal in result['assist']:proposal['stale']=proposal.get('snapshot_hash')!=current_snapshot
         result['source-link']=a.references(state,{k:a.records(db,request.state.owner,k,case_id) for k in ('assist','evidence-task','translation','label-review','recovery','action','answer','handover')})
         for task in result['evidence-task']:task['stale']=task['snapshot_hash']!=fingerprint(state)
         for brief in result['handover']:brief['stale']=not a.brief_current(db,request.state.owner,state,brief)

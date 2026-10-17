@@ -1,0 +1,45 @@
+  File "/usr/local/lib/python3.13/site-packages/psycopg/connection.py", line 100, in connect
+    attempts = conninfo_attempts(params)
+  File "/usr/local/lib/python3.13/site-packages/psycopg/_conninfo_attempts.py", line 55, in conninfo_attempts
+    raise last_exc
+psycopg.OperationalError: failed to resolve host 'postgres': [Errno -5] No address associated with hostname
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/app/backend/serve.py", line 6, in <module>
+    uvicorn.run('backend.app:app', host='0.0.0.0', port=int(os.getenv('PORT', '8787')),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                workers=1, limit_concurrency=24, timeout_keep_alive=5,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                timeout_graceful_shutdown=55, proxy_headers=False)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/uvicorn/main.py", line 620, in run
+    config.load_app()
+    ~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/uvicorn/config.py", line 434, in load_app
+    return import_from_string(self.app)
+  File "/usr/local/lib/python3.13/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/local/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1404, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1369, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1340, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1027, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/app/backend/app.py", line 45, in <module>
+    with connect():
+         ~~~~~~~^^
+  File "/app/backend/app.py", line 42, in connect
+    return repository.connect(DB)
+           ~~~~~~~~~~~~~~~~~~^^^^
+  File "/app/backend/repository.py", line 84, in connect
+    db = Connection(psycopg.connect(url, autocommit=True, connect_timeout=10), True)
+                    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/psycopg/connection.py", line 100, in connect
+    attempts = conninfo_attempts(params)
+  File "/usr/local/lib/python3.13/site-packages/psycopg/_conninfo_attempts.py", line 55, in conninfo_attempts
+    raise last_exc
+psycopg.OperationalError: failed to resolve host 'postgres': [Errno -5] No address associated with hostname

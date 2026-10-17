@@ -272,13 +272,15 @@ def handover_snapshot(db,owner,state,previous_id=None):
     if previous_id:
         _,previous=repo.get_record(db,owner,'handover',previous_id)
         if not previous or previous['case_id']!=state['id']:raise DomainError('Previous handover unavailable in this case')
-    quantities={'proposed_hold_units':state['plan']['result']['hold_units'] if state.get('plan') else None,
+    plan=state.get('plan');proposal_current=bool(plan and not state.get('pending_revision') and plan.get('revision')==state['revision'] and plan.get('status')!='stale')
+    quantities={'proposed_hold_units':plan['result']['hold_units'] if proposal_current else None,
                 'applied_hold_units':state.get('quantities',{}).get('applied_hold_units',sum(s['units'] for s in state['stocks'] if s['status']=='held')),
                 'pending_recovery_units':state.get('quantities',{}).get('recovery_pending_units',0),'confirmed_recovery_units':state.get('quantities',{}).get('confirmed_recovery_units',0)}
     tasks=records(db,owner,'evidence-task',state['id']);rereviews=records(db,owner,'rereview',state['id'])
     events=[{'id':'event-'+str(i),'at':e['at'],'type':e['type'],'message':e['message']} for i,e in enumerate(state['history']) if not previous or e['at']>previous['as_of']]
     facts=[{'id':'quantity-'+k,'text':k.replace('_',' ')+': '+(str(v) if v is not None else 'unknown / not calculated'),'value':v} for k,v in quantities.items()]
-    facts += [{'id':t['id'],'text':('Evidence request: '+t['draft']+' Owner: '+str(t['responsible_role'])+' Due: '+str(t['due_date']))[:1600]} for t in tasks if not t['status'].startswith('closed')]
+    if plan and not proposal_current:facts.append({'id':'prior-proposal','text':'Historical proposal: '+str(plan['result']['hold_units'])+' units; stale after changed evidence, not current authority.'})
+    facts += [{'id':t['id'],'text':('Evidence request: '+t['draft']+' Owner: '+str(t['responsible_role'] or 'not assigned')+' Due: '+str(t['due_date'] or 'not set'))[:1600]} for t in tasks if not t['status'].startswith('closed')]
     facts += [{'id':'gap-'+q['id'],'text':q['missing']+'. '+q['reason']} for q in evidence_requests(db,owner,state)['requests']]
     facts += [{'id':t['id'],'text':'Re-review: '+t['reason']+'. '+t['status']} for t in rereviews]
     facts += [{'id':e['id'],'text':e['message'][:1600]} for e in events[-10:]]

@@ -1,0 +1,1731 @@
+{
+  "verified": true,
+  "format": "evolus-openapi-3.0.4",
+  "documentation_reference": "Owner-exported Evolus Integration API v1, api-1.json, 2026-10-17",
+  "spec_sha256": "cd4b331701e3f566546dfa3f8f0609f5faab857bae08c842d218b2bd4877ba25",
+  "servers": [
+    {
+      "url": "https://api.evolus.ai"
+    }
+  ],
+  "operations": {
+    "workflow_start": {
+      "path": "/api/v1/workflows/{workflowId}/execute",
+      "method": "POST",
+      "encoding": "multipart/form-data",
+      "text_field": "input",
+      "file_field": "file",
+      "response_fields": [
+        "executionId",
+        "jobId",
+        "enqueuedAt",
+        "traceId"
+      ]
+    },
+    "workflow_status": {
+      "path": "/api/v1/workflows/{workflowId}/executions/{executionId}",
+      "method": "GET",
+      "response_schema": "WorkflowExecution"
+    }
+  },
+  "reference_paths": {
+    "/api/v1/workflows/{workflowId}/execute": {
+      "post": {
+        "tags": [
+          "Workflows"
+        ],
+        "summary": "Execute a workflow",
+        "description": "Queues an asynchronous execution of the workflow with optional text input and/or file attachments. A workflow that is turned off (`isActive` false) is not run: the call responds `409 Conflict` immediately, no execution is created and nothing is queued. The only exception is the manual test from the portal: the query parameter `manualTest=true` runs the workflow even when it is off, and it is honoured ONLY for a person signed in interactively with their own Keycloak token; with an application API key or a user API key (MCP included) it is ignored. A manual test run carries `isManualTest: true` on the execution. A workflow with no steps to run (no steps at all, or only steps that belong to a loop body) can never succeed: the call responds `409 Conflict` immediately, manual test included, no execution is created and nothing is queued. Send `multipart/form-data` with an `input` field for text plus one or more file parts, or a raw text body. With several file parts the behaviour depends on the workflow `multiFileMode`: `PerFile` (0, default) runs the whole pipeline once per file (same text input, one file each, N results and N webhook deliveries), `Combined` (1) runs it once with all the files together (the OCR step concatenates their texts, one result and one delivery). Optional form fields `callbackUrl`, `callbackMethod` (POST|PUT|PATCH, default POST), `callbackApiKey` and `callbackApiKeyName` (default `x-api-key`) override, for this execution only, the destination of every Webhook step: the URL, the HTTP method and the API key of the override replace the configured catalog webhook or free URL, also for a step configured as 'Call an endpoint (API)', whose own headers are then NOT sent (they belong to the configured destination); body, send format and response type stay those of the step. The override reaches the workflows called by 'Call a workflow' steps too, waited for or queued, at every nesting level (400 if neither the workflow nor the workflows it calls have a Webhook step; the override requires `callbackUrl` and is only available with multipart form requests; `422 Unprocessable Entity` with `network.address_not_allowed` if `callbackUrl` points to an internal, private or reserved address, which the platform never calls). The optional form field `parameters` carries the EXECUTION PARAMETERS as a flat JSON object (also multipart only): a string for each parameter declared as `type: \"string\"` and a JSON array of strings for each `type: \"list\"` one, for example `parameters={\"target_language\":\"German\"}`. Values are validated against the declaration returned by `GET /workflows/{workflowId}` BEFORE the job is queued, so nothing is charged when they are wrong: an undeclared key, a type other than the declared one, a missing required parameter, a value outside `allowedValues` or a breach of the limits (20 parameters, 500 characters per value, 50 items per list) all respond `400 Bad Request`. Declared defaults are applied to the parameters that are absent, and the resolved set is stored on the execution and reused as-is by automatic retries. Never send secrets as parameters: they are stored and shown in clear in the execution detail. Responds `202 Accepted` with `{ jobId, executionId, enqueuedAt, traceId }` and the `X-Workflow-Execution-Id` header; the same execution ID, together with the `X-Workflow-Audit-Id` of the run audit, is forwarded to any webhook steps so results can be correlated. Both headers travel on EVERY delivery of the execution — the audit is created once per run and its ID is repeated identical on each delivery, the iterations of a 'Repeat for each item' block included — so a receiver can group the deliveries of one run without depending on which one arrived first. Every delivery also carries `X-Workflow-Root-Execution-Id`: the execution ID returned by this call, also on the deliveries of the workflows started by 'Call a workflow' steps (which carry their own execution in `X-Workflow-Execution-Id` and their own audit), so the deliveries of a called workflow can be matched to the run that was started. Every `file` part a webhook step delivers carries the part header `X-File-Label` when the document has a label: the 'AI tool' step in translate mode labels its output with the TARGET LANGUAGE (and names the file after it, `report-german.docx`), so a delivery carrying several translations of the same document can be attributed without parsing file names. A step placed after a 'Repeat for each item' block receives every document its body produced, in item order and, within an item, in step order.",
+        "parameters": [
+          {
+            "name": "workflowId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "manualTest",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "headers": {
+              "X-Workflow-Execution-Id": {
+                "description": "Stable Id of the WorkflowExecution record (whole run). Returned synchronously to the caller and replayed in every webhook step header X-Workflow-Execution-Id of the same execution.",
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error (standard problem+json with errorCode and traceId)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workflows/{workflowId}/executions/{executionId}": {
+      "get": {
+        "tags": [
+          "Workflows"
+        ],
+        "summary": "Get a workflow execution",
+        "description": "Returns the details and result of a single workflow execution, including the `parameters` the run started with (declared defaults included) for troubleshooting. The `executionId` is the value returned by the execute endpoint and in the `X-Workflow-Execution-Id` header; responds `404 Not Found` if the execution does not exist or does not belong to the workflow. `error` is set only on `Failed` executions: an automatic retry reuses the same execution and clears the error of the failed attempt. Runs started by a 'Call workflow' step carry the parent/root linking fields (`parentExecutionId`, `parentWorkflowId`, `parentStepId`, `parentIterationIndex`, `rootExecutionId`), and `childExecutions` lists the runs this execution started. What the run consumed is reported by `consumption`, aggregated from the usage entries of the run: `credits` (credits charged to the plan — the unit consumption is measured in; `null` until the credit job has processed at least one entry, and still partial while `pendingEntries` is greater than zero) and `pendingEntries` (AI calls of the run not priced yet; `0` means `credits` is final). THE OTHER CONSUMPTION FIELDS ARE PLATFORM-STAFF-ONLY and come back `null` to every other caller — they are the platform's own internals: `totalTokenCount` (LLM tokens of the run, aligned with `consumption.llmTokens` and therefore counting every automatic retry attempt; without usage entries it is the engine count of the last attempt), `consumption.costUsd` (raw provider cost) and the `consumption` breakdown `llmTokens`/`ocrPages`/`embeddingTokens`/`speechToTextSeconds`/`entries`. Consumption covers THIS execution only: runs started by a 'Call workflow' step report their own on their own detail.",
+        "parameters": [
+          {
+            "name": "workflowId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "executionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkflowExecution"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error (standard problem+json with errorCode and traceId)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/workflows/step-catalog": {
+      "get": {
+        "tags": [
+          "Workflows"
+        ],
+        "summary": "List the workflow block documentation",
+        "description": "Returns the index of the workflow block documentation, the same text as the description of the MCP tool `add_workflow_step`, split into parts short enough to be read one at a time: `steps` has one entry per step type (`key` = the stepType name, `type` = its numeric value, `title`, a one-line `summary` and the number of `parts`), `topics` the rules shared by every block (`fields`, `input`, `links`, `placeholders`, `parameters`, `default-model`, `page-groups`, `loops`) with their number of `parts`. Read a part with `GET /api/v1/workflows/step-catalog/{key}?part=n`. The optional `include` query parameter accepts one value, `text` (case-insensitive): every entry of `steps` and `topics` then also carries `text`, its full documentation in one piece (all its parts joined by a blank line, as in the MCP tool description), so a client can load the whole catalog in one call. Without `include` the entries have no `text` field; any other value responds `400 Bad Request` (`common.invalid_request`). The content does not depend on the application.",
+        "parameters": [
+          {
+            "name": "include",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorkflowStepCatalogResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error (standard problem+json with errorCode and traceId)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/agents": {
+      "get": {
+        "tags": [
+          "Agents"
+        ],
+        "summary": "List agents",
+        "description": "Retrieves all agents configured for the current application. The model of each agent is its `modelKey` (null = \"Let Evolus decide\"), with `modelDisplayName` and `modelState` (`ok`, `deprecated`, `not_in_catalog`: the model left the catalog and the agent must be reconfigured). The `avatarUrl` field, when present, is returned as a time-limited SAS URL ready to be displayed.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Agent"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error (standard problem+json with errorCode and traceId)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Agents"
+        ],
+        "summary": "Create an agent",
+        "description": "Creates a new agent with the given name, prompt, model configuration and optional tags. The target application is resolved from the `X-Application-Id` header first, then from the `applicationId` field in the request body; if neither is provided the request fails with `400 Bad Request`. The model is chosen by its KEY (`modelKey`, `author/model` or `own/<alias>`, as offered by `GET api/v1/ai/catalog`; omitted or null = \"Let Evolus decide\": the agent follows the platform default model), with optional `fallbackModelKeys`, `routerWebSearch` and `ocrModelKey`. The model key goes through the same checks as the catalog: unknown model `ai.model_not_found`, model outside the application's allow list `ai.model_not_allowed`, tier not in the plan `plan.feature_not_included` (402), data policy `ai.data_policy_no_route`; `ocrModelKey` must be usable by the application (`ocr_models.not_assigned`). The old model fields (`modelName`, `modelType`, `llmProviderId`, `routerProviderOrder`, `routerAllowFallbacks`, `routerFallbackModels`, `ocrModelName`) are no longer accepted: sending them answers `422 ai.legacy_model_fields`, which lists them and the replacing field. `isExtractor` = true marks a data extractor: an agent that extracts data from documents with an output structure, shown in the Data extractors section of the portal (it adds the system tag `evo:extractor` to `tags`; false removes it, omitted leaves `tags` as sent). Returns the newly created agent, whose read-only `isExtractor` reflects that tag.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewAgentRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Agent"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error (standard problem+json with errorCode and traceId)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/agents/{agentId}/ask": {
+      "post": {
+        "tags": [
+          "Agents"
+        ],
+        "summary": "Ask an agent a question",
+        "description": "Sends a question to the agent and waits for the complete answer, returned with `conversationId`, `title` and `citations`. `totalTokenCount` IS PLATFORM-STAFF-ONLY and comes back `null` to every other caller: LLM tokens are the platform's own internals, the unit consumption is measured in is credits. Pass an existing `conversationId` to continue a conversation, and a `fileId` from the upload endpoint to attach a file to the question. A `conversationId` that exists but does not belong to the caller (a conversation of another application, of another user, or of a user when calling with an application key) answers `404 Not Found` (`common.not_found`) and nothing is read from or written to it; an id that does not exist starts a new conversation with that id. A `fileId` uploaded in another application, or already used in another conversation, is ignored as if it did not exist. End-user credentials for the agent's MCP servers travel in the optional `mcpUserTokens` map (slot name -> verbatim header value): each value reaches ONLY the MCP servers declaring that slot in their `auth` block, and a server whose slot is missing is not connected at all. Slots prefixed with `evolus.` are reserved for the backend and are silently discarded; `evolus.user_token` is filled server-side with the caller's bearer JWT. The legacy `X-MCP-Authorization` header still works and lands on the `default` slot. When the agent has the working-area file tools enabled it can deliver a file of its working area as its answer (`SendFileToOutputAsync`): `answer` is then the content of that file, exactly, and the conversation stores the same text. A question needs text: when `content` is missing, empty or only whitespace and no `fileId` is sent, the request answers `422 Unprocessable Entity` (`common.validation`, field `content`, reason `required`) and the agent is not called. The request fails with `402 Payment Required` (`credits.llm_exhausted` when the balance is gone, `credits.subscription_inactive` when the remaining credits are frozen because the subscription is no longer active) when the application has no spendable LLM credits, unless the agent runs on one of the application's own models (connected in \"Your models\"): the agent's model does not spend LLM credits, so an empty balance does not stop the request.",
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Question"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MemoryResponse"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "499": {
+            "description": "Client Error",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error (standard problem+json with errorCode and traceId)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/memories/simple": {
+      "post": {
+        "tags": [
+          "Memories"
+        ],
+        "summary": "Create a simplified knowledge memory",
+        "description": "Creates a knowledge memory using the system default configuration (vector store, embedding, document storage). Only the name is required; the application is taken from the request context. The optional `type` field selects the memory kind: `Rag` (default, classic pipeline with semantic search) or `Blob` (\"simple memory\": markdown files stored as-is, read in full by the agent, no vector store). The type is immutable after creation. The optional `aiAccess` field (`0` read-only, default; `1` read-write) lets agents write markdown files into the memory with the platform tools — accepted only on `Blob` memories (`422` otherwise). Requires the app.memories:create permission.\n\n**User authentication required** — this operation does NOT accept the application API key (`X-ApiKey`): call it with a personal User API Key (`X-User-ApiKey` + `X-Application-Id`).",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSimpleMemoryRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Memory"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error (standard problem+json with errorCode and traceId)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "UserApiKey": [],
+            "ApplicationId": []
+          }
+        ]
+      }
+    },
+    "/api/v1/memories/{memoryId}/documents": {
+      "get": {
+        "tags": [
+          "Memory Documents"
+        ],
+        "summary": "List documents in a memory",
+        "description": "Returns all documents uploaded to the memory's RAG vector store. Document URLs are not converted here; call `GET /{documentId}/view` to obtain a temporary viewable URL.",
+        "parameters": [
+          {
+            "name": "memoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MemoryDocument"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error (standard problem+json with errorCode and traceId)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Memory Documents"
+        ],
+        "summary": "Upload a document to a memory",
+        "description": "Uploads a file (`multipart/form-data`) and ingests it into the memory's RAG vector store, by default as a background job (`backgroundIngestion=true`) with `Classic` chunking and `MultiVector` indexing. The file format is validated up front against the list returned by `GET /api/v1/memories/document-formats`: an unsupported format is rejected with `422 Unprocessable Entity` instead of being accepted and failing minutes later (the check is skipped for `chunkingStrategy=WorkflowBased`, where the workflow reads the original file). Files above the configured size limit are rejected with `413 Payload Too Large`. Ingestion can be tuned via query parameters such as `chunkingStrategy`, `indexingStrategy`, `language` (default `it`), `augmentation`, `rephrasings`, `implicitQuestions` and `ocrModelKey` (the key of the OCR model, `author/model`; an OCR model that exists but is neither global nor assigned to the memory's application is rejected with `422` `ocr_models.not_assigned` before the file is stored; the old `ocrModelName` parameter is no longer accepted: `422 ai.legacy_model_fields`). On a `Blob` memory (\"simple memory\") there is no ingestion pipeline: only textual formats (`.md`, `.txt`, `.json`, `.csv`, `.js`) up to `AppSettings:BlobMemoryMaxFileSizeMb` (default 1 MB) are accepted, the pipeline query parameters are ignored and the document is returned already `Indexed`. `chunkingWorkflowId` and `augmentationWorkflowId` must be workflows of the memory's own application or workflows the platform published as global for that purpose (`Chunking` / `Augmentation`): any other id, another application's included, is rejected before the file is stored with `404 Not Found` (`workflows.not_found`), as for a workflow that does not exist. Indexing is billed in AI credits (embeddings): with `backgroundIngestion=false` an application without spendable credits gets `402 Payment Required` before the file is stored, while in background the document is accepted and the job moves it to `Failed` with the ingestion error `credits_exhausted` (or `subscription_inactive` when the balance is frozen by an inactive subscription): nothing is indexed and nothing is billed, and `retry-ingestion` re-queues it after the top-up. Returns the created `MemoryDocument` with `201 Created`.",
+        "parameters": [
+          {
+            "name": "memoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "ocrModelKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "chunkingStrategy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "indexingStrategy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentTypeHint",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "augmentation",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "rephrasings",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "implicitQuestions",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "chunkingWorkflowId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "augmentationWorkflowId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "backgroundIngestion",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "file"
+                ],
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MemoryDocument"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Content Too Large",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "499": {
+            "description": "Client Error",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error (standard problem+json with errorCode and traceId)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/memories/{memoryId}/documents/{documentId}/chunks": {
+      "get": {
+        "tags": [
+          "Memory Documents"
+        ],
+        "summary": "List document chunks",
+        "description": "Returns all chunks from the document's manifest. Only available for documents processed with the new RAG pipeline (those with a `ManifestId`).",
+        "parameters": [
+          {
+            "name": "memoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ChunkResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error (standard problem+json with errorCode and traceId)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Memory Documents"
+        ],
+        "summary": "Create a chunk",
+        "description": "Adds a new chunk (`Title`, `Body`, optional `DocType`, `Tags`, `AdditionalQuestions`) to the document's manifest and re-embeds all chunks in the vector store. Embeddings are billed in AI credits (`402 Payment Required` without spendable credits, nothing is changed). Returns the created chunk with `201 Created`.",
+        "parameters": [
+          {
+            "name": "memoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateChunkRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChunkResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment Required",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error (standard problem+json with errorCode and traceId)",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvolusProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "schemas": {
+    "WorkflowExecution": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "applicationId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "workflowId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "input": {
+          "type": "string",
+          "nullable": true
+        },
+        "fileUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "nullable": true
+        },
+        "fileNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "nullable": true
+        },
+        "output": {
+          "type": "string",
+          "nullable": true
+        },
+        "stepOutputs": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "nullable": true
+        },
+        "status": {
+          "type": "string",
+          "nullable": true
+        },
+        "error": {
+          "type": "string",
+          "nullable": true
+        },
+        "totalStepsExecuted": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "requestedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "completedAt": {
+          "type": "string",
+          "format": "date-time",
+          "nullable": true
+        },
+        "hangfireJobId": {
+          "type": "string",
+          "nullable": true
+        },
+        "traceId": {
+          "type": "string",
+          "nullable": true
+        },
+        "parentExecutionId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "parentWorkflowId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "parentStepId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "parentIterationIndex": {
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        },
+        "rootExecutionId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "stepStates": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/components/schemas/WorkflowStepState"
+          },
+          "nullable": true
+        },
+        "parameters": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "nullable": true
+        },
+        "isManualTest": {
+          "type": "boolean"
+        },
+        "childExecutions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/WorkflowChildExecutionSummary"
+          },
+          "nullable": true
+        },
+        "totalTokenCount": {
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        },
+        "consumption": {
+          "$ref": "#/components/schemas/WorkflowExecutionConsumption"
+        }
+      },
+      "additionalProperties": false
+    },
+    "WorkflowStepState": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "nullable": true
+        },
+        "branch": {
+          "type": "string",
+          "nullable": true
+        },
+        "iterations": {
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        },
+        "iterationsCompleted": {
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        },
+        "iterationsFailed": {
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        },
+        "iterationDetails": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/WorkflowStepIterationState"
+          },
+          "nullable": true
+        },
+        "branchCounts": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nullable": true
+        },
+        "childExecutionId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "durationMs": {
+          "type": "integer",
+          "format": "int64",
+          "nullable": true
+        },
+        "outputCheckNote": {
+          "type": "string",
+          "nullable": true
+        },
+        "decision": {
+          "$ref": "#/components/schemas/WorkflowStepDecision"
+        }
+      },
+      "additionalProperties": false
+    },
+    "WorkflowExecutionConsumption": {
+      "type": "object",
+      "properties": {
+        "credits": {
+          "type": "number",
+          "format": "double",
+          "nullable": true
+        },
+        "pendingEntries": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "costUsd": {
+          "type": "number",
+          "format": "double",
+          "nullable": true
+        },
+        "llmTokens": {
+          "type": "integer",
+          "format": "int64",
+          "nullable": true
+        },
+        "ocrPages": {
+          "type": "integer",
+          "format": "int64",
+          "nullable": true
+        },
+        "embeddingTokens": {
+          "type": "integer",
+          "format": "int64",
+          "nullable": true
+        },
+        "speechToTextSeconds": {
+          "type": "integer",
+          "format": "int64",
+          "nullable": true
+        },
+        "entries": {
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "CreateWorkflowStepRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "nullable": true
+        },
+        "stepType": {
+          "$ref": "#/components/schemas/WorkflowStepType"
+        },
+        "agentId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "outputStructureId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "ocrModelKey": {
+          "type": "string",
+          "nullable": true
+        },
+        "webhookId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "inputStepIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nullable": true
+        },
+        "inputBranches": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "nullable": true
+        },
+        "inputMode": {
+          "$ref": "#/components/schemas/WorkflowInputMode"
+        },
+        "inputTemplate": {
+          "type": "string",
+          "nullable": true
+        },
+        "prompt": {
+          "type": "string",
+          "nullable": true
+        },
+        "parallelGroupId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "parallelGroupSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "maxPagesParallel": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "loopGroupId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "createDoc": {
+          "type": "boolean"
+        },
+        "createDocKeepFileName": {
+          "type": "boolean"
+        },
+        "emailRecipients": {
+          "type": "string",
+          "nullable": true
+        },
+        "emailSubjectTemplate": {
+          "type": "string",
+          "nullable": true
+        },
+        "emailBodyTemplate": {
+          "type": "string",
+          "nullable": true
+        },
+        "emailReplyToSender": {
+          "type": "boolean"
+        },
+        "emailAttachResultFile": {
+          "type": "boolean"
+        },
+        "whatsAppBusinessNumberId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "whatsAppReplyToSender": {
+          "type": "boolean"
+        },
+        "whatsAppRecipients": {
+          "type": "string",
+          "nullable": true
+        },
+        "whatsAppBodyTemplate": {
+          "type": "string",
+          "nullable": true
+        },
+        "whatsAppTemplateName": {
+          "type": "string",
+          "nullable": true
+        },
+        "whatsAppTemplateLanguage": {
+          "type": "string",
+          "nullable": true
+        },
+        "whatsAppTemplateParametersJson": {
+          "type": "string",
+          "nullable": true
+        },
+        "whatsAppAttachResultFile": {
+          "type": "boolean"
+        },
+        "stepConfigJson": {
+          "type": "string",
+          "nullable": true
+        }
+      },
+      "additionalProperties": {}
+    },
+    "NewAgentRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "nullable": true
+        },
+        "description": {
+          "type": "string",
+          "nullable": true
+        },
+        "prompt": {
+          "type": "string",
+          "nullable": true
+        },
+        "language": {
+          "type": "string",
+          "nullable": true
+        },
+        "modelKey": {
+          "type": "string",
+          "nullable": true
+        },
+        "fallbackModelKeys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "nullable": true
+        },
+        "routerWebSearch": {
+          "type": "boolean",
+          "nullable": true
+        },
+        "ocrModelKey": {
+          "type": "string",
+          "nullable": true
+        },
+        "webSearchType": {
+          "enum": [
+            "BING",
+            "GOOGLE",
+            "NONE",
+            "PERPLEXITY"
+          ],
+          "type": "string",
+          "nullable": true
+        },
+        "serviceType": {
+          "enum": [
+            "CLAUDE_SDK",
+            "MICROSOFT_FRAMEWORK"
+          ],
+          "type": "string",
+          "nullable": true
+        },
+        "useAskStream": {
+          "type": "boolean",
+          "nullable": true
+        },
+        "isChatVisible": {
+          "type": "boolean",
+          "nullable": true
+        },
+        "portalWidgetsEnabled": {
+          "type": "boolean",
+          "nullable": true
+        },
+        "fileToolsEnabled": {
+          "type": "boolean",
+          "nullable": true
+        },
+        "scriptToolEnabled": {
+          "type": "boolean",
+          "nullable": true
+        },
+        "mcpServers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/McpServerInfo"
+          },
+          "nullable": true
+        },
+        "modelParameters": {
+          "type": "object",
+          "additionalProperties": {},
+          "nullable": true
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "nullable": true
+        },
+        "isExtractor": {
+          "type": "boolean",
+          "nullable": true
+        },
+        "applicationId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        }
+      },
+      "additionalProperties": {}
+    },
+    "Question": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "nullable": true
+        },
+        "conversationId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "conversationType": {
+          "$ref": "#/components/schemas/ConversationType"
+        },
+        "parentConversationId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "fileId": {
+          "type": "string",
+          "nullable": true
+        },
+        "formId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "outputStructureId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "skipChatHistory": {
+          "type": "boolean"
+        },
+        "costApplicationId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "structureInstruction": {
+          "type": "string",
+          "nullable": true
+        },
+        "channelInstruction": {
+          "type": "string",
+          "nullable": true
+        },
+        "channel": {
+          "type": "string",
+          "nullable": true
+        },
+        "mcpUserTokens": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "MemoryResponse": {
+      "type": "object",
+      "properties": {
+        "question": {
+          "type": "string",
+          "nullable": true
+        },
+        "answer": {
+          "type": "string",
+          "nullable": true
+        },
+        "title": {
+          "type": "string",
+          "nullable": true
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CitationInfo"
+          },
+          "nullable": true
+        },
+        "agentId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "threadId": {
+          "type": "string",
+          "nullable": true
+        },
+        "conversationId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "parentConversationId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "fromGPT": {
+          "type": "boolean"
+        },
+        "totalTokenCount": {
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "MemoryDocument": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "memoryId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "elaboratedId": {
+          "type": "string",
+          "nullable": true
+        },
+        "title": {
+          "type": "string",
+          "nullable": true
+        },
+        "description": {
+          "type": "string",
+          "nullable": true
+        },
+        "url": {
+          "type": "string",
+          "nullable": true
+        },
+        "urlOrigin": {
+          "type": "string",
+          "nullable": true
+        },
+        "tags": {
+          "type": "string",
+          "nullable": true
+        },
+        "uploadedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "uploadedByUserId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "nullable": true
+        },
+        "lastWrittenByAgentId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "lastWrittenByUserId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "lastWrittenInConversationId": {
+          "type": "string",
+          "format": "uuid",
+          "nullable": true
+        },
+        "aiAccessOverride": {
+          "$ref": "#/components/schemas/MemoryAiAccess"
+        },
+        "byOCR": {
+          "type": "boolean"
+        },
+        "uploadedType": {
+          "$ref": "#/components/schemas/UploadedType"
+        },
+        "fileSizeBytes": {
+          "type": "integer",
+          "format": "int64",
+          "nullable": true
+        },
+        "chunkingStrategy": {
+          "$ref": "#/components/schemas/ChunkingStrategy"
+        },
+        "manifestId": {
+          "type": "string",
+          "nullable": true
+        },
+        "manifestUrl": {
+          "type": "string",
+          "nullable": true
+        },
+        "ingestionStatus": {
+          "$ref": "#/components/schemas/IngestionStatus"
+        },
+        "ingestionError": {
+          "type": "string",
+          "nullable": true
+        },
+        "chunkCount": {
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        },
+        "memory": {
+          "$ref": "#/components/schemas/Memory"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ChunkResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "nullable": true
+        },
+        "docType": {
+          "type": "string",
+          "nullable": true
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "nullable": true
+        },
+        "title": {
+          "type": "string",
+          "nullable": true
+        },
+        "body": {
+          "type": "string",
+          "nullable": true
+        },
+        "context": {
+          "type": "string",
+          "nullable": true
+        },
+        "additionalQuestions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AdditionalQuestionDto"
+          },
+          "nullable": true
+        },
+        "splitReason": {
+          "type": "string",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "CreateSimpleMemoryRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "nullable": true
+        },
+        "type": {
+          "$ref": "#/components/schemas/MemoryType"
+        },
+        "aiAccess": {
+          "$ref": "#/components/schemas/MemoryAiAccess"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "limitations": [
+    "WorkflowExecution has no returned runtime model ID. Configured modelKey is not an actual response model identity.",
+    "No documented standalone semantic library search endpoint in this export. Use dedicated isolated libraries, verify exact membership before chunk retrieval, and local applicability selection.",
+    "Setup of memory/output structures requires X-User-ApiKey. Runtime uses X-ApiKey and X-Application-Id.",
+    "API calls do not obey portal spending caps; enforce local persisted finite dispatch budgets."
+  ]
+}

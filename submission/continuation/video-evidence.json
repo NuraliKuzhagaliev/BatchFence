@@ -1,0 +1,30 @@
+{
+  "file": "BatchFence-0.4.0-rc.1-workflows.mp4",
+  "bytes": 1656114,
+  "sha256": "222be03c812511dc06c69b809a0701a1c7592ecc07d93138a1c260ff7b6ed051",
+  "seconds": 37.88,
+  "segments": [
+    {
+      "source": "work/continuation-media/evolus.webm",
+      "sha256": "9ed1bce9481c019b21972ffce1aa746f412612d2c28d4a40b011dc979e94716d",
+      "seconds": 9.4,
+      "caption": "Stored genuine Evolus extractor + Gemma result. Synthetic sources. Agent-operated review.",
+      "kind": "actual browser recording at original speed"
+    },
+    {
+      "source": "docs/continuation/live/ui/gemma-label-region.png",
+      "sha256": "3faf96d763c6485db1ed9bc6260993fe0a4ab7a3eeea27d20dfac54974eebc8a",
+      "seconds": 6,
+      "caption": "Synthetic label. Actual Gemma image response is retained. Physical-photo acceptance pending.",
+      "kind": "retained screenshot"
+    },
+    {
+      "source": "work/continuation-media/gemma.webm",
+      "sha256": "484ec1b69f3d4f5a83e3f459957709a3b6df8ef69267d9d78322b2024b4ef9f3",
+      "seconds": 22.56,
+      "caption": "Stored direct AMD Gemma workflow. Synthetic inventory. No inference during recording.",
+      "kind": "actual browser recording at original speed"
+    }
+  ],
+  "provenance": "Separate actual Evolus and direct AMD cases, not one continuous case. Stored genuine results, synthetic sources and agent-operated review. No new inference during capture. Original speed, no audio. Caption band outside application pixels. Complete engineering walkthrough in docs/continuation/operator-walkthrough.md."
+}
