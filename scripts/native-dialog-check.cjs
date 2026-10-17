@@ -1,7 +1,7 @@
 // Real Windows dialogs. No showOpenDialog/showSaveDialog replacements.
 const { _electron: electron } = require('playwright');
 const fs=require('node:fs/promises'),path=require('node:path');
-const root=path.resolve(__dirname,'..'),version=require('../package.json').version,out=process.env.BATCHFENCE_NATIVE_REPORT_DIR||path.join(root,'docs/continuation/native'),packetFile=path.join(root,'work','native-dialog-packet-'+version+'.json');
+const root=path.resolve(__dirname,'..'),version=require('../package.json').version,out=process.env.BATCHFENCE_NATIVE_REPORT_DIR||path.join(root,'docs/continuation/native'),packetFile=process.env.BATCHFENCE_NATIVE_PACKET_FILE||path.join(root,'work','native-dialog-packet-'+version+'.json');
 (async()=>{
   await fs.mkdir(out,{recursive:true});
   const app=await electron.launch({executablePath:process.env.BATCHFENCE_TEST_EXE || path.join(root,'work','installed-'+version,'BatchFence Preview.exe'),env:{...process.env,
@@ -10,6 +10,7 @@ const root=path.resolve(__dirname,'..'),version=require('../package.json').versi
   await app.evaluate(({BrowserWindow})=>{const w=BrowserWindow.getAllWindows()[0];w.restore();w.show();w.focus();});
   const resume=process.env.BATCHFENCE_NATIVE_RESUME_CASE;
   if(!resume){await page.getByRole('button',{name:'Open example incident',exact:false}).click();
+  if(process.env.BATCHFENCE_NATIVE_CHECK_MODE)await page.getByLabel('Run mode',{exact:true}).selectOption('fixture');
   await page.getByRole('button',{name:'Add evidence',exact:true}).waitFor();
   await page.getByRole('button',{name:'Add evidence',exact:true}).click();
   console.log('Real Import evidence dialog requested; waiting for OS selection. No inference will run.');}
@@ -35,6 +36,7 @@ const root=path.resolve(__dirname,'..'),version=require('../package.json').versi
       await page.screenshot({path:path.join(out,'native-label-import-resumed.png'),fullPage:true});
       console.log('Resumed retained native source/image after original UI heading wait failed; no dialog replacements or inference.');
     }
+    if(process.env.BATCHFENCE_NATIVE_CHECK_MODE&&await page.getByLabel('Run mode',{exact:true}).inputValue()!=='fixture')throw Error('Native dialog focus changed explicit interpretation route');
     await page.getByRole('button',{name:'Export packet',exact:true}).click();
     console.log('Real Save decision packet dialog requested. Save as '+packetFile);
     await page.getByText('Decision packet saved with source extracts, review history and receipts.',{exact:true}).waitFor({timeout:600000});

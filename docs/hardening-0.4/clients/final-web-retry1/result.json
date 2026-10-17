@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "at": "2026-10-17T22:41:38.756Z",
+  "base": "https://batchfence.onrender.com",
+  "desktop": false,
+  "case_id": "00964a734d804031bccbbfec8971b9d6",
+  "upstream_steps": 3,
+  "receipts": 2,
+  "applied_units": 800,
+  "stale_rejection": true,
+  "raw_model_quality": "See actual preserved jobs; no correction applied by this runner",
+  "review": "Agent-operated synthetic review, not independent human validation",
+  "errors": []
+}

@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-17T23:09:23.897156+00:00",
+  "stopped_test_containers": [
+    {
+      "name": "batchfence-hardening-040rc2",
+      "status": "exited",
+      "volumes_preserved": [
+        "batchfence-hardening-040rc2"
+      ]
+    },
+    {
+      "name": "batchfence-hardening-final",
+      "status": "exited",
+      "volumes_preserved": [
+        "batchfence-hardening-final"
+      ]
+    },
+    {
+      "name": "batchfence-hardening-release-04e9",
+      "status": "exited",
+      "volumes_preserved": [
+        "batchfence-hardening-release-04e9"
+      ]
+    }
+  ],
+  "local_test_8810": "Stop requested only for exact task-owned uvicorn command; no database/source deletion",
+  "deleted_containers_volumes_data": false,
+  "existing_stable_pilot": "untouched",
+  "user_browser_tabs": "untouched; no cold-start claim or artificial keepalive",
+  "credentials_rotated_revoked_changed": false,
+  "phase_reservations": 54,
+  "new_live_calls_required": 0
+}

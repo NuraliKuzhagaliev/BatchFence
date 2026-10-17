@@ -87,6 +87,14 @@
       "before": "focus-mode-before.json",
       "after": "focus-mode-web.json",
       "status": "fixed and observed at referenced engineering boundary"
+    },
+    {
+      "id": "D12",
+      "problem": "Original image bytes mistaken for model output when provider fails; secondary UnboundLocalError leaves nonterminal proposal",
+      "implementation": "backend/assist_routes.py input image_bytes separated from parsed raw result",
+      "before": "image-failure-before.xml (HTTP500 and timeout fail; malformed output already contained); clients/final-web-extensions-resumed/provider-image-failure-logs.json",
+      "after": "image-failure-after.xml (30 passed); release-pytest.xml (428 passed)",
+      "status": "fixed; final installed\u2192public request persisted provider500 with terminal failed status, no draft and unchanged receipts"
     }
   ],
   "remaining": [
@@ -114,6 +122,11 @@
     {
       "id": "R-IDENTITY",
       "status": "Public anonymous capability is intentionally not retained across installed app restarts; exported packets remain read-only. Private named pilot requires fresh login."
+    },
+    {
+      "id": "R-VISION-PROVIDER",
+      "status": "Fresh public direct image requests returned provider HTTP500. Historical image capability is retained, current successful fresh image inference unverified. No parsed reading or inventory authority accepted.",
+      "evidence": "clients/final-web-extensions-resumed/provider-image-failure-logs.json"
     }
   ]
 }

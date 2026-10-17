@@ -1,0 +1,5 @@
+{
+  "status": "test setup mismatch, zero inference",
+  "error": "Local8810 is unprotected; the protected-live token input is correctly absent. Distribution controls must target the actual protected public service.",
+  "latest_case_runs": 0
+}

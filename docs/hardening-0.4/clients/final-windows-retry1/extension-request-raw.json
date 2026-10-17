@@ -1,0 +1,84 @@
+{
+  "id": "GENERATE-b5696c45b1c683aa8c9031e9",
+  "case_id": "71c73efd0de34ca4b7bfb4776bcd15b8",
+  "kind": "request",
+  "mode": "live",
+  "provider_path": "Direct Gemma / managed-amd-shared",
+  "status": "unreviewed proposal",
+  "request_hash": "677ced5108e102b2eef701ec7015b854d3d5b98a631560fc190ba29f2056f216",
+  "snapshot_hash": "222546f23ffd99f73a745e0cdefa2b5ad51f478bae7b5b381cd80de33b36170c",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "started_at": "2026-10-17T23:03:08.273562+00:00",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "8ed7eb73e92793168152fa14529dd52eb52122b7e159f8dbe96570582f75e634",
+    "dispatch": 9,
+    "conservative_remaining": 0.9069706730917096,
+    "stop_margin": 0.1
+  },
+  "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+  "raw_output": {
+    "cause_id": "CAUSE-76ebfea83cd145",
+    "draft": "Please clarify the receiving identity for FG-C (100 units). Current records indicate multiple possible ancestries: SUP-A (DOC-871f9443a09a, row-3) and SUP-B (DOC-871f9443a09a, row-4). A preferred supplier mention is insufficient to remove alternative links; explicit evidence is required for a complete replacement. Please provide original record IDs, exact lot identities, and document revisions, and confirm if the record is complete or inconclusive."
+  },
+  "provenance": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T23:03:26.183511+00:00",
+    "elapsed_ms": 17893,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "107c5768e3084a76be127e1518a98e5a",
+    "usage": {
+      "prompt_tokens": 1012,
+      "total_tokens": 1151,
+      "completion_tokens": 139,
+      "prompt_tokens_details": {
+        "cached_tokens": 177,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.0000390789,
+      "cost_details": {
+        "upstream_inference_cost": 0.0000390789,
+        "upstream_inference_prompt_cost": 0.0000293489,
+        "upstream_inference_completions_cost": 0.00000973,
+        "total_cost": 0.0000390789,
+        "input_cost": 0.000029225,
+        "output_cost": 0.00000973,
+        "cached_input_cost": 1.239e-7,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "f438573631b76a6c936589ae718f0f4c4400883b05e07c3788b002773b9ede20",
+    "http_status": 200,
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "library_provenance": null,
+  "finished_at": "2026-10-17T23:03:26.186078+00:00",
+  "draft": {
+    "cause_id": "CAUSE-76ebfea83cd145",
+    "draft": "Please clarify the receiving identity for FG-C (100 units). Current records indicate multiple possible ancestries: SUP-A (DOC-871f9443a09a, row-3) and SUP-B (DOC-871f9443a09a, row-4). A preferred supplier mention is insufficient to remove alternative links; explicit evidence is required for a complete replacement. Please provide original record IDs, exact lot identities, and document revisions, and confirm if the record is complete or inconclusive."
+  },
+  "stale": false
+}

@@ -1,0 +1,17 @@
+{
+  "runtime_commit": "d9a8b6aa27af4e5329340b1774958405394ec69f",
+  "desktop_source_bytes_match_Git": true,
+  "frontend_assets": [
+    {
+      "path": "dist/assets/index-BWzDsLEo.css",
+      "sha256": "9a0e43665251790bf6db5d86a65e7013a6a8e16cf77f450a792291b7a14e675a",
+      "installed_matches": true
+    },
+    {
+      "path": "dist/assets/index-Co_5nfb7.js",
+      "sha256": "80b5f506eae9ec1e24abc74ed692dbc3a37a958694ed47f984eafa6a0abc776e",
+      "installed_matches": true
+    }
+  ],
+  "installer_sha256": "4b26b42862e09d0db1399be7193abe96559801c0180598b9a4a07e7f8fef4d90"
+}

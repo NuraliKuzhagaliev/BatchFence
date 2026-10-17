@@ -1,0 +1,5 @@
+{
+  "prior": "final-web-ready",
+  "reason": "First Gemma product request failed after about41s without a usable provider response. Account headroom verified; one explicit transient retry on unchanged source/model/settings, no automatic loop.",
+  "maximum_retries": 1
+}

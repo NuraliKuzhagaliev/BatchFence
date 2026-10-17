@@ -1,0 +1,11 @@
+{
+  "static_start_template_was_not_skip_label_aware": true,
+  "actual_environment": "BATCHFENCE_SKIP_LABEL=true",
+  "actual_new_requests": 2,
+  "requests": [
+    "request",
+    "handover"
+  ],
+  "no_image_request_in_this_attempt": true,
+  "passed_core_and_translation_reused": true
+}

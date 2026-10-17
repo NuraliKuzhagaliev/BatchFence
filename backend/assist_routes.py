@@ -425,7 +425,7 @@ def generate(case_id:str,data:Generate,request:Request):
                     'question':data.question,'approved_passages':retrieval['passages']};schema=knowledge.PassageSelection.model_json_schema()
             external.allowance('gemma');reservation=external.reserve(db,'gemma')
             jobs.start(db,request.state.owner,key,'gemma-'+data.kind,{'case_id':case_id,'kind':data.kind,'revision':state['revision'],'context_hash':digest(context)},'live')
-            record={'id':key,'case_id':case_id,'kind':data.kind,'mode':'live','provider_path':'Direct Gemma / '+os.getenv('GEMMA_HOSTING_KIND','unverified'),
+            record={'id':key,'case_id':case_id,'kind':data.kind,'mode':'live','provider_path':('Direct AMD vision / ' if data.kind=='label' else 'Direct Gemma / ')+os.getenv('GEMMA_HOSTING_KIND','unverified'),
                 'status':'running','request_hash':signature,'snapshot_hash':fingerprint(state,catalog(db,request.state.owner)),
                 'actor':identity.current_actor(),'started_at':now(),'reservation':reservation,'authority':'Unreviewed draft only; existing review/calculation/approval remain mandatory'}
             repo.put_record(db,request.state.owner,'assist',key,record,0)

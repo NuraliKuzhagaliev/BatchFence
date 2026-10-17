@@ -1405,8 +1405,9 @@ function LabelPanel({
                   })
                 }
               >
-                Read with live Gemma vision
+                Read with live AMD vision
               </button>
+              <p className="caption">Label model: {data.provider?.vision_model_id || 'Unavailable'} · original-image review remains required.</p>
               <details>
                 <summary>
                   Manual operator transcription · explicit alternative

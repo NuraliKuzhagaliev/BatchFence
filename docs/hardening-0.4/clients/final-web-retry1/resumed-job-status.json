@@ -1,0 +1,113 @@
+[
+  {
+    "id": "ASSIST-d1c7c71bcfe8b31980d2e2b8",
+    "kind": "evolus-document",
+    "inputs": {
+      "case_id": "00964a734d804031bccbbfec8971b9d6",
+      "revision": 3,
+      "sources": [
+        "f5812ec02f9568b3c628e43f0bb09b1e1f33b9e0a4301f2aec718942d517c312"
+      ]
+    },
+    "mode": "live",
+    "actor": {
+      "user_id": null,
+      "identity_mode": "anonymous session; not independent identity"
+    },
+    "status": "succeeded",
+    "started_at": "2026-10-17T22:42:16.928790+00:00",
+    "lease_until": 1792277056.9287965,
+    "attempts": 1,
+    "automatic_retry": false,
+    "finished_at": "2026-10-17T22:42:53.591361+00:00",
+    "result_hash": "e5650c0dce08cee9851d96492b105fd110defd6262d1f6b0c721f210cf8ee582"
+  },
+  {
+    "id": "GENERATE-3beef6b0d21f4bd5d6e26999",
+    "kind": "gemma-document",
+    "inputs": {
+      "case_id": "00964a734d804031bccbbfec8971b9d6",
+      "kind": "document",
+      "revision": 2,
+      "context_hash": "99d47e3ff8f93d8fa439be3a5af69da42c8bb8ecd377805d2e9547c68090b286"
+    },
+    "mode": "live",
+    "actor": {
+      "user_id": null,
+      "identity_mode": "anonymous session; not independent identity"
+    },
+    "status": "failed",
+    "started_at": "2026-10-17T22:39:58.405896+00:00",
+    "lease_until": 1792276918.4059033,
+    "attempts": 1,
+    "automatic_retry": false,
+    "finished_at": "2026-10-17T22:40:39.369019+00:00",
+    "result_hash": "9a17c78a843e5846edfaa1829d4e4530d3f76d3bf69ec8cffdd53dfbf1258e9e"
+  },
+  {
+    "id": "GENERATE-5adc4e506f911bbc85cec290",
+    "kind": "gemma-translation",
+    "inputs": {
+      "case_id": "00964a734d804031bccbbfec8971b9d6",
+      "kind": "translation",
+      "revision": 4,
+      "context_hash": "71f7775ee65f6f58515e0f37babb7f1fe1ee5389ee1ac89fd1664034f4ec96cd"
+    },
+    "mode": "live",
+    "actor": {
+      "user_id": null,
+      "identity_mode": "anonymous session; not independent identity"
+    },
+    "status": "succeeded",
+    "started_at": "2026-10-17T22:43:02.633073+00:00",
+    "lease_until": 1792277102.6330798,
+    "attempts": 1,
+    "automatic_retry": false,
+    "finished_at": "2026-10-17T22:43:38.687627+00:00",
+    "result_hash": "6c076e4d18edef9626dda427c98f1cfba583732d0bc143e2a41494088ad7999e"
+  },
+  {
+    "id": "GENERATE-bf8b77d32c746e86f5ca6566",
+    "kind": "gemma-label",
+    "inputs": {
+      "case_id": "00964a734d804031bccbbfec8971b9d6",
+      "kind": "label",
+      "revision": 4,
+      "context_hash": "107f504234d7e2ae7391013bb5e79e7c2b8c2cb923a7b7638efd837bb5c02dc0"
+    },
+    "mode": "live",
+    "actor": {
+      "user_id": null,
+      "identity_mode": "anonymous session; not independent identity"
+    },
+    "status": "interrupted",
+    "started_at": "2026-10-17T22:43:44.734753+00:00",
+    "lease_until": 1792277144.7347603,
+    "attempts": 1,
+    "automatic_retry": false,
+    "finished_at": "2026-10-17T22:47:53.416871+00:00",
+    "error": "Worker ended or timed out; charge status may be unknown. An explicit new request is required. No automatic retry."
+  },
+  {
+    "id": "GENERATE-d45a4bfae983eb4d6cf32176",
+    "kind": "gemma-document",
+    "inputs": {
+      "case_id": "00964a734d804031bccbbfec8971b9d6",
+      "kind": "document",
+      "revision": 2,
+      "context_hash": "99d47e3ff8f93d8fa439be3a5af69da42c8bb8ecd377805d2e9547c68090b286"
+    },
+    "mode": "live",
+    "actor": {
+      "user_id": null,
+      "identity_mode": "anonymous session; not independent identity"
+    },
+    "status": "succeeded",
+    "started_at": "2026-10-17T22:41:41.224552+00:00",
+    "lease_until": 1792277021.224571,
+    "attempts": 1,
+    "automatic_retry": false,
+    "finished_at": "2026-10-17T22:42:11.975942+00:00",
+    "result_hash": "ca1fee953ba32d62a6fcda14c5dc85275aa16e506f1a4a4cc54cb45df4d88fbd"
+  }
+]

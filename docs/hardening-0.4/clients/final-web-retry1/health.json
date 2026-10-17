@@ -1,0 +1,13 @@
+{
+  "status": "ok",
+  "database": "ready",
+  "version": "0.4.0-rc.2",
+  "commit": "d9a8b6aa27af4e5329340b1774958405394ec69f",
+  "inference_mode": "fixture",
+  "amd_configured": true,
+  "live_protected": true,
+  "profile": "public",
+  "public_demo": true,
+  "storage_mode": "ephemeral",
+  "replay_available": true
+}

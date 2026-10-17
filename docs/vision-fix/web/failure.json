@@ -1,0 +1,6 @@
+{
+  "at": "2026-10-17T23:21:27.384Z",
+  "message": "{\"detail\":{\"code\":\"CONTENT_TYPE\",\"message\":\"JSON required\"}}\n\n415 !== 200\n",
+  "outcomes": [],
+  "errors": []
+}

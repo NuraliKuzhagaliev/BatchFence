@@ -1,0 +1,4000 @@
+{
+  "schema_version": 1,
+  "exported_at": "2026-10-17T22:54:25.138221+00:00",
+  "label": "Historical read-only packet. Hash is change detection, not supplier authentication.",
+  "case": {
+    "id": "00964a734d804031bccbbfec8971b9d6",
+    "name": "Northstar Enclosures",
+    "incident": "Cosmetic coating defect · decorative housings",
+    "synthetic": true,
+    "revision": 4,
+    "inventory_version": 3,
+    "documents": [
+      {
+        "id": "DOC-189da2a086a0",
+        "filename": "ambiguous_receipt.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-17T22:39:55.833150+00:00",
+        "original_hash": "1ec49184b6cb1b3c673dc7c681b088f11525e4c9a9a412b36fb1a6d7f7396285",
+        "text_hash": "1ec49184b6cb1b3c673dc7c681b088f11525e4c9a9a412b36fb1a6d7f7396285",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC receiving exception RX-103 | Revision 1",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "The 100-unit consignment in FG-C has an unreadable original supplier label. Its origin is SUP-A or SUP-B. No exact original-lot identity is available. Keep both possible paths.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-048fd144ad52",
+        "filename": "completeness_manifest.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-17T22:39:55.833271+00:00",
+        "original_hash": "90e479db7ca8b4150669e066ecd3f574db0a4c2033e6faec68057b8f224f5bbf",
+        "text_hash": "90e479db7ca8b4150669e066ecd3f574db0a4c2033e6faec68057b8f224f5bbf",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC bounded scope manifest | Dataset 1 | Reviewed fixture assumptions",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "Universe: NORTH-01 decorative housings, six distinct current finished-stock pools. FG-A/B/D/E/F have reviewed complete ancestry. FG-C has unresolved receiving identity. No additional current finished inventory exists in this synthetic snapshot. All units are on site.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-87a3a6691f80",
+        "filename": "containment_policy.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-17T22:39:55.833396+00:00",
+        "original_hash": "111e8cb436255ca15cba1d977b5048994d08f9f77545a6451e6479faec10b54f",
+        "text_hash": "111e8cb436255ca15cba1d977b5048994d08f9f77545a6451e6479faec10b54f",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC policy CONTAIN-1 | Revision 1",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "Hold all on-site documented and possible descendants. Unknown ancestry remains uncertain. Shipped stock creates shipment review. Never automatically release existing holds. Approval binds exact evidence, inventory, policy and actions.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-d63955393e0d",
+        "filename": "inventory.csv",
+        "media_type": "text/csv",
+        "revision": 1,
+        "ingested_at": "2026-10-17T22:39:55.833566+00:00",
+        "original_hash": "387d0938e077d4cb613a64aa5bff1b300a4f40eec7e36ce642cae0d327cdfa00",
+        "text_hash": "387d0938e077d4cb613a64aa5bff1b300a4f40eec7e36ce642cae0d327cdfa00",
+        "blocks": [
+          {
+            "id": "row-0",
+            "text": "row_id,pool_id,units,unit_cents,status,ancestry_complete,site,product_family,timestamp,dataset_version",
+            "page": null
+          },
+          {
+            "id": "row-1",
+            "text": "INV-1,FG-A,240,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          },
+          {
+            "id": "row-2",
+            "text": "INV-2,FG-B,160,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          },
+          {
+            "id": "row-3",
+            "text": "INV-3,FG-C,100,4000,available,false,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          },
+          {
+            "id": "row-4",
+            "text": "INV-4,FG-D,300,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          },
+          {
+            "id": "row-5",
+            "text": "INV-5,FG-E,250,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          },
+          {
+            "id": "row-6",
+            "text": "INV-6,FG-F,150,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-d32e35342fab",
+        "filename": "lineage.csv",
+        "media_type": "text/csv",
+        "revision": 1,
+        "ingested_at": "2026-10-17T22:39:55.833685+00:00",
+        "original_hash": "9c45f724f98de208787f30e855a699a18f3e317441cf439cbc728f72f2f492b7",
+        "text_hash": "9c45f724f98de208787f30e855a699a18f3e317441cf439cbc728f72f2f492b7",
+        "blocks": [
+          {
+            "id": "row-0",
+            "text": "row_id,source,target,kind,revision,timestamp",
+            "page": null
+          },
+          {
+            "id": "row-1",
+            "text": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-2",
+            "text": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-3",
+            "text": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-4",
+            "text": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-5",
+            "text": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-6",
+            "text": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-7",
+            "text": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-fc192fb414f3",
+        "filename": "order_allocations.csv",
+        "media_type": "text/csv",
+        "revision": 1,
+        "ingested_at": "2026-10-17T22:39:55.833790+00:00",
+        "original_hash": "9f26dfea42ceef6cfd9501566e23ba64ca8176b77f8fd12a9bf702178bc900d3",
+        "text_hash": "9f26dfea42ceef6cfd9501566e23ba64ca8176b77f8fd12a9bf702178bc900d3",
+        "blocks": [
+          {
+            "id": "row-0",
+            "text": "row_id,order_id,pool_id,units,due_date,revision,status",
+            "page": null
+          },
+          {
+            "id": "row-1",
+            "text": "ALLOC-1,O-101,FG-A,240,2026-10-19,1,open",
+            "page": null
+          },
+          {
+            "id": "row-2",
+            "text": "ALLOC-2,O-102,FG-B,160,2026-10-20,1,open",
+            "page": null
+          },
+          {
+            "id": "row-3",
+            "text": "ALLOC-3,O-103,FG-C,100,2026-10-21,1,open",
+            "page": null
+          },
+          {
+            "id": "row-4",
+            "text": "ALLOC-4,O-104,FG-D,300,2026-10-22,1,open",
+            "page": null
+          },
+          {
+            "id": "row-5",
+            "text": "ALLOC-5,O-105,FG-E,250,2026-10-23,1,open",
+            "page": null
+          },
+          {
+            "id": "row-6",
+            "text": "ALLOC-6,O-106,FG-F,150,2026-10-24,1,open",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-db232f9bd9d5",
+        "filename": "production_travelers.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-17T22:39:55.833863+00:00",
+        "original_hash": "f7d85f1a0195d6e8b2ed7d8cf8b253e8b49135914a01eaef21e3b0a3dcd39d2f",
+        "text_hash": "f7d85f1a0195d6e8b2ed7d8cf8b253e8b49135914a01eaef21e3b0a3dcd39d2f",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC traveler manifest | Revision 1",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "TR-A→FG-A; TR-B→FG-B; TR-C→FG-C; TR-D→FG-D; TR-E→FG-E; TR-F→FG-F. The accompanying lineage.csv provides confirmed and possible relations. This manifest does not add inventory.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-47dafc6e4359",
+        "filename": "receiving_register.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-17T22:39:55.833942+00:00",
+        "original_hash": "53ff955a582af488fc3eb049dc64b62140cb28d3d8b283c8c0728b801837dd74",
+        "text_hash": "53ff955a582af488fc3eb049dc64b62140cb28d3d8b283c8c0728b801837dd74",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC receiving register | Dataset 1",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "RX-101/102: SUP-A for FG-A/B. RX-103: unresolved FG-C identity. RX-104: SUP-C for FG-D. RX-105: SUP-D for FG-E. RX-106: SUP-E for FG-F. Quantities exist only at terminal stock; this is not an extra ledger.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-dbd50d48df38",
+        "filename": "supplier_notice_v1.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-17T22:39:55.834053+00:00",
+        "original_hash": "3cbb17d4b5cf545d340c059fe2a5576c40e3a05db0bd9a99a59bcb5d23aeba00",
+        "text_hash": "3cbb17d4b5cf545d340c059fe2a5576c40e3a05db0bd9a99a59bcb5d23aeba00",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC · NORTHSTAR ENCLOSURES",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "Supplier quality notice N-26-041 | Revision 1 | 2026-10-15",
+            "page": null
+          },
+          {
+            "id": "line-3",
+            "text": "Supplier: Meridian Coatings (fictional)",
+            "page": null
+          },
+          {
+            "id": "line-4",
+            "text": "Affected lots: SUP-A",
+            "page": null
+          },
+          {
+            "id": "line-5",
+            "text": "Cosmetic coating adhesion is inconsistent on decorative housings. Contain on-site descendants pending review. Non-safety-critical demonstration.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-7d4fa727e0ba",
+        "filename": "final-web-ready-first-027b178f.txt",
+        "media_type": "text/plain",
+        "revision": 2,
+        "ingested_at": "2026-10-17T22:39:56.714040+00:00",
+        "original_hash": "6669554e6fe356a1ad34bea0341fc6e761f471b5d980d7272da25d5f03219dba",
+        "text_hash": "6669554e6fe356a1ad34bea0341fc6e761f471b5d980d7272da25d5f03219dba",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "Affected lots: SUP-A. The complete incident boundary contains only this lot; no other supplier lots are affected.",
+            "page": null
+          }
+        ],
+        "synthetic": true,
+        "evidence_language": "en",
+        "language_review_required": false
+      },
+      {
+        "id": "DOC-faa6424f50a7",
+        "filename": "final-web-retry1-revision-575c8e2f.txt",
+        "media_type": "text/plain",
+        "revision": 3,
+        "ingested_at": "2026-10-17T22:42:14.909770+00:00",
+        "original_hash": "f5812ec02f9568b3c628e43f0bb09b1e1f33b9e0a4301f2aec718942d517c312",
+        "text_hash": "f5812ec02f9568b3c628e43f0bb09b1e1f33b9e0a4301f2aec718942d517c312",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "Updated supplier quality notice. Affected lots: SUP-A and SUP-C. These two lots form the full affected incident boundary; no other supplier lots are affected.",
+            "page": null
+          }
+        ],
+        "synthetic": true,
+        "evidence_language": "en",
+        "language_review_required": false
+      },
+      {
+        "id": "DOC-b22d90a892c9",
+        "filename": "final-web-retry1-web-original.txt",
+        "media_type": "text/plain",
+        "revision": 4,
+        "ingested_at": "2026-10-17T22:43:00.662764+00:00",
+        "original_hash": "d3f4c5b1779f438e0569fc53309557e2cb3a6a6815d9bc5238d5db2db04328b1",
+        "text_hash": "d3f4c5b1779f438e0569fc53309557e2cb3a6a6815d9bc5238d5db2db04328b1",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "Партия LOT-007 не исключена; она может быть затронута. Полнота неизвестна. Дата 03/04/2026 не подтверждена.",
+            "page": null
+          }
+        ],
+        "synthetic": true,
+        "evidence_language": "ru",
+        "language_review_required": true,
+        "language_review": null
+      }
+    ],
+    "stocks": [
+      {
+        "id": "FG-A",
+        "units": 240,
+        "unit_cents": 4000,
+        "status": "held",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-1",
+        "snapshot_version": 1
+      },
+      {
+        "id": "FG-B",
+        "units": 160,
+        "unit_cents": 4000,
+        "status": "held",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-2",
+        "snapshot_version": 1
+      },
+      {
+        "id": "FG-C",
+        "units": 100,
+        "unit_cents": 4000,
+        "status": "held",
+        "complete": false,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-3",
+        "snapshot_version": 1
+      },
+      {
+        "id": "FG-D",
+        "units": 300,
+        "unit_cents": 4000,
+        "status": "held",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-4",
+        "snapshot_version": 1
+      },
+      {
+        "id": "FG-E",
+        "units": 250,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-5",
+        "snapshot_version": 1
+      },
+      {
+        "id": "FG-F",
+        "units": 150,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-6",
+        "snapshot_version": 1
+      }
+    ],
+    "edges": [
+      {
+        "row_id": "LIN-1",
+        "source": "SUP-A",
+        "target": "FG-A",
+        "kind": "confirmed",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-d32e35342fab",
+          "block_id": "row-1",
+          "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-2",
+        "source": "SUP-A",
+        "target": "FG-B",
+        "kind": "confirmed",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-d32e35342fab",
+          "block_id": "row-2",
+          "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-3",
+        "source": "SUP-A",
+        "target": "FG-C",
+        "kind": "possible",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-d32e35342fab",
+          "block_id": "row-3",
+          "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-4",
+        "source": "SUP-B",
+        "target": "FG-C",
+        "kind": "possible",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-d32e35342fab",
+          "block_id": "row-4",
+          "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-5",
+        "source": "SUP-C",
+        "target": "FG-D",
+        "kind": "confirmed",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-d32e35342fab",
+          "block_id": "row-5",
+          "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-6",
+        "source": "SUP-D",
+        "target": "FG-E",
+        "kind": "confirmed",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-d32e35342fab",
+          "block_id": "row-6",
+          "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-7",
+        "source": "SUP-E",
+        "target": "FG-F",
+        "kind": "confirmed",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-d32e35342fab",
+          "block_id": "row-7",
+          "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      }
+    ],
+    "allocations": [
+      {
+        "row_id": "ALLOC-1",
+        "order_id": "O-101",
+        "pool_id": "FG-A",
+        "units": 240,
+        "due_date": "2026-10-19",
+        "revision": "1",
+        "status": "open"
+      },
+      {
+        "row_id": "ALLOC-2",
+        "order_id": "O-102",
+        "pool_id": "FG-B",
+        "units": 160,
+        "due_date": "2026-10-20",
+        "revision": "1",
+        "status": "open"
+      },
+      {
+        "row_id": "ALLOC-3",
+        "order_id": "O-103",
+        "pool_id": "FG-C",
+        "units": 100,
+        "due_date": "2026-10-21",
+        "revision": "1",
+        "status": "open"
+      },
+      {
+        "row_id": "ALLOC-4",
+        "order_id": "O-104",
+        "pool_id": "FG-D",
+        "units": 300,
+        "due_date": "2026-10-22",
+        "revision": "1",
+        "status": "open"
+      },
+      {
+        "row_id": "ALLOC-5",
+        "order_id": "O-105",
+        "pool_id": "FG-E",
+        "units": 250,
+        "due_date": "2026-10-23",
+        "revision": "1",
+        "status": "open"
+      },
+      {
+        "row_id": "ALLOC-6",
+        "order_id": "O-106",
+        "pool_id": "FG-F",
+        "units": 150,
+        "due_date": "2026-10-24",
+        "revision": "1",
+        "status": "open"
+      }
+    ],
+    "bounded": true,
+    "policy": {
+      "id": "CONTAIN-1",
+      "revision": 1,
+      "rule": "Hold every documented or possible on-site descendant. Never automatically release existing holds."
+    },
+    "scope": {
+      "lot_ids": [
+        "SUP-A",
+        "SUP-C"
+      ],
+      "revision": 3,
+      "qualifiers": [
+        "Identity proposals only; presence or asserted identity does not establish affected incident scope. All candidates require explicit current source and scope review."
+      ],
+      "source_document_id": "DOC-faa6424f50a7",
+      "uncertain_lot_ids": [],
+      "excluded_lot_ids": [],
+      "incident_scope_status": "resolved",
+      "resolution_evidence": {
+        "document_id": "DOC-faa6424f50a7",
+        "block_id": "line-1",
+        "quote": "Updated supplier quality notice. Affected lots: SUP-A and SUP-C. These two lots form the full affected incident boundary; no other supplier lots are affected."
+      },
+      "review_policy_version": 4,
+      "resolution_note": "Agent explicitly reviewed this fresh synthetic original and its exhaustive incident boundary; no independent human acceptance.",
+      "scope_concerns": []
+    },
+    "runs": [
+      {
+        "id": "assist-1d65fafe722901f70b278811",
+        "mode": "live",
+        "status": "succeeded",
+        "revision": 2,
+        "document_id": "DOC-7d4fa727e0ba",
+        "timestamp": "2026-10-17T22:42:12.621564+00:00",
+        "provider": "Direct Gemma / managed-amd-shared",
+        "model_id": "self-dploy/Gemma-4-31B-IT",
+        "elapsed_ms": 30739,
+        "proposal_id": "GENERATE-d45a4bfae983eb4d6cf32176",
+        "runtime_model_identity": null,
+        "scope_concerns": [],
+        "proposal_correction": null,
+        "output": {
+          "facts": [
+            {
+              "lot_id": "SUP-A",
+              "affected": false,
+              "proposal_disposition": "asserted",
+              "proposal_incident_status": "affected",
+              "evidence": [
+                {
+                  "document_id": "DOC-7d4fa727e0ba",
+                  "block_id": "line-1",
+                  "quote": "Affected lots: SUP-A",
+                  "original_hash": "6669554e6fe356a1ad34bea0341fc6e761f471b5d980d7272da25d5f03219dba",
+                  "document_revision": 2,
+                  "page": null,
+                  "location_origin": "retained local parser; no provider bounding-box claim"
+                }
+              ]
+            }
+          ],
+          "qualifiers": [
+            "Identity proposals only; presence or asserted identity does not establish affected incident scope. All candidates require explicit current source and scope review."
+          ]
+        }
+      },
+      {
+        "id": "assist-8e079bf1ebdd24a70ebda474",
+        "mode": "live",
+        "status": "succeeded",
+        "revision": 3,
+        "document_id": "DOC-faa6424f50a7",
+        "timestamp": "2026-10-17T22:42:58.667729+00:00",
+        "provider": "Evolus workflow / configured Gemma agent",
+        "model_id": null,
+        "elapsed_ms": null,
+        "proposal_id": "ASSIST-d1c7c71bcfe8b31980d2e2b8",
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "scope_concerns": [],
+        "proposal_correction": null,
+        "output": {
+          "facts": [
+            {
+              "lot_id": "SUP-A",
+              "affected": false,
+              "proposal_disposition": "asserted",
+              "proposal_incident_status": "affected",
+              "evidence": [
+                {
+                  "document_id": "DOC-faa6424f50a7",
+                  "block_id": "line-1",
+                  "quote": "Affected lots: SUP-A and SUP-C",
+                  "original_hash": "f5812ec02f9568b3c628e43f0bb09b1e1f33b9e0a4301f2aec718942d517c312",
+                  "document_revision": 3,
+                  "page": null,
+                  "location_origin": "retained local parser; no provider bounding-box claim"
+                }
+              ]
+            },
+            {
+              "lot_id": "SUP-C",
+              "affected": false,
+              "proposal_disposition": "asserted",
+              "proposal_incident_status": "affected",
+              "evidence": [
+                {
+                  "document_id": "DOC-faa6424f50a7",
+                  "block_id": "line-1",
+                  "quote": "Affected lots: SUP-A and SUP-C",
+                  "original_hash": "f5812ec02f9568b3c628e43f0bb09b1e1f33b9e0a4301f2aec718942d517c312",
+                  "document_revision": 3,
+                  "page": null,
+                  "location_origin": "retained local parser; no provider bounding-box claim"
+                }
+              ]
+            }
+          ],
+          "qualifiers": [
+            "Identity proposals only; presence or asserted identity does not establish affected incident scope. All candidates require explicit current source and scope review."
+          ]
+        }
+      }
+    ],
+    "reviews": [
+      {
+        "at": "2026-10-17T22:42:12.971024+00:00",
+        "reviewer": "Anonymous session reviewer",
+        "run_id": "assist-1d65fafe722901f70b278811",
+        "suggested_lots": [],
+        "accepted_lots": [
+          "SUP-A"
+        ],
+        "previous_lots": [],
+        "revision": 2,
+        "note": "Agent explicitly reviewed this fresh synthetic original and its exhaustive incident boundary; no independent human acceptance.",
+        "lot_corrections": {},
+        "uncertain_lot_ids": [],
+        "excluded_lot_ids": [],
+        "incident_scope_status": "resolved",
+        "resolution_evidence": {
+          "document_id": "DOC-7d4fa727e0ba",
+          "block_id": "line-1",
+          "quote": "Affected lots: SUP-A. The complete incident boundary contains only this lot; no other supplier lots are affected."
+        },
+        "review_policy_version": 4,
+        "bounded_scope_reviewed": true
+      },
+      {
+        "at": "2026-10-17T22:42:59.019780+00:00",
+        "reviewer": "Anonymous session reviewer",
+        "run_id": "assist-8e079bf1ebdd24a70ebda474",
+        "suggested_lots": [],
+        "accepted_lots": [
+          "SUP-A",
+          "SUP-C"
+        ],
+        "previous_lots": [
+          "SUP-A"
+        ],
+        "revision": 3,
+        "note": "Agent explicitly reviewed this fresh synthetic original and its exhaustive incident boundary; no independent human acceptance.",
+        "lot_corrections": {},
+        "uncertain_lot_ids": [],
+        "excluded_lot_ids": [],
+        "incident_scope_status": "resolved",
+        "resolution_evidence": {
+          "document_id": "DOC-faa6424f50a7",
+          "block_id": "line-1",
+          "quote": "Updated supplier quality notice. Affected lots: SUP-A and SUP-C. These two lots form the full affected incident boundary; no other supplier lots are affected."
+        },
+        "review_policy_version": 4,
+        "bounded_scope_reviewed": true
+      }
+    ],
+    "plans": [
+      {
+        "id": "PLAN-8f7a2510bc8f",
+        "digest": "8f7a2510bc8f6fd7e8b65f1ed1a97ede2ebd48ca2ce2f1f5c8cc82bd80cb943a",
+        "source_claims": [
+          {
+            "facts": [
+              {
+                "lot_id": "SUP-A",
+                "affected": false,
+                "proposal_disposition": "asserted",
+                "proposal_incident_status": "affected",
+                "evidence": [
+                  {
+                    "document_id": "DOC-7d4fa727e0ba",
+                    "block_id": "line-1",
+                    "quote": "Affected lots: SUP-A",
+                    "original_hash": "6669554e6fe356a1ad34bea0341fc6e761f471b5d980d7272da25d5f03219dba",
+                    "document_revision": 2,
+                    "page": null,
+                    "location_origin": "retained local parser; no provider bounding-box claim"
+                  }
+                ]
+              }
+            ],
+            "qualifiers": [
+              "Identity proposals only; presence or asserted identity does not establish affected incident scope. All candidates require explicit current source and scope review."
+            ]
+          }
+        ],
+        "status": "applied",
+        "revision": 2,
+        "inventory_version": 1,
+        "actions": [
+          {
+            "type": "hold",
+            "pool_id": "FG-A"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-B"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-C"
+          }
+        ],
+        "result": {
+          "rows": [
+            {
+              "id": "FG-A",
+              "units": 240,
+              "unit_cents": 4000,
+              "status": "available",
+              "complete": true,
+              "site": "NORTH-01",
+              "product_family": "Decorative housing",
+              "row_id": "INV-1",
+              "snapshot_version": 1,
+              "classification": "documented",
+              "reason": "Confirmed ancestry reaches a reviewed affected lot.",
+              "path": [
+                "SUP-A",
+                "FG-A"
+              ],
+              "evidence": [
+                {
+                  "document_id": "DOC-d32e35342fab",
+                  "block_id": "row-1",
+                  "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
+                }
+              ]
+            },
+            {
+              "id": "FG-B",
+              "units": 160,
+              "unit_cents": 4000,
+              "status": "available",
+              "complete": true,
+              "site": "NORTH-01",
+              "product_family": "Decorative housing",
+              "row_id": "INV-2",
+              "snapshot_version": 1,
+              "classification": "documented",
+              "reason": "Confirmed ancestry reaches a reviewed affected lot.",
+              "path": [
+                "SUP-A",
+                "FG-B"
+              ],
+              "evidence": [
+                {
+                  "document_id": "DOC-d32e35342fab",
+                  "block_id": "row-2",
+                  "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
+                }
+              ]
+            },
+            {
+              "id": "FG-C",
+              "units": 100,
+              "unit_cents": 4000,
+              "status": "available",
+              "complete": false,
+              "site": "NORTH-01",
+              "product_family": "Decorative housing",
+              "row_id": "INV-3",
+              "snapshot_version": 1,
+              "classification": "uncertain",
+              "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+              "path": [
+                "SUP-A",
+                "FG-C"
+              ],
+              "evidence": [
+                {
+                  "document_id": "DOC-d32e35342fab",
+                  "block_id": "row-3",
+                  "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
+                }
+              ]
+            },
+            {
+              "id": "FG-D",
+              "units": 300,
+              "unit_cents": 4000,
+              "status": "available",
+              "complete": true,
+              "site": "NORTH-01",
+              "product_family": "Decorative housing",
+              "row_id": "INV-4",
+              "snapshot_version": 1,
+              "classification": "outside",
+              "reason": "Reviewed complete ancestry has no affected-lot path within the declared incident universe.",
+              "path": [
+                "SUP-C",
+                "FG-D"
+              ],
+              "evidence": [
+                {
+                  "document_id": "DOC-d32e35342fab",
+                  "block_id": "row-5",
+                  "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
+                }
+              ]
+            },
+            {
+              "id": "FG-E",
+              "units": 250,
+              "unit_cents": 4000,
+              "status": "available",
+              "complete": true,
+              "site": "NORTH-01",
+              "product_family": "Decorative housing",
+              "row_id": "INV-5",
+              "snapshot_version": 1,
+              "classification": "outside",
+              "reason": "Reviewed complete ancestry has no affected-lot path within the declared incident universe.",
+              "path": [
+                "SUP-D",
+                "FG-E"
+              ],
+              "evidence": [
+                {
+                  "document_id": "DOC-d32e35342fab",
+                  "block_id": "row-6",
+                  "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
+                }
+              ]
+            },
+            {
+              "id": "FG-F",
+              "units": 150,
+              "unit_cents": 4000,
+              "status": "available",
+              "complete": true,
+              "site": "NORTH-01",
+              "product_family": "Decorative housing",
+              "row_id": "INV-6",
+              "snapshot_version": 1,
+              "classification": "outside",
+              "reason": "Reviewed complete ancestry has no affected-lot path within the declared incident universe.",
+              "path": [
+                "SUP-E",
+                "FG-F"
+              ],
+              "evidence": [
+                {
+                  "document_id": "DOC-d32e35342fab",
+                  "block_id": "row-7",
+                  "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
+                }
+              ]
+            }
+          ],
+          "node_states": {
+            "SUP-B": "outside",
+            "SUP-E": "outside",
+            "FG-F": "outside",
+            "SUP-A": "documented",
+            "FG-C": "uncertain",
+            "FG-A": "documented",
+            "FG-E": "outside",
+            "SUP-C": "outside",
+            "SUP-D": "outside",
+            "FG-D": "outside",
+            "FG-B": "documented"
+          },
+          "documented_units": 400,
+          "uncertain_units": 100,
+          "hold_units": 500,
+          "outside_units": 700,
+          "broad_units": 1200,
+          "hold_cents": 2000000,
+          "broad_cents": 4800000,
+          "excluded_cents": 2800000,
+          "reduction_percent": 58.3,
+          "actions": [
+            {
+              "type": "hold",
+              "pool_id": "FG-A"
+            },
+            {
+              "type": "hold",
+              "pool_id": "FG-B"
+            },
+            {
+              "type": "hold",
+              "pool_id": "FG-C"
+            }
+          ],
+          "requests": [
+            {
+              "id": "CAUSE-833fd0e271edaf",
+              "kind": "possible_ancestry",
+              "pool_ids": [
+                "FG-C"
+              ],
+              "units": 100,
+              "value_cents": 400000,
+              "missing": "Receiving identity for FG-C",
+              "reason": "Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. The completeness manifest also needs confirmation.",
+              "evidence": [
+                {
+                  "document_id": "DOC-d32e35342fab",
+                  "block_id": "row-3",
+                  "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
+                },
+                {
+                  "document_id": "DOC-d32e35342fab",
+                  "block_id": "row-4",
+                  "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
+                }
+              ],
+              "suggested_role": "Receiving records owner",
+              "review_existing_first": false,
+              "global": false,
+              "earliest_order_due": "2026-10-21",
+              "hypotheses": [
+                {
+                  "kind": "identity",
+                  "pool_id": "FG-C",
+                  "supplier_lot_id": "SUP-A",
+                  "complete": true
+                },
+                {
+                  "kind": "identity",
+                  "pool_id": "FG-C",
+                  "supplier_lot_id": "SUP-B",
+                  "complete": true
+                },
+                {
+                  "kind": "inconclusive"
+                }
+              ],
+              "impact_note": "Conditional scenarios; overlapping question impacts are not additive.",
+              "draft": "Please clarify receiving identity for fg-c for FG-C (100 unique units). Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. Provide original record IDs, exact lot identities and document revision; state whether the record is complete or inconclusive. This request does not authorize release.",
+              "causes": [
+                {
+                  "id": "CAUSE-833fd0e271edaf",
+                  "kind": "possible_ancestry"
+                },
+                {
+                  "id": "CAUSE-6f43abb4abadd3",
+                  "kind": "incomplete_ancestry"
+                }
+              ],
+              "decision_change_units": 100,
+              "sort_reason": "Conditional change up to 100 proposed units; decision-changing questions first, then earliest affected order, then inventory carrying value."
+            }
+          ],
+          "request_unique_units": 100,
+          "request_unique_cents": 400000,
+          "orders": [
+            {
+              "order_id": "O-101",
+              "due_date": "2026-10-19",
+              "pool_ids": [
+                "FG-A"
+              ],
+              "units": 240,
+              "reason": "Allocated stock intersects exposure; needs review.",
+              "source_rows": [
+                "ALLOC-1"
+              ]
+            },
+            {
+              "order_id": "O-102",
+              "due_date": "2026-10-20",
+              "pool_ids": [
+                "FG-B"
+              ],
+              "units": 160,
+              "reason": "Allocated stock intersects exposure; needs review.",
+              "source_rows": [
+                "ALLOC-2"
+              ]
+            },
+            {
+              "order_id": "O-103",
+              "due_date": "2026-10-21",
+              "pool_ids": [
+                "FG-C"
+              ],
+              "units": 100,
+              "reason": "Allocated stock intersects exposure; needs review.",
+              "source_rows": [
+                "ALLOC-3"
+              ]
+            }
+          ],
+          "shipment_reviews": [],
+          "narrowing_available": true
+        },
+        "inputs": {
+          "incident_id": "00964a734d804031bccbbfec8971b9d6",
+          "review_policy_version": 4,
+          "evidence_revision": 2,
+          "inventory_version": 1,
+          "documents": [
+            [
+              "DOC-048fd144ad52",
+              1,
+              "90e479db7ca8b4150669e066ecd3f574db0a4c2033e6faec68057b8f224f5bbf",
+              "90e479db7ca8b4150669e066ecd3f574db0a4c2033e6faec68057b8f224f5bbf"
+            ],
+            [
+              "DOC-189da2a086a0",
+              1,
+              "1ec49184b6cb1b3c673dc7c681b088f11525e4c9a9a412b36fb1a6d7f7396285",
+              "1ec49184b6cb1b3c673dc7c681b088f11525e4c9a9a412b36fb1a6d7f7396285"
+            ],
+            [
+              "DOC-47dafc6e4359",
+              1,
+              "53ff955a582af488fc3eb049dc64b62140cb28d3d8b283c8c0728b801837dd74",
+              "53ff955a582af488fc3eb049dc64b62140cb28d3d8b283c8c0728b801837dd74"
+            ],
+            [
+              "DOC-7d4fa727e0ba",
+              2,
+              "6669554e6fe356a1ad34bea0341fc6e761f471b5d980d7272da25d5f03219dba",
+              "6669554e6fe356a1ad34bea0341fc6e761f471b5d980d7272da25d5f03219dba"
+            ],
+            [
+              "DOC-87a3a6691f80",
+              1,
+              "111e8cb436255ca15cba1d977b5048994d08f9f77545a6451e6479faec10b54f",
+              "111e8cb436255ca15cba1d977b5048994d08f9f77545a6451e6479faec10b54f"
+            ],
+            [
+              "DOC-d32e35342fab",
+              1,
+              "9c45f724f98de208787f30e855a699a18f3e317441cf439cbc728f72f2f492b7",
+              "9c45f724f98de208787f30e855a699a18f3e317441cf439cbc728f72f2f492b7"
+            ],
+            [
+              "DOC-d63955393e0d",
+              1,
+              "387d0938e077d4cb613a64aa5bff1b300a4f40eec7e36ce642cae0d327cdfa00",
+              "387d0938e077d4cb613a64aa5bff1b300a4f40eec7e36ce642cae0d327cdfa00"
+            ],
+            [
+              "DOC-db232f9bd9d5",
+              1,
+              "f7d85f1a0195d6e8b2ed7d8cf8b253e8b49135914a01eaef21e3b0a3dcd39d2f",
+              "f7d85f1a0195d6e8b2ed7d8cf8b253e8b49135914a01eaef21e3b0a3dcd39d2f"
+            ],
+            [
+              "DOC-dbd50d48df38",
+              1,
+              "3cbb17d4b5cf545d340c059fe2a5576c40e3a05db0bd9a99a59bcb5d23aeba00",
+              "3cbb17d4b5cf545d340c059fe2a5576c40e3a05db0bd9a99a59bcb5d23aeba00"
+            ],
+            [
+              "DOC-fc192fb414f3",
+              1,
+              "9f26dfea42ceef6cfd9501566e23ba64ca8176b77f8fd12a9bf702178bc900d3",
+              "9f26dfea42ceef6cfd9501566e23ba64ca8176b77f8fd12a9bf702178bc900d3"
+            ]
+          ],
+          "reviewed_scope": {
+            "lot_ids": [
+              "SUP-A"
+            ],
+            "revision": 2,
+            "qualifiers": [
+              "Identity proposals only; presence or asserted identity does not establish affected incident scope. All candidates require explicit current source and scope review."
+            ],
+            "source_document_id": "DOC-7d4fa727e0ba",
+            "uncertain_lot_ids": [],
+            "excluded_lot_ids": [],
+            "incident_scope_status": "resolved",
+            "resolution_evidence": {
+              "document_id": "DOC-7d4fa727e0ba",
+              "block_id": "line-1",
+              "quote": "Affected lots: SUP-A. The complete incident boundary contains only this lot; no other supplier lots are affected."
+            },
+            "review_policy_version": 4,
+            "resolution_note": "Agent explicitly reviewed this fresh synthetic original and its exhaustive incident boundary; no independent human acceptance.",
+            "scope_concerns": []
+          },
+          "stocks": [
+            {
+              "id": "FG-A",
+              "units": 240,
+              "unit_cents": 4000,
+              "status": "available",
+              "complete": true,
+              "site": "NORTH-01",
+              "product_family": "Decorative housing",
+              "row_id": "INV-1",
+              "snapshot_version": 1
+            },
+            {
+              "id": "FG-B",
+              "units": 160,
+              "unit_cents": 4000,
+              "status": "available",
+              "complete": true,
+              "site": "NORTH-01",
+              "product_family": "Decorative housing",
+              "row_id": "INV-2",
+              "snapshot_version": 1
+            },
+            {
+              "id": "FG-C",
+              "units": 100,
+              "unit_cents": 4000,
+              "status": "available",
+              "complete": false,
+              "site": "NORTH-01",
+              "product_family": "Decorative housing",
+              "row_id": "INV-3",
+              "snapshot_version": 1
+            },
+            {
+              "id": "FG-D",
+              "units": 300,
+              "unit_cents": 4000,
+              "status": "available",
+              "complete": true,
+              "site": "NORTH-01",
+              "product_family": "Decorative housing",
+              "row_id": "INV-4",
+              "snapshot_version": 1
+            },
+            {
+              "id": "FG-E",
+              "units": 250,
+              "unit_cents": 4000,
+              "status": "available",
+              "complete": true,
+              "site": "NORTH-01",
+              "product_family": "Decorative housing",
+              "row_id": "INV-5",
+              "snapshot_version": 1
+            },
+            {
+              "id": "FG-F",
+              "units": 150,
+              "unit_cents": 4000,
+              "status": "available",
+              "complete": true,
+              "site": "NORTH-01",
+              "product_family": "Decorative housing",
+              "row_id": "INV-6",
+              "snapshot_version": 1
+            }
+          ],
+          "lineage": [
+            {
+              "row_id": "LIN-1",
+              "source": "SUP-A",
+              "target": "FG-A",
+              "kind": "confirmed",
+              "revision": "1",
+              "timestamp": "2026-10-15T12:00:00Z",
+              "evidence": {
+                "document_id": "DOC-d32e35342fab",
+                "block_id": "row-1",
+                "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            },
+            {
+              "row_id": "LIN-2",
+              "source": "SUP-A",
+              "target": "FG-B",
+              "kind": "confirmed",
+              "revision": "1",
+              "timestamp": "2026-10-15T12:00:00Z",
+              "evidence": {
+                "document_id": "DOC-d32e35342fab",
+                "block_id": "row-2",
+                "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            },
+            {
+              "row_id": "LIN-3",
+              "source": "SUP-A",
+              "target": "FG-C",
+              "kind": "possible",
+              "revision": "1",
+              "timestamp": "2026-10-15T12:00:00Z",
+              "evidence": {
+                "document_id": "DOC-d32e35342fab",
+                "block_id": "row-3",
+                "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
+              }
+            },
+            {
+              "row_id": "LIN-4",
+              "source": "SUP-B",
+              "target": "FG-C",
+              "kind": "possible",
+              "revision": "1",
+              "timestamp": "2026-10-15T12:00:00Z",
+              "evidence": {
+                "document_id": "DOC-d32e35342fab",
+                "block_id": "row-4",
+                "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
+              }
+            },
+            {
+              "row_id": "LIN-5",
+              "source": "SUP-C",
+              "target": "FG-D",
+              "kind": "confirmed",
+              "revision": "1",
+              "timestamp": "2026-10-15T12:00:00Z",
+              "evidence": {
+                "document_id": "DOC-d32e35342fab",
+                "block_id": "row-5",
+                "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            },
+            {
+              "row_id": "LIN-6",
+              "source": "SUP-D",
+              "target": "FG-E",
+              "kind": "confirmed",
+              "revision": "1",
+              "timestamp": "2026-10-15T12:00:00Z",
+              "evidence": {
+                "document_id": "DOC-d32e35342fab",
+                "block_id": "row-6",
+                "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            },
+            {
+              "row_id": "LIN-7",
+              "source": "SUP-E",
+              "target": "FG-F",
+              "kind": "confirmed",
+              "revision": "1",
+              "timestamp": "2026-10-15T12:00:00Z",
+              "evidence": {
+                "document_id": "DOC-d32e35342fab",
+                "block_id": "row-7",
+                "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            }
+          ],
+          "allocations": [
+            {
+              "row_id": "ALLOC-1",
+              "order_id": "O-101",
+              "pool_id": "FG-A",
+              "units": 240,
+              "due_date": "2026-10-19",
+              "revision": "1",
+              "status": "open"
+            },
+            {
+              "row_id": "ALLOC-2",
+              "order_id": "O-102",
+              "pool_id": "FG-B",
+              "units": 160,
+              "due_date": "2026-10-20",
+              "revision": "1",
+              "status": "open"
+            },
+            {
+              "row_id": "ALLOC-3",
+              "order_id": "O-103",
+              "pool_id": "FG-C",
+              "units": 100,
+              "due_date": "2026-10-21",
+              "revision": "1",
+              "status": "open"
+            },
+            {
+              "row_id": "ALLOC-4",
+              "order_id": "O-104",
+              "pool_id": "FG-D",
+              "units": 300,
+              "due_date": "2026-10-22",
+              "revision": "1",
+              "status": "open"
+            },
+            {
+              "row_id": "ALLOC-5",
+              "order_id": "O-105",
+              "pool_id": "FG-E",
+              "units": 250,
+              "due_date": "2026-10-23",
+              "revision": "1",
+              "status": "open"
+            },
+            {
+              "row_id": "ALLOC-6",
+              "order_id": "O-106",
+              "pool_id": "FG-F",
+              "units": 150,
+              "due_date": "2026-10-24",
+              "revision": "1",
+              "status": "open"
+            }
+          ],
+          "policy": {
+            "id": "CONTAIN-1",
+            "revision": 1,
+            "rule": "Hold every documented or possible on-site descendant. Never automatically release existing holds."
+          },
+          "bounded": true,
+          "actions": [
+            {
+              "type": "hold",
+              "pool_id": "FG-A"
+            },
+            {
+              "type": "hold",
+              "pool_id": "FG-B"
+            },
+            {
+              "type": "hold",
+              "pool_id": "FG-C"
+            }
+          ]
+        },
+        "approval": {
+          "at": "2026-10-17T22:42:13.748117+00:00",
+          "reviewer": "Anonymous session reviewer",
+          "digest": "8f7a2510bc8f6fd7e8b65f1ed1a97ede2ebd48ca2ce2f1f5c8cc82bd80cb943a",
+          "plan_id": "PLAN-8f7a2510bc8f",
+          "authorization": null
+        }
+      }
+    ],
+    "plan": {
+      "id": "PLAN-30e12e24fc74",
+      "digest": "30e12e24fc747837cc0fd9fb520e547b6b7d42fbcbeac365e65b3b7d9cdae97f",
+      "source_claims": [
+        {
+          "facts": [
+            {
+              "lot_id": "SUP-A",
+              "affected": false,
+              "proposal_disposition": "asserted",
+              "proposal_incident_status": "affected",
+              "evidence": [
+                {
+                  "document_id": "DOC-faa6424f50a7",
+                  "block_id": "line-1",
+                  "quote": "Affected lots: SUP-A and SUP-C",
+                  "original_hash": "f5812ec02f9568b3c628e43f0bb09b1e1f33b9e0a4301f2aec718942d517c312",
+                  "document_revision": 3,
+                  "page": null,
+                  "location_origin": "retained local parser; no provider bounding-box claim"
+                }
+              ]
+            },
+            {
+              "lot_id": "SUP-C",
+              "affected": false,
+              "proposal_disposition": "asserted",
+              "proposal_incident_status": "affected",
+              "evidence": [
+                {
+                  "document_id": "DOC-faa6424f50a7",
+                  "block_id": "line-1",
+                  "quote": "Affected lots: SUP-A and SUP-C",
+                  "original_hash": "f5812ec02f9568b3c628e43f0bb09b1e1f33b9e0a4301f2aec718942d517c312",
+                  "document_revision": 3,
+                  "page": null,
+                  "location_origin": "retained local parser; no provider bounding-box claim"
+                }
+              ]
+            }
+          ],
+          "qualifiers": [
+            "Identity proposals only; presence or asserted identity does not establish affected incident scope. All candidates require explicit current source and scope review."
+          ]
+        }
+      ],
+      "status": "applied",
+      "revision": 3,
+      "inventory_version": 2,
+      "actions": [
+        {
+          "type": "hold",
+          "pool_id": "FG-A"
+        },
+        {
+          "type": "hold",
+          "pool_id": "FG-B"
+        },
+        {
+          "type": "hold",
+          "pool_id": "FG-C"
+        },
+        {
+          "type": "hold",
+          "pool_id": "FG-D"
+        }
+      ],
+      "result": {
+        "rows": [
+          {
+            "id": "FG-A",
+            "units": 240,
+            "unit_cents": 4000,
+            "status": "held",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-1",
+            "snapshot_version": 1,
+            "classification": "documented",
+            "reason": "Confirmed ancestry reaches a reviewed affected lot.",
+            "path": [
+              "SUP-A",
+              "FG-A"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-d32e35342fab",
+                "block_id": "row-1",
+                "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-B",
+            "units": 160,
+            "unit_cents": 4000,
+            "status": "held",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-2",
+            "snapshot_version": 1,
+            "classification": "documented",
+            "reason": "Confirmed ancestry reaches a reviewed affected lot.",
+            "path": [
+              "SUP-A",
+              "FG-B"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-d32e35342fab",
+                "block_id": "row-2",
+                "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-C",
+            "units": 100,
+            "unit_cents": 4000,
+            "status": "held",
+            "complete": false,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-3",
+            "snapshot_version": 1,
+            "classification": "uncertain",
+            "reason": "Unresolved incident involvement or possible ancestry. This stock remains uncertain and in the hold.",
+            "path": [
+              "SUP-A",
+              "FG-C"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-d32e35342fab",
+                "block_id": "row-3",
+                "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-D",
+            "units": 300,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-4",
+            "snapshot_version": 1,
+            "classification": "documented",
+            "reason": "Confirmed ancestry reaches a reviewed affected lot.",
+            "path": [
+              "SUP-C",
+              "FG-D"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-d32e35342fab",
+                "block_id": "row-5",
+                "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-E",
+            "units": 250,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-5",
+            "snapshot_version": 1,
+            "classification": "outside",
+            "reason": "Reviewed complete ancestry has no affected-lot path within the declared incident universe.",
+            "path": [
+              "SUP-D",
+              "FG-E"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-d32e35342fab",
+                "block_id": "row-6",
+                "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "FG-F",
+            "units": 150,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-6",
+            "snapshot_version": 1,
+            "classification": "outside",
+            "reason": "Reviewed complete ancestry has no affected-lot path within the declared incident universe.",
+            "path": [
+              "SUP-E",
+              "FG-F"
+            ],
+            "evidence": [
+              {
+                "document_id": "DOC-d32e35342fab",
+                "block_id": "row-7",
+                "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
+              }
+            ]
+          }
+        ],
+        "node_states": {
+          "SUP-B": "outside",
+          "SUP-E": "outside",
+          "FG-F": "outside",
+          "SUP-A": "documented",
+          "FG-C": "uncertain",
+          "FG-A": "documented",
+          "FG-E": "outside",
+          "SUP-C": "documented",
+          "SUP-D": "outside",
+          "FG-D": "documented",
+          "FG-B": "documented"
+        },
+        "documented_units": 700,
+        "uncertain_units": 100,
+        "hold_units": 800,
+        "outside_units": 400,
+        "broad_units": 1200,
+        "hold_cents": 3200000,
+        "broad_cents": 4800000,
+        "excluded_cents": 1600000,
+        "reduction_percent": 33.3,
+        "actions": [
+          {
+            "type": "hold",
+            "pool_id": "FG-A"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-B"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-C"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-D"
+          }
+        ],
+        "requests": [
+          {
+            "id": "CAUSE-833fd0e271edaf",
+            "kind": "possible_ancestry",
+            "pool_ids": [
+              "FG-C"
+            ],
+            "units": 100,
+            "value_cents": 400000,
+            "missing": "Receiving identity for FG-C",
+            "reason": "Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. The completeness manifest also needs confirmation.",
+            "evidence": [
+              {
+                "document_id": "DOC-d32e35342fab",
+                "block_id": "row-3",
+                "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
+              },
+              {
+                "document_id": "DOC-d32e35342fab",
+                "block_id": "row-4",
+                "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
+              }
+            ],
+            "suggested_role": "Receiving records owner",
+            "review_existing_first": false,
+            "global": false,
+            "earliest_order_due": "2026-10-21",
+            "hypotheses": [
+              {
+                "kind": "identity",
+                "pool_id": "FG-C",
+                "supplier_lot_id": "SUP-A",
+                "complete": true
+              },
+              {
+                "kind": "identity",
+                "pool_id": "FG-C",
+                "supplier_lot_id": "SUP-B",
+                "complete": true
+              },
+              {
+                "kind": "inconclusive"
+              }
+            ],
+            "impact_note": "Conditional scenarios; overlapping question impacts are not additive.",
+            "draft": "Please clarify receiving identity for fg-c for FG-C (100 unique units). Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. Provide original record IDs, exact lot identities and document revision; state whether the record is complete or inconclusive. This request does not authorize release.",
+            "causes": [
+              {
+                "id": "CAUSE-833fd0e271edaf",
+                "kind": "possible_ancestry"
+              },
+              {
+                "id": "CAUSE-6f43abb4abadd3",
+                "kind": "incomplete_ancestry"
+              }
+            ],
+            "decision_change_units": 100,
+            "sort_reason": "Conditional change up to 100 proposed units; decision-changing questions first, then earliest affected order, then inventory carrying value."
+          }
+        ],
+        "request_unique_units": 100,
+        "request_unique_cents": 400000,
+        "orders": [
+          {
+            "order_id": "O-101",
+            "due_date": "2026-10-19",
+            "pool_ids": [
+              "FG-A"
+            ],
+            "units": 240,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-1"
+            ]
+          },
+          {
+            "order_id": "O-102",
+            "due_date": "2026-10-20",
+            "pool_ids": [
+              "FG-B"
+            ],
+            "units": 160,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-2"
+            ]
+          },
+          {
+            "order_id": "O-103",
+            "due_date": "2026-10-21",
+            "pool_ids": [
+              "FG-C"
+            ],
+            "units": 100,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-3"
+            ]
+          },
+          {
+            "order_id": "O-104",
+            "due_date": "2026-10-22",
+            "pool_ids": [
+              "FG-D"
+            ],
+            "units": 300,
+            "reason": "Allocated stock intersects exposure; needs review.",
+            "source_rows": [
+              "ALLOC-4"
+            ]
+          }
+        ],
+        "shipment_reviews": [],
+        "narrowing_available": true
+      },
+      "inputs": {
+        "incident_id": "00964a734d804031bccbbfec8971b9d6",
+        "review_policy_version": 4,
+        "evidence_revision": 3,
+        "inventory_version": 2,
+        "documents": [
+          [
+            "DOC-048fd144ad52",
+            1,
+            "90e479db7ca8b4150669e066ecd3f574db0a4c2033e6faec68057b8f224f5bbf",
+            "90e479db7ca8b4150669e066ecd3f574db0a4c2033e6faec68057b8f224f5bbf"
+          ],
+          [
+            "DOC-189da2a086a0",
+            1,
+            "1ec49184b6cb1b3c673dc7c681b088f11525e4c9a9a412b36fb1a6d7f7396285",
+            "1ec49184b6cb1b3c673dc7c681b088f11525e4c9a9a412b36fb1a6d7f7396285"
+          ],
+          [
+            "DOC-47dafc6e4359",
+            1,
+            "53ff955a582af488fc3eb049dc64b62140cb28d3d8b283c8c0728b801837dd74",
+            "53ff955a582af488fc3eb049dc64b62140cb28d3d8b283c8c0728b801837dd74"
+          ],
+          [
+            "DOC-7d4fa727e0ba",
+            2,
+            "6669554e6fe356a1ad34bea0341fc6e761f471b5d980d7272da25d5f03219dba",
+            "6669554e6fe356a1ad34bea0341fc6e761f471b5d980d7272da25d5f03219dba"
+          ],
+          [
+            "DOC-87a3a6691f80",
+            1,
+            "111e8cb436255ca15cba1d977b5048994d08f9f77545a6451e6479faec10b54f",
+            "111e8cb436255ca15cba1d977b5048994d08f9f77545a6451e6479faec10b54f"
+          ],
+          [
+            "DOC-d32e35342fab",
+            1,
+            "9c45f724f98de208787f30e855a699a18f3e317441cf439cbc728f72f2f492b7",
+            "9c45f724f98de208787f30e855a699a18f3e317441cf439cbc728f72f2f492b7"
+          ],
+          [
+            "DOC-d63955393e0d",
+            1,
+            "387d0938e077d4cb613a64aa5bff1b300a4f40eec7e36ce642cae0d327cdfa00",
+            "387d0938e077d4cb613a64aa5bff1b300a4f40eec7e36ce642cae0d327cdfa00"
+          ],
+          [
+            "DOC-db232f9bd9d5",
+            1,
+            "f7d85f1a0195d6e8b2ed7d8cf8b253e8b49135914a01eaef21e3b0a3dcd39d2f",
+            "f7d85f1a0195d6e8b2ed7d8cf8b253e8b49135914a01eaef21e3b0a3dcd39d2f"
+          ],
+          [
+            "DOC-dbd50d48df38",
+            1,
+            "3cbb17d4b5cf545d340c059fe2a5576c40e3a05db0bd9a99a59bcb5d23aeba00",
+            "3cbb17d4b5cf545d340c059fe2a5576c40e3a05db0bd9a99a59bcb5d23aeba00"
+          ],
+          [
+            "DOC-faa6424f50a7",
+            3,
+            "f5812ec02f9568b3c628e43f0bb09b1e1f33b9e0a4301f2aec718942d517c312",
+            "f5812ec02f9568b3c628e43f0bb09b1e1f33b9e0a4301f2aec718942d517c312"
+          ],
+          [
+            "DOC-fc192fb414f3",
+            1,
+            "9f26dfea42ceef6cfd9501566e23ba64ca8176b77f8fd12a9bf702178bc900d3",
+            "9f26dfea42ceef6cfd9501566e23ba64ca8176b77f8fd12a9bf702178bc900d3"
+          ]
+        ],
+        "reviewed_scope": {
+          "lot_ids": [
+            "SUP-A",
+            "SUP-C"
+          ],
+          "revision": 3,
+          "qualifiers": [
+            "Identity proposals only; presence or asserted identity does not establish affected incident scope. All candidates require explicit current source and scope review."
+          ],
+          "source_document_id": "DOC-faa6424f50a7",
+          "uncertain_lot_ids": [],
+          "excluded_lot_ids": [],
+          "incident_scope_status": "resolved",
+          "resolution_evidence": {
+            "document_id": "DOC-faa6424f50a7",
+            "block_id": "line-1",
+            "quote": "Updated supplier quality notice. Affected lots: SUP-A and SUP-C. These two lots form the full affected incident boundary; no other supplier lots are affected."
+          },
+          "review_policy_version": 4,
+          "resolution_note": "Agent explicitly reviewed this fresh synthetic original and its exhaustive incident boundary; no independent human acceptance.",
+          "scope_concerns": []
+        },
+        "stocks": [
+          {
+            "id": "FG-A",
+            "units": 240,
+            "unit_cents": 4000,
+            "status": "held",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-1",
+            "snapshot_version": 1
+          },
+          {
+            "id": "FG-B",
+            "units": 160,
+            "unit_cents": 4000,
+            "status": "held",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-2",
+            "snapshot_version": 1
+          },
+          {
+            "id": "FG-C",
+            "units": 100,
+            "unit_cents": 4000,
+            "status": "held",
+            "complete": false,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-3",
+            "snapshot_version": 1
+          },
+          {
+            "id": "FG-D",
+            "units": 300,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-4",
+            "snapshot_version": 1
+          },
+          {
+            "id": "FG-E",
+            "units": 250,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-5",
+            "snapshot_version": 1
+          },
+          {
+            "id": "FG-F",
+            "units": 150,
+            "unit_cents": 4000,
+            "status": "available",
+            "complete": true,
+            "site": "NORTH-01",
+            "product_family": "Decorative housing",
+            "row_id": "INV-6",
+            "snapshot_version": 1
+          }
+        ],
+        "lineage": [
+          {
+            "row_id": "LIN-1",
+            "source": "SUP-A",
+            "target": "FG-A",
+            "kind": "confirmed",
+            "revision": "1",
+            "timestamp": "2026-10-15T12:00:00Z",
+            "evidence": {
+              "document_id": "DOC-d32e35342fab",
+              "block_id": "row-1",
+              "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
+            }
+          },
+          {
+            "row_id": "LIN-2",
+            "source": "SUP-A",
+            "target": "FG-B",
+            "kind": "confirmed",
+            "revision": "1",
+            "timestamp": "2026-10-15T12:00:00Z",
+            "evidence": {
+              "document_id": "DOC-d32e35342fab",
+              "block_id": "row-2",
+              "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
+            }
+          },
+          {
+            "row_id": "LIN-3",
+            "source": "SUP-A",
+            "target": "FG-C",
+            "kind": "possible",
+            "revision": "1",
+            "timestamp": "2026-10-15T12:00:00Z",
+            "evidence": {
+              "document_id": "DOC-d32e35342fab",
+              "block_id": "row-3",
+              "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
+            }
+          },
+          {
+            "row_id": "LIN-4",
+            "source": "SUP-B",
+            "target": "FG-C",
+            "kind": "possible",
+            "revision": "1",
+            "timestamp": "2026-10-15T12:00:00Z",
+            "evidence": {
+              "document_id": "DOC-d32e35342fab",
+              "block_id": "row-4",
+              "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
+            }
+          },
+          {
+            "row_id": "LIN-5",
+            "source": "SUP-C",
+            "target": "FG-D",
+            "kind": "confirmed",
+            "revision": "1",
+            "timestamp": "2026-10-15T12:00:00Z",
+            "evidence": {
+              "document_id": "DOC-d32e35342fab",
+              "block_id": "row-5",
+              "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
+            }
+          },
+          {
+            "row_id": "LIN-6",
+            "source": "SUP-D",
+            "target": "FG-E",
+            "kind": "confirmed",
+            "revision": "1",
+            "timestamp": "2026-10-15T12:00:00Z",
+            "evidence": {
+              "document_id": "DOC-d32e35342fab",
+              "block_id": "row-6",
+              "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
+            }
+          },
+          {
+            "row_id": "LIN-7",
+            "source": "SUP-E",
+            "target": "FG-F",
+            "kind": "confirmed",
+            "revision": "1",
+            "timestamp": "2026-10-15T12:00:00Z",
+            "evidence": {
+              "document_id": "DOC-d32e35342fab",
+              "block_id": "row-7",
+              "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
+            }
+          }
+        ],
+        "allocations": [
+          {
+            "row_id": "ALLOC-1",
+            "order_id": "O-101",
+            "pool_id": "FG-A",
+            "units": 240,
+            "due_date": "2026-10-19",
+            "revision": "1",
+            "status": "open"
+          },
+          {
+            "row_id": "ALLOC-2",
+            "order_id": "O-102",
+            "pool_id": "FG-B",
+            "units": 160,
+            "due_date": "2026-10-20",
+            "revision": "1",
+            "status": "open"
+          },
+          {
+            "row_id": "ALLOC-3",
+            "order_id": "O-103",
+            "pool_id": "FG-C",
+            "units": 100,
+            "due_date": "2026-10-21",
+            "revision": "1",
+            "status": "open"
+          },
+          {
+            "row_id": "ALLOC-4",
+            "order_id": "O-104",
+            "pool_id": "FG-D",
+            "units": 300,
+            "due_date": "2026-10-22",
+            "revision": "1",
+            "status": "open"
+          },
+          {
+            "row_id": "ALLOC-5",
+            "order_id": "O-105",
+            "pool_id": "FG-E",
+            "units": 250,
+            "due_date": "2026-10-23",
+            "revision": "1",
+            "status": "open"
+          },
+          {
+            "row_id": "ALLOC-6",
+            "order_id": "O-106",
+            "pool_id": "FG-F",
+            "units": 150,
+            "due_date": "2026-10-24",
+            "revision": "1",
+            "status": "open"
+          }
+        ],
+        "policy": {
+          "id": "CONTAIN-1",
+          "revision": 1,
+          "rule": "Hold every documented or possible on-site descendant. Never automatically release existing holds."
+        },
+        "bounded": true,
+        "actions": [
+          {
+            "type": "hold",
+            "pool_id": "FG-A"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-B"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-C"
+          },
+          {
+            "type": "hold",
+            "pool_id": "FG-D"
+          }
+        ]
+      },
+      "approval": {
+        "at": "2026-10-17T22:42:59.487545+00:00",
+        "reviewer": "Anonymous session reviewer",
+        "digest": "30e12e24fc747837cc0fd9fb520e547b6b7d42fbcbeac365e65b3b7d9cdae97f",
+        "plan_id": "PLAN-30e12e24fc74",
+        "authorization": null
+      }
+    },
+    "history": [
+      {
+        "at": "2026-10-17T22:39:56.719990+00:00",
+        "type": "evidence_changed",
+        "message": "New source: final-web-ready-first-027b178f.txt. Re-extract and review current evidence.",
+        "revision": 2
+      },
+      {
+        "at": "2026-10-17T22:42:12.976323+00:00",
+        "type": "reviewed",
+        "revision": 2,
+        "previous_lots": [],
+        "lot_ids": [
+          "SUP-A"
+        ],
+        "old_units": null,
+        "suggested_lots": [],
+        "new_units": 500,
+        "message": "Critical scope and completeness reviewed; new exact plan calculated."
+      },
+      {
+        "at": "2026-10-17T22:42:13.748158+00:00",
+        "type": "approved",
+        "revision": 2,
+        "message": "Approved exact plan PLAN-8f7a2510bc8f"
+      },
+      {
+        "at": "2026-10-17T22:42:14.442443+00:00",
+        "type": "applied",
+        "revision": 2,
+        "message": "Sandbox inventory committed atomically: TX-14a34af9691d481493265497c94a4e5e"
+      },
+      {
+        "at": "2026-10-17T22:42:14.923599+00:00",
+        "type": "evidence_changed",
+        "message": "New source: final-web-retry1-revision-575c8e2f.txt. Re-extract and review current evidence.",
+        "revision": 3
+      },
+      {
+        "at": "2026-10-17T22:42:59.029088+00:00",
+        "type": "reviewed",
+        "revision": 3,
+        "previous_lots": [
+          "SUP-A"
+        ],
+        "lot_ids": [
+          "SUP-A",
+          "SUP-C"
+        ],
+        "old_units": 500,
+        "suggested_lots": [],
+        "new_units": 800,
+        "message": "Critical scope and completeness reviewed; new exact plan calculated."
+      },
+      {
+        "at": "2026-10-17T22:42:59.487568+00:00",
+        "type": "approved",
+        "revision": 3,
+        "message": "Approved exact plan PLAN-30e12e24fc74"
+      },
+      {
+        "at": "2026-10-17T22:42:59.825806+00:00",
+        "type": "applied",
+        "revision": 3,
+        "message": "Sandbox inventory committed atomically: TX-52d3159ad4154ce99ae0c5ed61b65409"
+      },
+      {
+        "at": "2026-10-17T22:43:00.673404+00:00",
+        "type": "evidence_changed",
+        "message": "New source: final-web-retry1-web-original.txt. Re-extract and review current evidence.",
+        "revision": 4
+      }
+    ],
+    "receipts": [
+      {
+        "transaction_id": "TX-14a34af9691d481493265497c94a4e5e",
+        "at": "2026-10-17T22:42:14.442427+00:00",
+        "execution": "SANDBOX INVENTORY",
+        "plan_id": "PLAN-8f7a2510bc8f",
+        "digest": "8f7a2510bc8f6fd7e8b65f1ed1a97ede2ebd48ca2ce2f1f5c8cc82bd80cb943a",
+        "idempotency_key": "57ab8f2f-0297-4662-926b-d3c8559ced18",
+        "changes": [
+          {
+            "pool_id": "FG-A",
+            "units": 240,
+            "before": "available",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-B",
+            "units": 160,
+            "before": "available",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-C",
+            "units": 100,
+            "before": "available",
+            "after": "held"
+          }
+        ],
+        "prior_inventory_version": 1,
+        "current_inventory_version": 2,
+        "evidence_revision": 2
+      },
+      {
+        "transaction_id": "TX-52d3159ad4154ce99ae0c5ed61b65409",
+        "at": "2026-10-17T22:42:59.825782+00:00",
+        "execution": "SANDBOX INVENTORY",
+        "plan_id": "PLAN-30e12e24fc74",
+        "digest": "30e12e24fc747837cc0fd9fb520e547b6b7d42fbcbeac365e65b3b7d9cdae97f",
+        "idempotency_key": "8c633ceb-cefe-49e6-9547-f080b839c37f",
+        "changes": [
+          {
+            "pool_id": "FG-A",
+            "units": 240,
+            "before": "held",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-B",
+            "units": 160,
+            "before": "held",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-C",
+            "units": 100,
+            "before": "held",
+            "after": "held"
+          },
+          {
+            "pool_id": "FG-D",
+            "units": 300,
+            "before": "available",
+            "after": "held"
+          }
+        ],
+        "prior_inventory_version": 2,
+        "current_inventory_version": 3,
+        "evidence_revision": 3
+      }
+    ],
+    "pending_data": null,
+    "pending_revision": true,
+    "enterprise_packet": {
+      "assist": [
+        {
+          "id": "ASSIST-d1c7c71bcfe8b31980d2e2b8",
+          "case_id": "00964a734d804031bccbbfec8971b9d6",
+          "mode": "live",
+          "status": "unreviewed proposal",
+          "actor": {
+            "user_id": null,
+            "identity_mode": "anonymous session; not independent identity"
+          },
+          "snapshot_hash": "9a2fd0e1ff773f9b1e6e1ca5fcb88533a78301c9b18191fba9bf6b001eb6142d",
+          "request_hash": "b56cf071bd5ae8350e0c05d9cac6ddda11d76a97e4f34dcc08649a9b5ebb75a8",
+          "context_hash": "757229389de97a70e7f825781e0ed08003f50ad6b00a3cbce3dcfd9db8959feb",
+          "started_at": "2026-10-17T22:42:16.929101+00:00",
+          "reservation": {
+            "provider": "evolus",
+            "reservation": "23796d66bd843a8db27eaa535d247e20429a202fd655a3205bd66eb005c5ce83",
+            "dispatch": 1,
+            "conservative_remaining": 50000,
+            "stop_margin": 1000
+          },
+          "executions": [
+            {
+              "execution_id": "b531cd01-7cca-f111-bf5b-6045bd9ce552",
+              "status": "running",
+              "provider_status": "Queued",
+              "enqueued_at": "2026-10-17T22:42:19.3170418Z",
+              "trace_id": "b63ab7693b4cb25bbbe05b42c6c81bf4",
+              "queue_job_id": "4288526",
+              "transport_provenance": {
+                "provider": "Evolus",
+                "at": "2026-10-17T22:42:19.322821+00:00",
+                "method": "POST",
+                "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/execute",
+                "http_status": 202,
+                "elapsed_ms": 324,
+                "response_hash": "360008793ad7f12ebabdf2db1d1c527f1973e07beb3afc0c2746255c518196d7",
+                "request_id": null,
+                "execution_header": "b531cd01-7cca-f111-bf5b-6045bd9ce552",
+                "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4",
+                "configuration_proof": {
+                  "checked_at": "2026-10-17T22:42:18.998620+00:00",
+                  "configuration_hash": "1383948c5171ffd30486e98ee3471d77aee5f87f37a135e610acbdb5538becb1",
+                  "requests": [
+                    {
+                      "provider": "Evolus",
+                      "at": "2026-10-17T22:42:17.327339+00:00",
+                      "method": "GET",
+                      "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45",
+                      "http_status": 200,
+                      "elapsed_ms": 370,
+                      "response_hash": "77020673dce3773b44db628bb8eb53bde40d3d9ec6ac54bc17e8a571f526bf81",
+                      "request_id": null,
+                      "execution_header": null,
+                      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+                    },
+                    {
+                      "provider": "Evolus",
+                      "at": "2026-10-17T22:42:17.772024+00:00",
+                      "method": "GET",
+                      "path": "/api/v1/own-models/connections",
+                      "http_status": 200,
+                      "elapsed_ms": 432,
+                      "response_hash": "de7041054aec06fccd2ae5fe81056f40c1699707e57310b7d7e4277bddf5d549",
+                      "request_id": null,
+                      "execution_header": null,
+                      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+                    },
+                    {
+                      "provider": "Evolus",
+                      "at": "2026-10-17T22:42:18.009901+00:00",
+                      "method": "GET",
+                      "path": "/api/v1/agents/0412148a-94de-4696-8aed-23e08ae2b1ab",
+                      "http_status": 200,
+                      "elapsed_ms": 224,
+                      "response_hash": "9c13a2a7bcced7d215bca1e2e9305449cbaf93776bb7a1b9d21f89c34c2219fa",
+                      "request_id": null,
+                      "execution_header": null,
+                      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+                    },
+                    {
+                      "provider": "Evolus",
+                      "at": "2026-10-17T22:42:18.387186+00:00",
+                      "method": "GET",
+                      "path": "/api/v1/agents/0412148a-94de-4696-8aed-23e08ae2b1ab/json/f56aab1b-9b7e-45c8-af13-24ecee68b34c",
+                      "http_status": 200,
+                      "elapsed_ms": 345,
+                      "response_hash": "ad76cbaae7b635f0a1e3d935fe7cfe907d252d3941af148ab297262e105a840d",
+                      "request_id": null,
+                      "execution_header": null,
+                      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+                    },
+                    {
+                      "provider": "Evolus",
+                      "at": "2026-10-17T22:42:18.653771+00:00",
+                      "method": "GET",
+                      "path": "/api/v1/agents/971b2c6f-29c5-4828-b335-76cdc9c7850c",
+                      "http_status": 200,
+                      "elapsed_ms": 253,
+                      "response_hash": "b1689ad2cbc9bbc321a1efc6a3773a3c37c09955ba48c9f7403864e537aab058",
+                      "request_id": null,
+                      "execution_header": null,
+                      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+                    },
+                    {
+                      "provider": "Evolus",
+                      "at": "2026-10-17T22:42:18.998171+00:00",
+                      "method": "GET",
+                      "path": "/api/v1/agents/971b2c6f-29c5-4828-b335-76cdc9c7850c/json/d9fcfc23-ae08-4336-a1fe-62c223412591",
+                      "http_status": 200,
+                      "elapsed_ms": 331,
+                      "response_hash": "80627e57f679d906768bf264fd4b9329db785790954f09ddc85df551904b9949",
+                      "request_id": null,
+                      "execution_header": null,
+                      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+                    }
+                  ],
+                  "model_identity_basis": "Verified own-model configuration; WorkflowExecution does not return runtime model ID",
+                  "provider_internal_retries": "BatchFence makes one dispatch. Structured correction budget is zero; undocumented provider infrastructure retries are not claimed absent."
+                }
+              }
+            },
+            {
+              "execution_id": "b531cd01-7cca-f111-bf5b-6045bd9ce552",
+              "status": "running",
+              "provider_status": "Running",
+              "steps": [],
+              "draft": null,
+              "consumption": null,
+              "requested_at": "2026-10-17T22:42:19.3011799Z",
+              "completed_at": null,
+              "trace_id": "b63ab7693b4cb25bbbe05b42c6c81bf4",
+              "error_present": false,
+              "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+              "transport_provenance": {
+                "provider": "Evolus",
+                "at": "2026-10-17T22:42:22.526858+00:00",
+                "method": "GET",
+                "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/b531cd01-7cca-f111-bf5b-6045bd9ce552",
+                "http_status": 200,
+                "elapsed_ms": 260,
+                "response_hash": "ba9ec80a5d80e17593c90a8d729960d1e7ea1100efb65ad491324ec062071bd3",
+                "request_id": null,
+                "execution_header": null,
+                "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+              }
+            },
+            {
+              "execution_id": "b531cd01-7cca-f111-bf5b-6045bd9ce552",
+              "status": "running",
+              "provider_status": "Running",
+              "steps": [],
+              "draft": null,
+              "consumption": null,
+              "requested_at": "2026-10-17T22:42:19.3011799Z",
+              "completed_at": null,
+              "trace_id": "b63ab7693b4cb25bbbe05b42c6c81bf4",
+              "error_present": false,
+              "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+              "transport_provenance": {
+                "provider": "Evolus",
+                "at": "2026-10-17T22:42:28.100764+00:00",
+                "method": "GET",
+                "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/b531cd01-7cca-f111-bf5b-6045bd9ce552",
+                "http_status": 200,
+                "elapsed_ms": 183,
+                "response_hash": "ba9ec80a5d80e17593c90a8d729960d1e7ea1100efb65ad491324ec062071bd3",
+                "request_id": null,
+                "execution_header": null,
+                "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+              }
+            },
+            {
+              "execution_id": "b531cd01-7cca-f111-bf5b-6045bd9ce552",
+              "status": "running",
+              "provider_status": "Running",
+              "steps": [],
+              "draft": null,
+              "consumption": null,
+              "requested_at": "2026-10-17T22:42:19.3011799Z",
+              "completed_at": null,
+              "trace_id": "b63ab7693b4cb25bbbe05b42c6c81bf4",
+              "error_present": false,
+              "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+              "transport_provenance": {
+                "provider": "Evolus",
+                "at": "2026-10-17T22:42:32.888881+00:00",
+                "method": "GET",
+                "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/b531cd01-7cca-f111-bf5b-6045bd9ce552",
+                "http_status": 200,
+                "elapsed_ms": 212,
+                "response_hash": "ba9ec80a5d80e17593c90a8d729960d1e7ea1100efb65ad491324ec062071bd3",
+                "request_id": null,
+                "execution_header": null,
+                "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+              }
+            },
+            {
+              "execution_id": "b531cd01-7cca-f111-bf5b-6045bd9ce552",
+              "status": "running",
+              "provider_status": "Running",
+              "steps": [
+                {
+                  "kind": "extractor",
+                  "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+                  "step_id": "6091d2ae-e5f8-41c4-9e60-92557047bd37",
+                  "state": {
+                    "status": "done",
+                    "branch": null,
+                    "iterations": null,
+                    "iterationsCompleted": null,
+                    "iterationsFailed": null,
+                    "iterationDetails": null,
+                    "branchCounts": null,
+                    "childExecutionId": null,
+                    "durationMs": 16758,
+                    "outputCheckNote": null,
+                    "decision": null
+                  },
+                  "configured_model_key": "own/gemma-4-31b-it",
+                  "model_identity_basis": "Configuration, not a returned runtime model ID",
+                  "output_hash": "f816976846f5858f6166738a8549b741e39add21601b58358c1f451c82ff3b2c",
+                  "output": "{\"candidates\":[{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C\",\"page\":null},{\"kind\":\"scope\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"These two lots form the full affected incident boundary; no other supplier lots are affected\",\"page\":null}],\"unresolved\":[]}",
+                  "execution_step_key": "1"
+                }
+              ],
+              "draft": null,
+              "consumption": null,
+              "requested_at": "2026-10-17T22:42:19.3011799Z",
+              "completed_at": null,
+              "trace_id": "b63ab7693b4cb25bbbe05b42c6c81bf4",
+              "error_present": false,
+              "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+              "transport_provenance": {
+                "provider": "Evolus",
+                "at": "2026-10-17T22:42:38.092677+00:00",
+                "method": "GET",
+                "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/b531cd01-7cca-f111-bf5b-6045bd9ce552",
+                "http_status": 200,
+                "elapsed_ms": 234,
+                "response_hash": "1ab08a724591730d0cb8c75f712061f7f5c9969af678c29cdc4789a4963ebd4c",
+                "request_id": null,
+                "execution_header": null,
+                "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+              }
+            },
+            {
+              "execution_id": "b531cd01-7cca-f111-bf5b-6045bd9ce552",
+              "status": "running",
+              "provider_status": "Running",
+              "steps": [
+                {
+                  "kind": "extractor",
+                  "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+                  "step_id": "6091d2ae-e5f8-41c4-9e60-92557047bd37",
+                  "state": {
+                    "status": "done",
+                    "branch": null,
+                    "iterations": null,
+                    "iterationsCompleted": null,
+                    "iterationsFailed": null,
+                    "iterationDetails": null,
+                    "branchCounts": null,
+                    "childExecutionId": null,
+                    "durationMs": 16758,
+                    "outputCheckNote": null,
+                    "decision": null
+                  },
+                  "configured_model_key": "own/gemma-4-31b-it",
+                  "model_identity_basis": "Configuration, not a returned runtime model ID",
+                  "output_hash": "f816976846f5858f6166738a8549b741e39add21601b58358c1f451c82ff3b2c",
+                  "output": "{\"candidates\":[{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C\",\"page\":null},{\"kind\":\"scope\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"These two lots form the full affected incident boundary; no other supplier lots are affected\",\"page\":null}],\"unresolved\":[]}",
+                  "execution_step_key": "1"
+                }
+              ],
+              "draft": null,
+              "consumption": null,
+              "requested_at": "2026-10-17T22:42:19.3011799Z",
+              "completed_at": null,
+              "trace_id": "b63ab7693b4cb25bbbe05b42c6c81bf4",
+              "error_present": false,
+              "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+              "transport_provenance": {
+                "provider": "Evolus",
+                "at": "2026-10-17T22:42:43.300619+00:00",
+                "method": "GET",
+                "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/b531cd01-7cca-f111-bf5b-6045bd9ce552",
+                "http_status": 200,
+                "elapsed_ms": 269,
+                "response_hash": "1ab08a724591730d0cb8c75f712061f7f5c9969af678c29cdc4789a4963ebd4c",
+                "request_id": null,
+                "execution_header": null,
+                "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+              }
+            },
+            {
+              "execution_id": "b531cd01-7cca-f111-bf5b-6045bd9ce552",
+              "status": "running",
+              "provider_status": "Running",
+              "steps": [
+                {
+                  "kind": "extractor",
+                  "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+                  "step_id": "6091d2ae-e5f8-41c4-9e60-92557047bd37",
+                  "state": {
+                    "status": "done",
+                    "branch": null,
+                    "iterations": null,
+                    "iterationsCompleted": null,
+                    "iterationsFailed": null,
+                    "iterationDetails": null,
+                    "branchCounts": null,
+                    "childExecutionId": null,
+                    "durationMs": 16758,
+                    "outputCheckNote": null,
+                    "decision": null
+                  },
+                  "configured_model_key": "own/gemma-4-31b-it",
+                  "model_identity_basis": "Configuration, not a returned runtime model ID",
+                  "output_hash": "f816976846f5858f6166738a8549b741e39add21601b58358c1f451c82ff3b2c",
+                  "output": "{\"candidates\":[{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C\",\"page\":null},{\"kind\":\"scope\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"These two lots form the full affected incident boundary; no other supplier lots are affected\",\"page\":null}],\"unresolved\":[]}",
+                  "execution_step_key": "1"
+                }
+              ],
+              "draft": null,
+              "consumption": null,
+              "requested_at": "2026-10-17T22:42:19.3011799Z",
+              "completed_at": null,
+              "trace_id": "b63ab7693b4cb25bbbe05b42c6c81bf4",
+              "error_present": false,
+              "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+              "transport_provenance": {
+                "provider": "Evolus",
+                "at": "2026-10-17T22:42:48.486117+00:00",
+                "method": "GET",
+                "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/b531cd01-7cca-f111-bf5b-6045bd9ce552",
+                "http_status": 200,
+                "elapsed_ms": 249,
+                "response_hash": "1ab08a724591730d0cb8c75f712061f7f5c9969af678c29cdc4789a4963ebd4c",
+                "request_id": null,
+                "execution_header": null,
+                "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+              }
+            },
+            {
+              "execution_id": "b531cd01-7cca-f111-bf5b-6045bd9ce552",
+              "status": "completed",
+              "provider_status": "Completed",
+              "steps": [
+                {
+                  "kind": "extractor",
+                  "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+                  "step_id": "6091d2ae-e5f8-41c4-9e60-92557047bd37",
+                  "state": {
+                    "status": "done",
+                    "branch": null,
+                    "iterations": null,
+                    "iterationsCompleted": null,
+                    "iterationsFailed": null,
+                    "iterationDetails": null,
+                    "branchCounts": null,
+                    "childExecutionId": null,
+                    "durationMs": 16758,
+                    "outputCheckNote": null,
+                    "decision": null
+                  },
+                  "configured_model_key": "own/gemma-4-31b-it",
+                  "model_identity_basis": "Configuration, not a returned runtime model ID",
+                  "output_hash": "f816976846f5858f6166738a8549b741e39add21601b58358c1f451c82ff3b2c",
+                  "output": "{\"candidates\":[{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C\",\"page\":null},{\"kind\":\"scope\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"These two lots form the full affected incident boundary; no other supplier lots are affected\",\"page\":null}],\"unresolved\":[]}",
+                  "execution_step_key": "1"
+                },
+                {
+                  "kind": "agent",
+                  "id": "971b2c6f-29c5-4828-b335-76cdc9c7850c",
+                  "step_id": "d1e8b7df-3c7c-4b1e-867e-a3c23514c998",
+                  "state": {
+                    "status": "done",
+                    "branch": null,
+                    "iterations": null,
+                    "iterationsCompleted": null,
+                    "iterationsFailed": null,
+                    "iterationDetails": null,
+                    "branchCounts": null,
+                    "childExecutionId": null,
+                    "durationMs": 16324,
+                    "outputCheckNote": null,
+                    "decision": null
+                  },
+                  "configured_model_key": "own/gemma-4-31b-it",
+                  "model_identity_basis": "Configuration, not a returned runtime model ID",
+                  "output_hash": "5aad64b4c8836a945ec80ea34daa5082b40485abcfebdde30fca5345ebf59ec6",
+                  "output": "{\"candidates\":[{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"incident_status\":\"affected\",\"source\":{\"document_id\":\"DOC-faa6424f50a7\",\"block_id\":\"line-1\",\"quote\":\"Affected lots: SUP-A and SUP-C\"}},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"incident_status\":\"affected\",\"source\":{\"document_id\":\"DOC-faa6424f50a7\",\"block_id\":\"line-1\",\"quote\":\"Affected lots: SUP-A and SUP-C\"}}],\"changes\":[],\"contradictions\":[],\"unresolved\":[],\"request_drafts\":[],\"incident_scope\":\"complete\",\"scope_evidence\":[{\"document_id\":\"DOC-faa6424f50a7\",\"block_id\":\"line-1\",\"quote\":\"These two lots form the full affected incident boundary; no other supplier lots are affected.\"}]}",
+                  "execution_step_key": "2"
+                }
+              ],
+              "draft": {
+                "candidates": [
+                  {
+                    "kind": "supplier_lot",
+                    "value": "SUP-A",
+                    "disposition": "asserted",
+                    "incident_status": "affected",
+                    "source": {
+                      "document_id": "DOC-faa6424f50a7",
+                      "block_id": "line-1",
+                      "quote": "Affected lots: SUP-A and SUP-C"
+                    }
+                  },
+                  {
+                    "kind": "supplier_lot",
+                    "value": "SUP-C",
+                    "disposition": "asserted",
+                    "incident_status": "affected",
+                    "source": {
+                      "document_id": "DOC-faa6424f50a7",
+                      "block_id": "line-1",
+                      "quote": "Affected lots: SUP-A and SUP-C"
+                    }
+                  }
+                ],
+                "changes": [],
+                "contradictions": [],
+                "unresolved": [],
+                "request_drafts": [],
+                "incident_scope": "complete",
+                "scope_evidence": [
+                  {
+                    "document_id": "DOC-faa6424f50a7",
+                    "block_id": "line-1",
+                    "quote": "These two lots form the full affected incident boundary; no other supplier lots are affected."
+                  }
+                ]
+              },
+              "consumption": {
+                "credits": 0,
+                "pendingEntries": 0,
+                "costUsd": null,
+                "llmTokens": null,
+                "ocrPages": null,
+                "embeddingTokens": null,
+                "speechToTextSeconds": null,
+                "entries": null
+              },
+              "requested_at": "2026-10-17T22:42:19.3011799Z",
+              "completed_at": "2026-10-17T22:42:52.5015525Z",
+              "trace_id": "b63ab7693b4cb25bbbe05b42c6c81bf4",
+              "error_present": false,
+              "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+              "transport_provenance": {
+                "provider": "Evolus",
+                "at": "2026-10-17T22:42:53.588173+00:00",
+                "method": "GET",
+                "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/b531cd01-7cca-f111-bf5b-6045bd9ce552",
+                "http_status": 200,
+                "elapsed_ms": 181,
+                "response_hash": "dc30934db1aa404e37c5890eb95645a0c6423dd76fc99cdfd003343c8546a0e2",
+                "request_id": null,
+                "execution_header": null,
+                "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+              }
+            }
+          ],
+          "external_execution_id": "b531cd01-7cca-f111-bf5b-6045bd9ce552",
+          "authority": "Unreviewed proposal only; no inventory, genealogy or approval writes",
+          "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+          "raw_draft": {
+            "candidates": [
+              {
+                "kind": "supplier_lot",
+                "value": "SUP-A",
+                "disposition": "asserted",
+                "incident_status": "affected",
+                "source": {
+                  "document_id": "DOC-faa6424f50a7",
+                  "block_id": "line-1",
+                  "quote": "Affected lots: SUP-A and SUP-C"
+                }
+              },
+              {
+                "kind": "supplier_lot",
+                "value": "SUP-C",
+                "disposition": "asserted",
+                "incident_status": "affected",
+                "source": {
+                  "document_id": "DOC-faa6424f50a7",
+                  "block_id": "line-1",
+                  "quote": "Affected lots: SUP-A and SUP-C"
+                }
+              }
+            ],
+            "changes": [],
+            "contradictions": [],
+            "unresolved": [],
+            "request_drafts": [],
+            "incident_scope": "complete",
+            "scope_evidence": [
+              {
+                "document_id": "DOC-faa6424f50a7",
+                "block_id": "line-1",
+                "quote": "These two lots form the full affected incident boundary; no other supplier lots are affected."
+              }
+            ]
+          },
+          "draft": {
+            "candidates": [
+              {
+                "kind": "supplier_lot",
+                "value": "SUP-A",
+                "disposition": "asserted",
+                "incident_status": "affected",
+                "source": {
+                  "document_id": "DOC-faa6424f50a7",
+                  "block_id": "line-1",
+                  "quote": "Affected lots: SUP-A and SUP-C",
+                  "original_hash": "f5812ec02f9568b3c628e43f0bb09b1e1f33b9e0a4301f2aec718942d517c312",
+                  "document_revision": 3,
+                  "page": null,
+                  "location_origin": "retained local parser; no provider bounding-box claim"
+                }
+              },
+              {
+                "kind": "supplier_lot",
+                "value": "SUP-C",
+                "disposition": "asserted",
+                "incident_status": "affected",
+                "source": {
+                  "document_id": "DOC-faa6424f50a7",
+                  "block_id": "line-1",
+                  "quote": "Affected lots: SUP-A and SUP-C",
+                  "original_hash": "f5812ec02f9568b3c628e43f0bb09b1e1f33b9e0a4301f2aec718942d517c312",
+                  "document_revision": 3,
+                  "page": null,
+                  "location_origin": "retained local parser; no provider bounding-box claim"
+                }
+              }
+            ],
+            "changes": [],
+            "contradictions": [],
+            "unresolved": [],
+            "request_drafts": [],
+            "incident_scope": "complete",
+            "scope_evidence": [
+              {
+                "document_id": "DOC-faa6424f50a7",
+                "block_id": "line-1",
+                "quote": "These two lots form the full affected incident boundary; no other supplier lots are affected.",
+                "original_hash": "f5812ec02f9568b3c628e43f0bb09b1e1f33b9e0a4301f2aec718942d517c312",
+                "document_revision": 3,
+                "page": null,
+                "location_origin": "retained local parser; no provider bounding-box claim"
+              }
+            ]
+          },
+          "finished_at": "2026-10-17T22:42:53.591576+00:00"
+        },
+        {
+          "id": "GENERATE-08d8e15085262a0bf7abfeb3",
+          "case_id": "00964a734d804031bccbbfec8971b9d6",
+          "kind": "request",
+          "mode": "live",
+          "provider_path": "Direct Gemma / managed-amd-shared",
+          "status": "unreviewed proposal",
+          "request_hash": "70e2bb0387c3608f2dcc86d5ab4b912d945f69a9eb642aa46178953572d78223",
+          "snapshot_hash": "8be6e00832d8ef28dae551600b918bf023ecac5a6e982f3fe89383bacd50e2c8",
+          "actor": {
+            "user_id": null,
+            "identity_mode": "anonymous session; not independent identity"
+          },
+          "started_at": "2026-10-17T22:53:50.030334+00:00",
+          "reservation": {
+            "provider": "gemma",
+            "reservation": "8ed7eb73e92793168152fa14529dd52eb52122b7e159f8dbe96570582f75e634",
+            "dispatch": 8,
+            "conservative_remaining": 0.9169706730917097,
+            "stop_margin": 0.1
+          },
+          "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+          "raw_output": {
+            "cause_id": "CAUSE-833fd0e271edaf",
+            "draft": "Please clarify the receiving identity for FG-C (100 units). Current records indicate multiple possible ancestries: SUP-A (DOC-d32e35342fab, row-3) and SUP-B (DOC-d32e35342fab, row-4). A preferred supplier mention is insufficient to remove alternative links; explicit evidence is required for a complete replacement. Please provide original record IDs, exact lot identities, and document revisions, and confirm if the record is complete or inconclusive."
+          },
+          "provenance": {
+            "provider": "Configured Gemma endpoint",
+            "at": "2026-10-17T22:54:06.978516+00:00",
+            "elapsed_ms": 16940,
+            "requested_model_id": "Gemma-4-31B-IT",
+            "model_id": "self-dploy/Gemma-4-31B-IT",
+            "request_id": "016bbe14a80a4bdd9d615f6891164e7a",
+            "usage": {
+              "prompt_tokens": 1009,
+              "total_tokens": 1145,
+              "completion_tokens": 136,
+              "prompt_tokens_details": {
+                "cached_tokens": 50,
+                "cache_write_tokens": 0,
+                "audio_tokens": 0,
+                "video_tokens": 0,
+                "image_tokens": 0
+              },
+              "reasoning_tokens": 0,
+              "cost": 0.00004312,
+              "cost_details": {
+                "upstream_inference_cost": 0.00004312000000000001,
+                "upstream_inference_prompt_cost": 0.000033600000000000004,
+                "upstream_inference_completions_cost": 0.00000952,
+                "total_cost": 0.00004312,
+                "input_cost": 0.000033565,
+                "output_cost": 0.00000952,
+                "cached_input_cost": 3.5e-8,
+                "cache_write_input_cost": 0,
+                "request_cost": 0,
+                "web_search_cost": 0,
+                "image_input_cost": null,
+                "image_output_cost": null,
+                "audio_input_cost": null
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "image_tokens": 0,
+                "audio_tokens": 0
+              }
+            },
+            "settings": {
+              "temperature": 0,
+              "max_tokens": 1600
+            },
+            "response_hash": "45c8c77e97fb73261deb18fb7a0d97e60eab0c1707e76336480a1f5e39e82262",
+            "http_status": 200,
+            "hosting_kind": "managed-amd-shared",
+            "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+          },
+          "library_provenance": null,
+          "finished_at": "2026-10-17T22:54:06.980643+00:00",
+          "draft": {
+            "cause_id": "CAUSE-833fd0e271edaf",
+            "draft": "Please clarify the receiving identity for FG-C (100 units). Current records indicate multiple possible ancestries: SUP-A (DOC-d32e35342fab, row-3) and SUP-B (DOC-d32e35342fab, row-4). A preferred supplier mention is insufficient to remove alternative links; explicit evidence is required for a complete replacement. Please provide original record IDs, exact lot identities, and document revisions, and confirm if the record is complete or inconclusive."
+          }
+        },
+        {
+          "id": "GENERATE-3beef6b0d21f4bd5d6e26999",
+          "case_id": "00964a734d804031bccbbfec8971b9d6",
+          "kind": "document",
+          "mode": "live",
+          "provider_path": "Direct Gemma / managed-amd-shared",
+          "status": "failed provider request",
+          "request_hash": "3ca47b147b18ccd97189ca3acfa1f45188de8b5f0b5b1143158a2b7ff5c64604",
+          "snapshot_hash": "04bc09c16734194ebeb96c1ece03b8b92886ea531dab027c094c524e03e44076",
+          "actor": {
+            "user_id": null,
+            "identity_mode": "anonymous session; not independent identity"
+          },
+          "started_at": "2026-10-17T22:39:58.406083+00:00",
+          "reservation": {
+            "provider": "gemma",
+            "reservation": "8ed7eb73e92793168152fa14529dd52eb52122b7e159f8dbe96570582f75e634",
+            "dispatch": 1,
+            "conservative_remaining": 0.9869706730917096,
+            "stop_margin": 0.1
+          },
+          "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+          "error": "Structured-output,timeout or transport failure; no fallback",
+          "finished_at": "2026-10-17T22:40:39.368902+00:00"
+        },
+        {
+          "id": "GENERATE-5adc4e506f911bbc85cec290",
+          "case_id": "00964a734d804031bccbbfec8971b9d6",
+          "kind": "translation",
+          "mode": "live",
+          "provider_path": "Direct Gemma / managed-amd-shared",
+          "status": "unreviewed proposal",
+          "request_hash": "d904f7b67c8be3c1bc7716bc73da3c40d894f4ad9b6266b5f580cd98666d653a",
+          "snapshot_hash": "8be6e00832d8ef28dae551600b918bf023ecac5a6e982f3fe89383bacd50e2c8",
+          "actor": {
+            "user_id": null,
+            "identity_mode": "anonymous session; not independent identity"
+          },
+          "started_at": "2026-10-17T22:43:02.633349+00:00",
+          "reservation": {
+            "provider": "gemma",
+            "reservation": "8ed7eb73e92793168152fa14529dd52eb52122b7e159f8dbe96570582f75e634",
+            "dispatch": 5,
+            "conservative_remaining": 0.9469706730917096,
+            "stop_margin": 0.1
+          },
+          "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+          "raw_output": {
+            "segments": [
+              {
+                "source": {
+                  "block_id": "line-1",
+                  "document_id": "DOC-b22d90a892c9",
+                  "quote": "Партия LOT-007 не исключена; она может быть затронута. Полнота неизвестна. Дата 03/04/2026 не подтверждена."
+                },
+                "translation": "Batch LOT-007 is not excluded; it may be affected. Completeness is unknown. Date 03/04/2026 is not confirmed."
+              }
+            ]
+          },
+          "provenance": {
+            "provider": "Configured Gemma endpoint",
+            "at": "2026-10-17T22:43:38.683461+00:00",
+            "elapsed_ms": 36028,
+            "requested_model_id": "Gemma-4-31B-IT",
+            "model_id": "self-dploy/Gemma-4-31B-IT",
+            "request_id": "bdeb3b7aa9f74592af004c8c5627212a",
+            "usage": {
+              "prompt_tokens": 575,
+              "total_tokens": 701,
+              "completion_tokens": 126,
+              "prompt_tokens_details": {
+                "cached_tokens": 54,
+                "cache_write_tokens": 0,
+                "audio_tokens": 0,
+                "video_tokens": 0,
+                "image_tokens": 0
+              },
+              "reasoning_tokens": 0,
+              "cost": 0.0000270928,
+              "cost_details": {
+                "upstream_inference_cost": 0.000027092800000000003,
+                "upstream_inference_prompt_cost": 0.000018272800000000002,
+                "upstream_inference_completions_cost": 0.00000882,
+                "total_cost": 0.0000270928,
+                "input_cost": 0.000018235,
+                "output_cost": 0.00000882,
+                "cached_input_cost": 3.78e-8,
+                "cache_write_input_cost": 0,
+                "request_cost": 0,
+                "web_search_cost": 0,
+                "image_input_cost": null,
+                "image_output_cost": null,
+                "audio_input_cost": null
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "image_tokens": 0,
+                "audio_tokens": 0
+              }
+            },
+            "settings": {
+              "temperature": 0,
+              "max_tokens": 1600
+            },
+            "response_hash": "3e4eb3fc030542cfb0e84ac0fe1027deb5bbe2b1097b3c9b6340e66248258c6a",
+            "http_status": 200,
+            "hosting_kind": "managed-amd-shared",
+            "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+          },
+          "library_provenance": null,
+          "finished_at": "2026-10-17T22:43:38.685188+00:00",
+          "draft": {
+            "id": "TR-dd5179065b7e56f95c00260e",
+            "case_id": "00964a734d804031bccbbfec8971b9d6",
+            "document_id": "DOC-b22d90a892c9",
+            "original_hash": "d3f4c5b1779f438e0569fc53309557e2cb3a6a6815d9bc5238d5db2db04328b1",
+            "source_language": "ru",
+            "target_language": "en",
+            "segments": [
+              {
+                "source": {
+                  "document_id": "DOC-b22d90a892c9",
+                  "block_id": "line-1",
+                  "quote": "Партия LOT-007 не исключена; она может быть затронута. Полнота неизвестна. Дата 03/04/2026 не подтверждена.",
+                  "original_hash": "d3f4c5b1779f438e0569fc53309557e2cb3a6a6815d9bc5238d5db2db04328b1",
+                  "document_revision": 4,
+                  "page": null,
+                  "location_origin": "retained local parser; no provider bounding-box claim"
+                },
+                "translation": "Batch LOT-007 is not excluded; it may be affected. Completeness is unknown. Date 03/04/2026 is not confirmed.",
+                "protected_original_values": [
+                  "LOT-007",
+                  "03",
+                  "04",
+                  "2026"
+                ]
+              }
+            ],
+            "flags": [
+              "Date/decimal interpretation requires explicit original-value review; no implicit conversion"
+            ],
+            "status": "unreviewed derived translation",
+            "provenance": {
+              "provider": "Configured Gemma endpoint",
+              "at": "2026-10-17T22:43:38.683461+00:00",
+              "elapsed_ms": 36028,
+              "requested_model_id": "Gemma-4-31B-IT",
+              "model_id": "self-dploy/Gemma-4-31B-IT",
+              "request_id": "bdeb3b7aa9f74592af004c8c5627212a",
+              "usage": {
+                "prompt_tokens": 575,
+                "total_tokens": 701,
+                "completion_tokens": 126,
+                "prompt_tokens_details": {
+                  "cached_tokens": 54,
+                  "cache_write_tokens": 0,
+                  "audio_tokens": 0,
+                  "video_tokens": 0,
+                  "image_tokens": 0
+                },
+                "reasoning_tokens": 0,
+                "cost": 0.0000270928,
+                "cost_details": {
+                  "upstream_inference_cost": 0.000027092800000000003,
+                  "upstream_inference_prompt_cost": 0.000018272800000000002,
+                  "upstream_inference_completions_cost": 0.00000882,
+                  "total_cost": 0.0000270928,
+                  "input_cost": 0.000018235,
+                  "output_cost": 0.00000882,
+                  "cached_input_cost": 3.78e-8,
+                  "cache_write_input_cost": 0,
+                  "request_cost": 0,
+                  "web_search_cost": 0,
+                  "image_input_cost": null,
+                  "image_output_cost": null,
+                  "audio_input_cost": null
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "image_tokens": 0,
+                  "audio_tokens": 0
+                }
+              },
+              "settings": {
+                "temperature": 0,
+                "max_tokens": 1600
+              },
+              "response_hash": "3e4eb3fc030542cfb0e84ac0fe1027deb5bbe2b1097b3c9b6340e66248258c6a",
+              "http_status": 200,
+              "hosting_kind": "managed-amd-shared",
+              "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+            },
+            "at": "2026-10-17T22:43:38.686037+00:00",
+            "case_revision": 4,
+            "review": null,
+            "authority": "Original source only; translation is not a verbatim original quotation or inventory fact"
+          }
+        },
+        {
+          "id": "GENERATE-9deabd9af79705948c15c271",
+          "case_id": "00964a734d804031bccbbfec8971b9d6",
+          "kind": "label",
+          "mode": "live",
+          "provider_path": "Direct Gemma / managed-amd-shared",
+          "status": "running",
+          "request_hash": "624b600af377d4456e894596dddab225b163bb2fec4936bf3413ecc4af140882",
+          "snapshot_hash": "8be6e00832d8ef28dae551600b918bf023ecac5a6e982f3fe89383bacd50e2c8",
+          "actor": {
+            "user_id": null,
+            "identity_mode": "anonymous session; not independent identity"
+          },
+          "started_at": "2026-10-17T22:48:24.189545+00:00",
+          "reservation": {
+            "provider": "gemma",
+            "reservation": "8ed7eb73e92793168152fa14529dd52eb52122b7e159f8dbe96570582f75e634",
+            "dispatch": 7,
+            "conservative_remaining": 0.9269706730917096,
+            "stop_margin": 0.1
+          },
+          "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory"
+        },
+        {
+          "id": "GENERATE-bf8b77d32c746e86f5ca6566",
+          "case_id": "00964a734d804031bccbbfec8971b9d6",
+          "kind": "label",
+          "mode": "live",
+          "provider_path": "Direct Gemma / managed-amd-shared",
+          "status": "running",
+          "request_hash": "78edb2e293a2179580d9a2874787f935b3ee2c06e093bcb71a32049287ce9165",
+          "snapshot_hash": "8be6e00832d8ef28dae551600b918bf023ecac5a6e982f3fe89383bacd50e2c8",
+          "actor": {
+            "user_id": null,
+            "identity_mode": "anonymous session; not independent identity"
+          },
+          "started_at": "2026-10-17T22:43:44.735004+00:00",
+          "reservation": {
+            "provider": "gemma",
+            "reservation": "8ed7eb73e92793168152fa14529dd52eb52122b7e159f8dbe96570582f75e634",
+            "dispatch": 6,
+            "conservative_remaining": 0.9369706730917096,
+            "stop_margin": 0.1
+          },
+          "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory"
+        },
+        {
+          "id": "GENERATE-d45a4bfae983eb4d6cf32176",
+          "case_id": "00964a734d804031bccbbfec8971b9d6",
+          "kind": "document",
+          "mode": "live",
+          "provider_path": "Direct Gemma / managed-amd-shared",
+          "status": "unreviewed proposal",
+          "request_hash": "ff255c5bbff6e9f5d07ef1865d30096af3e06f99f90c3c17936972ea373f98d8",
+          "snapshot_hash": "04bc09c16734194ebeb96c1ece03b8b92886ea531dab027c094c524e03e44076",
+          "actor": {
+            "user_id": null,
+            "identity_mode": "anonymous session; not independent identity"
+          },
+          "started_at": "2026-10-17T22:41:41.224807+00:00",
+          "reservation": {
+            "provider": "gemma",
+            "reservation": "8ed7eb73e92793168152fa14529dd52eb52122b7e159f8dbe96570582f75e634",
+            "dispatch": 2,
+            "conservative_remaining": 0.9769706730917096,
+            "stop_margin": 0.1
+          },
+          "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+          "raw_output": {
+            "candidates": [
+              {
+                "kind": "supplier_lot",
+                "value": "SUP-A",
+                "disposition": "asserted",
+                "incident_status": "affected",
+                "source": {
+                  "document_id": "DOC-7d4fa727e0ba",
+                  "block_id": "line-1",
+                  "quote": "Affected lots: SUP-A"
+                }
+              }
+            ],
+            "changes": [],
+            "contradictions": [],
+            "unresolved": [],
+            "request_drafts": [],
+            "incident_scope": "complete",
+            "scope_evidence": [
+              {
+                "document_id": "DOC-7d4fa727e0ba",
+                "block_id": "line-1",
+                "quote": "The complete incident boundary contains only this lot; no other supplier lots are affected."
+              }
+            ]
+          },
+          "provenance": {
+            "provider": "Configured Gemma endpoint",
+            "at": "2026-10-17T22:42:11.971960+00:00",
+            "elapsed_ms": 30739,
+            "requested_model_id": "Gemma-4-31B-IT",
+            "model_id": "self-dploy/Gemma-4-31B-IT",
+            "request_id": "6da98cf8edf54c7794a72750222b1a50",
+            "usage": {
+              "prompt_tokens": 1369,
+              "total_tokens": 1594,
+              "completion_tokens": 225,
+              "prompt_tokens_details": {
+                "cached_tokens": 1368,
+                "cache_write_tokens": 0,
+                "audio_tokens": 0,
+                "video_tokens": 0,
+                "image_tokens": 0
+              },
+              "reasoning_tokens": 0,
+              "cost": 0.0000167426,
+              "cost_details": {
+                "upstream_inference_cost": 0.0000167426,
+                "upstream_inference_prompt_cost": 9.926e-7,
+                "upstream_inference_completions_cost": 0.00001575,
+                "total_cost": 0.0000167426,
+                "input_cost": 3.5e-8,
+                "output_cost": 0.00001575,
+                "cached_input_cost": 9.576e-7,
+                "cache_write_input_cost": 0,
+                "request_cost": 0,
+                "web_search_cost": 0,
+                "image_input_cost": null,
+                "image_output_cost": null,
+                "audio_input_cost": null
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "image_tokens": 0,
+                "audio_tokens": 0
+              }
+            },
+            "settings": {
+              "temperature": 0,
+              "max_tokens": 1600
+            },
+            "response_hash": "a3e345be0d4a11fd55be36fb4d7d9fbf98b66c9e3e82d2c94b57cdaa8ddf7870",
+            "http_status": 200,
+            "hosting_kind": "managed-amd-shared",
+            "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+          },
+          "library_provenance": null,
+          "finished_at": "2026-10-17T22:42:11.973683+00:00",
+          "draft": {
+            "candidates": [
+              {
+                "kind": "supplier_lot",
+                "value": "SUP-A",
+                "disposition": "asserted",
+                "incident_status": "affected",
+                "source": {
+                  "document_id": "DOC-7d4fa727e0ba",
+                  "block_id": "line-1",
+                  "quote": "Affected lots: SUP-A",
+                  "original_hash": "6669554e6fe356a1ad34bea0341fc6e761f471b5d980d7272da25d5f03219dba",
+                  "document_revision": 2,
+                  "page": null,
+                  "location_origin": "retained local parser; no provider bounding-box claim"
+                }
+              }
+            ],
+            "changes": [],
+            "contradictions": [],
+            "unresolved": [],
+            "request_drafts": [],
+            "incident_scope": "complete",
+            "scope_evidence": [
+              {
+                "document_id": "DOC-7d4fa727e0ba",
+                "block_id": "line-1",
+                "quote": "The complete incident boundary contains only this lot; no other supplier lots are affected.",
+                "original_hash": "6669554e6fe356a1ad34bea0341fc6e761f471b5d980d7272da25d5f03219dba",
+                "document_revision": 2,
+                "page": null,
+                "location_origin": "retained local parser; no provider bounding-box claim"
+              }
+            ]
+          }
+        },
+        {
+          "id": "GENERATE-f588f9b0f70dd421488ac7c9",
+          "case_id": "00964a734d804031bccbbfec8971b9d6",
+          "kind": "handover",
+          "mode": "live",
+          "provider_path": "Direct Gemma / managed-amd-shared",
+          "status": "unreviewed proposal",
+          "request_hash": "3ff23942420c62ce4794045d2728302602cdb148b0e6eef40d125d8000a4b86a",
+          "snapshot_hash": "8be6e00832d8ef28dae551600b918bf023ecac5a6e982f3fe89383bacd50e2c8",
+          "actor": {
+            "user_id": null,
+            "identity_mode": "anonymous session; not independent identity"
+          },
+          "started_at": "2026-10-17T22:54:07.927343+00:00",
+          "reservation": {
+            "provider": "gemma",
+            "reservation": "8ed7eb73e92793168152fa14529dd52eb52122b7e159f8dbe96570582f75e634",
+            "dispatch": 9,
+            "conservative_remaining": 0.9069706730917096,
+            "stop_margin": 0.1
+          },
+          "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+          "raw_output": {
+            "statements": [
+              {
+                "fact_id": "quantity-proposed_hold_units",
+                "text": "proposed hold units: unknown / not calculated"
+              },
+              {
+                "fact_id": "quantity-applied_hold_units",
+                "text": "applied hold units: 800"
+              },
+              {
+                "fact_id": "quantity-pending_recovery_units",
+                "text": "pending recovery units: 0"
+              },
+              {
+                "fact_id": "quantity-confirmed_recovery_units",
+                "text": "confirmed recovery units: 0"
+              },
+              {
+                "fact_id": "next-action",
+                "text": "Next permitted action: Review current scope before planning recovery"
+              }
+            ]
+          },
+          "provenance": {
+            "provider": "Configured Gemma endpoint",
+            "at": "2026-10-17T22:54:21.399081+00:00",
+            "elapsed_ms": 13463,
+            "requested_model_id": "Gemma-4-31B-IT",
+            "model_id": "self-dploy/Gemma-4-31B-IT",
+            "request_id": "a1dc8f01686149d98e9a10615213af0c",
+            "usage": {
+              "prompt_tokens": 1873,
+              "total_tokens": 2007,
+              "completion_tokens": 134,
+              "prompt_tokens_details": {
+                "cached_tokens": 54,
+                "cache_write_tokens": 0,
+                "audio_tokens": 0,
+                "video_tokens": 0,
+                "image_tokens": 0
+              },
+              "reasoning_tokens": 0,
+              "cost": 0.0000730828,
+              "cost_details": {
+                "upstream_inference_cost": 0.00007308279999999999,
+                "upstream_inference_prompt_cost": 0.0000637028,
+                "upstream_inference_completions_cost": 0.00000938,
+                "total_cost": 0.0000730828,
+                "input_cost": 0.000063665,
+                "output_cost": 0.00000938,
+                "cached_input_cost": 3.78e-8,
+                "cache_write_input_cost": 0,
+                "request_cost": 0,
+                "web_search_cost": 0,
+                "image_input_cost": null,
+                "image_output_cost": null,
+                "audio_input_cost": null
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "image_tokens": 0,
+                "audio_tokens": 0
+              }
+            },
+            "settings": {
+              "temperature": 0,
+              "max_tokens": 1600
+            },
+            "response_hash": "2f87138c87b40b4b2c872669bf191a75e0c539611d890f0e298d75f31317f1db",
+            "http_status": 200,
+            "hosting_kind": "managed-amd-shared",
+            "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+          },
+          "library_provenance": null,
+          "finished_at": "2026-10-17T22:54:21.401595+00:00",
+          "draft": {
+            "id": "HANDOVER-a3163e2219b2872c68308ade",
+            "case_id": "00964a734d804031bccbbfec8971b9d6",
+            "previous_id": null,
+            "as_of": "2026-10-17T22:54:21.428170+00:00",
+            "snapshot": {
+              "case_id": "00964a734d804031bccbbfec8971b9d6",
+              "case_revision": 4,
+              "inventory_version": 3,
+              "quantities": {
+                "proposed_hold_units": null,
+                "applied_hold_units": 800,
+                "pending_recovery_units": 0,
+                "confirmed_recovery_units": 0
+              },
+              "facts": [
+                {
+                  "id": "quantity-proposed_hold_units",
+                  "text": "proposed hold units: unknown / not calculated",
+                  "value": null
+                },
+                {
+                  "id": "quantity-applied_hold_units",
+                  "text": "applied hold units: 800",
+                  "value": 800
+                },
+                {
+                  "id": "quantity-pending_recovery_units",
+                  "text": "pending recovery units: 0",
+                  "value": 0
+                },
+                {
+                  "id": "quantity-confirmed_recovery_units",
+                  "text": "confirmed recovery units: 0",
+                  "value": 0
+                },
+                {
+                  "id": "next-action",
+                  "text": "Next permitted action: Review current scope before planning recovery"
+                },
+                {
+                  "id": "prior-proposal",
+                  "text": "Historical proposal: 800 units; stale after changed evidence, not current authority."
+                },
+                {
+                  "id": "gap-CAUSE-833fd0e271edaf",
+                  "text": "Receiving identity for FG-C. Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. The completeness manifest also needs confirmation."
+                },
+                {
+                  "id": "event-0",
+                  "text": "New source: final-web-ready-first-027b178f.txt. Re-extract and review current evidence."
+                },
+                {
+                  "id": "event-1",
+                  "text": "Critical scope and completeness reviewed; new exact plan calculated."
+                },
+                {
+                  "id": "event-2",
+                  "text": "Approved exact plan PLAN-8f7a2510bc8f"
+                },
+                {
+                  "id": "event-3",
+                  "text": "Sandbox inventory committed atomically: TX-14a34af9691d481493265497c94a4e5e"
+                },
+                {
+                  "id": "event-4",
+                  "text": "New source: final-web-retry1-revision-575c8e2f.txt. Re-extract and review current evidence."
+                },
+                {
+                  "id": "event-5",
+                  "text": "Critical scope and completeness reviewed; new exact plan calculated."
+                },
+                {
+                  "id": "event-6",
+                  "text": "Approved exact plan PLAN-30e12e24fc74"
+                },
+                {
+                  "id": "event-7",
+                  "text": "Sandbox inventory committed atomically: TX-52d3159ad4154ce99ae0c5ed61b65409"
+                },
+                {
+                  "id": "event-8",
+                  "text": "New source: final-web-retry1-web-original.txt. Re-extract and review current evidence."
+                }
+              ],
+              "events": [
+                {
+                  "id": "event-0",
+                  "at": "2026-10-17T22:39:56.719990+00:00",
+                  "type": "evidence_changed",
+                  "message": "New source: final-web-ready-first-027b178f.txt. Re-extract and review current evidence."
+                },
+                {
+                  "id": "event-1",
+                  "at": "2026-10-17T22:42:12.976323+00:00",
+                  "type": "reviewed",
+                  "message": "Critical scope and completeness reviewed; new exact plan calculated."
+                },
+                {
+                  "id": "event-2",
+                  "at": "2026-10-17T22:42:13.748158+00:00",
+                  "type": "approved",
+                  "message": "Approved exact plan PLAN-8f7a2510bc8f"
+                },
+                {
+                  "id": "event-3",
+                  "at": "2026-10-17T22:42:14.442443+00:00",
+                  "type": "applied",
+                  "message": "Sandbox inventory committed atomically: TX-14a34af9691d481493265497c94a4e5e"
+                },
+                {
+                  "id": "event-4",
+                  "at": "2026-10-17T22:42:14.923599+00:00",
+                  "type": "evidence_changed",
+                  "message": "New source: final-web-retry1-revision-575c8e2f.txt. Re-extract and review current evidence."
+                },
+                {
+                  "id": "event-5",
+                  "at": "2026-10-17T22:42:59.029088+00:00",
+                  "type": "reviewed",
+                  "message": "Critical scope and completeness reviewed; new exact plan calculated."
+                },
+                {
+                  "id": "event-6",
+                  "at": "2026-10-17T22:42:59.487568+00:00",
+                  "type": "approved",
+                  "message": "Approved exact plan PLAN-30e12e24fc74"
+                },
+                {
+                  "id": "event-7",
+                  "at": "2026-10-17T22:42:59.825806+00:00",
+                  "type": "applied",
+                  "message": "Sandbox inventory committed atomically: TX-52d3159ad4154ce99ae0c5ed61b65409"
+                },
+                {
+                  "id": "event-8",
+                  "at": "2026-10-17T22:43:00.673404+00:00",
+                  "type": "evidence_changed",
+                  "message": "New source: final-web-retry1-web-original.txt. Re-extract and review current evidence."
+                }
+              ],
+              "task_owners_missing": [],
+              "previous_id": null,
+              "fingerprint": "8be6e00832d8ef28dae551600b918bf023ecac5a6e982f3fe89383bacd50e2c8",
+              "records_hash": "20442c86ccb278b372fd850128d106e7f5ebe332441794bc58e6dc2ed459fa4f",
+              "required_fact_ids": [
+                "quantity-proposed_hold_units",
+                "quantity-applied_hold_units",
+                "quantity-pending_recovery_units",
+                "quantity-confirmed_recovery_units",
+                "next-action"
+              ],
+              "as_of": "2026-10-17T22:54:21.428170+00:00"
+            },
+            "statements": [
+              {
+                "fact_id": "quantity-proposed_hold_units",
+                "text": "proposed hold units: unknown / not calculated"
+              },
+              {
+                "fact_id": "quantity-applied_hold_units",
+                "text": "applied hold units: 800"
+              },
+              {
+                "fact_id": "quantity-pending_recovery_units",
+                "text": "pending recovery units: 0"
+              },
+              {
+                "fact_id": "quantity-confirmed_recovery_units",
+                "text": "confirmed recovery units: 0"
+              },
+              {
+                "fact_id": "next-action",
+                "text": "Next permitted action: Review current scope before planning recovery"
+              }
+            ],
+            "provenance": {
+              "provider": "Configured Gemma endpoint",
+              "at": "2026-10-17T22:54:21.399081+00:00",
+              "elapsed_ms": 13463,
+              "requested_model_id": "Gemma-4-31B-IT",
+              "model_id": "self-dploy/Gemma-4-31B-IT",
+              "request_id": "a1dc8f01686149d98e9a10615213af0c",
+              "usage": {
+                "prompt_tokens": 1873,
+                "total_tokens": 2007,
+                "completion_tokens": 134,
+                "prompt_tokens_details": {
+                  "cached_tokens": 54,
+                  "cache_write_tokens": 0,
+                  "audio_tokens": 0,
+                  "video_tokens": 0,
+                  "image_tokens": 0
+                },
+                "reasoning_tokens": 0,
+                "cost": 0.0000730828,
+                "cost_details": {
+                  "upstream_inference_cost": 0.00007308279999999999,
+                  "upstream_inference_prompt_cost": 0.0000637028,
+                  "upstream_inference_completions_cost": 0.00000938,
+                  "total_cost": 0.0000730828,
+                  "input_cost": 0.000063665,
+                  "output_cost": 0.00000938,
+                  "cached_input_cost": 3.78e-8,
+                  "cache_write_input_cost": 0,
+                  "request_cost": 0,
+                  "web_search_cost": 0,
+                  "image_input_cost": null,
+                  "image_output_cost": null,
+                  "audio_input_cost": null
+                },
+                "completion_tokens_details": {
+                  "reasoning_tokens": 0,
+                  "image_tokens": 0,
+                  "audio_tokens": 0
+                }
+              },
+              "settings": {
+                "temperature": 0,
+                "max_tokens": 1600
+              },
+              "response_hash": "2f87138c87b40b4b2c872669bf191a75e0c539611d890f0e298d75f31317f1db",
+              "http_status": 200,
+              "hosting_kind": "managed-amd-shared",
+              "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+            },
+            "fallback": null,
+            "author": {
+              "user_id": null,
+              "identity_mode": "anonymous session; not independent identity"
+            },
+            "review": null,
+            "authority": "Read/acknowledge/export only; this brief never approves or executes recovery"
+          }
+        }
+      ],
+      "handover": [
+        {
+          "id": "HANDOVER-a3163e2219b2872c68308ade",
+          "case_id": "00964a734d804031bccbbfec8971b9d6",
+          "previous_id": null,
+          "as_of": "2026-10-17T22:54:21.428170+00:00",
+          "snapshot": {
+            "case_id": "00964a734d804031bccbbfec8971b9d6",
+            "case_revision": 4,
+            "inventory_version": 3,
+            "quantities": {
+              "proposed_hold_units": null,
+              "applied_hold_units": 800,
+              "pending_recovery_units": 0,
+              "confirmed_recovery_units": 0
+            },
+            "facts": [
+              {
+                "id": "quantity-proposed_hold_units",
+                "text": "proposed hold units: unknown / not calculated",
+                "value": null
+              },
+              {
+                "id": "quantity-applied_hold_units",
+                "text": "applied hold units: 800",
+                "value": 800
+              },
+              {
+                "id": "quantity-pending_recovery_units",
+                "text": "pending recovery units: 0",
+                "value": 0
+              },
+              {
+                "id": "quantity-confirmed_recovery_units",
+                "text": "confirmed recovery units: 0",
+                "value": 0
+              },
+              {
+                "id": "next-action",
+                "text": "Next permitted action: Review current scope before planning recovery"
+              },
+              {
+                "id": "prior-proposal",
+                "text": "Historical proposal: 800 units; stale after changed evidence, not current authority."
+              },
+              {
+                "id": "gap-CAUSE-833fd0e271edaf",
+                "text": "Receiving identity for FG-C. Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. The completeness manifest also needs confirmation."
+              },
+              {
+                "id": "event-0",
+                "text": "New source: final-web-ready-first-027b178f.txt. Re-extract and review current evidence."
+              },
+              {
+                "id": "event-1",
+                "text": "Critical scope and completeness reviewed; new exact plan calculated."
+              },
+              {
+                "id": "event-2",
+                "text": "Approved exact plan PLAN-8f7a2510bc8f"
+              },
+              {
+                "id": "event-3",
+                "text": "Sandbox inventory committed atomically: TX-14a34af9691d481493265497c94a4e5e"
+              },
+              {
+                "id": "event-4",
+                "text": "New source: final-web-retry1-revision-575c8e2f.txt. Re-extract and review current evidence."
+              },
+              {
+                "id": "event-5",
+                "text": "Critical scope and completeness reviewed; new exact plan calculated."
+              },
+              {
+                "id": "event-6",
+                "text": "Approved exact plan PLAN-30e12e24fc74"
+              },
+              {
+                "id": "event-7",
+                "text": "Sandbox inventory committed atomically: TX-52d3159ad4154ce99ae0c5ed61b65409"
+              },
+              {
+                "id": "event-8",
+                "text": "New source: final-web-retry1-web-original.txt. Re-extract and review current evidence."
+              }
+            ],
+            "events": [
+              {
+                "id": "event-0",
+                "at": "2026-10-17T22:39:56.719990+00:00",
+                "type": "evidence_changed",
+                "message": "New source: final-web-ready-first-027b178f.txt. Re-extract and review current evidence."
+              },
+              {
+                "id": "event-1",
+                "at": "2026-10-17T22:42:12.976323+00:00",
+                "type": "reviewed",
+                "message": "Critical scope and completeness reviewed; new exact plan calculated."
+              },
+              {
+                "id": "event-2",
+                "at": "2026-10-17T22:42:13.748158+00:00",
+                "type": "approved",
+                "message": "Approved exact plan PLAN-8f7a2510bc8f"
+              },
+              {
+                "id": "event-3",
+                "at": "2026-10-17T22:42:14.442443+00:00",
+                "type": "applied",
+                "message": "Sandbox inventory committed atomically: TX-14a34af9691d481493265497c94a4e5e"
+              },
+              {
+                "id": "event-4",
+                "at": "2026-10-17T22:42:14.923599+00:00",
+                "type": "evidence_changed",
+                "message": "New source: final-web-retry1-revision-575c8e2f.txt. Re-extract and review current evidence."
+              },
+              {
+                "id": "event-5",
+                "at": "2026-10-17T22:42:59.029088+00:00",
+                "type": "reviewed",
+                "message": "Critical scope and completeness reviewed; new exact plan calculated."
+              },
+              {
+                "id": "event-6",
+                "at": "2026-10-17T22:42:59.487568+00:00",
+                "type": "approved",
+                "message": "Approved exact plan PLAN-30e12e24fc74"
+              },
+              {
+                "id": "event-7",
+                "at": "2026-10-17T22:42:59.825806+00:00",
+                "type": "applied",
+                "message": "Sandbox inventory committed atomically: TX-52d3159ad4154ce99ae0c5ed61b65409"
+              },
+              {
+                "id": "event-8",
+                "at": "2026-10-17T22:43:00.673404+00:00",
+                "type": "evidence_changed",
+                "message": "New source: final-web-retry1-web-original.txt. Re-extract and review current evidence."
+              }
+            ],
+            "task_owners_missing": [],
+            "previous_id": null,
+            "fingerprint": "8be6e00832d8ef28dae551600b918bf023ecac5a6e982f3fe89383bacd50e2c8",
+            "records_hash": "20442c86ccb278b372fd850128d106e7f5ebe332441794bc58e6dc2ed459fa4f",
+            "required_fact_ids": [
+              "quantity-proposed_hold_units",
+              "quantity-applied_hold_units",
+              "quantity-pending_recovery_units",
+              "quantity-confirmed_recovery_units",
+              "next-action"
+            ],
+            "as_of": "2026-10-17T22:54:21.428170+00:00"
+          },
+          "statements": [
+            {
+              "fact_id": "quantity-proposed_hold_units",
+              "text": "proposed hold units: unknown / not calculated"
+            },
+            {
+              "fact_id": "quantity-applied_hold_units",
+              "text": "applied hold units: 800"
+            },
+            {
+              "fact_id": "quantity-pending_recovery_units",
+              "text": "pending recovery units: 0"
+            },
+            {
+              "fact_id": "quantity-confirmed_recovery_units",
+              "text": "confirmed recovery units: 0"
+            },
+            {
+              "fact_id": "next-action",
+              "text": "Next permitted action: Review current scope before planning recovery"
+            }
+          ],
+          "provenance": {
+            "provider": "Configured Gemma endpoint",
+            "at": "2026-10-17T22:54:21.399081+00:00",
+            "elapsed_ms": 13463,
+            "requested_model_id": "Gemma-4-31B-IT",
+            "model_id": "self-dploy/Gemma-4-31B-IT",
+            "request_id": "a1dc8f01686149d98e9a10615213af0c",
+            "usage": {
+              "prompt_tokens": 1873,
+              "total_tokens": 2007,
+              "completion_tokens": 134,
+              "prompt_tokens_details": {
+                "cached_tokens": 54,
+                "cache_write_tokens": 0,
+                "audio_tokens": 0,
+                "video_tokens": 0,
+                "image_tokens": 0
+              },
+              "reasoning_tokens": 0,
+              "cost": 0.0000730828,
+              "cost_details": {
+                "upstream_inference_cost": 0.00007308279999999999,
+                "upstream_inference_prompt_cost": 0.0000637028,
+                "upstream_inference_completions_cost": 0.00000938,
+                "total_cost": 0.0000730828,
+                "input_cost": 0.000063665,
+                "output_cost": 0.00000938,
+                "cached_input_cost": 3.78e-8,
+                "cache_write_input_cost": 0,
+                "request_cost": 0,
+                "web_search_cost": 0,
+                "image_input_cost": null,
+                "image_output_cost": null,
+                "audio_input_cost": null
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "image_tokens": 0,
+                "audio_tokens": 0
+              }
+            },
+            "settings": {
+              "temperature": 0,
+              "max_tokens": 1600
+            },
+            "response_hash": "2f87138c87b40b4b2c872669bf191a75e0c539611d890f0e298d75f31317f1db",
+            "http_status": 200,
+            "hosting_kind": "managed-amd-shared",
+            "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+          },
+          "fallback": null,
+          "author": {
+            "user_id": null,
+            "identity_mode": "anonymous session; not independent identity"
+          },
+          "review": null,
+          "authority": "Read/acknowledge/export only; this brief never approves or executes recovery"
+        }
+      ],
+      "label": [
+        {
+          "id": "LABEL-7dc9f58576a2b75035483fec",
+          "case_id": "00964a734d804031bccbbfec8971b9d6",
+          "filename": "web-label.png",
+          "original_hash": "ff0c1e4a14d54062efa5fd03c411dd1b076fe19b26004bed4b5f63222c82d12b",
+          "derived_hash": "64196ae22c07a28fb31af4941a328f7ea773e017eb8eaef5967f1ed5adc726e2",
+          "image_version": 1,
+          "transform": {
+            "oriented_width": 720,
+            "oriented_height": 260,
+            "derived_width": 720,
+            "derived_height": 260,
+            "crop_xywh": null,
+            "transform": "EXIF orientation -> RGB pixel copy -> optional operator crop -> metadata-free PNG",
+            "region_origin": "full image; no machine localization"
+          },
+          "at": "2026-10-17T22:43:41.626627+00:00",
+          "status": "image imported / identity unverified",
+          "reading": null,
+          "review": null,
+          "purpose": "Label identity only. No defect or product-quality inference. Barcode decoding unavailable in this build."
+        }
+      ],
+      "translation": [
+        {
+          "id": "TR-dd5179065b7e56f95c00260e",
+          "case_id": "00964a734d804031bccbbfec8971b9d6",
+          "document_id": "DOC-b22d90a892c9",
+          "original_hash": "d3f4c5b1779f438e0569fc53309557e2cb3a6a6815d9bc5238d5db2db04328b1",
+          "source_language": "ru",
+          "target_language": "en",
+          "segments": [
+            {
+              "source": {
+                "document_id": "DOC-b22d90a892c9",
+                "block_id": "line-1",
+                "quote": "Партия LOT-007 не исключена; она может быть затронута. Полнота неизвестна. Дата 03/04/2026 не подтверждена.",
+                "original_hash": "d3f4c5b1779f438e0569fc53309557e2cb3a6a6815d9bc5238d5db2db04328b1",
+                "document_revision": 4,
+                "page": null,
+                "location_origin": "retained local parser; no provider bounding-box claim"
+              },
+              "translation": "Batch LOT-007 is not excluded; it may be affected. Completeness is unknown. Date 03/04/2026 is not confirmed.",
+              "protected_original_values": [
+                "LOT-007",
+                "03",
+                "04",
+                "2026"
+              ]
+            }
+          ],
+          "flags": [
+            "Date/decimal interpretation requires explicit original-value review; no implicit conversion"
+          ],
+          "status": "unreviewed derived translation",
+          "provenance": {
+            "provider": "Configured Gemma endpoint",
+            "at": "2026-10-17T22:43:38.683461+00:00",
+            "elapsed_ms": 36028,
+            "requested_model_id": "Gemma-4-31B-IT",
+            "model_id": "self-dploy/Gemma-4-31B-IT",
+            "request_id": "bdeb3b7aa9f74592af004c8c5627212a",
+            "usage": {
+              "prompt_tokens": 575,
+              "total_tokens": 701,
+              "completion_tokens": 126,
+              "prompt_tokens_details": {
+                "cached_tokens": 54,
+                "cache_write_tokens": 0,
+                "audio_tokens": 0,
+                "video_tokens": 0,
+                "image_tokens": 0
+              },
+              "reasoning_tokens": 0,
+              "cost": 0.0000270928,
+              "cost_details": {
+                "upstream_inference_cost": 0.000027092800000000003,
+                "upstream_inference_prompt_cost": 0.000018272800000000002,
+                "upstream_inference_completions_cost": 0.00000882,
+                "total_cost": 0.0000270928,
+                "input_cost": 0.000018235,
+                "output_cost": 0.00000882,
+                "cached_input_cost": 3.78e-8,
+                "cache_write_input_cost": 0,
+                "request_cost": 0,
+                "web_search_cost": 0,
+                "image_input_cost": null,
+                "image_output_cost": null,
+                "audio_input_cost": null
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "image_tokens": 0,
+                "audio_tokens": 0
+              }
+            },
+            "settings": {
+              "temperature": 0,
+              "max_tokens": 1600
+            },
+            "response_hash": "3e4eb3fc030542cfb0e84ac0fe1027deb5bbe2b1097b3c9b6340e66248258c6a",
+            "http_status": 200,
+            "hosting_kind": "managed-amd-shared",
+            "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+          },
+          "at": "2026-10-17T22:43:38.686037+00:00",
+          "case_revision": 4,
+          "review": null,
+          "authority": "Original source only; translation is not a verbatim original quotation or inventory fact"
+        }
+      ],
+      "signals": [],
+      "outbox": [],
+      "policy_revision": 0,
+      "actor": {
+        "user_id": null,
+        "identity_mode": "anonymous session; not independent identity"
+      },
+      "snapshot_at": "2026-10-17T22:54:25.138084+00:00",
+      "boundary": "Historical snapshots confer no action authority. Synthetic records and simulated identities are not independent human validation."
+    }
+  },
+  "integrity_hash": "ec23e29dc8feb73f27f05d1672394597f1232d100bc99f9380e4aaf13cebe050"
+}

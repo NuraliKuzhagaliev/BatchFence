@@ -1,0 +1,174 @@
+{
+  "id": "GENERATE-5adc4e506f911bbc85cec290",
+  "case_id": "00964a734d804031bccbbfec8971b9d6",
+  "kind": "translation",
+  "mode": "live",
+  "provider_path": "Direct Gemma / managed-amd-shared",
+  "status": "unreviewed proposal",
+  "request_hash": "d904f7b67c8be3c1bc7716bc73da3c40d894f4ad9b6266b5f580cd98666d653a",
+  "snapshot_hash": "8be6e00832d8ef28dae551600b918bf023ecac5a6e982f3fe89383bacd50e2c8",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "started_at": "2026-10-17T22:43:02.633349+00:00",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "8ed7eb73e92793168152fa14529dd52eb52122b7e159f8dbe96570582f75e634",
+    "dispatch": 5,
+    "conservative_remaining": 0.9469706730917096,
+    "stop_margin": 0.1
+  },
+  "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+  "raw_output": {
+    "segments": [
+      {
+        "source": {
+          "block_id": "line-1",
+          "document_id": "DOC-b22d90a892c9",
+          "quote": "Партия LOT-007 не исключена; она может быть затронута. Полнота неизвестна. Дата 03/04/2026 не подтверждена."
+        },
+        "translation": "Batch LOT-007 is not excluded; it may be affected. Completeness is unknown. Date 03/04/2026 is not confirmed."
+      }
+    ]
+  },
+  "provenance": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T22:43:38.683461+00:00",
+    "elapsed_ms": 36028,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "bdeb3b7aa9f74592af004c8c5627212a",
+    "usage": {
+      "prompt_tokens": 575,
+      "total_tokens": 701,
+      "completion_tokens": 126,
+      "prompt_tokens_details": {
+        "cached_tokens": 54,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.0000270928,
+      "cost_details": {
+        "upstream_inference_cost": 0.000027092800000000003,
+        "upstream_inference_prompt_cost": 0.000018272800000000002,
+        "upstream_inference_completions_cost": 0.00000882,
+        "total_cost": 0.0000270928,
+        "input_cost": 0.000018235,
+        "output_cost": 0.00000882,
+        "cached_input_cost": 3.78e-8,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "3e4eb3fc030542cfb0e84ac0fe1027deb5bbe2b1097b3c9b6340e66248258c6a",
+    "http_status": 200,
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "library_provenance": null,
+  "finished_at": "2026-10-17T22:43:38.685188+00:00",
+  "draft": {
+    "id": "TR-dd5179065b7e56f95c00260e",
+    "case_id": "00964a734d804031bccbbfec8971b9d6",
+    "document_id": "DOC-b22d90a892c9",
+    "original_hash": "d3f4c5b1779f438e0569fc53309557e2cb3a6a6815d9bc5238d5db2db04328b1",
+    "source_language": "ru",
+    "target_language": "en",
+    "segments": [
+      {
+        "source": {
+          "document_id": "DOC-b22d90a892c9",
+          "block_id": "line-1",
+          "quote": "Партия LOT-007 не исключена; она может быть затронута. Полнота неизвестна. Дата 03/04/2026 не подтверждена.",
+          "original_hash": "d3f4c5b1779f438e0569fc53309557e2cb3a6a6815d9bc5238d5db2db04328b1",
+          "document_revision": 4,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        },
+        "translation": "Batch LOT-007 is not excluded; it may be affected. Completeness is unknown. Date 03/04/2026 is not confirmed.",
+        "protected_original_values": [
+          "LOT-007",
+          "03",
+          "04",
+          "2026"
+        ]
+      }
+    ],
+    "flags": [
+      "Date/decimal interpretation requires explicit original-value review; no implicit conversion"
+    ],
+    "status": "unreviewed derived translation",
+    "provenance": {
+      "provider": "Configured Gemma endpoint",
+      "at": "2026-10-17T22:43:38.683461+00:00",
+      "elapsed_ms": 36028,
+      "requested_model_id": "Gemma-4-31B-IT",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "request_id": "bdeb3b7aa9f74592af004c8c5627212a",
+      "usage": {
+        "prompt_tokens": 575,
+        "total_tokens": 701,
+        "completion_tokens": 126,
+        "prompt_tokens_details": {
+          "cached_tokens": 54,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.0000270928,
+        "cost_details": {
+          "upstream_inference_cost": 0.000027092800000000003,
+          "upstream_inference_prompt_cost": 0.000018272800000000002,
+          "upstream_inference_completions_cost": 0.00000882,
+          "total_cost": 0.0000270928,
+          "input_cost": 0.000018235,
+          "output_cost": 0.00000882,
+          "cached_input_cost": 3.78e-8,
+          "cache_write_input_cost": 0,
+          "request_cost": 0,
+          "web_search_cost": 0,
+          "image_input_cost": null,
+          "image_output_cost": null,
+          "audio_input_cost": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "settings": {
+        "temperature": 0,
+        "max_tokens": 1600
+      },
+      "response_hash": "3e4eb3fc030542cfb0e84ac0fe1027deb5bbe2b1097b3c9b6340e66248258c6a",
+      "http_status": 200,
+      "hosting_kind": "managed-amd-shared",
+      "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+    },
+    "at": "2026-10-17T22:43:38.686037+00:00",
+    "case_revision": 4,
+    "review": null,
+    "authority": "Original source only; translation is not a verbatim original quotation or inventory fact"
+  },
+  "stale": false
+}

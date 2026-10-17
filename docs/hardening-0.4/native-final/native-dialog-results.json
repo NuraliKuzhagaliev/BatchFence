@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-17T22:50:36.594Z",
+  "status": "passed",
+  "dialog_stubs": false,
+  "checks": [
+    "actual OS evidence selection",
+    "actual OS synthetic-image selection",
+    "actual OS save",
+    "actual OS reopen",
+    "read-only historical packet"
+  ],
+  "source": "fixtures/demo/supplier_notice_v2.txt",
+  "saved_packet": "work\\native-dialog-packet-0.4.0-rc.2-final.json",
+  "version": "0.4.0-rc.2",
+  "operator": "Agent-operated Windows OS controls; final release bytes; explicit fixture route remains after native focus",
+  "resumed_after_retained_image": false,
+  "physical_photo_validation": false,
+  "inference_calls": 0
+}

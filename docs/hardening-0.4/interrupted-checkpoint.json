@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-17T22:42:32.071392+00:00",
+  "reason": "User stopped native Computer Use with physical Escape; UI helpers stopped without further app input.",
+  "runtime_commit": "d9a8b6aa27af4e5329340b1774958405394ec69f",
+  "version": "0.4.0-rc.2",
+  "public_url": "https://batchfence.onrender.com",
+  "deploy_id": "dep-db9vh5oae00c7399i3t0",
+  "github_pr": 3,
+  "main_ci": 39075698587,
+  "phase_reservations": 40,
+  "maximum_phase_attempts": 64,
+  "provider_requests_already_dispatched": "May finish and consume covered allowance; no new requests scheduled by stopped helpers. Inspect server jobs before retrying.",
+  "verified_final_web_core": true,
+  "remaining": [
+    "Final installed-client fresh acceptance on d9a8b6a",
+    "Finish four held-out extension jobs per client; inspect any in-flight result before resuming",
+    "Final native check interrupted; earlier real four-dialog candidate check passed",
+    "Publish attested installer/source/checksums and final media/handoff"
+  ],
+  "credentials_changed": false
+}

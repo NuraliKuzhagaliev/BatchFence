@@ -1,0 +1,72 @@
+{
+  "at": "2026-10-17T23:19:15.504070+00:00",
+  "requested_model": "Gemma-4-31B-IT",
+  "endpoint": "https://developer.amd.com.cn/radeon/api/v1/chat/completions",
+  "source": "evals\\hardening-live-v1\\web-label.png",
+  "original_sha256": "ff0c1e4a14d54062efa5fd03c411dd1b076fe19b26004bed4b5f63222c82d12b",
+  "derived_sha256": "ff0c1e4a14d54062efa5fd03c411dd1b076fe19b26004bed4b5f63222c82d12b",
+  "mime": "image/png",
+  "width": 720,
+  "height": 260,
+  "bytes": 10877,
+  "base64_roundtrip": true,
+  "request_contract": {
+    "content_parts": [
+      "image_url data URI",
+      "text task/schema; no supplied transcription"
+    ],
+    "response_format": {
+      "type": "json_object"
+    },
+    "temperature": 0,
+    "max_tokens": 1600
+  },
+  "no_automatic_retries": true,
+  "review": "Synthetic diagnostic; no inventory authority",
+  "http_status": 200,
+  "elapsed_ms": 3133,
+  "response_sha256": "2e8a32b9d71114b0c14b7170e96e15d17999bf669477118b305e437228b59048",
+  "response_headers": {
+    "x-request-id": null,
+    "content-type": "application/json",
+    "retry-after": null
+  },
+  "actual_model": "self-dploy/Gemma-4-31B-IT",
+  "request_id": "009a95b734134a1893530a351e818fe1",
+  "usage": {
+    "prompt_tokens": 561,
+    "total_tokens": 587,
+    "completion_tokens": 26,
+    "prompt_tokens_details": {
+      "cached_tokens": 560,
+      "image_tokens": 270,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 2.247e-06,
+    "cost_details": {
+      "upstream_inference_cost": 2.247e-06,
+      "upstream_inference_prompt_cost": 4.27e-07,
+      "upstream_inference_completions_cost": 1.82e-06,
+      "total_cost": 2.247e-06,
+      "input_cost": 3.5e-08,
+      "output_cost": 1.82e-06,
+      "cached_input_cost": 3.92e-07,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "content": "{\"candidates\": [\"LOT-00083\"], \"unresolved_characters\": [], \"unreadable\": false}",
+  "finish_reason": "stop"
+}

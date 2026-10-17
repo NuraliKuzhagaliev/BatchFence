@@ -1,0 +1,1 @@
+{"at":"2026-10-17T22:52:24.529Z","reason":"Resume after owner interruption; reuse passed core and translation. Retry interrupted image once on unchanged retained image; then request and handover. No automatic loop.","maximum_new_calls":3}

@@ -1,0 +1,5 @@
+{
+  "at": "2026-10-17T22:39:18.338Z",
+  "message": "Structured-output,timeout or transport failure; no fallback\n+ actual - expected\n\n+ 'failed provider request'\n- 'unreviewed proposal'\n",
+  "errors": []
+}
