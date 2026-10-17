@@ -1,0 +1,7 @@
+{
+  "kind": "supplier_lot",
+  "lot": "RM-21",
+  "scope": "partial",
+  "status": "explicitly_excluded",
+  "text": "RM-21 is explicitly excluded."
+}

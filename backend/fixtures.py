@@ -21,10 +21,18 @@ def document(filename, raw, revision=1, synthetic=True):
         reader = csv.reader(io.StringIO(text, newline=''), strict=True)
         blocks = []
         start = 0
+        header = None
         for row in reader:
             quote = ''.join(physical[start:reader.line_num]).rstrip('\r\n')
             start = reader.line_num
             if row:
+                from .domain import DomainError
+                if header is None:
+                    header=row
+                    if any(not k.strip() for k in header) or len(set(header))!=len(header):
+                        raise DomainError('CSV requires distinct nonempty column headings; duplicate fields cannot overwrite evidence')
+                elif len(row)!=len(header):
+                    raise DomainError('CSV record has missing or extra fields; no partial record accepted')
                 blocks.append({'id': f'row-{len(blocks)}', 'text': quote, 'page': None})
     else:
         blocks = [{'id': f'line-{i+1}', 'text': line, 'page': None}

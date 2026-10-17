@@ -1,0 +1,10 @@
+{
+  "daily_cost_limit_usd": 1,
+  "daily_cost_used_usd": 0.0017989284824579954,
+  "daily_cost_remaining_usd": 0.998201071517542,
+  "daily_reset_at": "2026-10-18T16:00:00.000Z",
+  "at": "2026-10-17T21:19:23.393543+00:00",
+  "http_status": 200,
+  "today_requests": 63,
+  "unit": "Provider shared-service metering units; not a cash purchase"
+}

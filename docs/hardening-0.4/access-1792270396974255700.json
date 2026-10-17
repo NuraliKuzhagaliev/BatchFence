@@ -1,0 +1,143 @@
+{
+  "at": "2026-10-17T20:53:11.261471+00:00",
+  "phase": "adversarial-2026-10-18-v1",
+  "inference_calls": 0,
+  "configuration_file": "D:\\projects\\BatchFence\\.env",
+  "present": {
+    "AMD_API_KEY": true,
+    "GEMMA_API_KEY": true,
+    "EVOLUS_API_KEY": true,
+    "EVOLUS_USER_API_KEY": true,
+    "EVOLUS_APPLICATION_ID": true,
+    "GEMMA_MODEL_ID": true
+  },
+  "reads": [
+    {
+      "label": "amd-current-usage",
+      "http_status": 200,
+      "elapsed_ms": 1378,
+      "response_hash": "ab6bc798127745bda7dcf6f64b931ee2d0183b40ed0a6d888d2a81841abdc20e"
+    },
+    {
+      "label": "amd-current-catalog",
+      "http_status": 200,
+      "elapsed_ms": 1293,
+      "response_hash": "facf07515e1ee8faf1d7070db5e8ebaac408ed3b45df47d2a4a57dff7a301a88"
+    },
+    {
+      "label": "evolus-current-bucket-balances",
+      "http_status": 200,
+      "elapsed_ms": 1217,
+      "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+    },
+    {
+      "label": "evolus-current-own-connection",
+      "http_status": 200,
+      "elapsed_ms": 706,
+      "response_hash": "de7041054aec06fccd2ae5fe81056f40c1699707e57310b7d7e4277bddf5d549"
+    },
+    {
+      "label": "evolus-current-catalog",
+      "http_status": 200,
+      "elapsed_ms": 1097,
+      "response_hash": "e44f14b75530882b3d0dd360f80ee78282287bf4b4a05d399abaedb75e6f4435"
+    }
+  ],
+  "amd": {
+    "daily_cost_limit_usd": 1,
+    "daily_cost_used_usd": 0.0017989284824579954,
+    "daily_cost_remaining_usd": 0.998201071517542,
+    "daily_reset_at": "2026-10-18T16:00:00.000Z",
+    "daily_request_limit": null,
+    "requests_remaining": null,
+    "today": {
+      "requests": 63,
+      "errors": 0,
+      "prompt_tokens": 42978,
+      "completion_tokens": 7351,
+      "cost": 0.0017989284824579954
+    },
+    "returned_field_names": [
+      "all_time",
+      "by_model",
+      "by_source",
+      "daily_cost_limit_usd",
+      "daily_cost_remaining_usd",
+      "daily_cost_used_usd",
+      "daily_reset_at",
+      "daily_reset_epoch",
+      "daily_reset_timezone",
+      "last_24_hours",
+      "last_30_days",
+      "organization_id",
+      "period_duration_unit",
+      "period_duration_value",
+      "period_started_at",
+      "project_id",
+      "recent",
+      "recent_limit",
+      "rpm_limit",
+      "today",
+      "window_hours"
+    ]
+  },
+  "amd_models": [
+    {
+      "id": "Gemma-4-31B-IT",
+      "name": "Gemma 4 31B",
+      "owned_by": null,
+      "free": false,
+      "pricing": {
+        "prompt": "3.5e-8",
+        "completion": "7e-8",
+        "input_cache_read": "7e-10"
+      },
+      "context_length": 262144,
+      "max_output_tokens": null,
+      "capabilities": null
+    },
+    {
+      "id": "MiMo-V2.6-Flash",
+      "name": "MiMo-V2.6-Flash",
+      "owned_by": null,
+      "free": false,
+      "pricing": {
+        "prompt": "1.4e-7",
+        "completion": "2.8e-7",
+        "input_cache_read": "2.8e-9"
+      },
+      "context_length": 1048576,
+      "max_output_tokens": null,
+      "capabilities": null
+    }
+  ],
+  "evolus_balance": [
+    {
+      "bucketId": "92e2bcdc-315a-4113-a101-146575a6f72e",
+      "applicationId": "705220fb-be5e-4d61-b1ee-5a5fc824ab8e",
+      "bucketType": {
+        "code": "LLM_CREDITS"
+      },
+      "monthlyBalance": 50000.0,
+      "extraBalance": 0.0,
+      "totalBalance": 50000.0,
+      "lastResetAt": "2026-10-16T22:01:20.3065606Z",
+      "monthlyAllocation": null,
+      "lots": [],
+      "monthlyCreditsResetAt": "2026-11-16T00:00:00Z",
+      "monthlyCreditsRemaining": 50000.0
+    }
+  ],
+  "evolus_connections": [
+    {
+      "id": "f2f3d7ea-d7a9-4ddd-b09a-913df0b695ba",
+      "name": "BatchFence AMD shared Gemma",
+      "baseUrl": null,
+      "isDisabled": null,
+      "hasApiKey": true,
+      "lastVerifiedAt": "2026-10-17T19:09:08.7152222Z",
+      "lastVerificationStatus": null
+    }
+  ],
+  "evolus_model": []
+}

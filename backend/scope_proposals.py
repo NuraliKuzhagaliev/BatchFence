@@ -78,8 +78,10 @@ def validate_proposals(raw,docs):
     for e in data['scope_evidence']:check(e)
     if data['scope_status']=='complete':
         scope='\n'.join(e['quote'] for e in data['scope_evidence'])
+        source_ids={e['document_id'] for e in data['scope_evidence']}
+        whole_source='\n'.join(b['text'] for d in docs if d['id'] in source_ids for b in d['blocks'])
         exhaustive=re.search(r'\b(?:complete|exhaustive|entire)\s+(?:affected\s+)?(?:incident\s+)?(?:list|scope|boundary)|\b(?:incident|affected)\s+(?:list|scope|boundary)\b[^.!?\n]{0,45}\b(?:complete|exhaustive)|\bno other (?:supplier )?lots (?:are )?affected\b',scope,re.I)
-        if not exhaustive or UNRESOLVED.search(scope):
+        if not exhaustive or UNRESOLVED.search(whole_source):
             raise ValueError('Complete scope lacks an explicit resolved exhaustive incident boundary')
     return data
 

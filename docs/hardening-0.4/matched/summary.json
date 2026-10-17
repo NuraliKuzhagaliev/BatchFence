@@ -1,0 +1,20 @@
+{
+  "planned": 24,
+  "attempted": 2,
+  "models": {
+    "Gemma-4-31B-IT": {
+      "attempts": 1,
+      "original_supplier_pairs_exact": 1,
+      "validator_rejections": 0
+    },
+    "MiMo-V2.6-Flash": {
+      "attempts": 1,
+      "original_supplier_pairs_exact": 0,
+      "validator_rejections": 1
+    }
+  },
+  "original_frozen_benchmark_unchanged": true,
+  "state_effects": 0,
+  "independent_human_validation": false,
+  "limitation": "Small same-agent synthetic benchmark. Binary original labels collapse mentioned/uncertain/excluded; complete-boundary auxiliary label disputes remain separate. Equivalent requested settings do not guarantee identical provider sampling or reasoning."
+}

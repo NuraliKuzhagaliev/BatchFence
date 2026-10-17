@@ -1,5 +1,5 @@
 """Typed receiving drafts and explicit reviewed replacement; old syntax remains supported."""
-import copy
+import copy,re
 from typing import Literal
 from pydantic import BaseModel,ConfigDict,Field
 from .domain import DomainError,make_plan
@@ -34,7 +34,7 @@ def source_context(doc):
 def validate_draft(raw,doc):
     draft=Draft.model_validate(raw).model_dump()
     for entity in draft['entities']:
-        if entity['id'] not in entity['quote'] or not resolution_evidence(doc,entity['quote']):raise DomainError('Typed entity lacks an exact source occurrence')
+        if not mentions(entity['id'],entity['quote']) or not resolution_evidence(doc,entity['quote']):raise DomainError('Typed entity lacks an exact source occurrence')
     if draft['completeness']=='complete' and not resolution_evidence(doc,draft['completeness_quote']):raise DomainError('Unsupported completeness proposal')
     return draft
 
@@ -59,6 +59,8 @@ def preview(state,data):
         if not parents or not set(parents)<=suppliers:raise DomainError('Unknown entities or non-supplier identifiers remain unresolved')
         if not all(mentions(value,data.quote) for value in [data.pool_id,*parents]):raise DomainError('Source passage must identify the pool and each reviewed parent')
         if data.unresolved_contradictions:raise DomainError('Unresolved contradictions cannot replace receiving records')
+        if data.complete and re.search(r'\b(?:may|might|could|possibly|pending|inconclusive|conflicting|cannot|unknown|unresolved|unconfirmed|incomplete)\b|\bnot (?:yet )?(?:complete|exhaustive|confirmed)\b','\n'.join(b['text'] for b in doc['blocks']),re.I):
+            raise DomainError('Source ancestry remains explicitly uncertain or incomplete; upload clarifying evidence before complete replacement')
         if data.complete and set(data.superseded_row_ids)!={e['row_id'] for e in old}:raise DomainError('Review every superseded lineage row for complete replacement')
         if data.review_path=='narrative_draft':
             runs=[r for r in state.get('receiving_runs',[]) if r['id']==data.run_id and r['document_id']==doc['id'] and r['revision']==state['revision'] and r['status']=='succeeded']

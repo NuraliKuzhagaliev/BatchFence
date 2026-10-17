@@ -1,0 +1,4 @@
+{
+  "filename": "dup.csv",
+  "text": "row_id,source,target,kind,kind\nE1,RM-42,POOL-1,possible,confirmed"
+}

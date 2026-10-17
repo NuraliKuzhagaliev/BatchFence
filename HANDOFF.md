@@ -1,3 +1,21 @@
+# Adversarial hardening candidate0.4.0-rc.2 — in progress
+
+Branch adversarial-hardening-0.4 builds on d846b14. Public runtime remains c40bc08/0.4.0-rc.1; approved configuration deploy dep-db9uf9mq1p3s739ktk20 is now live, fresh product acceptance pending. All prior releases, frozen benchmarks, data and completed-phase ledgers preserved. New finite phase adversarial-2026-10-18-v1 in AUDIT_PLAN.md; strictly free-only, no percentage or target spending. Owner explicitly authorized necessary Render settings with unchanged AMD team key and valid replacement Evolus credentials. Stop all further credential rotation/revocation.
+
+Actual baseline171 passed. Nine defect groups reproduced/fixed: explicit incomplete scope; omitted late caveat; complete typed receiving replacement despite uncertain source; exact identifier association in label/receiving/recovery; timezone chronology; malformed handover; procedure integer/page metadata; duplicate/ragged CSV; blank source invalidation. New20 regressions and neighboring82/52 passed. New200-case corpus frozen,64 held-out, family counts32/32/24/20/28/24/16/24. Initial181 passed with19 harness errors; corrected applied-history assertion and actual factual enum, then200 passed with source/labels unchanged. Same-agent synthetic local checks, not model accuracy or independent human acceptance. Combined16 sequences/property/operational gates remain.
+
+Current provider APIs verified AMD shared hard daily cap1 and Evolus EVOLUS_DEVELOPER_EVENT,50000 credits, renewsAutomatically=false, own/gemma-4-31b-it byok-free0/0. First matched Gemma EXT01 HTTP200 exact original supplier pairs. MiMo EXT01 HTTP429 Retry-After1; stopped, no retry; raw quality unmeasured. Two phase attempts reserved, remaining matched evaluation pending.
+
+Security handling incident: Render import accessibility exposed values despite masking; never capture that environment page again. Two initial Evolus keys were replaced/disabled (old401), replacements authenticate. AMD documented rotation URL404 made no AMD change. Owner directed no further rotation; AMD initial fingerprint unchanged and own-model connection enabled. No private values were written to source/evidence/artifacts. Following explicit owner clarification, allowlisted configuration was imported privately and deployed on the existing Free service. Cloud uses /etc/secrets workflow/expiring allowance files; original AMD settings/live access gate preserved. No paid resource or new service.
+
+Candidate installer0.4.0-rc.2 built with separate app identity app.batchfence.hardening040rc2. Install target work/installed-0.4.0-rc.2; old0.4rc1 preserved. Isolated local live backend http://127.0.0.1:8810 uses work/hardening/client-live.sqlite and client-sources, actual private configuration. Historical8801/8788 services preserved. Current evidence docs/hardening-0.4; new sources evals/hardening-v1.
+
+Next: genuine fresh public/installed processing; bounded matched/held-out checks; combined sequences; final tests/build/browser/native/container/restart; coherent source/installer checksums; publication/handoff. No claim of live activation from settings alone.
+
+Commands from D:\projects\BatchFence: `.venv\Scripts\python.exe -m pytest tests/test_hardening_corpus.py -q --basetemp work/pytest-NEW`; `.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-NEW`; `npm run package:desktop`. Full pytest can rewrite docs/evaluation-results.json: preserve current report then restore only work/hardening/baseline-evaluation-before.json. Do not rerun the one-shot hardening_matched_live script or overwrite started attempts.
+
+---
+
 # Published BatchFence 0.4.0-rc.1 engineering preview
 
 Web https://batchfence.onrender.com. Windows/source https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.1. Release, main, default tag archive and deployed app commit c40bc08545270172537f09d5f6b0abfc700ab177. Existing Free Render deploy dep-db9tgvtg1s2s73aq86s0 is live; one instance, temporary SQLite. Both PR/main Linux CI passed (39065575924 /39066164549). Stable v0.3.0 latest, installer and installation remain preserved. New evidence/test-tool checkpoint is on release-evidence-0.4.0-rc.1; runtime files remain those of the one release commit.

@@ -7,6 +7,18 @@ GROUP=('site','product','process','method','regime','defect','metric')
 DEFAULT_POLICY={'min_observations':20,'min_inspected':5000,'min_expected':5,'sigma':3}
 
 
+def event_instant(value):
+    """Compare actual instants while retaining original source timestamps."""
+    try:
+        stamp=datetime.fromisoformat(value.replace('Z','+00:00'))
+        if stamp.tzinfo is None:raise ValueError()
+        return stamp
+    except (ValueError,TypeError,AttributeError):raise DomainError('Valid timezone-aware observation required')
+
+
+def event_order(row):return (event_instant(row['event_time']),row['observation_id'])
+
+
 def validate_rows(rows):
     seen=set()
     for r in rows:
@@ -15,13 +27,13 @@ def validate_rows(rows):
         if any(not r.get(k) for k in GROUP) or r['metric']!='nonconforming_units': raise DomainError('Comparable nonconforming-unit records required')
         if type(r['inspected']) is not int or type(r['nonconforming']) is not int or r['inspected']<=0 or not 0<=r['nonconforming']<=r['inspected']:
             raise DomainError('Invalid inspection denominator or nonconforming count')
-        if datetime.fromisoformat(r['event_time'].replace('Z','+00:00')).tzinfo is None: raise DomainError('Timezone-aware observation required')
+        event_instant(r['event_time'])
     return rows
 
 
 def freeze(rows,ids,policy=None):
     validate_rows(rows)
-    chosen=sorted([r for r in rows if r['observation_id'] in ids],key=lambda r:r['event_time'])
+    chosen=sorted([r for r in rows if r['observation_id'] in ids],key=event_order)
     if not chosen or len(chosen)!=len(set(ids)): raise DomainError('Choose existing unique baseline rows')
     groups={tuple(r[k] for k in GROUP) for r in chosen}
     if len(groups)!=1: raise DomainError('Do not pool products, methods, regimes or processes')
@@ -32,7 +44,7 @@ def freeze(rows,ids,policy=None):
             'policy':policy,'assumptions':['Independent inspections','Comparable product/process/method/regime','Reviewer-accepted stable baseline'],
             'rule':'One observation strictly outside clipped three-sigma limits; limits are not acceptance specifications.'}
     # Prevent hidden omission of comparable observations inside the baseline period.
-    all_period=[r for r in rows if same_group(r,result['group']) and result['start']<=r['event_time']<=result['end']]
+    all_period=[r for r in rows if same_group(r,result['group']) and event_instant(result['start'])<=event_instant(r['event_time'])<=event_instant(result['end'])]
     if {r['observation_id'] for r in all_period}!=set(ids): raise DomainError('Baseline interval contains omitted comparable observations')
     return result
 
@@ -42,7 +54,7 @@ def same_group(row,group): return all(row.get(k)==v for k,v in group.items())
 
 def chart(baseline,rows):
     validate_rows(rows)
-    current=sorted([r for r in rows if same_group(r,baseline['group']) and baseline['start']<=r['event_time']<=baseline['end']],key=lambda r:r['event_time'])
+    current=sorted([r for r in rows if same_group(r,baseline['group']) and event_instant(baseline['start'])<=event_instant(r['event_time'])<=event_instant(baseline['end'])],key=event_order)
     if digest(current)!=baseline['row_hash']:
         return {'status':'invalidated','reason':'Baseline observations changed or were backfilled; review a new baseline revision','points':[]}
     selected=baseline['rows']; total=sum(r['inspected'] for r in selected); bad=sum(r['nonconforming'] for r in selected)
@@ -55,8 +67,8 @@ def chart(baseline,rows):
           'rule':baseline['rule'],'group':baseline['group'],'assumptions':baseline['assumptions'],'policy':policy}
     if reasons:return {**base,'status':'insufficient','reason':'; '.join(reasons),'points':[]}
     points=[];excluded=[]
-    for r in sorted(rows,key=lambda r:r['event_time']):
-        if r['event_time']<=baseline['end']:continue
+    for r in sorted(rows,key=event_order):
+        if event_instant(r['event_time'])<=event_instant(baseline['end']):continue
         if not same_group(r,baseline['group']): excluded.append({'id':r['observation_id'],'reason':'Different product/process/method/regime/defect population'});continue
         n=r['inspected'];rate=r['nonconforming']/n
         if n*p<policy['min_expected'] or n*(1-p)<policy['min_expected']:

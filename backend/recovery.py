@@ -55,7 +55,8 @@ def evidence(db,owner,state,data):
     if not data.authenticity_verified or len(data.verification_reference.strip())<8:raise DomainError('Source authenticity remains unknown; record explicit verification')
     receiving=source_basis(state,data.receiving_document_id,data.receiving_quote)
     inspected=source_basis(state,data.inspection_document_id,data.inspection_quote)
-    if data.pool_id not in data.receiving_quote or data.pool_id not in data.inspection_quote:raise DomainError('Both source passages must identify this exact pool')
+    from .review_safety import mentions
+    if not mentions(data.pool_id,data.receiving_quote) or not mentions(data.pool_id,data.inspection_quote):raise DomainError('Both source passages must identify this exact pool')
     # Source occurrence is necessary, not a certificate of semantic truth; named review is recorded.
     for ref in (receiving,inspected):
         if not db.execute('SELECT 1 FROM bf_sources WHERE owner=? AND hash=?',(owner,ref['original_hash'])).fetchone():

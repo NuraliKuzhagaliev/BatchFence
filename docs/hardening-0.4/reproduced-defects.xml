@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="12" skipped="0" tests="14" time="1.539" timestamp="2026-10-18T02:07:09.554431+05:00" hostname="BlackWolf"><testcase classname="tests.test_hardening_regressions" name="test_explicit_incomplete_scope_cannot_support_complete_proposal[This is not a complete incident list.]" time="0.005"><failure message="AssertionError: Explicit incompleteness must be visible at source review&#10;assert []&#10; +  where [] = scope_concerns({'id': 'DOC-87cd6e6999da', 'filename': 'new-notice.txt', 'media_type': 'text/plain', 'revision': 1, ...})">caveat = 'This is not a complete incident list.'
+
+    @pytest.mark.parametrize('caveat',[
+     'This is not a complete incident list.',
+     'The entire affected scope has not been established.',
+     'The incident boundary remains open.',
+     'This list is illustrative, not exhaustive.',
+    ])
+    def test_explicit_incomplete_scope_cannot_support_complete_proposal(caveat):
+     d=document('new-notice.txt',('Affected lots: SUP-A. '+caveat).encode())
+&gt;    assert scope_concerns(d), 'Explicit incompleteness must be visible at source review'
+E    AssertionError: Explicit incompleteness must be visible at source review
+E    assert []
+E     +  where [] = scope_concerns({'id': 'DOC-87cd6e6999da', 'filename': 'new-notice.txt', 'media_type': 'text/plain', 'revision': 1, ...})
+
+tests\test_hardening_regressions.py:19: AssertionError</failure></testcase><testcase classname="tests.test_hardening_regressions" name="test_explicit_incomplete_scope_cannot_support_complete_proposal[The entire affected scope has not been established.]" time="0.001"><failure message="AssertionError: Explicit incompleteness must be visible at source review&#10;assert []&#10; +  where [] = scope_concerns({'id': 'DOC-e07528bc3a4c', 'filename': 'new-notice.txt', 'media_type': 'text/plain', 'revision': 1, ...})">caveat = 'The entire affected scope has not been established.'
+
+    @pytest.mark.parametrize('caveat',[
+     'This is not a complete incident list.',
+     'The entire affected scope has not been established.',
+     'The incident boundary remains open.',
+     'This list is illustrative, not exhaustive.',
+    ])
+    def test_explicit_incomplete_scope_cannot_support_complete_proposal(caveat):
+     d=document('new-notice.txt',('Affected lots: SUP-A. '+caveat).encode())
+&gt;    assert scope_concerns(d), 'Explicit incompleteness must be visible at source review'
+E    AssertionError: Explicit incompleteness must be visible at source review
+E    assert []
+E     +  where [] = scope_concerns({'id': 'DOC-e07528bc3a4c', 'filename': 'new-notice.txt', 'media_type': 'text/plain', 'revision': 1, ...})
+
+tests\test_hardening_regressions.py:19: AssertionError</failure></testcase><testcase classname="tests.test_hardening_regressions" name="test_explicit_incomplete_scope_cannot_support_complete_proposal[The incident boundary remains open.]" time="0.001"><failure message="AssertionError: Explicit incompleteness must be visible at source review&#10;assert []&#10; +  where [] = scope_concerns({'id': 'DOC-6bbb22142760', 'filename': 'new-notice.txt', 'media_type': 'text/plain', 'revision': 1, ...})">caveat = 'The incident boundary remains open.'
+
+    @pytest.mark.parametrize('caveat',[
+     'This is not a complete incident list.',
+     'The entire affected scope has not been established.',
+     'The incident boundary remains open.',
+     'This list is illustrative, not exhaustive.',
+    ])
+    def test_explicit_incomplete_scope_cannot_support_complete_proposal(caveat):
+     d=document('new-notice.txt',('Affected lots: SUP-A. '+caveat).encode())
+&gt;    assert scope_concerns(d), 'Explicit incompleteness must be visible at source review'
+E    AssertionError: Explicit incompleteness must be visible at source review
+E    assert []
+E     +  where [] = scope_concerns({'id': 'DOC-6bbb22142760', 'filename': 'new-notice.txt', 'media_type': 'text/plain', 'revision': 1, ...})
+
+tests\test_hardening_regressions.py:19: AssertionError</failure></testcase><testcase classname="tests.test_hardening_regressions" name="test_explicit_incomplete_scope_cannot_support_complete_proposal[This list is illustrative, not exhaustive.]" time="0.001"><failure message="AssertionError: Explicit incompleteness must be visible at source review&#10;assert []&#10; +  where [] = scope_concerns({'id': 'DOC-8fbcdf7482b5', 'filename': 'new-notice.txt', 'media_type': 'text/plain', 'revision': 1, ...})">caveat = 'This list is illustrative, not exhaustive.'
+
+    @pytest.mark.parametrize('caveat',[
+     'This is not a complete incident list.',
+     'The entire affected scope has not been established.',
+     'The incident boundary remains open.',
+     'This list is illustrative, not exhaustive.',
+    ])
+    def test_explicit_incomplete_scope_cannot_support_complete_proposal(caveat):
+     d=document('new-notice.txt',('Affected lots: SUP-A. '+caveat).encode())
+&gt;    assert scope_concerns(d), 'Explicit incompleteness must be visible at source review'
+E    AssertionError: Explicit incompleteness must be visible at source review
+E    assert []
+E     +  where [] = scope_concerns({'id': 'DOC-8fbcdf7482b5', 'filename': 'new-notice.txt', 'media_type': 'text/plain', 'revision': 1, ...})
+
+tests\test_hardening_regressions.py:19: AssertionError</failure></testcase><testcase classname="tests.test_hardening_regressions" name="test_signal_period_uses_instants_not_timestamp_spelling" time="0.003"><failure message="backend.domain.DomainError: Baseline interval contains omitted comparable observations">def test_signal_period_uses_instants_not_timestamp_spelling():
+     # Actual order: B=00:00Z, A=01:00Z, F=02:00Z. Lexical order differs.
+     rows=[row('A','2026-10-01T03:00:00+02:00'),row('B','2026-10-01T00:00:00Z'),row('F','2026-10-01T01:00:00-01:00',bad=300)]
+&gt;    b=signals.freeze(rows,['A','B'],{'min_observations':2,'min_inspected':2000,'min_expected':5,'sigma':3})
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_hardening_regressions.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+rows = [{'observation_id': 'A', 'event_time': '2026-10-01T03:00:00+02:00', 'inspected': 1000, 'nonconforming': 100, ...}, {'o......}, {'observation_id': 'F', 'event_time': '2026-10-01T01:00:00-01:00', 'inspected': 1000, 'nonconforming': 300, ...}]
+ids = ['A', 'B']
+policy = {'min_observations': 2, 'min_inspected': 2000, 'min_expected': 5, 'sigma': 3}
+
+    def freeze(rows,ids,policy=None):
+        validate_rows(rows)
+        chosen=sorted([r for r in rows if r['observation_id'] in ids],key=lambda r:r['event_time'])
+        if not chosen or len(chosen)!=len(set(ids)): raise DomainError('Choose existing unique baseline rows')
+        groups={tuple(r[k] for k in GROUP) for r in chosen}
+        if len(groups)!=1: raise DomainError('Do not pool products, methods, regimes or processes')
+        policy=policy or DEFAULT_POLICY
+        if not 2&lt;=policy['min_observations']&lt;=100 or not 1&lt;=policy['min_inspected']&lt;=1_000_000 or not 1&lt;=policy['min_expected']&lt;=20 or policy['sigma']!=3:
+            raise DomainError('Unsupported baseline policy')
+        result={'rows':chosen,'row_hash':digest(chosen),'group':{k:chosen[0][k] for k in GROUP},'start':chosen[0]['event_time'],'end':chosen[-1]['event_time'],
+                'policy':policy,'assumptions':['Independent inspections','Comparable product/process/method/regime','Reviewer-accepted stable baseline'],
+                'rule':'One observation strictly outside clipped three-sigma limits; limits are not acceptance specifications.'}
+        # Prevent hidden omission of comparable observations inside the baseline period.
+        all_period=[r for r in rows if same_group(r,result['group']) and result['start']&lt;=r['event_time']&lt;=result['end']]
+&gt;       if {r['observation_id'] for r in all_period}!=set(ids): raise DomainError('Baseline interval contains omitted comparable observations')
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       backend.domain.DomainError: Baseline interval contains omitted comparable observations
+
+backend\signals.py:36: DomainError</failure></testcase><testcase classname="tests.test_hardening_regressions" name="test_malformed_handover_becomes_domain_rejection[None]" time="0.001"><failure message="TypeError: 'NoneType' object is not iterable">statement = None
+
+    @pytest.mark.parametrize('statement',[None,1,[],{'fact_id':[],'text':'safe'},{'fact_id':'f','text':None}])
+    def test_malformed_handover_becomes_domain_rejection(statement):
+&gt;    with pytest.raises(DomainError):assisted.validate_handover({'facts':[{'id':'f','text':'safe'}],'required_fact_ids':['f']},{'statements':[statement]})
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_hardening_regressions.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'facts': [{'id': 'f', 'text': 'safe'}], 'required_fact_ids': ['f']}
+raw = {'statements': [None]}
+
+    def validate_handover(snapshot,raw):
+        """Narrative may select exact facts; novel numbers/statuses cannot sneak in."""
+        allowed={f['id']:f['text'] for f in snapshot['facts']}
+        if not isinstance(raw,dict) or set(raw)!={'statements'} or not isinstance(raw['statements'],list) or len(raw['statements'])&gt;24:raise DomainError('Invalid handover narrative schema')
+        for statement in raw['statements']:
+&gt;           if set(statement)!={'fact_id','text'} or statement['fact_id'] not in allowed or statement['text']!=allowed[statement['fact_id']]:
+               ^^^^^^^^^^^^^^
+E           TypeError: 'NoneType' object is not iterable
+
+backend\assisted.py:301: TypeError</failure></testcase><testcase classname="tests.test_hardening_regressions" name="test_malformed_handover_becomes_domain_rejection[1]" time="0.001"><failure message="TypeError: 'int' object is not iterable">statement = 1
+
+    @pytest.mark.parametrize('statement',[None,1,[],{'fact_id':[],'text':'safe'},{'fact_id':'f','text':None}])
+    def test_malformed_handover_becomes_domain_rejection(statement):
+&gt;    with pytest.raises(DomainError):assisted.validate_handover({'facts':[{'id':'f','text':'safe'}],'required_fact_ids':['f']},{'statements':[statement]})
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_hardening_regressions.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'facts': [{'id': 'f', 'text': 'safe'}], 'required_fact_ids': ['f']}
+raw = {'statements': [1]}
+
+    def validate_handover(snapshot,raw):
+        """Narrative may select exact facts; novel numbers/statuses cannot sneak in."""
+        allowed={f['id']:f['text'] for f in snapshot['facts']}
+        if not isinstance(raw,dict) or set(raw)!={'statements'} or not isinstance(raw['statements'],list) or len(raw['statements'])&gt;24:raise DomainError('Invalid handover narrative schema')
+        for statement in raw['statements']:
+&gt;           if set(statement)!={'fact_id','text'} or statement['fact_id'] not in allowed or statement['text']!=allowed[statement['fact_id']]:
+               ^^^^^^^^^^^^^^
+E           TypeError: 'int' object is not iterable
+
+backend\assisted.py:301: TypeError</failure></testcase><testcase classname="tests.test_hardening_regressions" name="test_malformed_handover_becomes_domain_rejection[statement2]" time="0.001" /><testcase classname="tests.test_hardening_regressions" name="test_malformed_handover_becomes_domain_rejection[statement3]" time="0.001"><failure message="TypeError: unhashable type: 'list'">statement = {'fact_id': [], 'text': 'safe'}
+
+    @pytest.mark.parametrize('statement',[None,1,[],{'fact_id':[],'text':'safe'},{'fact_id':'f','text':None}])
+    def test_malformed_handover_becomes_domain_rejection(statement):
+&gt;    with pytest.raises(DomainError):assisted.validate_handover({'facts':[{'id':'f','text':'safe'}],'required_fact_ids':['f']},{'statements':[statement]})
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_hardening_regressions.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'facts': [{'id': 'f', 'text': 'safe'}], 'required_fact_ids': ['f']}
+raw = {'statements': [{'fact_id': [], 'text': 'safe'}]}
+
+    def validate_handover(snapshot,raw):
+        """Narrative may select exact facts; novel numbers/statuses cannot sneak in."""
+        allowed={f['id']:f['text'] for f in snapshot['facts']}
+        if not isinstance(raw,dict) or set(raw)!={'statements'} or not isinstance(raw['statements'],list) or len(raw['statements'])&gt;24:raise DomainError('Invalid handover narrative schema')
+        for statement in raw['statements']:
+&gt;           if set(statement)!={'fact_id','text'} or statement['fact_id'] not in allowed or statement['text']!=allowed[statement['fact_id']]:
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           TypeError: unhashable type: 'list'
+
+backend\assisted.py:301: TypeError</failure></testcase><testcase classname="tests.test_hardening_regressions" name="test_malformed_handover_becomes_domain_rejection[statement4]" time="0.001" /><testcase classname="tests.test_hardening_regressions" name="test_label_prefix_is_not_an_exact_document_identity" time="0.031"><failure message="Failed: DID NOT RAISE DomainError">tmp_path = WindowsPath('D:/projects/BatchFence/work/pytest-hardening-repro/test_label_prefix_is_not_an_ex0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000187A294D350&gt;
+
+    def test_label_prefix_is_not_an_exact_document_identity(tmp_path,monkeypatch):
+     monkeypatch.setenv('DEPLOYMENT_PROFILE','local');s=load_demo();d=document('different-lot.txt',b'Supplier lot SUP-0019.')
+     s['documents'].append(d);factory=lambda:repo.connect(tmp_path/'label.sqlite',url='')
+     with repo.write(factory) as db:
+      repo.put_record(db,'test','label','LABEL-1',{'id':'LABEL-1','case_id':s['id'],'reading':{'candidates':['SUP-001'],'unreadable':False,'unresolved_characters':[]}},0)
+&gt;     with pytest.raises(DomainError):label_images.review_label(db,'test',s,'LABEL-1',d['id'],d['blocks'][0]['text'],'SUP-001',True,True,False,'Agent-operated adversarial association check')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E     Failed: DID NOT RAISE DomainError
+
+tests\test_hardening_regressions.py:44: Failed</failure></testcase><testcase classname="tests.test_hardening_regressions" name="test_procedure_rejects_boolean_versions_and_invalid_pages[version-True]" time="0.001"><failure message="Failed: DID NOT RAISE DomainError">field = 'version', value = True
+
+    @pytest.mark.parametrize('field,value',[('version',True),('page',True),('page',0)])
+    def test_procedure_rejects_boolean_versions_and_invalid_pages(field,value):
+     d={'id':'Q-1','version':1,'status':'approved','valid_from':'2026-01-01T00:00:00Z','valid_to':None,'products':['p'],'processes':['coat'],'owner':'quality','passages':[{'id':'P1','text':'Keep the original caveat; review before any release.','page':1}],'synthetic':True}
+     if field=='version':d[field]=value
+     else:d['passages'][0][field]=value
+     d['source_hash']=digest(d['passages'])
+&gt;    with pytest.raises(DomainError):knowledge.validate_document(d)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    Failed: DID NOT RAISE DomainError
+
+tests\test_hardening_regressions.py:52: Failed</failure></testcase><testcase classname="tests.test_hardening_regressions" name="test_procedure_rejects_boolean_versions_and_invalid_pages[page-True]" time="0.001"><failure message="Failed: DID NOT RAISE DomainError">field = 'page', value = True
+
+    @pytest.mark.parametrize('field,value',[('version',True),('page',True),('page',0)])
+    def test_procedure_rejects_boolean_versions_and_invalid_pages(field,value):
+     d={'id':'Q-1','version':1,'status':'approved','valid_from':'2026-01-01T00:00:00Z','valid_to':None,'products':['p'],'processes':['coat'],'owner':'quality','passages':[{'id':'P1','text':'Keep the original caveat; review before any release.','page':1}],'synthetic':True}
+     if field=='version':d[field]=value
+     else:d['passages'][0][field]=value
+     d['source_hash']=digest(d['passages'])
+&gt;    with pytest.raises(DomainError):knowledge.validate_document(d)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    Failed: DID NOT RAISE DomainError
+
+tests\test_hardening_regressions.py:52: Failed</failure></testcase><testcase classname="tests.test_hardening_regressions" name="test_procedure_rejects_boolean_versions_and_invalid_pages[page-0]" time="0.001"><failure message="Failed: DID NOT RAISE DomainError">field = 'page', value = 0
+
+    @pytest.mark.parametrize('field,value',[('version',True),('page',True),('page',0)])
+    def test_procedure_rejects_boolean_versions_and_invalid_pages(field,value):
+     d={'id':'Q-1','version':1,'status':'approved','valid_from':'2026-01-01T00:00:00Z','valid_to':None,'products':['p'],'processes':['coat'],'owner':'quality','passages':[{'id':'P1','text':'Keep the original caveat; review before any release.','page':1}],'synthetic':True}
+     if field=='version':d[field]=value
+     else:d['passages'][0][field]=value
+     d['source_hash']=digest(d['passages'])
+&gt;    with pytest.raises(DomainError):knowledge.validate_document(d)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    Failed: DID NOT RAISE DomainError
+
+tests\test_hardening_regressions.py:52: Failed</failure></testcase></testsuite></testsuites>
