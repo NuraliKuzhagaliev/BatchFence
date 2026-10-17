@@ -1,0 +1,35 @@
+[
+  {
+    "file": "evals/continuation/images/IMG-01.png",
+    "sha256": "cb1faa73dfb2a415ff2d3abbd863d2ff0c8e2e2a5f43c45cb26d26b65e638704",
+    "bytes": 9829,
+    "format": "PNG",
+    "mode": "RGB",
+    "width": 720,
+    "height": 330,
+    "frames": 1,
+    "metadata_fields": []
+  },
+  {
+    "file": "evals/hardening-live-v1/web-label.png",
+    "sha256": "ff0c1e4a14d54062efa5fd03c411dd1b076fe19b26004bed4b5f63222c82d12b",
+    "bytes": 10877,
+    "format": "PNG",
+    "mode": "RGB",
+    "width": 720,
+    "height": 260,
+    "frames": 1,
+    "metadata_fields": []
+  },
+  {
+    "file": "evals/hardening-live-v1/windows-label.png",
+    "sha256": "1c9e8fab0b14156151e762a9fe557d7721a31ae3761365b25340b4fab38ae33d",
+    "bytes": 10619,
+    "format": "PNG",
+    "mode": "RGB",
+    "width": 720,
+    "height": 260,
+    "frames": 1,
+    "metadata_fields": []
+  }
+]

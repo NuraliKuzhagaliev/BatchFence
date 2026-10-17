@@ -1,3 +1,11 @@
+# Vision diagnosis in progress
+
+Branch vision-contract-fix-0.4 preserves released04e9c7b and final evidence469a374. Current public rc2 image calls still return500, while three local direct image requests (JSON off/on and actual exported schema) succeed on the same provider/model and exact retained pixels. A provider-wide outage is not established. New adapter metadata records bounded sanitized error fields, actual endpoint/format/image hash and payload digest. An optional explicit image-only model setting leaves text Gemma/Evolus unchanged; UI names the selected model. No automatic fallback.
+
+33 affected regressions and production build pass. Version0.4.0-rc.3 packaging in progress; old releases preserved.59/64 conservative reservations used. Finite plan refined to one deployed diagnostic and at most4 final client image acceptances (aggregate64 unchanged); no more unchanged failures or broader evaluations. Need actual cloud failure body before choosing contract/config/compatible free route. No purchases or credential changes.
+
+---
+
 # BatchFence 0.4.0-rc.2 РІР‚вЂќ final release acceptance
 
 Public web: https://batchfence.onrender.com. Windows/source prerelease: https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.2. Runtime/main/source commit 04e9c7b75ff90d83e9b6ff5ce7b9b2be90fc58ed; existing Free Render deploy dep-db9vqqm7bikc73e668b0 is live. GitHub prerelease published; all five assets fully downloaded anonymously and matched checksums. The public Windows download link is visible and reaches the verified installer, with zero browser errors. Stable 0.3.0 and preview 0.4.0-rc.1 remain preserved. No keys rotated/revoked, purchases, entry submission, external messages or real inventory actions in final acceptance. Historical instructions below to rotate keys or stop at the old 48-call cap are superseded by the owner's current instructions and new finite phase.

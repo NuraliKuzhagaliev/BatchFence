@@ -1,0 +1,56 @@
+{
+  "cases": [
+    {
+      "platform": "web",
+      "kind": "readable",
+      "file": "web-readable.png",
+      "sha256": "760a27839c5f5ef49426236804bb51f03ce2c290f65f4d785e7d33620c3e65ef",
+      "expected_candidates": [
+        "BF-00481"
+      ],
+      "expected_review": "explicit original/identity/source confirmation",
+      "physical_photo": false,
+      "synthetic": true
+    },
+    {
+      "platform": "web",
+      "kind": "mismatch",
+      "file": "web-mismatch.png",
+      "sha256": "53d84c6e0cad1824026a1dace38a034742092b6af38f87ffb9f1a76ebd320fdf",
+      "expected_candidates": [
+        "BF-00482"
+      ],
+      "expected_review": "association rejected; no stock/receipt change",
+      "physical_photo": false,
+      "synthetic": true
+    },
+    {
+      "platform": "windows",
+      "kind": "readable",
+      "file": "windows-readable.png",
+      "sha256": "431146e32e0f6f93db4833c0b742a00e97f92dd5645e6f12e6a08767875acf78",
+      "expected_candidates": [
+        "BF-00591"
+      ],
+      "expected_review": "explicit original/identity/source confirmation",
+      "physical_photo": false,
+      "synthetic": true
+    },
+    {
+      "platform": "windows",
+      "kind": "multiple",
+      "file": "windows-multiple.png",
+      "sha256": "11e7b6754082f710262bc0e94e1f10c454fd7f080a407463761a6ade3c2fc7d8",
+      "expected_candidates": [
+        "BF-00591",
+        "BF-00592"
+      ],
+      "expected_review": "association rejected; no stock/receipt change",
+      "physical_photo": false,
+      "synthetic": true
+    }
+  ],
+  "frozen_before_dispatch": true,
+  "author": "Agent-operated synthetic verification, not independent human validation",
+  "core_setup": "Explicit fixture500/800 with two receipts, not live text inference; all four label readings must be fresh image inference"
+}

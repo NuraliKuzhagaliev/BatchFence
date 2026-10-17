@@ -84,8 +84,8 @@ function SourceText({
     </div>
   );
 }
-const RELEASE_URL = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.2";
-const WINDOWS_DOWNLOAD = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.4.0-rc.2/BatchFence-0.4.0-rc.2-win-x64-setup.exe";
+const RELEASE_URL = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.3";
+const WINDOWS_DOWNLOAD = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.4.0-rc.3/BatchFence-0.4.0-rc.3-win-x64-setup.exe";
 function PlatformLinks({ openWeb }: { openWeb: () => void }) {
   return native ? (
     <button className="button" onClick={openWeb}><ExternalLink size={16} />Open web app</button>
@@ -254,7 +254,7 @@ function App() {
     await task("Opening historical AMD evidence", async () => {
       const p = await validatePacket(await request<Packet>("GET", "/api/replay"));
       setPacket(p); setReview(false); setSource(""); setEvidence(null); setTab("map");
-      setNotice("Replay · historical live AMD response on synthetic records. Agent-operated review; no new inference or independent human validation.");
+      setNotice("Replay В· historical live AMD response on synthetic records. Agent-operated review; no new inference or independent human validation.");
     });
   }
   async function analyze() {
@@ -448,15 +448,15 @@ function App() {
     setInspector(true);
   }
   const status = packet
-    ? "Historical packet · read-only"
+    ? "Historical packet В· read-only"
     : state?.pending_revision
-      ? "Evidence changed · approval stale"
+      ? "Evidence changed В· approval stale"
       : plan?.status === "applied"
         ? "Holds applied"
         : plan?.status === "approved"
           ? "Exact plan approved"
           : plan
-            ? "Review complete · awaiting approval"
+            ? "Review complete В· awaiting approval"
             : "Critical scope review required";
   const diff = state?.history
     .filter((h) => h.type === "reviewed" && h.old_units != null)
@@ -563,11 +563,11 @@ function App() {
             <section className="technical">
               <strong>Execution provenance</strong>
               <p>
-                {run?.model_id || "No model run"} · {run?.mode || mode} ·{" "}
+                {run?.model_id || "No model run"} В· {run?.mode || mode} В·{" "}
                 {run?.elapsed_ms !== undefined
                   ? run.elapsed_ms + " ms"
                   : "Latency not measured"}{" "}
-                · {run?.status || "Not started"}
+                В· {run?.status || "Not started"}
               </p>
               <p>
                 Live AMD verification:{" "}
@@ -691,7 +691,7 @@ function App() {
                         )
                       }
                     >
-                      {c.name} · r{c.revision}
+                      {c.name} В· r{c.revision}
                     </button>
                   ))}
                 </div>
@@ -724,7 +724,7 @@ function App() {
                   <LockKeyhole size={20} />
                   <div>
                     <strong>
-                      Offline evidence review · historical snapshot
+                      Offline evidence review В· historical snapshot
                     </strong>
                     <p>
                       Saved {new Date(packet.exported_at).toLocaleString()}.
@@ -821,7 +821,7 @@ function App() {
                             {d.filename.replaceAll("_", " ")}
                           </strong>
                           <small>
-                            {d.synthetic ? "Synthetic" : "Uploaded"} · r
+                            {d.synthetic ? "Synthetic" : "Uploaded"} В· r
                             {d.revision}
                           </small>
                         </span>
@@ -839,7 +839,7 @@ function App() {
                       Add evidence
                     </button>
                     <span className="caption">
-                      TXT, CSV, text PDF · 2 MB/file
+                      TXT, CSV, text PDF В· 2 MB/file
                     </span>
                   </div>
                   <div className="extract-box">
@@ -854,9 +854,9 @@ function App() {
                       onChange={(e) => setMode(e.target.value)}
                     >
                       <option value="fixture">
-                        Fixture · synthetic parser
+                        Fixture В· synthetic parser
                       </option>
-                      <option value="live">Live · AMD endpoint</option>
+                      <option value="live">Live В· AMD endpoint</option>
                     </select>
                     {liveProtected && mode === "live" && !packet && <>
                       <label className="field-label" htmlFor="live-demo-access">Live access key</label>
@@ -874,7 +874,7 @@ function App() {
                     </button>
                     <p className="caption">
                       {packet
-                        ? "Historical model run · no new inference."
+                        ? "Historical model run В· no new inference."
                         : mode === "fixture"
                         ? "Synthetic walkthrough. No AI inference is claimed."
                         : "Fresh AMD request. Failures stay visible."}
@@ -919,11 +919,11 @@ function App() {
                     )}
                   </div>
                   <nav className="guided-steps" aria-label="Incident guide">
-                    <button onClick={()=>setTab('sources')}>1 · Notice</button>
-                    <button onClick={()=>{setTab('map');if(currentRun && !doc?.request_id && run)beginReview(run);}}>2 · Review exposure</button>
-                    <button onClick={()=>setTab('requests')}>3 · Resolve a question</button>
-                    <button onClick={()=>setTab('timeline')}>4 · Revision consequences</button>
-                    <button onClick={()=>setTab('verify')}>5 · Verify & export</button>
+                    <button onClick={()=>setTab('sources')}>1 В· Notice</button>
+                    <button onClick={()=>{setTab('map');if(currentRun && !doc?.request_id && run)beginReview(run);}}>2 В· Review exposure</button>
+                    <button onClick={()=>setTab('requests')}>3 В· Resolve a question</button>
+                    <button onClick={()=>setTab('timeline')}>4 В· Revision consequences</button>
+                    <button onClick={()=>setTab('verify')}>5 В· Verify & export</button>
                   </nav>
                   <div
                     className="tabs"
@@ -978,7 +978,7 @@ function App() {
                       <div className="required">
                         <span>
                           {state.pending_revision
-                            ? "Previous plan · stale"
+                            ? "Previous plan В· stale"
                             : "Proposed hold"}
                         </span>
                         <strong>
@@ -992,7 +992,7 @@ function App() {
                           {num(result.outside_units)} <small>units</small>
                         </strong>
                         <p>
-                          {euro(result.excluded_cents)} · value, not savings
+                          {euro(result.excluded_cents)} В· value, not savings
                         </p>
                       </div>
                     </div>
@@ -1034,14 +1034,14 @@ function App() {
                       <label className="field-label" htmlFor="review-scope-status">Incident scope certainty</label>
                       <select id="review-scope-status" value={scopeResolved ? "resolved" : "unresolved"}
                         onChange={e => { setScopeResolved(e.target.value === "resolved"); setBounded(false); }}>
-                        <option value="unresolved">Unresolved · no narrowed exclusions</option>
-                        <option value="resolved" disabled={!!run?.scope_concerns?.length}>Resolved · complete boundary reviewed</option>
+                        <option value="unresolved">Unresolved В· no narrowed exclusions</option>
+                        <option value="resolved" disabled={!!run?.scope_concerns?.length}>Resolved В· complete boundary reviewed</option>
                       </select>
                       {scopeResolved && <>
-                        <label className="field-label" htmlFor="review-basis">Scope resolution basis · exact source quote</label>
+                        <label className="field-label" htmlFor="review-basis">Scope resolution basis В· exact source quote</label>
                         <textarea id="review-basis" value={resolutionQuote} onChange={e => setResolutionQuote(e.target.value)} />
                       </>}
-                      <label className="field-label" htmlFor="review-note">Review explanation · scope and exclusions</label>
+                      <label className="field-label" htmlFor="review-note">Review explanation В· scope and exclusions</label>
                       <textarea id="review-note" value={reviewNote} onChange={e => setReviewNote(e.target.value)}
                         placeholder="Explain the source-backed boundary and any excluded lots. Leave unresolved claims uncertain." />
                       <label className="checkbox">
@@ -1104,7 +1104,7 @@ function App() {
                           >
                             <i />
                             <small>
-                              {new Date(h.at).toLocaleTimeString()} · evidence r
+                              {new Date(h.at).toLocaleTimeString()} В· evidence r
                               {h.revision}
                             </small>
                             <h3>{h.type.replaceAll("_", " ")}</h3>
@@ -1238,7 +1238,7 @@ function App() {
                             </span>
                             <h3>Holds applied. Evidence preserved.</h3>
                             <p>
-                              The approved transaction updated this workspace’s inventory.
+                              The approved transaction updated this workspaceвЂ™s inventory.
                             </p>
                             <dl>
                               <dt>Transaction</dt>
@@ -1247,8 +1247,8 @@ function App() {
                               </dd>
                               <dt>Evidence / inventory</dt>
                               <dd>
-                                r{r.evidence_revision} · v
-                                {r.prior_inventory_version} → v
+                                r{r.evidence_revision} В· v
+                                {r.prior_inventory_version} в†’ v
                                 {r.current_inventory_version}
                               </dd>
                               <dt>Committed</dt>
@@ -1264,7 +1264,7 @@ function App() {
                                   <code>{c.pool_id}</code>
                                   <span>{c.units} units</span>
                                   <span>
-                                    {c.before} → {c.after}
+                                    {c.before} в†’ {c.after}
                                   </span>
                                 </div>
                               ))}
@@ -1313,7 +1313,7 @@ function App() {
                                 </td>
                                 <td>
                                   <code>
-                                    {r.path.join(" → ") || "Unknown ancestry"}
+                                    {r.path.join(" в†’ ") || "Unknown ancestry"}
                                   </code>
                                 </td>
                                 <td>{r.reason}</td>
@@ -1491,13 +1491,13 @@ function App() {
                           ? "Changed facts require fresh review and approval. Previous actions are blocked."
                           : result
                             ? num(result.hold_units) +
-                              " units proposed · including " +
+                              " units proposed В· including " +
                               num(result.uncertain_units) +
-                              " uncertain · " +
+                              " uncertain В· " +
                               state.scope.lot_ids.join(", ")
                             : "Review the notice to create the first plan."}
                     </p>
-                    {!packet && <p className="execution-scope">Holds update this workspace’s inventory. No external inventory system is connected.</p>}
+                    {!packet && <p className="execution-scope">Holds update this workspaceвЂ™s inventory. No external inventory system is connected.</p>}
                   </div>
                 </div>
                 <div className="decision-actions">
@@ -1578,8 +1578,8 @@ function App() {
               {diff && (
                 <div className="revision-summary">
                   <History size={14} />
-                  Reviewed revision: {diff.previous_lots?.join(", ")} →{" "}
-                  {diff.lot_ids?.join(", ")} · {diff.old_units} →{" "}
+                  Reviewed revision: {diff.previous_lots?.join(", ")} в†’{" "}
+                  {diff.lot_ids?.join(", ")} В· {diff.old_units} в†’{" "}
                   {diff.new_units} proposed units. Prior approval does not
                   transfer.
                 </div>

@@ -1,0 +1,35 @@
+{
+  "id": "GENERATE-4af6835bbed8ae22223e6709",
+  "case_id": "14646d8aa6b6441ba7d3836d9fb0cecc",
+  "kind": "label",
+  "mode": "live",
+  "provider_path": "Direct Gemma / managed-amd-shared",
+  "status": "failed provider request",
+  "request_hash": "85a91314f2882bf04874bb92570979565ca9309a89631728160dae03f04b07d2",
+  "snapshot_hash": "57ddf7301dfe89dacd297b27185956a2cae8ff62400254166224db011f2d4be9",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "started_at": "2026-10-17T23:23:14.070759+00:00",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "8ed7eb73e92793168152fa14529dd52eb52122b7e159f8dbe96570582f75e634",
+    "dispatch": 11,
+    "conservative_remaining": 0.8869706730917096,
+    "stop_margin": 0.1
+  },
+  "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+  "error": "Gemma endpoint HTTP 500; no retry",
+  "finished_at": "2026-10-17T23:23:17.862578+00:00",
+  "failed_request_metadata": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T23:23:17.861332+00:00",
+    "http_status": 500,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "request_id": null,
+    "elapsed_ms": 3777,
+    "retry_after_seconds": null
+  },
+  "stale": false
+}

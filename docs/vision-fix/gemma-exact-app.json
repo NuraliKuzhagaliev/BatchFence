@@ -1,0 +1,72 @@
+{
+  "at": "2026-10-17T23:23:00.577832+00:00",
+  "requested_model": "Gemma-4-31B-IT",
+  "endpoint": "https://developer.amd.com.cn/radeon/api/v1/chat/completions",
+  "source": "evals\\vision-acceptance-v1\\web-readable.png",
+  "original_sha256": "760a27839c5f5ef49426236804bb51f03ce2c290f65f4d785e7d33620c3e65ef",
+  "derived_sha256": "760a27839c5f5ef49426236804bb51f03ce2c290f65f4d785e7d33620c3e65ef",
+  "mime": "image/png",
+  "width": 720,
+  "height": 330,
+  "bytes": 9928,
+  "base64_roundtrip": true,
+  "request_contract": {
+    "content_parts": [
+      "image_url data URI",
+      "text task/schema; no supplied transcription"
+    ],
+    "response_format": {
+      "type": "json_object"
+    },
+    "temperature": 0,
+    "max_tokens": 1600
+  },
+  "no_automatic_retries": true,
+  "review": "Synthetic diagnostic; no inventory authority",
+  "http_status": 200,
+  "elapsed_ms": 5333,
+  "response_sha256": "f27c56d2da310d3d3c77181118efd042c874f058ef38640eb8af0c133ee07f83",
+  "response_headers": {
+    "x-request-id": null,
+    "content-type": "application/json",
+    "retry-after": null
+  },
+  "actual_model": "self-dploy/Gemma-4-31B-IT",
+  "request_id": "fa63a236ade14e618bef0dd818388a81",
+  "usage": {
+    "prompt_tokens": 583,
+    "total_tokens": 609,
+    "completion_tokens": 26,
+    "prompt_tokens_details": {
+      "cached_tokens": 4,
+      "image_tokens": 264,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 2.20878e-05,
+    "cost_details": {
+      "upstream_inference_cost": 2.20878e-05,
+      "upstream_inference_prompt_cost": 2.02678e-05,
+      "upstream_inference_completions_cost": 1.82e-06,
+      "total_cost": 2.20878e-05,
+      "input_cost": 2.0265e-05,
+      "output_cost": 1.82e-06,
+      "cached_input_cost": 2.8e-09,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "content": "{\"candidates\": [\"BF-00481\"], \"unresolved_characters\": [], \"unreadable\": false}",
+  "finish_reason": "stop"
+}

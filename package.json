@@ -1,6 +1,6 @@
 {
   "name": "batchfence",
-  "version": "0.4.0-rc.2",
+  "version": "0.4.0-rc.3",
   "private": true,
   "description": "Evidence-backed lot containment workbench",
   "author": "BatchFence",
@@ -29,8 +29,8 @@
     "vite": "8.3.4"
   },
   "build": {
-    "appId": "app.batchfence.hardening040rc2",
-    "productName": "BatchFence Hardening Preview",
+    "appId": "app.batchfence.vision040rc3",
+    "productName": "BatchFence Vision Preview",
     "directories": {
       "output": "releases"
     },

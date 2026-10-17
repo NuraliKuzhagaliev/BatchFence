@@ -1,0 +1,22 @@
+{
+  "id": "LABEL-f567b592790f7af4c9b39d7a",
+  "case_id": "14646d8aa6b6441ba7d3836d9fb0cecc",
+  "filename": "web-readable.png",
+  "original_hash": "760a27839c5f5ef49426236804bb51f03ce2c290f65f4d785e7d33620c3e65ef",
+  "derived_hash": "c1dcdcc4f4ef7265caae31f43ac0766c1360ef442d8e430e2d80a6de7b46a7d5",
+  "image_version": 1,
+  "transform": {
+    "oriented_width": 720,
+    "oriented_height": 330,
+    "derived_width": 720,
+    "derived_height": 330,
+    "crop_xywh": null,
+    "transform": "EXIF orientation -> RGB pixel copy -> optional operator crop -> metadata-free PNG",
+    "region_origin": "full image; no machine localization"
+  },
+  "at": "2026-10-17T23:23:11.885707+00:00",
+  "status": "image imported / identity unverified",
+  "reading": null,
+  "review": null,
+  "purpose": "Label identity only. No defect or product-quality inference. Barcode decoding unavailable in this build."
+}

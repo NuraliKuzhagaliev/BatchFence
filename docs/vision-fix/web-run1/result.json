@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-17T23:22:03.966Z",
+  "platform": "web",
+  "passed": false,
+  "case_id": "14646d8aa6b6441ba7d3836d9fb0cecc",
+  "outcomes": [
+    {
+      "kind": "readable",
+      "status": "failed provider request",
+      "expected": [
+        "BF-00481"
+      ]
+    },
+    {
+      "kind": "mismatch",
+      "status": "failed provider request",
+      "expected": [
+        "BF-00482"
+      ]
+    }
+  ],
+  "errors": [],
+  "core_setup": "Explicit fixture preparation; vision is genuinely fresh direct AMD Gemma. No text-only/recorded/manual transcription substitution.",
+  "review": "Agent-operated synthetic original-image and source relationship review; not independent human or physical-photo validation.",
+  "native_dialogs": "Not repeated; intake automation uses owned API/installed restricted IPC, inference and review through actual client UI. Prior real native dialogs remain separately verified."
+}
