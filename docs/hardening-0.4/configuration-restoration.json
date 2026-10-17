@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-17T21:12:26.241042+00:00",
+  "amd_team_key_unchanged": true,
+  "local_amd_and_gemma_use_same_key": true,
+  "credential_changes_stopped": true,
+  "inference_calls": 0,
+  "checks": [
+    {
+      "label": "existing-amd-key",
+      "http_status": 200
+    },
+    {
+      "label": "current-evolus-application-key",
+      "http_status": 200
+    },
+    {
+      "label": "current-evolus-user-key",
+      "http_status": 200
+    }
+  ],
+  "existing_connection_preserved": {
+    "has_api_key": true,
+    "disabled": false,
+    "model_present": true
+  },
+  "render": "Unsaved environment import discarded; no deployment started. Three inert secret configuration files were saved without changing active runtime paths. No prior service configuration or data reset."
+}

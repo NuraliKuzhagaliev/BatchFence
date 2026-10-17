@@ -48,13 +48,25 @@ def status():
 def allowance(provider):
     key=provider.upper()+'_COST_APPROVAL_FILE'
     if not os.getenv(key):raise DomainError('UNAVAILABLE: verified zero-cost allowance required in '+key)
-    data=json.loads(Path(os.environ[key]).read_text(encoding='utf-8'))
+    # This nonsecret proof may be merged into the existing hosted service
+    # without exposing or re-importing unrelated credentials.
+    encoded=os.getenv(provider.upper()+'_COST_APPROVAL_JSON')
+    data=json.loads(encoded if encoded else Path(os.environ[key]).read_text(encoding='utf-8'))
     try:
         expiry=datetime.fromisoformat(data['expires_at'].replace('Z','+00:00'))
         checked=datetime.fromisoformat(data['verified_at'].replace('Z','+00:00'))
         current=datetime.now(timezone.utc)
         valid=data['additional_cash_limit']==0 and data['overages_disabled'] is True and data['storage_network_cash_limit']==0
-        valid=valid and checked.tzinfo and expiry.tzinfo and checked<=current<expiry and (current-checked).total_seconds()<3600
+        max_age=3600
+        boundary=data.get('provider_enforced_boundary',{})
+        if boundary.get('additional_cash_overages') is False:
+            if provider=='gemma' and boundary.get('kind')=='amd-shared-free-hard-daily-cap' and 0<boundary.get('daily_metering_limit',0)<=1:
+                reset=datetime.fromisoformat(boundary['reset_at'].replace('Z','+00:00'))
+                if reset.tzinfo and expiry<=reset:max_age=86400
+            if provider=='evolus' and boundary.get('kind')=='event-trial-own-model-zero-price' and boundary.get('renews_automatically') is False:
+                end=datetime.fromisoformat(boundary['trial_ends_at'].replace('Z','+00:00'))
+                if end.tzinfo and expiry<=end:max_age=86400
+        valid=valid and checked.tzinfo and expiry.tzinfo and checked<=current<expiry and (current-checked).total_seconds()<max_age and (expiry-checked).total_seconds()<=max_age
         valid=valid and 1<=data['max_dispatches']<=64 and data['remaining_credits']>data['stop_margin']>=0 and data['max_credits_per_dispatch']>=0
         if data['max_credits_per_dispatch']==0:
             valid=valid and provider=='evolus' and data.get('cost_basis')=='Documented own-model LLM, native text and read-only Blob library only; no embeddings or platform AI tools'

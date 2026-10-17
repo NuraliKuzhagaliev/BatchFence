@@ -1,0 +1,6 @@
+{
+  "before": "fixture",
+  "after": "live",
+  "source": "Actual running UI and backend, synthetic focus event, no inference",
+  "defect": true
+}

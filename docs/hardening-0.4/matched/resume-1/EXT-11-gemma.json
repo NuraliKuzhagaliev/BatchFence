@@ -1,0 +1,143 @@
+{
+  "id": "EXT-11-gemma",
+  "at": "2026-10-17T21:53:24.950004+00:00",
+  "requested_model": "Gemma-4-31B-IT",
+  "source": {
+    "id": "MATCHED-EXT-11",
+    "blocks": [
+      {
+        "id": "original-1",
+        "text": "OCR transcript: Affected lots NX-2I3 (the scanned page may read NX-213). Critical identifier not visually confirmed.",
+        "page": null
+      }
+    ]
+  },
+  "original_labels": {
+    "affected_supplier_lots": [],
+    "mentioned_supplier_lots": [
+      "NX-2I3",
+      "NX-213"
+    ],
+    "complete_boundary_support": false,
+    "action_authority": false
+  },
+  "benchmark_sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "prompt_version": "source-proposals-3",
+  "source_hash": "ad26969aee04dff79a52afeab0c58bc65c04935c2296c4bcf07f52ae6ed244a8",
+  "user_context_hash": "db524fe182ff70ac584224b192288034a2c1247f53359aaae88eea4f2f7f5bda",
+  "state_effect": "None; standalone raw benchmark and application validator only",
+  "review": "No corrections or independent human validation",
+  "http_status": 200,
+  "request_id": "51f8111b5b204ed3b0c3dcf644200c1d",
+  "response_hash": "47ad22d5bd320e5c3215686a82eb62480c2832a9bcdc30d22601d6ea8c01928e",
+  "quota_headers": {
+    "x-ratelimit-limit-user-daily-usd": "1",
+    "x-ratelimit-limit-user-rpm": "20",
+    "x-ratelimit-remaining-user-daily-usd": "0.99642973",
+    "x-ratelimit-remaining-user-rpm": "15",
+    "x-ratelimit-reset-user-daily-usd": "1792339200",
+    "x-ratelimit-used-user-daily-usd": "0.00357027"
+  },
+  "retry_after": null,
+  "actual_model": "self-dploy/Gemma-4-31B-IT",
+  "usage": {
+    "prompt_tokens": 940,
+    "total_tokens": 1183,
+    "completion_tokens": 243,
+    "prompt_tokens_details": {
+      "cached_tokens": 880,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 1.9726e-05,
+    "cost_details": {
+      "upstream_inference_cost": 1.9726e-05,
+      "upstream_inference_prompt_cost": 2.716e-06,
+      "upstream_inference_completions_cost": 1.701e-05,
+      "total_cost": 1.9726e-05,
+      "input_cost": 2.1e-06,
+      "output_cost": 1.701e-05,
+      "cached_input_cost": 6.16e-07,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "raw_response": "{\n  \"facts\": [\n    {\n      \"lot_id\": \"NX-2I3\",\n      \"kind\": \"supplier_lot\",\n      \"status\": \"affected\",\n      \"evidence\": [\n        {\n          \"document_id\": \"MATCHED-EXT-11\",\n          \"block_id\": \"original-1\",\n          \"quote\": \"Affected lots NX-2I3\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"NX-213\",\n      \"kind\": \"supplier_lot\",\n      \"status\": \"uncertain\",\n      \"evidence\": [\n        {\n          \"document_id\": \"MATCHED-EXT-11\",\n          \"block_id\": \"original-1\",\n          \"quote\": \"the scanned page may read NX-213\"\n        }\n      ]\n    }\n  ],\n  \"qualifiers\": [\n    \"Critical identifier not visually confirmed\"\n  ],\n  \"scope_status\": \"unknown\",\n  \"scope_evidence\": []\n}",
+  "parsed": {
+    "facts": [
+      {
+        "lot_id": "NX-2I3",
+        "kind": "supplier_lot",
+        "status": "affected",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-11",
+            "block_id": "original-1",
+            "quote": "Affected lots NX-2I3"
+          }
+        ]
+      },
+      {
+        "lot_id": "NX-213",
+        "kind": "supplier_lot",
+        "status": "uncertain",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-11",
+            "block_id": "original-1",
+            "quote": "the scanned page may read NX-213"
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Critical identifier not visually confirmed"
+    ],
+    "scope_status": "unknown",
+    "scope_evidence": []
+  },
+  "original_supplier_pairs_exact": false,
+  "expected_pairs": [
+    [
+      "NX-213",
+      false
+    ],
+    [
+      "NX-2I3",
+      false
+    ]
+  ],
+  "actual_pairs": [
+    [
+      "NX-213",
+      false
+    ],
+    [
+      "NX-2I3",
+      true
+    ]
+  ],
+  "application": "rejected by source/schema validator",
+  "validation_error": "Unresolved source cannot support a definite incident disposition",
+  "elapsed_ms": 9341
+}

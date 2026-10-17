@@ -1,0 +1,191 @@
+{
+  "id": "EXT-11-mimo",
+  "at": "2026-10-17T21:53:37.294849+00:00",
+  "requested_model": "MiMo-V2.6-Flash",
+  "source": {
+    "id": "MATCHED-EXT-11",
+    "blocks": [
+      {
+        "id": "original-1",
+        "text": "OCR transcript: Affected lots NX-2I3 (the scanned page may read NX-213). Critical identifier not visually confirmed.",
+        "page": null
+      }
+    ]
+  },
+  "original_labels": {
+    "affected_supplier_lots": [],
+    "mentioned_supplier_lots": [
+      "NX-2I3",
+      "NX-213"
+    ],
+    "complete_boundary_support": false,
+    "action_authority": false
+  },
+  "benchmark_sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "prompt_version": "source-proposals-3",
+  "source_hash": "ad26969aee04dff79a52afeab0c58bc65c04935c2296c4bcf07f52ae6ed244a8",
+  "user_context_hash": "db524fe182ff70ac584224b192288034a2c1247f53359aaae88eea4f2f7f5bda",
+  "state_effect": "None; standalone raw benchmark and application validator only",
+  "review": "No corrections or independent human validation",
+  "http_status": 200,
+  "request_id": "ed947f4af5f34c03aaee6ff0b7f82907",
+  "response_hash": "536b80c9bd5650aba50b87816eae5af91e3357823d29f1da93879a59c9443d06",
+  "quota_headers": {
+    "x-ratelimit-limit-user-daily-usd": "1",
+    "x-ratelimit-limit-user-rpm": "20",
+    "x-ratelimit-remaining-user-daily-usd": "0.99641000",
+    "x-ratelimit-remaining-user-rpm": "15",
+    "x-ratelimit-reset-user-daily-usd": "1792339200",
+    "x-ratelimit-used-user-daily-usd": "0.00359000"
+  },
+  "retry_after": null,
+  "actual_model": "self-dploy/MiMo-V2.6-Flash",
+  "usage": {
+    "prompt_tokens": 923,
+    "total_tokens": 1259,
+    "completion_tokens": 336,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 0.0001091496,
+    "cost_details": {
+      "upstream_inference_cost": 0.0001091496,
+      "upstream_inference_prompt_cost": 1.50696e-05,
+      "upstream_inference_completions_cost": 9.408e-05,
+      "total_cost": 0.0001091496,
+      "input_cost": 1.274e-05,
+      "output_cost": 9.408e-05,
+      "cached_input_cost": 2.3296e-06,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "raw_response": "{\"facts\": [{\"lot_id\": \"NX-2I3\", \"kind\": \"supplier_lot\", \"status\": \"uncertain\", \"evidence\": [{\"document_id\": \"MATCHED-EXT-11\", \"block_id\": \"original-1\", \"quote\": \"OCR transcript: Affected lots NX-2I3 (the scanned page may read NX-213). Critical identifier not visually confirmed.\"}]}, {\"lot_id\": \"NX-213\", \"kind\": \"supplier_lot\", \"status\": \"uncertain\", \"evidence\": [{\"document_id\": \"MATCHED-EXT-11\", \"block_id\": \"original-1\", \"quote\": \"OCR transcript: Affected lots NX-2I3 (the scanned page may read NX-213). Critical identifier not visually confirmed.\"}]}], \"qualifiers\": [\"Single OCR transcript; identifier NX-2I3 is not visually confirmed and NX-213 is an unconfirmed OCR alternative, so both readings are retained as uncertain rather than affected.\", \"The transcript asserts 'Affected lots' but the critical identifier is unconfirmed, so the incident assertion is not treated as explicit and unqualified.\", \"No exhaustive incident boundary is quoted; absence of other lots does not exclude them.\"], \"scope_status\": \"unknown\", \"scope_evidence\": [{\"document_id\": \"MATCHED-EXT-11\", \"block_id\": \"original-1\", \"quote\": \"OCR transcript: Affected lots NX-2I3 (the scanned page may read NX-213). Critical identifier not visually confirmed.\"}]}",
+  "parsed": {
+    "facts": [
+      {
+        "lot_id": "NX-2I3",
+        "kind": "supplier_lot",
+        "status": "uncertain",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-11",
+            "block_id": "original-1",
+            "quote": "OCR transcript: Affected lots NX-2I3 (the scanned page may read NX-213). Critical identifier not visually confirmed."
+          }
+        ]
+      },
+      {
+        "lot_id": "NX-213",
+        "kind": "supplier_lot",
+        "status": "uncertain",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-11",
+            "block_id": "original-1",
+            "quote": "OCR transcript: Affected lots NX-2I3 (the scanned page may read NX-213). Critical identifier not visually confirmed."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Single OCR transcript; identifier NX-2I3 is not visually confirmed and NX-213 is an unconfirmed OCR alternative, so both readings are retained as uncertain rather than affected.",
+      "The transcript asserts 'Affected lots' but the critical identifier is unconfirmed, so the incident assertion is not treated as explicit and unqualified.",
+      "No exhaustive incident boundary is quoted; absence of other lots does not exclude them."
+    ],
+    "scope_status": "unknown",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-11",
+        "block_id": "original-1",
+        "quote": "OCR transcript: Affected lots NX-2I3 (the scanned page may read NX-213). Critical identifier not visually confirmed."
+      }
+    ]
+  },
+  "original_supplier_pairs_exact": true,
+  "expected_pairs": [
+    [
+      "NX-213",
+      false
+    ],
+    [
+      "NX-2I3",
+      false
+    ]
+  ],
+  "actual_pairs": [
+    [
+      "NX-213",
+      false
+    ],
+    [
+      "NX-2I3",
+      false
+    ]
+  ],
+  "validated": {
+    "facts": [
+      {
+        "lot_id": "NX-2I3",
+        "kind": "supplier_lot",
+        "status": "uncertain",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-11",
+            "block_id": "original-1",
+            "quote": "OCR transcript: Affected lots NX-2I3 (the scanned page may read NX-213). Critical identifier not visually confirmed."
+          }
+        ]
+      },
+      {
+        "lot_id": "NX-213",
+        "kind": "supplier_lot",
+        "status": "uncertain",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-11",
+            "block_id": "original-1",
+            "quote": "OCR transcript: Affected lots NX-2I3 (the scanned page may read NX-213). Critical identifier not visually confirmed."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Single OCR transcript; identifier NX-2I3 is not visually confirmed and NX-213 is an unconfirmed OCR alternative, so both readings are retained as uncertain rather than affected.",
+      "The transcript asserts 'Affected lots' but the critical identifier is unconfirmed, so the incident assertion is not treated as explicit and unqualified.",
+      "No exhaustive incident boundary is quoted; absence of other lots does not exclude them."
+    ],
+    "scope_status": "unknown",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-11",
+        "block_id": "original-1",
+        "quote": "OCR transcript: Affected lots NX-2I3 (the scanned page may read NX-213). Critical identifier not visually confirmed."
+      }
+    ]
+  },
+  "application": "accepted unreviewed proposal; mandatory source/scope review remains",
+  "elapsed_ms": 12561
+}

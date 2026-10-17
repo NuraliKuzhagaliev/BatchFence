@@ -84,8 +84,8 @@ function SourceText({
     </div>
   );
 }
-const RELEASE_URL = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.1";
-const WINDOWS_DOWNLOAD = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.4.0-rc.1/BatchFence-0.4.0-rc.1-win-x64-setup.exe";
+const RELEASE_URL = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.2";
+const WINDOWS_DOWNLOAD = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.4.0-rc.2/BatchFence-0.4.0-rc.2-win-x64-setup.exe";
 function PlatformLinks({ openWeb }: { openWeb: () => void }) {
   return native ? (
     <button className="button" onClick={openWeb}><ExternalLink size={16} />Open web app</button>
@@ -135,6 +135,7 @@ function App() {
   const [replayAvailable, setReplayAvailable] = useState(false);
   const [temporaryStorage, setTemporaryStorage] = useState(false);
   const connectionWasAvailable = useRef(true);
+  const inferenceModeInitialized = useRef(false);
   const state = packet?.case || data,
     plan = state?.plan,
     result = plan?.result,
@@ -194,11 +195,14 @@ function App() {
         setLiveProtected(health.live_protected);
         setTemporaryStorage(health.storage_mode === "ephemeral");
         setReplayAvailable(health.replay_available);
+        if (!inferenceModeInitialized.current) {
         setMode(
           health.amd_configured && health.inference_mode === "live" && !health.live_protected
             ? "live"
             : "fixture",
         );
+        inferenceModeInitialized.current = true;
+        }
         const id = localStorage.getItem("bf.case");
         if (id && all.some((c) => c.id === id)) {
           const c = await request<Case>("GET", "/api/cases/" + id);

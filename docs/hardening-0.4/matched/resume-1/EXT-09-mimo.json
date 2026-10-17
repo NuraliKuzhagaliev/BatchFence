@@ -1,0 +1,234 @@
+{
+  "id": "EXT-09-mimo",
+  "at": "2026-10-17T21:52:40.103624+00:00",
+  "requested_model": "MiMo-V2.6-Flash",
+  "source": {
+    "id": "MATCHED-EXT-09",
+    "blocks": [
+      {
+        "id": "original-1",
+        "text": "The signed receiving reconciliation states POOL-23 contains NX-211 exclusively. It supersedes lineage rows OLD-71 and OLD-72. Supplier identity was checked by the receiver.",
+        "page": null
+      }
+    ]
+  },
+  "original_labels": {
+    "affected_supplier_lots": [],
+    "mentioned_supplier_lots": [
+      "NX-211"
+    ],
+    "complete_boundary_support": true,
+    "action_authority": false
+  },
+  "benchmark_sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "prompt_version": "source-proposals-3",
+  "source_hash": "d42e199f92ca055f214a5f1207592add57dccc3bdeccf0b7518e8c77847c71dc",
+  "user_context_hash": "a46da82f2f5311dc241036e2cd3c7f0bc3179e0b1c556d95527ef690ee350eff",
+  "state_effect": "None; standalone raw benchmark and application validator only",
+  "review": "No corrections or independent human validation",
+  "http_status": 200,
+  "request_id": "594c4ce6262d4e7b99d17af4e4dc0b3f",
+  "response_hash": "951dc6ede72b69ccb1f0d7f56f43fd18bf1d9cf21007bc3d4aecf948598fefbd",
+  "quota_headers": {
+    "x-ratelimit-limit-user-daily-usd": "1",
+    "x-ratelimit-limit-user-rpm": "20",
+    "x-ratelimit-remaining-user-daily-usd": "0.99671371",
+    "x-ratelimit-remaining-user-rpm": "14",
+    "x-ratelimit-reset-user-daily-usd": "1792339200",
+    "x-ratelimit-used-user-daily-usd": "0.00328629"
+  },
+  "retry_after": null,
+  "actual_model": "self-dploy/MiMo-V2.6-Flash",
+  "usage": {
+    "prompt_tokens": 936,
+    "total_tokens": 1548,
+    "completion_tokens": 612,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 0.0001882496,
+    "cost_details": {
+      "upstream_inference_cost": 0.00018824960000000002,
+      "upstream_inference_prompt_cost": 1.68896e-05,
+      "upstream_inference_completions_cost": 0.00017136,
+      "total_cost": 0.0001882496,
+      "input_cost": 1.456e-05,
+      "output_cost": 0.00017136,
+      "cached_input_cost": 2.3296e-06,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "raw_response": "{\n  \"facts\": [\n    {\n      \"lot_id\": \"POOL-23\",\n      \"kind\": \"stock_pool\",\n      \"status\": \"mentioned\",\n      \"evidence\": [\n        {\n          \"document_id\": \"MATCHED-EXT-09\",\n          \"block_id\": \"original-1\",\n          \"quote\": \"The signed receiving reconciliation states POOL-23 contains NX-211 exclusively.\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"NX-211\",\n      \"kind\": \"supplier_lot\",\n      \"status\": \"mentioned\",\n      \"evidence\": [\n        {\n          \"document_id\": \"MATCHED-EXT-09\",\n          \"block_id\": \"original-1\",\n          \"quote\": \"The signed receiving reconciliation states POOL-23 contains NX-211 exclusively.\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"OLD-71\",\n      \"kind\": \"lineage_row\",\n      \"status\": \"mentioned\",\n      \"evidence\": [\n        {\n          \"document_id\": \"MATCHED-EXT-09\",\n          \"block_id\": \"original-1\",\n          \"quote\": \"It supersedes lineage rows OLD-71 and OLD-72.\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"OLD-72\",\n      \"kind\": \"lineage_row\",\n      \"status\": \"mentioned\",\n      \"evidence\": [\n        {\n          \"document_id\": \"MATCHED-EXT-09\",\n          \"block_id\": \"original-1\",\n          \"quote\": \"It supersedes lineage rows OLD-71 and OLD-72.\"\n        }\n      ]\n    }\n  ],\n  \"qualifiers\": [\n    \"No incident or quality assertion appears in the source for any identifier; all statuses are mentioned.\",\n    \"POOL-23 is a stock pool, not a supplier lot; OLD-71 and OLD-72 are superseded lineage rows, not supplier lots.\",\n    \"The source states POOL-23 contains NX-211 exclusively, but this is ancestry/composition for one pool, not an exhaustive incident boundary, so it does not establish complete scope.\",\n    \"Superseded status of OLD-71 and OLD-72 is preserved as a qualifier; supersession is not an exclusion from any incident.\",\n    \"No receipt_id or document_id identifiers other than the source document itself are present.\"\n  ],\n  \"scope_status\": \"unknown\",\n  \"scope_evidence\": [\n    {\n      \"document_id\": \"MATCHED-EXT-09\",\n      \"block_id\": \"original-1\",\n      \"quote\": \"The signed receiving reconciliation states POOL-23 contains NX-211 exclusively. It supersedes lineage rows OLD-71 and OLD-72. Supplier identity was checked by the receiver.\"\n    }\n  ]\n}",
+  "parsed": {
+    "facts": [
+      {
+        "lot_id": "POOL-23",
+        "kind": "stock_pool",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-09",
+            "block_id": "original-1",
+            "quote": "The signed receiving reconciliation states POOL-23 contains NX-211 exclusively."
+          }
+        ]
+      },
+      {
+        "lot_id": "NX-211",
+        "kind": "supplier_lot",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-09",
+            "block_id": "original-1",
+            "quote": "The signed receiving reconciliation states POOL-23 contains NX-211 exclusively."
+          }
+        ]
+      },
+      {
+        "lot_id": "OLD-71",
+        "kind": "lineage_row",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-09",
+            "block_id": "original-1",
+            "quote": "It supersedes lineage rows OLD-71 and OLD-72."
+          }
+        ]
+      },
+      {
+        "lot_id": "OLD-72",
+        "kind": "lineage_row",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-09",
+            "block_id": "original-1",
+            "quote": "It supersedes lineage rows OLD-71 and OLD-72."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "No incident or quality assertion appears in the source for any identifier; all statuses are mentioned.",
+      "POOL-23 is a stock pool, not a supplier lot; OLD-71 and OLD-72 are superseded lineage rows, not supplier lots.",
+      "The source states POOL-23 contains NX-211 exclusively, but this is ancestry/composition for one pool, not an exhaustive incident boundary, so it does not establish complete scope.",
+      "Superseded status of OLD-71 and OLD-72 is preserved as a qualifier; supersession is not an exclusion from any incident.",
+      "No receipt_id or document_id identifiers other than the source document itself are present."
+    ],
+    "scope_status": "unknown",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-09",
+        "block_id": "original-1",
+        "quote": "The signed receiving reconciliation states POOL-23 contains NX-211 exclusively. It supersedes lineage rows OLD-71 and OLD-72. Supplier identity was checked by the receiver."
+      }
+    ]
+  },
+  "original_supplier_pairs_exact": true,
+  "expected_pairs": [
+    [
+      "NX-211",
+      false
+    ]
+  ],
+  "actual_pairs": [
+    [
+      "NX-211",
+      false
+    ]
+  ],
+  "validated": {
+    "facts": [
+      {
+        "lot_id": "POOL-23",
+        "kind": "stock_pool",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-09",
+            "block_id": "original-1",
+            "quote": "The signed receiving reconciliation states POOL-23 contains NX-211 exclusively."
+          }
+        ]
+      },
+      {
+        "lot_id": "NX-211",
+        "kind": "supplier_lot",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-09",
+            "block_id": "original-1",
+            "quote": "The signed receiving reconciliation states POOL-23 contains NX-211 exclusively."
+          }
+        ]
+      },
+      {
+        "lot_id": "OLD-71",
+        "kind": "lineage_row",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-09",
+            "block_id": "original-1",
+            "quote": "It supersedes lineage rows OLD-71 and OLD-72."
+          }
+        ]
+      },
+      {
+        "lot_id": "OLD-72",
+        "kind": "lineage_row",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-09",
+            "block_id": "original-1",
+            "quote": "It supersedes lineage rows OLD-71 and OLD-72."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "No incident or quality assertion appears in the source for any identifier; all statuses are mentioned.",
+      "POOL-23 is a stock pool, not a supplier lot; OLD-71 and OLD-72 are superseded lineage rows, not supplier lots.",
+      "The source states POOL-23 contains NX-211 exclusively, but this is ancestry/composition for one pool, not an exhaustive incident boundary, so it does not establish complete scope.",
+      "Superseded status of OLD-71 and OLD-72 is preserved as a qualifier; supersession is not an exclusion from any incident.",
+      "No receipt_id or document_id identifiers other than the source document itself are present."
+    ],
+    "scope_status": "unknown",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-09",
+        "block_id": "original-1",
+        "quote": "The signed receiving reconciliation states POOL-23 contains NX-211 exclusively. It supersedes lineage rows OLD-71 and OLD-72. Supplier identity was checked by the receiver."
+      }
+    ]
+  },
+  "application": "accepted unreviewed proposal; mandatory source/scope review remains",
+  "elapsed_ms": 23322
+}

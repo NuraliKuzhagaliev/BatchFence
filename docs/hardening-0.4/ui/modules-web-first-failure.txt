@@ -1,0 +1,32 @@
+Overview
+Signals
+Incidents
+Knowledge
+Actions
+Verification
+Packets
+N
+BatchFence
+/
+Quality operations
+Backend connected
+QUALITY OPERATIONS
+SIGNALS
+Northstar Enclosures
+
+Cosmetic coating defect · decorative housings
+
+Open packet
+Export packet
+Interpretation mode
+Synthetic fixture
+Live AMD
+AMD credentials stay on the server. No automatic fallback.
+QUALITY SIGNALS
+Variation needs investigation, not an automatic hold.
+
+Compare like-for-like inspections against a reviewed, frozen baseline. Control limits describe variation; they are not product acceptance limits.
+
+Review and freeze a baseline В· 45 observations available
+
+No reviewed baseline yet. Select a complete stable interval; unsupported data stays insufficient.

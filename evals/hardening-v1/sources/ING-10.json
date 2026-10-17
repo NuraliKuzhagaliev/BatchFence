@@ -1,0 +1,4 @@
+{
+  "filename": "multiline.csv",
+  "text": "row_id,source,target,kind,note\nE1,RM-42,POOL-1,confirmed,\"first\nsecond\""
+}

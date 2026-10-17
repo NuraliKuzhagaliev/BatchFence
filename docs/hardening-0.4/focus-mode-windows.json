@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-17T22:27:12.938Z",
+  "passed": true,
+  "installed": true,
+  "results": [
+    {
+      "event": "focus",
+      "mode": "fixture"
+    },
+    {
+      "event": "offline-online",
+      "mode": "fixture"
+    }
+  ],
+  "inference_calls": 0,
+  "method": "Actual UI and backend; injected DOM focus/offline/online events, no network loss or OS scaling claim"
+}

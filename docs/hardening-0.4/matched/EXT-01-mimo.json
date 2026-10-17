@@ -1,0 +1,44 @@
+{
+  "id": "EXT-01-mimo",
+  "at": "2026-10-17T21:19:29.983178+00:00",
+  "requested_model": "MiMo-V2.6-Flash",
+  "source": {
+    "id": "MATCHED-EXT-01",
+    "blocks": [
+      {
+        "id": "original-1",
+        "text": "Affected lots: NX-201. Cosmetic coating issue only.",
+        "page": null
+      }
+    ]
+  },
+  "original_labels": {
+    "affected_supplier_lots": [
+      "NX-201"
+    ],
+    "mentioned_supplier_lots": [],
+    "complete_boundary_support": true,
+    "action_authority": false
+  },
+  "benchmark_sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "prompt_version": "source-proposals-3",
+  "source_hash": "eaf39217de445abfa1f5dc1bb75772f0a1db4706126246e9a1a623c23369f4e9",
+  "user_context_hash": "40f8748e4e5b5328c9b51547f9e0e91b46468fac4eec61107ff45b89c12e6656",
+  "state_effect": "None; standalone raw benchmark and application validator only",
+  "review": "No corrections or independent human validation",
+  "http_status": 429,
+  "request_id": null,
+  "response_hash": "b31ada2988b21b0939d047e4b5623c865c9f1340639a44d04353a1b1eb0c7614",
+  "quota_headers": {},
+  "retry_after": "1",
+  "failure": "Provider HTTP 429; batch stops, no automatic retry",
+  "application": "rejected / no usable result",
+  "elapsed_ms": 703
+}

@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-17T21:21:37.146162+00:00",
+  "baseline_pytest": 171,
+  "new_defect_regressions": 20,
+  "first_fix_neighbor_tests": 82,
+  "second_fix_neighbor_tests": 52,
+  "corpus_frozen_count": 200,
+  "corpus_heldout": 64,
+  "corpus_first": {
+    "passed": 181,
+    "harness_failures": 19,
+    "product_failures_from_this_measurement": 0
+  },
+  "corpus_corrected_harness": {
+    "passed": 200,
+    "frozen_labels_changed": false,
+    "corrections": [
+      "Applied historical plan stays applied after upload; pending_revision blocks reuse.",
+      "Material source-change API enum is factual."
+    ]
+  },
+  "new_phase_model_attempts": 2,
+  "new_phase_results": [
+    "Gemma EXT01 HTTP200 exact supplier pairs; accepted unreviewed proposal",
+    "MiMo EXT01 HTTP429 Retry-After1; batch stopped, no retry, quality unmeasured"
+  ],
+  "cloud_activation": "Automatic review rejected secret-bearing Render import. Unsaved changes discarded; no deploy. Local configuration authenticated; existing AMD team key unchanged and valid Evolus replacements retained. No further credential rotation.",
+  "next": [
+    "Native/installed fresh processing against isolated backend",
+    "remaining matched cases only after provider-capacity diagnosis",
+    "combined scenarios/property tests",
+    "candidate packaging and final gates",
+    "publication remains separate blocked operation"
+  ]
+}

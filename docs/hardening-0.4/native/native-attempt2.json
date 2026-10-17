@@ -1,0 +1,7 @@
+{
+  "at": "2026-10-17T21:53:01.518Z",
+  "status": "blocked",
+  "dialog_stubs": false,
+  "error": "locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Add evidence', exact: true }) to be visible\u001b[22m\n",
+  "inference_calls": 0
+}

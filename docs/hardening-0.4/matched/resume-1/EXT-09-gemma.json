@@ -1,0 +1,210 @@
+{
+  "id": "EXT-09-gemma",
+  "at": "2026-10-17T21:52:27.334533+00:00",
+  "requested_model": "Gemma-4-31B-IT",
+  "source": {
+    "id": "MATCHED-EXT-09",
+    "blocks": [
+      {
+        "id": "original-1",
+        "text": "The signed receiving reconciliation states POOL-23 contains NX-211 exclusively. It supersedes lineage rows OLD-71 and OLD-72. Supplier identity was checked by the receiver.",
+        "page": null
+      }
+    ]
+  },
+  "original_labels": {
+    "affected_supplier_lots": [],
+    "mentioned_supplier_lots": [
+      "NX-211"
+    ],
+    "complete_boundary_support": true,
+    "action_authority": false
+  },
+  "benchmark_sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "prompt_version": "source-proposals-3",
+  "source_hash": "d42e199f92ca055f214a5f1207592add57dccc3bdeccf0b7518e8c77847c71dc",
+  "user_context_hash": "a46da82f2f5311dc241036e2cd3c7f0bc3179e0b1c556d95527ef690ee350eff",
+  "state_effect": "None; standalone raw benchmark and application validator only",
+  "review": "No corrections or independent human validation",
+  "http_status": 200,
+  "request_id": "c0761f73cd4f47168047a9070ba54bf7",
+  "response_hash": "3942e1fe3097fa92f63a0c8566aef6e80d39c7b4e0b4a3475faf49b4c5c73f12",
+  "quota_headers": {
+    "x-ratelimit-limit-user-daily-usd": "1",
+    "x-ratelimit-limit-user-rpm": "20",
+    "x-ratelimit-remaining-user-daily-usd": "0.99673858",
+    "x-ratelimit-remaining-user-rpm": "15",
+    "x-ratelimit-reset-user-daily-usd": "1792339200",
+    "x-ratelimit-used-user-daily-usd": "0.00326142"
+  },
+  "retry_after": null,
+  "actual_model": "self-dploy/Gemma-4-31B-IT",
+  "usage": {
+    "prompt_tokens": 953,
+    "total_tokens": 1263,
+    "completion_tokens": 310,
+    "prompt_tokens_details": {
+      "cached_tokens": 880,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 2.4871e-05,
+    "cost_details": {
+      "upstream_inference_cost": 2.4871e-05,
+      "upstream_inference_prompt_cost": 3.1710000000000002e-06,
+      "upstream_inference_completions_cost": 2.17e-05,
+      "total_cost": 2.4871e-05,
+      "input_cost": 2.555e-06,
+      "output_cost": 2.17e-05,
+      "cached_input_cost": 6.16e-07,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "raw_response": "{\"facts\": [{\"lot_id\": \"NX-211\", \"kind\": \"supplier_lot\", \"status\": \"mentioned\", \"evidence\": [{\"document_id\": \"MATCHED-EXT-09\", \"block_id\": \"original-1\", \"quote\": \"POOL-23 contains NX-211 exclusively\"}]}, {\"lot_id\": \"POOL-23\", \"kind\": \"stock_pool\", \"status\": \"mentioned\", \"evidence\": [{\"document_id\": \"MATCHED-EXT-09\", \"block_id\": \"original-1\", \"quote\": \"POOL-23 contains NX-211 exclusively\"}]}, {\"lot_id\": \"OLD-71\", \"kind\": \"lineage_row\", \"status\": \"mentioned\", \"evidence\": [{\"document_id\": \"MATCHED-EXT-09\", \"block_id\": \"original-1\", \"quote\": \"It supersedes lineage rows OLD-71 and OLD-72\"}]}, {\"lot_id\": \"OLD-72\", \"kind\": \"lineage_row\", \"status\": \"mentioned\", \"evidence\": [{\"document_id\": \"MATCHED-EXT-09\", \"block_id\": \"original-1\", \"quote\": \"It supersedes lineage rows OLD-71 and OLD-72\"}]}], \"qualifiers\": [], \"scope_status\": \"unknown\", \"scope_evidence\": []}",
+  "parsed": {
+    "facts": [
+      {
+        "lot_id": "NX-211",
+        "kind": "supplier_lot",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-09",
+            "block_id": "original-1",
+            "quote": "POOL-23 contains NX-211 exclusively"
+          }
+        ]
+      },
+      {
+        "lot_id": "POOL-23",
+        "kind": "stock_pool",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-09",
+            "block_id": "original-1",
+            "quote": "POOL-23 contains NX-211 exclusively"
+          }
+        ]
+      },
+      {
+        "lot_id": "OLD-71",
+        "kind": "lineage_row",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-09",
+            "block_id": "original-1",
+            "quote": "It supersedes lineage rows OLD-71 and OLD-72"
+          }
+        ]
+      },
+      {
+        "lot_id": "OLD-72",
+        "kind": "lineage_row",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-09",
+            "block_id": "original-1",
+            "quote": "It supersedes lineage rows OLD-71 and OLD-72"
+          }
+        ]
+      }
+    ],
+    "qualifiers": [],
+    "scope_status": "unknown",
+    "scope_evidence": []
+  },
+  "original_supplier_pairs_exact": true,
+  "expected_pairs": [
+    [
+      "NX-211",
+      false
+    ]
+  ],
+  "actual_pairs": [
+    [
+      "NX-211",
+      false
+    ]
+  ],
+  "validated": {
+    "facts": [
+      {
+        "lot_id": "NX-211",
+        "kind": "supplier_lot",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-09",
+            "block_id": "original-1",
+            "quote": "POOL-23 contains NX-211 exclusively"
+          }
+        ]
+      },
+      {
+        "lot_id": "POOL-23",
+        "kind": "stock_pool",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-09",
+            "block_id": "original-1",
+            "quote": "POOL-23 contains NX-211 exclusively"
+          }
+        ]
+      },
+      {
+        "lot_id": "OLD-71",
+        "kind": "lineage_row",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-09",
+            "block_id": "original-1",
+            "quote": "It supersedes lineage rows OLD-71 and OLD-72"
+          }
+        ]
+      },
+      {
+        "lot_id": "OLD-72",
+        "kind": "lineage_row",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-09",
+            "block_id": "original-1",
+            "quote": "It supersedes lineage rows OLD-71 and OLD-72"
+          }
+        ]
+      }
+    ],
+    "qualifiers": [],
+    "scope_status": "unknown",
+    "scope_evidence": []
+  },
+  "application": "accepted unreviewed proposal; mandatory source/scope review remains",
+  "elapsed_ms": 9765
+}

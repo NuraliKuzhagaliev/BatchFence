@@ -1,0 +1,1 @@
+Public browser core attempt stopped on a stale accessible-name selector: expected SUP-A Affected candidate Inspect quote, actual SUP-A Proposed: affected Inspect quote. No failed domain assertion or model call. Selector updated to identify SUP-A and Inspect quote; all behavioral assertions preserved.

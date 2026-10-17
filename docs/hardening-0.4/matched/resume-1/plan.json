@@ -1,0 +1,23 @@
+{
+  "phase": "adversarial-2026-10-18-v1",
+  "at": "2026-10-17T21:49:36.744380+00:00",
+  "calls": 23,
+  "per_model": 12,
+  "automatic_retries": 0,
+  "benchmark_sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "prompt_version": "source-proposals-3",
+  "prompt_sha256": "b9d473151c8ba691ee0f711881b36189631b7ff8ae2cdf078565b65227ae8216",
+  "schema_sha256": "d9247068ea762eb5709fc5518edfbe1d343bc53a222cdeba65ac7b374f8fd8d7",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "max_request_bytes": 20000,
+  "max_response_bytes": 48000,
+  "purpose": "Once/model matched comparison; local validation only. No human correction, independent review, superiority claim or product inventory effects.",
+  "credit_boundary": "Documented free shared AMD gateway; current account hard daily cap and remaining allowance checked before batch. Stop affected provider on quota/auth failure, no purchasing or automatic retry.",
+  "resume_reason": "One bounded MiMo EXT01 retry after >25 minutes, original Retry-After1 and preserved429; execute only original unrun cases. Stop MiMo on repeated429 and finish independent Gemma cases. Passed Gemma EXT01 is never rerun."
+}

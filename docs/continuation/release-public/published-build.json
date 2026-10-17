@@ -1,0 +1,68 @@
+{
+  "at": "2026-10-17T20:20:43.971522+00:00",
+  "passed": true,
+  "url": "https://batchfence.onrender.com",
+  "health": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.4.0-rc.1",
+    "commit": "c40bc08545270172537f09d5f6b0abfc700ab177",
+    "inference_mode": "fixture",
+    "amd_configured": true,
+    "live_protected": true,
+    "profile": "public",
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  },
+  "initial_health_ms": 547,
+  "measurement_note": "First access in this verification, not a verified sleeping-instance cold start",
+  "assets": [
+    {
+      "path": "/assets/index-BWzDsLEo.css",
+      "sha256": "9a0e43665251790bf6db5d86a65e7013a6a8e16cf77f450a792291b7a14e675a",
+      "matches_installed_and_archive": true
+    },
+    {
+      "path": "/assets/index-C0tbtwPs.js",
+      "sha256": "c5aabae466fabe5760bde752942e2ace3b9c6b637199dc280b5e2dec4eb40630",
+      "matches_installed_and_archive": true
+    }
+  ],
+  "assist_status": {
+    "state": "UNAVAILABLE",
+    "gemma_state": "UNAVAILABLE",
+    "gemma_hosting_kind": "unverified",
+    "missing_variables": [
+      "EVOLUS_API_BASE_URL",
+      "EVOLUS_API_KEY",
+      "EVOLUS_APPLICATION_ID",
+      "EVOLUS_CONTRACT_FILE",
+      "EVOLUS_CONTRACT_SHA256",
+      "EVOLUS_COST_APPROVAL_FILE",
+      "GEMMA_API_BASE_URL",
+      "GEMMA_API_KEY",
+      "GEMMA_MODEL_ID",
+      "GEMMA_COST_APPROVAL_FILE"
+    ],
+    "eligibility": "unverified: requires actual own vLLM on AMD Developer Cloud, two building blocks and API execution",
+    "no_automatic_retry": true,
+    "public_access": "Existing protected live-access gate and persisted job budget also apply"
+  },
+  "new_live_route_denials": [
+    {
+      "endpoint": "assist-run",
+      "http": 403,
+      "code": "LIVE_PROTECTED"
+    },
+    {
+      "endpoint": "assist-generate",
+      "http": 403,
+      "code": "LIVE_PROTECTED"
+    }
+  ],
+  "new_jobs_or_runs": 0,
+  "model_calls": 0,
+  "case_isolation": true,
+  "inference_boundary": "Fresh Gemma/Evolus accepted locally earlier; new public cloud inference unavailable, not silently substituted"
+}

@@ -1,0 +1,154 @@
+{
+  "id": "EXT-04-mimo",
+  "at": "2026-10-17T21:50:45.534152+00:00",
+  "requested_model": "MiMo-V2.6-Flash",
+  "source": {
+    "id": "MATCHED-EXT-04",
+    "blocks": [
+      {
+        "id": "original-1",
+        "text": "NX-206 may be involved; inspection is pending. The full affected boundary is unknown.",
+        "page": null
+      }
+    ]
+  },
+  "original_labels": {
+    "affected_supplier_lots": [],
+    "mentioned_supplier_lots": [
+      "NX-206"
+    ],
+    "complete_boundary_support": false,
+    "action_authority": false
+  },
+  "benchmark_sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "prompt_version": "source-proposals-3",
+  "source_hash": "44dea8c4d1538bf0c598da810a4aa562fb8a2d3e0c6959016bdce3ba42bdb4ea",
+  "user_context_hash": "2522fba8a5d894b2981926a378731f12c1bafb006adf6de81f1dead4ec53bbfc",
+  "state_effect": "None; standalone raw benchmark and application validator only",
+  "review": "No corrections or independent human validation",
+  "http_status": 200,
+  "request_id": "51264182caee420981ae797b3ddde48e",
+  "response_hash": "a1a2a674e3c6f7b2560fdefa6caa05a676246cda5ebcb0c1c8fd426e1085f248",
+  "quota_headers": {
+    "x-ratelimit-limit-user-daily-usd": "1",
+    "x-ratelimit-limit-user-rpm": "20",
+    "x-ratelimit-remaining-user-daily-usd": "0.99725070",
+    "x-ratelimit-remaining-user-rpm": "14",
+    "x-ratelimit-reset-user-daily-usd": "1792339200",
+    "x-ratelimit-used-user-daily-usd": "0.00274930"
+  },
+  "retry_after": null,
+  "actual_model": "self-dploy/MiMo-V2.6-Flash",
+  "usage": {
+    "prompt_tokens": 914,
+    "total_tokens": 1067,
+    "completion_tokens": 153,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 5.66496e-05,
+    "cost_details": {
+      "upstream_inference_cost": 5.664960000000001e-05,
+      "upstream_inference_prompt_cost": 1.38096e-05,
+      "upstream_inference_completions_cost": 4.284e-05,
+      "total_cost": 5.66496e-05,
+      "input_cost": 1.148e-05,
+      "output_cost": 4.284e-05,
+      "cached_input_cost": 2.3296e-06,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "raw_response": "{\"facts\": [{\"lot_id\": \"NX-206\", \"kind\": \"supplier_lot\", \"status\": \"uncertain\", \"evidence\": [{\"document_id\": \"MATCHED-EXT-04\", \"block_id\": \"original-1\", \"quote\": \"NX-206 may be involved; inspection is pending. The full affected boundary is unknown.\"}]}], \"qualifiers\": [\"Source states inspection is pending and the full affected boundary is unknown; no exclusion is asserted.\"], \"scope_status\": \"unknown\", \"scope_evidence\": [{\"document_id\": \"MATCHED-EXT-04\", \"block_id\": \"original-1\", \"quote\": \"The full affected boundary is unknown.\"}]}",
+  "parsed": {
+    "facts": [
+      {
+        "lot_id": "NX-206",
+        "kind": "supplier_lot",
+        "status": "uncertain",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-04",
+            "block_id": "original-1",
+            "quote": "NX-206 may be involved; inspection is pending. The full affected boundary is unknown."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Source states inspection is pending and the full affected boundary is unknown; no exclusion is asserted."
+    ],
+    "scope_status": "unknown",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-04",
+        "block_id": "original-1",
+        "quote": "The full affected boundary is unknown."
+      }
+    ]
+  },
+  "original_supplier_pairs_exact": true,
+  "expected_pairs": [
+    [
+      "NX-206",
+      false
+    ]
+  ],
+  "actual_pairs": [
+    [
+      "NX-206",
+      false
+    ]
+  ],
+  "validated": {
+    "facts": [
+      {
+        "lot_id": "NX-206",
+        "kind": "supplier_lot",
+        "status": "uncertain",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-04",
+            "block_id": "original-1",
+            "quote": "NX-206 may be involved; inspection is pending. The full affected boundary is unknown."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Source states inspection is pending and the full affected boundary is unknown; no exclusion is asserted."
+    ],
+    "scope_status": "unknown",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-04",
+        "block_id": "original-1",
+        "quote": "The full affected boundary is unknown."
+      }
+    ]
+  },
+  "application": "accepted unreviewed proposal; mandatory source/scope review remains",
+  "elapsed_ms": 6737
+}

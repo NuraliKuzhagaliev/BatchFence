@@ -1,0 +1,657 @@
+{
+  "id": "ASSIST-eebba0d5999b58013c2aa824",
+  "case_id": "e41b4f57d6f14cd49bbcc971c6d09531",
+  "mode": "live",
+  "status": "source proposals inspected / no fact or action authority",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "snapshot_hash": "e5e24b9a8b1682561ed61c6844c32914acfc5e5eef56bde23919a8d8d7ac6679",
+  "request_hash": "b3bc4ba74f37651d6576b21a6d4fd134f05daccb798f1a1eb6e473dd6bc6c24b",
+  "context_hash": "13f20dd03fb265603578be7f1f41faeacee1f702f066312f72e7dfa4d61cc036",
+  "started_at": "2026-10-17T21:38:43.566069+00:00",
+  "reservation": {
+    "provider": "evolus",
+    "reservation": "23796d66bd843a8db27eaa535d247e20429a202fd655a3205bd66eb005c5ce83",
+    "dispatch": 1,
+    "conservative_remaining": 50000,
+    "stop_margin": 1000
+  },
+  "executions": [
+    {
+      "execution_id": "83416a1f-73ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Queued",
+      "enqueued_at": "2026-10-17T21:38:45.3844663Z",
+      "trace_id": "11054e9502e21736a86275b504c5f546",
+      "queue_job_id": "4286084",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T21:38:45.390226+00:00",
+        "method": "POST",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/execute",
+        "http_status": 202,
+        "elapsed_ms": 279,
+        "response_hash": "eb7181e6ffd3c444fecbab3fdffbf033277fef02fe39d9b0ee78250d75dfc46d",
+        "request_id": null,
+        "execution_header": "83416a1f-73ca-f111-bf5b-6045bd9ce552",
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4",
+        "configuration_proof": {
+          "checked_at": "2026-10-17T21:38:45.111107+00:00",
+          "configuration_hash": "1383948c5171ffd30486e98ee3471d77aee5f87f37a135e610acbdb5538becb1",
+          "requests": [
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T21:38:43.840355+00:00",
+              "method": "GET",
+              "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45",
+              "http_status": 200,
+              "elapsed_ms": 265,
+              "response_hash": "77020673dce3773b44db628bb8eb53bde40d3d9ec6ac54bc17e8a571f526bf81",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T21:38:44.198813+00:00",
+              "method": "GET",
+              "path": "/api/v1/own-models/connections",
+              "http_status": 200,
+              "elapsed_ms": 333,
+              "response_hash": "de7041054aec06fccd2ae5fe81056f40c1699707e57310b7d7e4277bddf5d549",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T21:38:44.398163+00:00",
+              "method": "GET",
+              "path": "/api/v1/agents/0412148a-94de-4696-8aed-23e08ae2b1ab",
+              "http_status": 200,
+              "elapsed_ms": 195,
+              "response_hash": "9c13a2a7bcced7d215bca1e2e9305449cbaf93776bb7a1b9d21f89c34c2219fa",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T21:38:44.613473+00:00",
+              "method": "GET",
+              "path": "/api/v1/agents/0412148a-94de-4696-8aed-23e08ae2b1ab/json/f56aab1b-9b7e-45c8-af13-24ecee68b34c",
+              "http_status": 200,
+              "elapsed_ms": 211,
+              "response_hash": "ad76cbaae7b635f0a1e3d935fe7cfe907d252d3941af148ab297262e105a840d",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T21:38:44.825500+00:00",
+              "method": "GET",
+              "path": "/api/v1/agents/971b2c6f-29c5-4828-b335-76cdc9c7850c",
+              "http_status": 200,
+              "elapsed_ms": 208,
+              "response_hash": "b1689ad2cbc9bbc321a1efc6a3773a3c37c09955ba48c9f7403864e537aab058",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T21:38:45.110792+00:00",
+              "method": "GET",
+              "path": "/api/v1/agents/971b2c6f-29c5-4828-b335-76cdc9c7850c/json/d9fcfc23-ae08-4336-a1fe-62c223412591",
+              "http_status": 200,
+              "elapsed_ms": 282,
+              "response_hash": "80627e57f679d906768bf264fd4b9329db785790954f09ddc85df551904b9949",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            }
+          ],
+          "model_identity_basis": "Verified own-model configuration; WorkflowExecution does not return runtime model ID",
+          "provider_internal_retries": "BatchFence makes one dispatch. Structured correction budget is zero; undocumented provider infrastructure retries are not claimed absent."
+        }
+      }
+    },
+    {
+      "execution_id": "83416a1f-73ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Running",
+      "steps": [],
+      "draft": null,
+      "consumption": null,
+      "requested_at": "2026-10-17T21:38:45.3713898Z",
+      "completed_at": null,
+      "trace_id": "11054e9502e21736a86275b504c5f546",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T21:38:49.209003+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/83416a1f-73ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 245,
+        "response_hash": "7a4724bd7bd0b6774200f1f829327b839f3f759dc375cf712a8882bc5287de71",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    },
+    {
+      "execution_id": "83416a1f-73ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Running",
+      "steps": [
+        {
+          "kind": "extractor",
+          "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+          "step_id": "6091d2ae-e5f8-41c4-9e60-92557047bd37",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5645,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "configured_model_key": "own/gemma-4-31b-it",
+          "model_identity_basis": "Configuration, not a returned runtime model ID",
+          "output_hash": "5c318fa7d31f9955cd31b79b66a40124c73c9b3721a7b7665a5155eaf54e2116",
+          "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"signed revision\",\"disposition\":\"mentioned\",\"quote\":\"This signed revision supersedes the earlier notice.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"The complete incident list is these two lots; no other supplier lots are affected.\",\"page\":null}],\"unresolved\":[]}",
+          "execution_step_key": "1"
+        }
+      ],
+      "draft": null,
+      "consumption": null,
+      "requested_at": "2026-10-17T21:38:45.3713898Z",
+      "completed_at": null,
+      "trace_id": "11054e9502e21736a86275b504c5f546",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T21:38:54.284145+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/83416a1f-73ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 216,
+        "response_hash": "8920a7e492589af395e74794e2526922e82c3e2786dccc6e70b1c001e1ba7502",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    },
+    {
+      "execution_id": "83416a1f-73ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Running",
+      "steps": [
+        {
+          "kind": "extractor",
+          "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+          "step_id": "6091d2ae-e5f8-41c4-9e60-92557047bd37",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5645,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "configured_model_key": "own/gemma-4-31b-it",
+          "model_identity_basis": "Configuration, not a returned runtime model ID",
+          "output_hash": "5c318fa7d31f9955cd31b79b66a40124c73c9b3721a7b7665a5155eaf54e2116",
+          "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"signed revision\",\"disposition\":\"mentioned\",\"quote\":\"This signed revision supersedes the earlier notice.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"The complete incident list is these two lots; no other supplier lots are affected.\",\"page\":null}],\"unresolved\":[]}",
+          "execution_step_key": "1"
+        }
+      ],
+      "draft": null,
+      "consumption": null,
+      "requested_at": "2026-10-17T21:38:45.3713898Z",
+      "completed_at": null,
+      "trace_id": "11054e9502e21736a86275b504c5f546",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T21:38:59.564192+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/83416a1f-73ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 290,
+        "response_hash": "8920a7e492589af395e74794e2526922e82c3e2786dccc6e70b1c001e1ba7502",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    },
+    {
+      "execution_id": "83416a1f-73ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Running",
+      "steps": [
+        {
+          "kind": "extractor",
+          "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+          "step_id": "6091d2ae-e5f8-41c4-9e60-92557047bd37",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5645,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "configured_model_key": "own/gemma-4-31b-it",
+          "model_identity_basis": "Configuration, not a returned runtime model ID",
+          "output_hash": "5c318fa7d31f9955cd31b79b66a40124c73c9b3721a7b7665a5155eaf54e2116",
+          "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"signed revision\",\"disposition\":\"mentioned\",\"quote\":\"This signed revision supersedes the earlier notice.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"The complete incident list is these two lots; no other supplier lots are affected.\",\"page\":null}],\"unresolved\":[]}",
+          "execution_step_key": "1"
+        }
+      ],
+      "draft": null,
+      "consumption": null,
+      "requested_at": "2026-10-17T21:38:45.3713898Z",
+      "completed_at": null,
+      "trace_id": "11054e9502e21736a86275b504c5f546",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T21:39:04.641877+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/83416a1f-73ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 191,
+        "response_hash": "8920a7e492589af395e74794e2526922e82c3e2786dccc6e70b1c001e1ba7502",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    },
+    {
+      "execution_id": "83416a1f-73ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Running",
+      "steps": [
+        {
+          "kind": "extractor",
+          "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+          "step_id": "6091d2ae-e5f8-41c4-9e60-92557047bd37",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5645,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "configured_model_key": "own/gemma-4-31b-it",
+          "model_identity_basis": "Configuration, not a returned runtime model ID",
+          "output_hash": "5c318fa7d31f9955cd31b79b66a40124c73c9b3721a7b7665a5155eaf54e2116",
+          "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"signed revision\",\"disposition\":\"mentioned\",\"quote\":\"This signed revision supersedes the earlier notice.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"The complete incident list is these two lots; no other supplier lots are affected.\",\"page\":null}],\"unresolved\":[]}",
+          "execution_step_key": "1"
+        }
+      ],
+      "draft": null,
+      "consumption": null,
+      "requested_at": "2026-10-17T21:38:45.3713898Z",
+      "completed_at": null,
+      "trace_id": "11054e9502e21736a86275b504c5f546",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T21:39:10.031091+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/83416a1f-73ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 296,
+        "response_hash": "8920a7e492589af395e74794e2526922e82c3e2786dccc6e70b1c001e1ba7502",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    },
+    {
+      "execution_id": "83416a1f-73ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Running",
+      "steps": [
+        {
+          "kind": "extractor",
+          "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+          "step_id": "6091d2ae-e5f8-41c4-9e60-92557047bd37",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5645,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "configured_model_key": "own/gemma-4-31b-it",
+          "model_identity_basis": "Configuration, not a returned runtime model ID",
+          "output_hash": "5c318fa7d31f9955cd31b79b66a40124c73c9b3721a7b7665a5155eaf54e2116",
+          "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"signed revision\",\"disposition\":\"mentioned\",\"quote\":\"This signed revision supersedes the earlier notice.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"The complete incident list is these two lots; no other supplier lots are affected.\",\"page\":null}],\"unresolved\":[]}",
+          "execution_step_key": "1"
+        }
+      ],
+      "draft": null,
+      "consumption": null,
+      "requested_at": "2026-10-17T21:38:45.3713898Z",
+      "completed_at": null,
+      "trace_id": "11054e9502e21736a86275b504c5f546",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T21:39:15.263059+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/83416a1f-73ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 366,
+        "response_hash": "8920a7e492589af395e74794e2526922e82c3e2786dccc6e70b1c001e1ba7502",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    },
+    {
+      "execution_id": "83416a1f-73ca-f111-bf5b-6045bd9ce552",
+      "status": "completed",
+      "provider_status": "Completed",
+      "steps": [
+        {
+          "kind": "extractor",
+          "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+          "step_id": "6091d2ae-e5f8-41c4-9e60-92557047bd37",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5645,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "configured_model_key": "own/gemma-4-31b-it",
+          "model_identity_basis": "Configuration, not a returned runtime model ID",
+          "output_hash": "5c318fa7d31f9955cd31b79b66a40124c73c9b3721a7b7665a5155eaf54e2116",
+          "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"signed revision\",\"disposition\":\"mentioned\",\"quote\":\"This signed revision supersedes the earlier notice.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"The complete incident list is these two lots; no other supplier lots are affected.\",\"page\":null}],\"unresolved\":[]}",
+          "execution_step_key": "1"
+        },
+        {
+          "kind": "agent",
+          "id": "971b2c6f-29c5-4828-b335-76cdc9c7850c",
+          "step_id": "d1e8b7df-3c7c-4b1e-867e-a3c23514c998",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 25657,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "configured_model_key": "own/gemma-4-31b-it",
+          "model_identity_basis": "Configuration, not a returned runtime model ID",
+          "output_hash": "2296b5533636bdbe179c6006177f7e4fb31cab62d783df17a2b04aa44d46a4a7",
+          "output": "{\"candidates\":[{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"incident_status\":\"affected\",\"source\":{\"document_id\":\"DOC-075ac48c198d\",\"block_id\":\"line-1\",\"quote\":\"Affected lots: SUP-A and SUP-C.\"}},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"incident_status\":\"affected\",\"source\":{\"document_id\":\"DOC-075ac48c198d\",\"block_id\":\"line-1\",\"quote\":\"Affected lots: SUP-A and SUP-C.\"}},{\"kind\":\"document_id\",\"value\":\"signed revision\",\"disposition\":\"asserted\",\"incident_status\":\"mentioned\",\"source\":{\"document_id\":\"DOC-075ac48c198d\",\"block_id\":\"line-1\",\"quote\":\"This signed revision supersedes the earlier notice.\"}}],\"changes\":[],\"contradictions\":[],\"unresolved\":[],\"request_drafts\":[],\"incident_scope\":\"complete\",\"scope_evidence\":[{\"document_id\":\"DOC-075ac48c198d\",\"block_id\":\"line-1\",\"quote\":\"The complete incident list is these two lots; no other supplier lots are affected.\"}]}",
+          "execution_step_key": "2"
+        }
+      ],
+      "draft": {
+        "candidates": [
+          {
+            "kind": "supplier_lot",
+            "value": "SUP-A",
+            "disposition": "asserted",
+            "incident_status": "affected",
+            "source": {
+              "document_id": "DOC-075ac48c198d",
+              "block_id": "line-1",
+              "quote": "Affected lots: SUP-A and SUP-C."
+            }
+          },
+          {
+            "kind": "supplier_lot",
+            "value": "SUP-C",
+            "disposition": "asserted",
+            "incident_status": "affected",
+            "source": {
+              "document_id": "DOC-075ac48c198d",
+              "block_id": "line-1",
+              "quote": "Affected lots: SUP-A and SUP-C."
+            }
+          },
+          {
+            "kind": "document_id",
+            "value": "signed revision",
+            "disposition": "asserted",
+            "incident_status": "mentioned",
+            "source": {
+              "document_id": "DOC-075ac48c198d",
+              "block_id": "line-1",
+              "quote": "This signed revision supersedes the earlier notice."
+            }
+          }
+        ],
+        "changes": [],
+        "contradictions": [],
+        "unresolved": [],
+        "request_drafts": [],
+        "incident_scope": "complete",
+        "scope_evidence": [
+          {
+            "document_id": "DOC-075ac48c198d",
+            "block_id": "line-1",
+            "quote": "The complete incident list is these two lots; no other supplier lots are affected."
+          }
+        ]
+      },
+      "consumption": {
+        "credits": 0,
+        "pendingEntries": 0,
+        "costUsd": null,
+        "llmTokens": null,
+        "ocrPages": null,
+        "embeddingTokens": null,
+        "speechToTextSeconds": null,
+        "entries": null
+      },
+      "requested_at": "2026-10-17T21:38:45.3713898Z",
+      "completed_at": "2026-10-17T21:39:16.8518541Z",
+      "trace_id": "11054e9502e21736a86275b504c5f546",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T21:39:20.435854+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/83416a1f-73ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 333,
+        "response_hash": "38f8f24c7595b45ca26e60f8604305a37c1fa86aaf03048d819546c044c5bf12",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    }
+  ],
+  "external_execution_id": "83416a1f-73ca-f111-bf5b-6045bd9ce552",
+  "authority": "Unreviewed proposal only; no inventory, genealogy or approval writes",
+  "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+  "raw_draft": {
+    "candidates": [
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-A",
+        "disposition": "asserted",
+        "incident_status": "affected",
+        "source": {
+          "document_id": "DOC-075ac48c198d",
+          "block_id": "line-1",
+          "quote": "Affected lots: SUP-A and SUP-C."
+        }
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-C",
+        "disposition": "asserted",
+        "incident_status": "affected",
+        "source": {
+          "document_id": "DOC-075ac48c198d",
+          "block_id": "line-1",
+          "quote": "Affected lots: SUP-A and SUP-C."
+        }
+      },
+      {
+        "kind": "document_id",
+        "value": "signed revision",
+        "disposition": "asserted",
+        "incident_status": "mentioned",
+        "source": {
+          "document_id": "DOC-075ac48c198d",
+          "block_id": "line-1",
+          "quote": "This signed revision supersedes the earlier notice."
+        }
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": [],
+    "incident_scope": "complete",
+    "scope_evidence": [
+      {
+        "document_id": "DOC-075ac48c198d",
+        "block_id": "line-1",
+        "quote": "The complete incident list is these two lots; no other supplier lots are affected."
+      }
+    ]
+  },
+  "error": "Raw interpretation failed source/schema validation; no fact or scope update",
+  "validation_issues": [
+    {
+      "type": "string_pattern_mismatch",
+      "loc": [
+        "facts",
+        2,
+        "lot_id"
+      ],
+      "msg": "String should match pattern '^[A-Za-z0-9][A-Za-z0-9._/-]{0,79}$'"
+    }
+  ],
+  "finished_at": "2026-10-17T21:39:20.439720+00:00",
+  "raw_quality_status": "failed validation",
+  "draft": {
+    "candidates": [
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-A",
+        "disposition": "asserted",
+        "incident_status": "affected",
+        "source": {
+          "document_id": "DOC-075ac48c198d",
+          "block_id": "line-1",
+          "quote": "Affected lots: SUP-A and SUP-C.",
+          "original_hash": "f59852b7701b22cce47a40255267fae18f6948ca3f31ebb08cdb96d6095a96dd",
+          "document_revision": 3,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-C",
+        "disposition": "asserted",
+        "incident_status": "affected",
+        "source": {
+          "document_id": "DOC-075ac48c198d",
+          "block_id": "line-1",
+          "quote": "Affected lots: SUP-A and SUP-C.",
+          "original_hash": "f59852b7701b22cce47a40255267fae18f6948ca3f31ebb08cdb96d6095a96dd",
+          "document_revision": 3,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": [],
+    "incident_scope": "complete",
+    "scope_evidence": [
+      {
+        "document_id": "DOC-075ac48c198d",
+        "block_id": "line-1",
+        "quote": "The complete incident list is these two lots; no other supplier lots are affected.",
+        "original_hash": "f59852b7701b22cce47a40255267fae18f6948ca3f31ebb08cdb96d6095a96dd",
+        "document_revision": 3,
+        "page": null,
+        "location_origin": "retained local parser; no provider bounding-box claim"
+      }
+    ]
+  },
+  "correction": {
+    "actor": {
+      "user_id": null,
+      "identity_mode": "anonymous session; not independent identity"
+    },
+    "at": "2026-10-17T21:45:27.865114+00:00",
+    "note": "Agent-operated source review: \"signed revision\" describes the notice version and is not a document identifier. Removed only this unsupported typed identity; retained the two supplier lots, exact quotes and raw failed response. Not independent human validation.",
+    "corrected_hash": "09b880ccbca2b3d34961954005ed42c579b9450c218e8ed90cc2504901dfdd3a",
+    "basis": "Explicit source-checked reviewer correction; model raw output remains unchanged; separate critical-fact/scope review still required"
+  },
+  "review": {
+    "actor": {
+      "user_id": null,
+      "identity_mode": "anonymous session; not independent identity"
+    },
+    "at": "2026-10-17T21:45:27.865230+00:00",
+    "note": "Agent-operated source review: \"signed revision\" describes the notice version and is not a document identifier. Removed only this unsupported typed identity; retained the two supplier lots, exact quotes and raw failed response. Not independent human validation."
+  },
+  "stale": true
+}

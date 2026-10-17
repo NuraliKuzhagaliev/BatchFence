@@ -298,7 +298,7 @@ def validate_handover(snapshot,raw):
     allowed={f['id']:f['text'] for f in snapshot['facts']}
     if not isinstance(raw,dict) or set(raw)!={'statements'} or not isinstance(raw['statements'],list) or len(raw['statements'])>24:raise DomainError('Invalid handover narrative schema')
     for statement in raw['statements']:
-        if set(statement)!={'fact_id','text'} or statement['fact_id'] not in allowed or statement['text']!=allowed[statement['fact_id']]:
+        if not isinstance(statement,dict) or set(statement)!={'fact_id','text'} or not isinstance(statement['fact_id'],str) or statement['fact_id'] not in allowed or statement['text']!=allowed[statement['fact_id']]:
             raise DomainError('Handover invented or changed a number/status/source fact')
     if not set(snapshot.get('required_fact_ids',[]))<={s['fact_id'] for s in raw['statements']}:raise DomainError('Handover omitted required proposed/applied/recovery quantities or next permitted action')
     return raw['statements']

@@ -27,7 +27,7 @@ from .public_demo import public_demo, limiter, inference_access
 from .review_safety import REVIEW_POLICY_VERSION, mentions, scope_concerns, resolution_evidence
 
 load_dotenv(ROOT / '.env')
-app = FastAPI(title='BatchFence', version='0.4.0-rc.1')
+app = FastAPI(title='BatchFence', version='0.4.0-rc.2')
 DB = Path((os.getenv('DATABASE_PATH') or str(ROOT / 'work/batchfence.sqlite3')))
 DB.parent.mkdir(parents=True, exist_ok=True)
 ORIGIN = os.getenv('APP_ORIGIN') or os.getenv('RENDER_EXTERNAL_URL') or 'http://127.0.0.1:8787'
@@ -320,7 +320,7 @@ def health():
             raise sqlite3.DatabaseError()
     except Exception:
         return JSONResponse({'status': 'unavailable', 'database': 'unavailable'}, 503)
-    return {'status': 'ok', 'database': 'ready', 'version': '0.4.0-rc.1',
+    return {'status': 'ok', 'database': 'ready', 'version': '0.4.0-rc.2',
             'commit': os.getenv('RENDER_GIT_COMMIT', 'local'),
             'inference_mode': (os.getenv('INFERENCE_MODE') or 'fixture'),
             'amd_configured': all(os.getenv(k) for k in ['AMD_API_BASE_URL', 'AMD_API_KEY', 'AMD_MODEL_ID', 'AMD_PROVIDER_EVIDENCE']),
@@ -419,6 +419,8 @@ def upload(case_id: str, data: Upload, request: Request):
         raise
     except Exception:
         fail('PDF', 'PDF could not be read; use a supported text PDF', 422)
+    if not doc['blocks']:
+        fail('EMPTY_TEXT', 'No readable source text; upload a supported nonempty original', 422)
     if sum(len(b['text']) for b in doc['blocks']) > 80_000:
         fail('TEXT_LIMIT', 'Normalized text exceeds 80,000 characters', 413)
     pending = parse_csv(doc) if suffix == '.csv' else None

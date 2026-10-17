@@ -1,0 +1,10 @@
+// Real UI regression: focus/reconnect must preserve the operator's route choice.
+const {chromium,_electron:electron}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs/promises'),path=require('node:path');
+const root=path.resolve(__dirname,'..'),base=process.env.BATCHFENCE_BASE_URL||'http://127.0.0.1:8810';
+(async()=>{const app=process.env.BATCHFENCE_TEST_EXE?await electron.launch({executablePath:process.env.BATCHFENCE_TEST_EXE,env:{...process.env,BATCHFENCE_USER_DATA:path.join(root,'work/focus-regression-profile')}}):null,b=app||await chromium.launch({channel:'msedge',headless:true}),p=app?await app.firstWindow():await b.newPage();try{
+ if(!app)await p.goto(base);await p.getByRole('button',{name:'Open example incident',exact:true}).click();await p.getByLabel('Run mode',{exact:true}).selectOption('fixture');
+ const results=[];
+ for(const event of ['focus','offline-online']){await p.evaluate(event=>{if(event==='offline-online'){window.dispatchEvent(new Event('offline'));window.dispatchEvent(new Event('online'));}else window.dispatchEvent(new Event('focus'));},event);await p.waitForTimeout(700);const actual=await p.getByLabel('Run mode',{exact:true}).inputValue();assert.equal(actual,'fixture');results.push({event,mode:actual});}
+ await p.getByRole('button',{name:'Knowledge',exact:true}).click();await p.getByLabel('Interpretation mode',{exact:false}).selectOption('fixture');await p.evaluate(()=>window.dispatchEvent(new Event('focus')));await p.waitForTimeout(700);assert(await p.getByRole('button',{name:'Find supported passages · Synthetic',exact:true}).isVisible());
+ await fs.writeFile(path.join(root,'docs/hardening-0.4/focus-mode-'+(app?'windows':'web')+'.json'),JSON.stringify({at:new Date().toISOString(),passed:true,installed:!!app,results,inference_calls:0,method:'Actual UI and backend; injected DOM focus/offline/online events, no network loss or OS scaling claim'},null,2));console.log('Focus/reconnect keeps explicit synthetic route in core and Knowledge.');
+ }finally{await b.close()}})().catch(e=>{console.error(e.message);process.exitCode=1});

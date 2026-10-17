@@ -6,14 +6,15 @@ narrowed incident requires a separate, source-backed scope review.
 """
 import re
 
-REVIEW_POLICY_VERSION = 3
+REVIEW_POLICY_VERSION = 4
 UNRESOLVED = re.compile(
     r'\b(?:scope|extent|affected (?:lot|batch)(?:s|es)?(?: list| set)?)\b[^.!?\n]{0,65}'
     r'\b(?:unresolved|unknown|undetermined|not (?:yet )?(?:known|final|complete)|pending|under investigation)\b'
     r'|\b(?:cannot|can\x27t|unable to) (?:yet )?(?:determine|establish|confirm|rule out)\b'
     r'|\b(?:may|might|could|possibly|potentially) (?:be |also be |have been )?(?:affected|implicated|involved|contaminated)\b'
     r'|\b(?:awaiting|pending) (?:laboratory|lab|test|investigation|supplier) (?:results|confirmation|findings)\b'
-    r'|\b(?:not|no longer) (?:a )?(?:complete|exhaustive|final) (?:list|scope|set)\b'
+    r'|\b(?:not|no longer) (?:a )?(?:complete|exhaustive|final) (?:incident |affected )?(?:list|scope|set|boundary)\b'
+    r'|\b(?:list|scope|boundary|extent)\b[^.!?\n]{0,65}\b(?:not exhaustive|illustrative|incomplete|remains? open|has not been (?:established|determined|confirmed))\b'
     r'|\b(?:contradiction|conflict)\b[^.!?\n]{0,45}\b(?:unresolved|not resolved)\b'
     r'|\b(?:unresolved|unreconciled) (?:contradiction|conflict)\b'
     r'|\b(?:critical )?identifier\b[^.!?\n]{0,45}\bnot (?:visually )?confirmed\b',

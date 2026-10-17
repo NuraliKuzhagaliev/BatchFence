@@ -1,0 +1,110 @@
+{
+  "at": "2026-10-17T20:27:13.025325+00:00",
+  "version": "0.4.0-rc.1",
+  "release_commit": "c40bc08545270172537f09d5f6b0abfc700ab177",
+  "public_main_same_commit": true,
+  "release_tag": "v0.4.0-rc.1",
+  "url": "https://batchfence.onrender.com",
+  "github_release": "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.1",
+  "pr": "https://github.com/NuraliKuzhagaliev/BatchFence/pull/2",
+  "pr_merged": true,
+  "render": {
+    "deploy_id": "dep-db9tgvtg1s2s73aq86s0",
+    "status": "live",
+    "plan": "free",
+    "instances": 1,
+    "storage": "ephemeral",
+    "configuration_changed": false
+  },
+  "ci": [
+    {
+      "id": 39065575924,
+      "status": "success",
+      "context": "pull request"
+    },
+    {
+      "id": 39066164549,
+      "status": "success",
+      "context": "main"
+    }
+  ],
+  "checks": {
+    "pytest": 171,
+    "deterministic_domain_cases": 30,
+    "published_core_checks": 12,
+    "published_existing_module_groups": 6,
+    "published_extension_groups": 8,
+    "published_access_groups": 5,
+    "web_windows_distribution_groups": 4,
+    "installed_core_checks": 7,
+    "installed_existing_module_groups": 6,
+    "installed_extension_groups": 8,
+    "installed_named_postgres_pilot_groups": 4,
+    "native_dialogs": "owner-operated actual source,image,save,reopen passed; no stubs",
+    "windows_scaling": "100%/125% actual installed Chromium override; OS settings unchanged",
+    "container_core_checks": 8,
+    "container_new_restart_groups": 3
+  },
+  "publication_model_calls": 0,
+  "fresh_live_evidence": "live/product-flow.json; live/evolus-product-flow.json; live/evolus-library-result.json",
+  "new_public_live": "UNAVAILABLE: missing private configuration and no renewed model allowance",
+  "phase_budget": {
+    "reservations": 48,
+    "cap": 48,
+    "remaining": 0,
+    "gemma_reservations_including_6_evolus_steps": 46,
+    "mimo_reservations": 2,
+    "failed_429_attempts": 2,
+    "prior_mimo_total": 29,
+    "prior_mimo_cap": 30
+  },
+  "raw_quality": {
+    "original_gemma_exact": "5/12",
+    "historical_mimo_exact": "6/12",
+    "frozen_original_unchanged": true,
+    "fresh_matched_statuses_each": "2/2",
+    "fresh_matched_scope_each": "1/2",
+    "full_postfix_original_rerun": "unrun; cap exhausted",
+    "independent_human_validation": false
+  },
+  "windows": {
+    "installer": "BatchFence-0.4.0-rc.1-win-x64-setup.exe",
+    "bytes": 113796954,
+    "sha256": "9de7ccf9dcec6294971c11a24b34a716e660325054592209b404f90555c7bb0d",
+    "installed": "work/installed-0.4.0-rc.1/BatchFence Preview.exe",
+    "separate_identity": true,
+    "unsigned": true,
+    "anonymous_full_download_matches": true,
+    "stable_latest": "v0.3.0 preserved"
+  },
+  "source_archive": "release-public/anonymous-downloads.json and archive-verification/tag-build.json",
+  "runtime_assets": [
+    {
+      "path": "/assets/index-BWzDsLEo.css",
+      "sha256": "9a0e43665251790bf6db5d86a65e7013a6a8e16cf77f450a792291b7a14e675a",
+      "matches_installed_and_archive": true
+    },
+    {
+      "path": "/assets/index-C0tbtwPs.js",
+      "sha256": "c5aabae466fabe5760bde752942e2ace3b9c6b637199dc280b5e2dec4eb40630",
+      "matches_installed_and_archive": true
+    }
+  ],
+  "resources": {
+    "temporary_preview_containers": "stopped; data and images preserved",
+    "stable_private_pilot": "8788 left running at0.3.0; existing PostgreSQL preserved",
+    "local_current_synthetic_web": "http://127.0.0.1:8801; model keys empty in process",
+    "capture_backend": "8802 stopped",
+    "new_owned_gpu_vm": "none"
+  },
+  "remaining_human_actions": [
+    "Privately rotate earlier portal-exposed provider key and update authorized consumers",
+    "Authorize a new finite free budget and securely configure a durable backend before new live public/desktop acceptance",
+    "Independent quality, EN/RU/IT language, physical-photo and three-operator acceptance",
+    "Real scoped users/data approval and off-device backup/restore against owner RPO/RTO",
+    "Owned ADC/vLLM allocation needed only for still-unverified partner eligibility; no purchase authorized"
+  ],
+  "verdict": "Controlled engineering preview. Model reliability and production acceptance remain unresolved; consequential review is mandatory.",
+  "test_harness_note": "First published core attempt stopped on stale Affected candidate label selector. Preserved screenshot/failure. Updated only quote-action selector; all12 behavior checks passed. Runtime backend/frontend/desktop unchanged from release commit. Post-publication evidence/test-tool checkpoint stays on release-evidence-0.4.0-rc.1, preserving main/tag/artifacts at the one release commit.",
+  "verification_branch": "release-evidence-0.4.0-rc.1"
+}

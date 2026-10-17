@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-17T21:55:55.195Z",
+  "browser": "Microsoft Edge, Playwright headless",
+  "url": "http://127.0.0.1:8810",
+  "provenance": "Synthetic fixture; no live inference",
+  "checks": [
+    "Exact source citation reachable from candidate",
+    "Evidence queue 100 units / €4,000",
+    "V1 order review 3 orders",
+    "Uncertain exclusion rejected server-side through UI",
+    "Stale approval rejected through UI",
+    "V2 800-unit plan and 4 orders",
+    "Exported packet includes actual receipt; refresh persists case",
+    "Responsive layout no horizontal overflow at 1280 and 390",
+    "Imported CSV preserves split/rework event nodes in real graph",
+    "Web packet opens read-only without approval/apply authority",
+    "Already opened packet remains readable without network",
+    "Reconnect fetches changed backend evidence before live actions"
+  ],
+  "errors": [],
+  "case_id": "bf7fb2e8d17a421986d7cbf1f2d9d004",
+  "packet": "D:\\projects\\BatchFence\\docs\\verified-decision-packet.json"
+}

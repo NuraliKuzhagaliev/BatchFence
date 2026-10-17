@@ -51,8 +51,7 @@ async function main() {
   await shot("02-critical-review-1440");
   await page
     .getByRole("button", {
-      name: "SUP-A Affected candidate Inspect quote",
-      exact: false,
+      name: /SUP-A.*Inspect quote/,
     })
     .click();
   assert(

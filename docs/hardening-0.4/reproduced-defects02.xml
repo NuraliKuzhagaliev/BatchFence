@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="6" skipped="0" tests="20" time="1.845" timestamp="2026-10-18T02:10:44.316972+05:00" hostname="BlackWolf"><testcase classname="tests.test_hardening_regressions" name="test_explicit_incomplete_scope_cannot_support_complete_proposal[This is not a complete incident list.]" time="0.006" /><testcase classname="tests.test_hardening_regressions" name="test_explicit_incomplete_scope_cannot_support_complete_proposal[The entire affected scope has not been established.]" time="0.001" /><testcase classname="tests.test_hardening_regressions" name="test_explicit_incomplete_scope_cannot_support_complete_proposal[The incident boundary remains open.]" time="0.001" /><testcase classname="tests.test_hardening_regressions" name="test_explicit_incomplete_scope_cannot_support_complete_proposal[This list is illustrative, not exhaustive.]" time="0.001" /><testcase classname="tests.test_hardening_regressions" name="test_signal_period_uses_instants_not_timestamp_spelling" time="0.003" /><testcase classname="tests.test_hardening_regressions" name="test_malformed_handover_becomes_domain_rejection[None]" time="0.000" /><testcase classname="tests.test_hardening_regressions" name="test_malformed_handover_becomes_domain_rejection[1]" time="0.001" /><testcase classname="tests.test_hardening_regressions" name="test_malformed_handover_becomes_domain_rejection[statement2]" time="0.000" /><testcase classname="tests.test_hardening_regressions" name="test_malformed_handover_becomes_domain_rejection[statement3]" time="0.000" /><testcase classname="tests.test_hardening_regressions" name="test_malformed_handover_becomes_domain_rejection[statement4]" time="0.000" /><testcase classname="tests.test_hardening_regressions" name="test_label_prefix_is_not_an_exact_document_identity" time="0.024" /><testcase classname="tests.test_hardening_regressions" name="test_procedure_rejects_boolean_versions_and_invalid_pages[version-True]" time="0.001" /><testcase classname="tests.test_hardening_regressions" name="test_procedure_rejects_boolean_versions_and_invalid_pages[page-True]" time="0.001" /><testcase classname="tests.test_hardening_regressions" name="test_procedure_rejects_boolean_versions_and_invalid_pages[page-0]" time="0.000" /><testcase classname="tests.test_hardening_regressions" name="test_csv_never_silently_overwrites_duplicate_or_missing_fields[row_id,source,target,kind,kind\nX,SUP-A,FG-A,possible,confirmed]" time="0.001"><failure message="Failed: DID NOT RAISE DomainError">raw = b'row_id,source,target,kind,kind\nX,SUP-A,FG-A,possible,confirmed'
+
+    @pytest.mark.parametrize('raw',[
+     b'row_id,source,target,kind,kind\nX,SUP-A,FG-A,possible,confirmed',
+     b'row_id,source,target,kind\nX,SUP-A,FG-A,confirmed,unexpected',
+     b'row_id,source,target,kind\nX,SUP-A,FG-A',
+    ])
+    def test_csv_never_silently_overwrites_duplicate_or_missing_fields(raw):
+&gt;    with pytest.raises(DomainError):document('ambiguous-columns.csv',raw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    Failed: DID NOT RAISE DomainError
+
+tests\test_hardening_regressions.py:62: Failed</failure></testcase><testcase classname="tests.test_hardening_regressions" name="test_csv_never_silently_overwrites_duplicate_or_missing_fields[row_id,source,target,kind\nX,SUP-A,FG-A,confirmed,unexpected]" time="0.001"><failure message="Failed: DID NOT RAISE DomainError">raw = b'row_id,source,target,kind\nX,SUP-A,FG-A,confirmed,unexpected'
+
+    @pytest.mark.parametrize('raw',[
+     b'row_id,source,target,kind,kind\nX,SUP-A,FG-A,possible,confirmed',
+     b'row_id,source,target,kind\nX,SUP-A,FG-A,confirmed,unexpected',
+     b'row_id,source,target,kind\nX,SUP-A,FG-A',
+    ])
+    def test_csv_never_silently_overwrites_duplicate_or_missing_fields(raw):
+&gt;    with pytest.raises(DomainError):document('ambiguous-columns.csv',raw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    Failed: DID NOT RAISE DomainError
+
+tests\test_hardening_regressions.py:62: Failed</failure></testcase><testcase classname="tests.test_hardening_regressions" name="test_csv_never_silently_overwrites_duplicate_or_missing_fields[row_id,source,target,kind\nX,SUP-A,FG-A]" time="0.001"><failure message="Failed: DID NOT RAISE DomainError">raw = b'row_id,source,target,kind\nX,SUP-A,FG-A'
+
+    @pytest.mark.parametrize('raw',[
+     b'row_id,source,target,kind,kind\nX,SUP-A,FG-A,possible,confirmed',
+     b'row_id,source,target,kind\nX,SUP-A,FG-A,confirmed,unexpected',
+     b'row_id,source,target,kind\nX,SUP-A,FG-A',
+    ])
+    def test_csv_never_silently_overwrites_duplicate_or_missing_fields(raw):
+&gt;    with pytest.raises(DomainError):document('ambiguous-columns.csv',raw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E    Failed: DID NOT RAISE DomainError
+
+tests\test_hardening_regressions.py:62: Failed</failure></testcase><testcase classname="tests.test_hardening_regressions" name="test_whitespace_upload_rejected_without_invalidating_applied_receipt" time="0.204"><failure message="AssertionError: assert 200 == 422&#10; +  where 200 = &lt;Response [200 OK]&gt;.status_code&#10; +    where &lt;Response [200 OK]&gt; = post(('/api/cases/a5133929d3624faab8294fced87ddefc' + '/documents'), json={'filename': 'empty-notice.txt', 'content_base64': 'IA0KCQ==', 'synthetic': True})&#10; +      where post = &lt;starlette.testclient.TestClient object at 0x00000183C9D2DFD0&gt;.post">client = &lt;starlette.testclient.TestClient object at 0x00000183C9D2DFD0&gt;
+
+    def test_whitespace_upload_rejected_without_invalidating_applied_receipt(client):
+     import base64
+     s=approve(client,review(client,post(client,'/api/cases/demo')));route='/api/cases/'+s['id'];s=post(client,route+'/apply',payload(s,'whitespace-before'))
+     before=copy.deepcopy(s)
+&gt;    assert client.post(route+'/documents',json={'filename':'empty-notice.txt','content_base64':base64.b64encode(b' \r\n\t').decode(),'synthetic':True}).status_code==422
+E    AssertionError: assert 200 == 422
+E     +  where 200 = &lt;Response [200 OK]&gt;.status_code
+E     +    where &lt;Response [200 OK]&gt; = post(('/api/cases/a5133929d3624faab8294fced87ddefc' + '/documents'), json={'filename': 'empty-notice.txt', 'content_base64': 'IA0KCQ==', 'synthetic': True})
+E     +      where post = &lt;starlette.testclient.TestClient object at 0x00000183C9D2DFD0&gt;.post
+
+tests\test_hardening_regressions.py:68: AssertionError</failure></testcase><testcase classname="tests.test_hardening_regressions" name="test_review_cannot_override_explicitly_incomplete_receiving_source" time="0.232"><failure message="AssertionError: assert 200 == 422&#10; +  where 200 = &lt;Response [200 OK]&gt;.status_code&#10; +    where &lt;Response [200 OK]&gt; = post(('/api/cases/85dc3a0392164c058a1775a338948320' + '/receiving-review'), json={'revision': 2, 'document_id': 'DOC-988cc4c537bf', 'review_path': 'structured_record', 'pool_id': 'FG-C', ...})&#10; +      where post = &lt;starlette.testclient.TestClient object at 0x00000183CC26D6D0&gt;.post">client = &lt;starlette.testclient.TestClient object at 0x00000183CC26D6D0&gt;
+
+    def test_review_cannot_override_explicitly_incomplete_receiving_source(client):
+     s=approve(client,review(client,post(client,'/api/cases/demo')));route='/api/cases/'+s['id'];s=post(client,route+'/apply',payload(s,'incomplete-before'))
+     q=next(q for q in s['plan']['result']['requests'] if q['pool_ids']==['FG-C'])
+     text='FG-C may contain SUP-B. Complete ancestry is unconfirmed; other parents remain unknown.'
+     s=upload(client,s,text,request_id=q['id']);doc=s['documents'][-1]
+     body={'revision':s['revision'],'document_id':doc['id'],'review_path':'structured_record','pool_id':'FG-C','parent_ids':['SUP-B'],'complete':True,'quote':text,'superseded_row_ids':['LIN-3','LIN-4'],'unresolved_contradictions':False,'outcome':'resolved','reviewed':True,'replacement_reviewed':True,'completeness_confirmed':True,'note':'Adversarial agent review cannot manufacture missing receiving evidence.'}
+&gt;    assert client.post(route+'/receiving-review',json=body).status_code==422
+E    AssertionError: assert 200 == 422
+E     +  where 200 = &lt;Response [200 OK]&gt;.status_code
+E     +    where &lt;Response [200 OK]&gt; = post(('/api/cases/85dc3a0392164c058a1775a338948320' + '/receiving-review'), json={'revision': 2, 'document_id': 'DOC-988cc4c537bf', 'review_path': 'structured_record', 'pool_id': 'FG-C', ...})
+E     +      where post = &lt;starlette.testclient.TestClient object at 0x00000183CC26D6D0&gt;.post
+
+tests\test_hardening_regressions.py:77: AssertionError</failure></testcase><testcase classname="tests.test_hardening_regressions" name="test_complete_quote_cannot_omit_later_critical_caveat" time="0.001"><failure message="Failed: DID NOT RAISE ValueError">def test_complete_quote_cannot_omit_later_critical_caveat():
+     d=document('late-caveat.txt',b'The complete incident list is SUP-A.\nScope remains unknown pending laboratory results.')
+     e={'document_id':d['id'],'block_id':d['blocks'][0]['id'],'quote':d['blocks'][0]['text']}
+&gt;    with pytest.raises(ValueError):validate_proposals({'facts':[],'qualifiers':[],'scope_status':'complete','scope_evidence':[e]},[d])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+E    Failed: DID NOT RAISE ValueError
+
+tests\test_hardening_regressions.py:83: Failed</failure></testcase></testsuite></testsuites>

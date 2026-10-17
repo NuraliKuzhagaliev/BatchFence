@@ -1,0 +1,4 @@
+{
+  "filename": "broken.csv",
+  "text": "row_id,source,target,kind\nE1,RM-42,\"POOL-1,confirmed"
+}

@@ -1,0 +1,138 @@
+{
+  "id": "EXT-07-gemma",
+  "at": "2026-10-17T21:51:42.092401+00:00",
+  "requested_model": "Gemma-4-31B-IT",
+  "source": {
+    "id": "MATCHED-EXT-07",
+    "blocks": [
+      {
+        "id": "original-1",
+        "text": "The first paragraph names NX-209 affected. A later unsigned note says NX-209 is clear. This contradiction remains unresolved.",
+        "page": null
+      }
+    ]
+  },
+  "original_labels": {
+    "affected_supplier_lots": [],
+    "mentioned_supplier_lots": [
+      "NX-209"
+    ],
+    "complete_boundary_support": false,
+    "action_authority": false
+  },
+  "benchmark_sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "prompt_version": "source-proposals-3",
+  "source_hash": "de6c0413932889b213cb8da6b5ccd1e91b34e4cc36f28d61ac118597576b2fe6",
+  "user_context_hash": "4150de1ee1c118bf477dea6598e1e700d45035f924145f7cd650c81f81ef308d",
+  "state_effect": "None; standalone raw benchmark and application validator only",
+  "review": "No corrections or independent human validation",
+  "http_status": 200,
+  "request_id": "095ef22205be4b83a866bb93431ba26f",
+  "response_hash": "787ec558a38773205b75b0de8e36c59a2ab4640c2333be815ae9213746ac2c04",
+  "quota_headers": {
+    "x-ratelimit-limit-user-daily-usd": "1",
+    "x-ratelimit-limit-user-rpm": "20",
+    "x-ratelimit-remaining-user-daily-usd": "0.99697067",
+    "x-ratelimit-remaining-user-rpm": "14",
+    "x-ratelimit-reset-user-daily-usd": "1792339200",
+    "x-ratelimit-used-user-daily-usd": "0.00302933"
+  },
+  "retry_after": null,
+  "actual_model": "self-dploy/Gemma-4-31B-IT",
+  "usage": {
+    "prompt_tokens": 941,
+    "total_tokens": 1053,
+    "completion_tokens": 112,
+    "prompt_tokens_details": {
+      "cached_tokens": 880,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 1.0591e-05,
+    "cost_details": {
+      "upstream_inference_cost": 1.0590999999999999e-05,
+      "upstream_inference_prompt_cost": 2.751e-06,
+      "upstream_inference_completions_cost": 7.84e-06,
+      "total_cost": 1.0591e-05,
+      "input_cost": 2.135e-06,
+      "output_cost": 7.84e-06,
+      "cached_input_cost": 6.16e-07,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "raw_response": "{\"facts\": [{\"lot_id\": \"NX-209\", \"kind\": \"supplier_lot\", \"status\": \"uncertain\", \"evidence\": [{\"document_id\": \"MATCHED-EXT-07\", \"block_id\": \"original-1\", \"quote\": \"The first paragraph names NX-209 affected. A later unsigned note says NX-209 is clear. This contradiction remains unresolved.\"}]}], \"qualifiers\": [], \"scope_status\": \"unknown\", \"scope_evidence\": []}",
+  "parsed": {
+    "facts": [
+      {
+        "lot_id": "NX-209",
+        "kind": "supplier_lot",
+        "status": "uncertain",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-07",
+            "block_id": "original-1",
+            "quote": "The first paragraph names NX-209 affected. A later unsigned note says NX-209 is clear. This contradiction remains unresolved."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [],
+    "scope_status": "unknown",
+    "scope_evidence": []
+  },
+  "original_supplier_pairs_exact": true,
+  "expected_pairs": [
+    [
+      "NX-209",
+      false
+    ]
+  ],
+  "actual_pairs": [
+    [
+      "NX-209",
+      false
+    ]
+  ],
+  "validated": {
+    "facts": [
+      {
+        "lot_id": "NX-209",
+        "kind": "supplier_lot",
+        "status": "uncertain",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-07",
+            "block_id": "original-1",
+            "quote": "The first paragraph names NX-209 affected. A later unsigned note says NX-209 is clear. This contradiction remains unresolved."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [],
+    "scope_status": "unknown",
+    "scope_evidence": []
+  },
+  "application": "accepted unreviewed proposal; mandatory source/scope review remains",
+  "elapsed_ms": 2921
+}

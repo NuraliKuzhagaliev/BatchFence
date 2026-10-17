@@ -1,0 +1,180 @@
+{
+  "id": "EXT-08-mimo",
+  "at": "2026-10-17T21:52:10.024802+00:00",
+  "requested_model": "MiMo-V2.6-Flash",
+  "source": {
+    "id": "MATCHED-EXT-08",
+    "blocks": [
+      {
+        "id": "original-1",
+        "text": "POOL-22 received some material from NX-210. Other receipts have not been reconciled. This is partial ancestry.",
+        "page": null
+      }
+    ]
+  },
+  "original_labels": {
+    "affected_supplier_lots": [],
+    "mentioned_supplier_lots": [
+      "NX-210"
+    ],
+    "complete_boundary_support": false,
+    "action_authority": false
+  },
+  "benchmark_sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "prompt_version": "source-proposals-3",
+  "source_hash": "718a2ebb40ef79069280a41d1bdf3af4c4b1fa290e7350241f6162451913e72e",
+  "user_context_hash": "8f2b85fe20a1083ebc0f8765e2332765993689dd81093baba0896b04406eff95",
+  "state_effect": "None; standalone raw benchmark and application validator only",
+  "review": "No corrections or independent human validation",
+  "http_status": 200,
+  "request_id": "72db78796b6441f280d14b16e1a148de",
+  "response_hash": "a3e405a80a2fcde1c241e9d22c5ae5f87c1e8d6239bcb6767887ac92134b3eb2",
+  "quota_headers": {
+    "x-ratelimit-limit-user-daily-usd": "1",
+    "x-ratelimit-limit-user-rpm": "20",
+    "x-ratelimit-remaining-user-daily-usd": "0.99685305",
+    "x-ratelimit-remaining-user-rpm": "14",
+    "x-ratelimit-reset-user-daily-usd": "1792339200",
+    "x-ratelimit-used-user-daily-usd": "0.00314695"
+  },
+  "retry_after": null,
+  "actual_model": "self-dploy/MiMo-V2.6-Flash",
+  "usage": {
+    "prompt_tokens": 921,
+    "total_tokens": 1277,
+    "completion_tokens": 356,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 0.0001144696,
+    "cost_details": {
+      "upstream_inference_cost": 0.00011446959999999999,
+      "upstream_inference_prompt_cost": 1.47896e-05,
+      "upstream_inference_completions_cost": 9.968e-05,
+      "total_cost": 0.0001144696,
+      "input_cost": 1.246e-05,
+      "output_cost": 9.968e-05,
+      "cached_input_cost": 2.3296e-06,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "raw_response": "{\n  \"facts\": [\n    {\n      \"lot_id\": \"POOL-22\",\n      \"kind\": \"stock_pool\",\n      \"status\": \"mentioned\",\n      \"evidence\": [\n        {\n          \"document_id\": \"MATCHED-EXT-08\",\n          \"block_id\": \"original-1\",\n          \"quote\": \"POOL-22 received some material from NX-210. Other receipts have not been reconciled. This is partial ancestry.\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"NX-210\",\n      \"kind\": \"supplier_lot\",\n      \"status\": \"mentioned\",\n      \"evidence\": [\n        {\n          \"document_id\": \"MATCHED-EXT-08\",\n          \"block_id\": \"original-1\",\n          \"quote\": \"POOL-22 received some material from NX-210. Other receipts have not been reconciled. This is partial ancestry.\"\n        }\n      ]\n    }\n  ],\n  \"qualifiers\": [\n    \"Source explicitly states this is partial ancestry; other receipts have not been reconciled, so absence of other lots from this source does not exclude them.\",\n    \"No incident or quality assertion is made about POOL-22 or NX-210 in this source; ancestry alone does not imply incident involvement.\"\n  ],\n  \"scope_status\": \"partial\",\n  \"scope_evidence\": [\n    {\n      \"document_id\": \"MATCHED-EXT-08\",\n      \"block_id\": \"original-1\",\n      \"quote\": \"POOL-22 received some material from NX-210. Other receipts have not been reconciled. This is partial ancestry.\"\n    }\n  ]\n}",
+  "parsed": {
+    "facts": [
+      {
+        "lot_id": "POOL-22",
+        "kind": "stock_pool",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-08",
+            "block_id": "original-1",
+            "quote": "POOL-22 received some material from NX-210. Other receipts have not been reconciled. This is partial ancestry."
+          }
+        ]
+      },
+      {
+        "lot_id": "NX-210",
+        "kind": "supplier_lot",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-08",
+            "block_id": "original-1",
+            "quote": "POOL-22 received some material from NX-210. Other receipts have not been reconciled. This is partial ancestry."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Source explicitly states this is partial ancestry; other receipts have not been reconciled, so absence of other lots from this source does not exclude them.",
+      "No incident or quality assertion is made about POOL-22 or NX-210 in this source; ancestry alone does not imply incident involvement."
+    ],
+    "scope_status": "partial",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-08",
+        "block_id": "original-1",
+        "quote": "POOL-22 received some material from NX-210. Other receipts have not been reconciled. This is partial ancestry."
+      }
+    ]
+  },
+  "original_supplier_pairs_exact": true,
+  "expected_pairs": [
+    [
+      "NX-210",
+      false
+    ]
+  ],
+  "actual_pairs": [
+    [
+      "NX-210",
+      false
+    ]
+  ],
+  "validated": {
+    "facts": [
+      {
+        "lot_id": "POOL-22",
+        "kind": "stock_pool",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-08",
+            "block_id": "original-1",
+            "quote": "POOL-22 received some material from NX-210. Other receipts have not been reconciled. This is partial ancestry."
+          }
+        ]
+      },
+      {
+        "lot_id": "NX-210",
+        "kind": "supplier_lot",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-08",
+            "block_id": "original-1",
+            "quote": "POOL-22 received some material from NX-210. Other receipts have not been reconciled. This is partial ancestry."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Source explicitly states this is partial ancestry; other receipts have not been reconciled, so absence of other lots from this source does not exclude them.",
+      "No incident or quality assertion is made about POOL-22 or NX-210 in this source; ancestry alone does not imply incident involvement."
+    ],
+    "scope_status": "partial",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-08",
+        "block_id": "original-1",
+        "quote": "POOL-22 received some material from NX-210. Other receipts have not been reconciled. This is partial ancestry."
+      }
+    ]
+  },
+  "application": "accepted unreviewed proposal; mandatory source/scope review remains",
+  "elapsed_ms": 14305
+}

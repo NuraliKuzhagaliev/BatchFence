@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-17T21:59:40.109Z",
+  "status": "passed",
+  "dialog_stubs": false,
+  "checks": [
+    "actual OS evidence selection",
+    "actual OS synthetic-image selection",
+    "actual OS save",
+    "actual OS reopen",
+    "read-only historical packet"
+  ],
+  "source": "fixtures/demo/supplier_notice_v2.txt",
+  "saved_packet": "work\\native-dialog-packet-0.4.0-rc.2.json",
+  "version": "0.4.0-rc.2",
+  "operator": "Agent-operated actual Windows controls via computer-use skill; not independent human validation",
+  "resumed_after_retained_image": false,
+  "physical_photo_validation": false,
+  "inference_calls": 0
+}

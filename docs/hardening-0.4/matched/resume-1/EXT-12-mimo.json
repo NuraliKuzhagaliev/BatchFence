@@ -1,0 +1,156 @@
+{
+  "id": "EXT-12-mimo",
+  "at": "2026-10-17T21:53:58.485485+00:00",
+  "requested_model": "MiMo-V2.6-Flash",
+  "source": {
+    "id": "MATCHED-EXT-12",
+    "blocks": [
+      {
+        "id": "original-1",
+        "text": "This delivery schedule mentions NX-214 arriving Friday. It makes no quality or incident-boundary assertion.",
+        "page": null
+      }
+    ]
+  },
+  "original_labels": {
+    "affected_supplier_lots": [],
+    "mentioned_supplier_lots": [
+      "NX-214"
+    ],
+    "complete_boundary_support": false,
+    "action_authority": false
+  },
+  "benchmark_sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "prompt_version": "source-proposals-3",
+  "source_hash": "4c69f3dddf7ad04e881607a5777380fa9fa38d152f2c1efc621b887f9f1f9ec3",
+  "user_context_hash": "f59e1e36bc2be0de064524d93c861bd4e1ca481510d91a7f4f53e07728cd77d8",
+  "state_effect": "None; standalone raw benchmark and application validator only",
+  "review": "No corrections or independent human validation",
+  "http_status": 200,
+  "request_id": "759d89b4be154933812aaba38c33d66c",
+  "response_hash": "b5a084687bf085bd855ab62d72d9c3b481b6b904a5e526531266ecc74e20abef",
+  "quota_headers": {
+    "x-ratelimit-limit-user-daily-usd": "1",
+    "x-ratelimit-limit-user-rpm": "20",
+    "x-ratelimit-remaining-user-daily-usd": "0.99630085",
+    "x-ratelimit-remaining-user-rpm": "14",
+    "x-ratelimit-reset-user-daily-usd": "1792339200",
+    "x-ratelimit-used-user-daily-usd": "0.00369915"
+  },
+  "retry_after": null,
+  "actual_model": "self-dploy/MiMo-V2.6-Flash",
+  "usage": {
+    "prompt_tokens": 916,
+    "total_tokens": 1107,
+    "completion_tokens": 191,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 6.75696e-05,
+    "cost_details": {
+      "upstream_inference_cost": 6.75696e-05,
+      "upstream_inference_prompt_cost": 1.40896e-05,
+      "upstream_inference_completions_cost": 5.348e-05,
+      "total_cost": 6.75696e-05,
+      "input_cost": 1.176e-05,
+      "output_cost": 5.348e-05,
+      "cached_input_cost": 2.3296e-06,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "raw_response": "{\"facts\": [{\"lot_id\": \"NX-214\", \"kind\": \"supplier_lot\", \"status\": \"mentioned\", \"evidence\": [{\"document_id\": \"MATCHED-EXT-12\", \"block_id\": \"original-1\", \"quote\": \"This delivery schedule mentions NX-214 arriving Friday. It makes no quality or incident-boundary assertion.\"}]}], \"qualifiers\": [\"Single matched external document; no quality or incident assertion is present, so no lot can be classified as affected or excluded.\", \"Scope is unknown: the source provides no incident boundary, exhaustive or otherwise.\"], \"scope_status\": \"unknown\", \"scope_evidence\": [{\"document_id\": \"MATCHED-EXT-12\", \"block_id\": \"original-1\", \"quote\": \"This delivery schedule mentions NX-214 arriving Friday. It makes no quality or incident-boundary assertion.\"}]}",
+  "parsed": {
+    "facts": [
+      {
+        "lot_id": "NX-214",
+        "kind": "supplier_lot",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-12",
+            "block_id": "original-1",
+            "quote": "This delivery schedule mentions NX-214 arriving Friday. It makes no quality or incident-boundary assertion."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Single matched external document; no quality or incident assertion is present, so no lot can be classified as affected or excluded.",
+      "Scope is unknown: the source provides no incident boundary, exhaustive or otherwise."
+    ],
+    "scope_status": "unknown",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-12",
+        "block_id": "original-1",
+        "quote": "This delivery schedule mentions NX-214 arriving Friday. It makes no quality or incident-boundary assertion."
+      }
+    ]
+  },
+  "original_supplier_pairs_exact": true,
+  "expected_pairs": [
+    [
+      "NX-214",
+      false
+    ]
+  ],
+  "actual_pairs": [
+    [
+      "NX-214",
+      false
+    ]
+  ],
+  "validated": {
+    "facts": [
+      {
+        "lot_id": "NX-214",
+        "kind": "supplier_lot",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-12",
+            "block_id": "original-1",
+            "quote": "This delivery schedule mentions NX-214 arriving Friday. It makes no quality or incident-boundary assertion."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Single matched external document; no quality or incident assertion is present, so no lot can be classified as affected or excluded.",
+      "Scope is unknown: the source provides no incident boundary, exhaustive or otherwise."
+    ],
+    "scope_status": "unknown",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-12",
+        "block_id": "original-1",
+        "quote": "This delivery schedule mentions NX-214 arriving Friday. It makes no quality or incident-boundary assertion."
+      }
+    ]
+  },
+  "application": "accepted unreviewed proposal; mandatory source/scope review remains",
+  "elapsed_ms": 7367
+}

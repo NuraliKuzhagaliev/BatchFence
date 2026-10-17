@@ -1,0 +1,5 @@
+{
+  "at": "2026-10-17T21:38:03.440Z",
+  "message": "Raw interpretation failed source/schema validation; no fact or scope update\n+ actual - expected\n\n+ 'failed validation'\n- 'unreviewed proposal'\n",
+  "errors": []
+}

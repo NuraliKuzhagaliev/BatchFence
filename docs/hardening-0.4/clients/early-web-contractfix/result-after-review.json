@@ -1,0 +1,12 @@
+{
+  "status": "passed after explicit agent source correction",
+  "at": "2026-10-17T21:46:52.733Z",
+  "case_id": "e41b4f57d6f14cd49bbcc971c6d09531",
+  "receipts": 2,
+  "applied_units": 800,
+  "stale_rejection": 409,
+  "inference_calls_in_resume": 0,
+  "raw_model_quality": "failed validation: unsupported document identifier signed revision",
+  "review": "Agent-operated, not independent human validation",
+  "harness": "Two receipt headings required selecting one; product already applied once; resumed reads only plus rejected stale request."
+}

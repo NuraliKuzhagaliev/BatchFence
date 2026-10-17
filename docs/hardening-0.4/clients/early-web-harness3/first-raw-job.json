@@ -1,0 +1,138 @@
+{
+  "id": "GENERATE-38afde70d31c2f8227e4c3b2",
+  "case_id": "74ae86bb46fc439caead605683ae040f",
+  "kind": "document",
+  "mode": "live",
+  "provider_path": "Direct Gemma / managed-amd-shared",
+  "status": "unreviewed proposal",
+  "request_hash": "6dacc21b51345a9a012a6c385345c5198aa8402823b114e8fcd570ee146f2e33",
+  "snapshot_hash": "5abbacab398f2b9c08379ad68e683990f51ee1b89d6879ab7e4d85293d0bf40a",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "started_at": "2026-10-17T21:29:41.854378+00:00",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "8ed7eb73e92793168152fa14529dd52eb52122b7e159f8dbe96570582f75e634",
+    "dispatch": 1,
+    "conservative_remaining": 0.988201071517542,
+    "stop_margin": 0.1
+  },
+  "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+  "raw_output": {
+    "candidates": [
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-A",
+        "disposition": "asserted",
+        "incident_status": "affected",
+        "source": {
+          "document_id": "DOC-cdccb663aecd",
+          "block_id": "line-1",
+          "quote": "Affected lots: SUP-A"
+        }
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": [],
+    "incident_scope": "complete",
+    "scope_evidence": [
+      {
+        "document_id": "DOC-cdccb663aecd",
+        "block_id": "line-1",
+        "quote": "The complete incident boundary contains only this lot; no other supplier lots are affected."
+      }
+    ]
+  },
+  "provenance": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T21:30:00.743197+00:00",
+    "elapsed_ms": 18878,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "e2bf28de4ec94beb8288616c70a5cacd",
+    "usage": {
+      "prompt_tokens": 1367,
+      "total_tokens": 1588,
+      "completion_tokens": 221,
+      "prompt_tokens_details": {
+        "cached_tokens": 4,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.0000631778,
+      "cost_details": {
+        "upstream_inference_cost": 0.0000631778,
+        "upstream_inference_prompt_cost": 0.0000477078,
+        "upstream_inference_completions_cost": 0.00001547,
+        "total_cost": 0.0000631778,
+        "input_cost": 0.000047705,
+        "output_cost": 0.00001547,
+        "cached_input_cost": 2.8e-9,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "53f875b90ed9c59c5e25ed50bc64fabad1345c8e84db746bf9b246d3d5a6b23b",
+    "http_status": 200,
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "library_provenance": null,
+  "finished_at": "2026-10-17T21:30:00.744937+00:00",
+  "draft": {
+    "candidates": [
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-A",
+        "disposition": "asserted",
+        "incident_status": "affected",
+        "source": {
+          "document_id": "DOC-cdccb663aecd",
+          "block_id": "line-1",
+          "quote": "Affected lots: SUP-A",
+          "original_hash": "6669554e6fe356a1ad34bea0341fc6e761f471b5d980d7272da25d5f03219dba",
+          "document_revision": 2,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": [],
+    "incident_scope": "complete",
+    "scope_evidence": [
+      {
+        "document_id": "DOC-cdccb663aecd",
+        "block_id": "line-1",
+        "quote": "The complete incident boundary contains only this lot; no other supplier lots are affected.",
+        "original_hash": "6669554e6fe356a1ad34bea0341fc6e761f471b5d980d7272da25d5f03219dba",
+        "document_revision": 2,
+        "page": null,
+        "location_origin": "retained local parser; no provider bounding-box claim"
+      }
+    ]
+  },
+  "stale": false
+}

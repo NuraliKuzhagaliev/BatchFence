@@ -48,6 +48,7 @@ def validate_reading(raw):
 
 
 def review_label(db,owner,state,key,document_id,quote,selected_id,identity_confirmed,relationship_verified,unresolved,note):
+    from .review_safety import mentions
     identity.recheck(db,'quality_reviewer');rev,label=repo.get_record(db,owner,'label',key)
     if not label or label['case_id']!=state['id']:raise DomainError('Label unavailable in this case')
     reading=label.get('reading')
@@ -55,7 +56,7 @@ def review_label(db,owner,state,key,document_id,quote,selected_id,identity_confi
         raise DomainError('Unreadable, ambiguous or multiple labels require another explicit crop/reading before association')
     if selected_id!=reading['candidates'][0]:raise DomainError('Preserve exact candidate spelling; O/0, leading zeros and hyphens are not normalized')
     doc=next((d for d in state['documents'] if d['id']==document_id),None)
-    block=next((b for b in doc['blocks'] if quote and quote in b['text'] and selected_id in quote),None) if doc else None
+    block=next((b for b in doc['blocks'] if quote and quote in b['text'] and mentions(selected_id,quote)),None) if doc else None
     if not block or not identity_confirmed or not relationship_verified:raise DomainError('Exact document identifier, operator visual confirmation and verified source relationship required; a mismatch cannot be associated')
     label['review']={'actor':identity.current_actor(),'at':now(),'case_revision':state['revision'],'document_id':doc['id'],'source_hash':doc['original_hash'],
         'quote':quote,'block_id':block['id'],'selected_id':selected_id,'identity_confirmed':True,'relationship_verified':True,'note':note}

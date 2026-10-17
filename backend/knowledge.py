@@ -46,12 +46,12 @@ def selected_answer(raw,retrieval):
 
 def validate_document(doc):
     required={'id','version','status','valid_from','valid_to','products','processes','owner','passages','source_hash','synthetic'}
-    if set(doc)!=required or not doc['id'] or not isinstance(doc['version'],int) or doc['version']<1:raise DomainError('Invalid versioned procedure metadata')
+    if set(doc)!=required or not doc['id'] or type(doc['version']) is not int or doc['version']<1:raise DomainError('Invalid versioned procedure metadata')
     if doc['status'] not in ('draft','approved','obsolete'):raise DomainError('Unsupported procedure lifecycle')
     if not doc['products'] or not doc['processes'] or not doc['owner']:raise DomainError('Procedure applicability and owner required')
     if not 1<=len(doc['passages'])<=40:raise DomainError('Procedure passage limit: 1–40')
     if len({p['id'] for p in doc['passages']})!=len(doc['passages']):raise DomainError('Duplicate passage identifier')
-    if any(not p.get('text') or len(p['text'])>2000 or not isinstance(p.get('page'),int) for p in doc['passages']):raise DomainError('Bounded text passages and page numbers required')
+    if any(not p.get('text') or len(p['text'])>2000 or type(p.get('page')) is not int or p['page']<1 for p in doc['passages']):raise DomainError('Bounded text passages and positive integer page numbers required')
     if digest(doc['passages'])!=doc['source_hash']:raise DomainError('Procedure source passage hash mismatch')
     start=datetime.fromisoformat(doc['valid_from'].replace('Z','+00:00'));end=datetime.fromisoformat(doc['valid_to'].replace('Z','+00:00')) if doc['valid_to'] else None
     if not start.tzinfo or (end and (not end.tzinfo or end<=start)):raise DomainError('Procedure validity must use a valid timezone-aware interval')

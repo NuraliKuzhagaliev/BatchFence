@@ -1,0 +1,22 @@
+{
+  "observed_at": "2026-10-17T20:18:53Z",
+  "original_failing_command": "docker version --format '{{.Server.Version}}'",
+  "failure_boundary": "Sandbox permission denied opening the Docker Desktop named pipe; host-authorized read succeeds",
+  "context": "desktop-linux",
+  "socket": "npipe:////./pipe/dockerDesktopLinuxEngine",
+  "engine_version": "29.8.0",
+  "processes": [
+    {"pid":48940,"executable":"%LOCALAPPDATA%/Programs/DockerDesktop/resources/com.docker.backend.exe"},
+    {"pid":41796,"executable":"%LOCALAPPDATA%/Programs/DockerDesktop/resources/com.docker.backend.exe"}
+  ],
+  "permission_changes": false,
+  "resets_or_deletions": false,
+  "second_failure": {
+    "service":"existing batchfence-pilot app at8788",
+    "dependency":"batchfence-pilot-postgres-1 was Exited255",
+    "actual_error":"psycopg.OperationalError: failed to resolve host 'postgres': [Errno -5] No address associated with hostname",
+    "logs":"docker-pilot-startup-sanitized.txt",
+    "resolution":"Started only the existing PostgreSQL container, verified pg_isready, then restarted only the pilot app. Existing data, settings and volumes preserved. Stable health200/version0.3.0 restored."
+  },
+  "preview_acceptance":"archive-verification/ and container/ contain actual500/800, two receipts, stale409 and image/translation/handover persistence across restart. Separate named PostgreSQL preview at8804 passed installed Windows engineering sign-in."
+}
