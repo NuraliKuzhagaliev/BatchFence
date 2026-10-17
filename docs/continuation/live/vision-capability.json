@@ -1,0 +1,17 @@
+{
+  "model_id": "self-dploy/Gemma-4-31B-IT",
+  "actual_image_requests": 6,
+  "first_attempts": 5,
+  "first_responses": 4,
+  "first_429": 1,
+  "explicit_retest_responses": 1,
+  "source_files": [
+    "IMG-01",
+    "IMG-02",
+    "IMG-03",
+    "IMG-04-retest-1",
+    "IMG-05"
+  ],
+  "physical_photographs": 0,
+  "limits": "Synthetic rendered images only. Exact O spelling was preserved, but the model did not flag O/0 ambiguity. Explicit relationship review and exact mismatch gates remain mandatory."
+}

@@ -1,0 +1,22 @@
+{
+  "status": "blocked",
+  "phase": "revision-dispatched",
+  "error": "Evolus revision failed validation: Raw interpretation failed source/schema validation; no fact or scope update",
+  "events": [
+    {
+      "stage": "first",
+      "raw_supplier_ids": [
+        "SUP-A"
+      ],
+      "reviewed_affected_ids": [
+        "SUP-A"
+      ],
+      "added_by_agent_review": [],
+      "applied_units": 500,
+      "receipts": 1,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "review": "Agent-operated synthetic engineering review; not independent human/domain validation."
+    }
+  ],
+  "no_automatic_retry": true
+}

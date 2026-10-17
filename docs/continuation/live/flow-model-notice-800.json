@@ -1,0 +1,163 @@
+{
+  "id": "GENERATE-1e2064be7d259b7cb9685ee1",
+  "case_id": "4b898b8974074959b2c7c7bc401a7765",
+  "kind": "document",
+  "mode": "live",
+  "provider_path": "Direct Gemma / managed-amd-shared",
+  "status": "unreviewed proposal",
+  "request_hash": "f1bde38f515cbeb28f88a242e7476b589fb9cbf4534b20127f5b8a9be92c0312",
+  "snapshot_hash": "b88d8d27486e80b0d3be32755f7d8163454a87536dcae3057f2cab67fecde196",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "started_at": "2026-10-17T19:07:07.110044+00:00",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+    "dispatch": 30,
+    "conservative_remaining": 0.7194757357635535,
+    "stop_margin": 0.1
+  },
+  "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+  "raw_output": {
+    "candidates": [
+      {
+        "disposition": "asserted",
+        "kind": "supplier_lot",
+        "source": {
+          "block_id": "line-1",
+          "document_id": "DOC-ff50fd2de9c3",
+          "quote": "Affected supplier lots are SUP-A and SUP-C."
+        },
+        "value": "SUP-A"
+      },
+      {
+        "disposition": "asserted",
+        "kind": "supplier_lot",
+        "source": {
+          "block_id": "line-1",
+          "document_id": "DOC-ff50fd2de9c3",
+          "quote": "Affected supplier lots are SUP-A and SUP-C."
+        },
+        "value": "SUP-C"
+      },
+      {
+        "disposition": "asserted",
+        "kind": "completeness",
+        "source": {
+          "block_id": "line-1",
+          "document_id": "DOC-ff50fd2de9c3",
+          "quote": "This is the complete incident list; no other supplier lots are affected."
+        },
+        "value": "complete"
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": []
+  },
+  "provenance": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T19:07:30.122606+00:00",
+    "elapsed_ms": 23004,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "2c7e707eda3d425bb67ef80e7111572a",
+    "usage": {
+      "prompt_tokens": 865,
+      "total_tokens": 1104,
+      "completion_tokens": 239,
+      "prompt_tokens_details": {
+        "cached_tokens": 677,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 2.37839e-05,
+      "cost_details": {
+        "upstream_inference_cost": 2.37839e-05,
+        "upstream_inference_prompt_cost": 7.0538999999999995e-06,
+        "upstream_inference_completions_cost": 1.673e-05,
+        "total_cost": 2.37839e-05,
+        "input_cost": 6.58e-06,
+        "output_cost": 1.673e-05,
+        "cached_input_cost": 4.739e-07,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "f0143bee8ca86025b2b845c0650fc1ee7692febdcf81b4c36b5d15f7f9fd8bc2",
+    "http_status": 200,
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "library_provenance": null,
+  "finished_at": "2026-10-17T19:07:30.127675+00:00",
+  "draft": {
+    "candidates": [
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-A",
+        "disposition": "asserted",
+        "source": {
+          "document_id": "DOC-ff50fd2de9c3",
+          "block_id": "line-1",
+          "quote": "Affected supplier lots are SUP-A and SUP-C.",
+          "original_hash": "e75666c2df24f7cfc4cdc188bc6b9062332cb0cf48e38d0597f57a0888914c6f",
+          "document_revision": 4,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-C",
+        "disposition": "asserted",
+        "source": {
+          "document_id": "DOC-ff50fd2de9c3",
+          "block_id": "line-1",
+          "quote": "Affected supplier lots are SUP-A and SUP-C.",
+          "original_hash": "e75666c2df24f7cfc4cdc188bc6b9062332cb0cf48e38d0597f57a0888914c6f",
+          "document_revision": 4,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      },
+      {
+        "kind": "completeness",
+        "value": "complete",
+        "disposition": "asserted",
+        "source": {
+          "document_id": "DOC-ff50fd2de9c3",
+          "block_id": "line-1",
+          "quote": "This is the complete incident list; no other supplier lots are affected.",
+          "original_hash": "e75666c2df24f7cfc4cdc188bc6b9062332cb0cf48e38d0597f57a0888914c6f",
+          "document_revision": 4,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": []
+  }
+}

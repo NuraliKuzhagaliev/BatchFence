@@ -1,0 +1,51 @@
+{
+  "library_id": "eae0f36e-5fca-f111-bf5b-6045bd9ce552",
+  "scope": "09dc3b46a7244cb7eda1a9bbe936cd91437b07a7ba65f05bc0d495343c19fe0a",
+  "product": "Decorative housing",
+  "process": "coating",
+  "status": "indexed verified scope",
+  "catalog_digest": "e167be93a685244cf4a56c1ffce44b9440c9b4a598b210732e65d4d7314599c2",
+  "documents": [
+    {
+      "document_id": "TRAIN-COSMETIC",
+      "version": 1,
+      "source_hash": "fa4d54cadc0feb35141537d1693a4eab5ce17b1eb760428c0028d3313a0925e4",
+      "remote_document_id": "95228811-0d79-4169-a4c6-86f521ad553b",
+      "ingestion_status": 2,
+      "uploaded_content_hash": "5bed279184844dab0d192627a447aec7c4131044caf08ed11e47d41d72d3307f"
+    }
+  ],
+  "at": "2026-10-17T19:28:26.312866+00:00",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "note": "Agent-operated review of dedicated empty read-only Blob library and exact synthetic source set; no embeddings.",
+  "provenance": [
+    {
+      "provider": "Evolus",
+      "at": "2026-10-17T19:28:24.881667+00:00",
+      "method": "GET",
+      "path": "/api/v1/memories/eae0f36e-5fca-f111-bf5b-6045bd9ce552/documents",
+      "http_status": 200,
+      "elapsed_ms": 1060,
+      "response_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "request_id": null,
+      "execution_header": null,
+      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+    },
+    {
+      "provider": "Evolus",
+      "at": "2026-10-17T19:28:26.311590+00:00",
+      "method": "POST",
+      "path": "/api/v1/memories/eae0f36e-5fca-f111-bf5b-6045bd9ce552/documents",
+      "http_status": 201,
+      "elapsed_ms": 680,
+      "response_hash": "bd86c7244cea0790c05d9dd09093ba721d260d6467dfff2b00ea6141f277f446",
+      "request_id": null,
+      "execution_header": null,
+      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+    }
+  ],
+  "library_type": "Blob"
+}

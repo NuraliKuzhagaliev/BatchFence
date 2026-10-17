@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-17T19:28:23.700815+00:00",
+  "http_status": 200,
+  "remaining_nonmonetary_points": 0.9982539971824735,
+  "used_nonmonetary_points": 0.0017460028175264597,
+  "reset_at": "2026-10-18T16:00:00.000Z",
+  "today_requests": 61,
+  "today_errors": 0,
+  "not_monetary_charges": true
+}

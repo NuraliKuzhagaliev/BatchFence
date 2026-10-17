@@ -15,9 +15,11 @@ Protected release: 0.3.0, checkpoint 34929d1. Development branch: gemma-evolus-0
 
 ## Current checkpoint
 
-Backend and shared client implementation exists for all six extensions, with actual OpenAPI-derived workflow and library contracts. Critical-fact review remains the existing engine. 136 full pytest and production TypeScript/Vite build pass. Running interface, live integration, durable restart, package and release acceptance remain pending.
+All six extensions implemented. Direct fresh Gemma 500/800/700 recovery flow passed. Actual Evolus extractor+agent 500/800 passed after explicit agent correction of a rejected metadata-ID claim; original failure retained. Zero Evolus credits reported. Catalog own/gemma-4-31b-it is byok-free; direct managed AMD model self-dploy/Gemma-4-31B-IT. Owned ADC/vLLM and partner eligibility unavailable.
 
-Observed access: Evolus Developer Event free trial, 50,000 credits, expiry 2026-11-16; API app credentials now present, personal setup key missing. Authenticated agents/workflows/step-catalog reads succeed; model catalog 401 with application key. AMD TokenFactory Gemma catalog/usage reads succeed; managed sglang service, not owned ADC/vLLM. No new inference or GPU resource creation. See access-current.json and exact exported contract. No new release promotion.
+161 full pytest passed before the latest correction path. Web12 core +6 existing module groups +8 new extension groups passed before latest polish. Remaining: current correction/config regressions, matched held-out finite evaluation, live isolated Blob-library retrieval, Windows/new packaging and restart/publication verification. Last public0.3 remains protected. HANDOFF.md has commands and evidence.
+
+User expanded scope to fix all12 comparison failures. Frozen inputs/labels unchanged; before/after raw model quality, format/source checks and explicit review outcomes stay separate. Keep aggregate48 phase dispatch cap and prior MiMo30 cap; failures count, no automatic retry. All reviews are agent-operated; no independent human acceptance.
 
 ## Completion discipline
 

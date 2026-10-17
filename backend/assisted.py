@@ -12,7 +12,8 @@ KINDS={'assist','evidence-task','source-link','change-event','rereview','transla
 
 def records(db,owner,kind,case_id=None):
     values=[json.loads(row[0]) for row in db.execute('SELECT data FROM bf_records WHERE owner=? AND kind=? ORDER BY id',(owner,kind))]
-    return [v for v in values if not case_id or v.get('case_id')==case_id]
+    selected=[v for v in values if not case_id or v.get('case_id')==case_id]
+    return sorted(selected,key=lambda v:(v.get('prepared_at') or v.get('as_of') or v.get('created_at') or v.get('started_at') or v.get('at') or '',v.get('id','')))
 
 
 def save(db,owner,kind,key,value,expected=None):
@@ -77,6 +78,9 @@ def task_response(db,owner,state,task_id,document_id,outcome,quote,reviewed,note
         # changing a citation cannot masquerade as resolving the original gap.
         if state.get('pending_revision') or any(q['id']==task['cause_id'] or (q['kind']==task['basis']['kind'] and set(q['pool_ids'])&set(task['basis']['pool_ids'])) for q in current):
             raise DomainError('Question remains unresolved in the reviewed deterministic plan; review receiving/scope before closure')
+        receiving_basis=any(r.get('outcome')=='resolved' and r.get('evidence',{}).get('document_id')==document_id for r in state.get('reconciliations',[]))
+        scope_basis=state.get('scope',{}).get('resolution_evidence',{}).get('document_id')==document_id if state.get('scope',{}).get('resolution_evidence') else False
+        if not receiving_basis and not scope_basis:raise DomainError('Closure must cite the exact source used by the current explicit receiving/scope review; an older ambiguous response cannot borrow a later resolution')
         task['status']='closed after current source review'
     else:task['status']='open: '+outcome
     task['responses'].append({'document_id':doc['id'],'source_hash':doc['original_hash'],'citation':basis,'outcome':outcome,'at':now(),'actor':identity.current_actor(),'note':note,'fingerprint':signature})
@@ -103,13 +107,21 @@ def conditions(db,owner,state,proposal_id=None):
     add('current_snapshot','satisfied' if current else 'unknown',failure)
     for item in items:
         if item['id'] in ('ancestry','identity_and_inspection') and proposal and not current:item['status']='unknown'
-    approved=bool(proposal and proposal.get('approval'))
-    add('independent_approval','satisfied' if approved else 'unsatisfied','Separate authorized identity must approve the exact recovery digest',proposal and proposal.get('approval'))
+    approval_recorded=bool(proposal and proposal.get('approval'))
+    approved=bool(approval_recorded and recovery.authority_current(db,proposal['approval']['actor'],'release_approver'))
+    add('independent_approval','satisfied' if approved else 'unsatisfied','Separate currently authorized identity must approve the exact recovery digest',proposal and proposal.get('approval'))
     executed=bool(proposal and proposal['status']=='executed')
     add('acknowledgement','satisfied' if executed else 'unsatisfied','Execution acknowledgement or sandbox receipt required; readiness is not execution',proposal and proposal.get('receipt'))
-    others=proposal.get('snapshot',{}).get('other_active_restrictions',[]) if proposal else []
+    _,inventory=repo.get_record(db,owner,'inventory','shared')
+    others=[h for h in (inventory or {}).get('holds',[]) if h['status']=='active' and h['pool_id'] in proposal.get('pool_ids',[]) and h['id'] not in proposal.get('hold_ids',[])] if proposal else []
     add('other_holds','unsatisfied' if others else 'satisfied' if proposal else 'unknown','Other active reasons still block availability even after this reason is removed',others)
-    stage='execution acknowledged' if executed else 'execution pending' if approved and current else 'approval received / stale' if approved else 'eligible to request approval' if current else 'review prerequisites'
+    stage='execution acknowledged' if executed else 'execution pending' if approved and current else 'approval received / stale or authority revoked' if approval_recorded else 'eligible to request approval' if current else 'review prerequisites'
+    for item in items:
+        if item['id']=='policy':continue
+        evidence=item.get('evidence')
+        item['verifier']=evidence.get('actor') if isinstance(evidence,dict) else None
+        item['verified_at']=evidence.get('at') if isinstance(evidence,dict) else None
+        item['verification_note']='See each source/inspection record for its actual verifier; policy approval is not evidence verification'
     return {'case_id':state['id'],'proposal_id':proposal and proposal['id'],'stage':stage,'conditions':items,'quantities':state.get('quantities',{}),
         'proposed_hold_units':state.get('plan',{}).get('result',{}).get('hold_units') if state.get('plan') else None,'score':None,'authority':'Informational explanation of existing recovery engine; no approval or execution endpoint here'}
 
@@ -214,6 +226,8 @@ def make_translation(db,owner,state,document_id,language,segments,provenance,key
     if language not in LANGUAGES:raise DomainError('Supported initial evidence languages are English, Russian and Italian; unsupported language requires qualified assistance')
     doc=next((d for d in state['documents'] if d['id']==document_id),None)
     if not doc:raise DomainError('Original source unavailable')
+    declared=doc.get('evidence_language','en')
+    if declared in ('ru','it','unsupported') and language!=declared:raise DomainError('Derived translation must preserve the original declared language; unsupported evidence requires qualified support')
     if len(segments)>80:raise DomainError('Translation segment limit is 80')
     linked=[];flags=[]
     for segment in segments:
@@ -263,7 +277,7 @@ def handover_snapshot(db,owner,state,previous_id=None):
                 'pending_recovery_units':state.get('quantities',{}).get('recovery_pending_units',0),'confirmed_recovery_units':state.get('quantities',{}).get('confirmed_recovery_units',0)}
     tasks=records(db,owner,'evidence-task',state['id']);rereviews=records(db,owner,'rereview',state['id'])
     events=[{'id':'event-'+str(i),'at':e['at'],'type':e['type'],'message':e['message']} for i,e in enumerate(state['history']) if not previous or e['at']>previous['as_of']]
-    facts=[{'id':'quantity-'+k,'text':k.replace('_',' ')+': '+str(v),'value':v} for k,v in quantities.items()]
+    facts=[{'id':'quantity-'+k,'text':k.replace('_',' ')+': '+(str(v) if v is not None else 'unknown / not calculated'),'value':v} for k,v in quantities.items()]
     facts += [{'id':t['id'],'text':('Evidence request: '+t['draft']+' Owner: '+str(t['responsible_role'])+' Due: '+str(t['due_date']))[:1600]} for t in tasks if not t['status'].startswith('closed')]
     facts += [{'id':'gap-'+q['id'],'text':q['missing']+'. '+q['reason']} for q in evidence_requests(db,owner,state)['requests']]
     facts += [{'id':t['id'],'text':'Re-review: '+t['reason']+'. '+t['status']} for t in rereviews]

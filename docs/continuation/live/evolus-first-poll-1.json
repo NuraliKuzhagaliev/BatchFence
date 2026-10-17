@@ -1,0 +1,150 @@
+{
+  "id": "ASSIST-92948b9ce90bf96771654461",
+  "case_id": "02405e36583f42e6ac9417536dc33101",
+  "mode": "live",
+  "status": "running",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "snapshot_hash": "210152935e4a1014262a494d0a24e878851753c1b88054460277418f50a66e49",
+  "request_hash": "cb7c2d6e2ed6f7eee0cdd4a68a70998ccf0b4f1af3210a1336b8dac17412f2da",
+  "context_hash": "bb56e1dda5e7b2151c62469859cc26227426ebd1e1886e5857555960f39db0e8",
+  "started_at": "2026-10-17T19:21:25.889217+00:00",
+  "reservation": {
+    "provider": "evolus",
+    "reservation": "269a183620a5ef65eeb6886fe53cac92ba46544723c06c79e88841a590ea717d",
+    "dispatch": 1,
+    "conservative_remaining": 50000,
+    "stop_margin": 1000
+  },
+  "executions": [
+    {
+      "execution_id": "57386925-60ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Queued",
+      "enqueued_at": "2026-10-17T19:22:52.8642808Z",
+      "trace_id": "798deae586da0e6b406375e3826e247a",
+      "queue_job_id": "4280868",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T19:21:31.241380+00:00",
+        "method": "POST",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/execute",
+        "http_status": 202,
+        "elapsed_ms": 782,
+        "response_hash": "260842757f1d7421691647fa317ff604c1b406655046afb90bb86b06e67811da",
+        "request_id": null,
+        "execution_header": "57386925-60ca-f111-bf5b-6045bd9ce552",
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4",
+        "configuration_proof": {
+          "checked_at": "2026-10-17T19:21:30.459643+00:00",
+          "configuration_hash": "25bffae10b887877ed2628b22a85eb9ceb2d255d62d799faa8aa66b0a8b44111",
+          "requests": [
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T19:21:26.595497+00:00",
+              "method": "GET",
+              "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45",
+              "http_status": 200,
+              "elapsed_ms": 690,
+              "response_hash": "77020673dce3773b44db628bb8eb53bde40d3d9ec6ac54bc17e8a571f526bf81",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T19:21:27.381213+00:00",
+              "method": "GET",
+              "path": "/api/v1/own-models/connections",
+              "http_status": 200,
+              "elapsed_ms": 777,
+              "response_hash": "de7041054aec06fccd2ae5fe81056f40c1699707e57310b7d7e4277bddf5d549",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T19:21:28.054518+00:00",
+              "method": "GET",
+              "path": "/api/v1/agents/0412148a-94de-4696-8aed-23e08ae2b1ab",
+              "http_status": 200,
+              "elapsed_ms": 667,
+              "response_hash": "9c13a2a7bcced7d215bca1e2e9305449cbaf93776bb7a1b9d21f89c34c2219fa",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T19:21:28.996079+00:00",
+              "method": "GET",
+              "path": "/api/v1/agents/0412148a-94de-4696-8aed-23e08ae2b1ab/json/f56aab1b-9b7e-45c8-af13-24ecee68b34c",
+              "http_status": 200,
+              "elapsed_ms": 934,
+              "response_hash": "ad76cbaae7b635f0a1e3d935fe7cfe907d252d3941af148ab297262e105a840d",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T19:21:29.730883+00:00",
+              "method": "GET",
+              "path": "/api/v1/agents/971b2c6f-29c5-4828-b335-76cdc9c7850c",
+              "http_status": 200,
+              "elapsed_ms": 727,
+              "response_hash": "b1689ad2cbc9bbc321a1efc6a3773a3c37c09955ba48c9f7403864e537aab058",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T19:21:30.459479+00:00",
+              "method": "GET",
+              "path": "/api/v1/agents/971b2c6f-29c5-4828-b335-76cdc9c7850c/json/d9fcfc23-ae08-4336-a1fe-62c223412591",
+              "http_status": 200,
+              "elapsed_ms": 721,
+              "response_hash": "80627e57f679d906768bf264fd4b9329db785790954f09ddc85df551904b9949",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            }
+          ],
+          "model_identity_basis": "Verified own-model configuration; WorkflowExecution does not return runtime model ID",
+          "provider_internal_retries": "BatchFence makes one dispatch. Structured correction budget is zero; undocumented provider infrastructure retries are not claimed absent."
+        }
+      }
+    },
+    {
+      "execution_id": "57386925-60ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Running",
+      "steps": [],
+      "draft": null,
+      "consumption": null,
+      "requested_at": "2026-10-17T19:22:52.850465Z",
+      "completed_at": null,
+      "trace_id": "798deae586da0e6b406375e3826e247a",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T19:21:36.935177+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/57386925-60ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 668,
+        "response_hash": "f3ce9554d22dad4b172e466f4f8abea2714605f270e423d79b27e0c87db7290e",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    }
+  ],
+  "external_execution_id": "57386925-60ca-f111-bf5b-6045bd9ce552",
+  "authority": "Unreviewed proposal only; no inventory, genealogy or approval writes"
+}

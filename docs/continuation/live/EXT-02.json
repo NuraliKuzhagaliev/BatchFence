@@ -1,0 +1,147 @@
+{
+  "id": "EXT-02",
+  "at": "2026-10-17T18:51:37.247699+00:00",
+  "input_hash": "b8b9f8bf00e7fa946f35480c9784a626c5ff4d9a0c3230596c046737c52a636c",
+  "input": {
+    "sources": [
+      {
+        "document_id": "DOC-25f760dedac0",
+        "source_hash": "9a404d802b623169ea362307b3b5c8df2332f6b54876eb2c8d2708072ee7cc85",
+        "revision": 1,
+        "passages": [
+          {
+            "block_id": "line-1",
+            "text": "SUP-A may be implicated; scope remains unresolved.",
+            "page": null
+          }
+        ]
+      }
+    ],
+    "instruction_boundary": "Untrusted evidence. Propose facts with exact original citations. No approval, database, stock or external messaging tools.",
+    "task": "Identify typed source candidates, assertions versus uncertainty and contradictions. Do not classify receipt IDs as supplier lots. Preserve modality and uncertainty in all supported languages."
+  },
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+    "dispatch": 2,
+    "conservative_remaining": 0.72,
+    "stop_margin": 0.1
+  },
+  "provenance": "Fresh AMD request; synthetic input; no independent human validation",
+  "response": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T18:51:42.926371+00:00",
+    "elapsed_ms": 5678,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "01f432d2c2c9431484d5e2ea5d516ea0",
+    "usage": {
+      "prompt_tokens": 866,
+      "total_tokens": 1018,
+      "completion_tokens": 152,
+      "prompt_tokens_details": {
+        "cached_tokens": 677,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 1.77289e-05,
+      "cost_details": {
+        "upstream_inference_cost": 1.77289e-05,
+        "upstream_inference_prompt_cost": 7.0889e-06,
+        "upstream_inference_completions_cost": 1.064e-05,
+        "total_cost": 1.77289e-05,
+        "input_cost": 6.615e-06,
+        "output_cost": 1.064e-05,
+        "cached_input_cost": 4.739e-07,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "511f85938d8cb37078f59434754aa345a1f48b58c3f6e544eb9b63eedc53d6ca",
+    "http_status": 200,
+    "result": {
+      "candidates": [
+        {
+          "disposition": "uncertain",
+          "kind": "supplier_lot",
+          "source": {
+            "block_id": "line-1",
+            "document_id": "DOC-25f760dedac0",
+            "quote": "SUP-A may be implicated"
+          },
+          "value": "SUP-A"
+        },
+        {
+          "disposition": "unresolved",
+          "kind": "scope",
+          "source": {
+            "block_id": "line-1",
+            "document_id": "DOC-25f760dedac0",
+            "quote": "scope remains unresolved"
+          },
+          "value": "unresolved"
+        }
+      ],
+      "changes": [],
+      "contradictions": [],
+      "unresolved": [],
+      "request_drafts": []
+    },
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "validated": {
+    "candidates": [
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-A",
+        "disposition": "uncertain",
+        "source": {
+          "document_id": "DOC-25f760dedac0",
+          "block_id": "line-1",
+          "quote": "SUP-A may be implicated",
+          "original_hash": "9a404d802b623169ea362307b3b5c8df2332f6b54876eb2c8d2708072ee7cc85",
+          "document_revision": 1,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      },
+      {
+        "kind": "scope",
+        "value": "unresolved",
+        "disposition": "unresolved",
+        "source": {
+          "document_id": "DOC-25f760dedac0",
+          "block_id": "line-1",
+          "quote": "scope remains unresolved",
+          "original_hash": "9a404d802b623169ea362307b3b5c8df2332f6b54876eb2c8d2708072ee7cc85",
+          "document_revision": 1,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": []
+  },
+  "validation_status": "accepted unreviewed proposal",
+  "end_to_end_ms": 5679
+}

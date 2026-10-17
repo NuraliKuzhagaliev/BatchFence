@@ -1,0 +1,62 @@
+{
+  "status": "verified actual Blob upload/membership/download and fresh key selection; original full-quote response failed and remains recorded",
+  "first_raw_model_result": "Rejected: omitted fictional/no-authority caveat from a required full-passage quote",
+  "explicit_retest": "unreviewed proposal",
+  "raw_selection": {
+    "selections": [
+      {
+        "document_id": "TRAIN-COSMETIC",
+        "version": 1,
+        "passage_id": "P1"
+      }
+    ],
+    "insufficient_evidence": false,
+    "missing_information": []
+  },
+  "displayed_full_original": {
+    "claims": [
+      {
+        "document_id": "TRAIN-COSMETIC",
+        "version": 1,
+        "passage_id": "P1",
+        "quote": "Before cosmetic recovery, verify the exact lot identity, complete parent list, passed whole-pool inspection and current approved scope. Obtain separate release approval. This fictional training procedure grants no real inventory authority."
+      }
+    ],
+    "insufficient_evidence": false,
+    "missing_information": []
+  },
+  "quote_origin": "Deterministically resolved full authorized original passages; the model selected keys and did not author the displayed quotes",
+  "actual_library_requests": [
+    {
+      "provider": "Evolus",
+      "at": "2026-10-17T19:29:58.608589+00:00",
+      "method": "GET",
+      "path": "/api/v1/memories/eae0f36e-5fca-f111-bf5b-6045bd9ce552/documents",
+      "http_status": 200,
+      "elapsed_ms": 970,
+      "response_hash": "ce61a3d0bbd056c9108622339f4a06a0e177aa89f151650b0bf91b3e0a5a9176",
+      "request_id": null,
+      "execution_header": null,
+      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+    },
+    {
+      "provider": "Evolus",
+      "at": "2026-10-17T19:29:59.319550+00:00",
+      "method": "GET",
+      "path": "/api/v1/memories/eae0f36e-5fca-f111-bf5b-6045bd9ce552/documents/95228811-0d79-4169-a4c6-86f521ad553b/download",
+      "http_status": 200,
+      "elapsed_ms": 701,
+      "response_hash": "5bed279184844dab0d192627a447aec7c4131044caf08ed11e47d41d72d3307f",
+      "request_id": null,
+      "execution_header": null,
+      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+    }
+  ],
+  "model_id": "self-dploy/Gemma-4-31B-IT",
+  "request_id": "c2c6927e6c3547db9ed0ea2c9497451e",
+  "wrong_product_provider_calls": 0,
+  "total_fresh_library_model_calls": 2,
+  "review_corrections": 0,
+  "independent_human_acceptance": false,
+  "limits": "Native retained-source Blob library and local lexical ranking; no embedding or semantic retrieval claim. Exact API operation credit consumption not returned; free own-model/Blob contract used."
+}

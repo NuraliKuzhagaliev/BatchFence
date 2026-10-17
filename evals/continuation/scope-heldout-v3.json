@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "authorship": "Agent-authored synthetic engineering holdout, frozen before v3 live calls; no independent validation",
+  "original_benchmark": "evals/enterprise/frozen-v1.json remains unchanged",
+  "items": [
+    {"id":"H3-01","source":"Receiving record RC-981 says stock pool FG-Z received supplier lot J7-401. Other receipts remain unreconciled; this ancestry is partial. Separately, supplier lot J7-402 may be involved in the incident, pending inspection. The full affected boundary is unknown.","expected_supplier_statuses":{"J7-401":"mentioned","J7-402":"uncertain"},"expected_scope":"unknown","live_pair":true},
+    {"id":"H3-02","source":"Signed revision: affected supplier lot K9-504. It replaces the earlier notice that named K9-503 affected: K9-503 is now explicitly not affected. Lot K9-505 has not been investigated and may be involved. This revised list is incomplete. An unsigned message claims K9-505 is clear; that contradiction remains unresolved. Do not infer exclusions for lots absent from this list.","expected_supplier_statuses":{"K9-503":"explicitly_excluded","K9-504":"affected","K9-505":"uncertain"},"expected_scope":"conflicting","live_pair":true},
+    {"id":"H3-03","source":"OCR transcript lists M8-60I, possibly M8-601. The critical identifier is not visually confirmed. Delivery schedule M8-602 arrives Tuesday and makes no incident assertion.","expected_supplier_statuses":{"M8-60I":"uncertain","M8-601":"uncertain","M8-602":"mentioned"},"expected_scope":"unknown","live_pair":false},
+    {"id":"H3-04","source":"Affected supplier lot R4-700. This is the complete incident boundary; no other supplier lots are affected.","expected_supplier_statuses":{"R4-700":"affected"},"expected_scope":"complete","live_pair":false},
+    {"id":"H3-05","source":"Supplier lot D3-101 is not affected. Record DOC-101 and receiving receipt REC-101 refer to the exclusion. No statement establishes the status of other supplier lots.","expected_supplier_statuses":{"D3-101":"explicitly_excluded"},"expected_scope":"unknown","live_pair":false}
+  ],
+  "live_limit": "Exactly two Gemma/MiMo pairs = four additional model calls, charged against the existing aggregate phase cap of 48; no automatic retries. Three other notices are local contract regressions only."
+}

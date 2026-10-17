@@ -5,7 +5,7 @@ import httpx,pytest
 from backend import evolus_api as api,evolus_adapter as external,assisted as a,repository as repo,app as module
 from backend.domain import DomainError
 from backend.review_safety import require_language_review
-from tests.test_continuation import client,post,get,upload,ref,NOTE,image_body
+from tests.test_continuation import client,post,get,upload,ref,NOTE,image_body,review,approve
 
 
 def credentials(monkeypatch):
@@ -60,6 +60,8 @@ def test_real_proposal_drives_existing_review_but_not_facts(client,monkeypatch):
     before=get(client,route);assert before['plan'] is None and before['reviews']==[]
     state=post(client,route+'/assist-intake',{'proposal_id':proposal['id'],'document_id':doc['id'],'revision':s['revision']})
     assert state['plan'] is None and state['runs'][-1]['output']['facts'][0]['lot_id']=='SUP-A'
+    assert state['runs'][-1]['output']['facts'][0]['affected'] is False
+    assert state['runs'][-1]['output']['facts'][0]['proposal_disposition']=='asserted'
     assert state['runs'][-1]['model_id']=='synthetic-model' and state['scope']==before['scope']
     reviewed=post(client,route+'/reviews',{'run_id':state['runs'][-1]['id'],'revision':state['revision'],'lot_ids':['SUP-A'],'uncertain_lot_ids':[],'excluded_lot_ids':[],'lot_corrections':{},'accept_scope':True,'incident_scope_status':'resolved','resolution_quote':ref(doc)['quote'],'bounded_scope_reviewed':True,'note':NOTE})
     assert reviewed['plan']['result']['hold_units']==500 and not reviewed['receipts']
@@ -69,6 +71,7 @@ def test_real_proposal_drives_existing_review_but_not_facts(client,monkeypatch):
 def test_language_review_is_enforced_outside_translation_panel(client):
     s=post(client,'/api/cases/demo');s=upload(client,s,'SUP-A incluso. Elenco completo.',evidence_language='it');doc=s['documents'][-1];route='/api/cases/'+s['id']
     with pytest.raises(DomainError):require_language_review(doc)
+    assert client.post(route+'/translation',json={'document_id':doc['id'],'language':'en','segments':[{'source':ref(doc),'translation':'SUP-A included. Complete list.'}],'provenance_reference':'Attempt to relabel Italian as English','idempotency_key':'wrong-language-attempt'}).status_code==422
     tr=post(client,route+'/translation',{'document_id':doc['id'],'language':'it','segments':[{'source':ref(doc),'translation':'SUP-A included. Complete list.'}],'provenance_reference':'Synthetic engineering bilingual check','idempotency_key':'qualified-guard-test'})
     with pytest.raises(DomainError):require_language_review(get(client,route)['documents'][-1])
     post(client,route+'/translation-review',{'translation_id':tr['id'],'can_verify_original':True,'qualified_reference':'Agent-operated language engineering test; no independent acceptance','critical_fields_confirmed':True,'note':NOTE})
@@ -94,3 +97,19 @@ def test_cancelled_generation_never_enters_review(client,monkeypatch):
     result=post(client,route+'/assist-generate',{'kind':'document','document_ids':[doc['id']],'revision':s['revision'],'idempotency_key':'cancel-during-model'})
     assert result['status']=='obsolete / changed or cancelled' and 'draft' not in result
     assert get(client,route)['plan'] is None
+
+
+def test_future_effective_change_blocks_pending_execution_when_due(client,monkeypatch):
+    from tests.test_api import payload
+    s=post(client,'/api/cases/demo');old=next(d for d in s['documents'] if 'supplier' in d['filename'])
+    s=upload(client,s,'Affected lots: SUP-A. Complete supplier notice, revised wording only.','revised-supplier.txt')
+    new=s['documents'][-1];s=review(client,s);route='/api/cases/'+s['id'];future=datetime.now(timezone.utc)+timedelta(days=1)
+    post(client,'/api/assist/source-change',{'source_kind':'document','source_id':old['id'],'old_version':str(old['revision']),'new_version':new['id'],'classification':'uncertain','effective_at':future.isoformat(),'old_quote':old['blocks'][0]['text'],'new_quote':new['blocks'][0]['text'],'note':NOTE,'event_key':'future-approval-race'})
+    s=approve(client,s);body=payload(s,'future-change-execution')
+    class Shifted(datetime):
+        @classmethod
+        def now(cls,tz=None):return future+timedelta(seconds=1)
+    monkeypatch.setattr(a,'datetime',Shifted)
+    rejected=client.post(route+'/apply',json=body)
+    assert rejected.status_code==422 and rejected.json()['detail']['code']=='REREVIEW_REQUIRED'
+    assert get(client,route)['receipts']==[]

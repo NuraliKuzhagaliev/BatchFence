@@ -1,0 +1,21 @@
+{
+  "id": "IMG-04",
+  "at": "2026-10-17T18:54:16.251074+00:00",
+  "input_hash": "4595d1a4e515cd5f7a5f999f14c08bfca3668e491aca8a4dc23000d39e7b1f2b",
+  "input": {
+    "task": "Read visible LOT IDs only, preserving exact spelling and leading zeros. Report O/0,B/8,S/5 ambiguities. Multiple labels stay separate. Unreadable images require abstention. No authenticity, quality or action authority.",
+    "image_hash": "d69dc2c28882303cfa1efb1eb563e9f7534428b2916b2edeff7ea518490ce69b",
+    "image_kind": "Synthetic rendered label, not physical photo"
+  },
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+    "dispatch": 13,
+    "conservative_remaining": 0.8597760112019023,
+    "stop_margin": 0.1
+  },
+  "provenance": "Fresh AMD request; synthetic input; no independent human validation",
+  "provider_failure": "Gemma endpoint HTTP 429; no retry",
+  "validation_status": "no response accepted",
+  "end_to_end_ms": 2011
+}

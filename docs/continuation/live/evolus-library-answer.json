@@ -1,0 +1,92 @@
+{
+  "id": "GENERATE-02c1c65eee70891bbd6b9fb7",
+  "case_id": "5dea5cf73d7e4983ab9c9f908d2bb63a",
+  "kind": "knowledge",
+  "mode": "live",
+  "provider_path": "Direct Gemma / managed-amd-shared",
+  "status": "failed validation",
+  "request_hash": "b0f734af4ee9dd939dde938a6875f9c07b72527d5b5176bbe855a32fea704179",
+  "snapshot_hash": "63ce5cbd6611a2904a15fe6b07d76e66c46f84aa373d548b578ed4c20bd43175",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "started_at": "2026-10-17T19:28:26.336548+00:00",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+    "dispatch": 47,
+    "conservative_remaining": 0.8582539971824735,
+    "stop_margin": 0.1
+  },
+  "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+  "error": "Answer must select exact retrieved source passages; unsupported procedural claims rejected",
+  "finished_at": "2026-10-17T19:28:30.864570+00:00",
+  "raw_output": {
+    "claims": [
+      {
+        "document_id": "TRAIN-COSMETIC",
+        "version": 1,
+        "passage_id": "P1",
+        "quote": "Before cosmetic recovery, verify the exact lot identity, complete parent list, passed whole-pool inspection and current approved scope. Obtain separate release approval."
+      }
+    ],
+    "insufficient_evidence": false,
+    "missing_information": []
+  },
+  "provenance": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T19:28:30.861014+00:00",
+    "elapsed_ms": 3165,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "e7005b6216374a8ba4a17e921a9d6f4a",
+    "usage": {
+      "prompt_tokens": 661,
+      "total_tokens": 742,
+      "completion_tokens": 81,
+      "prompt_tokens_details": {
+        "cached_tokens": 4,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 2.86678e-05,
+      "cost_details": {
+        "upstream_inference_cost": 2.8667799999999997e-05,
+        "upstream_inference_prompt_cost": 2.29978e-05,
+        "upstream_inference_completions_cost": 5.67e-06,
+        "total_cost": 2.86678e-05,
+        "input_cost": 2.2995e-05,
+        "output_cost": 5.67e-06,
+        "cached_input_cost": 2.8e-09,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "4f6019f6eafab02fe70a5db44cdd14100a0dcfd9baaf3758034a1c82d7f997cd",
+    "http_status": 200,
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "validation_issues": [
+    {
+      "message": "Answer must select exact retrieved source passages; unsupported procedural claims rejected"
+    }
+  ]
+}

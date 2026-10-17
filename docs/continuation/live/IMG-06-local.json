@@ -1,0 +1,6 @@
+{
+  "id": "IMG-06",
+  "inference_calls": 0,
+  "rejected_before_provider": true,
+  "error": "Image unreadable, unsupported, oversized or processing time exceeded; no partial import"
+}

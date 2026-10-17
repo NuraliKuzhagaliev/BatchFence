@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-17T19:31:52.079Z",
+  "url": "http://127.0.0.1:8801",
+  "checks": [
+    "Web original-language import preserves bytes and sets consequential-review gate",
+    "Derived translation linked to original and explicit qualification review; no automatic scope change",
+    "Actual image decode/retention, explicit manual transcription and source relationship UI; no vision claim",
+    "Deterministic handover, unknown proposal, actual as-of timestamp and acknowledgement without approval",
+    "Release conditions are separate from recovery authorization and never show a percentage",
+    "Source-change review and typed version dependencies remain in incident revisions",
+    "Configurable transparent evidence precedence stored through shared backend",
+    "1366x768,1920x1080,narrow and 200% screenshots; no horizontal overflow; keyboard focus reachable"
+  ],
+  "errors": [],
+  "case_id": "0c9987c17c68482e92103b722a20831f",
+  "provenance": "Synthetic engineering UI checks, agent-operated review. No provider requests; no physical photograph or native dialog acceptance."
+}

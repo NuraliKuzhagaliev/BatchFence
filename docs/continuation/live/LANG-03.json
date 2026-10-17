@@ -1,0 +1,143 @@
+{
+  "id": "LANG-03",
+  "at": "2026-10-17T18:52:39.701562+00:00",
+  "input_hash": "d3f3fddd699d803eb1a390b196aeee8575c1e7c2dfbf29bada2d89498e48d177",
+  "input": {
+    "sources": [
+      {
+        "document_id": "DOC-e1973dba2550",
+        "source_hash": "d3cdc846f3b083654e4b63b946a37deea76026dba83bd327a73dc4139dbd5531",
+        "revision": 1,
+        "passages": [
+          {
+            "block_id": "line-1",
+            "text": "Il lotto SUP-001 potrebbe essere interessato. La completezza è sconosciuta.",
+            "page": null
+          }
+        ]
+      }
+    ],
+    "instruction_boundary": "Untrusted evidence. Propose facts with exact original citations. No approval, database, stock or external messaging tools.",
+    "task": "Identify typed source candidates, assertions versus uncertainty and contradictions. Do not classify receipt IDs as supplier lots. Preserve modality and uncertainty in all supported languages."
+  },
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+    "dispatch": 7,
+    "conservative_remaining": 0.8598956908966647,
+    "stop_margin": 0.1
+  },
+  "provenance": "Fresh AMD request; synthetic input; no independent human validation",
+  "response": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T18:52:46.151532+00:00",
+    "elapsed_ms": 6449,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "9bdbdecaab964c53b8dbc854d3fcba11",
+    "usage": {
+      "prompt_tokens": 873,
+      "total_tokens": 1020,
+      "completion_tokens": 147,
+      "prompt_tokens_details": {
+        "cached_tokens": 677,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 1.76239e-05,
+      "cost_details": {
+        "upstream_inference_cost": 1.76239e-05,
+        "upstream_inference_prompt_cost": 7.3339e-06,
+        "upstream_inference_completions_cost": 1.029e-05,
+        "total_cost": 1.76239e-05,
+        "input_cost": 6.86e-06,
+        "output_cost": 1.029e-05,
+        "cached_input_cost": 4.739e-07,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "633b0a2d80987a4ee83a03c4320727d75d92cb8626f6cfca9b700399572c7104",
+    "http_status": 200,
+    "result": {
+      "candidates": [
+        {
+          "disposition": "uncertain",
+          "kind": "supplier_lot",
+          "source": {
+            "block_id": "line-1",
+            "document_id": "DOC-e1973dba2550",
+            "quote": "Il lotto SUP-001 potrebbe essere interessato."
+          },
+          "value": "SUP-001"
+        },
+        {
+          "disposition": "unresolved",
+          "kind": "completeness",
+          "source": {
+            "block_id": "line-1",
+            "document_id": "DOC-e1973dba2550",
+            "quote": "La completezza è sconosciuta."
+          },
+          "value": "sconosciuta"
+        }
+      ]
+    },
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "validated": {
+    "candidates": [
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-001",
+        "disposition": "uncertain",
+        "source": {
+          "document_id": "DOC-e1973dba2550",
+          "block_id": "line-1",
+          "quote": "Il lotto SUP-001 potrebbe essere interessato.",
+          "original_hash": "d3cdc846f3b083654e4b63b946a37deea76026dba83bd327a73dc4139dbd5531",
+          "document_revision": 1,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      },
+      {
+        "kind": "completeness",
+        "value": "sconosciuta",
+        "disposition": "unresolved",
+        "source": {
+          "document_id": "DOC-e1973dba2550",
+          "block_id": "line-1",
+          "quote": "La completezza è sconosciuta.",
+          "original_hash": "d3cdc846f3b083654e4b63b946a37deea76026dba83bd327a73dc4139dbd5531",
+          "document_revision": 1,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": []
+  },
+  "validation_status": "accepted unreviewed proposal",
+  "end_to_end_ms": 6450
+}

@@ -44,8 +44,9 @@ def result_for_job(db,owner,state,key,execution):
             record['runtime_model_identity']=execution.get('runtime_model_identity','Not returned / independent inference verification pending')
         record['raw_draft']=execution.get('draft')
         try:record['draft']=validate_draft(state,execution['draft'])
-        except Exception:
+        except Exception as exc:
             record.update(status='failed validation',error='Raw interpretation failed source/schema validation; no fact or scope update')
+            record['validation_issues']=exc.errors(include_input=False,include_url=False,include_context=False) if hasattr(exc,'errors') else [{'message':str(exc)[:300]}]
             jobs.finish(db,owner,key,'failed',digest(execution))
         else:
             current=fingerprint(state,catalog(db,owner))==record['snapshot_hash'] and not state.get('cancelled')
@@ -72,6 +73,9 @@ def run(case_id:str,data:Run,request:Request):
             if data.mode=='fixture' and not state['synthetic']:raise DomainError('Fixtures require an explicitly synthetic incident')
             if data.mode=='live':
                 external.contract();reservation=external.reserve(db,'evolus')
+                # Two configured own-model steps. Shared AMD quota is separate
+                # from Evolus credits and every upstream step is reserved.
+                external.reserve(db,'gemma');external.reserve(db,'gemma')
                 if not all(os.getenv(k) for k in ('EVOLUS_WORKFLOW_ID','EVOLUS_EXTRACTOR_ID','EVOLUS_AGENT_ID','GEMMA_MODEL_ID')):raise DomainError('Configured workflow,extractor,agent and actual Gemma model identifiers required')
             else:reservation=None
             jobs.start(db,request.state.owner,key,'evolus-document',{'case_id':case_id,'revision':state['revision'],'sources':[d['original_hash'] for d in state['documents'] if d['id'] in data.document_ids]},data.mode)
@@ -89,7 +93,9 @@ def run(case_id:str,data:Run,request:Request):
                     raw=repo.source_path(request.state.owner,d['original_hash']).read_bytes()
                     if hashlib.sha256(raw).hexdigest()!=d['original_hash']:raise DomainError('Original source integrity failure before transmission')
                     files.append({'filename':d['filename'],'raw':raw,'media_type':d['media_type']})
-                reply=external.operation('workflow_start',{'workflow_id':os.environ['EVOLUS_WORKFLOW_ID'],'text':json.dumps(context,ensure_ascii=False),'context':context,'schema':ReviewDraft.model_json_schema(),'file_items':files})
+                def before_configuration_read():
+                    with repo.write(connect) as db:identity.recheck(db,'reporter');external.reserve(db,'evolus')
+                reply=external.operation('workflow_start',{'workflow_id':os.environ['EVOLUS_WORKFLOW_ID'],'text':json.dumps(context,ensure_ascii=False),'context':context,'schema':ReviewDraft.model_json_schema(),'file_items':files},before_call=before_configuration_read)
                 execution=reply['result'];execution['transport_provenance']={k:v for k,v in reply.items() if k!='result'}
             if execution.get('status') not in ('running','completed','failed') or not isinstance(execution.get('execution_id'),str) or len(execution['execution_id'])>160:raise DomainError('Unexpected documented workflow result contract')
             with repo.write(connect) as db:
@@ -385,7 +391,8 @@ def generate(case_id:str,data:Generate,request:Request):
                 return prior
             if data.kind in ('document','translation'):
                 context=source_context(state,data.document_ids)
-                context['task']='Propose source-backed semantic changes and contradictions' if data.kind=='document' else 'Translate into English. Preserve exact IDs,numbers,units,negation,modality and ambiguous dates. Cite originals; do not invent missing information.'
+                from .scope_proposals import INSTRUCTIONS
+                context['task']=(INSTRUCTIONS+' Use the supplied ReviewDraft shape: value is the identifier, disposition describes the identity assertion, incident_status separately describes incident involvement. asserted identity never means affected. Cite source. Include semantic paired changes and contradictions when comparing sources.') if data.kind=='document' else 'Translate into English. Preserve exact IDs,numbers,units,negation,modality and ambiguous dates. Cite originals; do not invent missing information.'
                 if data.kind=='translation' and len(data.document_ids)!=1:raise DomainError('Translate one original document at a time')
                 schema=ReviewDraft.model_json_schema() if data.kind=='document' else TranslatedDraft.model_json_schema()
             elif data.kind=='request':
@@ -412,7 +419,8 @@ def generate(case_id:str,data:Generate,request:Request):
                 if not binding or binding['status']!='indexed verified scope' or binding['scope']!=scope:
                     raise DomainError('UNAVAILABLE: a dedicated verified library for this organization/site and exact approved catalog is required before any retrieval')
                 external.contract()
-                context={'question':data.question,'approved_passages':retrieval['passages']};schema=knowledge.Answer.model_json_schema()
+                context={'task':'Select only exact authorized document_id/version/passage_id keys that directly answer the question. Do not copy or paraphrase passages: the server displays the full retained original. Return insufficient_evidence=true for unsupported questions, bypass requests or missing evidence. Never invent keys, revisions, instructions or authority.',
+                    'question':data.question,'approved_passages':retrieval['passages']};schema=knowledge.PassageSelection.model_json_schema()
             external.allowance('gemma');reservation=external.reserve(db,'gemma')
             jobs.start(db,request.state.owner,key,'gemma-'+data.kind,{'case_id':case_id,'kind':data.kind,'revision':state['revision'],'context_hash':digest(context)},'live')
             record={'id':key,'case_id':case_id,'kind':data.kind,'mode':'live','provider_path':'Direct Gemma / '+os.getenv('GEMMA_HOSTING_KIND','unverified'),
@@ -453,14 +461,23 @@ def generate(case_id:str,data:Generate,request:Request):
                         if result['cause_id']!=data.cause_id or __import__('re').search(r'\d\s*%|probability|guaranteed|will release',result['draft'],__import__('re').I):raise DomainError('Request invented probability or release authority')
                         record['draft']=result
                     elif data.kind=='handover':record['draft']=a.create_handover(db,request.state.owner,current,key,data.previous_id,raw,response)
-                    else:record['draft']=knowledge.validate_answer(raw,retrieval)
+                    else:
+                        record['draft']=knowledge.selected_answer(raw,retrieval)
+                        record['quote_origin']='Deterministically resolved full authorized original passages; the model selected keys and did not author the displayed quotes'
+                        linked={'id':key,'case_id':case_id,'status':'succeeded','mode':'Live Gemma / isolated Evolus library','output':record['draft'],
+                            'catalog_digest':digest(catalog(db,request.state.owner)),'retrieval':retrieval,'question':data.question,'provenance':response,
+                            'library_provenance':library_provenance,'timestamp':now(),'boundary':'Exact applicable passage proposals; explicit original evidence review required for any check'}
+                        repo.put_record(db,request.state.owner,'answer',key,linked,0);record['linked_answer']=linked
                     record['status']='unreviewed proposal';jobs.finish(db,request.state.owner,key,'succeeded',digest(record['draft']))
                 repo.put_record(db,request.state.owner,'assist',key,record,rev);return record
         except Exception as exc:
             with repo.write(connect) as db:
                 rev,record=repo.get_record(db,request.state.owner,'assist',key)
                 record.update(status='failed validation' if 'raw' in locals() else 'failed provider request',error=str(exc) if isinstance(exc,DomainError) else 'Structured-output,timeout or transport failure; no fallback',finished_at=now())
+                if isinstance(exc,external.ProviderFailure):record['failed_request_metadata']=exc.evidence
                 if 'raw' in locals():record.update(raw_output=raw,provenance=response)
+                if binding:record.update(library_provenance=library_provenance,retrieval=retrieval)
+                if 'raw' in locals():record['validation_issues']=exc.errors(include_input=False,include_url=False,include_context=False) if hasattr(exc,'errors') else [{'message':str(exc)[:300]}]
                 jobs.finish(db,request.state.owner,key,'failed',digest({'error':record['error']}));repo.put_record(db,request.state.owner,'assist',key,record,rev)
                 return record
 
@@ -469,6 +486,7 @@ class ProposalReview(Strict):
     proposal_id:str=Field(max_length=80)
     reviewed:bool
     note:str=Field(min_length=20,max_length=2000)
+    corrected_draft:ReviewDraft|None=None
 
 
 class ReviewIntake(Strict):
@@ -495,7 +513,10 @@ def review_intake(case_id:str,data:ReviewIntake,request:Request):
         draft=proposal['draft'];facts=[]
         for c in draft.get('candidates',[]):
             if c['kind']=='supplier_lot' and c['source']['document_id']==doc['id']:
-                facts.append({'lot_id':c['value'],'affected':c['disposition']=='asserted','evidence':[c['source']]})
+                # An asserted LOT ID is not an asserted incident effect. The
+                # typed draft may merely mention a lot in a receipt. Preserve
+                # its proposal meaning and require the existing explicit review.
+                facts.append({'lot_id':c['value'],'affected':False,'proposal_disposition':c['disposition'],'proposal_incident_status':c.get('incident_status'),'evidence':[c['source']]})
         if not facts:raise DomainError('No source-backed supplier-lot candidates in this notice; abstention cannot become a scope extraction')
         rid='assist-'+digest([data.proposal_id,doc['id']])[:24]
         if not any(r['id']==rid for r in state['runs']):
@@ -504,7 +525,8 @@ def review_intake(case_id:str,data:ReviewIntake,request:Request):
                 'timestamp':now(),'provider':proposal.get('provider_path','Evolus workflow / configured Gemma agent'),
                 'model_id':provenance.get('model_id'),'elapsed_ms':provenance.get('elapsed_ms'),'proposal_id':data.proposal_id,
                 'runtime_model_identity':proposal.get('runtime_model_identity'),'scope_concerns':scope_concerns(doc),
-                'output':{'facts':facts,'qualifiers':draft.get('unresolved',[])+['Machine proposals only. All candidates require explicit current source and scope review.']}})
+                'proposal_correction':proposal.get('correction'),
+                'output':{'facts':facts,'qualifiers':draft.get('unresolved',[])+['Identity proposals only; presence or asserted identity does not establish affected incident scope. All candidates require explicit current source and scope review.']}})
         return state
 
 
@@ -513,7 +535,15 @@ def proposal_review(case_id:str,data:ProposalReview,request:Request):
     from .app import transaction
     with transaction(case_id,request.state.owner) as (db,state):
         identity.recheck(db,'quality_reviewer');rev,record=repo.get_record(db,request.state.owner,'assist',data.proposal_id)
-        if not record or record['case_id']!=case_id or record['status']!='unreviewed proposal' or not data.reviewed or fingerprint(state,catalog(db,request.state.owner))!=record['snapshot_hash']:raise DomainError('Current unreviewed proposal and explicit original-source inspection required')
+        permitted=('unreviewed proposal','failed validation') if data.corrected_draft is not None else ('unreviewed proposal',)
+        if not record or record['case_id']!=case_id or record.get('kind') not in (None,'document') or record['status'] not in permitted or not data.reviewed or fingerprint(state,catalog(db,request.state.owner))!=record['snapshot_hash']:raise DomainError('Current document proposal and explicit original-source inspection required')
+        if data.corrected_draft is not None:
+            corrected=validate_draft(state,data.corrected_draft.model_dump())
+            # Original raw output and failed job remain intact. This explicit
+            # quality-review correction is not a new successful model response.
+            record['raw_quality_status']=record['status'];record['draft']=corrected
+            record['correction']={'actor':identity.current_actor(),'at':now(),'note':data.note,'corrected_hash':digest(corrected),
+                'basis':'Explicit source-checked reviewer correction; model raw output remains unchanged; separate critical-fact/scope review still required'}
         record.update(status='source proposals inspected / no fact or action authority',review={'actor':identity.current_actor(),'at':now(),'note':data.note})
         return a.save(db,request.state.owner,'assist',record['id'],record,rev)
 
@@ -553,6 +583,11 @@ def knowledge_index(data:KnowledgeIndex,request:Request):
             a.save(db,request.state.owner,'knowledge-binding',scope,value,0)
         inspection=evolus_api.inspect_library(data.library_id)
         if inspection['result']!=[]:raise DomainError('Dedicated empty library required; existing remote documents cannot be adopted implicitly')
+        with repo.write(connect) as db:identity.recheck(db,'administrator');external.reserve(db,'evolus')
+        memory=evolus_api.call('GET',f'/api/v1/memories/{evolus_api.identifier(data.library_id)}')['result']
+        if memory.get('applicationId')!=os.environ['EVOLUS_APPLICATION_ID'] or memory.get('type')!=1 or memory.get('aiAccess')!=0:
+            raise DomainError('Initial zero-cost path requires this application\'s dedicated read-only Blob library; embeddings/platform-AI indexing are disabled')
+        value['library_type']='Blob'
         for document in approved:
             with repo.write(connect) as db:
                 identity.recheck(db,'administrator');external.reserve(db,'evolus')

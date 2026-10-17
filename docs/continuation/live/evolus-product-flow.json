@@ -1,0 +1,29 @@
+{
+  "status": "completed with explicit agent-operated correction, raw revision failed",
+  "actual_workflow_attempts": 3,
+  "evolus_credits": 0,
+  "stages": [
+    {
+      "stage": "initial output configuration",
+      "raw_result": "Both model steps ran, final output mixed with original text; rejected, no plan or receipt"
+    },
+    {
+      "stage": "corrected pipeline first notice",
+      "raw_result": "Accepted source-backed SUP-A proposal",
+      "after_agent_review_applied": 500,
+      "receipt_count": 1
+    },
+    {
+      "stage": "revised notice",
+      "raw_result": "Rejected invented document-ID claim; original applied hold remained 500",
+      "after_agent_source_correction_and_separate_scope_review": 800,
+      "receipt_count": 2
+    }
+  ],
+  "stale_approval_http": 409,
+  "receipt_idempotence": true,
+  "raw_model_failures_retained": true,
+  "independent_human_validation": false,
+  "identity": "Configured own/gemma-4-31b-it -> Gemma-4-31B-IT on the owner-saved AMD connection. Execution API does not return runtime model ID; no per-step runtime-ID claim.",
+  "direct_gemma_evidence": "Separate product-flow.json; not counted as Evolus execution"
+}

@@ -23,9 +23,9 @@ def test_unseen_fixture_notice_and_adversarial_source_not_authority():
 def test_negative_only_proposal_and_rejected_citation_audit(monkeypatch, supported):
     from backend import provider
     d = document('pending.txt', b'SUP-Q is unresolved. Overall scope is unresolved.')
-    raw = {'facts': [{'lot_id': 'SUP-Q', 'affected': False, 'evidence': [{
+    raw = {'facts': [{'lot_id': 'SUP-Q', 'kind':'supplier_lot','status':'uncertain', 'evidence': [{
         'document_id': d['id'], 'block_id': 'line-1',
-        'quote': 'SUP-Q is unresolved.' if supported else 'Overall scope is unresolved.'}]}], 'qualifiers': ['Unresolved']}
+        'quote': 'SUP-Q is unresolved.' if supported else 'Overall scope is unresolved.'}]}], 'qualifiers': ['Unresolved'],'scope_status':'unknown','scope_evidence':[]}
     class Response:
         status_code = 200
         headers = {}
@@ -43,9 +43,10 @@ def test_negative_only_proposal_and_rejected_citation_audit(monkeypatch, support
     monkeypatch.setattr(provider.httpx, 'Client', Client)
     result = provider.extract([d], 'live')
     if supported:
-        assert result['status'] == 'succeeded' and result['output'] == raw
+        assert result['status'] == 'succeeded' and result['output']['facts'][0]['affected'] is False
+        assert result['validated_proposals']==raw and result['raw_proposals']==raw
     else:
-        assert result['status'] == 'failed' and result['rejected_output'] == raw
+        assert result['status'] == 'failed' and result['raw_proposals'] == raw
         assert 'output' not in result
 
 

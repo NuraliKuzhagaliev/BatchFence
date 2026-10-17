@@ -781,7 +781,7 @@ function App() {
                   </button>
                 ))}
               </nav>
-              <div className={"workbench mobile-" + mobile}>
+              <div className={"workbench mobile-" + mobile + (['sources','handover'].includes(tab)&&!inspector?' focused-review':'')}>
                 <aside className="source-panel panel">
                   <div className="panel-heading">
                     <h2>
@@ -898,15 +898,10 @@ function App() {
                   <div className="map-heading">
                     <div>
                       <h2>
-                        {tab === "recovery" ? "Controlled recovery" : tab === "timeline"
-                          ? "Evidence revision timeline"
-                          : tab === "sources"
-                            ? "Source records"
-                            : "Exposure map"}
+                        {({recovery:'Controlled recovery',timeline:'Evidence revision timeline',sources:'Source records',handover:'Shift handover',requests:'Evidence requests',orders:'Order review',receipt:'Execution receipt',verify:'Verification'} as Record<string,string>)[tab]||'Exposure map'}
                       </h2>
                       <span className="caption">
-                        Select stock to inspect the decision and supporting
-                        evidence.
+                        {tab==='sources'?'Compare the retained original with each proposed interpretation.':tab==='handover'?'A dated snapshot of quantities, outstanding work and the next permitted action.':'Select stock to inspect the decision and supporting evidence.'}
                       </span>
                     </div>
                     {tab === "map" && (
@@ -1021,7 +1016,7 @@ function App() {
                           setExcludedLots([...clean(excludedLots),...(value==='excluded'?[newId]:[])].join(', '));
                         }
                         return <article className="lot-review-card" key={id}>
-                          <button className="candidate" onClick={()=>showEvidence(f.evidence[0])}><code>{id}</code><span>{f.affected?'Affected candidate':'Negative proposal'}</span><small>Inspect quote <ChevronRight size={12}/></small></button>
+                          <button className="candidate" onClick={()=>showEvidence(f.evidence[0])}><code>{id}</code><span>Proposed: {f.proposal_incident_status || run?.validated_proposals?.facts.find(p=>p.lot_id===id)?.status || (f.proposal_disposition?'identity '+f.proposal_disposition:f.affected?'affected':'unresolved or mentioned')}</span><small>Inspect quote <ChevronRight size={12}/></small></button>
                           <blockquote>{f.evidence[0]?.quote}</blockquote>
                           <label className="field-label" htmlFor={'disposition-'+id}>Disposition of {id}</label>
                           <select id={'disposition-'+id} value={disposition} onChange={e=>choose(e.target.value)}><option value="unresolved">Unresolved</option><option value="affected">Affected</option><option value="excluded">Explicitly excluded</option></select>
@@ -1142,7 +1137,7 @@ function App() {
                     <section className="source-page">
                       <h3>{doc?.filename}</h3>
                       {doc&&<OcrReview key={doc.id} state={state} doc={doc} readOnly={readOnly} onUpdate={accept}/>}
-                      <div className="source-review-layout"><aside className="original-source"><span className="eyebrow">RETAINED ORIGINAL</span><SourceText doc={doc}/><IntakePanel key={state.id} state={state} readOnly={readOnly} onUpdate={accept}/></aside><ContinuationPanel state={state} part="sources" doc={doc} readOnly={readOnly} update={accept} openReview={s=>{beginReview(s.runs.at(-1)!);setTab('map');}}/></div>
+                      <details className="source-mapping"><summary>Map original inventory and lineage records</summary><IntakePanel key={state.id} state={state} readOnly={readOnly} onUpdate={accept}/></details><div className="source-review-layout"><aside className="original-source"><span className="eyebrow">RETAINED ORIGINAL</span><SourceText doc={doc}/></aside><ContinuationPanel state={state} part="sources" doc={doc} readOnly={readOnly} update={accept} openReview={s=>{beginReview(s.runs.at(-1)!);setTab('map');}}/></div>
                     </section>
                   ) : tab === "requests" ? (
                     <><EvidencePlanner state={state} readOnly={readOnly||!!busy} mode={mode} onUpdate={s=>{accept(s);setNotice('');setError('');}} onEvidence={showEvidence}/><ContinuationPanel state={state} part="requests" readOnly={readOnly||!!busy} update={accept}/></>

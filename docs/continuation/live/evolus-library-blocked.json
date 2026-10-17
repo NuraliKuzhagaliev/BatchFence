@@ -1,0 +1,5 @@
+{
+  "phase": "retrieval-and-answer",
+  "error": "Fresh library answer failed validation: Answer must select exact retrieved source passages; unsupported procedural claims rejected",
+  "no_automatic_retry": true
+}

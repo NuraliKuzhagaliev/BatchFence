@@ -1,0 +1,236 @@
+{
+  "id": "GENERATE-837bb27e1c8b2cbf233b86f9",
+  "case_id": "5dea5cf73d7e4983ab9c9f908d2bb63a",
+  "kind": "knowledge",
+  "mode": "live",
+  "provider_path": "Direct Gemma / managed-amd-shared",
+  "status": "unreviewed proposal",
+  "request_hash": "90ea8a7b3696ebe284ec21ac80ba6560ee2045313aebadc2b0ca4825fc550f38",
+  "snapshot_hash": "63ce5cbd6611a2904a15fe6b07d76e66c46f84aa373d548b578ed4c20bd43175",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "started_at": "2026-10-17T19:29:57.626061+00:00",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+    "dispatch": 48,
+    "conservative_remaining": 0.858225329327397,
+    "stop_margin": 0.1
+  },
+  "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+  "raw_output": {
+    "selections": [
+      {
+        "document_id": "TRAIN-COSMETIC",
+        "version": 1,
+        "passage_id": "P1"
+      }
+    ],
+    "insufficient_evidence": false,
+    "missing_information": []
+  },
+  "provenance": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T19:30:05.271454+00:00",
+    "elapsed_ms": 5952,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "c2c6927e6c3547db9ed0ea2c9497451e",
+    "usage": {
+      "prompt_tokens": 599,
+      "total_tokens": 648,
+      "completion_tokens": 49,
+      "prompt_tokens_details": {
+        "cached_tokens": 4,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 2.42578e-05,
+      "cost_details": {
+        "upstream_inference_cost": 2.42578e-05,
+        "upstream_inference_prompt_cost": 2.08278e-05,
+        "upstream_inference_completions_cost": 3.43e-06,
+        "total_cost": 2.42578e-05,
+        "input_cost": 2.0825e-05,
+        "output_cost": 3.43e-06,
+        "cached_input_cost": 2.8e-09,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "41089360a4ae6dd1e1900926feb1503cbd8b9c98eca328dc1229da3873311161",
+    "http_status": 200,
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "library_provenance": [
+    {
+      "provider": "Evolus",
+      "at": "2026-10-17T19:29:58.608589+00:00",
+      "method": "GET",
+      "path": "/api/v1/memories/eae0f36e-5fca-f111-bf5b-6045bd9ce552/documents",
+      "http_status": 200,
+      "elapsed_ms": 970,
+      "response_hash": "ce61a3d0bbd056c9108622339f4a06a0e177aa89f151650b0bf91b3e0a5a9176",
+      "request_id": null,
+      "execution_header": null,
+      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+    },
+    {
+      "provider": "Evolus",
+      "at": "2026-10-17T19:29:59.319550+00:00",
+      "method": "GET",
+      "path": "/api/v1/memories/eae0f36e-5fca-f111-bf5b-6045bd9ce552/documents/95228811-0d79-4169-a4c6-86f521ad553b/download",
+      "http_status": 200,
+      "elapsed_ms": 701,
+      "response_hash": "5bed279184844dab0d192627a447aec7c4131044caf08ed11e47d41d72d3307f",
+      "request_id": null,
+      "execution_header": null,
+      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+    }
+  ],
+  "finished_at": "2026-10-17T19:30:05.273689+00:00",
+  "draft": {
+    "claims": [
+      {
+        "document_id": "TRAIN-COSMETIC",
+        "version": 1,
+        "passage_id": "P1",
+        "quote": "Before cosmetic recovery, verify the exact lot identity, complete parent list, passed whole-pool inspection and current approved scope. Obtain separate release approval. This fictional training procedure grants no real inventory authority."
+      }
+    ],
+    "insufficient_evidence": false,
+    "missing_information": []
+  },
+  "quote_origin": "Deterministically resolved full authorized original passages; the model selected keys and did not author the displayed quotes",
+  "linked_answer": {
+    "id": "GENERATE-837bb27e1c8b2cbf233b86f9",
+    "case_id": "5dea5cf73d7e4983ab9c9f908d2bb63a",
+    "status": "succeeded",
+    "mode": "Live Gemma / isolated Evolus library",
+    "output": {
+      "claims": [
+        {
+          "document_id": "TRAIN-COSMETIC",
+          "version": 1,
+          "passage_id": "P1",
+          "quote": "Before cosmetic recovery, verify the exact lot identity, complete parent list, passed whole-pool inspection and current approved scope. Obtain separate release approval. This fictional training procedure grants no real inventory authority."
+        }
+      ],
+      "insufficient_evidence": false,
+      "missing_information": []
+    },
+    "catalog_digest": "e167be93a685244cf4a56c1ffce44b9440c9b4a598b210732e65d4d7314599c2",
+    "retrieval": {
+      "status": "retrieved",
+      "reason": "",
+      "passages": [
+        {
+          "document_id": "TRAIN-COSMETIC",
+          "version": 1,
+          "passage_id": "P1",
+          "quote": "Before cosmetic recovery, verify the exact lot identity, complete parent list, passed whole-pool inspection and current approved scope. Obtain separate release approval. This fictional training procedure grants no real inventory authority.",
+          "page": 1,
+          "source_hash": "fa4d54cadc0feb35141537d1693a4eab5ce17b1eb760428c0028d3313a0925e4"
+        }
+      ]
+    },
+    "question": "What evidence is required before cosmetic recovery?",
+    "provenance": {
+      "provider": "Configured Gemma endpoint",
+      "at": "2026-10-17T19:30:05.271454+00:00",
+      "elapsed_ms": 5952,
+      "requested_model_id": "Gemma-4-31B-IT",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "request_id": "c2c6927e6c3547db9ed0ea2c9497451e",
+      "usage": {
+        "prompt_tokens": 599,
+        "total_tokens": 648,
+        "completion_tokens": 49,
+        "prompt_tokens_details": {
+          "cached_tokens": 4,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 2.42578e-05,
+        "cost_details": {
+          "upstream_inference_cost": 2.42578e-05,
+          "upstream_inference_prompt_cost": 2.08278e-05,
+          "upstream_inference_completions_cost": 3.43e-06,
+          "total_cost": 2.42578e-05,
+          "input_cost": 2.0825e-05,
+          "output_cost": 3.43e-06,
+          "cached_input_cost": 2.8e-09,
+          "cache_write_input_cost": 0,
+          "request_cost": 0,
+          "web_search_cost": 0,
+          "image_input_cost": null,
+          "image_output_cost": null,
+          "audio_input_cost": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "settings": {
+        "temperature": 0,
+        "max_tokens": 1600
+      },
+      "response_hash": "41089360a4ae6dd1e1900926feb1503cbd8b9c98eca328dc1229da3873311161",
+      "http_status": 200,
+      "hosting_kind": "managed-amd-shared",
+      "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+    },
+    "library_provenance": [
+      {
+        "provider": "Evolus",
+        "at": "2026-10-17T19:29:58.608589+00:00",
+        "method": "GET",
+        "path": "/api/v1/memories/eae0f36e-5fca-f111-bf5b-6045bd9ce552/documents",
+        "http_status": 200,
+        "elapsed_ms": 970,
+        "response_hash": "ce61a3d0bbd056c9108622339f4a06a0e177aa89f151650b0bf91b3e0a5a9176",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      },
+      {
+        "provider": "Evolus",
+        "at": "2026-10-17T19:29:59.319550+00:00",
+        "method": "GET",
+        "path": "/api/v1/memories/eae0f36e-5fca-f111-bf5b-6045bd9ce552/documents/95228811-0d79-4169-a4c6-86f521ad553b/download",
+        "http_status": 200,
+        "elapsed_ms": 701,
+        "response_hash": "5bed279184844dab0d192627a447aec7c4131044caf08ed11e47d41d72d3307f",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    ],
+    "timestamp": "2026-10-17T19:30:05.273981+00:00",
+    "boundary": "Exact applicable passage proposals; explicit original evidence review required for any check"
+  }
+}

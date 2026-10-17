@@ -96,8 +96,9 @@ export type Run = {
   elapsed_ms?: number;
   error?: string;
   scope_concerns?: Evidence[];
+  validated_proposals?: {facts:{lot_id:string;status:string}[];scope_status:string};
   output?: {
-    facts: { lot_id: string; affected: boolean; evidence: Evidence[] }[];
+    facts: { lot_id: string; affected: boolean; proposal_disposition?:string; proposal_incident_status?:string; evidence: Evidence[] }[];
     qualifiers: string[];
   };
 };

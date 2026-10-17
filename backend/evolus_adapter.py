@@ -14,6 +14,11 @@ from .fixtures import now
 REQUIRED=('EVOLUS_API_BASE_URL','EVOLUS_API_KEY','EVOLUS_APPLICATION_ID','EVOLUS_CONTRACT_FILE')
 
 
+class ProviderFailure(DomainError):
+    def __init__(self,message,evidence):
+        super().__init__(message);self.evidence=evidence
+
+
 def https_origin(value):
     u=urlsplit(value)
     if u.scheme!='https' or not u.hostname or u.username or u.password or u.query or u.fragment:
@@ -50,7 +55,9 @@ def allowance(provider):
         current=datetime.now(timezone.utc)
         valid=data['additional_cash_limit']==0 and data['overages_disabled'] is True and data['storage_network_cash_limit']==0
         valid=valid and checked.tzinfo and expiry.tzinfo and checked<=current<expiry and (current-checked).total_seconds()<3600
-        valid=valid and 1<=data['max_dispatches']<=64 and data['remaining_credits']>data['stop_margin']>=0 and data['max_credits_per_dispatch']>0
+        valid=valid and 1<=data['max_dispatches']<=64 and data['remaining_credits']>data['stop_margin']>=0 and data['max_credits_per_dispatch']>=0
+        if data['max_credits_per_dispatch']==0:
+            valid=valid and provider=='evolus' and data.get('cost_basis')=='Documented own-model LLM, native text and read-only Blob library only; no embeddings or platform AI tools'
         valid=valid and bool(data['evidence_reference']) and data['provider']==provider
         if provider=='gemma':
             own=data.get('own_amd_vllm_verified') is True and data.get('resource_lifecycle_verified') is True
@@ -79,17 +86,20 @@ def pointer(value,path):
     return value
 
 
-def operation(name,inputs,*,transport=None):
+def operation(name,inputs,*,transport=None,before_call=lambda:None):
     c=contract()
     if c.get('format')=='evolus-openapi-3.0.4':
         from . import evolus_api
-        if name=='workflow_start':return evolus_api.workflow_start(inputs,transport)
-        if name=='workflow_status':
+        if name in ('workflow_start','workflow_status'):
             path=os.getenv('EVOLUS_WORKFLOW_MANIFEST_FILE')
             if not path:raise DomainError('UNAVAILABLE: verified workflow manifest required')
             raw=Path(path).read_bytes()
             if hashlib.sha256(raw).hexdigest()!=os.getenv('EVOLUS_WORKFLOW_MANIFEST_SHA256'):raise DomainError('Workflow configuration changed; recheck its manifest')
-            return evolus_api.workflow_status(inputs,json.loads(raw),transport)
+            manifest=json.loads(raw)
+            if name=='workflow_start':
+                verified=evolus_api.verify_workflow(manifest,before_call,transport)
+                result=evolus_api.workflow_start(inputs,transport);result['configuration_proof']=verified;return result
+            return evolus_api.workflow_status(inputs,manifest,transport)
         raise DomainError('Unsupported operation in the verified Evolus API contract')
     op=c['operations'].get(name)
     if not op:raise DomainError('UNAVAILABLE: documented operation not configured: '+name)
@@ -144,15 +154,19 @@ def gemma(context,schema,*,image=None,transport=None,vision_probe=False):
     if os.getenv('GEMMA_JSON_OBJECT')=='true':payload['response_format']={'type':'json_object'}
     with httpx.Client(timeout=40,follow_redirects=False,trust_env=False,transport=transport) as client:
         with client.stream('POST',base+'/chat/completions',headers={'Authorization':'Bearer '+os.environ['GEMMA_API_KEY']},json=payload) as response:
-            if response.status_code>=400:raise DomainError('Gemma endpoint HTTP '+str(response.status_code)+'; no retry')
+            if response.status_code>=400:
+                retry=response.headers.get('retry-after','')
+                raise ProviderFailure('Gemma endpoint HTTP '+str(response.status_code)+'; no retry',{'provider':'Configured Gemma endpoint','at':now(),
+                    'http_status':response.status_code,'requested_model_id':payload['model'],'request_id':response.headers.get('x-request-id'),
+                    'elapsed_ms':round((time.perf_counter()-started)*1000),'retry_after_seconds':int(retry) if retry.isdecimal() and len(retry)<6 else None})
             raw=b''.join(_bounded(response.iter_bytes(),48000));body=json.loads(raw)
     content=body['choices'][0]['message'].get('content')
-    text=content.strip() if isinstance(content,str) else ''
-    if text.startswith('```'):text=text.removeprefix('```json').removeprefix('```').removesuffix('```').strip()
+    text=content if isinstance(content,str) else ''
     # Never retain hidden reasoning or echo the raw HTTP response/body in logs.
-    try:result=json.loads(text)
+    from .scope_proposals import parse_json
+    try:result=parse_json(text)
     except ValueError:result={'unparsed_response':text,'raw_extraction_error':'Model content was empty or not valid JSON; no facts accepted'}
-    for key in ('GEMMA_API_KEY','EVOLUS_API_KEY'):
+    for key in ('AMD_API_KEY','GEMMA_API_KEY','EVOLUS_API_KEY','EVOLUS_USER_API_KEY'):
         if os.getenv(key) and os.environ[key] in json.dumps(result):raise DomainError('Provider output contained a private value; result discarded')
     return {'provider':'Configured Gemma endpoint','at':now(),'elapsed_ms':round((time.perf_counter()-started)*1000),
         'requested_model_id':payload['model'],'model_id':body.get('model'),'request_id':response.headers.get('x-request-id',body.get('id')),

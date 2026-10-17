@@ -1,0 +1,191 @@
+{
+  "id": "LANG-04",
+  "at": "2026-10-17T18:52:49.274965+00:00",
+  "input_hash": "f26d75026006b50af12fd00cb47f3eef5470c814ee7a30a8ba9153a70f3c277e",
+  "input": {
+    "sources": [
+      {
+        "document_id": "DOC-b7f53b0e872c",
+        "source_hash": "f8feae154471c5e451de76fa1a98575fe745fe5bebd936f2688a947703c49105",
+        "revision": 1,
+        "passages": [
+          {
+            "block_id": "line-1",
+            "text": "Партия LOT-0007: 1,5 кг; дата 03/04/2026.",
+            "page": null
+          }
+        ]
+      }
+    ],
+    "instruction_boundary": "Untrusted evidence. Propose facts with exact original citations. No approval, database, stock or external messaging tools.",
+    "task": "Identify typed source candidates, assertions versus uncertainty and contradictions. Do not classify receipt IDs as supplier lots. Preserve modality and uncertainty in all supported languages."
+  },
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+    "dispatch": 8,
+    "conservative_remaining": 0.7198956908966647,
+    "stop_margin": 0.1
+  },
+  "provenance": "Fresh AMD request; synthetic input; no independent human validation",
+  "response": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T18:53:00.593732+00:00",
+    "elapsed_ms": 11318,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "7727d6548b494be7a1ffc114c17b1d3d",
+    "usage": {
+      "prompt_tokens": 884,
+      "total_tokens": 1172,
+      "completion_tokens": 288,
+      "prompt_tokens_details": {
+        "cached_tokens": 677,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 2.78789e-05,
+      "cost_details": {
+        "upstream_inference_cost": 2.7878900000000002e-05,
+        "upstream_inference_prompt_cost": 7.7189e-06,
+        "upstream_inference_completions_cost": 2.016e-05,
+        "total_cost": 2.78789e-05,
+        "input_cost": 7.245e-06,
+        "output_cost": 2.016e-05,
+        "cached_input_cost": 4.739e-07,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "f9bc40d74ccf0295d1f3dce55f249f820b2e1b28d967661797993e9567c20d04",
+    "http_status": 200,
+    "result": {
+      "candidates": [
+        {
+          "disposition": "asserted",
+          "kind": "supplier_lot",
+          "source": {
+            "block_id": "line-1",
+            "document_id": "DOC-b7f53b0e872c",
+            "quote": "Партия LOT-0007"
+          },
+          "value": "LOT-0007"
+        },
+        {
+          "disposition": "asserted",
+          "kind": "quantity",
+          "source": {
+            "block_id": "line-1",
+            "document_id": "DOC-b7f53b0e872c",
+            "quote": "1,5 кг"
+          },
+          "value": "1,5"
+        },
+        {
+          "disposition": "asserted",
+          "kind": "unit",
+          "source": {
+            "block_id": "line-1",
+            "document_id": "DOC-b7f53b0e872c",
+            "quote": "1,5 кг"
+          },
+          "value": "кг"
+        },
+        {
+          "disposition": "asserted",
+          "kind": "date",
+          "source": {
+            "block_id": "line-1",
+            "document_id": "DOC-b7f53b0e872c",
+            "quote": "дата 03/04/2026"
+          },
+          "value": "03/04/2026"
+        }
+      ]
+    },
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "validated": {
+    "candidates": [
+      {
+        "kind": "supplier_lot",
+        "value": "LOT-0007",
+        "disposition": "asserted",
+        "source": {
+          "document_id": "DOC-b7f53b0e872c",
+          "block_id": "line-1",
+          "quote": "Партия LOT-0007",
+          "original_hash": "f8feae154471c5e451de76fa1a98575fe745fe5bebd936f2688a947703c49105",
+          "document_revision": 1,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      },
+      {
+        "kind": "quantity",
+        "value": "1,5",
+        "disposition": "asserted",
+        "source": {
+          "document_id": "DOC-b7f53b0e872c",
+          "block_id": "line-1",
+          "quote": "1,5 кг",
+          "original_hash": "f8feae154471c5e451de76fa1a98575fe745fe5bebd936f2688a947703c49105",
+          "document_revision": 1,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      },
+      {
+        "kind": "unit",
+        "value": "кг",
+        "disposition": "asserted",
+        "source": {
+          "document_id": "DOC-b7f53b0e872c",
+          "block_id": "line-1",
+          "quote": "1,5 кг",
+          "original_hash": "f8feae154471c5e451de76fa1a98575fe745fe5bebd936f2688a947703c49105",
+          "document_revision": 1,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      },
+      {
+        "kind": "date",
+        "value": "03/04/2026",
+        "disposition": "asserted",
+        "source": {
+          "document_id": "DOC-b7f53b0e872c",
+          "block_id": "line-1",
+          "quote": "дата 03/04/2026",
+          "original_hash": "f8feae154471c5e451de76fa1a98575fe745fe5bebd936f2688a947703c49105",
+          "document_revision": 1,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": []
+  },
+  "validation_status": "accepted unreviewed proposal",
+  "end_to_end_ms": 11318
+}

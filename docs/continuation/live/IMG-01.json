@@ -1,0 +1,84 @@
+{
+  "id": "IMG-01",
+  "at": "2026-10-17T18:53:18.477617+00:00",
+  "input_hash": "bdd70c04eee1f6aa5c48648561c7dc3611466c6bedafe71871636c70e1fd2c76",
+  "input": {
+    "task": "Read visible LOT IDs only, preserving exact spelling and leading zeros. Report O/0,B/8,S/5 ambiguities. Multiple labels stay separate. Unreadable images require abstention. No authenticity, quality or action authority.",
+    "image_hash": "cb1faa73dfb2a415ff2d3abbd863d2ff0c8e2e2a5f43c45cb26d26b65e638704",
+    "image_kind": "Synthetic rendered label, not physical photo"
+  },
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+    "dispatch": 10,
+    "conservative_remaining": 0.8598372892005136,
+    "stop_margin": 0.1
+  },
+  "provenance": "Fresh AMD request; synthetic input; no independent human validation",
+  "response": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T18:53:22.594030+00:00",
+    "elapsed_ms": 4115,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "e3e70d3016104e0984f826f8e6242606",
+    "usage": {
+      "prompt_tokens": 578,
+      "total_tokens": 602,
+      "completion_tokens": 24,
+      "prompt_tokens_details": {
+        "cached_tokens": 46,
+        "image_tokens": 264,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 2.03322e-05,
+      "cost_details": {
+        "upstream_inference_cost": 2.03322e-05,
+        "upstream_inference_prompt_cost": 1.86522e-05,
+        "upstream_inference_completions_cost": 1.68e-06,
+        "total_cost": 2.03322e-05,
+        "input_cost": 1.862e-05,
+        "output_cost": 1.68e-06,
+        "cached_input_cost": 3.22e-08,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "064071ba1d7b231c8b0e59cb98eb5bb04901a7000100eb290d9884bab15eb2d5",
+    "http_status": 200,
+    "result": {
+      "candidates": [
+        "SUP-001"
+      ],
+      "unresolved_characters": [],
+      "unreadable": false
+    },
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "validated": {
+    "candidates": [
+      "SUP-001"
+    ],
+    "unresolved_characters": [],
+    "unreadable": false
+  },
+  "validation_status": "accepted unreviewed proposal",
+  "end_to_end_ms": 4115
+}

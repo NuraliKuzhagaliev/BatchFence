@@ -1,0 +1,444 @@
+{
+  "id": "ASSIST-eecb1a6d957e3cc270430172",
+  "case_id": "02405e36583f42e6ac9417536dc33101",
+  "mode": "live",
+  "status": "running",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "snapshot_hash": "7bee1efe0850d64cedb0e0b7645ea54771b031d68c6e536eb88045af18f22a4e",
+  "request_hash": "1d32f46a372a1f479e8e28e7bf8a0946610e1c8a5b3dac22387f5955f752874c",
+  "context_hash": "68b65012f564cac11823989ba26479d94ccf8e6e369875eb3c87674848ecb83a",
+  "started_at": "2026-10-17T19:21:54.406885+00:00",
+  "reservation": {
+    "provider": "evolus",
+    "reservation": "269a183620a5ef65eeb6886fe53cac92ba46544723c06c79e88841a590ea717d",
+    "dispatch": 12,
+    "conservative_remaining": 50000,
+    "stop_margin": 1000
+  },
+  "executions": [
+    {
+      "execution_id": "1ea61132-60ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Queued",
+      "enqueued_at": "2026-10-17T19:23:21.8181206Z",
+      "trace_id": "c082c82d14e4a136f8e9af97ecc78a0f",
+      "queue_job_id": "4280889",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T19:22:00.212331+00:00",
+        "method": "POST",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/execute",
+        "http_status": 202,
+        "elapsed_ms": 1018,
+        "response_hash": "d08b68b252453d17cd0e296d238ec372a45fdca7f25e39ed28798170f0c18c1a",
+        "request_id": null,
+        "execution_header": "1ea61132-60ca-f111-bf5b-6045bd9ce552",
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4",
+        "configuration_proof": {
+          "checked_at": "2026-10-17T19:21:59.194619+00:00",
+          "configuration_hash": "25bffae10b887877ed2628b22a85eb9ceb2d255d62d799faa8aa66b0a8b44111",
+          "requests": [
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T19:21:55.220419+00:00",
+              "method": "GET",
+              "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45",
+              "http_status": 200,
+              "elapsed_ms": 799,
+              "response_hash": "77020673dce3773b44db628bb8eb53bde40d3d9ec6ac54bc17e8a571f526bf81",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T19:21:56.040126+00:00",
+              "method": "GET",
+              "path": "/api/v1/own-models/connections",
+              "http_status": 200,
+              "elapsed_ms": 813,
+              "response_hash": "de7041054aec06fccd2ae5fe81056f40c1699707e57310b7d7e4277bddf5d549",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T19:21:56.835394+00:00",
+              "method": "GET",
+              "path": "/api/v1/agents/0412148a-94de-4696-8aed-23e08ae2b1ab",
+              "http_status": 200,
+              "elapsed_ms": 789,
+              "response_hash": "9c13a2a7bcced7d215bca1e2e9305449cbaf93776bb7a1b9d21f89c34c2219fa",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T19:21:57.539966+00:00",
+              "method": "GET",
+              "path": "/api/v1/agents/0412148a-94de-4696-8aed-23e08ae2b1ab/json/f56aab1b-9b7e-45c8-af13-24ecee68b34c",
+              "http_status": 200,
+              "elapsed_ms": 698,
+              "response_hash": "ad76cbaae7b635f0a1e3d935fe7cfe907d252d3941af148ab297262e105a840d",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T19:21:58.253443+00:00",
+              "method": "GET",
+              "path": "/api/v1/agents/971b2c6f-29c5-4828-b335-76cdc9c7850c",
+              "http_status": 200,
+              "elapsed_ms": 706,
+              "response_hash": "b1689ad2cbc9bbc321a1efc6a3773a3c37c09955ba48c9f7403864e537aab058",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-17T19:21:59.194530+00:00",
+              "method": "GET",
+              "path": "/api/v1/agents/971b2c6f-29c5-4828-b335-76cdc9c7850c/json/d9fcfc23-ae08-4336-a1fe-62c223412591",
+              "http_status": 200,
+              "elapsed_ms": 932,
+              "response_hash": "80627e57f679d906768bf264fd4b9329db785790954f09ddc85df551904b9949",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            }
+          ],
+          "model_identity_basis": "Verified own-model configuration; WorkflowExecution does not return runtime model ID",
+          "provider_internal_retries": "BatchFence makes one dispatch. Structured correction budget is zero; undocumented provider infrastructure retries are not claimed absent."
+        }
+      }
+    },
+    {
+      "execution_id": "1ea61132-60ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Running",
+      "steps": [],
+      "draft": null,
+      "consumption": null,
+      "requested_at": "2026-10-17T19:23:21.8031113Z",
+      "completed_at": null,
+      "trace_id": "c082c82d14e4a136f8e9af97ecc78a0f",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T19:22:05.910778+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/1ea61132-60ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 670,
+        "response_hash": "5fd3caaa955a1ed2eded051faa469475931bdc6da5127898408cf37c490b5f1f",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    },
+    {
+      "execution_id": "1ea61132-60ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Running",
+      "steps": [
+        {
+          "kind": "extractor",
+          "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+          "step_id": "6091d2ae-e5f8-41c4-9e60-92557047bd37",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 8192,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "configured_model_key": "own/gemma-4-31b-it",
+          "model_identity_basis": "Configuration, not a returned runtime model ID",
+          "output_hash": "4c76bd518ba16fd95e41d2268c7fb246aebabe7b0550b81ddc08a0ee2c4c5d16",
+          "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"revision\",\"disposition\":\"mentioned\",\"quote\":\"This revision supersedes the earlier notice.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"the list is complete\",\"page\":null}],\"unresolved\":[]}",
+          "execution_step_key": "1"
+        }
+      ],
+      "draft": null,
+      "consumption": null,
+      "requested_at": "2026-10-17T19:23:21.8031113Z",
+      "completed_at": null,
+      "trace_id": "c082c82d14e4a136f8e9af97ecc78a0f",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T19:22:11.720107+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/1ea61132-60ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 782,
+        "response_hash": "bf64eb65750bb8d426850a8f99b6c44c7e600561b689e3b7ff89585f4f7b6741",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    },
+    {
+      "execution_id": "1ea61132-60ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Running",
+      "steps": [
+        {
+          "kind": "extractor",
+          "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+          "step_id": "6091d2ae-e5f8-41c4-9e60-92557047bd37",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 8192,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "configured_model_key": "own/gemma-4-31b-it",
+          "model_identity_basis": "Configuration, not a returned runtime model ID",
+          "output_hash": "4c76bd518ba16fd95e41d2268c7fb246aebabe7b0550b81ddc08a0ee2c4c5d16",
+          "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"revision\",\"disposition\":\"mentioned\",\"quote\":\"This revision supersedes the earlier notice.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"the list is complete\",\"page\":null}],\"unresolved\":[]}",
+          "execution_step_key": "1"
+        }
+      ],
+      "draft": null,
+      "consumption": null,
+      "requested_at": "2026-10-17T19:23:21.8031113Z",
+      "completed_at": null,
+      "trace_id": "c082c82d14e4a136f8e9af97ecc78a0f",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T19:22:17.486090+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/1ea61132-60ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 739,
+        "response_hash": "bf64eb65750bb8d426850a8f99b6c44c7e600561b689e3b7ff89585f4f7b6741",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    },
+    {
+      "execution_id": "1ea61132-60ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Running",
+      "steps": [
+        {
+          "kind": "extractor",
+          "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+          "step_id": "6091d2ae-e5f8-41c4-9e60-92557047bd37",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 8192,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "configured_model_key": "own/gemma-4-31b-it",
+          "model_identity_basis": "Configuration, not a returned runtime model ID",
+          "output_hash": "4c76bd518ba16fd95e41d2268c7fb246aebabe7b0550b81ddc08a0ee2c4c5d16",
+          "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"revision\",\"disposition\":\"mentioned\",\"quote\":\"This revision supersedes the earlier notice.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"the list is complete\",\"page\":null}],\"unresolved\":[]}",
+          "execution_step_key": "1"
+        }
+      ],
+      "draft": null,
+      "consumption": null,
+      "requested_at": "2026-10-17T19:23:21.8031113Z",
+      "completed_at": null,
+      "trace_id": "c082c82d14e4a136f8e9af97ecc78a0f",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T19:22:23.248270+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/1ea61132-60ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 734,
+        "response_hash": "bf64eb65750bb8d426850a8f99b6c44c7e600561b689e3b7ff89585f4f7b6741",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    },
+    {
+      "execution_id": "1ea61132-60ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Running",
+      "steps": [
+        {
+          "kind": "extractor",
+          "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+          "step_id": "6091d2ae-e5f8-41c4-9e60-92557047bd37",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 8192,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "configured_model_key": "own/gemma-4-31b-it",
+          "model_identity_basis": "Configuration, not a returned runtime model ID",
+          "output_hash": "4c76bd518ba16fd95e41d2268c7fb246aebabe7b0550b81ddc08a0ee2c4c5d16",
+          "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"revision\",\"disposition\":\"mentioned\",\"quote\":\"This revision supersedes the earlier notice.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"the list is complete\",\"page\":null}],\"unresolved\":[]}",
+          "execution_step_key": "1"
+        }
+      ],
+      "draft": null,
+      "consumption": null,
+      "requested_at": "2026-10-17T19:23:21.8031113Z",
+      "completed_at": null,
+      "trace_id": "c082c82d14e4a136f8e9af97ecc78a0f",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T19:22:28.994063+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/1ea61132-60ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 711,
+        "response_hash": "bf64eb65750bb8d426850a8f99b6c44c7e600561b689e3b7ff89585f4f7b6741",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    },
+    {
+      "execution_id": "1ea61132-60ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Running",
+      "steps": [
+        {
+          "kind": "extractor",
+          "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+          "step_id": "6091d2ae-e5f8-41c4-9e60-92557047bd37",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 8192,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "configured_model_key": "own/gemma-4-31b-it",
+          "model_identity_basis": "Configuration, not a returned runtime model ID",
+          "output_hash": "4c76bd518ba16fd95e41d2268c7fb246aebabe7b0550b81ddc08a0ee2c4c5d16",
+          "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"revision\",\"disposition\":\"mentioned\",\"quote\":\"This revision supersedes the earlier notice.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"the list is complete\",\"page\":null}],\"unresolved\":[]}",
+          "execution_step_key": "1"
+        }
+      ],
+      "draft": null,
+      "consumption": null,
+      "requested_at": "2026-10-17T19:23:21.8031113Z",
+      "completed_at": null,
+      "trace_id": "c082c82d14e4a136f8e9af97ecc78a0f",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T19:22:34.916172+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/1ea61132-60ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 895,
+        "response_hash": "bf64eb65750bb8d426850a8f99b6c44c7e600561b689e3b7ff89585f4f7b6741",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    },
+    {
+      "execution_id": "1ea61132-60ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Running",
+      "steps": [
+        {
+          "kind": "extractor",
+          "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+          "step_id": "6091d2ae-e5f8-41c4-9e60-92557047bd37",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 8192,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "configured_model_key": "own/gemma-4-31b-it",
+          "model_identity_basis": "Configuration, not a returned runtime model ID",
+          "output_hash": "4c76bd518ba16fd95e41d2268c7fb246aebabe7b0550b81ddc08a0ee2c4c5d16",
+          "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"revision\",\"disposition\":\"mentioned\",\"quote\":\"This revision supersedes the earlier notice.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A and SUP-C.\",\"page\":null},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"the list is complete\",\"page\":null}],\"unresolved\":[]}",
+          "execution_step_key": "1"
+        }
+      ],
+      "draft": null,
+      "consumption": null,
+      "requested_at": "2026-10-17T19:23:21.8031113Z",
+      "completed_at": null,
+      "trace_id": "c082c82d14e4a136f8e9af97ecc78a0f",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-17T19:22:40.722733+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/36dd7029-87f4-4a97-8f06-43968a7e9c45/executions/1ea61132-60ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 778,
+        "response_hash": "bf64eb65750bb8d426850a8f99b6c44c7e600561b689e3b7ff89585f4f7b6741",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    }
+  ],
+  "external_execution_id": "1ea61132-60ca-f111-bf5b-6045bd9ce552",
+  "authority": "Unreviewed proposal only; no inventory, genealogy or approval writes"
+}

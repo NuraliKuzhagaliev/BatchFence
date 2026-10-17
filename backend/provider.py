@@ -34,18 +34,20 @@ SYSTEM = """Extract only facts supported by supplied document blocks. Preserve l
 
 
 def validate_output(raw, docs):
+    from .review_safety import mentions
     parsed = Extraction.model_validate(raw)
     index = {(d['id'], b['id']): b['text'] for d in docs for b in d['blocks']}
     for f in parsed.facts:
         for e in f.evidence:
             if (e.document_id, e.block_id) not in index or e.quote not in index[(e.document_id, e.block_id)]:
                 raise ValueError('Unsupported source citation')
-            if f.lot_id not in e.quote:
+            if not mentions(f.lot_id,e.quote):
                 raise ValueError('Lot identifier absent from cited quote')
     return parsed.model_dump()
 
 
 def extract(docs, mode):
+    from .scope_proposals import ScopeProposals,INSTRUCTIONS,VERSION,parse_json,validate_proposals,legacy_output
     started = time.perf_counter()
     run = {'id': str(uuid.uuid4()), 'mode': mode,
            'clock_source':'Server UTC wall clock; latency from monotonic clock',
@@ -73,15 +75,18 @@ def extract(docs, mode):
             base = os.environ['AMD_API_BASE_URL'].rstrip('/')
             if not base.startswith('https://') or 'notebooks.amd.com/tokenfactory' in base:
                 raise ValueError('Documented HTTPS inference base URL required; portal is not an inference endpoint')
+            run['prompt_version']=VERSION;run['schema_version']=2
             payload = {'model': os.environ['AMD_MODEL_ID'], 'messages': [
-                {'role': 'system', 'content': SYSTEM},
-                {'role': 'user', 'content': json.dumps({'schema': Extraction.model_json_schema(),
+                {'role': 'system', 'content': INSTRUCTIONS},
+                {'role': 'user', 'content': json.dumps({'schema': ScopeProposals.model_json_schema(),
                  'documents': [{'id': d['id'], 'blocks': d['blocks']} for d in docs]}, ensure_ascii=False)}
-            ], 'max_tokens': 2400, 'temperature': 0}
+            ], 'max_tokens': 1600, 'temperature': 0}
             run['requested_model_id'] = os.environ['AMD_MODEL_ID']
             if os.getenv('AMD_JSON_SCHEMA', 'false').lower() == 'true':
                 payload['response_format'] = {'type': 'json_schema', 'json_schema': {
-                    'name': 'scope_extraction', 'strict': True, 'schema': Extraction.model_json_schema()}}
+                    'name': 'scope_extraction', 'strict': True, 'schema': ScopeProposals.model_json_schema()}}
+            else:
+                payload['response_format']={'type':'json_object'}
             with httpx.Client(timeout=45, follow_redirects=False) as client:
                 response = client.post(base + '/chat/completions',
                     headers={'Authorization': 'Bearer ' + os.environ['AMD_API_KEY']}, json=payload)
@@ -93,12 +98,15 @@ def extract(docs, mode):
                 run['request_id'] = response.headers.get('x-request-id', body.get('id'))
                 run['usage'] = body.get('usage')
                 run['model_id'] = body.get('model', os.environ['AMD_MODEL_ID'])
-                answer = body['choices'][0]['message']['content'].strip()
-                if answer.startswith('~~~'):
-                    raise ValueError('Malformed model output')
-                if answer.startswith(chr(96)*3):
-                    answer = re.sub(r'^'+chr(96)*3+r'(?:json)?\s*|\s*'+chr(96)*3+r'$', '', answer)
-                raw = json.loads(answer)
+                answer = body['choices'][0]['message']['content']
+                # Preserve bounded raw text separately from parsed/validated output.
+                if isinstance(answer,str) and len(answer.encode('utf-8'))<=48000:
+                    for name in ('AMD_API_KEY','GEMMA_API_KEY','EVOLUS_API_KEY','EVOLUS_USER_API_KEY'):
+                        if os.getenv(name):answer=answer.replace(os.environ[name],'[REDACTED]')
+                    run['raw_response']=answer
+                proposed=parse_json(answer);run['raw_proposals']=proposed
+                run['validated_proposals']=validate_proposals(proposed,docs)
+                raw=legacy_output(run['validated_proposals'])
         else:
             raise ValueError('Recorded mode requires a preserved genuine run; none is configured')
         try:

@@ -17,6 +17,32 @@ class Answer(BaseModel):
     insufficient_evidence:bool
     missing_information:list[str]=Field(max_length=5)
 
+class PassageKey(BaseModel):
+    model_config=ConfigDict(extra='forbid')
+    document_id:str=Field(max_length=80)
+    version:int
+    passage_id:str=Field(max_length=80)
+
+class PassageSelection(BaseModel):
+    model_config=ConfigDict(extra='forbid')
+    selections:list[PassageKey]=Field(max_length=5)
+    insufficient_evidence:bool
+    missing_information:list[str]=Field(max_length=5)
+
+def selected_answer(raw,retrieval):
+    """Resolve model-selected keys to unchanged authorized full passages.
+
+    The model does not author the displayed quotes. No fuzzy matching, repair,
+    omitted caveat, cross-version lookup or outside-catalog key is accepted.
+    """
+    selected=PassageSelection.model_validate(raw).model_dump();by={(p['document_id'],p['version'],p['passage_id']):p for p in retrieval['passages']}
+    claims=[];seen=set()
+    for key in selected['selections']:
+        identity=(key['document_id'],key['version'],key['passage_id'])
+        if identity not in by or identity in seen:raise DomainError('Selection must name unique exact authorized passage keys')
+        seen.add(identity);claims.append({**key,'quote':by[identity]['quote']})
+    return validate_answer({'claims':claims,'insufficient_evidence':selected['insufficient_evidence'],'missing_information':selected['missing_information']},retrieval)
+
 
 def validate_document(doc):
     required={'id','version','status','valid_from','valid_to','products','processes','owner','passages','source_hash','synthetic'}

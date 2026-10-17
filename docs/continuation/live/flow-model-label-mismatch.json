@@ -1,0 +1,160 @@
+{
+  "id": "GENERATE-42d01d04c2819b5764a9c4b4",
+  "case_id": "4b898b8974074959b2c7c7bc401a7765",
+  "kind": "label",
+  "mode": "live",
+  "provider_path": "Direct Gemma / managed-amd-shared",
+  "status": "unreviewed proposal",
+  "request_hash": "6d642e8402ba586fcdc7baa5ee2ced74d8e1336eecd36f5d4bea0f23b6fe2ab1",
+  "snapshot_hash": "0fe4f04683c03eb2ded5be99d3bf949d5402312170d669f32661475aeb3c90a0",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "started_at": "2026-10-17T19:08:12.642281+00:00",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+    "dispatch": 34,
+    "conservative_remaining": 0.5793790608714334,
+    "stop_margin": 0.1
+  },
+  "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+  "raw_output": {
+    "candidates": [
+      "SUP-001"
+    ],
+    "unresolved_characters": [],
+    "unreadable": false
+  },
+  "provenance": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T19:08:16.344322+00:00",
+    "elapsed_ms": 3695,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "e1de25c8c0d943bfb9e911eea734f011",
+    "usage": {
+      "prompt_tokens": 583,
+      "total_tokens": 607,
+      "completion_tokens": 24,
+      "prompt_tokens_details": {
+        "cached_tokens": 46,
+        "image_tokens": 264,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 2.05072e-05,
+      "cost_details": {
+        "upstream_inference_cost": 2.05072e-05,
+        "upstream_inference_prompt_cost": 1.8827199999999998e-05,
+        "upstream_inference_completions_cost": 1.68e-06,
+        "total_cost": 2.05072e-05,
+        "input_cost": 1.8795e-05,
+        "output_cost": 1.68e-06,
+        "cached_input_cost": 3.22e-08,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "ee6e1726f66f9267b69e78be61354025092699a8435a699f51652fbce34619d5",
+    "http_status": 200,
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "library_provenance": null,
+  "finished_at": "2026-10-17T19:08:16.348422+00:00",
+  "draft": {
+    "id": "LABEL-a1dda62f9cdd08357355819c",
+    "case_id": "4b898b8974074959b2c7c7bc401a7765",
+    "filename": "synthetic-label-SUP-001.png",
+    "original_hash": "cb1faa73dfb2a415ff2d3abbd863d2ff0c8e2e2a5f43c45cb26d26b65e638704",
+    "derived_hash": "cb1faa73dfb2a415ff2d3abbd863d2ff0c8e2e2a5f43c45cb26d26b65e638704",
+    "image_version": 1,
+    "transform": {
+      "oriented_width": 720,
+      "oriented_height": 330,
+      "derived_width": 720,
+      "derived_height": 330,
+      "crop_xywh": null,
+      "transform": "EXIF orientation -> RGB pixel copy -> optional operator crop -> metadata-free PNG",
+      "region_origin": "full image; no machine localization"
+    },
+    "at": "2026-10-17T19:08:12.579999+00:00",
+    "status": "Gemma reading proposed / visual confirmation required",
+    "reading": {
+      "candidates": [
+        "SUP-001"
+      ],
+      "unresolved_characters": [],
+      "unreadable": false
+    },
+    "review": null,
+    "purpose": "Label identity only. No defect or product-quality inference. Barcode decoding unavailable in this build.",
+    "reading_provenance": {
+      "provider": "Configured Gemma endpoint",
+      "at": "2026-10-17T19:08:16.344322+00:00",
+      "elapsed_ms": 3695,
+      "requested_model_id": "Gemma-4-31B-IT",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "request_id": "e1de25c8c0d943bfb9e911eea734f011",
+      "usage": {
+        "prompt_tokens": 583,
+        "total_tokens": 607,
+        "completion_tokens": 24,
+        "prompt_tokens_details": {
+          "cached_tokens": 46,
+          "image_tokens": 264,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 2.05072e-05,
+        "cost_details": {
+          "upstream_inference_cost": 2.05072e-05,
+          "upstream_inference_prompt_cost": 1.8827199999999998e-05,
+          "upstream_inference_completions_cost": 1.68e-06,
+          "total_cost": 2.05072e-05,
+          "input_cost": 1.8795e-05,
+          "output_cost": 1.68e-06,
+          "cached_input_cost": 3.22e-08,
+          "cache_write_input_cost": 0,
+          "request_cost": 0,
+          "web_search_cost": 0,
+          "image_input_cost": null,
+          "image_output_cost": null,
+          "audio_input_cost": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "settings": {
+        "temperature": 0,
+        "max_tokens": 1600
+      },
+      "response_hash": "ee6e1726f66f9267b69e78be61354025092699a8435a699f51652fbce34619d5",
+      "http_status": 200,
+      "hosting_kind": "managed-amd-shared",
+      "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+    }
+  }
+}

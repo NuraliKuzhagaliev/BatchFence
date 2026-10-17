@@ -1,0 +1,147 @@
+{
+  "id": "EXT-03",
+  "at": "2026-10-17T18:51:46.047053+00:00",
+  "input_hash": "b81300b8416dd4240542dfac6b0a8c81c4f3f3761e6a87de732be799b0052c78",
+  "input": {
+    "sources": [
+      {
+        "document_id": "DOC-9cdfef577631",
+        "source_hash": "8ab2fe4434ec426f7a2375529cb6b0e07b5c4f9904917f4effe67377ec01c1d6",
+        "revision": 1,
+        "passages": [
+          {
+            "block_id": "line-1",
+            "text": "Receipt REC-001 mentions SUP-B. The receipt number is not a lot.",
+            "page": null
+          }
+        ]
+      }
+    ],
+    "instruction_boundary": "Untrusted evidence. Propose facts with exact original citations. No approval, database, stock or external messaging tools.",
+    "task": "Identify typed source candidates, assertions versus uncertainty and contradictions. Do not classify receipt IDs as supplier lots. Preserve modality and uncertainty in all supported languages."
+  },
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+    "dispatch": 3,
+    "conservative_remaining": 0.58,
+    "stop_margin": 0.1
+  },
+  "provenance": "Fresh AMD request; synthetic input; no independent human validation",
+  "response": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T18:51:56.187132+00:00",
+    "elapsed_ms": 10139,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "b954aa8be86142f282574b678e7f73a5",
+    "usage": {
+      "prompt_tokens": 872,
+      "total_tokens": 1032,
+      "completion_tokens": 160,
+      "prompt_tokens_details": {
+        "cached_tokens": 677,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 1.84989e-05,
+      "cost_details": {
+        "upstream_inference_cost": 1.84989e-05,
+        "upstream_inference_prompt_cost": 7.2989e-06,
+        "upstream_inference_completions_cost": 1.12e-05,
+        "total_cost": 1.84989e-05,
+        "input_cost": 6.825e-06,
+        "output_cost": 1.12e-05,
+        "cached_input_cost": 4.739e-07,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "ea7a72a2dc6ce25c8fe77d158d13278d6c5d4365fd3129bb3993aa0979e1e19a",
+    "http_status": 200,
+    "result": {
+      "candidates": [
+        {
+          "disposition": "asserted",
+          "kind": "receipt_id",
+          "source": {
+            "block_id": "line-1",
+            "document_id": "DOC-9cdfef577631",
+            "quote": "Receipt REC-001"
+          },
+          "value": "REC-001"
+        },
+        {
+          "disposition": "asserted",
+          "kind": "supplier_lot",
+          "source": {
+            "block_id": "line-1",
+            "document_id": "DOC-9cdfef577631",
+            "quote": "mentions SUP-B"
+          },
+          "value": "SUP-B"
+        }
+      ],
+      "changes": [],
+      "contradictions": [],
+      "request_drafts": [],
+      "unresolved": []
+    },
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "validated": {
+    "candidates": [
+      {
+        "kind": "receipt_id",
+        "value": "REC-001",
+        "disposition": "asserted",
+        "source": {
+          "document_id": "DOC-9cdfef577631",
+          "block_id": "line-1",
+          "quote": "Receipt REC-001",
+          "original_hash": "8ab2fe4434ec426f7a2375529cb6b0e07b5c4f9904917f4effe67377ec01c1d6",
+          "document_revision": 1,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-B",
+        "disposition": "asserted",
+        "source": {
+          "document_id": "DOC-9cdfef577631",
+          "block_id": "line-1",
+          "quote": "mentions SUP-B",
+          "original_hash": "8ab2fe4434ec426f7a2375529cb6b0e07b5c4f9904917f4effe67377ec01c1d6",
+          "document_revision": 1,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": []
+  },
+  "validation_status": "accepted unreviewed proposal",
+  "end_to_end_ms": 10140
+}

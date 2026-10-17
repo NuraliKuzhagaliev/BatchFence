@@ -1,0 +1,68 @@
+{
+  "status": "completed",
+  "case_id": "4b898b8974074959b2c7c7bc401a7765",
+  "actual_gemma_jobs": 8,
+  "events": [
+    {
+      "stage": "notice-500",
+      "raw_candidate_ids": [
+        "SUP-A"
+      ],
+      "agent_reviewed_affected_ids": [
+        "SUP-A"
+      ],
+      "added_during_review": [],
+      "review": "Agent-operated synthetic engineering review; not independent human, language, source-authenticity or manufacturing validation."
+    },
+    {
+      "stage": "notice-800",
+      "raw_candidate_ids": [
+        "SUP-A",
+        "SUP-C"
+      ],
+      "agent_reviewed_affected_ids": [
+        "SUP-A",
+        "SUP-C"
+      ],
+      "added_during_review": [],
+      "review": "Agent-operated synthetic engineering review; not independent human, language, source-authenticity or manufacturing validation."
+    },
+    {
+      "stage": "live-label-mismatch",
+      "reading": {
+        "candidates": [
+          "SUP-001"
+        ],
+        "unresolved_characters": [],
+        "unreadable": false
+      },
+      "document_id": "SUP-B",
+      "association_rejected_http": 422,
+      "physical_photo": false
+    },
+    {
+      "stage": "source-reassessment",
+      "raw_candidate_ids": [
+        "SUP-A",
+        "SUP-C"
+      ],
+      "agent_reviewed_affected_ids": [
+        "SUP-A",
+        "SUP-C"
+      ],
+      "added_during_review": [],
+      "review": "Agent-operated synthetic engineering review; not independent human, language, source-authenticity or manufacturing validation."
+    }
+  ],
+  "original_receipts": 2,
+  "recovery_receipts": 1,
+  "quantities": {
+    "applied_hold_units": 700,
+    "recovery_pending_units": 0,
+    "confirmed_recovery_units": 100
+  },
+  "review_provenance": "Agent-operated synthetic engineering review; not independent human, language, source-authenticity or manufacturing validation.",
+  "engineering_end_to_end_ms": 125376,
+  "timing_limits": "Scripted engineering timing includes model waiting and scripted correction/review; no independent operator comparison or claimed 30% improvement.",
+  "evolus": "This walkthrough uses the direct managed Gemma adapter. Real Evolus workflow acceptance is separate."
+}

@@ -1,0 +1,228 @@
+{
+  "items": [
+    {
+      "id": "EXT-01",
+      "expected": [
+        [
+          "NX-201",
+          true
+        ]
+      ],
+      "gemma_actual": [
+        [
+          "NX-201",
+          true
+        ]
+      ],
+      "gemma_raw_exact": true,
+      "historical_mimo_raw_exact": true,
+      "gemma_record": "SHARED-EXT-01.json"
+    },
+    {
+      "id": "EXT-02",
+      "expected": [
+        [
+          "NX-202",
+          true
+        ],
+        [
+          "NX-203",
+          true
+        ]
+      ],
+      "gemma_actual": [
+        [
+          "NX-202",
+          true
+        ],
+        [
+          "NX-203",
+          true
+        ]
+      ],
+      "gemma_raw_exact": true,
+      "historical_mimo_raw_exact": true,
+      "gemma_record": "SHARED-EXT-02.json"
+    },
+    {
+      "id": "EXT-03",
+      "expected": [
+        [
+          "NX-204",
+          true
+        ],
+        [
+          "NX-205",
+          false
+        ]
+      ],
+      "gemma_actual": [
+        [
+          "NX-204",
+          true
+        ],
+        [
+          "NX-205",
+          false
+        ]
+      ],
+      "gemma_raw_exact": true,
+      "historical_mimo_raw_exact": true,
+      "gemma_record": "SHARED-EXT-03.json"
+    },
+    {
+      "id": "EXT-04",
+      "expected": [
+        [
+          "NX-206",
+          false
+        ]
+      ],
+      "gemma_actual": [],
+      "gemma_raw_exact": false,
+      "historical_mimo_raw_exact": false,
+      "gemma_record": "SHARED-EXT-04.json"
+    },
+    {
+      "id": "EXT-05",
+      "expected": [
+        [
+          "UNKNOWN-807",
+          true
+        ]
+      ],
+      "gemma_actual": [
+        [
+          "UNKNOWN-807",
+          true
+        ]
+      ],
+      "gemma_raw_exact": true,
+      "historical_mimo_raw_exact": true,
+      "gemma_record": "SHARED-EXT-05.json"
+    },
+    {
+      "id": "EXT-06",
+      "expected": [
+        [
+          "NX-208",
+          false
+        ]
+      ],
+      "gemma_actual": null,
+      "gemma_raw_exact": false,
+      "historical_mimo_raw_exact": false,
+      "gemma_record": "SHARED-EXT-06.json"
+    },
+    {
+      "id": "EXT-07",
+      "expected": [
+        [
+          "NX-209",
+          false
+        ]
+      ],
+      "gemma_actual": [],
+      "gemma_raw_exact": false,
+      "historical_mimo_raw_exact": false,
+      "gemma_record": "SHARED-EXT-07.json"
+    },
+    {
+      "id": "EXT-08",
+      "expected": [
+        [
+          "NX-210",
+          false
+        ]
+      ],
+      "gemma_actual": [],
+      "gemma_raw_exact": false,
+      "historical_mimo_raw_exact": false,
+      "gemma_record": "SHARED-EXT-08.json"
+    },
+    {
+      "id": "EXT-09",
+      "expected": [
+        [
+          "NX-211",
+          false
+        ]
+      ],
+      "gemma_actual": [
+        [
+          "OLD-71",
+          true
+        ],
+        [
+          "OLD-72",
+          true
+        ],
+        [
+          "POOL-23",
+          true
+        ]
+      ],
+      "gemma_raw_exact": false,
+      "historical_mimo_raw_exact": false,
+      "gemma_record": "SHARED-EXT-09.json"
+    },
+    {
+      "id": "EXT-10",
+      "expected": [
+        [
+          "NX-212",
+          true
+        ]
+      ],
+      "gemma_actual": [
+        [
+          "NX-212",
+          true
+        ]
+      ],
+      "gemma_raw_exact": true,
+      "historical_mimo_raw_exact": true,
+      "gemma_record": "SHARED-EXT-10.json"
+    },
+    {
+      "id": "EXT-11",
+      "expected": [
+        [
+          "NX-213",
+          false
+        ],
+        [
+          "NX-2I3",
+          false
+        ]
+      ],
+      "gemma_actual": [
+        [
+          "NX-2I3",
+          true
+        ]
+      ],
+      "gemma_raw_exact": false,
+      "historical_mimo_raw_exact": false,
+      "gemma_record": "SHARED-EXT-11.json"
+    },
+    {
+      "id": "EXT-12",
+      "expected": [
+        [
+          "NX-214",
+          false
+        ]
+      ],
+      "gemma_actual": [],
+      "gemma_raw_exact": false,
+      "historical_mimo_raw_exact": true,
+      "gemma_record": "SHARED-EXT-12.json"
+    }
+  ],
+  "denominator": 12,
+  "gemma_exact": 5,
+  "historical_mimo_exact": 6,
+  "new_mimo_calls": 0,
+  "limits": "Same frozen text, schema and source-validation rules. Historical MiMo versus fresh Gemma; generic system wrapper and output budget differ (1600 versus 1800). Agent-authored synthetic labels; not a controlled model-only or human benchmark."
+}

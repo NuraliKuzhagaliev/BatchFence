@@ -625,7 +625,9 @@ def comparison(case_id: str, request: Request):
 
 @app.post('/api/cases/{case_id}/approve')
 def approve(case_id: str, data: Approve, request: Request):
-    with transaction(case_id, request.state.owner) as (_, s):
+    with transaction(case_id, request.state.owner) as (db, s):
+        from .assisted import blocking_reviews
+        if blocking_reviews(db,request.state.owner,case_id):fail('REREVIEW_REQUIRED','An effective source/procedure change requires explicit current reassessment before approving a pending plan',422)
         p = s['plan']
         if not approval_current(s,data.plan_id,data.digest):
             fail('STALE_APPROVAL', 'Only the current reviewed exact plan can be approved')
@@ -648,6 +650,8 @@ def apply(case_id: str, data: Apply, request: Request):
             if prior[0] != fingerprint:
                 fail('IDEMPOTENCY_CONFLICT', 'Key already used for a different request')
             return s
+        from .assisted import blocking_reviews
+        if blocking_reviews(db,owner,case_id):fail('REREVIEW_REQUIRED','An effective source/procedure change requires explicit current reassessment before executing a pending plan',422)
         p = s['plan']
         if not p or s['pending_revision'] or p['id'] != data.plan_id or p['status'] != 'approved' or p['digest'] != data.digest:
             fail('STALE_APPROVAL', 'Approval is absent, stale or already consumed')

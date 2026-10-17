@@ -1,0 +1,895 @@
+{
+  "rows": [
+    {
+      "id": "H3-01-gemma",
+      "at": "2026-10-17T19:25:37.752941+00:00",
+      "requested_model_id": "Gemma-4-31B-IT",
+      "reservation": {
+        "provider": "gemma",
+        "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+        "dispatch": 43,
+        "conservative_remaining": 0.8589620618289336,
+        "stop_margin": 0.1
+      },
+      "source": {
+        "id": "DOC-4ad71f9b34ba",
+        "filename": "heldout-original.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-17T19:25:37.742480+00:00",
+        "original_hash": "0a0bb78d2ca4c6e2a3603cbaf54b84be7f745f12e8ca2cffbba9ffb019c5ffb8",
+        "text_hash": "0a0bb78d2ca4c6e2a3603cbaf54b84be7f745f12e8ca2cffbba9ffb019c5ffb8",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "Receiving record RC-981 says stock pool FG-Z received supplier lot J7-401. Other receipts remain unreconciled; this ancestry is partial. Separately, supplier lot J7-402 may be involved in the incident, pending inspection. The full affected boundary is unknown.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      "frozen_sha256": "c09abd1ec6337b34a3fcdf713b1958477f0d8036a91de05ec14efd610bea040a",
+      "prompt_version": "source-proposals-3",
+      "system_prompt_hash": "d6f98829d19ca105e168b931a6c6df1ba74e53f539753e1597bad2ef379b6e4b",
+      "user_context_hash": "1ef5c68cf8626b68be62dcce651f70bda183873ef8ee2a44ab09a65dcbfbd224",
+      "settings": {
+        "temperature": 0,
+        "max_tokens": 1600,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "provenance": "Fresh inference, synthetic held-out source. No human correction in raw scoring; no inventory actions.",
+      "http_status": 200,
+      "request_id": "cb56cf4a65304a15a00ebc8e824148cf",
+      "response_hash": "aca078f500e3c6d60eae6402c1ec0a542acab6fbc6bdc4eef7a0027253a81093",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "usage": {
+        "prompt_tokens": 981,
+        "total_tokens": 1500,
+        "completion_tokens": 519,
+        "prompt_tokens_details": {
+          "cached_tokens": 345,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 5.88315e-05,
+        "cost_details": {
+          "upstream_inference_cost": 5.88315e-05,
+          "upstream_inference_prompt_cost": 2.25015e-05,
+          "upstream_inference_completions_cost": 3.633e-05,
+          "total_cost": 5.88315e-05,
+          "input_cost": 2.226e-05,
+          "output_cost": 3.633e-05,
+          "cached_input_cost": 2.415e-07,
+          "cache_write_input_cost": 0,
+          "request_cost": 0,
+          "web_search_cost": 0,
+          "image_input_cost": null,
+          "image_output_cost": null,
+          "audio_input_cost": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "finish_reason": "stop",
+      "raw_response": "{\n  \"facts\": [\n    {\n      \"lot_id\": \"RC-981\",\n      \"kind\": \"receipt_id\",\n      \"status\": \"mentioned\",\n      \"evidence\": [\n        {\n          \"document_id\": \"DOC-4ad71f9b34ba\",\n          \"block_id\": \"line-1\",\n          \"quote\": \"Receiving record RC-981 says\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"FG-Z\",\n      \"kind\": \"stock_pool\",\n      \"status\": \"mentioned\",\n      \"evidence\": [\n        {\n          \"document_id\": \"DOC-4ad71f9b34ba\",\n          \"block_id\": \"line-1\",\n          \"quote\": \"stock pool FG-Z received supplier lot J7-401\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"J7-401\",\n      \"kind\": \"supplier_lot\",\n      \"status\": \"mentioned\",\n      \"evidence\": [\n        {\n          \"document_id\": \"DOC-4ad71f9b34ba\",\n          \"block_id\": \"line-1\",\n          \"quote\": \"stock pool FG-Z received supplier lot J7-401\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"J7-402\",\n      \"kind\": \"supplier_lot\",\n      \"status\": \"uncertain\",\n      \"evidence\": [\n        {\n          \"document_id\": \"DOC-4ad71f9b34ba\",\n          \"block_id\": \"line-1\",\n          \"quote\": \"supplier lot J7-402 may be involved in the incident, pending inspection\"\n        }\n      ]\n    }\n  ],\n  \"qualifiers\": [],\n  \"scope_status\": \"unknown\",\n  \"scope_evidence\": [\n    {\n      \"document_id\": \"DOC-4ad71f9b34ba\",\n      \"block_id\": \"line-1\",\n      \"quote\": \"The full affected boundary is unknown.\"\n    }\n  ]\n}",
+      "parsed": {
+        "facts": [
+          {
+            "lot_id": "RC-981",
+            "kind": "receipt_id",
+            "status": "mentioned",
+            "evidence": [
+              {
+                "document_id": "DOC-4ad71f9b34ba",
+                "block_id": "line-1",
+                "quote": "Receiving record RC-981 says"
+              }
+            ]
+          },
+          {
+            "lot_id": "FG-Z",
+            "kind": "stock_pool",
+            "status": "mentioned",
+            "evidence": [
+              {
+                "document_id": "DOC-4ad71f9b34ba",
+                "block_id": "line-1",
+                "quote": "stock pool FG-Z received supplier lot J7-401"
+              }
+            ]
+          },
+          {
+            "lot_id": "J7-401",
+            "kind": "supplier_lot",
+            "status": "mentioned",
+            "evidence": [
+              {
+                "document_id": "DOC-4ad71f9b34ba",
+                "block_id": "line-1",
+                "quote": "stock pool FG-Z received supplier lot J7-401"
+              }
+            ]
+          },
+          {
+            "lot_id": "J7-402",
+            "kind": "supplier_lot",
+            "status": "uncertain",
+            "evidence": [
+              {
+                "document_id": "DOC-4ad71f9b34ba",
+                "block_id": "line-1",
+                "quote": "supplier lot J7-402 may be involved in the incident, pending inspection"
+              }
+            ]
+          }
+        ],
+        "qualifiers": [],
+        "scope_status": "unknown",
+        "scope_evidence": [
+          {
+            "document_id": "DOC-4ad71f9b34ba",
+            "block_id": "line-1",
+            "quote": "The full affected boundary is unknown."
+          }
+        ]
+      },
+      "raw_supplier_status_exact": true,
+      "raw_scope_exact": true,
+      "expected": {
+        "id": "H3-01",
+        "source": "Receiving record RC-981 says stock pool FG-Z received supplier lot J7-401. Other receipts remain unreconciled; this ancestry is partial. Separately, supplier lot J7-402 may be involved in the incident, pending inspection. The full affected boundary is unknown.",
+        "expected_supplier_statuses": {
+          "J7-401": "mentioned",
+          "J7-402": "uncertain"
+        },
+        "expected_scope": "unknown",
+        "live_pair": true
+      },
+      "validated": {
+        "facts": [
+          {
+            "lot_id": "RC-981",
+            "kind": "receipt_id",
+            "status": "mentioned",
+            "evidence": [
+              {
+                "document_id": "DOC-4ad71f9b34ba",
+                "block_id": "line-1",
+                "quote": "Receiving record RC-981 says"
+              }
+            ]
+          },
+          {
+            "lot_id": "FG-Z",
+            "kind": "stock_pool",
+            "status": "mentioned",
+            "evidence": [
+              {
+                "document_id": "DOC-4ad71f9b34ba",
+                "block_id": "line-1",
+                "quote": "stock pool FG-Z received supplier lot J7-401"
+              }
+            ]
+          },
+          {
+            "lot_id": "J7-401",
+            "kind": "supplier_lot",
+            "status": "mentioned",
+            "evidence": [
+              {
+                "document_id": "DOC-4ad71f9b34ba",
+                "block_id": "line-1",
+                "quote": "stock pool FG-Z received supplier lot J7-401"
+              }
+            ]
+          },
+          {
+            "lot_id": "J7-402",
+            "kind": "supplier_lot",
+            "status": "uncertain",
+            "evidence": [
+              {
+                "document_id": "DOC-4ad71f9b34ba",
+                "block_id": "line-1",
+                "quote": "supplier lot J7-402 may be involved in the incident, pending inspection"
+              }
+            ]
+          }
+        ],
+        "qualifiers": [],
+        "scope_status": "unknown",
+        "scope_evidence": [
+          {
+            "document_id": "DOC-4ad71f9b34ba",
+            "block_id": "line-1",
+            "quote": "The full affected boundary is unknown."
+          }
+        ]
+      },
+      "application_result": "Accepted unreviewed proposal; no fact/scope/approval/stock mutation",
+      "elapsed_ms": 31282
+    },
+    {
+      "id": "H3-01-mimo",
+      "at": "2026-10-17T19:26:17.044038+00:00",
+      "requested_model_id": "MiMo-V2.6-Flash",
+      "reservation": {
+        "provider": "gemma",
+        "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+        "dispatch": 44,
+        "conservative_remaining": 0.7189620618289336,
+        "stop_margin": 0.1
+      },
+      "source": {
+        "id": "DOC-4ad71f9b34ba",
+        "filename": "heldout-original.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-17T19:25:37.742480+00:00",
+        "original_hash": "0a0bb78d2ca4c6e2a3603cbaf54b84be7f745f12e8ca2cffbba9ffb019c5ffb8",
+        "text_hash": "0a0bb78d2ca4c6e2a3603cbaf54b84be7f745f12e8ca2cffbba9ffb019c5ffb8",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "Receiving record RC-981 says stock pool FG-Z received supplier lot J7-401. Other receipts remain unreconciled; this ancestry is partial. Separately, supplier lot J7-402 may be involved in the incident, pending inspection. The full affected boundary is unknown.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      "frozen_sha256": "c09abd1ec6337b34a3fcdf713b1958477f0d8036a91de05ec14efd610bea040a",
+      "prompt_version": "source-proposals-3",
+      "system_prompt_hash": "d6f98829d19ca105e168b931a6c6df1ba74e53f539753e1597bad2ef379b6e4b",
+      "user_context_hash": "1ef5c68cf8626b68be62dcce651f70bda183873ef8ee2a44ab09a65dcbfbd224",
+      "settings": {
+        "temperature": 0,
+        "max_tokens": 1600,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "provenance": "Fresh inference, synthetic held-out source. No human correction in raw scoring; no inventory actions.",
+      "http_status": 200,
+      "request_id": "a81f2dc0005e457fac1836cfedc28446",
+      "response_hash": "20ba75695dbf83fd1d0037ac7a7f7a65cca3e125d12a6c732b172ec6429d5587",
+      "model_id": "self-dploy/MiMo-V2.6-Flash",
+      "usage": {
+        "prompt_tokens": 962,
+        "total_tokens": 1622,
+        "completion_tokens": 660,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.00031948,
+        "cost_details": {
+          "upstream_inference_cost": 0.00031948,
+          "upstream_inference_prompt_cost": 0.00013468,
+          "upstream_inference_completions_cost": 0.0001848,
+          "total_cost": 0.00031948,
+          "input_cost": 0.00013468,
+          "output_cost": 0.0001848,
+          "cached_input_cost": 0,
+          "cache_write_input_cost": 0,
+          "request_cost": 0,
+          "web_search_cost": 0,
+          "image_input_cost": null,
+          "image_output_cost": null,
+          "audio_input_cost": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "finish_reason": "stop",
+      "raw_response": "{\n  \"facts\": [\n    {\n      \"lot_id\": \"RC-981\",\n      \"kind\": \"receipt_id\",\n      \"status\": \"mentioned\",\n      \"evidence\": [\n        {\n          \"document_id\": \"DOC-4ad71f9b34ba\",\n          \"block_id\": \"line-1\",\n          \"quote\": \"Receiving record RC-981 says stock pool FG-Z received supplier lot J7-401.\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"FG-Z\",\n      \"kind\": \"stock_pool\",\n      \"status\": \"mentioned\",\n      \"evidence\": [\n        {\n          \"document_id\": \"DOC-4ad71f9b34ba\",\n          \"block_id\": \"line-1\",\n          \"quote\": \"Receiving record RC-981 says stock pool FG-Z received supplier lot J7-401.\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"J7-401\",\n      \"kind\": \"supplier_lot\",\n      \"status\": \"mentioned\",\n      \"evidence\": [\n        {\n          \"document_id\": \"DOC-4ad71f9b34ba\",\n          \"block_id\": \"line-1\",\n          \"quote\": \"Receiving record RC-981 says stock pool FG-Z received supplier lot J7-401.\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"J7-402\",\n      \"kind\": \"supplier_lot\",\n      \"status\": \"uncertain\",\n      \"evidence\": [\n        {\n          \"document_id\": \"DOC-4ad71f9b34ba\",\n          \"block_id\": \"line-1\",\n          \"quote\": \"Separately, supplier lot J7-402 may be involved in the incident, pending inspection.\"\n        }\n      ]\n    }\n  ],\n  \"qualifiers\": [\n    \"Ancestry for stock pool FG-Z via receiving record RC-981 is explicitly partial: other receipts remain unreconciled.\",\n    \"J7-402 involvement is qualified as 'may be involved' and 'pending inspection', so it is uncertain rather than affected.\",\n    \"No explicit incident or quality assertion is made for J7-401, RC-981 or FG-Z; they are mentioned only as ancestry/receipt references.\",\n    \"The source states the full affected boundary is unknown; no lot is excluded by this source.\",\n    \"No document-wide caveat beyond the stated partial ancestry and unknown boundary applies.\"\n  ],\n  \"scope_status\": \"unknown\",\n  \"scope_evidence\": [\n    {\n      \"document_id\": \"DOC-4ad71f9b34ba\",\n      \"block_id\": \"line-1\",\n      \"quote\": \"Other receipts remain unreconciled; this ancestry is partial.\"\n    },\n    {\n      \"document_id\": \"DOC-4ad71f9b34ba\",\n      \"block_id\": \"line-1\",\n      \"quote\": \"The full affected boundary is unknown.\"\n    }\n  ]\n}",
+      "parsed": {
+        "facts": [
+          {
+            "lot_id": "RC-981",
+            "kind": "receipt_id",
+            "status": "mentioned",
+            "evidence": [
+              {
+                "document_id": "DOC-4ad71f9b34ba",
+                "block_id": "line-1",
+                "quote": "Receiving record RC-981 says stock pool FG-Z received supplier lot J7-401."
+              }
+            ]
+          },
+          {
+            "lot_id": "FG-Z",
+            "kind": "stock_pool",
+            "status": "mentioned",
+            "evidence": [
+              {
+                "document_id": "DOC-4ad71f9b34ba",
+                "block_id": "line-1",
+                "quote": "Receiving record RC-981 says stock pool FG-Z received supplier lot J7-401."
+              }
+            ]
+          },
+          {
+            "lot_id": "J7-401",
+            "kind": "supplier_lot",
+            "status": "mentioned",
+            "evidence": [
+              {
+                "document_id": "DOC-4ad71f9b34ba",
+                "block_id": "line-1",
+                "quote": "Receiving record RC-981 says stock pool FG-Z received supplier lot J7-401."
+              }
+            ]
+          },
+          {
+            "lot_id": "J7-402",
+            "kind": "supplier_lot",
+            "status": "uncertain",
+            "evidence": [
+              {
+                "document_id": "DOC-4ad71f9b34ba",
+                "block_id": "line-1",
+                "quote": "Separately, supplier lot J7-402 may be involved in the incident, pending inspection."
+              }
+            ]
+          }
+        ],
+        "qualifiers": [
+          "Ancestry for stock pool FG-Z via receiving record RC-981 is explicitly partial: other receipts remain unreconciled.",
+          "J7-402 involvement is qualified as 'may be involved' and 'pending inspection', so it is uncertain rather than affected.",
+          "No explicit incident or quality assertion is made for J7-401, RC-981 or FG-Z; they are mentioned only as ancestry/receipt references.",
+          "The source states the full affected boundary is unknown; no lot is excluded by this source.",
+          "No document-wide caveat beyond the stated partial ancestry and unknown boundary applies."
+        ],
+        "scope_status": "unknown",
+        "scope_evidence": [
+          {
+            "document_id": "DOC-4ad71f9b34ba",
+            "block_id": "line-1",
+            "quote": "Other receipts remain unreconciled; this ancestry is partial."
+          },
+          {
+            "document_id": "DOC-4ad71f9b34ba",
+            "block_id": "line-1",
+            "quote": "The full affected boundary is unknown."
+          }
+        ]
+      },
+      "raw_supplier_status_exact": true,
+      "raw_scope_exact": true,
+      "expected": {
+        "id": "H3-01",
+        "source": "Receiving record RC-981 says stock pool FG-Z received supplier lot J7-401. Other receipts remain unreconciled; this ancestry is partial. Separately, supplier lot J7-402 may be involved in the incident, pending inspection. The full affected boundary is unknown.",
+        "expected_supplier_statuses": {
+          "J7-401": "mentioned",
+          "J7-402": "uncertain"
+        },
+        "expected_scope": "unknown",
+        "live_pair": true
+      },
+      "validated": {
+        "facts": [
+          {
+            "lot_id": "RC-981",
+            "kind": "receipt_id",
+            "status": "mentioned",
+            "evidence": [
+              {
+                "document_id": "DOC-4ad71f9b34ba",
+                "block_id": "line-1",
+                "quote": "Receiving record RC-981 says stock pool FG-Z received supplier lot J7-401."
+              }
+            ]
+          },
+          {
+            "lot_id": "FG-Z",
+            "kind": "stock_pool",
+            "status": "mentioned",
+            "evidence": [
+              {
+                "document_id": "DOC-4ad71f9b34ba",
+                "block_id": "line-1",
+                "quote": "Receiving record RC-981 says stock pool FG-Z received supplier lot J7-401."
+              }
+            ]
+          },
+          {
+            "lot_id": "J7-401",
+            "kind": "supplier_lot",
+            "status": "mentioned",
+            "evidence": [
+              {
+                "document_id": "DOC-4ad71f9b34ba",
+                "block_id": "line-1",
+                "quote": "Receiving record RC-981 says stock pool FG-Z received supplier lot J7-401."
+              }
+            ]
+          },
+          {
+            "lot_id": "J7-402",
+            "kind": "supplier_lot",
+            "status": "uncertain",
+            "evidence": [
+              {
+                "document_id": "DOC-4ad71f9b34ba",
+                "block_id": "line-1",
+                "quote": "Separately, supplier lot J7-402 may be involved in the incident, pending inspection."
+              }
+            ]
+          }
+        ],
+        "qualifiers": [
+          "Ancestry for stock pool FG-Z via receiving record RC-981 is explicitly partial: other receipts remain unreconciled.",
+          "J7-402 involvement is qualified as 'may be involved' and 'pending inspection', so it is uncertain rather than affected.",
+          "No explicit incident or quality assertion is made for J7-401, RC-981 or FG-Z; they are mentioned only as ancestry/receipt references.",
+          "The source states the full affected boundary is unknown; no lot is excluded by this source.",
+          "No document-wide caveat beyond the stated partial ancestry and unknown boundary applies."
+        ],
+        "scope_status": "unknown",
+        "scope_evidence": [
+          {
+            "document_id": "DOC-4ad71f9b34ba",
+            "block_id": "line-1",
+            "quote": "Other receipts remain unreconciled; this ancestry is partial."
+          },
+          {
+            "document_id": "DOC-4ad71f9b34ba",
+            "block_id": "line-1",
+            "quote": "The full affected boundary is unknown."
+          }
+        ]
+      },
+      "application_result": "Accepted unreviewed proposal; no fact/scope/approval/stock mutation",
+      "elapsed_ms": 26713
+    },
+    {
+      "id": "H3-02-gemma",
+      "at": "2026-10-17T19:26:51.767071+00:00",
+      "requested_model_id": "Gemma-4-31B-IT",
+      "reservation": {
+        "provider": "gemma",
+        "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+        "dispatch": 45,
+        "conservative_remaining": 0.5789620618289336,
+        "stop_margin": 0.1
+      },
+      "source": {
+        "id": "DOC-624b2928f168",
+        "filename": "heldout-original.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-17T19:26:51.759585+00:00",
+        "original_hash": "56ae18091e6ae68a98cf6dd743ae59c9f0f52a61297de904f6e73002a66931d1",
+        "text_hash": "56ae18091e6ae68a98cf6dd743ae59c9f0f52a61297de904f6e73002a66931d1",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "Signed revision: affected supplier lot K9-504. It replaces the earlier notice that named K9-503 affected: K9-503 is now explicitly not affected. Lot K9-505 has not been investigated and may be involved. This revised list is incomplete. An unsigned message claims K9-505 is clear; that contradiction remains unresolved. Do not infer exclusions for lots absent from this list.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      "frozen_sha256": "c09abd1ec6337b34a3fcdf713b1958477f0d8036a91de05ec14efd610bea040a",
+      "prompt_version": "source-proposals-3",
+      "system_prompt_hash": "d6f98829d19ca105e168b931a6c6df1ba74e53f539753e1597bad2ef379b6e4b",
+      "user_context_hash": "592a3a2828a472964df1e78fe70107f3bccb784689e71b80c9f2f7a2b88f2e8d",
+      "settings": {
+        "temperature": 0,
+        "max_tokens": 1600,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "provenance": "Fresh inference, synthetic held-out source. No human correction in raw scoring; no inventory actions.",
+      "http_status": 200,
+      "request_id": "5316b68caee84828a0fc5178abe2f22b",
+      "response_hash": "f7949fd124c0994edaab1c7ba7ceba05c67f6431b7a0ece266ba11e5179e20b9",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "usage": {
+        "prompt_tokens": 1010,
+        "total_tokens": 1495,
+        "completion_tokens": 485,
+        "prompt_tokens_details": {
+          "cached_tokens": 876,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 3.92532e-05,
+        "cost_details": {
+          "upstream_inference_cost": 3.92532e-05,
+          "upstream_inference_prompt_cost": 5.3032e-06,
+          "upstream_inference_completions_cost": 3.395e-05,
+          "total_cost": 3.92532e-05,
+          "input_cost": 4.69e-06,
+          "output_cost": 3.395e-05,
+          "cached_input_cost": 6.132e-07,
+          "cache_write_input_cost": 0,
+          "request_cost": 0,
+          "web_search_cost": 0,
+          "image_input_cost": null,
+          "image_output_cost": null,
+          "audio_input_cost": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "finish_reason": "stop",
+      "raw_response": "{\n  \"facts\": [\n    {\n      \"lot_id\": \"K9-504\",\n      \"kind\": \"supplier_lot\",\n      \"status\": \"affected\",\n      \"evidence\": [\n        {\n          \"document_id\": \"DOC-624b2928f168\",\n          \"block_id\": \"line-1\",\n          \"quote\": \"affected supplier lot K9-504\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"K9-503\",\n      \"kind\": \"supplier_lot\",\n      \"status\": \"explicitly_excluded\",\n      \"evidence\": [\n        {\n          \"document_id\": \"DOC-624b2928f168\",\n          \"block_id\": \"line-1\",\n          \"quote\": \"K9-503 is now explicitly not affected\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"K9-505\",\n      \"kind\": \"supplier_lot\",\n      \"status\": \"uncertain\",\n      \"evidence\": [\n        {\n          \"document_id\": \"DOC-624b2928f168\",\n          \"block_id\": \"line-1\",\n          \"quote\": \"Lot K9-505 has not been investigated and may be involved\"\n        },\n        {\n          \"document_id\": \"DOC-624b2928f168\",\n          \"block_id\": \"line-1\",\n          \"quote\": \"An unsigned message claims K9-505 is clear; that contradiction remains unresolved\"\n        }\n      ]\n    }\n  ],\n  \"qualifiers\": [],\n  \"scope_status\": \"partial\",\n  \"scope_evidence\": [\n    {\n      \"document_id\": \"DOC-624b2928f168\",\n      \"block_id\": \"line-1\",\n      \"quote\": \"This revised list is incomplete\"\n    }\n  ]\n}",
+      "parsed": {
+        "facts": [
+          {
+            "lot_id": "K9-504",
+            "kind": "supplier_lot",
+            "status": "affected",
+            "evidence": [
+              {
+                "document_id": "DOC-624b2928f168",
+                "block_id": "line-1",
+                "quote": "affected supplier lot K9-504"
+              }
+            ]
+          },
+          {
+            "lot_id": "K9-503",
+            "kind": "supplier_lot",
+            "status": "explicitly_excluded",
+            "evidence": [
+              {
+                "document_id": "DOC-624b2928f168",
+                "block_id": "line-1",
+                "quote": "K9-503 is now explicitly not affected"
+              }
+            ]
+          },
+          {
+            "lot_id": "K9-505",
+            "kind": "supplier_lot",
+            "status": "uncertain",
+            "evidence": [
+              {
+                "document_id": "DOC-624b2928f168",
+                "block_id": "line-1",
+                "quote": "Lot K9-505 has not been investigated and may be involved"
+              },
+              {
+                "document_id": "DOC-624b2928f168",
+                "block_id": "line-1",
+                "quote": "An unsigned message claims K9-505 is clear; that contradiction remains unresolved"
+              }
+            ]
+          }
+        ],
+        "qualifiers": [],
+        "scope_status": "partial",
+        "scope_evidence": [
+          {
+            "document_id": "DOC-624b2928f168",
+            "block_id": "line-1",
+            "quote": "This revised list is incomplete"
+          }
+        ]
+      },
+      "raw_supplier_status_exact": true,
+      "raw_scope_exact": false,
+      "expected": {
+        "id": "H3-02",
+        "source": "Signed revision: affected supplier lot K9-504. It replaces the earlier notice that named K9-503 affected: K9-503 is now explicitly not affected. Lot K9-505 has not been investigated and may be involved. This revised list is incomplete. An unsigned message claims K9-505 is clear; that contradiction remains unresolved. Do not infer exclusions for lots absent from this list.",
+        "expected_supplier_statuses": {
+          "K9-503": "explicitly_excluded",
+          "K9-504": "affected",
+          "K9-505": "uncertain"
+        },
+        "expected_scope": "conflicting",
+        "live_pair": true
+      },
+      "validated": {
+        "facts": [
+          {
+            "lot_id": "K9-504",
+            "kind": "supplier_lot",
+            "status": "affected",
+            "evidence": [
+              {
+                "document_id": "DOC-624b2928f168",
+                "block_id": "line-1",
+                "quote": "affected supplier lot K9-504"
+              }
+            ]
+          },
+          {
+            "lot_id": "K9-503",
+            "kind": "supplier_lot",
+            "status": "explicitly_excluded",
+            "evidence": [
+              {
+                "document_id": "DOC-624b2928f168",
+                "block_id": "line-1",
+                "quote": "K9-503 is now explicitly not affected"
+              }
+            ]
+          },
+          {
+            "lot_id": "K9-505",
+            "kind": "supplier_lot",
+            "status": "uncertain",
+            "evidence": [
+              {
+                "document_id": "DOC-624b2928f168",
+                "block_id": "line-1",
+                "quote": "Lot K9-505 has not been investigated and may be involved"
+              },
+              {
+                "document_id": "DOC-624b2928f168",
+                "block_id": "line-1",
+                "quote": "An unsigned message claims K9-505 is clear; that contradiction remains unresolved"
+              }
+            ]
+          }
+        ],
+        "qualifiers": [],
+        "scope_status": "partial",
+        "scope_evidence": [
+          {
+            "document_id": "DOC-624b2928f168",
+            "block_id": "line-1",
+            "quote": "This revised list is incomplete"
+          }
+        ]
+      },
+      "application_result": "Accepted unreviewed proposal; no fact/scope/approval/stock mutation",
+      "elapsed_ms": 40649
+    },
+    {
+      "id": "H3-02-mimo",
+      "at": "2026-10-17T19:27:40.425665+00:00",
+      "requested_model_id": "MiMo-V2.6-Flash",
+      "reservation": {
+        "provider": "gemma",
+        "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+        "dispatch": 46,
+        "conservative_remaining": 0.4389620618289336,
+        "stop_margin": 0.1
+      },
+      "source": {
+        "id": "DOC-624b2928f168",
+        "filename": "heldout-original.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-17T19:26:51.759585+00:00",
+        "original_hash": "56ae18091e6ae68a98cf6dd743ae59c9f0f52a61297de904f6e73002a66931d1",
+        "text_hash": "56ae18091e6ae68a98cf6dd743ae59c9f0f52a61297de904f6e73002a66931d1",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "Signed revision: affected supplier lot K9-504. It replaces the earlier notice that named K9-503 affected: K9-503 is now explicitly not affected. Lot K9-505 has not been investigated and may be involved. This revised list is incomplete. An unsigned message claims K9-505 is clear; that contradiction remains unresolved. Do not infer exclusions for lots absent from this list.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      "frozen_sha256": "c09abd1ec6337b34a3fcdf713b1958477f0d8036a91de05ec14efd610bea040a",
+      "prompt_version": "source-proposals-3",
+      "system_prompt_hash": "d6f98829d19ca105e168b931a6c6df1ba74e53f539753e1597bad2ef379b6e4b",
+      "user_context_hash": "592a3a2828a472964df1e78fe70107f3bccb784689e71b80c9f2f7a2b88f2e8d",
+      "settings": {
+        "temperature": 0,
+        "max_tokens": 1600,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "provenance": "Fresh inference, synthetic held-out source. No human correction in raw scoring; no inventory actions.",
+      "http_status": 200,
+      "request_id": "c9d0f3e6fab04677924dddc7eb6080a8",
+      "response_hash": "615203911a0bb0ea3a1d324bced8f81d30c78cc3df30581ffbbacd683cdf17f8",
+      "model_id": "self-dploy/MiMo-V2.6-Flash",
+      "usage": {
+        "prompt_tokens": 993,
+        "total_tokens": 1534,
+        "completion_tokens": 541,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.0002905,
+        "cost_details": {
+          "upstream_inference_cost": 0.0002905,
+          "upstream_inference_prompt_cost": 0.00013902,
+          "upstream_inference_completions_cost": 0.00015148,
+          "total_cost": 0.0002905,
+          "input_cost": 0.00013902,
+          "output_cost": 0.00015148,
+          "cached_input_cost": 0,
+          "cache_write_input_cost": 0,
+          "request_cost": 0,
+          "web_search_cost": 0,
+          "image_input_cost": null,
+          "image_output_cost": null,
+          "audio_input_cost": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "finish_reason": "stop",
+      "raw_response": "{\"facts\": [{\"lot_id\": \"K9-504\", \"kind\": \"supplier_lot\", \"status\": \"affected\", \"evidence\": [{\"document_id\": \"DOC-624b2928f168\", \"block_id\": \"line-1\", \"quote\": \"Signed revision: affected supplier lot K9-504.\"}]}, {\"lot_id\": \"K9-503\", \"kind\": \"supplier_lot\", \"status\": \"explicitly_excluded\", \"evidence\": [{\"document_id\": \"DOC-624b2928f168\", \"block_id\": \"line-1\", \"quote\": \"It replaces the earlier notice that named K9-503 affected: K9-503 is now explicitly not affected.\"}]}, {\"lot_id\": \"K9-505\", \"kind\": \"supplier_lot\", \"status\": \"uncertain\", \"evidence\": [{\"document_id\": \"DOC-624b2928f168\", \"block_id\": \"line-1\", \"quote\": \"Lot K9-505 has not been investigated and may be involved.\"}, {\"document_id\": \"DOC-624b2928f168\", \"block_id\": \"line-1\", \"quote\": \"An unsigned message claims K9-505 is clear; that contradiction remains unresolved.\"}]}], \"qualifiers\": [\"The signed revision explicitly states the revised list is incomplete; scope of the incident is not exhaustively bounded by the listed lots.\", \"The source instructs: Do not infer exclusions for lots absent from this list.\", \"K9-505 has conflicting assertions: it may be involved per the signed revision, while an unsigned message claims it is clear; the contradiction is unresolved.\", \"The earlier notice naming K9-503 affected is superseded by the signed revision stating K9-503 is now explicitly not affected.\", \"Instructions embedded in source text are treated as untrusted data and not followed as commands.\"], \"scope_status\": \"partial\", \"scope_evidence\": [{\"document_id\": \"DOC-624b2928f168\", \"block_id\": \"line-1\", \"quote\": \"This revised list is incomplete.\"}, {\"document_id\": \"DOC-624b2928f168\", \"block_id\": \"line-1\", \"quote\": \"Do not infer exclusions for lots absent from this list.\"}]}",
+      "parsed": {
+        "facts": [
+          {
+            "lot_id": "K9-504",
+            "kind": "supplier_lot",
+            "status": "affected",
+            "evidence": [
+              {
+                "document_id": "DOC-624b2928f168",
+                "block_id": "line-1",
+                "quote": "Signed revision: affected supplier lot K9-504."
+              }
+            ]
+          },
+          {
+            "lot_id": "K9-503",
+            "kind": "supplier_lot",
+            "status": "explicitly_excluded",
+            "evidence": [
+              {
+                "document_id": "DOC-624b2928f168",
+                "block_id": "line-1",
+                "quote": "It replaces the earlier notice that named K9-503 affected: K9-503 is now explicitly not affected."
+              }
+            ]
+          },
+          {
+            "lot_id": "K9-505",
+            "kind": "supplier_lot",
+            "status": "uncertain",
+            "evidence": [
+              {
+                "document_id": "DOC-624b2928f168",
+                "block_id": "line-1",
+                "quote": "Lot K9-505 has not been investigated and may be involved."
+              },
+              {
+                "document_id": "DOC-624b2928f168",
+                "block_id": "line-1",
+                "quote": "An unsigned message claims K9-505 is clear; that contradiction remains unresolved."
+              }
+            ]
+          }
+        ],
+        "qualifiers": [
+          "The signed revision explicitly states the revised list is incomplete; scope of the incident is not exhaustively bounded by the listed lots.",
+          "The source instructs: Do not infer exclusions for lots absent from this list.",
+          "K9-505 has conflicting assertions: it may be involved per the signed revision, while an unsigned message claims it is clear; the contradiction is unresolved.",
+          "The earlier notice naming K9-503 affected is superseded by the signed revision stating K9-503 is now explicitly not affected.",
+          "Instructions embedded in source text are treated as untrusted data and not followed as commands."
+        ],
+        "scope_status": "partial",
+        "scope_evidence": [
+          {
+            "document_id": "DOC-624b2928f168",
+            "block_id": "line-1",
+            "quote": "This revised list is incomplete."
+          },
+          {
+            "document_id": "DOC-624b2928f168",
+            "block_id": "line-1",
+            "quote": "Do not infer exclusions for lots absent from this list."
+          }
+        ]
+      },
+      "raw_supplier_status_exact": true,
+      "raw_scope_exact": false,
+      "expected": {
+        "id": "H3-02",
+        "source": "Signed revision: affected supplier lot K9-504. It replaces the earlier notice that named K9-503 affected: K9-503 is now explicitly not affected. Lot K9-505 has not been investigated and may be involved. This revised list is incomplete. An unsigned message claims K9-505 is clear; that contradiction remains unresolved. Do not infer exclusions for lots absent from this list.",
+        "expected_supplier_statuses": {
+          "K9-503": "explicitly_excluded",
+          "K9-504": "affected",
+          "K9-505": "uncertain"
+        },
+        "expected_scope": "conflicting",
+        "live_pair": true
+      },
+      "validated": {
+        "facts": [
+          {
+            "lot_id": "K9-504",
+            "kind": "supplier_lot",
+            "status": "affected",
+            "evidence": [
+              {
+                "document_id": "DOC-624b2928f168",
+                "block_id": "line-1",
+                "quote": "Signed revision: affected supplier lot K9-504."
+              }
+            ]
+          },
+          {
+            "lot_id": "K9-503",
+            "kind": "supplier_lot",
+            "status": "explicitly_excluded",
+            "evidence": [
+              {
+                "document_id": "DOC-624b2928f168",
+                "block_id": "line-1",
+                "quote": "It replaces the earlier notice that named K9-503 affected: K9-503 is now explicitly not affected."
+              }
+            ]
+          },
+          {
+            "lot_id": "K9-505",
+            "kind": "supplier_lot",
+            "status": "uncertain",
+            "evidence": [
+              {
+                "document_id": "DOC-624b2928f168",
+                "block_id": "line-1",
+                "quote": "Lot K9-505 has not been investigated and may be involved."
+              },
+              {
+                "document_id": "DOC-624b2928f168",
+                "block_id": "line-1",
+                "quote": "An unsigned message claims K9-505 is clear; that contradiction remains unresolved."
+              }
+            ]
+          }
+        ],
+        "qualifiers": [
+          "The signed revision explicitly states the revised list is incomplete; scope of the incident is not exhaustively bounded by the listed lots.",
+          "The source instructs: Do not infer exclusions for lots absent from this list.",
+          "K9-505 has conflicting assertions: it may be involved per the signed revision, while an unsigned message claims it is clear; the contradiction is unresolved.",
+          "The earlier notice naming K9-503 affected is superseded by the signed revision stating K9-503 is now explicitly not affected.",
+          "Instructions embedded in source text are treated as untrusted data and not followed as commands."
+        ],
+        "scope_status": "partial",
+        "scope_evidence": [
+          {
+            "document_id": "DOC-624b2928f168",
+            "block_id": "line-1",
+            "quote": "This revised list is incomplete."
+          },
+          {
+            "document_id": "DOC-624b2928f168",
+            "block_id": "line-1",
+            "quote": "Do not infer exclusions for lots absent from this list."
+          }
+        ]
+      },
+      "application_result": "Accepted unreviewed proposal; no fact/scope/approval/stock mutation",
+      "elapsed_ms": 19079
+    }
+  ],
+  "fresh_calls": 4,
+  "original_benchmark_changed": false,
+  "review_corrections": 0,
+  "conditions": "Identical source IDs, prompt, schema, temperature0, max_tokens1600, JSON-object mode. Provider reasoning/sampling/runtime may differ. MiMo production can use strict JSON schema; common JSON-object mode used here for equivalence.",
+  "limits": "Two notices per model; tiny agent-authored synthetic diagnostic, no model-superiority or production-accuracy claim. Remaining three held-out notices were local contract regressions, not fresh inference."
+}

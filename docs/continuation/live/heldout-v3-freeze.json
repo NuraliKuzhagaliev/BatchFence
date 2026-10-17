@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-17T19:25:35.098013+00:00",
+  "sha256": "c09abd1ec6337b34a3fcdf713b1958477f0d8036a91de05ec14efd610bea040a",
+  "call_cap": 4,
+  "aggregate_amd_cap": 48,
+  "mimo_additional_calls": 2,
+  "prior_mimo_phase_attempts": 27,
+  "mimo_original_phase_cap": 30,
+  "prompts_version": "source-proposals-3",
+  "labels_change_after_freeze": false
+}

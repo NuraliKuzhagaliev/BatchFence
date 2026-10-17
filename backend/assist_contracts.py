@@ -10,9 +10,10 @@ class Citation(Strict):
     block_id:str=Field(min_length=1,max_length=80)
     quote:str=Field(min_length=1,max_length=2000)
 class Candidate(Strict):
-    kind:Literal['supplier_lot','stock_pool','receipt_id','document_id','date','quantity','unit','scope','completeness']
+    kind:Literal['supplier_lot','stock_pool','receipt_id','document_id','lineage_row','date','quantity','unit','scope','completeness']
     value:str=Field(min_length=1,max_length=500)
     disposition:Literal['asserted','uncertain','negated','unresolved']
+    incident_status:Literal['affected','explicitly_excluded','uncertain','mentioned']|None=None
     source:Citation
 class PairedChange(Strict):
     description:str=Field(min_length=1,max_length=1000)
@@ -24,6 +25,21 @@ class ReviewDraft(Strict):
     contradictions:list[PairedChange]=Field(default_factory=list,max_length=12)
     unresolved:list[str]=Field(default_factory=list,max_length=20)
     request_drafts:list[str]=Field(default_factory=list,max_length=6)
+    incident_scope:Literal['unknown','partial','complete','conflicting']='unknown'
+    scope_evidence:list[Citation]=Field(default_factory=list,max_length=8)
+
+
+class ExtractedCandidate(Strict):
+    kind:Literal['supplier_lot','stock_pool','receipt_id','document_id','lineage_row','date','quantity','unit','scope','completeness']
+    value:str=Field(min_length=1,max_length=500)
+    disposition:Literal['asserted','uncertain','negated','unresolved']
+    quote:str=Field(min_length=1,max_length=2000)
+    page:int|None=Field(default=None,ge=1,le=8)
+
+
+class ExtractorDraft(Strict):
+    candidates:list[ExtractedCandidate]=Field(max_length=40)
+    unresolved:list[str]=Field(max_length=20)
 
 
 def citation(state,value):
@@ -35,11 +51,17 @@ def citation(state,value):
 
 
 def validate_draft(state,raw):
+    from .review_safety import mentions
     draft=ReviewDraft.model_validate(raw).model_dump()
     for c in draft['candidates']:
         c['source']=citation(state,c['source'])
-        if c['kind'] in ('supplier_lot','stock_pool','receipt_id','document_id') and c['value'] not in c['source']['quote']:
+        if c['kind'] in ('supplier_lot','stock_pool','receipt_id','document_id','lineage_row') and not mentions(c['value'],c['source']['quote']):
             raise DomainError('Identifier candidate must preserve its exact source spelling')
+    from .scope_proposals import validate_proposals
+    identified=[c for c in draft['candidates'] if c.get('incident_status') is not None and c['kind'] in ('supplier_lot','stock_pool','receipt_id','document_id','lineage_row')]
+    validate_proposals({'facts':[{'lot_id':c['value'],'kind':c['kind'],'status':c['incident_status'],'evidence':[{k:c['source'][k] for k in ('document_id','block_id','quote')}]} for c in identified],
+        'qualifiers':draft['unresolved'],'scope_status':draft['incident_scope'],'scope_evidence':draft['scope_evidence']},state['documents'])
+    draft['scope_evidence']=[citation(state,e) for e in draft['scope_evidence']]
     for pair in draft['changes']+draft['contradictions']:
         pair['before']=citation(state,pair['before']);pair['after']=citation(state,pair['after'])
     if any(len(s)>2000 for s in draft['unresolved']+draft['request_drafts']):raise DomainError('Draft text limit exceeded')

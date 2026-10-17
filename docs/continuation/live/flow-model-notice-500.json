@@ -1,0 +1,163 @@
+{
+  "id": "GENERATE-4a47c688b0532b703f6d0e07",
+  "case_id": "4b898b8974074959b2c7c7bc401a7765",
+  "kind": "document",
+  "mode": "live",
+  "provider_path": "Direct Gemma / managed-amd-shared",
+  "status": "unreviewed proposal",
+  "request_hash": "26c1c695282f88a030cb4794983ad1d7e355875b49e6f53a7e7c6d9bb95cb41f",
+  "snapshot_hash": "16379d40179e3660e69a3e2438fccae200a335259ad438dc996fa87e8cd13588",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "started_at": "2026-10-17T19:06:51.576549+00:00",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+    "dispatch": 29,
+    "conservative_remaining": 0.8594757357635535,
+    "stop_margin": 0.1
+  },
+  "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+  "raw_output": {
+    "candidates": [
+      {
+        "disposition": "asserted",
+        "kind": "supplier_lot",
+        "source": {
+          "block_id": "line-1",
+          "document_id": "DOC-2b2e48603503",
+          "quote": "Affected lots: SUP-A"
+        },
+        "value": "SUP-A"
+      },
+      {
+        "disposition": "asserted",
+        "kind": "completeness",
+        "source": {
+          "block_id": "line-1",
+          "document_id": "DOC-2b2e48603503",
+          "quote": "Scope is complete."
+        },
+        "value": "complete"
+      },
+      {
+        "disposition": "asserted",
+        "kind": "scope",
+        "source": {
+          "block_id": "line-1",
+          "document_id": "DOC-2b2e48603503",
+          "quote": "This supplier notice lists the entire incident boundary."
+        },
+        "value": "entire incident boundary"
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": []
+  },
+  "provenance": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T19:07:00.807310+00:00",
+    "elapsed_ms": 9222,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "66407e20f4a0451aacd42632140cffa5",
+    "usage": {
+      "prompt_tokens": 859,
+      "total_tokens": 1087,
+      "completion_tokens": 228,
+      "prompt_tokens_details": {
+        "cached_tokens": 4,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 4.58878e-05,
+      "cost_details": {
+        "upstream_inference_cost": 4.58878e-05,
+        "upstream_inference_prompt_cost": 2.9927799999999998e-05,
+        "upstream_inference_completions_cost": 1.596e-05,
+        "total_cost": 4.58878e-05,
+        "input_cost": 2.9925e-05,
+        "output_cost": 1.596e-05,
+        "cached_input_cost": 2.8e-09,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "6c9d7d87451c5f707ae26e52da0b8db6f7332f5cb238d401e19e07b739c63774",
+    "http_status": 200,
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "library_provenance": null,
+  "finished_at": "2026-10-17T19:07:00.811083+00:00",
+  "draft": {
+    "candidates": [
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-A",
+        "disposition": "asserted",
+        "source": {
+          "document_id": "DOC-2b2e48603503",
+          "block_id": "line-1",
+          "quote": "Affected lots: SUP-A",
+          "original_hash": "4349b825af031a0795114d1a1b0617532fa1bf00d2d46fcae64f1b1344135922",
+          "document_revision": 3,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      },
+      {
+        "kind": "completeness",
+        "value": "complete",
+        "disposition": "asserted",
+        "source": {
+          "document_id": "DOC-2b2e48603503",
+          "block_id": "line-1",
+          "quote": "Scope is complete.",
+          "original_hash": "4349b825af031a0795114d1a1b0617532fa1bf00d2d46fcae64f1b1344135922",
+          "document_revision": 3,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      },
+      {
+        "kind": "scope",
+        "value": "entire incident boundary",
+        "disposition": "asserted",
+        "source": {
+          "document_id": "DOC-2b2e48603503",
+          "block_id": "line-1",
+          "quote": "This supplier notice lists the entire incident boundary.",
+          "original_hash": "4349b825af031a0795114d1a1b0617532fa1bf00d2d46fcae64f1b1344135922",
+          "document_revision": 3,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": []
+  }
+}

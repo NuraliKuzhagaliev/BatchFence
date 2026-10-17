@@ -1,0 +1,169 @@
+{
+  "id": "GENERATE-4e37a707cabb0be356576183",
+  "case_id": "4b898b8974074959b2c7c7bc401a7765",
+  "kind": "translation",
+  "mode": "live",
+  "provider_path": "Direct Gemma / managed-amd-shared",
+  "status": "unreviewed proposal",
+  "request_hash": "f89ef78ffb310e0e9ae82168443cfcc2136846f0595de563b1731098d6efc549",
+  "snapshot_hash": "8317ccf94ef051aa130d9adb5187f61dc92f292db24f1c92692924a5493dc530",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "started_at": "2026-10-17T19:08:01.903059+00:00",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+    "dispatch": 33,
+    "conservative_remaining": 0.7193790608714334,
+    "stop_margin": 0.1
+  },
+  "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+  "raw_output": {
+    "segments": [
+      {
+        "source": {
+          "block_id": "line-1",
+          "document_id": "DOC-00d2f28a4a34",
+          "quote": "FG-C è composto esclusivamente dal lotto SUP-B. Tutti i genitori sono elencati; la registrazione è completa."
+        },
+        "translation": "FG-C consists exclusively of lot SUP-B. All parents are listed; the registration is complete."
+      }
+    ]
+  },
+  "provenance": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T19:08:06.109268+00:00",
+    "elapsed_ms": 4198,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "1c50bdca871a4df4a9fb287e85b781bb",
+    "usage": {
+      "prompt_tokens": 556,
+      "total_tokens": 659,
+      "completion_tokens": 103,
+      "prompt_tokens_details": {
+        "cached_tokens": 54,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 2.48178e-05,
+      "cost_details": {
+        "upstream_inference_cost": 2.48178e-05,
+        "upstream_inference_prompt_cost": 1.76078e-05,
+        "upstream_inference_completions_cost": 7.21e-06,
+        "total_cost": 2.48178e-05,
+        "input_cost": 1.757e-05,
+        "output_cost": 7.21e-06,
+        "cached_input_cost": 3.78e-08,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "de65a24e4a25ab7937e5752799fad6aa454cef02f0689c9d5663148571440330",
+    "http_status": 200,
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "library_provenance": null,
+  "finished_at": "2026-10-17T19:08:06.113855+00:00",
+  "draft": {
+    "id": "TR-f1749738a34f8dafd3b960d5",
+    "case_id": "4b898b8974074959b2c7c7bc401a7765",
+    "document_id": "DOC-00d2f28a4a34",
+    "original_hash": "6fa4a8c0700814a53c5f02836beb3f66befc7b9ef2344b3620b30c6526e30a24",
+    "source_language": "it",
+    "target_language": "en",
+    "segments": [
+      {
+        "source": {
+          "document_id": "DOC-00d2f28a4a34",
+          "block_id": "line-1",
+          "quote": "FG-C è composto esclusivamente dal lotto SUP-B. Tutti i genitori sono elencati; la registrazione è completa.",
+          "original_hash": "6fa4a8c0700814a53c5f02836beb3f66befc7b9ef2344b3620b30c6526e30a24",
+          "document_revision": 6,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        },
+        "translation": "FG-C consists exclusively of lot SUP-B. All parents are listed; the registration is complete.",
+        "protected_original_values": [
+          "FG-C",
+          "SUP-B"
+        ]
+      }
+    ],
+    "flags": [],
+    "status": "unreviewed derived translation",
+    "provenance": {
+      "provider": "Configured Gemma endpoint",
+      "at": "2026-10-17T19:08:06.109268+00:00",
+      "elapsed_ms": 4198,
+      "requested_model_id": "Gemma-4-31B-IT",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "request_id": "1c50bdca871a4df4a9fb287e85b781bb",
+      "usage": {
+        "prompt_tokens": 556,
+        "total_tokens": 659,
+        "completion_tokens": 103,
+        "prompt_tokens_details": {
+          "cached_tokens": 54,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 2.48178e-05,
+        "cost_details": {
+          "upstream_inference_cost": 2.48178e-05,
+          "upstream_inference_prompt_cost": 1.76078e-05,
+          "upstream_inference_completions_cost": 7.21e-06,
+          "total_cost": 2.48178e-05,
+          "input_cost": 1.757e-05,
+          "output_cost": 7.21e-06,
+          "cached_input_cost": 3.78e-08,
+          "cache_write_input_cost": 0,
+          "request_cost": 0,
+          "web_search_cost": 0,
+          "image_input_cost": null,
+          "image_output_cost": null,
+          "audio_input_cost": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "settings": {
+        "temperature": 0,
+        "max_tokens": 1600
+      },
+      "response_hash": "de65a24e4a25ab7937e5752799fad6aa454cef02f0689c9d5663148571440330",
+      "http_status": 200,
+      "hosting_kind": "managed-amd-shared",
+      "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+    },
+    "at": "2026-10-17T19:08:06.114867+00:00",
+    "case_revision": 6,
+    "review": null,
+    "authority": "Original source only; translation is not a verbatim original quotation or inventory fact"
+  }
+}

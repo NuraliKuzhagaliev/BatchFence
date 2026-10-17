@@ -15,7 +15,7 @@ def identifier(value):
     return value
 
 
-def call(method,path,*,body=None,files=None,form=None,query=None,personal=False,transport=None):
+def call(method,path,*,body=None,files=None,form=None,query=None,personal=False,transport=None,expect_text=False):
     from .evolus_adapter import https_origin,_bounded
     base=https_origin(os.environ['EVOLUS_API_BASE_URL'])
     if base!='https://api.evolus.ai':raise DomainError('Base differs from the supplied Evolus API specification')
@@ -35,7 +35,7 @@ def call(method,path,*,body=None,files=None,form=None,query=None,personal=False,
                 except (ValueError,AttributeError):code=''
                 safe=code if isinstance(code,str) and re.fullmatch(r'[a-zA-Z0-9_.-]{1,100}',code) else ''
                 raise DomainError('Evolus HTTP '+str(response.status_code)+' '+safe+'; no automatic retry')
-            result=json.loads(raw) if raw else None
+            result=raw.decode('utf-8') if expect_text else json.loads(raw) if raw else None
     if any(os.getenv(k) and os.environ[k] in json.dumps(result) for k in ('AMD_API_KEY','GEMMA_API_KEY','EVOLUS_API_KEY','EVOLUS_USER_API_KEY')):
         raise DomainError('Private value found in provider result; output discarded')
     return {'provider':'Evolus','at':now(),'method':method,'path':path,'http_status':response.status_code,
@@ -53,23 +53,69 @@ def workflow_start(inputs,transport=None):
     return reply
 
 
+def verify_workflow(manifest,before_call=lambda:None,transport=None):
+    """Reject remote configuration drift before dispatch, including tools/costs."""
+    evidence=[];wid=identifier(manifest['workflow_id'])
+    def read(path,personal=False):
+        before_call();reply=call('GET',path,personal=personal,transport=transport)
+        evidence.append({k:v for k,v in reply.items() if k!='result'});return reply['result']
+    flow=read(f'/api/v1/workflows/{wid}')
+    connections=read('/api/v1/own-models/connections',personal=True)
+    connection=next((c for c in connections if c.get('id')==manifest['connection_id']),None)
+    if not connection or connection.get('disabled') or connection.get('apiBaseUrl')!=manifest['provider_base_url'] or not connection.get('hasApiKey'):
+        raise DomainError('Verified own-model connection is missing, disabled or changed')
+    if not any(m.get('modelId')==manifest['provider_model_id'] for m in connection.get('models',[])):
+        raise DomainError('Verified Gemma model is no longer in the own-model connection')
+    if flow.get('applicationId')!=os.environ['EVOLUS_APPLICATION_ID'] or not flow.get('isActive') or flow.get('multiFileMode')!=1:
+        raise DomainError('Configured workflow ownership, active state or combined-file mode changed')
+    if flow.get('emailPollingEnabled') or flow.get('scheduleCron'):raise DomainError('External/scheduled delivery must remain disabled')
+    steps=flow.get('steps') or [];expected={manifest[k]['step_id'] for k in ('extractor','agent','output')}
+    if len(steps)!=3 or {s['id'] for s in steps}!=expected:raise DomainError('Workflow must contain only the exact configured extractor, interpretation and terminal output steps')
+    for kind,step_type in [('extractor',13),('agent',1),('output',14)]:
+        expected_step=manifest[kind];step=next(s for s in steps if s['id']==expected_step['step_id'])
+        if step.get('order')!=expected_step['step_order']:raise DomainError('Workflow step order changed; execution output mapping is no longer verified')
+        if step.get('stepType')!=step_type or step.get('inputStepIds',[])!=(expected_step.get('input_step_ids') or []):raise DomainError('Workflow dependency graph changed')
+        if step.get('inputMode')!=expected_step['input_mode'] or step.get('prompt')!=expected_step.get('prompt'):
+            raise DomainError('Workflow original-source input or step instructions changed')
+        if kind=='output':continue
+        aid=identifier(expected_step['resource_id']);oid=identifier(expected_step['output_structure_id'])
+        if step.get('agentId')!=aid or step.get('outputStructureId')!=oid:raise DomainError('Workflow agent/output structure changed')
+        agent=read(f'/api/v1/agents/{aid}')
+        if digest(agent.get('prompt'))!=expected_step['prompt_hash'] or bool(agent.get('isExtractor'))!=(kind=='extractor') or agent.get('routerWebSearch') or agent.get('webSearchType')!='NONE':
+            raise DomainError('Own-model instructions, extractor role or web-search configuration changed')
+        if agent.get('modelKey')!=expected_step['model_key'] or agent.get('fallbackModelKeys') or agent.get('fileToolsEnabled') or agent.get('scriptToolEnabled') or agent.get('mcpServers') or agent.get('subAgents') or agent.get('functions') or agent.get('webApis') or agent.get('skills'):
+            raise DomainError('Own Gemma model configuration changed or external tools/fallbacks were enabled')
+        params=agent.get('modelParameters') or {}
+        if not 0<int(params.get('max_tokens',0))<=1600 or params.get('temperature')!=0:raise DomainError('Model token/temperature budget changed')
+        structure=read(f'/api/v1/agents/{aid}/json/{oid}',personal=True)
+        schema=structure.get('structure')
+        if isinstance(schema,str):schema=json.loads(schema)
+        if digest(schema)!=expected_step['schema_hash'] or structure.get('maxCorrections')!=0 or structure.get('canUseOCR') or structure.get('webhookId') or structure.get('webhookUrl'):
+            raise DomainError('Extractor/output contract changed or automatic correction, OCR or webhook delivery was enabled')
+    return {'checked_at':now(),'configuration_hash':digest(manifest),'requests':evidence,
+        'model_identity_basis':'Verified own-model configuration; WorkflowExecution does not return runtime model ID',
+        'provider_internal_retries':'BatchFence makes one dispatch. Structured correction budget is zero; undocumented provider infrastructure retries are not claimed absent.'}
+
+
 def normalize_execution(raw,manifest):
     """stepStates does not return model identity. Never manufacture that field."""
     if raw.get('workflowId')!=manifest['workflow_id']:raise DomainError('Execution belongs to another configured workflow')
     states=raw.get('stepStates') or {};outputs=raw.get('stepOutputs') or {};steps=[]
     for kind in ('extractor','agent'):
-        expected=manifest[kind];sid=expected['step_id'];state=states.get(sid)
-        if not state:continue
+        expected=manifest[kind];sid=expected['step_id']
+        # Actual executions key these dictionaries by saved numeric step order.
+        execution_key=str(expected['step_order']) if 'step_order' in expected else sid
+        state=states.get(execution_key)
+        if not state or execution_key not in outputs or state.get('durationMs') is None or state.get('status') not in (None,'done'):continue
         steps.append({'kind':kind,'id':expected['resource_id'],'step_id':sid,'state':state,
             'configured_model_key':expected['model_key'],'model_identity_basis':'Configuration, not a returned runtime model ID',
-            'output_hash':digest(outputs.get(sid)),'output':outputs.get(sid)})
+            'output_hash':digest(outputs.get(execution_key)),'output':outputs.get(execution_key),'execution_step_key':execution_key})
     provider_status=raw.get('status','');status={'Completed':'completed','Succeeded':'completed','Failed':'failed','Cancelled':'failed'}.get(provider_status,'running')
     draft=None
     if status=='completed':
-        text=raw.get('output') or ''
-        if text.startswith('```'):text=text.removeprefix('```json').removeprefix('```').removesuffix('```').strip()
-        try:draft=json.loads(text)
-        except ValueError:raise DomainError('Completed workflow output is not the configured JSON review draft')
+        from .scope_proposals import parse_json
+        try:draft=parse_json(raw.get('output'))
+        except ValueError:draft={'unparsed_response':raw.get('output'),'raw_extraction_error':'Completed workflow output is not one JSON review draft; no facts accepted'}
     return {'execution_id':raw['id'],'status':status,'provider_status':provider_status,'steps':steps,'draft':draft,
         'consumption':raw.get('consumption'),'requested_at':raw.get('requestedAt'),'completed_at':raw.get('completedAt'),
         'trace_id':raw.get('traceId'),'error_present':bool(raw.get('error')),
@@ -115,11 +161,17 @@ def library_passages(binding,allowed_passages,transport=None,before_call=lambda:
     for document in binding['documents']:
         relevant=[p for p in allowed_passages if p['document_id']==document['document_id'] and p['version']==document['version']]
         if not relevant:continue
-        before_call();reply=call('GET',f'/api/v1/memories/{identifier(library_id)}/documents/{identifier(document["remote_document_id"])}/chunks',transport=transport)
-        text='\n'.join(c.get('body') or '' for c in reply['result'])
+        before_call()
+        if binding.get('library_type')=='Blob':
+            reply=call('GET',f'/api/v1/memories/{identifier(library_id)}/documents/{identifier(document["remote_document_id"])}/download',transport=transport,expect_text=True)
+            text=reply['result']
+            if hashlib.sha256(text.encode('utf-8')).hexdigest()!=document['uploaded_content_hash']:raise DomainError('Retained library source changed; retrieval disabled')
+        else:
+            reply=call('GET',f'/api/v1/memories/{identifier(library_id)}/documents/{identifier(document["remote_document_id"])}/chunks',transport=transport)
+            text='\n'.join(c.get('body') or '' for c in reply['result'])
         # Retained exact passages must survive indexing. No fabricated source offsets.
         for p in relevant:
             if p['quote'] not in text:raise DomainError('Library lacks the exact approved original passage; retrieval abstains')
-            passages.append({**p,'provider_document_id':document['remote_document_id'],'local_quote_mapping':'Exact approved passage in returned library chunk; provider span unavailable'})
+            passages.append({**p,'provider_document_id':document['remote_document_id'],'local_quote_mapping':'Exact approved passage in retained library content; provider span unavailable'})
         provenance.append({k:v for k,v in reply.items() if k!='result'})
     return passages,provenance

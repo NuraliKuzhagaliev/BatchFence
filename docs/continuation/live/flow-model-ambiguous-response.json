@@ -1,0 +1,115 @@
+{
+  "id": "GENERATE-390e7584ea350365f44e399a",
+  "case_id": "4b898b8974074959b2c7c7bc401a7765",
+  "kind": "document",
+  "mode": "live",
+  "provider_path": "Direct Gemma / managed-amd-shared",
+  "status": "unreviewed proposal",
+  "request_hash": "f06ef4c8eefbd28c3c9e14ee1747aa126288978079249e80e9cdff22462dffd3",
+  "snapshot_hash": "4615d5666a1bd8c3dbc0ab6d11fd52139d29290526b2255d499fd13059cbe324",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "started_at": "2026-10-17T19:07:36.458417+00:00",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+    "dispatch": 31,
+    "conservative_remaining": 0.5794757357635535,
+    "stop_margin": 0.1
+  },
+  "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+  "raw_output": {
+    "candidates": [
+      {
+        "disposition": "uncertain",
+        "kind": "completeness",
+        "source": {
+          "block_id": "line-1",
+          "document_id": "DOC-eddc1d12714d",
+          "quote": "The complete parent list has not been established."
+        },
+        "value": "incomplete"
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": []
+  },
+  "provenance": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T19:07:40.549514+00:00",
+    "elapsed_ms": 4083,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "899490b8cff145d4b2a2776807c683b7",
+    "usage": {
+      "prompt_tokens": 852,
+      "total_tokens": 944,
+      "completion_tokens": 92,
+      "prompt_tokens_details": {
+        "cached_tokens": 677,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 1.30389e-05,
+      "cost_details": {
+        "upstream_inference_cost": 1.30389e-05,
+        "upstream_inference_prompt_cost": 6.5989e-06,
+        "upstream_inference_completions_cost": 6.44e-06,
+        "total_cost": 1.30389e-05,
+        "input_cost": 6.125e-06,
+        "output_cost": 6.44e-06,
+        "cached_input_cost": 4.739e-07,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "653bbbe8251531a5d9c2f612c354815070d6a4c345d1d253fe1a45c77ed462f9",
+    "http_status": 200,
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "library_provenance": null,
+  "finished_at": "2026-10-17T19:07:40.557539+00:00",
+  "draft": {
+    "candidates": [
+      {
+        "kind": "completeness",
+        "value": "incomplete",
+        "disposition": "uncertain",
+        "source": {
+          "document_id": "DOC-eddc1d12714d",
+          "block_id": "line-1",
+          "quote": "The complete parent list has not been established.",
+          "original_hash": "3444499ac62e7d19a60b0bee89b2649cb7fdd38d3d36de174ce927babc846add",
+          "document_revision": 5,
+          "page": null,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": []
+  }
+}

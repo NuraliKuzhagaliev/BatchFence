@@ -1,0 +1,217 @@
+{
+  "id": "H3-01-gemma",
+  "at": "2026-10-17T19:25:37.752941+00:00",
+  "requested_model_id": "Gemma-4-31B-IT",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+    "dispatch": 43,
+    "conservative_remaining": 0.8589620618289336,
+    "stop_margin": 0.1
+  },
+  "source": {
+    "id": "DOC-4ad71f9b34ba",
+    "filename": "heldout-original.txt",
+    "media_type": "text/plain",
+    "revision": 1,
+    "ingested_at": "2026-10-17T19:25:37.742480+00:00",
+    "original_hash": "0a0bb78d2ca4c6e2a3603cbaf54b84be7f745f12e8ca2cffbba9ffb019c5ffb8",
+    "text_hash": "0a0bb78d2ca4c6e2a3603cbaf54b84be7f745f12e8ca2cffbba9ffb019c5ffb8",
+    "blocks": [
+      {
+        "id": "line-1",
+        "text": "Receiving record RC-981 says stock pool FG-Z received supplier lot J7-401. Other receipts remain unreconciled; this ancestry is partial. Separately, supplier lot J7-402 may be involved in the incident, pending inspection. The full affected boundary is unknown.",
+        "page": null
+      }
+    ],
+    "synthetic": true
+  },
+  "frozen_sha256": "c09abd1ec6337b34a3fcdf713b1958477f0d8036a91de05ec14efd610bea040a",
+  "prompt_version": "source-proposals-3",
+  "system_prompt_hash": "d6f98829d19ca105e168b931a6c6df1ba74e53f539753e1597bad2ef379b6e4b",
+  "user_context_hash": "1ef5c68cf8626b68be62dcce651f70bda183873ef8ee2a44ab09a65dcbfbd224",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "provenance": "Fresh inference, synthetic held-out source. No human correction in raw scoring; no inventory actions.",
+  "http_status": 200,
+  "request_id": "cb56cf4a65304a15a00ebc8e824148cf",
+  "response_hash": "aca078f500e3c6d60eae6402c1ec0a542acab6fbc6bdc4eef7a0027253a81093",
+  "model_id": "self-dploy/Gemma-4-31B-IT",
+  "usage": {
+    "prompt_tokens": 981,
+    "total_tokens": 1500,
+    "completion_tokens": 519,
+    "prompt_tokens_details": {
+      "cached_tokens": 345,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 5.88315e-05,
+    "cost_details": {
+      "upstream_inference_cost": 5.88315e-05,
+      "upstream_inference_prompt_cost": 2.25015e-05,
+      "upstream_inference_completions_cost": 3.633e-05,
+      "total_cost": 5.88315e-05,
+      "input_cost": 2.226e-05,
+      "output_cost": 3.633e-05,
+      "cached_input_cost": 2.415e-07,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "raw_response": "{\n  \"facts\": [\n    {\n      \"lot_id\": \"RC-981\",\n      \"kind\": \"receipt_id\",\n      \"status\": \"mentioned\",\n      \"evidence\": [\n        {\n          \"document_id\": \"DOC-4ad71f9b34ba\",\n          \"block_id\": \"line-1\",\n          \"quote\": \"Receiving record RC-981 says\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"FG-Z\",\n      \"kind\": \"stock_pool\",\n      \"status\": \"mentioned\",\n      \"evidence\": [\n        {\n          \"document_id\": \"DOC-4ad71f9b34ba\",\n          \"block_id\": \"line-1\",\n          \"quote\": \"stock pool FG-Z received supplier lot J7-401\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"J7-401\",\n      \"kind\": \"supplier_lot\",\n      \"status\": \"mentioned\",\n      \"evidence\": [\n        {\n          \"document_id\": \"DOC-4ad71f9b34ba\",\n          \"block_id\": \"line-1\",\n          \"quote\": \"stock pool FG-Z received supplier lot J7-401\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"J7-402\",\n      \"kind\": \"supplier_lot\",\n      \"status\": \"uncertain\",\n      \"evidence\": [\n        {\n          \"document_id\": \"DOC-4ad71f9b34ba\",\n          \"block_id\": \"line-1\",\n          \"quote\": \"supplier lot J7-402 may be involved in the incident, pending inspection\"\n        }\n      ]\n    }\n  ],\n  \"qualifiers\": [],\n  \"scope_status\": \"unknown\",\n  \"scope_evidence\": [\n    {\n      \"document_id\": \"DOC-4ad71f9b34ba\",\n      \"block_id\": \"line-1\",\n      \"quote\": \"The full affected boundary is unknown.\"\n    }\n  ]\n}",
+  "parsed": {
+    "facts": [
+      {
+        "lot_id": "RC-981",
+        "kind": "receipt_id",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "DOC-4ad71f9b34ba",
+            "block_id": "line-1",
+            "quote": "Receiving record RC-981 says"
+          }
+        ]
+      },
+      {
+        "lot_id": "FG-Z",
+        "kind": "stock_pool",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "DOC-4ad71f9b34ba",
+            "block_id": "line-1",
+            "quote": "stock pool FG-Z received supplier lot J7-401"
+          }
+        ]
+      },
+      {
+        "lot_id": "J7-401",
+        "kind": "supplier_lot",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "DOC-4ad71f9b34ba",
+            "block_id": "line-1",
+            "quote": "stock pool FG-Z received supplier lot J7-401"
+          }
+        ]
+      },
+      {
+        "lot_id": "J7-402",
+        "kind": "supplier_lot",
+        "status": "uncertain",
+        "evidence": [
+          {
+            "document_id": "DOC-4ad71f9b34ba",
+            "block_id": "line-1",
+            "quote": "supplier lot J7-402 may be involved in the incident, pending inspection"
+          }
+        ]
+      }
+    ],
+    "qualifiers": [],
+    "scope_status": "unknown",
+    "scope_evidence": [
+      {
+        "document_id": "DOC-4ad71f9b34ba",
+        "block_id": "line-1",
+        "quote": "The full affected boundary is unknown."
+      }
+    ]
+  },
+  "raw_supplier_status_exact": true,
+  "raw_scope_exact": true,
+  "expected": {
+    "id": "H3-01",
+    "source": "Receiving record RC-981 says stock pool FG-Z received supplier lot J7-401. Other receipts remain unreconciled; this ancestry is partial. Separately, supplier lot J7-402 may be involved in the incident, pending inspection. The full affected boundary is unknown.",
+    "expected_supplier_statuses": {
+      "J7-401": "mentioned",
+      "J7-402": "uncertain"
+    },
+    "expected_scope": "unknown",
+    "live_pair": true
+  },
+  "validated": {
+    "facts": [
+      {
+        "lot_id": "RC-981",
+        "kind": "receipt_id",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "DOC-4ad71f9b34ba",
+            "block_id": "line-1",
+            "quote": "Receiving record RC-981 says"
+          }
+        ]
+      },
+      {
+        "lot_id": "FG-Z",
+        "kind": "stock_pool",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "DOC-4ad71f9b34ba",
+            "block_id": "line-1",
+            "quote": "stock pool FG-Z received supplier lot J7-401"
+          }
+        ]
+      },
+      {
+        "lot_id": "J7-401",
+        "kind": "supplier_lot",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "DOC-4ad71f9b34ba",
+            "block_id": "line-1",
+            "quote": "stock pool FG-Z received supplier lot J7-401"
+          }
+        ]
+      },
+      {
+        "lot_id": "J7-402",
+        "kind": "supplier_lot",
+        "status": "uncertain",
+        "evidence": [
+          {
+            "document_id": "DOC-4ad71f9b34ba",
+            "block_id": "line-1",
+            "quote": "supplier lot J7-402 may be involved in the incident, pending inspection"
+          }
+        ]
+      }
+    ],
+    "qualifiers": [],
+    "scope_status": "unknown",
+    "scope_evidence": [
+      {
+        "document_id": "DOC-4ad71f9b34ba",
+        "block_id": "line-1",
+        "quote": "The full affected boundary is unknown."
+      }
+    ]
+  },
+  "application_result": "Accepted unreviewed proposal; no fact/scope/approval/stock mutation",
+  "elapsed_ms": 31282
+}

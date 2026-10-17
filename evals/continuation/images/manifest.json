@@ -1,0 +1,67 @@
+{
+  "at": "2026-10-17T18:51:17.632682+00:00",
+  "authorship": "Agent-rendered synthetic engineering fixtures, not real label photographs",
+  "items": [
+    {
+      "id": "IMG-01",
+      "file": "IMG-01.png",
+      "sha256": "cb1faa73dfb2a415ff2d3abbd863d2ff0c8e2e2a5f43c45cb26d26b65e638704",
+      "synthetic": true,
+      "physical_photo": false,
+      "labels": [
+        "SUP-001"
+      ],
+      "unreadable": false
+    },
+    {
+      "id": "IMG-02",
+      "file": "IMG-02.png",
+      "sha256": "852da01b58a4b533956a6bd35b8fe0f17b2475141db6fc71f1652277ab5d06d9",
+      "synthetic": true,
+      "physical_photo": false,
+      "labels": [
+        "SUP-002"
+      ],
+      "unreadable": false
+    },
+    {
+      "id": "IMG-03",
+      "file": "IMG-03.png",
+      "sha256": "44f05276806df4860589e5b8d5d2043f641d297825f0262dd263be9c8aefd914",
+      "synthetic": true,
+      "physical_photo": false,
+      "labels": [
+        "LOT-00O7"
+      ],
+      "unreadable": false
+    },
+    {
+      "id": "IMG-04",
+      "file": "IMG-04.png",
+      "sha256": "d69dc2c28882303cfa1efb1eb563e9f7534428b2916b2edeff7ea518490ce69b",
+      "synthetic": true,
+      "physical_photo": false,
+      "labels": [
+        "SUP-001",
+        "SUP-002"
+      ],
+      "unreadable": false
+    },
+    {
+      "id": "IMG-05",
+      "file": "IMG-05.png",
+      "sha256": "2d014017f4b67838d30231958ed95bfbeff46540daff98f5b78a8da05512872b",
+      "synthetic": true,
+      "physical_photo": false,
+      "labels": [],
+      "unreadable": true
+    },
+    {
+      "id": "IMG-06",
+      "file": "IMG-06.png",
+      "sha256": "4efc3406028370e3f6be76c3c625efdf7323b373d4ca69feb345e4dc94aa4b78",
+      "synthetic": true,
+      "expected": "Reject before inference"
+    }
+  ]
+}

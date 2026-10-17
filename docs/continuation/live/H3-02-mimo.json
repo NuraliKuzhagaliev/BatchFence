@@ -1,0 +1,226 @@
+{
+  "id": "H3-02-mimo",
+  "at": "2026-10-17T19:27:40.425665+00:00",
+  "requested_model_id": "MiMo-V2.6-Flash",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "7ea93107aa866f901fe8c71f81904b1dba4e9b501b17df018f30d10cf48897c8",
+    "dispatch": 46,
+    "conservative_remaining": 0.4389620618289336,
+    "stop_margin": 0.1
+  },
+  "source": {
+    "id": "DOC-624b2928f168",
+    "filename": "heldout-original.txt",
+    "media_type": "text/plain",
+    "revision": 1,
+    "ingested_at": "2026-10-17T19:26:51.759585+00:00",
+    "original_hash": "56ae18091e6ae68a98cf6dd743ae59c9f0f52a61297de904f6e73002a66931d1",
+    "text_hash": "56ae18091e6ae68a98cf6dd743ae59c9f0f52a61297de904f6e73002a66931d1",
+    "blocks": [
+      {
+        "id": "line-1",
+        "text": "Signed revision: affected supplier lot K9-504. It replaces the earlier notice that named K9-503 affected: K9-503 is now explicitly not affected. Lot K9-505 has not been investigated and may be involved. This revised list is incomplete. An unsigned message claims K9-505 is clear; that contradiction remains unresolved. Do not infer exclusions for lots absent from this list.",
+        "page": null
+      }
+    ],
+    "synthetic": true
+  },
+  "frozen_sha256": "c09abd1ec6337b34a3fcdf713b1958477f0d8036a91de05ec14efd610bea040a",
+  "prompt_version": "source-proposals-3",
+  "system_prompt_hash": "d6f98829d19ca105e168b931a6c6df1ba74e53f539753e1597bad2ef379b6e4b",
+  "user_context_hash": "592a3a2828a472964df1e78fe70107f3bccb784689e71b80c9f2f7a2b88f2e8d",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "provenance": "Fresh inference, synthetic held-out source. No human correction in raw scoring; no inventory actions.",
+  "http_status": 200,
+  "request_id": "c9d0f3e6fab04677924dddc7eb6080a8",
+  "response_hash": "615203911a0bb0ea3a1d324bced8f81d30c78cc3df30581ffbbacd683cdf17f8",
+  "model_id": "self-dploy/MiMo-V2.6-Flash",
+  "usage": {
+    "prompt_tokens": 993,
+    "total_tokens": 1534,
+    "completion_tokens": 541,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 0.0002905,
+    "cost_details": {
+      "upstream_inference_cost": 0.0002905,
+      "upstream_inference_prompt_cost": 0.00013902,
+      "upstream_inference_completions_cost": 0.00015148,
+      "total_cost": 0.0002905,
+      "input_cost": 0.00013902,
+      "output_cost": 0.00015148,
+      "cached_input_cost": 0,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "raw_response": "{\"facts\": [{\"lot_id\": \"K9-504\", \"kind\": \"supplier_lot\", \"status\": \"affected\", \"evidence\": [{\"document_id\": \"DOC-624b2928f168\", \"block_id\": \"line-1\", \"quote\": \"Signed revision: affected supplier lot K9-504.\"}]}, {\"lot_id\": \"K9-503\", \"kind\": \"supplier_lot\", \"status\": \"explicitly_excluded\", \"evidence\": [{\"document_id\": \"DOC-624b2928f168\", \"block_id\": \"line-1\", \"quote\": \"It replaces the earlier notice that named K9-503 affected: K9-503 is now explicitly not affected.\"}]}, {\"lot_id\": \"K9-505\", \"kind\": \"supplier_lot\", \"status\": \"uncertain\", \"evidence\": [{\"document_id\": \"DOC-624b2928f168\", \"block_id\": \"line-1\", \"quote\": \"Lot K9-505 has not been investigated and may be involved.\"}, {\"document_id\": \"DOC-624b2928f168\", \"block_id\": \"line-1\", \"quote\": \"An unsigned message claims K9-505 is clear; that contradiction remains unresolved.\"}]}], \"qualifiers\": [\"The signed revision explicitly states the revised list is incomplete; scope of the incident is not exhaustively bounded by the listed lots.\", \"The source instructs: Do not infer exclusions for lots absent from this list.\", \"K9-505 has conflicting assertions: it may be involved per the signed revision, while an unsigned message claims it is clear; the contradiction is unresolved.\", \"The earlier notice naming K9-503 affected is superseded by the signed revision stating K9-503 is now explicitly not affected.\", \"Instructions embedded in source text are treated as untrusted data and not followed as commands.\"], \"scope_status\": \"partial\", \"scope_evidence\": [{\"document_id\": \"DOC-624b2928f168\", \"block_id\": \"line-1\", \"quote\": \"This revised list is incomplete.\"}, {\"document_id\": \"DOC-624b2928f168\", \"block_id\": \"line-1\", \"quote\": \"Do not infer exclusions for lots absent from this list.\"}]}",
+  "parsed": {
+    "facts": [
+      {
+        "lot_id": "K9-504",
+        "kind": "supplier_lot",
+        "status": "affected",
+        "evidence": [
+          {
+            "document_id": "DOC-624b2928f168",
+            "block_id": "line-1",
+            "quote": "Signed revision: affected supplier lot K9-504."
+          }
+        ]
+      },
+      {
+        "lot_id": "K9-503",
+        "kind": "supplier_lot",
+        "status": "explicitly_excluded",
+        "evidence": [
+          {
+            "document_id": "DOC-624b2928f168",
+            "block_id": "line-1",
+            "quote": "It replaces the earlier notice that named K9-503 affected: K9-503 is now explicitly not affected."
+          }
+        ]
+      },
+      {
+        "lot_id": "K9-505",
+        "kind": "supplier_lot",
+        "status": "uncertain",
+        "evidence": [
+          {
+            "document_id": "DOC-624b2928f168",
+            "block_id": "line-1",
+            "quote": "Lot K9-505 has not been investigated and may be involved."
+          },
+          {
+            "document_id": "DOC-624b2928f168",
+            "block_id": "line-1",
+            "quote": "An unsigned message claims K9-505 is clear; that contradiction remains unresolved."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "The signed revision explicitly states the revised list is incomplete; scope of the incident is not exhaustively bounded by the listed lots.",
+      "The source instructs: Do not infer exclusions for lots absent from this list.",
+      "K9-505 has conflicting assertions: it may be involved per the signed revision, while an unsigned message claims it is clear; the contradiction is unresolved.",
+      "The earlier notice naming K9-503 affected is superseded by the signed revision stating K9-503 is now explicitly not affected.",
+      "Instructions embedded in source text are treated as untrusted data and not followed as commands."
+    ],
+    "scope_status": "partial",
+    "scope_evidence": [
+      {
+        "document_id": "DOC-624b2928f168",
+        "block_id": "line-1",
+        "quote": "This revised list is incomplete."
+      },
+      {
+        "document_id": "DOC-624b2928f168",
+        "block_id": "line-1",
+        "quote": "Do not infer exclusions for lots absent from this list."
+      }
+    ]
+  },
+  "raw_supplier_status_exact": true,
+  "raw_scope_exact": false,
+  "expected": {
+    "id": "H3-02",
+    "source": "Signed revision: affected supplier lot K9-504. It replaces the earlier notice that named K9-503 affected: K9-503 is now explicitly not affected. Lot K9-505 has not been investigated and may be involved. This revised list is incomplete. An unsigned message claims K9-505 is clear; that contradiction remains unresolved. Do not infer exclusions for lots absent from this list.",
+    "expected_supplier_statuses": {
+      "K9-503": "explicitly_excluded",
+      "K9-504": "affected",
+      "K9-505": "uncertain"
+    },
+    "expected_scope": "conflicting",
+    "live_pair": true
+  },
+  "validated": {
+    "facts": [
+      {
+        "lot_id": "K9-504",
+        "kind": "supplier_lot",
+        "status": "affected",
+        "evidence": [
+          {
+            "document_id": "DOC-624b2928f168",
+            "block_id": "line-1",
+            "quote": "Signed revision: affected supplier lot K9-504."
+          }
+        ]
+      },
+      {
+        "lot_id": "K9-503",
+        "kind": "supplier_lot",
+        "status": "explicitly_excluded",
+        "evidence": [
+          {
+            "document_id": "DOC-624b2928f168",
+            "block_id": "line-1",
+            "quote": "It replaces the earlier notice that named K9-503 affected: K9-503 is now explicitly not affected."
+          }
+        ]
+      },
+      {
+        "lot_id": "K9-505",
+        "kind": "supplier_lot",
+        "status": "uncertain",
+        "evidence": [
+          {
+            "document_id": "DOC-624b2928f168",
+            "block_id": "line-1",
+            "quote": "Lot K9-505 has not been investigated and may be involved."
+          },
+          {
+            "document_id": "DOC-624b2928f168",
+            "block_id": "line-1",
+            "quote": "An unsigned message claims K9-505 is clear; that contradiction remains unresolved."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "The signed revision explicitly states the revised list is incomplete; scope of the incident is not exhaustively bounded by the listed lots.",
+      "The source instructs: Do not infer exclusions for lots absent from this list.",
+      "K9-505 has conflicting assertions: it may be involved per the signed revision, while an unsigned message claims it is clear; the contradiction is unresolved.",
+      "The earlier notice naming K9-503 affected is superseded by the signed revision stating K9-503 is now explicitly not affected.",
+      "Instructions embedded in source text are treated as untrusted data and not followed as commands."
+    ],
+    "scope_status": "partial",
+    "scope_evidence": [
+      {
+        "document_id": "DOC-624b2928f168",
+        "block_id": "line-1",
+        "quote": "This revised list is incomplete."
+      },
+      {
+        "document_id": "DOC-624b2928f168",
+        "block_id": "line-1",
+        "quote": "Do not infer exclusions for lots absent from this list."
+      }
+    ]
+  },
+  "application_result": "Accepted unreviewed proposal; no fact/scope/approval/stock mutation",
+  "elapsed_ms": 19079
+}
