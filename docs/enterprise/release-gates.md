@@ -8,8 +8,8 @@ All four modules and foundations are implemented. The fresh AMD gate is resolved
 | Raw quality retained | Frozen 24 routes: 20 model requests, four deterministic abstentions. Extraction exact 6/12; knowledge pipeline 11/12. Earlier failures and timeout retained. |
 | Error containment | Policy-3 ambiguity replays reject copied flags; old approvals stale; malformed receiving drafts cannot narrow; unresolved review preserves restrictions. Relevant tests pass. |
 | Core regression | 110 project tests and 30 frozen domain cases. Final reports identify the tested revision. |
-| Coherent packages | Final clean commit, source archive, installed Windows and Linux container checks required before promotion. Exact identities go in final-release.json. |
-| Public deployment | Existing single-instance Render Free service only; main CI, served commit/assets and public workflow verification required. Ephemeral storage remains disclosed. |
+| Coherent packages | Passed: v0.3.0 at effa9fd,installed Windows,actual public GitHub tag archive Linux build and restart checks. Exact identities in final-release.json. |
+| Public deployment | Passed: existing one-instance Render Free service,main CI,served0.3.0 commit/assets,12core/sixconnected/fivecontrol/fourdistribution checks. Ephemeral storage remains disclosed. |
 
 Independent acceptance remains open: quality professional, three unfamiliar operators, real scoped pilot users, owner data-processing approval, off-device restore against owner RPO/RTO, and physical Windows dialogs. Named engineering accounts do not satisfy those requirements. A synthetic public release is distinct from production acceptance.
 

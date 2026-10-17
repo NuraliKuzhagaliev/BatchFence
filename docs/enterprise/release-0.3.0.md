@@ -6,7 +6,7 @@ The release is suitable for a synthetic public demonstration and an owner-contro
 
 Fresh AMD evidence is in [live/README.md](live/README.md). The 24 frozen items were all exercised, with 20 actual model requests and four retrieval-only abstentions. Across the integrated and frozen work there were 27 attempts, one timeout, no automatic retries and no fixture substitution. Raw extraction exact matches were 6/12; knowledge pipeline matches were 11/12. These limitations remain visible. The context-fixed typed draft drove reviewed 700 proposed / 800 applied / exact 100 controlled sandbox recovery. The final signal explanation matched computed observations.
 
-Regression, packaging, deployment identities and artifact hashes are recorded in the final release report after their checks complete. Previous v0.2.0 and v0.3.0-rc.1 artifacts remain recoverable and are not overwritten.
+Engineering release checks passed: 110 pytest, 30 deterministic cases, 12 core web checks, six connected module groups; installed Windows seven core, six module, four named-pilot groups, offline packet and two renderer scales. The actual GitHub tag archive passed all eight Linux container checks including restart persistence. Windows and Linux frontend bytes match. Installer SHA256: 908d09e1c1b627f043567478cbad9dc766531dda252c8d1acf0eb88b466aae7f. Exact deployment identities and public checks are recorded in final-release.json. Previous v0.2.0 and v0.3.0-rc.1 artifacts remain recoverable and are not overwritten.
 
 ## Required human acceptance
 

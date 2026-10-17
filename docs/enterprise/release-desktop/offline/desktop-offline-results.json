@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-17T00:08:45.267Z",
+  "packaged": true,
+  "backend": "Unreachable loopback port 9",
+  "child_PATH": "C:\\Windows\\System32",
+  "external_node_python_required": false,
+  "scope_units": 700,
+  "source_packet": "final-packet.json",
+  "receipt_readable": true,
+  "receipt_count": 2,
+  "writes_disabled": true,
+  "historical_modules_checked": true,
+  "native_dialog": "Stubbed result; bridge read and validation executed"
+}

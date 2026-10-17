@@ -1,0 +1,29 @@
+{
+  "url": "https://github.com/NuraliKuzhagaliev/BatchFence/archive/refs/tags/v0.3.0.zip",
+  "sha256": "0ed885db0af6d03b04a6718fc747de22c8f99b7885cffe91e5c31e9276066272",
+  "bytes": 65360920,
+  "source_commit": "effa9fd0bc2c6f32b24ea4d51e6da31359707818",
+  "root": "D:\\projects\\BatchFence\\work\\github-source-0.3.0\\BatchFence-0.3.0",
+  "status": "built and passed all eight container checks",
+  "checks": {
+    "at": "2026-10-17T00:11:17.565085+00:00",
+    "mode": "fixture",
+    "live_inference": false,
+    "checks": [
+      "dynamic container port at http://127.0.0.1:8801",
+      "500 to 800 synthetic workflow",
+      "stale approval rejected",
+      "sandbox receipt",
+      "two-session isolation",
+      "all original source bytes and owner isolation survive restart",
+      "same SQLite volume survives actual container restart",
+      "SPA refresh and missing API routing"
+    ],
+    "passed": true
+  },
+  "image_id": "sha256:a8b43389b0c07857f01407019346e3faf798d661463bf01c654a6f1f8ad5d708",
+  "frontend_js_sha256": "c6b78ecc5f4d22879de38267f275045f408a665c198da3756778d8a49fd7893d",
+  "frontend_matches_windows_build": true,
+  "installed_asar_sha256": "72d445e3b9d58323cfbf199911345c03713f665fcdf9e6a47021af7d2935a610",
+  "installed_matches_packaged_asar": true
+}

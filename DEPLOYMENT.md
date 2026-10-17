@@ -1,16 +1,31 @@
-# BatchFence 0.3.0 deployment
+# BatchFence 0.3.0 released and verified
 
-Use only the existing Render Free service srv-db968c7btjjs73fghkog in workspace tea-d3pt0sbipnbc73a5v810. Its one free Docker instance in Frankfurt deploys main when checks pass. No paid disk or new resource. Public SQLite is ephemeral; export packets.
+Web: https://batchfence.onrender.com. Windows: https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.3.0. Installer/source tag v0.3.0 is effa9fd0bc2c6f32b24ea4d51e6da31359707818. Full public workflow checks passed at merge dd06d974a2cc721ed9366724853e14078567f6f8. Subsequent evidence-only commits preserve application bytes; latest observed served identity is retained in releases/final-publication-0.3.0.json. Existing Render service remains one Free instance, ephemeral storage. Previous releases are preserved.
 
-Public Windows 0.3.0 defaults to https://batchfence.onrender.com. For the separate private PostgreSQL pilot, run `docker compose -f ops/compose.pilot.yml up --build -d`, then launch Windows with BATCHFENCE_BACKEND_ORIGIN=http://127.0.0.1:8788. Named scoped users, owner-approved model data use and backups are required. See docs/enterprise/pilot-operations.md. The rc1 installer is a historical candidate with a loopback default.
+All four connected modules and foundations are implemented: Quality Signals, Approved Knowledge, Controlled Recovery, and Corrective Action with Effectiveness. A reviewed proposal can narrow to 700 while 800 remain applied; separate distinct approval recovers exactly 100 with its own receipt. Original containment receipts and other incident holds remain. Unresolved ancestry/scope stays conservative, and old approvals are stale.
 
-Review policy 3 invalidates approvals under older policy. Re-review current evidence before narrowing; old receipts and applied holds remain. Controlled recovery is explicit. The reference connector is local sandbox only; no real ERP connector is supplied.
+Fresh AMD evaluation is complete: 27 attempts of the authorized maximum 30, 26 HTTP 200, one timeout,no automatic retries or fixture substitution. All 24 frozen synthetic items exercised, 20 model requests and four retrieval abstentions. Raw extraction exact 6/12, knowledge pipeline 11/12 (model-only 7/8). Source-only receiving retests 2/2 drove the reviewed recovery, and one compact signal response matched five calculated observations. All raw failures remain. Every review and named test account was agent-operated. No independent human validation is claimed. Fresh calls used the local release implementation; public deployment verification used fixtures/retained packets, not new cloud inference. No more inference is needed for this release.
 
-Fresh AMD results: docs/enterprise/live/README.md. Private server configuration and public Live access controls remain unchanged. The event allowance covers the evaluated requests with zero additional monetary charge. Do not paste or commit credentials. Privately rotate the credential exposed by the portal during inspection, then update local/Render configuration.
+Actual checks: 110 pytest, 30 deterministic domain cases; public 12 core checks, six connected module groups, five access/control groups, four distribution groups, zero browser errors. Installed Windows passed seven core, six module, four named pilot groups, offline real-response packet with 700 held / 100 recovered / two original receipts, and 100% / 125% renderer scales. Actual GitHub tag archive built on Linux and passed eight checks including 500/800, stale 409, source isolation,and SQLite volume persistence across restart. Windows/Linux/public frontend bytes match. PostgreSQL migration,connector failure/retry/restart/idempotency,and isolated restore of 16 source hashes passed. Tiny same-device restore 225 ms is not an RPO/RTO claim. Branch and main Linux CI passed. Publication/ASAR scan found zero known private values across 21 needles.
 
-Clean release, installer hashes, CI and served-build verification are recorded in docs/enterprise/final-release.json when completed. Existing v0.2.0 remains recoverable. Its tag and installer are unchanged.
+Installer: D:\projects\BatchFence\releases\BatchFence-0.3.0-win-x64-setup.exe. Installed test app: work/installed-0.3.0/BatchFence.exe. SHA256 908d09e1c1b627f043567478cbad9dc766531dda252c8d1acf0eb88b466aae7f, 113788538 bytes. The full anonymous public download matches. Matching sourceZIP and SHA256SUMS-0.3.0.txt are in releases/. New submission/enterprise materials include the seven-slide 0.3.0 deck, 81.8-second captioned video, presenter script and quickstart. Retained fresh AMD screens and synthetic replay are explicitly separated. No entry was submitted.
+
+Reproduce from D:\projects\BatchFence:
+- `.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-NEW`
+- `.venv\Scripts\python.exe -m scripts.evaluate`
+- `.venv\Scripts\python.exe -m scripts.score-enterprise-live` (offline scoring; no provider calls)
+- `npm run build`
+- Set `BATCHFENCE_BASE_URL=https://batchfence.onrender.com`, then `node scripts/browser-smoke.cjs` or `node scripts/enterprise-browser.cjs` (synthetic test workspaces).
+- `docker compose -f ops/compose.pilot.yml up --build -d` starts the existing persistent private pilot at http://127.0.0.1:8788. Preserve its private config. Setup/users/backups: docs/enterprise/pilot-operations.md.
+- Windows defaults to the public backend. Set `BATCHFENCE_BACKEND_ORIGIN=http://127.0.0.1:8788` before launch to use the local pilot. Saved packets work offline without external Node/Python.
+
+Verdict: ready for synthetic public use and a controlled engineering pilot; production acceptance remains open. Precise human actions: privately rotate the provider key exposed by the portal during inspection and update private local/Render settings; test actual Windows chooser/save/reopen and unsigned-installer prompts; complete quality-professional and three-operator acceptance; provision real scoped identities/approve intended AMD data; set off-device backup and RPO/RTO and observe restore. Native dialogs were stubbed in engineering automation. Public storage is temporary, Windows unsigned, real ERP integration unavailable, eight moderate build-tool findings remain. No purchases, real inventory actions or external messages occurred.
+
+All current evidence: docs/enterprise/final-release.json,release-artifacts.json,live/README.md,release-public/,release-desktop/,release-container/. Next useful work is the documented human acceptance, not feature expansion or score-chasing inference.
 
 ---
+
+Historical checkpoints below describe their state at that time.
 
 ## Historical operating notes
 

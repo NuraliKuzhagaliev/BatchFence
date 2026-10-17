@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-17T00:16:24.129Z",
+  "url": "https://batchfence.onrender.com",
+  "environment": "public HTTPS",
+  "live_calls": 0,
+  "live_access_denial": {
+    "status": 403,
+    "code": "LIVE_PROTECTED"
+  },
+  "checks": [
+    "Initial loading and internal-route refresh",
+    "Built assets and API 404",
+    "Historical AMD replay labeled; no approval/execution authority",
+    "Live access denied before provider reservation; second browser session cannot read case or receipt",
+    "Protected-live error remains usable and access key not persisted"
+  ],
+  "errors": []
+}

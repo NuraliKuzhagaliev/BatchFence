@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "exported_at": "2026-10-16T23:56:40.643281+00:00",
+  "exported_at": "2026-10-17T00:17:44.215112+00:00",
   "label": "Historical read-only packet. Hash is change detection, not supplier authentication.",
   "case": {
-    "id": "8a6b8be8609d41c6881e9cd5eb208386",
+    "id": "866260bf00d34867af82c1cbcb730ab8",
     "name": "Northstar Enclosures",
     "incident": "Cosmetic coating defect · decorative housings",
     "synthetic": true,
@@ -11,13 +11,13 @@
     "inventory_version": 2,
     "documents": [
       {
-        "id": "DOC-4bfe4dc2d261",
+        "id": "DOC-29eed77ece6d",
         "filename": "ambiguous_receipt.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T23:56:37.002013+00:00",
-        "original_hash": "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
-        "text_hash": "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
+        "ingested_at": "2026-10-17T00:17:39.982730+00:00",
+        "original_hash": "1ec49184b6cb1b3c673dc7c681b088f11525e4c9a9a412b36fb1a6d7f7396285",
+        "text_hash": "1ec49184b6cb1b3c673dc7c681b088f11525e4c9a9a412b36fb1a6d7f7396285",
         "blocks": [
           {
             "id": "line-1",
@@ -33,13 +33,13 @@
         "synthetic": true
       },
       {
-        "id": "DOC-0d2757fe22d8",
+        "id": "DOC-e14f03b892b2",
         "filename": "completeness_manifest.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T23:56:37.002391+00:00",
-        "original_hash": "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
-        "text_hash": "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
+        "ingested_at": "2026-10-17T00:17:39.982833+00:00",
+        "original_hash": "90e479db7ca8b4150669e066ecd3f574db0a4c2033e6faec68057b8f224f5bbf",
+        "text_hash": "90e479db7ca8b4150669e066ecd3f574db0a4c2033e6faec68057b8f224f5bbf",
         "blocks": [
           {
             "id": "line-1",
@@ -55,13 +55,13 @@
         "synthetic": true
       },
       {
-        "id": "DOC-0453b67697c3",
+        "id": "DOC-24021c1bba2f",
         "filename": "containment_policy.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T23:56:37.002769+00:00",
-        "original_hash": "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
-        "text_hash": "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
+        "ingested_at": "2026-10-17T00:17:39.982912+00:00",
+        "original_hash": "111e8cb436255ca15cba1d977b5048994d08f9f77545a6451e6479faec10b54f",
+        "text_hash": "111e8cb436255ca15cba1d977b5048994d08f9f77545a6451e6479faec10b54f",
         "blocks": [
           {
             "id": "line-1",
@@ -77,13 +77,13 @@
         "synthetic": true
       },
       {
-        "id": "DOC-2dbfebcf23ce",
+        "id": "DOC-4cd377b5ba76",
         "filename": "inventory.csv",
         "media_type": "text/csv",
         "revision": 1,
-        "ingested_at": "2026-10-16T23:56:37.003576+00:00",
-        "original_hash": "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
-        "text_hash": "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
+        "ingested_at": "2026-10-17T00:17:39.983032+00:00",
+        "original_hash": "387d0938e077d4cb613a64aa5bff1b300a4f40eec7e36ce642cae0d327cdfa00",
+        "text_hash": "387d0938e077d4cb613a64aa5bff1b300a4f40eec7e36ce642cae0d327cdfa00",
         "blocks": [
           {
             "id": "row-0",
@@ -124,13 +124,13 @@
         "synthetic": true
       },
       {
-        "id": "DOC-40c103c8ccec",
+        "id": "DOC-90acb1c5d0a8",
         "filename": "lineage.csv",
         "media_type": "text/csv",
         "revision": 1,
-        "ingested_at": "2026-10-16T23:56:37.004252+00:00",
-        "original_hash": "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
-        "text_hash": "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
+        "ingested_at": "2026-10-17T00:17:39.983129+00:00",
+        "original_hash": "9c45f724f98de208787f30e855a699a18f3e317441cf439cbc728f72f2f492b7",
+        "text_hash": "9c45f724f98de208787f30e855a699a18f3e317441cf439cbc728f72f2f492b7",
         "blocks": [
           {
             "id": "row-0",
@@ -176,13 +176,13 @@
         "synthetic": true
       },
       {
-        "id": "DOC-9157329672be",
+        "id": "DOC-a7c94b9f8e2f",
         "filename": "order_allocations.csv",
         "media_type": "text/csv",
         "revision": 1,
-        "ingested_at": "2026-10-16T23:56:37.004869+00:00",
-        "original_hash": "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
-        "text_hash": "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
+        "ingested_at": "2026-10-17T00:17:39.983223+00:00",
+        "original_hash": "9f26dfea42ceef6cfd9501566e23ba64ca8176b77f8fd12a9bf702178bc900d3",
+        "text_hash": "9f26dfea42ceef6cfd9501566e23ba64ca8176b77f8fd12a9bf702178bc900d3",
         "blocks": [
           {
             "id": "row-0",
@@ -223,13 +223,13 @@
         "synthetic": true
       },
       {
-        "id": "DOC-7dcdd1133d6e",
+        "id": "DOC-eb25e5fcb363",
         "filename": "production_travelers.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T23:56:37.005539+00:00",
-        "original_hash": "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
-        "text_hash": "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
+        "ingested_at": "2026-10-17T00:17:39.983303+00:00",
+        "original_hash": "f7d85f1a0195d6e8b2ed7d8cf8b253e8b49135914a01eaef21e3b0a3dcd39d2f",
+        "text_hash": "f7d85f1a0195d6e8b2ed7d8cf8b253e8b49135914a01eaef21e3b0a3dcd39d2f",
         "blocks": [
           {
             "id": "line-1",
@@ -245,13 +245,13 @@
         "synthetic": true
       },
       {
-        "id": "DOC-ef87e8856f3e",
+        "id": "DOC-1d9b0b211cd1",
         "filename": "receiving_register.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T23:56:37.006015+00:00",
-        "original_hash": "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
-        "text_hash": "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
+        "ingested_at": "2026-10-17T00:17:39.983375+00:00",
+        "original_hash": "53ff955a582af488fc3eb049dc64b62140cb28d3d8b283c8c0728b801837dd74",
+        "text_hash": "53ff955a582af488fc3eb049dc64b62140cb28d3d8b283c8c0728b801837dd74",
         "blocks": [
           {
             "id": "line-1",
@@ -267,13 +267,13 @@
         "synthetic": true
       },
       {
-        "id": "DOC-ec438dd190c1",
+        "id": "DOC-d2db22a8d30a",
         "filename": "supplier_notice_v1.txt",
         "media_type": "text/plain",
         "revision": 1,
-        "ingested_at": "2026-10-16T23:56:37.006404+00:00",
-        "original_hash": "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
-        "text_hash": "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
+        "ingested_at": "2026-10-17T00:17:39.983449+00:00",
+        "original_hash": "3cbb17d4b5cf545d340c059fe2a5576c40e3a05db0bd9a99a59bcb5d23aeba00",
+        "text_hash": "3cbb17d4b5cf545d340c059fe2a5576c40e3a05db0bd9a99a59bcb5d23aeba00",
         "blocks": [
           {
             "id": "line-1",
@@ -304,13 +304,13 @@
         "synthetic": true
       },
       {
-        "id": "DOC-7d4786679584",
+        "id": "DOC-b55548710c36",
         "filename": "supplier_notice_v2.txt",
         "media_type": "text/plain",
         "revision": 2,
-        "ingested_at": "2026-10-16T23:56:39.064418+00:00",
-        "original_hash": "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d",
-        "text_hash": "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d",
+        "ingested_at": "2026-10-17T00:17:42.197248+00:00",
+        "original_hash": "37a2086f4919e36469bd02920abad3826d95564a96cde9e9548e705010536ec9",
+        "text_hash": "37a2086f4919e36469bd02920abad3826d95564a96cde9e9548e705010536ec9",
         "blocks": [
           {
             "id": "line-1",
@@ -418,7 +418,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-40c103c8ccec",
+          "document_id": "DOC-90acb1c5d0a8",
           "block_id": "row-1",
           "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
         }
@@ -431,7 +431,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-40c103c8ccec",
+          "document_id": "DOC-90acb1c5d0a8",
           "block_id": "row-2",
           "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
         }
@@ -444,7 +444,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-40c103c8ccec",
+          "document_id": "DOC-90acb1c5d0a8",
           "block_id": "row-3",
           "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
         }
@@ -457,7 +457,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-40c103c8ccec",
+          "document_id": "DOC-90acb1c5d0a8",
           "block_id": "row-4",
           "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
         }
@@ -470,7 +470,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-40c103c8ccec",
+          "document_id": "DOC-90acb1c5d0a8",
           "block_id": "row-5",
           "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
         }
@@ -483,7 +483,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-40c103c8ccec",
+          "document_id": "DOC-90acb1c5d0a8",
           "block_id": "row-6",
           "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
         }
@@ -496,7 +496,7 @@
         "revision": "1",
         "timestamp": "2026-10-15T12:00:00Z",
         "evidence": {
-          "document_id": "DOC-40c103c8ccec",
+          "document_id": "DOC-90acb1c5d0a8",
           "block_id": "row-7",
           "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
         }
@@ -573,12 +573,12 @@
       "qualifiers": [
         "Synthetic deterministic walkthrough. Confirm scope against the original notice."
       ],
-      "source_document_id": "DOC-7d4786679584",
+      "source_document_id": "DOC-b55548710c36",
       "uncertain_lot_ids": [],
       "excluded_lot_ids": [],
       "incident_scope_status": "resolved",
       "resolution_evidence": {
-        "document_id": "DOC-7d4786679584",
+        "document_id": "DOC-b55548710c36",
         "block_id": "line-4",
         "quote": "Affected lots: SUP-A, SUP-C"
       },
@@ -588,14 +588,14 @@
     },
     "runs": [
       {
-        "id": "31a4bb03-4a5b-42d3-ad86-7fddebf68d5b",
+        "id": "e6ba204a-518f-44e5-bbbc-27d26fd05789",
         "mode": "fixture",
         "clock_source": "Server UTC wall clock; latency from monotonic clock",
-        "input_hash": "3cb245e17734428a0f30715c72a042c5b01c80bec348f9cb6dfff7a0d5b1d865",
+        "input_hash": "d9b83db9eb361be24ef20b8c9549f76ede239920ce6b1ee918e75f227370249c",
         "provider": "Synthetic fixture",
         "prompt_version": "scope-extract-2",
         "schema_version": 1,
-        "timestamp": "2026-10-16T23:56:37.316244+00:00",
+        "timestamp": "2026-10-17T00:17:40.295191+00:00",
         "status": "succeeded",
         "repairs": 0,
         "model_id": "fixture-parser-v1",
@@ -606,7 +606,7 @@
               "affected": true,
               "evidence": [
                 {
-                  "document_id": "DOC-ec438dd190c1",
+                  "document_id": "DOC-d2db22a8d30a",
                   "block_id": "line-4",
                   "quote": "Affected lots: SUP-A"
                 }
@@ -619,18 +619,18 @@
         },
         "elapsed_ms": 0,
         "revision": 1,
-        "document_id": "DOC-ec438dd190c1",
+        "document_id": "DOC-d2db22a8d30a",
         "scope_concerns": []
       },
       {
-        "id": "3a63ba2d-f982-4b57-90ce-0d0358e002ad",
+        "id": "d7d8ef80-e370-43a9-b50a-1d89a2f14140",
         "mode": "fixture",
         "clock_source": "Server UTC wall clock; latency from monotonic clock",
-        "input_hash": "e9350be37d694e0e110298f445be1237cac8bb8774b1cbbafaa04039c5c713b7",
+        "input_hash": "f4ba5e10522038c6cde2620e4293c45b5b950016dce889adce0097c2e0c37a6b",
         "provider": "Synthetic fixture",
         "prompt_version": "scope-extract-2",
         "schema_version": 1,
-        "timestamp": "2026-10-16T23:56:39.502832+00:00",
+        "timestamp": "2026-10-17T00:17:42.780709+00:00",
         "status": "succeeded",
         "repairs": 0,
         "model_id": "fixture-parser-v1",
@@ -641,7 +641,7 @@
               "affected": true,
               "evidence": [
                 {
-                  "document_id": "DOC-7d4786679584",
+                  "document_id": "DOC-b55548710c36",
                   "block_id": "line-4",
                   "quote": "Affected lots: SUP-A, SUP-C"
                 }
@@ -652,7 +652,7 @@
               "affected": true,
               "evidence": [
                 {
-                  "document_id": "DOC-7d4786679584",
+                  "document_id": "DOC-b55548710c36",
                   "block_id": "line-4",
                   "quote": "Affected lots: SUP-A, SUP-C"
                 }
@@ -665,15 +665,15 @@
         },
         "elapsed_ms": 0,
         "revision": 2,
-        "document_id": "DOC-7d4786679584",
+        "document_id": "DOC-b55548710c36",
         "scope_concerns": []
       }
     ],
     "reviews": [
       {
-        "at": "2026-10-16T23:56:37.960239+00:00",
+        "at": "2026-10-17T00:17:41.055609+00:00",
         "reviewer": "Anonymous session reviewer",
-        "run_id": "31a4bb03-4a5b-42d3-ad86-7fddebf68d5b",
+        "run_id": "e6ba204a-518f-44e5-bbbc-27d26fd05789",
         "suggested_lots": [
           "SUP-A"
         ],
@@ -688,7 +688,7 @@
         "excluded_lot_ids": [],
         "incident_scope_status": "resolved",
         "resolution_evidence": {
-          "document_id": "DOC-ec438dd190c1",
+          "document_id": "DOC-d2db22a8d30a",
           "block_id": "line-4",
           "quote": "Affected lots: SUP-A"
         },
@@ -696,9 +696,9 @@
         "bounded_scope_reviewed": true
       },
       {
-        "at": "2026-10-16T23:56:39.875230+00:00",
+        "at": "2026-10-17T00:17:43.110498+00:00",
         "reviewer": "Anonymous session reviewer",
-        "run_id": "3a63ba2d-f982-4b57-90ce-0d0358e002ad",
+        "run_id": "d7d8ef80-e370-43a9-b50a-1d89a2f14140",
         "suggested_lots": [
           "SUP-A",
           "SUP-C"
@@ -717,7 +717,7 @@
         "excluded_lot_ids": [],
         "incident_scope_status": "resolved",
         "resolution_evidence": {
-          "document_id": "DOC-7d4786679584",
+          "document_id": "DOC-b55548710c36",
           "block_id": "line-4",
           "quote": "Affected lots: SUP-A, SUP-C"
         },
@@ -727,8 +727,8 @@
     ],
     "plans": [
       {
-        "id": "PLAN-0387ab081414",
-        "digest": "0387ab081414e1ae121c0bf9cb7533032645e4df154793803f1ab17acad102d3",
+        "id": "PLAN-d745de6d1862",
+        "digest": "d745de6d1862d56f8517882e778ccf3b9c8c7f5bfcffd628563e93fb6dfd5904",
         "source_claims": [
           {
             "facts": [
@@ -737,7 +737,7 @@
                 "affected": true,
                 "evidence": [
                   {
-                    "document_id": "DOC-ec438dd190c1",
+                    "document_id": "DOC-d2db22a8d30a",
                     "block_id": "line-4",
                     "quote": "Affected lots: SUP-A"
                   }
@@ -786,7 +786,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-40c103c8ccec",
+                  "document_id": "DOC-90acb1c5d0a8",
                   "block_id": "row-1",
                   "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -810,7 +810,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-40c103c8ccec",
+                  "document_id": "DOC-90acb1c5d0a8",
                   "block_id": "row-2",
                   "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -834,7 +834,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-40c103c8ccec",
+                  "document_id": "DOC-90acb1c5d0a8",
                   "block_id": "row-3",
                   "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
                 }
@@ -858,7 +858,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-40c103c8ccec",
+                  "document_id": "DOC-90acb1c5d0a8",
                   "block_id": "row-5",
                   "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -882,7 +882,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-40c103c8ccec",
+                  "document_id": "DOC-90acb1c5d0a8",
                   "block_id": "row-6",
                   "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -906,7 +906,7 @@
               ],
               "evidence": [
                 {
-                  "document_id": "DOC-40c103c8ccec",
+                  "document_id": "DOC-90acb1c5d0a8",
                   "block_id": "row-7",
                   "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
                 }
@@ -914,17 +914,17 @@
             }
           ],
           "node_states": {
-            "FG-B": "documented",
-            "FG-D": "outside",
-            "FG-F": "outside",
+            "SUP-C": "outside",
             "SUP-D": "outside",
             "FG-E": "outside",
-            "SUP-A": "documented",
             "FG-A": "documented",
-            "FG-C": "uncertain",
             "SUP-E": "outside",
+            "SUP-A": "documented",
+            "FG-B": "documented",
+            "FG-D": "outside",
             "SUP-B": "outside",
-            "SUP-C": "outside"
+            "FG-F": "outside",
+            "FG-C": "uncertain"
           },
           "documented_units": 400,
           "uncertain_units": 100,
@@ -951,7 +951,7 @@
           ],
           "requests": [
             {
-              "id": "CAUSE-d3ff8467ed6b0e",
+              "id": "CAUSE-d898da13226f4e",
               "kind": "possible_ancestry",
               "pool_ids": [
                 "FG-C"
@@ -962,12 +962,12 @@
               "reason": "Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. The completeness manifest also needs confirmation.",
               "evidence": [
                 {
-                  "document_id": "DOC-40c103c8ccec",
+                  "document_id": "DOC-90acb1c5d0a8",
                   "block_id": "row-3",
                   "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
                 },
                 {
-                  "document_id": "DOC-40c103c8ccec",
+                  "document_id": "DOC-90acb1c5d0a8",
                   "block_id": "row-4",
                   "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
                 }
@@ -997,11 +997,11 @@
               "draft": "Please clarify receiving identity for fg-c for FG-C (100 unique units). Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. Provide original record IDs, exact lot identities and document revision; state whether the record is complete or inconclusive. This request does not authorize release.",
               "causes": [
                 {
-                  "id": "CAUSE-d3ff8467ed6b0e",
+                  "id": "CAUSE-d898da13226f4e",
                   "kind": "possible_ancestry"
                 },
                 {
-                  "id": "CAUSE-8c300df2a59710",
+                  "id": "CAUSE-a7baf910bb5f7e",
                   "kind": "incomplete_ancestry"
                 }
               ],
@@ -1053,64 +1053,64 @@
           "narrowing_available": true
         },
         "inputs": {
-          "incident_id": "8a6b8be8609d41c6881e9cd5eb208386",
+          "incident_id": "866260bf00d34867af82c1cbcb730ab8",
           "review_policy_version": 3,
           "evidence_revision": 1,
           "inventory_version": 1,
           "documents": [
             [
-              "DOC-0453b67697c3",
+              "DOC-1d9b0b211cd1",
               1,
-              "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
-              "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6"
+              "53ff955a582af488fc3eb049dc64b62140cb28d3d8b283c8c0728b801837dd74",
+              "53ff955a582af488fc3eb049dc64b62140cb28d3d8b283c8c0728b801837dd74"
             ],
             [
-              "DOC-0d2757fe22d8",
+              "DOC-24021c1bba2f",
               1,
-              "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
-              "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3"
+              "111e8cb436255ca15cba1d977b5048994d08f9f77545a6451e6479faec10b54f",
+              "111e8cb436255ca15cba1d977b5048994d08f9f77545a6451e6479faec10b54f"
             ],
             [
-              "DOC-2dbfebcf23ce",
+              "DOC-29eed77ece6d",
               1,
-              "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
-              "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46"
+              "1ec49184b6cb1b3c673dc7c681b088f11525e4c9a9a412b36fb1a6d7f7396285",
+              "1ec49184b6cb1b3c673dc7c681b088f11525e4c9a9a412b36fb1a6d7f7396285"
             ],
             [
-              "DOC-40c103c8ccec",
+              "DOC-4cd377b5ba76",
               1,
-              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
-              "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5"
+              "387d0938e077d4cb613a64aa5bff1b300a4f40eec7e36ce642cae0d327cdfa00",
+              "387d0938e077d4cb613a64aa5bff1b300a4f40eec7e36ce642cae0d327cdfa00"
             ],
             [
-              "DOC-4bfe4dc2d261",
+              "DOC-90acb1c5d0a8",
               1,
-              "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
-              "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9"
+              "9c45f724f98de208787f30e855a699a18f3e317441cf439cbc728f72f2f492b7",
+              "9c45f724f98de208787f30e855a699a18f3e317441cf439cbc728f72f2f492b7"
             ],
             [
-              "DOC-7dcdd1133d6e",
+              "DOC-a7c94b9f8e2f",
               1,
-              "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
-              "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e"
+              "9f26dfea42ceef6cfd9501566e23ba64ca8176b77f8fd12a9bf702178bc900d3",
+              "9f26dfea42ceef6cfd9501566e23ba64ca8176b77f8fd12a9bf702178bc900d3"
             ],
             [
-              "DOC-9157329672be",
+              "DOC-d2db22a8d30a",
               1,
-              "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
-              "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee"
+              "3cbb17d4b5cf545d340c059fe2a5576c40e3a05db0bd9a99a59bcb5d23aeba00",
+              "3cbb17d4b5cf545d340c059fe2a5576c40e3a05db0bd9a99a59bcb5d23aeba00"
             ],
             [
-              "DOC-ec438dd190c1",
+              "DOC-e14f03b892b2",
               1,
-              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
-              "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404"
+              "90e479db7ca8b4150669e066ecd3f574db0a4c2033e6faec68057b8f224f5bbf",
+              "90e479db7ca8b4150669e066ecd3f574db0a4c2033e6faec68057b8f224f5bbf"
             ],
             [
-              "DOC-ef87e8856f3e",
+              "DOC-eb25e5fcb363",
               1,
-              "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
-              "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e"
+              "f7d85f1a0195d6e8b2ed7d8cf8b253e8b49135914a01eaef21e3b0a3dcd39d2f",
+              "f7d85f1a0195d6e8b2ed7d8cf8b253e8b49135914a01eaef21e3b0a3dcd39d2f"
             ]
           ],
           "reviewed_scope": {
@@ -1121,12 +1121,12 @@
             "qualifiers": [
               "Synthetic deterministic walkthrough. Confirm scope against the original notice."
             ],
-            "source_document_id": "DOC-ec438dd190c1",
+            "source_document_id": "DOC-d2db22a8d30a",
             "uncertain_lot_ids": [],
             "excluded_lot_ids": [],
             "incident_scope_status": "resolved",
             "resolution_evidence": {
-              "document_id": "DOC-ec438dd190c1",
+              "document_id": "DOC-d2db22a8d30a",
               "block_id": "line-4",
               "quote": "Affected lots: SUP-A"
             },
@@ -1211,7 +1211,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-40c103c8ccec",
+                "document_id": "DOC-90acb1c5d0a8",
                 "block_id": "row-1",
                 "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1224,7 +1224,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-40c103c8ccec",
+                "document_id": "DOC-90acb1c5d0a8",
                 "block_id": "row-2",
                 "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1237,7 +1237,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-40c103c8ccec",
+                "document_id": "DOC-90acb1c5d0a8",
                 "block_id": "row-3",
                 "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
               }
@@ -1250,7 +1250,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-40c103c8ccec",
+                "document_id": "DOC-90acb1c5d0a8",
                 "block_id": "row-4",
                 "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
               }
@@ -1263,7 +1263,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-40c103c8ccec",
+                "document_id": "DOC-90acb1c5d0a8",
                 "block_id": "row-5",
                 "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1276,7 +1276,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-40c103c8ccec",
+                "document_id": "DOC-90acb1c5d0a8",
                 "block_id": "row-6",
                 "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1289,7 +1289,7 @@
               "revision": "1",
               "timestamp": "2026-10-15T12:00:00Z",
               "evidence": {
-                "document_id": "DOC-40c103c8ccec",
+                "document_id": "DOC-90acb1c5d0a8",
                 "block_id": "row-7",
                 "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1373,17 +1373,17 @@
           ]
         },
         "approval": {
-          "at": "2026-10-16T23:56:38.684806+00:00",
+          "at": "2026-10-17T00:17:41.718086+00:00",
           "reviewer": "Anonymous session reviewer",
-          "digest": "0387ab081414e1ae121c0bf9cb7533032645e4df154793803f1ab17acad102d3",
-          "plan_id": "PLAN-0387ab081414",
+          "digest": "d745de6d1862d56f8517882e778ccf3b9c8c7f5bfcffd628563e93fb6dfd5904",
+          "plan_id": "PLAN-d745de6d1862",
           "authorization": null
         }
       }
     ],
     "plan": {
-      "id": "PLAN-19aded2e1b06",
-      "digest": "19aded2e1b060b48c754dbc1de66582ee2acb93de1d42c2267539953f814a194",
+      "id": "PLAN-83a29571a090",
+      "digest": "83a29571a090ae6f917d97ef0d1b4e37c8006f7108b97d8b15e3d2457d6e2d99",
       "source_claims": [
         {
           "facts": [
@@ -1392,7 +1392,7 @@
               "affected": true,
               "evidence": [
                 {
-                  "document_id": "DOC-7d4786679584",
+                  "document_id": "DOC-b55548710c36",
                   "block_id": "line-4",
                   "quote": "Affected lots: SUP-A, SUP-C"
                 }
@@ -1403,7 +1403,7 @@
               "affected": true,
               "evidence": [
                 {
-                  "document_id": "DOC-7d4786679584",
+                  "document_id": "DOC-b55548710c36",
                   "block_id": "line-4",
                   "quote": "Affected lots: SUP-A, SUP-C"
                 }
@@ -1456,7 +1456,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-40c103c8ccec",
+                "document_id": "DOC-90acb1c5d0a8",
                 "block_id": "row-1",
                 "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1480,7 +1480,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-40c103c8ccec",
+                "document_id": "DOC-90acb1c5d0a8",
                 "block_id": "row-2",
                 "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1504,7 +1504,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-40c103c8ccec",
+                "document_id": "DOC-90acb1c5d0a8",
                 "block_id": "row-3",
                 "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
               }
@@ -1528,7 +1528,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-40c103c8ccec",
+                "document_id": "DOC-90acb1c5d0a8",
                 "block_id": "row-5",
                 "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1552,7 +1552,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-40c103c8ccec",
+                "document_id": "DOC-90acb1c5d0a8",
                 "block_id": "row-6",
                 "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1576,7 +1576,7 @@
             ],
             "evidence": [
               {
-                "document_id": "DOC-40c103c8ccec",
+                "document_id": "DOC-90acb1c5d0a8",
                 "block_id": "row-7",
                 "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
               }
@@ -1584,17 +1584,17 @@
           }
         ],
         "node_states": {
-          "FG-B": "documented",
-          "FG-D": "documented",
-          "FG-F": "outside",
+          "SUP-C": "documented",
           "SUP-D": "outside",
           "FG-E": "outside",
-          "SUP-A": "documented",
           "FG-A": "documented",
-          "FG-C": "uncertain",
           "SUP-E": "outside",
+          "SUP-A": "documented",
+          "FG-B": "documented",
+          "FG-D": "documented",
           "SUP-B": "outside",
-          "SUP-C": "documented"
+          "FG-F": "outside",
+          "FG-C": "uncertain"
         },
         "documented_units": 700,
         "uncertain_units": 100,
@@ -1625,7 +1625,7 @@
         ],
         "requests": [
           {
-            "id": "CAUSE-d3ff8467ed6b0e",
+            "id": "CAUSE-d898da13226f4e",
             "kind": "possible_ancestry",
             "pool_ids": [
               "FG-C"
@@ -1636,12 +1636,12 @@
             "reason": "Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. The completeness manifest also needs confirmation.",
             "evidence": [
               {
-                "document_id": "DOC-40c103c8ccec",
+                "document_id": "DOC-90acb1c5d0a8",
                 "block_id": "row-3",
                 "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
               },
               {
-                "document_id": "DOC-40c103c8ccec",
+                "document_id": "DOC-90acb1c5d0a8",
                 "block_id": "row-4",
                 "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
               }
@@ -1671,11 +1671,11 @@
             "draft": "Please clarify receiving identity for fg-c for FG-C (100 unique units). Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. Provide original record IDs, exact lot identities and document revision; state whether the record is complete or inconclusive. This request does not authorize release.",
             "causes": [
               {
-                "id": "CAUSE-d3ff8467ed6b0e",
+                "id": "CAUSE-d898da13226f4e",
                 "kind": "possible_ancestry"
               },
               {
-                "id": "CAUSE-8c300df2a59710",
+                "id": "CAUSE-a7baf910bb5f7e",
                 "kind": "incomplete_ancestry"
               }
             ],
@@ -1739,70 +1739,70 @@
         "narrowing_available": true
       },
       "inputs": {
-        "incident_id": "8a6b8be8609d41c6881e9cd5eb208386",
+        "incident_id": "866260bf00d34867af82c1cbcb730ab8",
         "review_policy_version": 3,
         "evidence_revision": 2,
         "inventory_version": 1,
         "documents": [
           [
-            "DOC-0453b67697c3",
+            "DOC-1d9b0b211cd1",
             1,
-            "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
-            "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6"
+            "53ff955a582af488fc3eb049dc64b62140cb28d3d8b283c8c0728b801837dd74",
+            "53ff955a582af488fc3eb049dc64b62140cb28d3d8b283c8c0728b801837dd74"
           ],
           [
-            "DOC-0d2757fe22d8",
+            "DOC-24021c1bba2f",
             1,
-            "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
-            "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3"
+            "111e8cb436255ca15cba1d977b5048994d08f9f77545a6451e6479faec10b54f",
+            "111e8cb436255ca15cba1d977b5048994d08f9f77545a6451e6479faec10b54f"
           ],
           [
-            "DOC-2dbfebcf23ce",
+            "DOC-29eed77ece6d",
             1,
-            "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
-            "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46"
+            "1ec49184b6cb1b3c673dc7c681b088f11525e4c9a9a412b36fb1a6d7f7396285",
+            "1ec49184b6cb1b3c673dc7c681b088f11525e4c9a9a412b36fb1a6d7f7396285"
           ],
           [
-            "DOC-40c103c8ccec",
+            "DOC-4cd377b5ba76",
             1,
-            "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
-            "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5"
+            "387d0938e077d4cb613a64aa5bff1b300a4f40eec7e36ce642cae0d327cdfa00",
+            "387d0938e077d4cb613a64aa5bff1b300a4f40eec7e36ce642cae0d327cdfa00"
           ],
           [
-            "DOC-4bfe4dc2d261",
+            "DOC-90acb1c5d0a8",
             1,
-            "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
-            "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9"
+            "9c45f724f98de208787f30e855a699a18f3e317441cf439cbc728f72f2f492b7",
+            "9c45f724f98de208787f30e855a699a18f3e317441cf439cbc728f72f2f492b7"
           ],
           [
-            "DOC-7d4786679584",
+            "DOC-a7c94b9f8e2f",
+            1,
+            "9f26dfea42ceef6cfd9501566e23ba64ca8176b77f8fd12a9bf702178bc900d3",
+            "9f26dfea42ceef6cfd9501566e23ba64ca8176b77f8fd12a9bf702178bc900d3"
+          ],
+          [
+            "DOC-b55548710c36",
             2,
-            "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d",
-            "f08c520001e38535df4fda75bdd6d62977365afbd5b0b87e52cbdfc8b326a06d"
+            "37a2086f4919e36469bd02920abad3826d95564a96cde9e9548e705010536ec9",
+            "37a2086f4919e36469bd02920abad3826d95564a96cde9e9548e705010536ec9"
           ],
           [
-            "DOC-7dcdd1133d6e",
+            "DOC-d2db22a8d30a",
             1,
-            "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
-            "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e"
+            "3cbb17d4b5cf545d340c059fe2a5576c40e3a05db0bd9a99a59bcb5d23aeba00",
+            "3cbb17d4b5cf545d340c059fe2a5576c40e3a05db0bd9a99a59bcb5d23aeba00"
           ],
           [
-            "DOC-9157329672be",
+            "DOC-e14f03b892b2",
             1,
-            "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
-            "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee"
+            "90e479db7ca8b4150669e066ecd3f574db0a4c2033e6faec68057b8f224f5bbf",
+            "90e479db7ca8b4150669e066ecd3f574db0a4c2033e6faec68057b8f224f5bbf"
           ],
           [
-            "DOC-ec438dd190c1",
+            "DOC-eb25e5fcb363",
             1,
-            "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
-            "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404"
-          ],
-          [
-            "DOC-ef87e8856f3e",
-            1,
-            "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
-            "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e"
+            "f7d85f1a0195d6e8b2ed7d8cf8b253e8b49135914a01eaef21e3b0a3dcd39d2f",
+            "f7d85f1a0195d6e8b2ed7d8cf8b253e8b49135914a01eaef21e3b0a3dcd39d2f"
           ]
         ],
         "reviewed_scope": {
@@ -1814,12 +1814,12 @@
           "qualifiers": [
             "Synthetic deterministic walkthrough. Confirm scope against the original notice."
           ],
-          "source_document_id": "DOC-7d4786679584",
+          "source_document_id": "DOC-b55548710c36",
           "uncertain_lot_ids": [],
           "excluded_lot_ids": [],
           "incident_scope_status": "resolved",
           "resolution_evidence": {
-            "document_id": "DOC-7d4786679584",
+            "document_id": "DOC-b55548710c36",
             "block_id": "line-4",
             "quote": "Affected lots: SUP-A, SUP-C"
           },
@@ -1904,7 +1904,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-40c103c8ccec",
+              "document_id": "DOC-90acb1c5d0a8",
               "block_id": "row-1",
               "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
             }
@@ -1917,7 +1917,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-40c103c8ccec",
+              "document_id": "DOC-90acb1c5d0a8",
               "block_id": "row-2",
               "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
             }
@@ -1930,7 +1930,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-40c103c8ccec",
+              "document_id": "DOC-90acb1c5d0a8",
               "block_id": "row-3",
               "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
             }
@@ -1943,7 +1943,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-40c103c8ccec",
+              "document_id": "DOC-90acb1c5d0a8",
               "block_id": "row-4",
               "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
             }
@@ -1956,7 +1956,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-40c103c8ccec",
+              "document_id": "DOC-90acb1c5d0a8",
               "block_id": "row-5",
               "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
             }
@@ -1969,7 +1969,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-40c103c8ccec",
+              "document_id": "DOC-90acb1c5d0a8",
               "block_id": "row-6",
               "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
             }
@@ -1982,7 +1982,7 @@
             "revision": "1",
             "timestamp": "2026-10-15T12:00:00Z",
             "evidence": {
-              "document_id": "DOC-40c103c8ccec",
+              "document_id": "DOC-90acb1c5d0a8",
               "block_id": "row-7",
               "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
             }
@@ -2070,16 +2070,16 @@
         ]
       },
       "approval": {
-        "at": "2026-10-16T23:56:40.299754+00:00",
+        "at": "2026-10-17T00:17:43.665257+00:00",
         "reviewer": "Anonymous session reviewer",
-        "digest": "19aded2e1b060b48c754dbc1de66582ee2acb93de1d42c2267539953f814a194",
-        "plan_id": "PLAN-19aded2e1b06",
+        "digest": "83a29571a090ae6f917d97ef0d1b4e37c8006f7108b97d8b15e3d2457d6e2d99",
+        "plan_id": "PLAN-83a29571a090",
         "authorization": null
       }
     },
     "history": [
       {
-        "at": "2026-10-16T23:56:37.968917+00:00",
+        "at": "2026-10-17T00:17:41.059147+00:00",
         "type": "reviewed",
         "revision": 1,
         "previous_lots": [],
@@ -2094,19 +2094,19 @@
         "message": "Critical scope and completeness reviewed; new exact plan calculated."
       },
       {
-        "at": "2026-10-16T23:56:38.684838+00:00",
+        "at": "2026-10-17T00:17:41.718103+00:00",
         "type": "approved",
         "revision": 1,
-        "message": "Approved exact plan PLAN-0387ab081414"
+        "message": "Approved exact plan PLAN-d745de6d1862"
       },
       {
-        "at": "2026-10-16T23:56:39.074200+00:00",
+        "at": "2026-10-17T00:17:42.201466+00:00",
         "type": "evidence_changed",
         "message": "Supplier correction expands affected lots. Previous approval is stale immediately.",
         "revision": 2
       },
       {
-        "at": "2026-10-16T23:56:39.888413+00:00",
+        "at": "2026-10-17T00:17:43.119736+00:00",
         "type": "reviewed",
         "revision": 2,
         "previous_lots": [
@@ -2125,26 +2125,26 @@
         "message": "Critical scope and completeness reviewed; new exact plan calculated."
       },
       {
-        "at": "2026-10-16T23:56:40.299785+00:00",
+        "at": "2026-10-17T00:17:43.665281+00:00",
         "type": "approved",
         "revision": 2,
-        "message": "Approved exact plan PLAN-19aded2e1b06"
+        "message": "Approved exact plan PLAN-83a29571a090"
       },
       {
-        "at": "2026-10-16T23:56:40.378522+00:00",
+        "at": "2026-10-17T00:17:43.913631+00:00",
         "type": "applied",
         "revision": 2,
-        "message": "Sandbox inventory committed atomically: TX-1df2d4761fe5433aa173b63b19adfc91"
+        "message": "Sandbox inventory committed atomically: TX-47a1583cbb2e4a1da1a5febfd08f52c4"
       }
     ],
     "receipts": [
       {
-        "transaction_id": "TX-1df2d4761fe5433aa173b63b19adfc91",
-        "at": "2026-10-16T23:56:40.378499+00:00",
+        "transaction_id": "TX-47a1583cbb2e4a1da1a5febfd08f52c4",
+        "at": "2026-10-17T00:17:43.913608+00:00",
         "execution": "SANDBOX INVENTORY",
-        "plan_id": "PLAN-19aded2e1b06",
-        "digest": "19aded2e1b060b48c754dbc1de66582ee2acb93de1d42c2267539953f814a194",
-        "idempotency_key": "8e4d02be-8706-473d-af2f-0a82659649d9",
+        "plan_id": "PLAN-83a29571a090",
+        "digest": "83a29571a090ae6f917d97ef0d1b4e37c8006f7108b97d8b15e3d2457d6e2d99",
+        "idempotency_key": "0f68f8d8-0361-40eb-8218-593960333d82",
         "changes": [
           {
             "pool_id": "FG-A",
@@ -2186,9 +2186,9 @@
         "user_id": null,
         "identity_mode": "anonymous session; not independent identity"
       },
-      "snapshot_at": "2026-10-16T23:56:40.642549+00:00",
+      "snapshot_at": "2026-10-17T00:17:44.214946+00:00",
       "boundary": "Historical snapshots confer no action authority. Synthetic records and simulated identities are not independent human validation."
     }
   },
-  "integrity_hash": "1712f5b3cc5a76560306d30ac2e718d921a9437b662aaa28e3c4ec8a56b053a0"
+  "integrity_hash": "ee8c7ae9c1f8d6cc65e233ba5cf1907045523a8ebb3f401f1e68ea834a6e4a71"
 }

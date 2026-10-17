@@ -1,0 +1,134 @@
+{
+  "at": "2026-10-17T00:17:50.448404+00:00",
+  "version": "0.3.0",
+  "verdict": "Released for synthetic public use and owner-controlled engineering pilot; not independently accepted for production inventory",
+  "web_url": "https://batchfence.onrender.com",
+  "windows_url": "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.3.0",
+  "source_commit": "effa9fd0bc2c6f32b24ea4d51e6da31359707818",
+  "source_tag": "v0.3.0",
+  "verified_public_commit": "dd06d974a2cc721ed9366724853e14078567f6f8",
+  "render_deploy_id": "dep-db9bs2nlk1mc73bqmsag",
+  "render_plan": "free",
+  "instances": 1,
+  "hosting_changes": "Existing service only; no purchase/new service/persistent paid disk",
+  "modules": {
+    "Quality Signals": {
+      "implemented": true,
+      "engineering_verified": true,
+      "independent_human_acceptance": false
+    },
+    "Approved Knowledge": {
+      "implemented": true,
+      "engineering_verified": true,
+      "independent_human_acceptance": false
+    },
+    "Controlled Recovery": {
+      "implemented": true,
+      "engineering_verified": true,
+      "independent_human_acceptance": false
+    },
+    "Corrective Action with Effectiveness": {
+      "implemented": true,
+      "engineering_verified": true,
+      "independent_human_acceptance": false
+    }
+  },
+  "checks": {
+    "pytest": 110,
+    "deterministic_domain_cases": 30,
+    "local_web_core": 12,
+    "local_connected_groups": 6,
+    "published_web_core": 12,
+    "published_connected_groups": 6,
+    "published_access_controls": 5,
+    "published_web_desktop_distribution": 4,
+    "installed_core": 7,
+    "installed_connected_groups": 6,
+    "installed_named_pilot": 4,
+    "installed_offline_actual_amd_packet": true,
+    "installed_renderer_scales": [
+      1,
+      1.25
+    ],
+    "actual_github_tag_archive_container_checks": 8,
+    "postgres_original_source_hashes_restored": 16,
+    "source_archive_container_frontend_matches_installer": true,
+    "full_anonymous_installer_download_hash_matches": true
+  },
+  "ci": [
+    {
+      "sha": "effa9fd0bc2c6f32b24ea4d51e6da31359707818",
+      "url": "https://github.com/NuraliKuzhagaliev/BatchFence/actions/runs/38984924653",
+      "conclusion": "success"
+    },
+    {
+      "sha": "dd06d974a2cc721ed9366724853e14078567f6f8",
+      "url": "https://github.com/NuraliKuzhagaliev/BatchFence/actions/runs/38985386485",
+      "conclusion": "success"
+    }
+  ],
+  "fresh_amd": {
+    "attempts": 27,
+    "http200": 26,
+    "timeouts": 1,
+    "automatic_retries": 0,
+    "fixture_substitutions": 0,
+    "frozen_items_exercised": 24,
+    "frozen_model_requests": 20,
+    "retrieval_only_abstentions": 4,
+    "extraction_exact": "6/12",
+    "knowledge_pipeline": "11/12",
+    "knowledge_model_only": "7/8",
+    "typed_context_same_input_retests": "2/2",
+    "model_id": "self-dploy/MiMo-V2.6-Flash",
+    "evidence": "live/README.md",
+    "cloud_inference_this_release_verification": 0,
+    "boundary": "Fresh AMD ran through the local release implementation. Public deployment checks used synthetic fixtures, retained historical packets and protected-access rejection, not new cloud inference."
+  },
+  "artifacts": {
+    "version": "0.3.0",
+    "source_commit": "effa9fd0bc2c6f32b24ea4d51e6da31359707818",
+    "tag": "v0.3.0",
+    "source_state": "clean at build; subsequent changes are evidence only",
+    "artifacts": [
+      {
+        "file": "BatchFence-0.3.0-win-x64-setup.exe",
+        "bytes": 113788538,
+        "sha256": "908d09e1c1b627f043567478cbad9dc766531dda252c8d1acf0eb88b466aae7f"
+      },
+      {
+        "file": "BatchFence-0.3.0-source-effa9fd.zip",
+        "bytes": 65360920,
+        "sha256": "8391009a93977af4837ae10b8d6f683e5150b25b6243a6b61dd6917d4e77cbb7"
+      }
+    ],
+    "windows_signed": false,
+    "windows_default_origin": "https://batchfence.onrender.com",
+    "linux_ci": "https://github.com/NuraliKuzhagaliev/BatchFence/actions/runs/38984924653",
+    "linux_ci_conclusion": "success",
+    "installed_core_checks": 7,
+    "installed_module_groups": 6,
+    "installed_named_pilot_checks": 4,
+    "offline": "Actual fresh AMD packet,700 remaining,100 confirmed recovery,2 original containment receipts, no backend/external Node/Python; dialog selection stubbed",
+    "archive_container": "passed eight checks including actual persistent-volume restart",
+    "installed_asar_sha256": "72d445e3b9d58323cfbf199911345c03713f665fcdf9e6a47021af7d2935a610"
+  },
+  "limitations": [
+    "All sources synthetic and all review/test identities agent-operated",
+    "Raw extraction and one knowledge-abstention error remain; semantic review essential",
+    "One successful compact signal response is not general accuracy evidence",
+    "Free public storage is ephemeral and cold wake was not measured in this release",
+    "Windows unsigned; physical OS dialogs not automated",
+    "Reference connector is local sandbox only; no real inventory integration",
+    "Eight moderate build-tool dependency findings remain; production dependency audit had zero known findings",
+    "Independent quality/operator acceptance, actual scoped users/data approval and off-device restore against owner RPO/RTO pending"
+  ],
+  "human_actions": [
+    "Privately rotate the provider credential exposed by the portal during inspection and update local/Render private configuration; never paste it",
+    "Open/save/reopen a packet through real Windows dialogs and review unsigned-installer trust prompts",
+    "Have a quality professional and three unfamiliar operators complete the documented acceptance protocol",
+    "Provision real scoped pilot users, approve intended AMD data processing, set off-device backup and RPO/RTO, then observe restore",
+    "Owner checks authenticated event form media constraints/cutoff; no entry submitted"
+  ],
+  "subsequent_evidence_checkpoint": "Later documentation-only commits may be redeployed with identical application bytes. Latest exact observed served identity is also retained in releases/final-publication-0.3.0.json."
+}

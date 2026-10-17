@@ -1,0 +1,28 @@
+{
+  "version": "0.3.0",
+  "source_commit": "effa9fd0bc2c6f32b24ea4d51e6da31359707818",
+  "tag": "v0.3.0",
+  "source_state": "clean at build; subsequent changes are evidence only",
+  "artifacts": [
+    {
+      "file": "BatchFence-0.3.0-win-x64-setup.exe",
+      "bytes": 113788538,
+      "sha256": "908d09e1c1b627f043567478cbad9dc766531dda252c8d1acf0eb88b466aae7f"
+    },
+    {
+      "file": "BatchFence-0.3.0-source-effa9fd.zip",
+      "bytes": 65360920,
+      "sha256": "8391009a93977af4837ae10b8d6f683e5150b25b6243a6b61dd6917d4e77cbb7"
+    }
+  ],
+  "windows_signed": false,
+  "windows_default_origin": "https://batchfence.onrender.com",
+  "linux_ci": "https://github.com/NuraliKuzhagaliev/BatchFence/actions/runs/38984924653",
+  "linux_ci_conclusion": "success",
+  "installed_core_checks": 7,
+  "installed_module_groups": 6,
+  "installed_named_pilot_checks": 4,
+  "offline": "Actual fresh AMD packet,700 remaining,100 confirmed recovery,2 original containment receipts, no backend/external Node/Python; dialog selection stubbed",
+  "archive_container": "passed eight checks including actual persistent-volume restart",
+  "installed_asar_sha256": "72d445e3b9d58323cfbf199911345c03713f665fcdf9e6a47021af7d2935a610"
+}

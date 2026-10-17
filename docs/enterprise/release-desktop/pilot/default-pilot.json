@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-17T00:08:47.211Z",
+  "release": {
+    "version": "0.3.0",
+    "packaged": true,
+    "exe": "D:\\projects\\BatchFence\\work\\installed-0.3.0\\BatchFence.exe"
+  },
+  "checks": [
+    "Explicit loopback8788 pilot origin: named engineering sign-in through installed restricted transport",
+    "All module read routes and jobs available to named scoped identity",
+    "Native transport rejects non-enumerated source/traversal target",
+    "Pilot logout removes current session authority"
+  ],
+  "errors": [],
+  "review": "Agent-operated test identity, not independent human validation"
+}

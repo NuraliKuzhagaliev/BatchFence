@@ -6,7 +6,7 @@ Determine what to contain, what evidence to request next, and why a supplier rev
 
 0.3.0 connects Quality Signals, Approved Knowledge, Controlled Recovery and Corrective Action with Effectiveness. PostgreSQL pilot storage, named scoped identities, source-preserving OCR, mapped intake and typed receiving support the same incident. Deterministic containment, explicit review, stale rejection, receipts and offline packets remain. [Fresh AMD results and retained errors](docs/enterprise/live/README.md) distinguish model quality from reviewed outcomes.
 
-![Historical 0.2.0 public workflow; current release evidence is linked above](submission/cover-0.2.0.png)
+![Actual 0.3.0 overview after a synthetic controlled recovery; agent-operated review](docs/enterprise/release-ui/modules/04-overview-1366.png)
 
 ## One incident, three decisions
 
@@ -34,9 +34,11 @@ Windows x64 installers are **unsigned**. The current hosted-client package uses 
 
 ## Evidence and limits
 
-Verified upgrade: 65 pytest, 30 unchanged frozen domain cases, 12 existing and nine new browser groups on the public app, nine installed upgrade groups locally, and seven installed checks against the public backend. Four fresh AMD requests drove reviewed 500/800 receipts and a receiving clarification. The first reply omitted SUP-B and narrowing was rejected; a clearer reply supported a 700-unit proposal while all 800 applied units remained held. Raw model errors and explicit agent reviews are separate. No independent human validation.
+Current 0.3.0 engineering verification: 110 pytest, 30 deterministic cases, 12 web core checks and six connected module groups. Installed Windows passed seven core checks, six module groups, four named pilot checks, offline reading of the actual AMD packet and 100%/125% renderer scale checks. The public GitHub tag archive built on Linux and passed eight container checks, including source isolation and persistence across a real restart. Exact publication identity and public checks are in [release evidence](docs/enterprise/release-0.3.0.md).
 
-Source interpretation is fallible; raw output and corrections remain inspectable. Exact citations do not prove supplier truth. Complete receiving replacement currently accepts the explicit record syntax documented in DEPLOYMENT.md; other prose needs clarification. Simulations cannot approve or execute. Inventory carrying value is not cash savings; overlaps are counted once.
+Fresh AMD: 27 attempts, 26 HTTP 200 responses and one timeout. All 24 frozen synthetic items exercised: 20 model requests plus four retrieval abstentions. Raw extraction matched 6/12 exactly; knowledge pipeline matched 11/12 (model-only 7/8). The source-only receiving retests drove explicit review, 700 proposed while 800 remained held, and separately approved exact 100-unit sandbox recovery. One compact signal explanation matched the computed observations. Original errors remain. All review was agent-operated; independent human validation remains pending.
+
+Source interpretation is fallible; raw output and corrections remain inspectable. Exact citations do not prove supplier truth. Receiving supports typed source-backed proposals and explicit structured replacement review; partial, contradictory or unsupported ancestry remains unresolved. Simulations cannot approve or execute. Inventory carrying value is not cash savings; overlaps are counted once.
 
 Free Render SQLite is temporary and can lose receipts on restart/redeploy: export packets. Holds update workspace inventory only; no ERP, machinery or supplier messaging integration is connected. Physical OS dialog acceptance and independent domain validation remain separate release limitations. No paid resources or optional extra-model integrations are added.
 

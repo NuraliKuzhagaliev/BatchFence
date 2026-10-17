@@ -1,0 +1,19 @@
+{
+  "url": "https://batchfence.onrender.com",
+  "health": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.3.0",
+    "commit": "dd06d974a2cc721ed9366724853e14078567f6f8",
+    "inference_mode": "fixture",
+    "amd_configured": true,
+    "live_protected": true,
+    "profile": "public",
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  },
+  "frontend_js_sha256": "c6b78ecc5f4d22879de38267f275045f408a665c198da3756778d8a49fd7893d",
+  "matches_tested_installer_assets": true,
+  "new_cloud_inference_in_this_check": 0
+}
