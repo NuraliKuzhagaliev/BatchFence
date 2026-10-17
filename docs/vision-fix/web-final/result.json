@@ -1,0 +1,53 @@
+{
+  "at": "2026-10-17T23:34:02.619Z",
+  "platform": "web",
+  "passed": true,
+  "case_id": "345bd6043f61417ca8ec2b27f47ccae7",
+  "outcomes": [
+    {
+      "kind": "readable",
+      "status": "unreviewed proposal",
+      "expected": [
+        "BF-00481"
+      ],
+      "actual": {
+        "candidates": [
+          "BF-00481"
+        ],
+        "unresolved_characters": [],
+        "unreadable": false
+      },
+      "model": "self-dploy/Gemma-4-31B-IT",
+      "elapsed_ms": 3229,
+      "raw_candidates_exact": true,
+      "review_required": true,
+      "explicit_agent_review_accepted": true,
+      "holds_and_two_receipts_unchanged": true
+    },
+    {
+      "kind": "mismatch",
+      "status": "unreviewed proposal",
+      "expected": [
+        "BF-00482"
+      ],
+      "actual": {
+        "candidates": [
+          "BF-00482"
+        ],
+        "unresolved_characters": [],
+        "unreadable": false
+      },
+      "model": "self-dploy/Gemma-4-31B-IT",
+      "elapsed_ms": 6551,
+      "raw_candidates_exact": true,
+      "review_required": true,
+      "rejection_message": "Exact document identifier, operator visual confirmation and verified source relationship required; a mismatch cannot be associated",
+      "unsupported_association_rejected": true,
+      "holds_and_two_receipts_unchanged": true
+    }
+  ],
+  "errors": [],
+  "core_setup": "Explicit fixture preparation; vision is genuinely fresh direct AMD image inference; requested and actual model IDs are retained in raw job provenance. No text-only/recorded/manual transcription substitution.",
+  "review": "Agent-operated synthetic original-image and source relationship review; not independent human or physical-photo validation.",
+  "native_dialogs": "Not repeated; intake automation uses owned API/installed restricted IPC, inference and review through actual client UI. Prior real native dialogs remain separately verified."
+}

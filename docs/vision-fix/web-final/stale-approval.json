@@ -1,0 +1,13 @@
+{
+  "status": 409,
+  "stale_approval_rejected": true,
+  "holds_and_two_receipts_unchanged": true,
+  "receipt_count": 2,
+  "no_provider_calls": true,
+  "response": {
+    "detail": {
+      "code": "STALE_APPROVAL",
+      "message": "Only the current reviewed exact plan can be approved"
+    }
+  }
+}

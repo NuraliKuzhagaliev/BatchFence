@@ -3,6 +3,14 @@ import base64,json
 import httpx,pytest
 from backend import evolus_adapter as provider
 from tests.test_continuation import image_bytes
+from tests.test_api import client
+
+
+def test_health_reports_current_application_version(client):
+    from backend.app import app
+    response=client.get('/api/health')
+    assert response.status_code==200
+    assert response.json()['version']==app.version=='0.4.0-rc.3'
 
 
 def configured(monkeypatch):
