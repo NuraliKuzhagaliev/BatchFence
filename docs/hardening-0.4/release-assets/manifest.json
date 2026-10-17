@@ -1,0 +1,65 @@
+{
+  "version": "0.4.0-rc.2",
+  "source_commit": "04e9c7b75ff90d83e9b6ff5ce7b9b2be90fc58ed",
+  "source_tree": "8cc6e5c6e4a03cb40d3f15fbb7fedd410162f1c1",
+  "artifacts": [
+    {
+      "file": "BatchFence-0.4.0-rc.2-win-x64-setup.exe",
+      "bytes": 113796976,
+      "sha256": "4b26b42862e09d0db1399be7193abe96559801c0180598b9a4a07e7f8fef4d90"
+    },
+    {
+      "file": "BatchFence-0.4.0-rc.2-source.zip",
+      "bytes": 119010018,
+      "sha256": "13ec23833f25134a3e77fedcb807ff846a1eea4afe52a263838d47fc1feae415"
+    }
+  ],
+  "windows": {
+    "installed": true,
+    "unsigned": true,
+    "separate_identity": "app.batchfence.hardening040rc2",
+    "native_dialogs": "Actual agent-operated source/image/save/reopen passed; no stubs. Independent human validation not claimed.",
+    "fresh_public_core": "Evolus500→direct AMD Gemma800, two receipts, rejected stale request/export passed; one prior transport failure retained",
+    "fresh_extensions": "IT translation, request and handover proposals completed; image providerHTTP500 persisted cleanly, no reading accepted",
+    "client_rebuilt_for_backend_only_fix": false,
+    "client_source_and_assets_match": true,
+    "stable_0_3_preserved": true
+  },
+  "checks": {
+    "pytest": 428,
+    "domain": 30,
+    "frozen_local_scenarios": 200,
+    "combined_sequence_ids": 16,
+    "combined_sequence_instances": 18,
+    "separate_generated_graph_scenarios": 60,
+    "main_ci": 39077044541,
+    "branch_ci": 39076922040,
+    "linux_archive_runtime_restart_checks": 8,
+    "archive_member_hashes_match": 1746
+  },
+  "public": {
+    "url": "https://batchfence.onrender.com",
+    "commit": "04e9c7b75ff90d83e9b6ff5ce7b9b2be90fc58ed",
+    "deploy": "dep-db9vqqm7bikc73e668b0",
+    "free_only": true,
+    "storage": "ephemeral; export required",
+    "live_access": "Protected owner-supplied workspace token; never provider keys in browser"
+  },
+  "model_quality": {
+    "matched_original_12": "Gemma11/12 and MiMo11/12 supplier pairs; source validator rejections2/0. Full raw/expected audit separately retained. No superiority or autonomous reliability claim.",
+    "fresh_static_holdout": "Two translation responses preserved IDs/negation/modality/date ambiguity; two image sources unmeasured due provider500.",
+    "review": "Synthetic, agent-operated. Independent language/domain/physical-photo/operator acceptance pending."
+  },
+  "allowance": {
+    "phase": "adversarial-2026-10-18-v1",
+    "reservations": 54,
+    "maximum": 64,
+    "reservations_include_predispatch_failures": true,
+    "unused_reserve_is_not_a_target": true,
+    "proof_expiry_utc": "2026-10-18T16:00:00Z",
+    "new_live_calls_required": 0,
+    "keys_rotated_in_final_acceptance": false
+  },
+  "image_config_sha256": "9c071634fec54c43a8b14553d6d1dc7f8f66d35fca69472a02f09506e5704f49",
+  "remaining": "Fresh vision provider500; raw model errors require explicit source review; unsigned installer; ephemeral public storage;8 moderate build-tool findings; independent operational acceptance."
+}

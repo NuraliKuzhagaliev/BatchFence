@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-17T23:03:03.392607+00:00",
+  "amd": {
+    "daily_cost_limit_usd": 1,
+    "daily_cost_used_usd": 0.004491021391004324,
+    "daily_cost_remaining_usd": 0.9955089786089957,
+    "daily_reset_at": "2026-10-18T16:00:00.000Z"
+  },
+  "evolus_balance": [
+    {
+      "bucketId": "92e2bcdc-315a-4113-a101-146575a6f72e",
+      "applicationId": "705220fb-be5e-4d61-b1ee-5a5fc824ab8e",
+      "bucketType": {
+        "code": "LLM_CREDITS"
+      },
+      "monthlyBalance": 50000.0,
+      "extraBalance": 0.0,
+      "totalBalance": 50000.0,
+      "lastResetAt": "2026-10-16T22:01:20.3065606Z",
+      "monthlyAllocation": null,
+      "lots": [],
+      "monthlyCreditsResetAt": "2026-11-16T00:00:00Z",
+      "monthlyCreditsRemaining": 50000.0
+    }
+  ],
+  "phase_reservations": 54,
+  "maximum_phase_attempts": 64,
+  "old_phase_ledgers_preserved": true,
+  "amd_original_fingerprint_unchanged": true,
+  "configuration_changes_this_final_acceptance": false,
+  "credit_semantics": "AMD shared hard-cap metering fields are event points per retained official documentation; not additional cash charges. No paid operation or auto-renewal enabled. Provider usage is account-wide, not campaign-attributed.",
+  "reservation_semantics": "Conservative reservations include pre-dispatch failures; they are not a count of accepted model responses. Every failed attempt is retained."
+}

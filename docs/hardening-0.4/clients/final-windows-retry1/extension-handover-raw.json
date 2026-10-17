@@ -1,0 +1,334 @@
+{
+  "id": "GENERATE-2bea5f465b3fdf7fffb75a96",
+  "case_id": "71c73efd0de34ca4b7bfb4776bcd15b8",
+  "kind": "handover",
+  "mode": "live",
+  "provider_path": "Direct Gemma / managed-amd-shared",
+  "status": "unreviewed proposal",
+  "request_hash": "a1b92171b6799151fb3d7d2b3b8c739efb32af7c3bf30e93c20ee6ff6c160198",
+  "snapshot_hash": "222546f23ffd99f73a745e0cdefa2b5ad51f478bae7b5b381cd80de33b36170c",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "started_at": "2026-10-17T23:03:30.272338+00:00",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "8ed7eb73e92793168152fa14529dd52eb52122b7e159f8dbe96570582f75e634",
+    "dispatch": 10,
+    "conservative_remaining": 0.8969706730917096,
+    "stop_margin": 0.1
+  },
+  "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+  "raw_output": {
+    "statements": [
+      {
+        "fact_id": "quantity-proposed_hold_units",
+        "text": "proposed hold units: unknown / not calculated"
+      },
+      {
+        "fact_id": "quantity-applied_hold_units",
+        "text": "applied hold units: 800"
+      },
+      {
+        "fact_id": "quantity-pending_recovery_units",
+        "text": "pending recovery units: 0"
+      },
+      {
+        "fact_id": "quantity-confirmed_recovery_units",
+        "text": "confirmed recovery units: 0"
+      },
+      {
+        "fact_id": "next-action",
+        "text": "Next permitted action: Review current scope before planning recovery"
+      }
+    ]
+  },
+  "provenance": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-17T23:03:37.429218+00:00",
+    "elapsed_ms": 7059,
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "7856add7aeac4a49bc7eef9ac1caccb6",
+    "usage": {
+      "prompt_tokens": 1874,
+      "total_tokens": 2008,
+      "completion_tokens": 134,
+      "prompt_tokens_details": {
+        "cached_tokens": 4,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.0000748328,
+      "cost_details": {
+        "upstream_inference_cost": 0.0000748328,
+        "upstream_inference_prompt_cost": 0.00006545280000000001,
+        "upstream_inference_completions_cost": 0.00000938,
+        "total_cost": 0.0000748328,
+        "input_cost": 0.00006545,
+        "output_cost": 0.00000938,
+        "cached_input_cost": 2.8e-9,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "df65163eb4f2fee2d56988061d2ee1f02f574888401a013927c14f0a22ef26dd",
+    "http_status": 200,
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "library_provenance": null,
+  "finished_at": "2026-10-17T23:03:37.434489+00:00",
+  "draft": {
+    "id": "HANDOVER-974d5d7796b3fccad15d5b41",
+    "case_id": "71c73efd0de34ca4b7bfb4776bcd15b8",
+    "previous_id": null,
+    "as_of": "2026-10-17T23:03:37.466909+00:00",
+    "snapshot": {
+      "case_id": "71c73efd0de34ca4b7bfb4776bcd15b8",
+      "case_revision": 4,
+      "inventory_version": 3,
+      "quantities": {
+        "proposed_hold_units": null,
+        "applied_hold_units": 800,
+        "pending_recovery_units": 0,
+        "confirmed_recovery_units": 0
+      },
+      "facts": [
+        {
+          "id": "quantity-proposed_hold_units",
+          "text": "proposed hold units: unknown / not calculated",
+          "value": null
+        },
+        {
+          "id": "quantity-applied_hold_units",
+          "text": "applied hold units: 800",
+          "value": 800
+        },
+        {
+          "id": "quantity-pending_recovery_units",
+          "text": "pending recovery units: 0",
+          "value": 0
+        },
+        {
+          "id": "quantity-confirmed_recovery_units",
+          "text": "confirmed recovery units: 0",
+          "value": 0
+        },
+        {
+          "id": "next-action",
+          "text": "Next permitted action: Review current scope before planning recovery"
+        },
+        {
+          "id": "prior-proposal",
+          "text": "Historical proposal: 800 units; stale after changed evidence, not current authority."
+        },
+        {
+          "id": "gap-CAUSE-76ebfea83cd145",
+          "text": "Receiving identity for FG-C. Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. The completeness manifest also needs confirmation."
+        },
+        {
+          "id": "event-0",
+          "text": "New source: final-windows-retry1-first-b43f9711.txt. Re-extract and review current evidence."
+        },
+        {
+          "id": "event-1",
+          "text": "Critical scope and completeness reviewed; new exact plan calculated."
+        },
+        {
+          "id": "event-2",
+          "text": "Approved exact plan PLAN-49bf12276964"
+        },
+        {
+          "id": "event-3",
+          "text": "Sandbox inventory committed atomically: TX-48b5358f6356468092151aa0fbf8943e"
+        },
+        {
+          "id": "event-4",
+          "text": "New source: final-windows-retry1-revision-4be40c8a.txt. Re-extract and review current evidence."
+        },
+        {
+          "id": "event-5",
+          "text": "Critical scope and completeness reviewed; new exact plan calculated."
+        },
+        {
+          "id": "event-6",
+          "text": "Approved exact plan PLAN-4a53414c4162"
+        },
+        {
+          "id": "event-7",
+          "text": "Sandbox inventory committed atomically: TX-1b1b4aa602894d46a78f232c459aa454"
+        },
+        {
+          "id": "event-8",
+          "text": "New source: final-windows-retry1-windows-original.txt. Re-extract and review current evidence."
+        }
+      ],
+      "events": [
+        {
+          "id": "event-0",
+          "at": "2026-10-17T23:01:26.164401+00:00",
+          "type": "evidence_changed",
+          "message": "New source: final-windows-retry1-first-b43f9711.txt. Re-extract and review current evidence."
+        },
+        {
+          "id": "event-1",
+          "at": "2026-10-17T23:02:12.084193+00:00",
+          "type": "reviewed",
+          "message": "Critical scope and completeness reviewed; new exact plan calculated."
+        },
+        {
+          "id": "event-2",
+          "at": "2026-10-17T23:02:12.906678+00:00",
+          "type": "approved",
+          "message": "Approved exact plan PLAN-49bf12276964"
+        },
+        {
+          "id": "event-3",
+          "at": "2026-10-17T23:02:13.179555+00:00",
+          "type": "applied",
+          "message": "Sandbox inventory committed atomically: TX-48b5358f6356468092151aa0fbf8943e"
+        },
+        {
+          "id": "event-4",
+          "at": "2026-10-17T23:02:13.929741+00:00",
+          "type": "evidence_changed",
+          "message": "New source: final-windows-retry1-revision-4be40c8a.txt. Re-extract and review current evidence."
+        },
+        {
+          "id": "event-5",
+          "at": "2026-10-17T23:02:42.530690+00:00",
+          "type": "reviewed",
+          "message": "Critical scope and completeness reviewed; new exact plan calculated."
+        },
+        {
+          "id": "event-6",
+          "at": "2026-10-17T23:02:43.168815+00:00",
+          "type": "approved",
+          "message": "Approved exact plan PLAN-4a53414c4162"
+        },
+        {
+          "id": "event-7",
+          "at": "2026-10-17T23:02:43.446269+00:00",
+          "type": "applied",
+          "message": "Sandbox inventory committed atomically: TX-1b1b4aa602894d46a78f232c459aa454"
+        },
+        {
+          "id": "event-8",
+          "at": "2026-10-17T23:02:44.487388+00:00",
+          "type": "evidence_changed",
+          "message": "New source: final-windows-retry1-windows-original.txt. Re-extract and review current evidence."
+        }
+      ],
+      "task_owners_missing": [],
+      "previous_id": null,
+      "fingerprint": "222546f23ffd99f73a745e0cdefa2b5ad51f478bae7b5b381cd80de33b36170c",
+      "records_hash": "dc8de143efe737d800a09a395c52e866b5f18e94ecbd3e71bbea2654976a722f",
+      "required_fact_ids": [
+        "quantity-proposed_hold_units",
+        "quantity-applied_hold_units",
+        "quantity-pending_recovery_units",
+        "quantity-confirmed_recovery_units",
+        "next-action"
+      ],
+      "as_of": "2026-10-17T23:03:37.466909+00:00"
+    },
+    "statements": [
+      {
+        "fact_id": "quantity-proposed_hold_units",
+        "text": "proposed hold units: unknown / not calculated"
+      },
+      {
+        "fact_id": "quantity-applied_hold_units",
+        "text": "applied hold units: 800"
+      },
+      {
+        "fact_id": "quantity-pending_recovery_units",
+        "text": "pending recovery units: 0"
+      },
+      {
+        "fact_id": "quantity-confirmed_recovery_units",
+        "text": "confirmed recovery units: 0"
+      },
+      {
+        "fact_id": "next-action",
+        "text": "Next permitted action: Review current scope before planning recovery"
+      }
+    ],
+    "provenance": {
+      "provider": "Configured Gemma endpoint",
+      "at": "2026-10-17T23:03:37.429218+00:00",
+      "elapsed_ms": 7059,
+      "requested_model_id": "Gemma-4-31B-IT",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "request_id": "7856add7aeac4a49bc7eef9ac1caccb6",
+      "usage": {
+        "prompt_tokens": 1874,
+        "total_tokens": 2008,
+        "completion_tokens": 134,
+        "prompt_tokens_details": {
+          "cached_tokens": 4,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.0000748328,
+        "cost_details": {
+          "upstream_inference_cost": 0.0000748328,
+          "upstream_inference_prompt_cost": 0.00006545280000000001,
+          "upstream_inference_completions_cost": 0.00000938,
+          "total_cost": 0.0000748328,
+          "input_cost": 0.00006545,
+          "output_cost": 0.00000938,
+          "cached_input_cost": 2.8e-9,
+          "cache_write_input_cost": 0,
+          "request_cost": 0,
+          "web_search_cost": 0,
+          "image_input_cost": null,
+          "image_output_cost": null,
+          "audio_input_cost": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "settings": {
+        "temperature": 0,
+        "max_tokens": 1600
+      },
+      "response_hash": "df65163eb4f2fee2d56988061d2ee1f02f574888401a013927c14f0a22ef26dd",
+      "http_status": 200,
+      "hosting_kind": "managed-amd-shared",
+      "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+    },
+    "fallback": null,
+    "author": {
+      "user_id": null,
+      "identity_mode": "anonymous session; not independent identity"
+    },
+    "review": null,
+    "authority": "Read/acknowledge/export only; this brief never approves or executes recovery"
+  },
+  "stale": false
+}

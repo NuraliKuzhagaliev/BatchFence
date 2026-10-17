@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-17T23:02:18.139Z",
+  "case_id": "71c73efd0de34ca4b7bfb4776bcd15b8",
+  "outcomes": [
+    {
+      "kind": "translation",
+      "status": "unreviewed proposal",
+      "raw_model_quality": "Preserved actual response, no source correction",
+      "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory"
+    },
+    {
+      "kind": "label",
+      "status": "failed provider request",
+      "error": "Gemma endpoint HTTP 500; no retry",
+      "raw_model_quality": "Preserved actual response, no source correction",
+      "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory"
+    },
+    {
+      "kind": "request",
+      "status": "unreviewed proposal",
+      "raw_model_quality": "Preserved actual response, no source correction",
+      "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory"
+    },
+    {
+      "kind": "handover",
+      "status": "unreviewed proposal",
+      "raw_model_quality": "Preserved actual response, no source correction",
+      "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory"
+    }
+  ],
+  "planned_calls": 4,
+  "unchanged_receipts": true,
+  "applied_units": 800,
+  "review": "No automatic original-language or image relationship acceptance. Agent-operated test; independent human/physical photo validation pending.",
+  "request_draft": "No message sent",
+  "errors": []
+}

@@ -1,0 +1,193 @@
+{
+  "static_held_out_sources": 4,
+  "translation_responses_completed": 2,
+  "image_sources_unmeasured_provider_failure": 2,
+  "additional_dynamic_text_drafts_completed": 4,
+  "source_manifest": "evals/hardening-live-v1/manifest.json",
+  "rows": [
+    {
+      "case": "web-translation",
+      "source": "РџР°СЂС‚РёСЏ LOT-007 РЅРµ РёСЃРєР»СЋС‡РµРЅР°; РѕРЅР° РјРѕР¶РµС‚ Р±С‹С‚СЊ Р·Р°С‚СЂРѕРЅСѓС‚Р°. РџРѕР»РЅРѕС‚Р° РЅРµРёР·РІРµСЃС‚РЅР°. Р”Р°С‚Р° 03/04/2026 РЅРµ РїРѕРґС‚РІРµСЂР¶РґРµРЅР°.",
+      "expected": "Preserve lot ID, negation, possibility and ambiguous date; no incident authority",
+      "actual": {
+        "segments": [
+          {
+            "source": {
+              "block_id": "line-1",
+              "document_id": "DOC-b22d90a892c9",
+              "quote": "РџР°СЂС‚РёСЏ LOT-007 РЅРµ РёСЃРєР»СЋС‡РµРЅР°; РѕРЅР° РјРѕР¶РµС‚ Р±С‹С‚СЊ Р·Р°С‚СЂРѕРЅСѓС‚Р°. РџРѕР»РЅРѕС‚Р° РЅРµРёР·РІРµСЃС‚РЅР°. Р”Р°С‚Р° 03/04/2026 РЅРµ РїРѕРґС‚РІРµСЂР¶РґРµРЅР°."
+            },
+            "translation": "Batch LOT-007 is not excluded; it may be affected. Completeness is unknown. Date 03/04/2026 is not confirmed."
+          }
+        ]
+      },
+      "status": "unreviewed proposal",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "elapsed_ms": 36028,
+      "raw_engineering_assessment": "IDs, negation, modality and ambiguous date preserved",
+      "application": "Unreviewed derived translation; date flag and qualified original-language review required",
+      "independent_validation": false
+    },
+    {
+      "case": "windows-translation",
+      "source": "Il lotto LOT-019 non ГЁ escluso; potrebbe essere coinvolto. La completezza ГЁ sconosciuta. Data 04/05/2026 non confermata.",
+      "expected": "Preserve lot ID, negation, possibility and ambiguous date; no incident authority",
+      "actual": {
+        "segments": [
+          {
+            "source": {
+              "block_id": "line-1",
+              "document_id": "DOC-ef90c7dcf8d9",
+              "quote": "Il lotto LOT-019 non ГЁ escluso; potrebbe essere coinvolto. La completezza ГЁ sconosciuta. Data 04/05/2026 non confermata."
+            },
+            "translation": "Lot LOT-019 is not excluded; it could be involved. Completeness is unknown. Date 04/05/2026 not confirmed."
+          }
+        ]
+      },
+      "status": "unreviewed proposal",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "elapsed_ms": 8816,
+      "raw_engineering_assessment": "IDs, negation, modality and ambiguous date preserved",
+      "application": "Unreviewed derived translation; date flag and qualified original-language review required",
+      "independent_validation": false
+    },
+    {
+      "case": "web-label",
+      "source": "evals/hardening-live-v1/web-label.png",
+      "expected_candidates": [
+        "LOT-00083"
+      ],
+      "actual_response": null,
+      "raw_quality": "Unmeasured: providerHTTP500. No usable model reading.",
+      "record_status": "running",
+      "application": "Original images retained, no accepted reading/association/action. Old application exception preserved; terminal handler fix verified by final installed request.",
+      "evidence": "clients\\final-web-extensions-resumed\\extension-label-raw.json",
+      "failure_metadata": null,
+      "independent_validation": false
+    },
+    {
+      "case": "windows-label",
+      "source": "evals/hardening-live-v1/windows-label.png",
+      "expected_candidates": [
+        "LOT-00092"
+      ],
+      "actual_response": null,
+      "raw_quality": "Unmeasured: providerHTTP500. No usable model reading.",
+      "record_status": "failed provider request",
+      "application": "Original images retained, no accepted reading/association/action. Old application exception preserved; terminal handler fix verified by final installed request.",
+      "evidence": "clients\\final-windows-retry1\\extension-label-raw.json",
+      "failure_metadata": {
+        "provider": "Configured Gemma endpoint",
+        "at": "2026-10-17T23:03:06.923892+00:00",
+        "http_status": 500,
+        "requested_model_id": "Gemma-4-31B-IT",
+        "request_id": null,
+        "elapsed_ms": 4059,
+        "retry_after_seconds": null
+      },
+      "independent_validation": false
+    },
+    {
+      "case": "web-request",
+      "source": "Current authoritative evidence-gap/computed handover snapshot, not additional sealed static held-out source",
+      "expected": "Specific unresolved receiving-identity request, no release promise",
+      "actual": {
+        "cause_id": "CAUSE-833fd0e271edaf",
+        "draft": "Please clarify the receiving identity for FG-C (100 units). Current records indicate multiple possible ancestries: SUP-A (DOC-d32e35342fab, row-3) and SUP-B (DOC-d32e35342fab, row-4). A preferred supplier mention is insufficient to remove alternative links; explicit evidence is required for a complete replacement. Please provide original record IDs, exact lot identities, and document revisions, and confirm if the record is complete or inconclusive."
+      },
+      "status": "unreviewed proposal",
+      "elapsed_ms": 16940,
+      "application": "Unreviewed draft; no message sent or inventory authority. Source validator accepted actual output.",
+      "independent_validation": false
+    },
+    {
+      "case": "web-handover",
+      "source": "Current authoritative evidence-gap/computed handover snapshot, not additional sealed static held-out source",
+      "expected": "Exact required snapshot quantities and next permitted action",
+      "actual": {
+        "statements": [
+          {
+            "fact_id": "quantity-proposed_hold_units",
+            "text": "proposed hold units: unknown / not calculated"
+          },
+          {
+            "fact_id": "quantity-applied_hold_units",
+            "text": "applied hold units: 800"
+          },
+          {
+            "fact_id": "quantity-pending_recovery_units",
+            "text": "pending recovery units: 0"
+          },
+          {
+            "fact_id": "quantity-confirmed_recovery_units",
+            "text": "confirmed recovery units: 0"
+          },
+          {
+            "fact_id": "next-action",
+            "text": "Next permitted action: Review current scope before planning recovery"
+          }
+        ]
+      },
+      "status": "unreviewed proposal",
+      "elapsed_ms": 13463,
+      "application": "Unreviewed draft; no message sent or inventory authority. Source validator accepted actual output.",
+      "independent_validation": false
+    },
+    {
+      "case": "windows-request",
+      "source": "Current authoritative evidence-gap/computed handover snapshot, not additional sealed static held-out source",
+      "expected": "Specific unresolved receiving-identity request, no release promise",
+      "actual": {
+        "cause_id": "CAUSE-76ebfea83cd145",
+        "draft": "Please clarify the receiving identity for FG-C (100 units). Current records indicate multiple possible ancestries: SUP-A (DOC-871f9443a09a, row-3) and SUP-B (DOC-871f9443a09a, row-4). A preferred supplier mention is insufficient to remove alternative links; explicit evidence is required for a complete replacement. Please provide original record IDs, exact lot identities, and document revisions, and confirm if the record is complete or inconclusive."
+      },
+      "status": "unreviewed proposal",
+      "elapsed_ms": 17893,
+      "application": "Unreviewed draft; no message sent or inventory authority. Source validator accepted actual output.",
+      "independent_validation": false
+    },
+    {
+      "case": "windows-handover",
+      "source": "Current authoritative evidence-gap/computed handover snapshot, not additional sealed static held-out source",
+      "expected": "Exact required snapshot quantities and next permitted action",
+      "actual": {
+        "statements": [
+          {
+            "fact_id": "quantity-proposed_hold_units",
+            "text": "proposed hold units: unknown / not calculated"
+          },
+          {
+            "fact_id": "quantity-applied_hold_units",
+            "text": "applied hold units: 800"
+          },
+          {
+            "fact_id": "quantity-pending_recovery_units",
+            "text": "pending recovery units: 0"
+          },
+          {
+            "fact_id": "quantity-confirmed_recovery_units",
+            "text": "confirmed recovery units: 0"
+          },
+          {
+            "fact_id": "next-action",
+            "text": "Next permitted action: Review current scope before planning recovery"
+          }
+        ]
+      },
+      "status": "unreviewed proposal",
+      "elapsed_ms": 7059,
+      "application": "Unreviewed draft; no message sent or inventory authority. Source validator accepted actual output.",
+      "independent_validation": false
+    }
+  ],
+  "core": {
+    "web": "final-web-retry1/result.json (d9a8b6a; retained validation reused because final backend fix only changes image exception handling)",
+    "windows": "final-windows-retry1/result.json (04e9c7b; genuine Evolus first, direct AMD Gemma revision)",
+    "raw_failures": "final-web-ready transport failure; two old application image exceptions; final-windows initial revision transport failure; final Windows image provider500. No silent fallback.",
+    "corrections": "No model corrections in final successful core flows. Earlier explicit agent source correction retained separately; never independent human validation.",
+    "stale": "Browser directly assertedHTTP409. Installed bridge rejected stale request; its runner retained only rejection, not exact code. Domain/API and Linux separately assert409.",
+    "receipts": "Two immutable containment receipts in both final flows,800 applied; extension imports make proposal pending/unknown without removing applied holds."
+  },
+  "matched_original_12": "matched-comparison.json; unchanged frozen labels; Gemma11/12 and MiMo11/12 supplier pairs under equal wrappers/settings. Auxiliary expectation disputes separate. No superiority claim.",
+  "review": "All engineering reviews agent-operated synthetic, not independent human acceptance."
+}

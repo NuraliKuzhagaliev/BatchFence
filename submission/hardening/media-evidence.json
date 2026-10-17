@@ -1,0 +1,51 @@
+{
+  "file": "BatchFence-0.4.0-rc.2-verified-results.mp4",
+  "bytes": 345910,
+  "sha256": "88bbf6ddaea07156c6bc3310196d8d6f8361e62d222cb2896a059503481851fb",
+  "seconds": 36,
+  "segments": [
+    {
+      "source": "docs/hardening-0.4/clients/final-web-retry1/first-reviewed.png",
+      "sha256": "58411f2b77f21ff22acbcf4832ef60a36114fb6bf3ca598d29c493fda099c73a",
+      "seconds": 6,
+      "caption": "Retained screenshot: fresh direct AMD Gemma. Synthetic source, agent-operated review.",
+      "kind": "retained actual screenshot, not continuous footage"
+    },
+    {
+      "source": "docs/hardening-0.4/clients/final-web-retry1/revision-receipt.png",
+      "sha256": "4fc0f5bb68a8ab4d59e58a36b00471c4f58a3ac47cab9e29ae393f157b08b1a9",
+      "seconds": 6,
+      "caption": "Fresh genuine Evolus revision: 800 applied, two sandbox receipts. No real inventory action.",
+      "kind": "retained actual screenshot, not continuous footage"
+    },
+    {
+      "source": "docs/hardening-0.4/clients/final-web-retry1/fresh-translation.png",
+      "sha256": "1d93a929de22c74813753cccbf0dab8c9662eb7b518b6d141ba02a173241f379",
+      "seconds": 6,
+      "caption": "Fresh Gemma translation: original IDs, negation and uncertainty. Qualified review still required.",
+      "kind": "retained actual screenshot, not continuous footage"
+    },
+    {
+      "source": "docs/hardening-0.4/clients/final-web-drafts/fresh-handover.png",
+      "sha256": "7ae64ed2b2e2c2f0121b91c0252e49d19ee9049a794989d5818a4344724670df",
+      "seconds": 6,
+      "caption": "Fresh Gemma handover: exact computed facts. Read-only draft with no approval authority.",
+      "kind": "retained actual screenshot, not continuous footage"
+    },
+    {
+      "source": "docs/hardening-0.4/clients/final-windows-retry1/revision-receipt.png",
+      "sha256": "c8e078c18bccb821de02f449d3a04f5ef6052abf100c88fdf4dd772ad6dfaf85",
+      "seconds": 6,
+      "caption": "Installed Windows: fresh Evolus then AMD Gemma, 500 to 800, two sandbox receipts. Agent review.",
+      "kind": "retained actual screenshot, not continuous footage"
+    },
+    {
+      "source": "docs/hardening-0.4/native-final/native-reopened.png",
+      "sha256": "0b96bde8d761e251304c6def9dd0ca472f0cbeff9184c1cd25316900c6e17715",
+      "seconds": 6,
+      "caption": "Installed Windows: actual file dialogs and reopened read-only packet. Zero inference in this segment.",
+      "kind": "retained actual screenshot, not continuous footage"
+    }
+  ],
+  "provenance": "Captioned montage of genuine retained product results, not continuous footage. Live sources synthetic and review agent-operated. No inference while creating media. Vision HTTP500 failure is unresolved; montage does not claim fresh successful vision. Runtime d9a8b6a core, unchanged by subsequent backend image-error fix; native final installed client bytes."
+}

@@ -1,0 +1,10 @@
+{
+  "runtime_commit": "04e9c7b75ff90d83e9b6ff5ce7b9b2be90fc58ed",
+  "member_hashes_match": true,
+  "files": 1746,
+  "github_archive_sha256": "006b48193fd0c3a6591a4a5134b9f6d59dbb764c642de2c473f23f576e1b9ffe",
+  "release_source_sha256": "13ec23833f25134a3e77fedcb807ff846a1eea4afe52a263838d47fc1feae415",
+  "container_build_source": "This exact release source archive; image batchfence:hardening-04e9",
+  "image_config_sha256": "9c071634fec54c43a8b14553d6d1dc7f8f66d35fca69472a02f09506e5704f49",
+  "image_manifest_list_sha256": "73cbebf8831c7eca7d4fc1893b7ec7c4d71b69b4d89b0fed472b6937d078958f"
+}

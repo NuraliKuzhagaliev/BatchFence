@@ -1,3 +1,28 @@
+# Final release gate
+
+Completed final installed fresh Evolus/Gemma500→800/two receipts/export; RU/IT/request/handover checks; actual native dialogs;428pytest; branch/main CI; corrected archive/container/restart; public commit/assets. Vision provider500 contained and explicitly unresolved; no more identical calls.54/64reservations retained, no key changes or purchases. All6extensions and4enterprise modules remain in scope with acceptance limits in HANDOFF.md.
+
+Prepared GitHub draft416120132 at04e9c7b with installer, source, manifest, notes and checksums. Remaining: final new-evidence sanitation, publish prerelease (stable latest preserved), anonymous full downloads/tag/URL verification, evidence-only Git checkpoint, task-owned resource cleanup, final handoff. Do not repeat passed model or broad test cases.
+
+---
+
+# Active release checkpoint
+
+- Completed final Windows native dialogs and mode preservation, public fresh core, RU translation, request and handover.
+- Identified public upstream image500 plus secondary application exception; preserved raw logs. Minimal handler fix verified with30 local tests; PR4 CI running.
+- Next: deploy only after CI passes, final installed fresh processing and extensions, release source/installer parity and checksums, sanitized publication and final handoff.
+- Preserve free-only/event controls, immutable ledgers and previous releases. No more credential rotation. Do not rerun passed model cases for media.
+
+---
+
+# UI verification interrupted by owner Escape
+
+Public0.4.0-rc.2 is live at d9a8b6aa27af4e5329340b1774958405394ec69f; PR3 merged, main Linux CI39075698587 passed. Final-build public fresh Gemma→Evolus500→800/two receipts/stale rejection/export passed after one retained transport failure and one allowed retry. Four held-out extension jobs and final installed fresh run are not yet marked complete. User stopped native Computer Use with physical Escape; test helpers stopped, no further app input. An already dispatched provider request may finish; inspect server jobs and preserve charges/results before resuming. Phase reservations: 40/64; old ledgers unchanged. Final installer/source built and scanned locally but GitHub release publication/checksums/media/handoff remain incomplete. Credentials unchanged; no further rotation/revocation permitted. Current proof expiry2026-10-18T16:00Z.
+
+Resume from docs/hardening-0.4/interrupted-checkpoint.json; preserve completed core evidence and do not rerun passed model cases for media. Earlier native candidate check passed all four real dialogs; the final-byte native repeat was interrupted.
+
+---
+
 # Hardening0.4.0-rc.2 checkpoint
 
 Completed: baseline171; reproduced/fixed source/ancestry/identifier/time/CSV/metadata/handover defects; frozen200/64 heldout; matched12/model; public and installed genuine Gemma/Evolus500/800; controlled recovery100 and both immutable receipts;425 final local tests/domain30;16 combined IDs and60 generated property scenarios; real Windows dialogs; container restart; module/extension UI and focus fix. All review agent-operated. Current remaining work: final candidate GitHub CI/Render deployment with nonsecret provider proof merge, fresh final client extensions, attested release artifacts/checksums/media and handoff. Preserve stable releases and previous phase ledgers. No credential rotation/revocation, purchases, messages or real inventory.

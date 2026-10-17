@@ -1,0 +1,31 @@
+{
+  "health": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.4.0-rc.2",
+    "commit": "04e9c7b75ff90d83e9b6ff5ce7b9b2be90fc58ed",
+    "inference_mode": "fixture",
+    "amd_configured": true,
+    "live_protected": true,
+    "profile": "public",
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  },
+  "assets": [
+    {
+      "path": "/assets/index-Co_5nfb7.js",
+      "sha256": "80b5f506eae9ec1e24abc74ed692dbc3a37a958694ed47f984eafa6a0abc776e",
+      "matches_installed_local_and_container": true
+    },
+    {
+      "path": "/assets/index-BWzDsLEo.css",
+      "sha256": "9a0e43665251790bf6db5d86a65e7013a6a8e16cf77f450a792291b7a14e675a",
+      "matches_installed_local_and_container": true
+    }
+  ],
+  "deploy": "dep-db9vqqm7bikc73e668b0",
+  "main_ci": 39077044541,
+  "branch_ci": 39076922040,
+  "free_plan_preserved": true
+}

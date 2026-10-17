@@ -1,3 +1,11 @@
+# Current0.4.0-rc.2 release
+
+Existing free public service is live on04e9c7b75ff90d83e9b6ff5ce7b9b2be90fc58ed, deploy dep-db9vqqm7bikc73e668b0. No new infrastructure, paid service or credential changes. Fresh public web and installed Windows direct Gemma/genuine Evolus workflows drive reviewed500/800 and receipts. Fresh vision currently returns provider500; terminal failures have no reading/authority. All exact client/build/CI/limitations are in HANDOFF.md and docs/hardening-0.4/final-live-evaluation.json.
+
+Proof expiry2026-10-18T16:00UTC; valid provider-enforced free boundaries and existing access token remain required. Refresh only nonsecret GEMMA_COST_APPROVAL_JSON/EVOLUS_COST_APPROVAL_JSON as documented in activation-runbook.md. Never rotate/revoke keys, copy.env wholesale, capture the Render Environment page or reset ledgers. Current finite campaign54/64reservations; no more live calls required. Old48-call statements below are historical. Stable0.3.0 and prior releases/data remain preserved. Public SQLite is ephemeral: export before restart/deploy; offline packets are historical.
+
+---
+
 # Hardening candidate0.4.0-rc.2 configuration and publication
 
 Existing Free Render service/workspace are unchanged. Actual early public and installed fresh direct Gemma/genuine Evolus workflow evidence is now in docs/hardening-0.4/clients; earlier UNAVAILABLE and48-call statements below are historical. New finite phase authorized in AUDIT_PLAN.md; no percentage consumption target. Current AMD team key and valid replacement Evolus keys remain unchanged. Necessary deployment configuration is explicitly authorized; no more credential rotation/revocation.

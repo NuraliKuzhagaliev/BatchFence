@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-17T22:53:03.443Z",
+  "case_id": "00964a734d804031bccbbfec8971b9d6",
+  "outcomes": [
+    {
+      "kind": "request",
+      "status": "unreviewed proposal",
+      "raw_model_quality": "Actual raw output preserved; no corrections or automatic acceptance"
+    },
+    {
+      "kind": "handover",
+      "status": "unreviewed proposal",
+      "raw_model_quality": "Actual raw output preserved; no corrections or automatic acceptance"
+    }
+  ],
+  "receipts_unchanged": true,
+  "applied_units": 800,
+  "review": "No automatic language, image relationship or inventory acceptance. Agent-operated, not independent human validation.",
+  "errors": []
+}

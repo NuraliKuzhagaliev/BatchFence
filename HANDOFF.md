@@ -1,8 +1,80 @@
-# Hardening0.4.0-rc.2 — local gates passed; final publication in progress
+# BatchFence 0.4.0-rc.2 вЂ” final release acceptance
+
+Public web: https://batchfence.onrender.com. Windows/source prerelease: https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.2. Runtime/main/source commit 04e9c7b75ff90d83e9b6ff5ce7b9b2be90fc58ed; existing Free Render deploy dep-db9vqqm7bikc73e668b0 is live. Release publication and anonymous artifact-download verification are being finalized in this evidence checkpoint. Stable 0.3.0 and preview 0.4.0-rc.1 remain preserved. No keys rotated/revoked, purchases, entry submission, external messages or real inventory actions in final acceptance. Historical instructions below to rotate keys or stop at the old 48-call cap are superseded by the owner's current instructions and new finite phase.
+
+## What works and what remains
+
+Both public web and installed Windows processed fresh synthetic originals with genuine direct AMD Gemma and Evolus extractorв†’Gemma agent responses driving explicit review, deterministic500в†’800 plans, approvals, two original sandbox receipts and packet export. Browser stale request directly assertedHTTP409; Windows restricted bridge rejected its stale request, with API/domain/Linux checks separately asserting409. Final successful runs required no model corrections. One initial web request and one initial Windows revision transport failure are retained. The bounded Windows continuation needed a new scoped workspace after the failed runner closed its intentionally memory-only capability; no ownership bypass or receipt transfer occurred. Earlier agent-corrected Evolus document-ID error is preserved separately, not relabeled as raw success or independent human validation.
+
+| Extension | Implemented and engineering verified | Remaining limit |
+|---|---|---|
+| Next Useful Evidence | Deduplicated conservative cause/ranking and current-snapshot request drafts; fresh web+Windows drafts completed | Drafts only; no external message or invented response-time benefit |
+| Release Readiness | Explicit source/ancestry/language/policy and distinct approval/recovery gates;800applied/700proposed/separate100recovery preserved in shared checks | Independent professional acceptance pending; no automatic release |
+| Label Photo Verification | Original/crop integrity, exact IDs, ambiguity/mismatch and explicit visual relationship review | Fresh web+Windows provider images returnHTTP500; no usable new reading. Historical genuine vision separate. Current fresh vision availability unresolved |
+| Document Change Impact | Linked version/caveat consequences, pending review and stale approvals/briefs; existing receipts unchanged | Bounded supported formats, not arbitrary supplier authenticity or ERP integration |
+| Multilingual Review | Fresh RU/IT proposals preserve negation/modality/lot IDs and ambiguous dates; qualified original-language review mandatory | Agent engineering assessment, not independent language validation |
+| Shift Handover | Fresh web+Windows exact authoritative snapshot selection, mandatory quantities and next action; no action authority | Read/acknowledge/export only; stale snapshots require a new brief |
+
+The current image500 exposed a real secondary application defect: original image bytes occupied the model-output variable and the exception path referenced an unset response. Reproduced with injected500/timeout (2failed/1passed), fixed by separating input bytes, then30 relevant tests passed. Final installedв†’public request now returns terminal failed-provider status withHTTP500 metadata in 4,059 ms, no reading/draft or accepted association, both receipts and800applied units unchanged. No repeated provider tuning/calls are required. Raw visual model quality on these two new images is unmeasured.
+
+Matched frozen original12 under equal wrappers/settings: Gemma 11/12 and MiMo 11/12 supplier pairs; Gemma 2 source-validator rejections, MiMo 0. The MiMo affected-but-unbound lot error remains a raw model error; review/ancestry gates remain mandatory. Original benchmark unchanged; auxiliary expectation disputes and both original/corrected results are separate. No superiority claim. Case-by-case source/expected/actual/application evidence: docs/hardening-0.4/matched-comparison.md/.json. Four sealed final static sources produced two completed translation proposals and two provider-image failures; four additional dynamic text request/handover proposals completed. Exact fresh evidence: final-live-evaluation.json and clients/. All reviews/tests agent-operated synthetic; no independent human acceptance claimed.
+
+## Actual checks and artifacts
+
+428 full pytest passed (one Starlette/httpx deprecation warning);30 deterministic domain cases; unchanged frozen 200 local scenarios (64 originally held out),16 combined sequence IDs/18 instances,60 separate seeded graph scenarios. Initial 19 corpus harness errors and pre-fix defects remain preserved. Branch CI 39076922040 and main CI 39077044541 passed. Actual corrected release source archive matches all 1,746 GitHub members, builds Linux and passes 8 core/source-isolation/real-volume-restart checks. Existing 6 module and 8 extension UI groups/client, focus/reconnect mode preservation, renderer 100%/125%, protected distribution/IPC and offline evidence checks remain valid for byte-identical client sources. All four final native Windows source/image/save/reopen dialogs passed without stubs or inference. This is actual agent operation, not a second-machine or owner acceptance claim.
+
+Installed: D:\projects\BatchFence\work\installed-0.4.0-rc.2\BatchFence Hardening Preview.exe. Installer: releases/BatchFence-0.4.0-rc.2-win-x64-setup.exe,113,796,976 bytes,SHA256 4b26b42862e09d0db1399be7193abe96559801c0180598b9a4a07e7f8fef4d90. Backend-only final fix did not change packaged client inputs; installed desktop and frontend bytes match final Git/Linux/public assets, so the tested installer is preserved. Updated source ZIP, manifest, notes andSHA256SUMS-0.4.0-rc.2.txt are in releases/. Source SHA256 13ec23833f25134a3e77fedcb807ff846a1eea4afe52a263838d47fc1feae415. The separate evidence branch contains final acceptance/publication/media records; runtime/tag/archive remains 04e9c7b.
+
+Submission media: submission/hardening/BatchFence-0.4.0-rc.2-verified-results.mp4, 36 seconds, captioned retained actual screenshots including final Windows fresh receipt; not continuous footage. Exact source hashes/captions in media-evidence.json. No inference for media. Prior submission materials preserved; nothing submitted.
+
+## Open, run and reproduce
+
+Public or installed: open an example incident, Sources & intake, provider details, enter the owner's separate private workspace live-access token (LIVE_DEMO_TOKEN in ignored work/cloud-demo.env). Never enter AMD/Evolus keys in a browser/renderer. Choose the direct Gemma or genuine Evolus button explicitly; review adjacent original evidence and critical fields, confirm scope, approve exact plan, then apply sandbox holds. Fixture and recorded paths stay explicitly identified. Export before sleep/restart/redeploy. Open packet is historical/read-only; promoting creates a new draft and strips transferable approvals/receipts. Anonymous installed workspace capability intentionally ends when the app process closes.
+
+From D:\projects\BatchFence:
+- `npm run build`
+- `.venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8787`; existing private .env loads automatically. Use the current dist and private valid configuration. No second .env needed.
+- `.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-NEW --junitxml=work/pytest-NEW.xml`
+- `.venv\Scripts\python.exe -m scripts.evaluate` (can rewrite historical docs/evaluation-results.json; preserve/restore only the generated report)
+- `node scripts/browser-smoke.cjs`; installed/check scripts accept documented BATCHFENCE_BASE_URL/BATCHFENCE_TEST_EXE/BATCHFENCE_BACKEND_ORIGIN/report paths.
+Do not rerun the one-shot live/evaluation runners or reset ledgers.54/64 conservative reservations used in this finite campaign, including pre-dispatch failures; old 48/48 and29/30 histories preserved. Unused reserves are not targets. Latest actual account observation:0.9955089786089957 AMD shared nonmonetary points remaining,50,000 Evolus credits; unchanged original AMD fingerprint verified. Account-wide usage is not attributed entirely to this task.
+
+## Release-readiness verdict and precise human actions
+
+Ready for a controlled hackathon demonstration of the supported source-review and sandbox workflow. Fresh image inference is currently unavailable; autonomous scope/release and production readiness are not established. Existing review controls enforce the boundary. Free Render storage is ephemeral; installer unsigned; 8 moderate development-tool advisories remain (production npm and pinned Python audits clear). Model errors, original/derived-source limits, own ADC/vLLM eligibility and independent operational validation remain explicit.
+
+1. Use the separate private live-access token; provider credentials already work and must remain unchanged. No more rotation/revocation.
+2. After 18 October 2026, 16:00 UTC (21:00 Asia/Qyzylorda), verified-free proof expires and calls fail closed. Refresh actual allowance evidence and merge only the two nonsecret JSON settings through the existing approved Render process, per docs/hardening-0.4/activation-runbook.md. No paid plan, key change or counter reset. This is necessary only for later live operations.
+3. Fresh vision requires provider image-endpoint recovery before one affected bounded recheck under verified free access; no further identical retries now. Manual original-image inspection and explicit source relationship review remain available.
+4. Before real operational use, complete independent professional/language/physical-photo/three-unfamiliar-operator acceptance, real scoped identities/data approval, and off-device backup/restore against owner RPO/RTO. The existing private 0.3.0 pilot/data are preserved, not silently upgraded or claimed production accepted.
+
+No routine feature expansion, repeated broad tests or score-chasing inference remains. Final publication/download verification and cleanup records follow in docs/hardening-0.4/release-assets and the final evidence checkpoint.
+
+---
+
+# Resumed release acceptance вЂ” image failure fixed locally
+
+Final installed real source/image/save/reopen dialogs passed, no stubs or inference. Native focus retained explicit fixture mode. Public d9a8b6a fresh core500в†’800/two receipts/stale rejection passed; RU translation preserved LOT-007, negation, possibility and ambiguous date. Request and handover drafts passed without inventory authority. Reviews are agent-operated synthetic tests, not independent human acceptance.
+
+Fresh public image requests returned upstream HTTP500. The application error path then raised UnboundLocalError because original image bytes occupied the model-output variable; running proposal records survived until job lease recovery. No facts/reading/actions accepted. Exact logs retained. Minimal fix separates original bytes from response output. Local reproduction2failed/1passed; fix30 relevant tests passed, including terminal provider failure, timeout, malformed output, unchanged applied receipts and idempotence. PR4/commit5bba221; CI39076922040 in progress. No repeated image inference until affected fix is deployed; provider image capability currently unresolved.
+
+Remaining: approved CI/deploy; installed fresh core and four extension operations; attested source/archive/checksums and publication. Installer/client bytes unchanged by backend-only fix; native acceptance remains valid. Finite64 cap preserved, no additional key/config changes or purchases. Historical checkpoints below are retained.
+
+---
+
+# UI verification interrupted by owner Escape
+
+Public0.4.0-rc.2 is live at d9a8b6aa27af4e5329340b1774958405394ec69f; PR3 merged, main Linux CI39075698587 passed. Final-build public fresh Gemmaв†’Evolus500в†’800/two receipts/stale rejection/export passed after one retained transport failure and one allowed retry. Four held-out extension jobs and final installed fresh run are not yet marked complete. User stopped native Computer Use with physical Escape; test helpers stopped, no further app input. An already dispatched provider request may finish; inspect server jobs and preserve charges/results before resuming. Phase reservations: 40/64; old ledgers unchanged. Final installer/source built and scanned locally but GitHub release publication/checksums/media/handoff remain incomplete. Credentials unchanged; no further rotation/revocation permitted. Current proof expiry2026-10-18T16:00Z.
+
+Resume from docs/hardening-0.4/interrupted-checkpoint.json; preserve completed core evidence and do not rerun passed model cases for media. Earlier native candidate check passed all four real dialogs; the final-byte native repeat was interrupted.
+
+---
+
+# Hardening0.4.0-rc.2 вЂ” local gates passed; final publication in progress
 
 Current candidate builds on eab697c. Actual full suite425 passed, domain30/30, new frozen200 (64 originally held out),16 combined sequence IDs/18 instances,60 separate seeded graph scenarios. Historical reports/fixtures/ledgers/releases preserved. Follow-up frontend defect reproduced: focus changed explicit fixture to live on an unprotected backend; fixed to initialize the default only once. Affected browser and rebuilt installed focus/reconnect checks passed. Shared six-module UI checks/client passed, including800 applied/700 proposed/separate100 recovery, weighted signals, source guidance and effectiveness. Browser eight extension UI groups and installed equivalents also passed; real four Windows dialogs passed with agent-operated OS controls, not independent human acceptance. Docker build/restart preserved receipts and original source hashes. Python/prod npm audits clear;8 moderate development toolchain findings remain.
 
-Fresh PUBLIC Gemma then genuine Evolus reached500→800, two original receipts, stale409 and export. Raw Evolus revision invented document_id="signed revision"; source validator rejected it. Explicit attributed agent source correction, separate critical review and approval completed800; raw error remains. Fresh INSTALLED Windows→public Evolus first/direct Gemma revision passed500→800/two receipts/stale rejection/export without correction or browser errors. These early checks used public runtimec40bc08 and candidate installed frontend before the later focus fix; final identified candidate publication/activation remains pending. Public expiring file proofs may currently block new calls until candidate configuration deploy completes; no fixture fallback.
+Fresh PUBLIC Gemma then genuine Evolus reached500в†’800, two original receipts, stale409 and export. Raw Evolus revision invented document_id="signed revision"; source validator rejected it. Explicit attributed agent source correction, separate critical review and approval completed800; raw error remains. Fresh INSTALLED Windowsв†’public Evolus first/direct Gemma revision passed500в†’800/two receipts/stale rejection/export without correction or browser errors. These early checks used public runtimec40bc08 and candidate installed frontend before the later focus fix; final identified candidate publication/activation remains pending. Public expiring file proofs may currently block new calls until candidate configuration deploy completes; no fixture fallback.
 
 Matched unchanged original12: Gemma11/12 supplier pairs, MiMo11/12; Gemma2 source-validator rejections, MiMo0. One initial MiMo429 retained; one bounded retry after25+minutes passed. Full per-case raw/source/expected/actual/application evidence docs/hardening-0.4/matched-comparison.*. No model superiority or autonomous reliability claim. Four new held-out text/image sources frozen in evals/hardening-live-v1 before final extension dispatch. Phase maximum64 remains, old48/48 unchanged. See private phase-ledger for actual reservations; pre-dispatch contract failures are separately identified.
 
@@ -60,7 +132,7 @@ Verdict: published controlled engineering preview. Production readiness and mode
 
 Historical checkpoints below describe their state at that time.
 
-# Gemma / Evolus continuation Р Р†Р вЂљРІР‚Сњ live verification and reliability fixes
+# Gemma / Evolus continuation Р В Р вЂ Р В РІР‚С™Р Р†Р вЂљРЎСљ live verification and reliability fixes
 
 Protected public release remains 0.3.0 / 34929d1. Development branch gemma-evolus-0.4, initial checkpoint f50349c. No new installer or public promotion yet.
 
@@ -109,7 +181,7 @@ All current evidence: docs/enterprise/final-release.json,release-artifacts.json,
 
 Historical checkpoints below describe their state at that time.
 
-# Enterprise candidate checkpoint Р Р†Р вЂљРІР‚Сњ implementation complete, promotion blocked
+# Enterprise candidate checkpoint Р В Р вЂ Р В РІР‚С™Р Р†Р вЂљРЎСљ implementation complete, promotion blocked
 
 All four modules and their foundations are implemented as 0.3.0-rc.1. Clean package source: e616ff5b91bbe5716949dc3fc833be290a0802b1. Later evidence/tooling-only commits preserve these application bytes. Draft PR: https://github.com/NuraliKuzhagaliev/BatchFence/pull/1. Public web and Windows remain the protected 0.2.0 release at e70f4a0; no expanded Render rollout or new public release tag.
 
@@ -137,7 +209,7 @@ Reproduce from D:\projects\BatchFence:
 
 ---
 
-# Enterprise 0.3.0-rc.1 engineering candidate Р Р†Р вЂљРІР‚Сњ release gate open
+# Enterprise 0.3.0-rc.1 engineering candidate Р В Р вЂ Р В РІР‚С™Р Р†Р вЂљРЎСљ release gate open
 
 Protected public app/Windows release remains e70f4a0 / v0.2.0. All four modules and shared foundations are implemented on enterprise-pilot-0.3. Current candidate is private/local; no claim of production readiness or independent human acceptance.
 
@@ -149,7 +221,7 @@ Next independent work: installed candidate/package/offline/default-pilot transpo
 
 ---
 
-# Enterprise client and OCR checkpoint Р Р†Р вЂљРІР‚Сњ not yet released
+# Enterprise client and OCR checkpoint Р В Р вЂ Р В РІР‚С™Р Р†Р вЂљРЎСљ not yet released
 
 Protected release remains e70f4a0 / v0.2.0; development branch enterprise-pilot-0.3. Local backend checkpoint 28b0b5a follows foundation 84cf9a8. The four module interfaces, proposed/applied quantities, typed receiving review, recovery controls, pilot login, mapped imports, source OCR review, and module packet snapshots are now connected. Desktop IPC explicitly allows the new routes. No new public deployment or installer yet.
 
@@ -163,7 +235,7 @@ Next commands: `.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-ent
 
 ---
 
-# Enterprise development checkpoint Р Р†Р вЂљРІР‚Сњ backend integration in progress
+# Enterprise development checkpoint Р В Р вЂ Р В РІР‚С™Р Р†Р вЂљРЎСљ backend integration in progress
 
 Protected public release remains e70f4a0 / v0.2.0. Foundation local checkpoint is 84cf9a8; later enterprise work remains on enterprise-pilot-0.3. Nothing from this expansion has been published.
 
@@ -177,7 +249,7 @@ Next: finish all module UI and integrated acceptance; preserve the verified rele
 
 ---
 
-# Enterprise upgrade in progress Р Р†Р вЂљРІР‚Сњ protected 0.2.0 remains published
+# Enterprise upgrade in progress Р В Р вЂ Р В РІР‚С™Р Р†Р вЂљРЎСљ protected 0.2.0 remains published
 
 Development branch: enterprise-pilot-0.3. Entire enterprise brief read; no existing 0.2.1 work found. Do not publish the expansion until its gates pass. New implementation is currently foundations only, not four delivered modules.
 
@@ -200,9 +272,9 @@ Runtime implementation is 7431360; ebd1402 corrects the Docker frontend COPY and
 ## What changed
 
 1. Source-linked causes distinguish unresolved incident scope from actual receiving gaps, merge overlapping questions and count unique inventory.
-2. Bounded immutable scenarios compare individual and joint assumptions; complete SUP-B-only FG-C changes 500Р Р†РІР‚В РІР‚в„ў400 / 800Р Р†РІР‚В РІР‚в„ў700. Partial or inconclusive evidence preserves holds.
+2. Bounded immutable scenarios compare individual and joint assumptions; complete SUP-B-only FG-C changes 500Р В Р вЂ Р Р†Р вЂљР’В Р Р†Р вЂљРІвЂћСћ400 / 800Р В Р вЂ Р Р†Р вЂљР’В Р Р†Р вЂљРІвЂћСћ700. Partial or inconclusive evidence preserves holds.
 3. Linked receiving replies preserve raw output, require explicit source/replacement review, reject weak evidence, recalculate plans and invalidate old authority. A smaller proposal never releases applied holds.
-4. Immutable before/after comparison explains SUP-CР Р†РІР‚В РІР‚в„ўFG-D (300 units)Р Р†РІР‚В РІР‚в„ўO-104. Offline packets show saved graphs; detailed causal computation requires the owned online case.
+4. Immutable before/after comparison explains SUP-CР В Р вЂ Р Р†Р вЂљР’В Р Р†Р вЂљРІвЂћСћFG-D (300 units)Р В Р вЂ Р Р†Р вЂљР’В Р Р†Р вЂљРІвЂћСћO-104. Offline packets show saved graphs; detailed causal computation requires the owned online case.
 5. Guided per-lot unresolved defaults, adjacent quotes, early genealogy, elapsed inference indicator and responsive layouts replace the old CSV-style review flow.
 6. Verification separates raw/provider evidence from review and receipts. Six isolated challenges execute actual policy functions without changing the case.
 

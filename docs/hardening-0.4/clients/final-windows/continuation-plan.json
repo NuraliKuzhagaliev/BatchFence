@@ -1,0 +1,10 @@
+{
+  "reason": "First Evolus500 receipt succeeded; direct Gemma revision failed without usable provider response. Runner closed the anonymous installed app capability, which intentionally cannot be restored across restarts. One new scoped Windows workspace is necessary to verify a continuous500/800 receipt workflow. Prior raw evidence retained; no authority transferred or database access bypassed.",
+  "maximum_continuations": 1,
+  "core_model_steps": 3,
+  "extension_steps": 4,
+  "source": "Same frozen final supplier notices; new held-out IT and label originals unchanged",
+  "no_automatic_retries": true,
+  "cap": 64,
+  "only_verified_free_access": true
+}

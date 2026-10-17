@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-17T22:55:37.781299+00:00",
+  "mode": "fixture",
+  "live_inference": false,
+  "checks": [
+    "dynamic container port at http://127.0.0.1:8813",
+    "500 to 800 synthetic workflow",
+    "stale approval rejected",
+    "sandbox receipt",
+    "two-session isolation",
+    "all original source bytes and owner isolation survive restart",
+    "same SQLite volume survives actual container restart",
+    "SPA refresh and missing API routing"
+  ],
+  "passed": true
+}

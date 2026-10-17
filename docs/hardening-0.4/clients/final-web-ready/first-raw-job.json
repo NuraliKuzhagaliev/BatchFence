@@ -1,0 +1,26 @@
+{
+  "id": "GENERATE-3beef6b0d21f4bd5d6e26999",
+  "case_id": "00964a734d804031bccbbfec8971b9d6",
+  "kind": "document",
+  "mode": "live",
+  "provider_path": "Direct Gemma / managed-amd-shared",
+  "status": "failed provider request",
+  "request_hash": "3ca47b147b18ccd97189ca3acfa1f45188de8b5f0b5b1143158a2b7ff5c64604",
+  "snapshot_hash": "04bc09c16734194ebeb96c1ece03b8b92886ea531dab027c094c524e03e44076",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "started_at": "2026-10-17T22:39:58.406083+00:00",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "8ed7eb73e92793168152fa14529dd52eb52122b7e159f8dbe96570582f75e634",
+    "dispatch": 1,
+    "conservative_remaining": 0.9869706730917096,
+    "stop_margin": 0.1
+  },
+  "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+  "error": "Structured-output,timeout or transport failure; no fallback",
+  "finished_at": "2026-10-17T22:40:39.368902+00:00",
+  "stale": false
+}
