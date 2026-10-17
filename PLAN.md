@@ -1,3 +1,13 @@
+# Release complete — no further live calls required
+
+Published0.4.0-rc.2 at runtime/main/tag04e9c7b75ff90d83e9b6ff5ce7b9b2be90fc58ed. Existing free Render app verified; final Windows genuine Evolus/Gemma500→800/two receipts/export and remaining text extensions completed. Actual native dialogs passed.428pytest,30domain,200frozen local scenarios,16sequence IDs/18instances,60separate generated graph checks; branch/main Linux CI and exact-source container/restart passed. All5published assets fully downloaded anonymously and hashes match; website Windows download visible. Stable0.3.0/previous preview preserved.
+
+Fresh vision remains providerHTTP500, cleanly contained with no reading/authority; original app error reproduced and fixed. Model reliability and independent operational acceptance remain explicit limitations.54/64conservative reservations retained; no more calls, spending, key changes, infrastructure redesign or cosmetic work required. Task test services stopped, no containers/volumes/data deleted.
+
+Only remaining work requires external/provider recovery or independent owner/professional acceptance, as precisely listed in HANDOFF.md. Published source/runtime remains04e9c7b; final evidence checkpoint is on release-evidence-0.4.0-rc.2. No hackathon submission or external messages.
+
+---
+
 # Final release gate
 
 Completed final installed fresh Evolus/Gemma500→800/two receipts/export; RU/IT/request/handover checks; actual native dialogs;428pytest; branch/main CI; corrected archive/container/restart; public commit/assets. Vision provider500 contained and explicitly unresolved; no more identical calls.54/64reservations retained, no key changes or purchases. All6extensions and4enterprise modules remain in scope with acceptance limits in HANDOFF.md.

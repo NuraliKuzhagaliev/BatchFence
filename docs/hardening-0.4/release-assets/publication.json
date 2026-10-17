@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-17T23:08:15.111876+00:00",
+  "release_url": "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.2",
+  "tag_commit": "04e9c7b75ff90d83e9b6ff5ce7b9b2be90fc58ed",
+  "runtime_commit": "04e9c7b75ff90d83e9b6ff5ce7b9b2be90fc58ed",
+  "prerelease": true,
+  "latest_stable_preserved": "v0.3.0",
+  "downloads": [
+    {
+      "file": "BatchFence-0.4.0-rc.2-win-x64-setup.exe",
+      "bytes": 113796976,
+      "sha256": "4b26b42862e09d0db1399be7193abe96559801c0180598b9a4a07e7f8fef4d90",
+      "anonymous_full_download_matches": true
+    },
+    {
+      "file": "BatchFence-0.4.0-rc.2-source.zip",
+      "bytes": 119010018,
+      "sha256": "13ec23833f25134a3e77fedcb807ff846a1eea4afe52a263838d47fc1feae415",
+      "anonymous_full_download_matches": true
+    },
+    {
+      "file": "release-manifest-0.4.0-rc.2.json",
+      "bytes": 3070,
+      "sha256": "69cdfd8e60268dbc2bd615588cdad87cf5682abb5d8966256ecb8684c9019e42",
+      "anonymous_full_download_matches": true
+    },
+    {
+      "file": "SHA256SUMS-0.4.0-rc.2.txt",
+      "bytes": 402,
+      "sha256": "21608d7d70ca3bace65e297b90b8d6c42eb1e30433734a5c9a9962e1c6ed205e",
+      "anonymous_full_download_matches": true
+    },
+    {
+      "file": "RELEASE-NOTES-0.4.0-rc.2.md",
+      "bytes": 3138,
+      "sha256": "e85f853537c506f4e25f36816dbe02b08d323c472e3cc0247a5fb3fb7f8fa528",
+      "anonymous_full_download_matches": true
+    }
+  ],
+  "publication_metadata_correction": "GitHub draft used an untagged placeholder; explicitly corrected only the new release tag before final download verification. No deletion or replacement of stable releases/assets."
+}
