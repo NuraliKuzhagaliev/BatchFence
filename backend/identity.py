@@ -137,6 +137,8 @@ def approval_still_authorized(db, approval, required):
 def route_role(path, method):
     if method == 'GET': return None
     end = path.rsplit('/', 1)[-1]
+    if end in {'response-review','translation-review','label-reading','label-review','source-change','rereview-review','assist-review','assist-intake'}:return 'quality_reviewer'
+    if end == 'knowledge-index':return 'administrator'
     if end in {'release-approve','recovery-execute','connector-dispatch','connector-enqueue'}:return 'release_approver'
     if end in {'reviews', 'approve', 'apply', 'reply-review', 'receiving-review','intake-review','ocr-review','baseline-review','procedure-review','knowledge-check','policy-review','recovery-evidence','recovery-prepare','investigation-review','plan-review','implementation-review','monitoring-start','outcome-review','recurrence-review','reopen-review'}: return 'quality_reviewer'
     if path.startswith('/api/auth/'): return None

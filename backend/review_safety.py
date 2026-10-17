@@ -32,6 +32,14 @@ def scope_concerns(source):
             for b in source['blocks'] if UNRESOLVED.search(b['text'])]
 
 
+def require_language_review(source):
+    if source.get('language_review_required') or source.get('evidence_language','en')!='en':
+        review=source.get('language_review')
+        if not review or review.get('original_hash')!=source.get('original_hash'):
+            from .domain import DomainError
+            raise DomainError('Original-language qualification and critical-field review required before consequential interpretation')
+
+
 def resolution_evidence(source, quote):
     quote = quote.strip()
     if len(quote) < 8:

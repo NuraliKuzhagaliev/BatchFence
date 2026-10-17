@@ -37,6 +37,7 @@ import { EvidencePlanner, RevisionComparison, VerificationPanel, Elapsed } from 
 import {PilotLogin,QuantityStrip,IntakePanel,OcrReview} from "./FoundationPanels";
 import {EnterprisePanels} from './EnterprisePanels';
 import {RecoveryPanel} from './RecoveryPanel';
+import {ContinuationPanel} from './ContinuationPanels';
 import "./style.css";
 const euro = (n: number) =>
   new Intl.NumberFormat("en-IE", {
@@ -938,6 +939,7 @@ function App() {
                       ["timeline", "Revisions"],
                       ["receipt", "Receipt"],
                       ["recovery", "Recovery"],
+                      ["handover", "Handover"],
                       ["verify", "Verification"],
                     ].map(([k, t]) => (
                       <button
@@ -1083,12 +1085,15 @@ function App() {
                       </button>
                     </section>
                   ) : tab === "recovery" ? (
-                    <RecoveryPanel key={state.id} state={state} readOnly={readOnly} update={accept}/>
+                    <><ContinuationPanel state={state} part="conditions" readOnly={readOnly} update={accept}/><RecoveryPanel key={state.id} state={state} readOnly={readOnly} update={accept}/></>
+                  ) : tab === "handover" ? (
+                    <ContinuationPanel state={state} part="handover" readOnly={readOnly} update={accept}/>
                   ) : tab === "verify" ? (
                     <VerificationPanel state={state} replay={!!packet} readOnly={readOnly}/>
                   ) : tab === "timeline" ? (
                     <section className="timeline">
                       <RevisionComparison state={state} readOnly={readOnly} onEvidence={showEvidence}/>
+                      <ContinuationPanel state={state} part="changes" readOnly={readOnly} update={accept}/>
                       {state.history.length ? (
                         state.history.map((h, i) => (
                           <div
@@ -1137,11 +1142,10 @@ function App() {
                     <section className="source-page">
                       <h3>{doc?.filename}</h3>
                       {doc&&<OcrReview key={doc.id} state={state} doc={doc} readOnly={readOnly} onUpdate={accept}/>}
-                      <SourceText doc={doc} />
-                      <IntakePanel key={state.id} state={state} readOnly={readOnly} onUpdate={accept}/>
+                      <div className="source-review-layout"><aside className="original-source"><span className="eyebrow">RETAINED ORIGINAL</span><SourceText doc={doc}/><IntakePanel key={state.id} state={state} readOnly={readOnly} onUpdate={accept}/></aside><ContinuationPanel state={state} part="sources" doc={doc} readOnly={readOnly} update={accept} openReview={s=>{beginReview(s.runs.at(-1)!);setTab('map');}}/></div>
                     </section>
                   ) : tab === "requests" ? (
-                    <EvidencePlanner state={state} readOnly={readOnly||!!busy} mode={mode} onUpdate={s=>{accept(s);setNotice('');setError('');}} onEvidence={showEvidence}/>
+                    <><EvidencePlanner state={state} readOnly={readOnly||!!busy} mode={mode} onUpdate={s=>{accept(s);setNotice('');setError('');}} onEvidence={showEvidence}/><ContinuationPanel state={state} part="requests" readOnly={readOnly||!!busy} update={accept}/></>
                   ) : tab === "orders" ? (
                     <section>
                       {result ? (

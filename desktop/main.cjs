@@ -89,7 +89,7 @@ app.whenReady().then(() => {
     if (
       !["GET", "POST"].includes(method) ||
       typeof route !== "string" ||
-      !apiPattern.test(route) ||
+      !(apiPattern.test(route) || /^\/api\/(?:assist\/(?:status|source-change|knowledge-index)|cases\/[a-f0-9]{32}\/(?:assisted|assist-run|assist-poll|assist-generate|assist-review|assist-intake|evidence-task|evidence-ranking|response-review|release-conditions|translation|translation-review|label-image|label-reading|label-review|label-images\/LABEL-[a-f0-9]{24}|handover|handover-review|rereview-review))$/.test(route)) ||
       (route === "/api/replay" && method !== "GET") ||
       (accessToken !== undefined && (typeof accessToken !== "string" || accessToken.length > 200 || /[\r\n]/.test(accessToken))) ||
       (method === "GET" && body !== undefined) ||
@@ -104,7 +104,7 @@ app.whenReady().then(() => {
         "Content-Type": "application/json",
         "X-BF-Client": "desktop",
         ...(capability ? { "X-BF-Session": capability } : {}),
-        ...(method === "POST" && /\/(analyze|receiving-draft|answer|explain)$/.test(route) && accessToken ? { "X-BF-Demo-Token": accessToken } : {}),
+        ...(method === "POST" && /\/(analyze|receiving-draft|answer|explain|assist-run|assist-poll|assist-generate|knowledge-index)$/.test(route) && accessToken ? { "X-BF-Demo-Token": accessToken } : {}),
       },
       ...(method === "POST" ? { body: JSON.stringify(body || {}) } : {}),
     });
@@ -116,6 +116,15 @@ app.whenReady().then(() => {
     if (!response.ok)
       throw Error(result.detail?.message || "Backend request failed");
     return result;
+  });
+  ipcMain.handle("bf:chooseImages", async (event) => {
+    sender(event);
+    const selection = await dialog.showOpenDialog(win, {title:"Import label photo",properties:["openFile"],filters:[{name:"Label photos",extensions:["png","jpg","jpeg","webp"]}]});
+    if(selection.canceled)return [];
+    if(selection.filePaths.length!==1)throw Error("Choose one image");
+    const filename=selection.filePaths[0];
+    if(![".png",".jpg",".jpeg",".webp"].includes(path.extname(filename).toLowerCase())||(await fs.stat(filename)).size>2000000)throw Error("Unsupported image or size above 2 MB");
+    return [{filename:path.basename(filename),content_base64:(await fs.readFile(filename)).toString("base64")}];
   });
   ipcMain.handle("bf:chooseFiles", async (event) => {
     sender(event);

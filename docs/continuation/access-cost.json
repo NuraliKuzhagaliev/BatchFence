@@ -1,0 +1,29 @@
+{
+  "checked_local_date": "2026-10-17 Asia/Qyzylorda",
+  "protected_release": "0.3.0 / 34929d1",
+  "evolus": {
+    "registered": "owner reports registered",
+    "event_activation": "unverified",
+    "account_balance": null,
+    "expiration": null,
+    "api_contract": "interactive workspace reference unavailable so far; no fields invented",
+    "configured_building_blocks": [],
+    "published_offer_only": "50000 credits through 2026-10-31, not a verified account balance",
+    "official_reference": "https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii"
+  },
+  "amd_cloud": {
+    "allocation": null,
+    "remaining_allowance": null,
+    "gpu": null,
+    "own_vllm_endpoint": null,
+    "existing_mimo_api": "configured; does not establish own AMD Cloud resource",
+    "published_billing_rules": "Powered-off GPU instances still consume allowance until destroyed. Attached volumes/object storage/backups are not included in complimentary compute credit. A payment method can enable automatic charges after credits exhaust.",
+    "official_reference": "https://www.amd.com/en/developer/resources/cloud-access/amd-developer-cloud.html"
+  },
+  "additional_cash_authorized": 0,
+  "new_provider_calls": 0,
+  "new_gpu_resources": 0,
+  "live_acceptance": "blocked pending actual access, API contract and enforceable zero-cash allowance",
+  "partner_eligibility": "unverified; own AMD Cloud vLLM, at least two building blocks and actual API usage required",
+  "owner_action_requested": "Open activated Evolus workspace/API reference and AMD Cloud allocation page. Do not paste credentials."
+}

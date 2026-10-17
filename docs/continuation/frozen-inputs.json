@@ -1,0 +1,8 @@
+{
+  "file": "evals/continuation/frozen-v1.json",
+  "sha256": "b3ea8615041b885fc54eefa36ab36e10b5ddffd36fbf8f2a7503842322472549",
+  "items": 32,
+  "adversarial": 21,
+  "fresh_completed": 0,
+  "fresh_unrun": 32
+}

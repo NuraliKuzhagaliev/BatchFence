@@ -1,0 +1,89 @@
+{
+  "at": "2026-10-17T18:19:52.571761+00:00",
+  "base_url": "https://developer.amd.com.cn/radeon/api/v1",
+  "gemma_catalog": [
+    {
+      "id": "Gemma-4-31B-IT",
+      "name": "Gemma 4 31B",
+      "aliases": [],
+      "description": "Dynamic sglang-router service managed by Model Ops",
+      "family": "custom",
+      "output": [
+        "text"
+      ],
+      "architecture": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "GPT"
+      },
+      "top_provider": {
+        "is_moderated": true
+      },
+      "providers": [
+        {
+          "providerId": "self-dploy",
+          "externalId": "Gemma-4-31B-IT",
+          "pricing": {
+            "prompt": "3.5e-8",
+            "completion": "7e-8",
+            "input_cache_read": "7e-10"
+          },
+          "streaming": true,
+          "vision": true,
+          "cancellation": false,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": true,
+          "stability": "experimental",
+          "ocr": false
+        }
+      ],
+      "pricing": {
+        "prompt": "3.5e-8",
+        "completion": "7e-8",
+        "input_cache_read": "7e-10"
+      },
+      "context_length": 262144,
+      "supported_parameters": [
+        "temperature",
+        "max_tokens",
+        "top_p",
+        "stream",
+        "response_format",
+        "tools",
+        "tool_choice"
+      ],
+      "json_output": true,
+      "structured_outputs": true,
+      "free": false,
+      "stability": "experimental"
+    }
+  ],
+  "usage": {
+    "rpm_limit": 20,
+    "daily_cost_limit_usd": 1,
+    "daily_cost_used_usd": 0,
+    "daily_cost_remaining_usd": 1,
+    "daily_reset_timezone": "Asia/Shanghai",
+    "daily_reset_at": "2026-10-18T16:00:00.000Z",
+    "daily_reset_epoch": 1792339200,
+    "period_started_at": "2026-10-17T16:00:00.000Z",
+    "period_duration_value": 1,
+    "period_duration_unit": "day",
+    "window_hours": 24,
+    "recent_limit": 200
+  },
+  "http_statuses": [
+    200,
+    200
+  ],
+  "new_inference_requests": 0,
+  "cost_basis": "Authenticated TokenFactory manual explicitly lists Gemma-4-31B-IT among free shared endpoints; points are relative usage,not charges.",
+  "hosting": "Managed AMD service;not owned AMD Cloud vLLM",
+  "eligibility": "not verified"
+}

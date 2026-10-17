@@ -35,11 +35,12 @@ def case(db,owner,key):
 
 
 def source_basis(state,doc_id,quote):
-    from .review_safety import resolution_evidence
+    from .review_safety import resolution_evidence,require_language_review
     from .ocr import require_visual_review
     doc=next((d for d in state['documents'] if d['id']==doc_id),None)
     if not doc:raise DomainError('Source document unavailable')
     require_visual_review(doc)
+    require_language_review(doc)
     ref=resolution_evidence(doc,quote)
     if not ref:raise DomainError('An exact original-source passage is required')
     return {'citation':ref,'original_hash':doc['original_hash'],'document_revision':doc['revision']}
@@ -73,6 +74,8 @@ def evidence(db,owner,state,data):
 
 
 def snapshot(db,owner,state,hold_ids,evidence_ids):
+    from .assisted import blocking_reviews
+    if blocking_reviews(db,owner,state['id']):raise DomainError('Effective source/procedure change requires explicit current re-review before recovery')
     _,inventory=repo.get_record(db,owner,'inventory','shared')
     policy_revision,policy=repo.get_record(db,owner,'recovery-policy','current')
     if not policy:raise DomainError('The recovery policy must be explicitly reviewed first')
@@ -103,6 +106,8 @@ def snapshot(db,owner,state,hold_ids,evidence_ids):
         for kind in ('receiving','inspection'):
             ref=proof[kind];doc=next((d for d in state['documents'] if d['id']==ref['citation']['document_id']),None)
             if not doc or doc['original_hash']!=ref['original_hash']:raise DomainError('Recovery evidence source changed')
+            from .review_safety import require_language_review
+            require_language_review(doc)
         if datetime.fromisoformat(proof['inspected_at'].replace('Z','+00:00'))<datetime.now(timezone.utc)-timedelta(days=30):raise DomainError('Required inspection is stale')
         proofs.append(proof)
     if {p['pool_id'] for p in proofs}!={h['pool_id'] for h in holds}:raise DomainError('Every requested pool needs its own reviewed authenticity and passed inspection evidence')

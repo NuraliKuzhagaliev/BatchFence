@@ -6,6 +6,7 @@ contextBridge.exposeInMainWorld(
       ipcRenderer.invoke("bf:request", method, route, body, accessToken),
     openWebApp: () => ipcRenderer.invoke("bf:openWebApp"),
     chooseFiles: () => ipcRenderer.invoke("bf:chooseFiles"),
+    chooseImages: () => ipcRenderer.invoke("bf:chooseImages"),
     savePacket: (packet) => ipcRenderer.invoke("bf:savePacket", packet),
     openPacket: () => ipcRenderer.invoke("bf:openPacket"),
     copyDraft: (draft) => ipcRenderer.invoke("bf:copyDraft", draft),

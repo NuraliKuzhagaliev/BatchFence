@@ -1,5 +1,7 @@
 export type Evidence = { document_id: string; block_id: string; quote: string };
 export type Document = {
+  evidence_language?:string;
+  language_review_required?:boolean;
   ocr?: {engine:string;critical_fields_confirmed:boolean;pages:{page:number;image_hash:string}[]};
   request_id?: string;
   request_snapshot?: Question;
@@ -184,6 +186,7 @@ export type Bridge = {
     accessToken?: string,
   ) => Promise<unknown>;
   chooseFiles: () => Promise<Upload[]>;
+  chooseImages: () => Promise<Upload[]>;
   savePacket: (p: Packet) => Promise<boolean>;
   openPacket: () => Promise<Packet | null>;
   copyDraft: (draft: string) => Promise<void>;

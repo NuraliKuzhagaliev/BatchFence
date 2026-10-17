@@ -54,6 +54,8 @@ def preview(state,data):
     parents=sorted(set(data.parent_ids))
     if data.outcome=='resolved':
         require_visual_review(doc)
+        from .review_safety import require_language_review
+        require_language_review(doc)
         if not parents or not set(parents)<=suppliers:raise DomainError('Unknown entities or non-supplier identifiers remain unresolved')
         if not all(mentions(value,data.quote) for value in [data.pool_id,*parents]):raise DomainError('Source passage must identify the pool and each reviewed parent')
         if data.unresolved_contradictions:raise DomainError('Unresolved contradictions cannot replace receiving records')

@@ -1,0 +1,125 @@
+"""Evolus Integration API v1, from the owner's OpenAPI 3.0.4 export.
+
+Provider execution fields are kept separate from locally derived attestations.
+No callbacks, fallback models, webhooks, email or arbitrary URLs are accepted.
+"""
+import hashlib,json,os,re,time
+import httpx
+from .domain import DomainError,digest
+from .fixtures import now
+
+
+def identifier(value):
+    if not re.fullmatch(r'[A-Za-z0-9_-]{1,160}',str(value)):
+        raise DomainError('Expected configured Evolus resource identifier')
+    return value
+
+
+def call(method,path,*,body=None,files=None,form=None,query=None,personal=False,transport=None):
+    from .evolus_adapter import https_origin,_bounded
+    base=https_origin(os.environ['EVOLUS_API_BASE_URL'])
+    if base!='https://api.evolus.ai':raise DomainError('Base differs from the supplied Evolus API specification')
+    key_name='EVOLUS_USER_API_KEY' if personal else 'EVOLUS_API_KEY'
+    if not os.getenv(key_name):raise DomainError('UNAVAILABLE: configure '+key_name+' privately')
+    headers={'X-User-ApiKey' if personal else 'X-ApiKey':os.environ[key_name], 'X-Application-Id':os.environ['EVOLUS_APPLICATION_ID']}
+    args={'params':query}
+    if files:args.update(data=form or {},files=[('file',(f['filename'],f['raw'],f['media_type'])) for f in files])
+    elif body is not None:args['json']=body
+    started=time.perf_counter()
+    with httpx.Client(timeout=40,follow_redirects=False,trust_env=False,transport=transport) as client:
+        with client.stream(method,base+path,headers=headers,**args) as response:
+            raw=b''.join(_bounded(response.iter_bytes(),128000))
+            if response.status_code>=400:
+                # Problem bodies may contain request data; only a bounded code is retained.
+                try:code=json.loads(raw).get('errorCode','')
+                except (ValueError,AttributeError):code=''
+                safe=code if isinstance(code,str) and re.fullmatch(r'[a-zA-Z0-9_.-]{1,100}',code) else ''
+                raise DomainError('Evolus HTTP '+str(response.status_code)+' '+safe+'; no automatic retry')
+            result=json.loads(raw) if raw else None
+    if any(os.getenv(k) and os.environ[k] in json.dumps(result) for k in ('AMD_API_KEY','GEMMA_API_KEY','EVOLUS_API_KEY','EVOLUS_USER_API_KEY')):
+        raise DomainError('Private value found in provider result; output discarded')
+    return {'provider':'Evolus','at':now(),'method':method,'path':path,'http_status':response.status_code,
+        'elapsed_ms':round((time.perf_counter()-started)*1000),'response_hash':hashlib.sha256(raw).hexdigest(),
+        'request_id':response.headers.get('x-request-id'), 'execution_header':response.headers.get('x-workflow-execution-id'),
+        'result':result,'contract':'Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4'}
+
+
+def workflow_start(inputs,transport=None):
+    wid=identifier(inputs['workflow_id'])
+    reply=call('POST',f'/api/v1/workflows/{wid}/execute',files=inputs['file_items'],form={'input':inputs['text']},transport=transport)
+    raw=reply.pop('result');eid=identifier(raw['executionId'])
+    reply['result']={'execution_id':eid,'status':'running','provider_status':'Queued',
+        'enqueued_at':raw.get('enqueuedAt'),'trace_id':raw.get('traceId'),'queue_job_id':raw.get('jobId')}
+    return reply
+
+
+def normalize_execution(raw,manifest):
+    """stepStates does not return model identity. Never manufacture that field."""
+    if raw.get('workflowId')!=manifest['workflow_id']:raise DomainError('Execution belongs to another configured workflow')
+    states=raw.get('stepStates') or {};outputs=raw.get('stepOutputs') or {};steps=[]
+    for kind in ('extractor','agent'):
+        expected=manifest[kind];sid=expected['step_id'];state=states.get(sid)
+        if not state:continue
+        steps.append({'kind':kind,'id':expected['resource_id'],'step_id':sid,'state':state,
+            'configured_model_key':expected['model_key'],'model_identity_basis':'Configuration, not a returned runtime model ID',
+            'output_hash':digest(outputs.get(sid)),'output':outputs.get(sid)})
+    provider_status=raw.get('status','');status={'Completed':'completed','Succeeded':'completed','Failed':'failed','Cancelled':'failed'}.get(provider_status,'running')
+    draft=None
+    if status=='completed':
+        text=raw.get('output') or ''
+        if text.startswith('```'):text=text.removeprefix('```json').removeprefix('```').removesuffix('```').strip()
+        try:draft=json.loads(text)
+        except ValueError:raise DomainError('Completed workflow output is not the configured JSON review draft')
+    return {'execution_id':raw['id'],'status':status,'provider_status':provider_status,'steps':steps,'draft':draft,
+        'consumption':raw.get('consumption'),'requested_at':raw.get('requestedAt'),'completed_at':raw.get('completedAt'),
+        'trace_id':raw.get('traceId'),'error_present':bool(raw.get('error')),
+        'runtime_model_identity':'Not returned by this API; independent AMD request evidence is required for runtime identity verification'}
+
+
+def workflow_status(inputs,manifest,transport=None):
+    wid=identifier(inputs['workflow_id']);eid=identifier(inputs['execution_id'])
+    reply=call('GET',f'/api/v1/workflows/{wid}/executions/{eid}',transport=transport)
+    if reply['result']['id']!=eid:raise DomainError('Unexpected external execution identifier')
+    reply['result']=normalize_execution(reply['result'],manifest)
+    return reply
+
+
+def applicable_documents(documents,product,process,synthetic):
+    from datetime import datetime,timezone
+    current=datetime.now(timezone.utc)
+    allowed=[d for d in documents if d['status']=='approved' and product in d['products'] and process in d['processes']
+        and (synthetic or not d['synthetic']) and datetime.fromisoformat(d['valid_from'].replace('Z','+00:00'))<=current
+        and (not d['valid_to'] or current<datetime.fromisoformat(d['valid_to'].replace('Z','+00:00')))]
+    if len({d['id'] for d in allowed})!=len(allowed):raise DomainError('Overlapping approved revisions require owner resolution before indexing')
+    return allowed
+
+
+def library_scope(owner,product,process,documents):
+    return digest({'owner':owner,'product':product,'process':process,'source_set':[(d['id'],d['version'],d['source_hash']) for d in sorted(documents,key=lambda x:x['id'])]})
+
+
+def inspect_library(library_id,transport=None):
+    return call('GET',f'/api/v1/memories/{identifier(library_id)}/documents',transport=transport)
+
+
+def library_passages(binding,allowed_passages,transport=None,before_call=lambda:None):
+    """Check exact remote membership BEFORE reading chunks. No broad agent RAG.
+
+    Backend ranks only authorized passages; the library substantively retains
+    and returns source chunks. Unknown/extra remote documents disable the path.
+    """
+    library_id=binding['library_id'];before_call();listed=inspect_library(library_id,transport)
+    ids={d['id'] for d in listed['result']};expected={d['remote_document_id'] for d in binding['documents']}
+    if ids!=expected:raise DomainError('Dedicated library membership drifted; retrieval disabled before reading content')
+    passages=[];provenance=[{k:v for k,v in listed.items() if k!='result'}]
+    for document in binding['documents']:
+        relevant=[p for p in allowed_passages if p['document_id']==document['document_id'] and p['version']==document['version']]
+        if not relevant:continue
+        before_call();reply=call('GET',f'/api/v1/memories/{identifier(library_id)}/documents/{identifier(document["remote_document_id"])}/chunks',transport=transport)
+        text='\n'.join(c.get('body') or '' for c in reply['result'])
+        # Retained exact passages must survive indexing. No fabricated source offsets.
+        for p in relevant:
+            if p['quote'] not in text:raise DomainError('Library lacks the exact approved original passage; retrieval abstains')
+            passages.append({**p,'provider_document_id':document['remote_document_id'],'local_quote_mapping':'Exact approved passage in returned library chunk; provider span unavailable'})
+        provenance.append({k:v for k,v in reply.items() if k!='result'})
+    return passages,provenance

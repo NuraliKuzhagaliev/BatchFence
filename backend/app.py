@@ -215,6 +215,7 @@ class Upload(Strict):
     content_base64: str = Field(max_length=4_000_000)
     synthetic: bool = False
     request_id: str | None = Field(default=None, max_length=80)
+    evidence_language: Literal['en','ru','it','unsupported'] = 'en'
 
 
 class Hypothesis(Strict):
@@ -435,6 +436,8 @@ def upload(case_id: str, data: Upload, request: Request):
                        prior_plan_digest=s['plan']['digest'],prior_pending=s['pending_revision'])
         s['revision'] += 1
         doc['revision'] = s['revision']
+        doc['evidence_language']=data.evidence_language
+        doc['language_review_required']=data.evidence_language!='en'
         s['documents'].append(doc)
         if pending:
             s['pending_data'] = {**(s['pending_data'] or {}), **pending}
@@ -512,6 +515,8 @@ def review(case_id: str, data: Review, request: Request):
         if data.incident_scope_status == 'resolved':
             from .ocr import require_visual_review
             require_visual_review(source)
+            from .review_safety import require_language_review
+            require_language_review(source)
         if source.get('request_id'):
             fail('REPLY_REVIEW','Use linked reply reconciliation; receiving candidates cannot replace incident scope',422)
         lots = sorted(set(l.strip() for l in data.lot_ids))
@@ -717,6 +722,8 @@ from .recovery_routes import router as recovery_router
 app.include_router(recovery_router)
 from .action_routes import router as action_router
 app.include_router(action_router)
+from .assist_routes import router as assist_router
+app.include_router(assist_router)
 
 
 if (ROOT / 'dist').exists():

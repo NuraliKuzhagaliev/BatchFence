@@ -12,7 +12,7 @@ export async function request<T>(
   route: string,
   body?: unknown,
 ): Promise<T> {
-  const inference=/\/(analyze|receiving-draft|answer|explain)$/.test(route);
+  const inference=/\/(analyze|receiving-draft|answer|explain|assist-run|assist-poll|assist-generate|knowledge-index)$/.test(route);
   if (native) return (await native.request(method, route, body, inference ? liveDemoToken : undefined)) as T;
   const response = await fetch(route, {
     method,

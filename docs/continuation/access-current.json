@@ -1,0 +1,223 @@
+{
+  "at": "2026-10-17T18:38:52.355930+00:00",
+  "config_file": "D:\\projects\\BatchFence\\.env",
+  "evolus_credentials": {
+    "EVOLUS_API_KEY": true,
+    "EVOLUS_APPLICATION_ID": true,
+    "EVOLUS_USER_API_KEY": false
+  },
+  "inference_calls": 0,
+  "resources_created": 0,
+  "cash_spend": 0,
+  "evolus_account_observation": {
+    "source": "Authenticated plan/credits/limits UI, 2026-10-17",
+    "plan": "Developer Event",
+    "balance_credits": 50000,
+    "trial_expiry": "2026-11-16",
+    "expiry_behavior": "Service stops; choose a plan to continue",
+    "api_caps": "Portal per-person caps do not apply to developer keys/workflows; local persisted cap required"
+  },
+  "amd_cloud": {
+    "allocation_verified": false,
+    "gpu_allocated_by_this_phase": false,
+    "own_vllm_verified": false
+  },
+  "eligibility": "UNVERIFIED: managed TokenFactory is not an owned AMD Developer Cloud vLLM endpoint",
+  "amd_shared": {
+    "base": "https://developer.amd.com.cn/radeon/api/v1",
+    "model": {
+      "id": "Gemma-4-31B-IT",
+      "name": "Gemma 4 31B",
+      "aliases": [],
+      "description": "Dynamic sglang-router service managed by Model Ops",
+      "family": "custom",
+      "output": [
+        "text"
+      ],
+      "architecture": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "GPT"
+      },
+      "top_provider": {
+        "is_moderated": true
+      },
+      "providers": [
+        {
+          "providerId": "self-dploy",
+          "externalId": "Gemma-4-31B-IT",
+          "pricing": {
+            "prompt": "3.5e-8",
+            "completion": "7e-8",
+            "input_cache_read": "7e-10"
+          },
+          "streaming": true,
+          "vision": true,
+          "cancellation": false,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": true,
+          "stability": "experimental",
+          "ocr": false
+        }
+      ],
+      "pricing": {
+        "prompt": "3.5e-8",
+        "completion": "7e-8",
+        "input_cache_read": "7e-10"
+      },
+      "context_length": 262144,
+      "supported_parameters": [
+        "temperature",
+        "max_tokens",
+        "top_p",
+        "stream",
+        "response_format",
+        "tools",
+        "tool_choice"
+      ],
+      "json_output": true,
+      "structured_outputs": true,
+      "free": false,
+      "stability": "experimental"
+    },
+    "models_http": 200,
+    "usage_http": 200,
+    "usage": {
+      "rpm_limit": 20,
+      "daily_cost_limit_usd": 1,
+      "daily_cost_used_usd": 0,
+      "daily_cost_remaining_usd": 1,
+      "daily_reset_timezone": "Asia/Shanghai",
+      "daily_reset_at": "2026-10-18T16:00:00.000Z",
+      "daily_reset_epoch": 1792339200,
+      "period_started_at": "2026-10-17T16:00:00.000Z",
+      "period_duration_value": 1,
+      "period_duration_unit": "day",
+      "window_hours": 24,
+      "all_time": {
+        "requests": 55,
+        "errors": 0,
+        "total_tokens": 77217,
+        "prompt_tokens": 52671,
+        "prefill_tokens": 52671,
+        "completion_tokens": 24546,
+        "decoding_tokens": 24546,
+        "reasoning_tokens": 7299,
+        "cached_tokens": 16008,
+        "kv_cache_hit_tokens": 16008,
+        "cache_write_tokens": 0,
+        "kv_cache_hit_rate": 0.30392436065387024,
+        "input_cost": 0.004883341025561094,
+        "output_cost": 0.00639009103178978,
+        "cached_input_cost": 3.7010409869253635e-05,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "cost": 0.011310439556837082,
+        "last_request_at": "2026-10-16 23:46:09.305343"
+      },
+      "today": {
+        "requests": 0,
+        "errors": 0,
+        "total_tokens": 0,
+        "prompt_tokens": 0,
+        "prefill_tokens": 0,
+        "completion_tokens": 0,
+        "decoding_tokens": 0,
+        "reasoning_tokens": 0,
+        "cached_tokens": 0,
+        "kv_cache_hit_tokens": 0,
+        "cache_write_tokens": 0,
+        "kv_cache_hit_rate": 0,
+        "input_cost": 0,
+        "output_cost": 0,
+        "cached_input_cost": 0,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "cost": 0,
+        "last_request_at": null
+      },
+      "last_24_hours": {
+        "requests": 32,
+        "errors": 0,
+        "total_tokens": 52744,
+        "prompt_tokens": 38056,
+        "prefill_tokens": 38056,
+        "completion_tokens": 14688,
+        "decoding_tokens": 14688,
+        "reasoning_tokens": 5213,
+        "cached_tokens": 9152,
+        "kv_cache_hit_tokens": 9152,
+        "cache_write_tokens": 0,
+        "kv_cache_hit_rate": 0.2404877023334034,
+        "input_cost": 0.004046560265123844,
+        "output_cost": 0.004112639930099249,
+        "cached_input_cost": 2.5625595299061388e-05,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "cost": 0.00818482507020235,
+        "last_request_at": "2026-10-16 23:46:09.305343"
+      },
+      "last_30_days": {
+        "requests": 32,
+        "errors": 0,
+        "total_tokens": 52744,
+        "prompt_tokens": 38056,
+        "prefill_tokens": 38056,
+        "completion_tokens": 14688,
+        "decoding_tokens": 14688,
+        "reasoning_tokens": 5213,
+        "cached_tokens": 9152,
+        "kv_cache_hit_tokens": 9152,
+        "cache_write_tokens": 0,
+        "kv_cache_hit_rate": 0.2404877023334034,
+        "input_cost": 0.004046560265123844,
+        "output_cost": 0.004112639930099249,
+        "cached_input_cost": 2.5625595299061388e-05,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "cost": 0.00818482507020235,
+        "last_request_at": "2026-10-16 23:46:09.305343"
+      },
+      "by_model": [
+        {
+          "model": "MiMo-V2.6-Flash",
+          "requests": 32,
+          "errors": 0,
+          "total_tokens": 52744,
+          "prompt_tokens": 38056,
+          "prefill_tokens": 38056,
+          "completion_tokens": 14688,
+          "decoding_tokens": 14688,
+          "reasoning_tokens": 5213,
+          "cached_tokens": 9152,
+          "kv_cache_hit_tokens": 9152,
+          "cache_write_tokens": 0,
+          "kv_cache_hit_rate": 0.2404877023334034,
+          "input_cost": 0.004046560265123844,
+          "output_cost": 0.004112639930099249,
+          "cached_input_cost": 2.5625595299061388e-05,
+          "cache_write_input_cost": 0,
+          "request_cost": 0,
+          "cost": 0.00818482507020235,
+          "last_request_at": "2026-10-16 23:46:09.305343"
+        }
+      ],
+      "by_source": [
+        {
+          "source": "unspecified",
+          "requests": 32,
+          "errors": 0,
+          "last_request_at": "2026-10-16 23:46:09.305343"
+        }
+      ]
+    },
+    "free_basis": "Authenticated AMD TokenFactory User Manual: shared public models free daily-capped; points relative usage, not charges. Catalog free=false discrepancy preserved.",
+    "hosting_kind": "managed-amd-shared / sglang-router, not owned ADC vLLM"
+  }
+}

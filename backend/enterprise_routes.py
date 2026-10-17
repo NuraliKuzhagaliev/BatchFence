@@ -13,7 +13,7 @@ def snapshot(db,owner,case_id):
     from .domain import digest
     records={}
     for kind,raw in db.execute('SELECT kind,data FROM bf_records WHERE owner=? ORDER BY kind,id',(owner,)):
-        if kind not in ('inspections','baseline','procedure','answer','action','recovery','recovery-evidence','recovery-policy','outbox','signal-explanation'):continue
+        if kind not in ('inspections','baseline','procedure','answer','action','recovery','recovery-evidence','recovery-policy','outbox','signal-explanation','assist','evidence-task','source-link','change-event','rereview','translation','label','label-review','handover'):continue
         value=json.loads(raw)
         if value.get('case_id') and value['case_id']!=case_id:continue
         records.setdefault(kind,[]).append(value)

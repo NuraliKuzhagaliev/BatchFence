@@ -1,3 +1,17 @@
+# Gemma / Evolus continuation checkpoint — implementation in progress
+
+Protected published release remains 0.3.0 / 34929d1. Current work is on gemma-evolus-0.4; no new installer or public deployment has been promoted.
+
+Implemented: actual supplied OpenAPI contract and authenticated adapters; persisted bounded jobs; source-validated draft intake into the existing critical-fact review; six connected extension APIs and shared web/Windows client code. Knowledge libraries are isolated before retrieval by organization/site/product/process/exact approved versions. Original-language qualification gates also apply to consequential incident/receiving/recovery review. These are implementation claims, not live acceptance.
+
+Actual checks: 136 full pytest passed (one Starlette deprecation warning), TypeScript/Vite production build passed. New continuation sample: 32 frozen synthetic engineering cases; fresh model acceptance remains 0/32. All automated review is agent-operated. No new inference or GPU provisioning so far. Actual authenticated Evolus API reads succeeded for agents, workflows and workflow step documentation; model catalog returned 401 with application credentials and is not retried unchanged. AMD read-only catalog/usage preflight succeeded, with Gemma-4-31B-IT visible. Evolus Developer Event account shows 50,000 credits and free-trial expiry 16 November 2026, with service stopping at expiry. API calls bypass portal per-person caps, so a persisted finite budget is mandatory.
+
+Owner credential step: use existing D:\projects\BatchFence\.env, not D:\projects\BatchFence.env. Preserve AMD settings. EVOLUS_API_KEY and EVOLUS_APPLICATION_ID are now present without values being displayed. EVOLUS_USER_API_KEY remains missing and is required for initial library/output-structure setup. No second config file was created. Own AMD Developer Cloud allocation/vLLM endpoint remains unavailable; managed TokenFactory is not proof of prize eligibility.
+
+Next: verify the actual running shared interface; finish exact provider resource setup when private credentials/model connection are ready; bounded fresh Gemma text/vision and full actual Evolus flow; then affected checks, durable restart, native/package/media and gated publication. Preserve current public release if external acceptance gates remain blocked. Exact setup: docs/continuation/setup.md. Reproduce: `.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-continuation-NEXT`; `npm run build`; `.venv\Scripts\python.exe -m scripts.continuation-access` (read-only, no inference).
+
+---
+
 # BatchFence 0.3.0 released and verified
 
 Web: https://batchfence.onrender.com. Windows: https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.3.0. Installer/source tag v0.3.0 is effa9fd0bc2c6f32b24ea4d51e6da31359707818. Full public workflow checks passed at merge dd06d974a2cc721ed9366724853e14078567f6f8. Subsequent evidence-only commits preserve application bytes; latest observed served identity is retained in releases/final-publication-0.3.0.json. Existing Render service remains one Free instance, ephemeral storage. Previous releases are preserved.
