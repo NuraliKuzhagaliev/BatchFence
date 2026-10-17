@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-16T22:36:17.916264+00:00",
+  "at": "2026-10-16T23:55:18.089713+00:00",
   "provenance": "Actual local PostgreSQL and separate loopback HTTP connector processes; synthetic records and agent-operated named test accounts",
   "checks": [
     "500 then 800 containment",
@@ -16,15 +16,15 @@
     "actual legacy SQLite-to-Postgres CLI migration preserves anonymous owner and receipt JSON"
   ],
   "connector": {
-    "port": 60159,
-    "first_pid": 19228,
-    "restarted_pid": 7776,
+    "port": 62552,
+    "first_pid": 28996,
+    "restarted_pid": 14020,
     "attempts": 2,
     "execution": "LOCAL SANDBOX REFERENCE"
   },
   "backup": {
-    "created_at": "2026-10-16T22:36:16.618791+00:00",
-    "duration_ms": 36,
+    "created_at": "2026-10-16T23:55:16.215769+00:00",
+    "duration_ms": 54,
     "counts": {
       "cases": 1,
       "receipts": 2,
@@ -36,14 +36,14 @@
       "bf_schema": 1
     },
     "source_count": 16,
-    "sha256": "8235ce7bc14da91a23764013010af84c91eb51bd1e92ed902080036e05a6db21",
-    "bytes": 34249,
+    "sha256": "50e84d758dc7c3d70315d48d7ff338958d4c923457b6a481436924515aa0392d",
+    "bytes": 34251,
     "boundary": "Same-device backup drill does not establish disaster recovery; owner RPO/RTO not agreed."
   },
   "restore": {
-    "restored_at": "2026-10-16T22:36:16.839683+00:00",
-    "duration_ms": 179,
-    "backup_age_seconds": 0.221,
+    "restored_at": "2026-10-16T23:55:16.504120+00:00",
+    "duration_ms": 225,
+    "backup_age_seconds": 0.288,
     "counts": {
       "bf_audit": 32,
       "bf_members": 2,

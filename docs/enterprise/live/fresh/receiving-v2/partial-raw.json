@@ -1,0 +1,116 @@
+{
+  "id": "7ffe80dd4b484b3da289f55a2a1a9f00",
+  "task": "typed-receiving",
+  "mode": "live",
+  "timestamp": "2026-10-16T23:31:36.056451+00:00",
+  "prompt_version": "typed-receiving-2",
+  "input_hash": "91b3ab84e070cae48139b54bdcbec85cfb0690866c74cc5c2786645bc226a14e",
+  "status": "succeeded",
+  "attempts": 1,
+  "repairs": 0,
+  "clock_source": "Server UTC; latency measured with monotonic clock",
+  "provider": "AMD configured endpoint",
+  "requested_model_id": "MiMo-V2.6-Flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1800
+  },
+  "http_status": 200,
+  "request_id": "dd7ddd845a3c418bb5f93afe7d0a6fed",
+  "usage": {
+    "prompt_tokens": 575,
+    "total_tokens": 828,
+    "completion_tokens": 253,
+    "prompt_tokens_details": {
+      "cached_tokens": 512,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 8.10936e-05,
+    "cost_details": {
+      "upstream_inference_cost": 8.10936e-05,
+      "upstream_inference_prompt_cost": 1.02536e-05,
+      "upstream_inference_completions_cost": 7.084e-05,
+      "total_cost": 8.10936e-05,
+      "input_cost": 8.82e-06,
+      "output_cost": 7.084e-05,
+      "cached_input_cost": 1.4336e-06,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "model_id": "self-dploy/MiMo-V2.6-Flash",
+  "raw_output": {
+    "entities": [
+      {
+        "id": "FG-C",
+        "kind": "stock_pool",
+        "quote": "FG-C received some material from SUP-B."
+      },
+      {
+        "id": "SUP-B",
+        "kind": "supplier_lot",
+        "quote": "Receiving record REC-954 references FG-C and supplier lot SUP-B."
+      },
+      {
+        "id": "REC-954",
+        "kind": "receipt_id",
+        "quote": "Receiving record REC-954 references FG-C and supplier lot SUP-B."
+      }
+    ],
+    "pool_id": "FG-C",
+    "parent_ids": [
+      "SUP-B"
+    ],
+    "completeness": "partial",
+    "completeness_quote": "The full ancestry remains unknown; this partial record cannot exclude other parent lots.",
+    "contradictions": [
+      "Source states other receipts have not been reconciled, so additional parent lots may exist but are not identified.",
+      "Source states the full ancestry remains unknown; only SUP-B is asserted as a parent."
+    ]
+  },
+  "output": {
+    "entities": [
+      {
+        "id": "FG-C",
+        "kind": "stock_pool",
+        "quote": "FG-C received some material from SUP-B."
+      },
+      {
+        "id": "SUP-B",
+        "kind": "supplier_lot",
+        "quote": "Receiving record REC-954 references FG-C and supplier lot SUP-B."
+      },
+      {
+        "id": "REC-954",
+        "kind": "receipt_id",
+        "quote": "Receiving record REC-954 references FG-C and supplier lot SUP-B."
+      }
+    ],
+    "pool_id": "FG-C",
+    "parent_ids": [
+      "SUP-B"
+    ],
+    "completeness": "partial",
+    "completeness_quote": "The full ancestry remains unknown; this partial record cannot exclude other parent lots.",
+    "contradictions": [
+      "Source states other receipts have not been reconciled, so additional parent lots may exist but are not identified.",
+      "Source states the full ancestry remains unknown; only SUP-B is asserted as a parent."
+    ]
+  },
+  "elapsed_ms": 10151,
+  "document_id": "DOC-71a8e21cf05c",
+  "revision": 4
+}

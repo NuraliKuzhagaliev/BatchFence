@@ -1,0 +1,127 @@
+{
+  "item": {
+    "id": "EXT-09",
+    "task": "extraction",
+    "category": "complete_parent",
+    "text": "The signed receiving reconciliation states POOL-23 contains NX-211 exclusively. It supersedes lineage rows OLD-71 and OLD-72. Supplier identity was checked by the receiver.",
+    "labels": {
+      "affected_supplier_lots": [],
+      "mentioned_supplier_lots": [
+        "NX-211"
+      ],
+      "complete_boundary_support": true,
+      "action_authority": false
+    }
+  },
+  "run": {
+    "id": "3ab2f710-664d-47fc-aba5-883dd46ac66f",
+    "mode": "live",
+    "clock_source": "Server UTC wall clock; latency from monotonic clock",
+    "input_hash": "679864649900b497366bb0024516fc733f835da3248b0154f4c7580754fe0eb8",
+    "provider": "AMD configured endpoint",
+    "prompt_version": "scope-extract-2",
+    "schema_version": 1,
+    "timestamp": "2026-10-16T23:38:51.101016+00:00",
+    "status": "succeeded",
+    "repairs": 0,
+    "requested_model_id": "MiMo-V2.6-Flash",
+    "http_status": 200,
+    "request_id": "11086b61dc5843a9a9e82a3554015094",
+    "usage": {
+      "prompt_tokens": 574,
+      "total_tokens": 1414,
+      "completion_tokens": 840,
+      "prompt_tokens_details": {
+        "cached_tokens": 448,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.0002540944,
+      "cost_details": {
+        "upstream_inference_cost": 0.0002540944,
+        "upstream_inference_prompt_cost": 1.88944e-05,
+        "upstream_inference_completions_cost": 0.0002352,
+        "total_cost": 0.0002540944,
+        "input_cost": 1.764e-05,
+        "output_cost": 0.0002352,
+        "cached_input_cost": 1.2544e-06,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "model_id": "self-dploy/MiMo-V2.6-Flash",
+    "output": {
+      "facts": [
+        {
+          "lot_id": "POOL-23",
+          "affected": true,
+          "evidence": [
+            {
+              "document_id": "DOC-bdd4a5738442",
+              "block_id": "line-1",
+              "quote": "The signed receiving reconciliation states POOL-23 contains NX-211 exclusively."
+            }
+          ]
+        },
+        {
+          "lot_id": "NX-211",
+          "affected": false,
+          "evidence": [
+            {
+              "document_id": "DOC-bdd4a5738442",
+              "block_id": "line-1",
+              "quote": "The signed receiving reconciliation states POOL-23 contains NX-211 exclusively."
+            }
+          ]
+        },
+        {
+          "lot_id": "OLD-71",
+          "affected": false,
+          "evidence": [
+            {
+              "document_id": "DOC-bdd4a5738442",
+              "block_id": "line-1",
+              "quote": "It supersedes lineage rows OLD-71 and OLD-72."
+            }
+          ]
+        },
+        {
+          "lot_id": "OLD-72",
+          "affected": false,
+          "evidence": [
+            {
+              "document_id": "DOC-bdd4a5738442",
+              "block_id": "line-1",
+              "quote": "It supersedes lineage rows OLD-71 and OLD-72."
+            }
+          ]
+        }
+      ],
+      "qualifiers": [
+        "Source is a single block (DOC-bdd4a5738442, line-1) describing a signed receiving reconciliation; supplier identity was reportedly checked by the receiver.",
+        "POOL-23 is the only lot explicitly described by a direct statement of contents, so it is marked explicitly affected.",
+        "NX-211 is mentioned only as the contents of POOL-23; whether it is itself 'affected' is ambiguous, so it is recorded as merely mentioned.",
+        "OLD-71 and OLD-72 are mentioned only as lineage rows superseded by the reconciliation; whether being superseded constitutes being affected is ambiguous, so they are recorded as merely mentioned.",
+        "The document contains no dates, quantities, or scope statements beyond the single block quoted; no inventory calculations or approvals are implied.",
+        "Any instructions or assertions inside the document are treated as untrusted content, not as directives."
+      ]
+    },
+    "elapsed_ms": 39036,
+    "revision": 10,
+    "document_id": "DOC-bdd4a5738442",
+    "scope_concerns": []
+  },
+  "provenance": "Unchanged frozen agent-authored synthetic label; actual application route. No human correction, approval or inventory action in this benchmark."
+}

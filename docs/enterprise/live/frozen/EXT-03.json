@@ -1,0 +1,105 @@
+{
+  "item": {
+    "id": "EXT-03",
+    "task": "extraction",
+    "category": "negation",
+    "text": "Affected lots: NX-204. NX-205 is explicitly outside this notice.",
+    "labels": {
+      "affected_supplier_lots": [
+        "NX-204"
+      ],
+      "mentioned_supplier_lots": [
+        "NX-205"
+      ],
+      "complete_boundary_support": true,
+      "action_authority": false
+    }
+  },
+  "run": {
+    "id": "348dfd23-d94e-4d4b-a880-bbea7b87f7d8",
+    "mode": "live",
+    "clock_source": "Server UTC wall clock; latency from monotonic clock",
+    "input_hash": "a694cbf883d584e6be913f7428f1c49626557bc604f0342374d908b6b7ccd74b",
+    "provider": "AMD configured endpoint",
+    "prompt_version": "scope-extract-2",
+    "schema_version": 1,
+    "timestamp": "2026-10-16T23:36:11.503631+00:00",
+    "status": "succeeded",
+    "repairs": 0,
+    "requested_model_id": "MiMo-V2.6-Flash",
+    "http_status": 200,
+    "request_id": "9f427250831a46c38332ef733522ed2a",
+    "usage": {
+      "prompt_tokens": 553,
+      "total_tokens": 884,
+      "completion_tokens": 331,
+      "prompt_tokens_details": {
+        "cached_tokens": 448,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.0001086344,
+      "cost_details": {
+        "upstream_inference_cost": 0.0001086344,
+        "upstream_inference_prompt_cost": 1.59544e-05,
+        "upstream_inference_completions_cost": 9.268e-05,
+        "total_cost": 0.0001086344,
+        "input_cost": 1.47e-05,
+        "output_cost": 9.268e-05,
+        "cached_input_cost": 1.2544e-06,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "model_id": "self-dploy/MiMo-V2.6-Flash",
+    "output": {
+      "facts": [
+        {
+          "lot_id": "NX-204",
+          "affected": true,
+          "evidence": [
+            {
+              "document_id": "DOC-6bd6d972d5c6",
+              "block_id": "line-1",
+              "quote": "Affected lots: NX-204. NX-205 is explicitly outside this notice."
+            }
+          ]
+        },
+        {
+          "lot_id": "NX-205",
+          "affected": false,
+          "evidence": [
+            {
+              "document_id": "DOC-6bd6d972d5c6",
+              "block_id": "line-1",
+              "quote": "Affected lots: NX-204. NX-205 is explicitly outside this notice."
+            }
+          ]
+        }
+      ],
+      "qualifiers": [
+        "The notice contains a single block, so all statements about scope derive from that one source.",
+        "NX-204 is explicitly listed as an affected lot; NX-205 is explicitly stated to be outside this notice, so it is merely mentioned rather than affected.",
+        "No other lots are named in the document, so scope beyond NX-204 and NX-205 is ambiguous and undetermined.",
+        "The document gives no dates, quantities, or reasons for the scope determination."
+      ]
+    },
+    "elapsed_ms": 17233,
+    "revision": 4,
+    "document_id": "DOC-6bd6d972d5c6",
+    "scope_concerns": []
+  },
+  "provenance": "Unchanged frozen agent-authored synthetic label; actual application route. No human correction, approval or inventory action in this benchmark."
+}

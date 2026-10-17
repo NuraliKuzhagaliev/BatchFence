@@ -21,6 +21,14 @@ class Draft(BaseModel):
     completeness_quote:str=Field(max_length=2000)
     contradictions:list[str]=Field(max_length=10)
 SYSTEM='Propose typed receiving relationships from the supplied source only. Separate supplier lots, terminal stock pools, receipt/document identifiers and lineage row identifiers. A preferred or missing parent is not complete ancestry. Preserve every uncertainty or contradiction. Completeness is complete only when the source explicitly asserts all parents; otherwise partial or unknown. Each entity requires an exact source quote containing its ID. This is a draft for explicit replacement review, never an authoritative record.'
+PROMPT_VERSION='typed-receiving-2'
+
+
+def source_context(doc):
+    # This schema cites exact text, not block IDs. Internal transport identifiers
+    # are not source evidence and must not enter the entity-extraction context.
+    # Keep the original document/blocks unchanged for review and source storage.
+    return {'source_passages':[block['text'] for block in doc['blocks']]}
 
 
 def validate_draft(raw,doc):

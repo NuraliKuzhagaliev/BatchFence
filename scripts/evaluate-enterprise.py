@@ -44,5 +44,10 @@ for item in items:
     result=knowledge.retrieve(docs,item['question'],product,item['process'],True)
     retrieval.append({'id':item['id'],'retrieval_status':result['status'],'retrieved_sources':sorted({p['document_id']+'@'+str(p['version']) for p in result['passages']}),'expected_sources':item['labels']['expected_sources'],'note':'Retrieval candidates are not an answer. Unanswerable adversarial questions may retrieve related text; AMD abstention/semantic quality not measured.'})
 quality={'at':now(),'frozen_hash':manifest['sha256'],'full_denominator':24,'fresh_model_requests':0,'model_accuracy':'Not measured; 0/24 fresh model items run','blocker':'Configured MiMo-V2.6-Flash and all current catalog entries report free=false; documented quota endpoint returned 404. Free-only budget requires confirmation of the actual account allowance before new inference. No fallback or model substitution.','preflight':'live/preflight.json','provenance':'Offline deterministic retrieval only, agent-authored synthetic labels; no independent held-out or human validation','product_mapping':{'decorative-housings':'Decorative housing'},'retrieval_only':retrieval,'historical_live_reference':'../release-0.2.0/live/README.md','new_task_live_verification':'incomplete'}
-(OUT/'model-evaluation.json').write_text(json.dumps(quality,indent=2),encoding='utf-8')
-print(json.dumps({'statistical_false_alerts':stats['false_alerts'],'stable_denominator':10000,'detected_trials':stats['trials_with_detected_shift'],'median_delay':stats['median_detection_delay_observations'],'performance':performance,'fresh_model_requests':0},indent=2))
+(OUT/'retrieval-evaluation.json').write_text(json.dumps({'provenance':'Offline deterministic retrieval, no model requests','items':retrieval},indent=2),encoding='utf-8')
+if (OUT/'live/frozen/signal-v3.json').exists():
+    import subprocess,sys
+    subprocess.run([sys.executable,'-m','scripts.score-enterprise-live'],check=True,cwd=ROOT)
+elif not (OUT/'model-evaluation.json').exists():
+    (OUT/'model-evaluation.json').write_text(json.dumps(quality,indent=2),encoding='utf-8')
+print(json.dumps({'statistical_false_alerts':stats['false_alerts'],'stable_denominator':10000,'detected_trials':stats['trials_with_detected_shift'],'median_delay':stats['median_detection_delay_observations'],'performance':performance,'fresh_requests_in_this_command':0},indent=2))

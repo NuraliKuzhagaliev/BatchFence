@@ -1,0 +1,11 @@
+{
+  "http_status": 422,
+  "body": {
+    "detail": {
+      "code": "DOMAIN",
+      "message": "A current typed narrative draft is required; raw proposals remain preserved"
+    }
+  },
+  "raw_status": "failed",
+  "correction": "Agent discarded unsupported internal IDs, inspected the original source and both superseded rows, then explicitly used structured-record review. Raw model failure remains unchanged."
+}

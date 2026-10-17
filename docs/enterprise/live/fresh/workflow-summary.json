@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-16T23:25:02.629326+00:00",
+  "fresh_calls": 4,
+  "raw_receiving_successes": 0,
+  "raw_receiving_trials": 2,
+  "knowledge_exact_source_successes": 1,
+  "knowledge_trials": 1,
+  "signal_schema_successes": 1,
+  "signal_semantic_errors": 1,
+  "signal_trials": 1,
+  "proposed_units_after_explicit_correction": 700,
+  "applied_units_before_separate_recovery": 800,
+  "confirmed_recovery_units": 100,
+  "remaining_applied_units": 700,
+  "containment_receipts": 2,
+  "recovery_receipts": 1,
+  "knowledge_check_from_fresh_answer": true,
+  "non_signal_investigation_rejected": 422,
+  "frozen_benchmark_items_attempted": [
+    "KNW-01"
+  ],
+  "full_frozen_denominator": 24,
+  "reviewer": "Operating agent with named engineering accounts; no independent human acceptance",
+  "receiving_fix_fresh_verification": "Blocked by automatic approval review after original four-call cap; original failures retained; source-only context change requires new accepted live trials."
+}

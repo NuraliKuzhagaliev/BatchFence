@@ -1,3 +1,11 @@
+# Current 0.3.0 evidence
+
+See [fresh AMD evidence](enterprise/live/README.md), [item-level evaluation](enterprise/model-evaluation.json) and [release status](enterprise/release-0.3.0.md). 27 fresh attempts: 26 HTTP 200 and one timeout. Frozen 24 items exercised: 20 model requests and four retrieval-only abstentions. Raw extraction 6/12 exact; knowledge pipeline 11/12. Typed receiving retests 2/2 and the final signal explanation passed their bounded checks. Synthetic sources and agent-operated review do not establish independent human or field acceptance.
+
+Packaging/publication identity follows in enterprise/final-release.json. Earlier blocked/candidate statements below are historical.
+
+---
+
 # Candidate AMD gate (2026-10-17)
 
 No fresh inference was sent for the enterprise expansion. Catalog and quota preflight are enterprise/live/preflight.json; model-evaluation.json records0/24new-task items, with deterministic retrieval separated. Historical evidence below remains historical. The configured model reports free=false and documented usage returned404, so owner confirmation of an actual zero-cost allowance or correct free configuration is required. No key was displayed or substituted.

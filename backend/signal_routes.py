@@ -52,11 +52,15 @@ def explain(data:Explain,request:Request):
             if data.mode=='fixture' and 'synthetic' not in observations.get('provenance','').lower():raise DomainError('Synthetic explanation requires synthetic inspection provenance')
             key='SIGNAL-'+uuid.uuid4().hex
             jobs.start(db,request.state.owner,key,'signal-explanation',{'chart_digest':data.chart_digest},data.mode)
-        run=infer('signal-explanation','Explain only the supplied statistical observations. Do not infer supplier cause, prescribe a hold or release, or invent limits. Cite observation IDs. Mention independent/comparable inspections, frozen baseline and control limits versus acceptance specifications.',Explanation.model_json_schema(),chart,data.mode,{'comments':[],'limitations':chart['boundary']})
+        # The chart contains follow-up points, not the source baseline rows. Pass
+        # their actual IDs explicitly so the model need not infer the interval.
+        context=signals.explanation_context(base,chart)
+        run=infer('signal-explanation','Explain only the supplied statistical observations. Each comment describes its named follow-up observation; baseline_observation_ids identifies the distinct frozen baseline. Do not infer supplier cause, prescribe a hold or release, or invent limits. Cite observation IDs. Mention independent/comparable inspections, frozen baseline and control limits versus acceptance specifications.',Explanation.model_json_schema(),context,data.mode,{'comments':[],'limitations':chart['boundary']})
+        run['prompt_version']='signal-explanation-3'
         if run['status']=='succeeded':
             try:
                 output=Explanation.model_validate(run['output']).model_dump()
-                if {c['observation_id'] for c in output['comments']}-{p['observation_id'] for p in chart['points']}:raise ValueError()
+                if {c['observation_id'] for c in output['comments']}-{p['observation_id'] for p in context['observations']}:raise ValueError()
                 run['output']=output
             except Exception:run.update(status='failed',error='Unsupported signal citation or schema; explanation has no authority')
         with repo.write(connect) as db:

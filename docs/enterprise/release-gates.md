@@ -1,11 +1,16 @@
-# 0.3.0-rc.1 candidate and protected release
+# 0.3.0 release gates
 
-All four connected modules are implemented. Local synthetic behavior is verified; enterprise acceptance and new-task fresh AMD behavior are incomplete. The expansion must not replace the protected public e70f4a0 / Windows v0.2.0 release until its gates pass. The candidate defaults to the private loopback pilot at http://127.0.0.1:8788. To test its isolated synthetic public profile locally, explicitly set BATCHFENCE_BACKEND_ORIGIN=http://127.0.0.1:8794. This candidate is not the publicly downloadable 0.2.0 installer.
+All four modules and foundations are implemented. The fresh AMD gate is resolved for the confirmed free event endpoint. Original preflight failure remains historical. Current results: live/README.md and model-evaluation.json.
 
-Current external blocker: actual configured MiMo-V2.6-Flash catalog and every other returned entry have free=false; the documented quota endpoint returns 404. Official general documentation calls shared endpoints free and the event FAQ mentions a separate tokenfactory without billing, but neither establishes this configured account's current zero-cost allowance. No new inference request was sent and no endpoint/model/key was substituted. Exact sanitized preflight: live/preflight.json. Smallest owner action: confirm an existing zero-cost allowance for this configured endpoint/model, or privately configure the documented free event endpoint/model/key. Do not paste keys in chat. Existing cap remains four fresh calls; do not increase spend or retry unchanged failures.
+| Gate | Evidence/status |
+|---|---|
+| Genuine new-task AMD behavior | Typed draft drives reviewed 700/800 and exact 100 recovery; approved procedure drives a case check; compact signal response matches five observations. Passed this bounded synthetic exercise. |
+| Raw quality retained | Frozen 24 routes: 20 model requests, four deterministic abstentions. Extraction exact 6/12; knowledge pipeline 11/12. Earlier failures and timeout retained. |
+| Error containment | Policy-3 ambiguity replays reject copied flags; old approvals stale; malformed receiving drafts cannot narrow; unresolved review preserves restrictions. Relevant tests pass. |
+| Core regression | 110 project tests and 30 frozen domain cases. Final reports identify the tested revision. |
+| Coherent packages | Final clean commit, source archive, installed Windows and Linux container checks required before promotion. Exact identities go in final-release.json. |
+| Public deployment | Existing single-instance Render Free service only; main CI, served commit/assets and public workflow verification required. Ephemeral storage remains disclosed. |
 
-New-task model evaluation is 0/24. Frozen set/labels are agent-authored synthetic, not independent human held-out truth. Deterministic retrieval-only evaluation and statistical simulations do not measure model accuracy. Historical 0.2.0 AMD failures and reviewed receipts remain valid historical evidence and are labeled accordingly.
+Independent acceptance remains open: quality professional, three unfamiliar operators, real scoped pilot users, owner data-processing approval, off-device restore against owner RPO/RTO, and physical Windows dialogs. Named engineering accounts do not satisfy those requirements. A synthetic public release is distinct from production acceptance.
 
-Before promotion: complete bounded fresh typed receiving / approved procedure / signal explanation runs and inspect raw output before any review; record errors separately from corrected workflow outcomes; run affected regressions; build a clean coherent tag/archive/installer, then existing free Render auto-deploy and verify served commit/assets/workflow. No paid instance/disk/add-on, artificial keepalive, real inventory action or event submission is authorized.
-
-Independent acceptance still required: quality professional, three unfamiliar operators, actual distinct pilot users, owner data approval, off-device restore against owner RPO/RTO, physical Windows file dialogs. These are not replaced by engineering tests or named test accounts. Public temporary SQLite is not production durability; unsigned Windows is not OS-trusted signing.
+No real inventory action, paid service, external message, event submission, signing purchase or new cloud service is authorized.

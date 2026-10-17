@@ -1,0 +1,98 @@
+{
+  "review": {
+    "revision": 4,
+    "document_id": "DOC-71a8e21cf05c",
+    "review_path": "narrative_draft",
+    "run_id": "7ffe80dd4b484b3da289f55a2a1a9f00",
+    "pool_id": "FG-C",
+    "parent_ids": [
+      "SUP-B"
+    ],
+    "complete": false,
+    "quote": "Receiving record REC-954 references FG-C and supplier lot SUP-B. FG-C received some material from SUP-B. Other receipts have not been reconciled. The full ancestry remains unknown; this partial record cannot exclude other parent lots.",
+    "superseded_row_ids": [],
+    "unresolved_contradictions": false,
+    "outcome": "inconclusive",
+    "reviewed": true,
+    "replacement_reviewed": true,
+    "completeness_confirmed": false,
+    "note": "Agent-operated review of synthetic engineering evidence; not independent human, supplier, or manufacturing validation. Partial ancestry cannot exclude other lots. Preserve existing relationships and restrictions."
+  },
+  "preview": {
+    "old_relationships": [
+      {
+        "row_id": "LIN-3",
+        "source": "SUP-A",
+        "target": "FG-C",
+        "kind": "possible",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-5198203395a0",
+          "block_id": "row-3",
+          "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-4",
+        "source": "SUP-B",
+        "target": "FG-C",
+        "kind": "possible",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-5198203395a0",
+          "block_id": "row-4",
+          "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
+        }
+      }
+    ],
+    "proposed_relationships": [
+      {
+        "row_id": "LIN-3",
+        "source": "SUP-A",
+        "target": "FG-C",
+        "kind": "possible",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-5198203395a0",
+          "block_id": "row-3",
+          "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-4",
+        "source": "SUP-B",
+        "target": "FG-C",
+        "kind": "possible",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-5198203395a0",
+          "block_id": "row-4",
+          "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
+        }
+      }
+    ],
+    "before_units": 800,
+    "after_units": 800,
+    "applied_hold_units": 800,
+    "outcome": "inconclusive",
+    "complete": false,
+    "review_path": "narrative_draft",
+    "evidence": {
+      "document_id": "DOC-71a8e21cf05c",
+      "block_id": "line-1",
+      "quote": "Receiving record REC-954 references FG-C and supplier lot SUP-B. FG-C received some material from SUP-B. Other receipts have not been reconciled. The full ancestry remains unknown; this partial record cannot exclude other parent lots."
+    },
+    "unknown_entities": [],
+    "authority": "Proposal only; no existing hold is removed"
+  },
+  "quantities": {
+    "applied_hold_units": 800,
+    "recovery_pending_units": 0,
+    "confirmed_recovery_units": 0
+  },
+  "proposal_units": 800
+}

@@ -43,7 +43,8 @@ def draft(case_id:str,data:Parse,request:Request):
             jobs.start(db,request.state.owner,key,'receiving',{'case_id':case_id,'document_id':doc['id'],'revision':revision},data.mode)
         # Fixture deliberately abstains; it cannot impersonate a useful live extraction.
         fixture={'entities':[],'pool_id':'','parent_ids':[],'completeness':'unknown','completeness_quote':'','contradictions':['Synthetic abstention; use structured source review or Live AMD.']}
-        run=infer('typed-receiving',receiving.SYSTEM,receiving.Draft.model_json_schema(),{'document_id':doc['id'],'blocks':doc['blocks']},data.mode,fixture)
+        run=infer('typed-receiving',receiving.SYSTEM,receiving.Draft.model_json_schema(),receiving.source_context(doc),data.mode,fixture)
+        run['prompt_version']=receiving.PROMPT_VERSION
         if run['status']=='succeeded':
             try:run['output']=receiving.validate_draft(run['output'],doc)
             except Exception:run.update(status='failed',error='Invalid typed proposal or unsupported source reference; no record replacement')

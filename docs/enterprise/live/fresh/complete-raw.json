@@ -1,0 +1,145 @@
+{
+  "id": "7925776e15b94b7583c0779f595b9320",
+  "task": "typed-receiving",
+  "mode": "live",
+  "timestamp": "2026-10-16T23:20:14.171189+00:00",
+  "prompt_version": "typed-receiving-1",
+  "input_hash": "79be6c7b848fbe8b086320c7be989bfa76a3d950d21322a2a4a4656cb180188e",
+  "status": "failed",
+  "attempts": 1,
+  "repairs": 0,
+  "clock_source": "Server UTC; latency measured with monotonic clock",
+  "provider": "AMD configured endpoint",
+  "requested_model_id": "MiMo-V2.6-Flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1800
+  },
+  "http_status": 200,
+  "request_id": "977136e96a654f4ab69465b8ba50aba8",
+  "usage": {
+    "prompt_tokens": 643,
+    "total_tokens": 1216,
+    "completion_tokens": 573,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 0.00025046,
+    "cost_details": {
+      "upstream_inference_cost": 0.00025046,
+      "upstream_inference_prompt_cost": 9.002e-05,
+      "upstream_inference_completions_cost": 0.00016044,
+      "total_cost": 0.00025046,
+      "input_cost": 9.002e-05,
+      "output_cost": 0.00016044,
+      "cached_input_cost": 0,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "model_id": "self-dploy/MiMo-V2.6-Flash",
+  "raw_output": {
+    "entities": [
+      {
+        "id": "SUP-B",
+        "kind": "supplier_lot",
+        "quote": "all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents."
+      },
+      {
+        "id": "FG-C",
+        "kind": "stock_pool",
+        "quote": "all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents."
+      },
+      {
+        "id": "REC-955",
+        "kind": "receipt_id",
+        "quote": "REC-955 is a receipt identifier; FG-C is a stock pool; SUP-B is the supplier lot."
+      },
+      {
+        "id": "DOC-766d672987fc",
+        "kind": "document_id",
+        "quote": "Signed receiving reconciliation REC-955: all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents."
+      },
+      {
+        "id": "LIN-3",
+        "kind": "lineage_row",
+        "quote": "This complete reconciliation supersedes lineage rows LIN-3 and LIN-4."
+      },
+      {
+        "id": "LIN-4",
+        "kind": "lineage_row",
+        "quote": "This complete reconciliation supersedes lineage rows LIN-3 and LIN-4."
+      }
+    ],
+    "pool_id": "FG-C",
+    "parent_ids": [
+      "SUP-B"
+    ],
+    "completeness": "complete",
+    "completeness_quote": "all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents. The receiver reconciled every receipt and authenticated the original supplier record. This complete reconciliation supersedes lineage rows LIN-3 and LIN-4.",
+    "contradictions": [
+      "The source states this reconciliation supersedes lineage rows LIN-3 and LIN-4, but does not state what parents those rows recorded; any differing parents they recorded are not resolved or reproduced here."
+    ]
+  },
+  "output": {
+    "entities": [
+      {
+        "id": "SUP-B",
+        "kind": "supplier_lot",
+        "quote": "all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents."
+      },
+      {
+        "id": "FG-C",
+        "kind": "stock_pool",
+        "quote": "all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents."
+      },
+      {
+        "id": "REC-955",
+        "kind": "receipt_id",
+        "quote": "REC-955 is a receipt identifier; FG-C is a stock pool; SUP-B is the supplier lot."
+      },
+      {
+        "id": "DOC-766d672987fc",
+        "kind": "document_id",
+        "quote": "Signed receiving reconciliation REC-955: all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents."
+      },
+      {
+        "id": "LIN-3",
+        "kind": "lineage_row",
+        "quote": "This complete reconciliation supersedes lineage rows LIN-3 and LIN-4."
+      },
+      {
+        "id": "LIN-4",
+        "kind": "lineage_row",
+        "quote": "This complete reconciliation supersedes lineage rows LIN-3 and LIN-4."
+      }
+    ],
+    "pool_id": "FG-C",
+    "parent_ids": [
+      "SUP-B"
+    ],
+    "completeness": "complete",
+    "completeness_quote": "all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents. The receiver reconciled every receipt and authenticated the original supplier record. This complete reconciliation supersedes lineage rows LIN-3 and LIN-4.",
+    "contradictions": [
+      "The source states this reconciliation supersedes lineage rows LIN-3 and LIN-4, but does not state what parents those rows recorded; any differing parents they recorded are not resolved or reproduced here."
+    ]
+  },
+  "elapsed_ms": 18399,
+  "error": "Invalid typed proposal or unsupported source reference; no record replacement",
+  "document_id": "DOC-766d672987fc",
+  "revision": 5
+}

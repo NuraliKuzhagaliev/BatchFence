@@ -1,9 +1,8 @@
-# Enterprise candidate review materials
+# BatchFence enterprise release materials
 
-Use BatchFence-enterprise-rc1.pptx (seven editable slides), cover-rc1.png, BatchFence-connected-synthetic-rc1.mp4 (50.28 seconds, no audio), narration.md and quickstart.md. These are candidate review materials, not a submitted entry. Every new recording segment is synthetic and agent-operated. The deck's AMD segment refers to preserved real0.2.0 runs and explicitly labels them historical. New-task fresh AMD verification is incomplete0/24.
+Current 0.3.0 artifacts:
+- BatchFence-enterprise-0.3.0.pptx: seven editable slides with actual interface evidence and raw AMD results. Rendered and inspected locally; not opened in native PowerPoint.
+- BatchFence-0.3.0-verified-workflows.mp4: retained fresh AMD response screens followed by a clearly labeled synthetic workflow. Separate cases, original recording speed, no audio or new inference during filming. Segment hashes and provenance: video-evidence-0.3.0.json.
+- narration-0.3.0.md and quickstart.md: presenter script and operator setup.
 
-The current official event page was read on2026-10-17: https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii. It lists title/descriptions/tags, cover, video, slide presentation, public repository and hosted app. It requires meaningful AMD-powered product behavior. Judging dimensions are Application of Technology, Presentation, Business Value and Originality. Authenticated media size/type limits and exact submission cutoff/timezone were not established by this public page; the owner must confirm them in the actual submission form. No form was saved or submitted. The event FAQ's separate free tokenfactory does not establish the configured Radeon endpoint/account allowance.
-
-Evidence mapping: technology has historical genuine AMD extraction plus deterministic/role/restore checks, with new AMD tasks blocked. Presentation has actual screens and an explicitly labeled50.28-second walkthrough. Business value remains a hypothesis pending the three-operator protocol, including preparation/correction cost and negative outcomes. Originality is the connected evidence workflow; genealogy, QMS/CAPA and control charts already exist as categories, so no first-ever or competitor-absence claim is made. No numeric self-score or award forecast.
-
-Review the candidate's gate document before replacing the public app or installer. Public stable links remain prominent in the deck and quickstart. The local candidate installer is unsigned and is not yet a public release.
+The older rc1 deck and synthetic video remain historical artifacts. They describe the earlier blocked state and are not current release claims. All reviews and test identities are agent-operated. Independent quality and operator acceptance remain pending. No entry has been saved or submitted, and no external messages have been sent. The owner must check the authenticated event form's current constraints and cutoff.

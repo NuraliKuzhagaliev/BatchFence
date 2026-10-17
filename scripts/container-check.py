@@ -4,7 +4,8 @@ from datetime import datetime, timezone
 import json, subprocess, time, os, hashlib
 import httpx
 
-base='http://127.0.0.1:8795'
+base=os.getenv('BATCHFENCE_CONTAINER_BASE_URL','http://127.0.0.1:8795')
+container=os.getenv('BATCHFENCE_CONTAINER_NAME','batchfence-ci')
 report={'at':datetime.now(timezone.utc).isoformat(), 'mode':'fixture', 'live_inference':False, 'checks':[]}
 
 def wait():
@@ -41,8 +42,8 @@ try:
     receipts=s['receipts']; assert len(receipts)==1
     other=httpx.Client(base_url=base)
     assert other.get(path).status_code==404
-    report['checks']+=['dynamic PORT=8795','500 to 800 synthetic workflow','stale approval rejected','sandbox receipt','two-session isolation']
-    subprocess.run(['docker','restart','batchfence-ci'],check=True,capture_output=True)
+    report['checks']+=['dynamic container port at '+base,'500 to 800 synthetic workflow','stale approval rejected','sandbox receipt','two-session isolation']
+    subprocess.run(['docker','restart',container],check=True,capture_output=True)
     wait(); saved=c.get(path).json()
     assert saved['receipts']==receipts and saved['stocks']==s['stocks']
     for doc in saved['documents']:

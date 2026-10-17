@@ -1,0 +1,31 @@
+{
+  "raw_semantic_error": "First comment incorrectly calls STABLE-001..STABLE-020 the baseline; actual frozen rows are BASE-001..BASE-020. Schema/ID validation does not establish semantic correctness.",
+  "correct_baseline_ids": [
+    "BASE-001",
+    "BASE-002",
+    "BASE-003",
+    "BASE-004",
+    "BASE-005",
+    "BASE-006",
+    "BASE-007",
+    "BASE-008",
+    "BASE-009",
+    "BASE-010",
+    "BASE-011",
+    "BASE-012",
+    "BASE-013",
+    "BASE-014",
+    "BASE-015",
+    "BASE-016",
+    "BASE-017",
+    "BASE-018",
+    "BASE-019",
+    "BASE-020"
+  ],
+  "raw_non_signal_investigation_http": 422,
+  "reviewed_signal_id": "SHIFT-001",
+  "linked_investigation_id": "60a339fbbfbe4639a73cd7a3864c56cb",
+  "known_affected": [],
+  "plan": null,
+  "authority": "Agent selected the actual deterministic signal; no model-derived supplier cause, hold or release."
+}

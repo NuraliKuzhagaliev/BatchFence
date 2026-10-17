@@ -15,7 +15,7 @@ for private_file in (ROOT/'work/pilot-config').glob('*.env'):
         if not v: continue
         if any(x in k.upper() for x in ('KEY','TOKEN','SECRET','PASSWORD')): needles.add(v.encode())
         if 'DATABASE_URL' in k and urlsplit(v).password: needles.add(urlsplit(v).password.encode())
-for private_file in (ROOT/'work/pilot-data/backups').glob('*private.json'):
+for private_file in [*(ROOT/'work/pilot-data/backups').glob('*private.json'),*(ROOT/'work').glob('enterprise-live*/private.json')]:
     values=json.loads(private_file.read_text(encoding='utf-8-sig'))
     for k,v in values.items():
         if isinstance(v,str) and any(x in k.upper() for x in ('KEY','TOKEN','SECRET','PASSWORD')): needles.add(v.encode())
@@ -30,6 +30,7 @@ for f in (ROOT/'work').rglob('*session*.json'):
     try: sessions(json.loads(f.read_text(encoding='utf-8-sig')))
     except (ValueError, OSError): pass
 patterns = [rb'sk-(?:proj-)?[A-Za-z0-9_-]{24,}', rb'hf_[A-Za-z0-9]{24,}',
+            rb'rc-[A-Za-z0-9]{40,}',
             rb'Bearer[ \t]+[A-Za-z0-9_=/+-]{24,}', rb'gh[pousr]_[A-Za-z0-9]{30,}']
 findings=[]; checked=0; largest=[]
 def inspect(name, raw):

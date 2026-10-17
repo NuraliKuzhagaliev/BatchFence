@@ -1,0 +1,24 @@
+{
+  "id": "SIGNAL-7ddbf43b48cb4fb2b2c6b591ac49f24f",
+  "task": "signal-explanation",
+  "mode": "live",
+  "timestamp": "2026-10-16T23:42:06.804854+00:00",
+  "prompt_version": "signal-explanation-2",
+  "input_hash": "c95e52017ea09733f997149a404eee295786e21dcbe1a4104d52d206bd626e16",
+  "status": "failed",
+  "attempts": 1,
+  "repairs": 0,
+  "clock_source": "Server UTC; latency measured with monotonic clock",
+  "provider": "AMD configured endpoint",
+  "requested_model_id": "MiMo-V2.6-Flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1800
+  },
+  "error": "Provider timeout, transport or structured-output failure; no fallback used",
+  "error_kind": "ReadTimeout",
+  "elapsed_ms": 45964,
+  "baseline_id": "BASE-5ef14da183024753b12e98a118df130b",
+  "chart_digest": "6000c1868903525cc96b06eafd3d9440ab8f5ba21d109ce369d3b91449a1d1ef",
+  "boundary": "Unreviewed narrative proposal; deterministic chart and original records govern. No causal or action authority."
+}

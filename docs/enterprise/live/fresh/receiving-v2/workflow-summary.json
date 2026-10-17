@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-16T23:33:28.533499+00:00",
+  "fresh_calls": 2,
+  "raw_receiving_schema_source_successes": 2,
+  "raw_receiving_trials": 2,
+  "partial_result": "partial with unresolved other parents; reviewed inconclusive; 800 applied retained",
+  "complete_result": "SUP-B typed supplier parent; explicit row/source/completeness review required",
+  "model_caution": "Missing old lineage content flagged as possible contradiction; agent inspected both current rows before resolving",
+  "proposal_units": 700,
+  "applied_before_recovery": 800,
+  "confirmed_recovery_units": 100,
+  "remaining_applied": 700,
+  "containment_receipts": 2,
+  "recovery_receipts": 1,
+  "provenance": "Repeated inputs after context fix, not new held-out cases; genuine AMD-backed narrative draft drives explicit review and controlled sandbox recovery. All review agent-operated."
+}

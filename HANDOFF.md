@@ -1,3 +1,19 @@
+# 0.3.0 final release checks in progress
+
+All four modules and foundations are implemented. Fresh AMD access is resolved. Across 27 attempts there were 26 HTTP 200 responses and one timeout, with no automatic retries or fixture substitution. All 24 frozen items were exercised: 20 made model requests and four abstained at retrieval. Raw extraction exactly matched 6/12 items; knowledge matched 11/12 pipeline labels (7/8 model responses). All sources are synthetic and all review is agent-operated.
+
+Source-only typed receiving retests passed 2/2. The complete AMD draft drove explicit review: 700 proposed while 800 remained applied, then separate named engineering approval and exact 100-unit sandbox recovery. The final compact signal explanation matched five computed observations and disclosed omitted follow-ups. Original errors and the timeout remain in docs/enterprise/live/.
+
+Review policy 3 adds explicit unresolved-conflict and unconfirmed-identifier guards. Old approvals are stale. A recalculated historical proposal can widen to 1,200 while 800 applied holds and original receipts remain unchanged. 110 project tests passed on the final backend, plus 30/30 deterministic cases, 12 core browser checks and six connected module groups. Saved fresh AMD results survived reload with no inference during capture. Loading indicators prevent transient zero counts while module records load. Final clean-release packaging checks follow.
+
+No more inference is needed for this release. Next: final clean 0.3.0 checkpoint, Windows/Linux packaging, interface/media checks, GitHub release and existing free Render deployment after CI. Preserve v0.2.0 and rc1 artifacts. Final exact identities and checksums will be in docs/enterprise/final-release.json.
+
+Human acceptance remains pending: quality professional, three unfamiliar operators, real scoped users/data approval, off-device restore against owner RPO/RTO, physical native dialogs, and any separately authorized real integration. Public Render is ephemeral; Windows is unsigned. Privately rotate the provider credential exposed by the portal during inspection and update private configuration. Do not paste secrets.
+
+---
+
+Historical checkpoints below describe their state at that time.
+
 # Enterprise candidate checkpoint — implementation complete, promotion blocked
 
 All four modules and their foundations are implemented as 0.3.0-rc.1. Clean package source: e616ff5b91bbe5716949dc3fc833be290a0802b1. Later evidence/tooling-only commits preserve these application bytes. Draft PR: https://github.com/NuraliKuzhagaliev/BatchFence/pull/1. Public web and Windows remain the protected 0.2.0 release at e70f4a0; no expanded Render rollout or new public release tag.

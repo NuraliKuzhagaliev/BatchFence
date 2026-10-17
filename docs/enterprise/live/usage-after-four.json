@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-16T23:26:40.984857+00:00",
+  "http_status": 200,
+  "inference_calls_in_this_request": 0,
+  "quota": {
+    "daily_cost_limit_usd": 1,
+    "daily_cost_used_usd": 0.0052002607844769955,
+    "daily_cost_remaining_usd": 0.994799739215523,
+    "daily_reset_at": "2026-10-17T16:00:00.000Z",
+    "rpm_limit": 20
+  },
+  "today": {
+    "requests": 17,
+    "errors": 0,
+    "total_tokens": 29603,
+    "cost": 0.0052002607844769955
+  },
+  "relative_point_units": "USD-labelled provider fields are points in this event; authenticated manual states not a monetary charge.",
+  "actual_fresh_evaluation_calls": 4,
+  "additional_two_calls": "Proposed extension blocked before execution by automatic approval review; awaiting explicit approval. No v2 inference made."
+}

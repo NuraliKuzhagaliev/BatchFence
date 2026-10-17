@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-16T23:44:28.675856+00:00",
+  "owner_authorization": "Approve up to 24 additional free calls",
+  "maximum_total": 30,
+  "maximum_additional": 24,
+  "prior_actual_dispatches": 26,
+  "this_dispatch_number": 27,
+  "reason": "Verify smaller exact-signal context after v2 timeout, retaining both prior outcomes; no automatic retries or further call in this script."
+}

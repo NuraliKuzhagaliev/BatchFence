@@ -1,0 +1,109 @@
+{
+  "id": "SIGNAL-6af1ea84a1ea4a43aad0193162683fd3",
+  "task": "signal-explanation",
+  "mode": "live",
+  "timestamp": "2026-10-16T23:21:38.630541+00:00",
+  "prompt_version": "signal-explanation-1",
+  "input_hash": "06c99fc5eae5d32ad1b78fc769250d9ace9aef04ece30ca87c416035f7528917",
+  "status": "succeeded",
+  "attempts": 1,
+  "repairs": 0,
+  "clock_source": "Server UTC; latency measured with monotonic clock",
+  "provider": "AMD configured endpoint",
+  "requested_model_id": "MiMo-V2.6-Flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1800
+  },
+  "http_status": 200,
+  "request_id": "be911f24619148a0b251806aaeda91d4",
+  "usage": {
+    "prompt_tokens": 8347,
+    "total_tokens": 9681,
+    "completion_tokens": 1334,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 0.0015421,
+    "cost_details": {
+      "upstream_inference_cost": 0.0015421,
+      "upstream_inference_prompt_cost": 0.00116858,
+      "upstream_inference_completions_cost": 0.00037352,
+      "total_cost": 0.0015421,
+      "input_cost": 0.00116858,
+      "output_cost": 0.00037352,
+      "cached_input_cost": 0,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "model_id": "self-dploy/MiMo-V2.6-Flash",
+  "raw_output": {
+    "comments": [
+      {
+        "observation_id": "STABLE-001",
+        "explanation": "The frozen baseline comprises 20 observations (STABLE-001 through STABLE-020) totaling 13,000 inspected units and 230 nonconforming units, giving p_bar = 0.0176923 under baseline hash 86738c6032ff374b5f2492e0f091642fb51a4c3168a0cb13c6c87b1b9363a4e0. All 20 baseline points are recorded as within_limits, with rates ranging from 0.012 (STABLE-015) to 0.0275 (STABLE-014), assuming independent inspections and comparable site, product, process, method and regime."
+      },
+      {
+        "observation_id": "SHIFT-001",
+        "explanation": "SHIFT-001 records 59 nonconforming of 500 inspected, a rate of 0.118, compared with the clipped three-sigma upper limit of 0.0353792299495833 and lower limit of 5.385435032086855e-06 for its sample size. The point is flagged status signal with direction higher, lying strictly above the upper control limit derived from the frozen baseline."
+      },
+      {
+        "observation_id": "SHIFT-002",
+        "explanation": "SHIFT-002 records 72 nonconforming of 800 inspected, a rate of 0.09, against the 800-unit clipped limits of 0.003709567909478309 to 0.03167504747513707. The point is flagged status signal with direction higher, strictly above the upper control limit, on the same site, product, process, method and regime as the baseline."
+      },
+      {
+        "observation_id": "SHIFT-003",
+        "explanation": "SHIFT-003 records 43 nonconforming of 500 inspected, a rate of 0.086, above the 500-unit upper control limit of 0.0353792299495833, and is flagged status signal with direction higher. Comparable observations SHIFT-004 (rate 0.10125, upper limit 0.03167504747513707) and SHIFT-005 (rate 0.092, upper limit 0.0353792299495833) are likewise flagged status signal with direction higher."
+      },
+      {
+        "observation_id": "SHIFT-004",
+        "explanation": "SHIFT-004 shows 81 nonconforming of 800 inspected (rate 0.10125) and SHIFT-005 shows 46 nonconforming of 500 inspected (rate 0.092); both exceed their respective clipped three-sigma upper limits and are listed in alerts together with SHIFT-001, SHIFT-002 and SHIFT-003. The excluded list is empty, and all five points share the baseline's site, product, process, method and regime attributes."
+      }
+    ],
+    "limitations": "These are statistical control observations only. The clipped three-sigma limits are control limits computed from the frozen baseline (20 observations, 13,000 inspected, 230 nonconforming, p_bar 0.0176923), not acceptance specifications; no acceptance threshold is provided or implied. A signal indicates process variation relative to that baseline, not supplier causation, defect certainty, hold authority or release authority. Interpretation assumes independent inspections and comparable product, process, method and regime, plus a reviewer-accepted stable baseline. No database, inventory, execution or decision authority was used, and no cause, remedy or disposition is inferred from these data."
+  },
+  "output": {
+    "comments": [
+      {
+        "observation_id": "STABLE-001",
+        "explanation": "The frozen baseline comprises 20 observations (STABLE-001 through STABLE-020) totaling 13,000 inspected units and 230 nonconforming units, giving p_bar = 0.0176923 under baseline hash 86738c6032ff374b5f2492e0f091642fb51a4c3168a0cb13c6c87b1b9363a4e0. All 20 baseline points are recorded as within_limits, with rates ranging from 0.012 (STABLE-015) to 0.0275 (STABLE-014), assuming independent inspections and comparable site, product, process, method and regime."
+      },
+      {
+        "observation_id": "SHIFT-001",
+        "explanation": "SHIFT-001 records 59 nonconforming of 500 inspected, a rate of 0.118, compared with the clipped three-sigma upper limit of 0.0353792299495833 and lower limit of 5.385435032086855e-06 for its sample size. The point is flagged status signal with direction higher, lying strictly above the upper control limit derived from the frozen baseline."
+      },
+      {
+        "observation_id": "SHIFT-002",
+        "explanation": "SHIFT-002 records 72 nonconforming of 800 inspected, a rate of 0.09, against the 800-unit clipped limits of 0.003709567909478309 to 0.03167504747513707. The point is flagged status signal with direction higher, strictly above the upper control limit, on the same site, product, process, method and regime as the baseline."
+      },
+      {
+        "observation_id": "SHIFT-003",
+        "explanation": "SHIFT-003 records 43 nonconforming of 500 inspected, a rate of 0.086, above the 500-unit upper control limit of 0.0353792299495833, and is flagged status signal with direction higher. Comparable observations SHIFT-004 (rate 0.10125, upper limit 0.03167504747513707) and SHIFT-005 (rate 0.092, upper limit 0.0353792299495833) are likewise flagged status signal with direction higher."
+      },
+      {
+        "observation_id": "SHIFT-004",
+        "explanation": "SHIFT-004 shows 81 nonconforming of 800 inspected (rate 0.10125) and SHIFT-005 shows 46 nonconforming of 500 inspected (rate 0.092); both exceed their respective clipped three-sigma upper limits and are listed in alerts together with SHIFT-001, SHIFT-002 and SHIFT-003. The excluded list is empty, and all five points share the baseline's site, product, process, method and regime attributes."
+      }
+    ],
+    "limitations": "These are statistical control observations only. The clipped three-sigma limits are control limits computed from the frozen baseline (20 observations, 13,000 inspected, 230 nonconforming, p_bar 0.0176923), not acceptance specifications; no acceptance threshold is provided or implied. A signal indicates process variation relative to that baseline, not supplier causation, defect certainty, hold authority or release authority. Interpretation assumes independent inspections and comparable product, process, method and regime, plus a reviewer-accepted stable baseline. No database, inventory, execution or decision authority was used, and no cause, remedy or disposition is inferred from these data."
+  },
+  "elapsed_ms": 37777,
+  "baseline_id": "BASE-ff29365a7921492d97910730013205c5",
+  "chart_digest": "f2f10a1597352cee8718f1705f5546be9b3c4587dbef8baead0c45d5ff85860e",
+  "boundary": "Unreviewed narrative proposal; deterministic chart and original records govern. No causal or action authority."
+}

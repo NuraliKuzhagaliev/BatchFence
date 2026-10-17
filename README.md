@@ -2,11 +2,11 @@
 
 Determine what to contain, what evidence to request next, and why a supplier revision changes the decision. Built for a small manufacturer's quality manager, demonstrated with fictional decorative-housing records.
 
-[Web app](https://batchfence.onrender.com) · [Windows releases](https://github.com/NuraliKuzhagaliev/BatchFence/releases) · [Release evidence](docs/release-0.2.0/README.md) · [Claims and checks](docs/claims-to-evidence.md)
+[Web app](https://batchfence.onrender.com) · [Windows releases](https://github.com/NuraliKuzhagaliev/BatchFence/releases) · [Release evidence](docs/enterprise/release-0.3.0.md) · [Claims and checks](docs/claims-to-evidence.md)
 
-0.2.0 adds cause-aware questions, conditional impact scenarios, reviewed supplier replies, causal revision comparison, guided per-lot review and executable verification challenges. It preserves the existing deterministic containment, source citations, exact-plan approval, stale rejection, receipts and offline packet viewer.
+0.3.0 connects Quality Signals, Approved Knowledge, Controlled Recovery and Corrective Action with Effectiveness. PostgreSQL pilot storage, named scoped identities, source-preserving OCR, mapped intake and typed receiving support the same incident. Deterministic containment, explicit review, stale rejection, receipts and offline packets remain. [Fresh AMD results and retained errors](docs/enterprise/live/README.md) distinguish model quality from reviewed outcomes.
 
-![Actual 0.2.0 public workflow after reviewed fresh AMD evidence](submission/cover-0.2.0.png)
+![Historical 0.2.0 public workflow; current release evidence is linked above](submission/cover-0.2.0.png)
 
 ## One incident, three decisions
 

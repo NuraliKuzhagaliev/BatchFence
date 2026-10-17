@@ -1,0 +1,37 @@
+{
+  "file": "BatchFence-0.3.0-verified-workflows.mp4",
+  "bytes": 4491710,
+  "sha256": "817f5e88af6194d66af7660694eb8a54294ea3fc4c1ac742a180f5f923128996",
+  "duration_seconds": 81.8,
+  "segments": [
+    {
+      "source": "work/enterprise-final-media/frozen.webm",
+      "source_sha256": "37b9d7864078df2bad1f8c4c7d21799b34b3ddc28e99630b5ba2907e99b8a970",
+      "seconds": 12.12,
+      "caption": "Recorded fresh AMD signal response. Synthetic records. No inference during capture.",
+      "kind": "actual browser recording at original speed"
+    },
+    {
+      "source": "docs/enterprise/live/ui/knowledge-quote.png",
+      "source_sha256": "6ba998f06946b95ca42fdc08032481184a6984eafef238056197b5b5ee8b4cd3",
+      "seconds": 7,
+      "caption": "Recorded fresh AMD procedure answer. Synthetic source. Agent-operated review.",
+      "kind": "retained screenshot"
+    },
+    {
+      "source": "work/enterprise-final-media/receiving-v2.webm",
+      "source_sha256": "851f3f7641b53585de1c3e60840722db10229a8a15d15aede61376f644b14140",
+      "seconds": 10.76,
+      "caption": "Recorded fresh AMD receiving result. Synthetic stock. Agent-operated review and approval.",
+      "kind": "actual browser recording at original speed"
+    },
+    {
+      "source": "work/enterprise-media/connected-synthetic.webm",
+      "source_sha256": "e210b0d8fee3c26d899ec095a2efbf5b760445b9e672478e596f25cc74348736",
+      "seconds": 52.04,
+      "caption": "Synthetic workflow and historical follow-up replay. Fixtures only. Agent-operated review.",
+      "kind": "actual browser recording at original speed"
+    }
+  ],
+  "provenance": "Separate retained AMD-result cases followed by a synthetic full workflow, explicitly labeled. All data synthetic, all review agent-operated. No new AMD inference during filming. Original speed, no audio. Caption band outside application pixels. Narration is supplied for a human presenter."
+}

@@ -73,3 +73,18 @@ def wilson(bad,total,z=1.96):
     p=bad/total;den=1+z*z/total;center=(p+z*z/(2*total))/den
     half=z*math.sqrt(p*(1-p)/total+z*z/(4*total*total))/den
     return [max(0,center-half),min(1,center+half)]
+
+
+def explanation_context(baseline,result):
+    """Bound narrative work while keeping the full deterministic chart in storage/UI."""
+    signal_points=[p for p in result['points'] if p['status']=='signal']
+    selected=(signal_points or result['points'])[:5]
+    keys=('observation_id','event_time','inspected','nonconforming','rate','lower','upper','status','direction','source')
+    return {'baseline_observation_ids':[r['observation_id'] for r in baseline['rows']],
+        'baseline_period':{'start':baseline['start'],'end':baseline['end']},
+        'baseline':{k:result[k] for k in ('baseline_count','baseline_inspected','baseline_nonconforming','p_bar','baseline_hash','group','assumptions','rule')},
+        'followup_count':len(result['points']),'signal_count':len(signal_points),
+        'omitted_followup_count':len(result['points'])-len(selected),
+        'selection':'First five statistical signals, or first five follow-up observations when there are no signals. Other observations remain in the full chart.',
+        'observations':[{k:p[k] for k in keys if k in p} for p in selected],
+        'boundary':result['boundary']}

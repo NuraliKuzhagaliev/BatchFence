@@ -1,0 +1,137 @@
+{
+  "baseline_observation_ids": [
+    "BASE-001",
+    "BASE-002",
+    "BASE-003",
+    "BASE-004",
+    "BASE-005",
+    "BASE-006",
+    "BASE-007",
+    "BASE-008",
+    "BASE-009",
+    "BASE-010",
+    "BASE-011",
+    "BASE-012",
+    "BASE-013",
+    "BASE-014",
+    "BASE-015",
+    "BASE-016",
+    "BASE-017",
+    "BASE-018",
+    "BASE-019",
+    "BASE-020"
+  ],
+  "baseline_period": {
+    "start": "2026-09-01T00:00:00+00:00",
+    "end": "2026-09-01T19:00:00+00:00"
+  },
+  "baseline": {
+    "baseline_count": 20,
+    "baseline_inspected": 13000,
+    "baseline_nonconforming": 230,
+    "p_bar": 0.01769230769230769,
+    "baseline_hash": "d9c645c24d8226faa4083353a0c0a9a643632661024518ed9c6df916e318de77",
+    "group": {
+      "site": "NORTH-01",
+      "product": "Decorative housing",
+      "process": "coating",
+      "method": "visual-v1",
+      "regime": "steady",
+      "defect": "cosmetic",
+      "metric": "nonconforming_units"
+    },
+    "assumptions": [
+      "Independent inspections",
+      "Comparable product/process/method/regime",
+      "Reviewer-accepted stable baseline"
+    ],
+    "rule": "One observation strictly outside clipped three-sigma limits; limits are not acceptance specifications."
+  },
+  "followup_count": 25,
+  "signal_count": 5,
+  "omitted_followup_count": 20,
+  "selection": "First five statistical signals, or first five follow-up observations when there are no signals. Other observations remain in the full chart.",
+  "observations": [
+    {
+      "observation_id": "SHIFT-001",
+      "event_time": "2026-09-03T00:00:00+00:00",
+      "inspected": 500,
+      "nonconforming": 59,
+      "rate": 0.118,
+      "lower": 5.385435032086855e-06,
+      "upper": 0.0353792299495833,
+      "status": "signal",
+      "direction": "higher",
+      "source": {
+        "document_id": "DOC-d7f6b155c56c",
+        "block_id": "row-41",
+        "quote": "SHIFT-001,2026-09-03T00:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,59,cosmetic,FG-A;FG-D,nonconforming_units"
+      }
+    },
+    {
+      "observation_id": "SHIFT-002",
+      "event_time": "2026-09-03T01:00:00+00:00",
+      "inspected": 800,
+      "nonconforming": 72,
+      "rate": 0.09,
+      "lower": 0.003709567909478309,
+      "upper": 0.03167504747513707,
+      "status": "signal",
+      "direction": "higher",
+      "source": {
+        "document_id": "DOC-d7f6b155c56c",
+        "block_id": "row-42",
+        "quote": "SHIFT-002,2026-09-03T01:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,72,cosmetic,FG-A;FG-D,nonconforming_units"
+      }
+    },
+    {
+      "observation_id": "SHIFT-003",
+      "event_time": "2026-09-03T02:00:00+00:00",
+      "inspected": 500,
+      "nonconforming": 43,
+      "rate": 0.086,
+      "lower": 5.385435032086855e-06,
+      "upper": 0.0353792299495833,
+      "status": "signal",
+      "direction": "higher",
+      "source": {
+        "document_id": "DOC-d7f6b155c56c",
+        "block_id": "row-43",
+        "quote": "SHIFT-003,2026-09-03T02:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,43,cosmetic,FG-A;FG-D,nonconforming_units"
+      }
+    },
+    {
+      "observation_id": "SHIFT-004",
+      "event_time": "2026-09-03T03:00:00+00:00",
+      "inspected": 800,
+      "nonconforming": 81,
+      "rate": 0.10125,
+      "lower": 0.003709567909478309,
+      "upper": 0.03167504747513707,
+      "status": "signal",
+      "direction": "higher",
+      "source": {
+        "document_id": "DOC-d7f6b155c56c",
+        "block_id": "row-44",
+        "quote": "SHIFT-004,2026-09-03T03:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,81,cosmetic,FG-A;FG-D,nonconforming_units"
+      }
+    },
+    {
+      "observation_id": "SHIFT-005",
+      "event_time": "2026-09-03T04:00:00+00:00",
+      "inspected": 500,
+      "nonconforming": 46,
+      "rate": 0.092,
+      "lower": 5.385435032086855e-06,
+      "upper": 0.0353792299495833,
+      "status": "signal",
+      "direction": "higher",
+      "source": {
+        "document_id": "DOC-d7f6b155c56c",
+        "block_id": "row-45",
+        "quote": "SHIFT-005,2026-09-03T04:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,46,cosmetic,FG-A;FG-D,nonconforming_units"
+      }
+    }
+  ],
+  "boundary": "A signal is evidence of process variation, not supplier causation, defect certainty, hold authority or release authority."
+}
