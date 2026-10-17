@@ -1,3 +1,11 @@
+# Vision release complete
+
+Fresh public web and installed Windows image acceptance passed4/4, with required visual/source review, mismatch/multiple containment, unchanged800-unit holds/two receipts and stale409. Actual final432pytest/domain/Linux restart CI passed; rc3 existing Free Render deploy verified. Installer/source/notes/manifest/checksums published;5 anonymous full downloads and1929 tag members match. Final non-inference web/Windows health/platform checks passed. No more model calls;64/64 reservations preserved. Original500 cause remains unconfirmed, all failures retained and new diagnostic metadata available.
+
+Only remaining acceptance is independent physical-photo/operator/domain/language/operational work and future verified-free proof renewal after18October2026 16:00UTC. Preserve keys, old releases, data and evidence. No further autonomous feature work, broad evaluation, purchases or cosmetic changes needed.
+
+---
+
 # Vision release gate
 
 Completed: documented provider/image-contract audit;3 successful local controls;2 retained public failures; new sanitized diagnostic/provenance coverage;1 successful deployed diagnostic;4/4 fresh actual web/installed-Windows cases; mandatory review/mismatch/multiple containment; unchanged800 units/two receipts; stale approvalHTTP409; affected tests/build/install/sanitation.64/64 finite reservations, no more inference.

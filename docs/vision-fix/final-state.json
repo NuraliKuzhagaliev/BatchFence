@@ -1,0 +1,12 @@
+{
+  "runtime_commit": "7d5b291bbd5e9e1b2bd9e3195ff1803f5f67c2ac",
+  "release": "v0.4.0-rc.3",
+  "stable_latest_preserved": "v0.3.0",
+  "conservative_reservations": 64,
+  "no_more_inference": true,
+  "credentials_changed": false,
+  "new_services_or_purchases": false,
+  "test_clients_closed": true,
+  "data_or_container_deletions": false,
+  "prior_evidence_preserved": true
+}

@@ -1,0 +1,18 @@
+{
+  "runtime": "4978aafaad881452349640136cc28177aa6c800c",
+  "assets": [
+    {
+      "url": "https://batchfence.onrender.com/assets/index-uZc-uJPI.js",
+      "sha256": "756eebd56ccbbe0867d5f195a78616d1d0c78286716bac9c178ee9fcad828881",
+      "bytes": 384136,
+      "installed_and_local_exact": true
+    },
+    {
+      "url": "https://batchfence.onrender.com/assets/index-BWzDsLEo.css",
+      "sha256": "9a0e43665251790bf6db5d86a65e7013a6a8e16cf77f450a792291b7a14e675a",
+      "bytes": 50443,
+      "installed_and_local_exact": true
+    }
+  ],
+  "live_inference_calls": 0
+}
