@@ -1,0 +1,203 @@
+{
+  "at": "2026-10-17T23:33:25.434873+00:00",
+  "health": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.4.0-rc.2",
+    "commit": "4978aafaad881452349640136cc28177aa6c800c",
+    "inference_mode": "fixture",
+    "amd_configured": true,
+    "live_protected": true,
+    "profile": "public",
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  },
+  "original_sha256": "760a27839c5f5ef49426236804bb51f03ce2c290f65f4d785e7d33620c3e65ef",
+  "derived_sha256": "c1dcdcc4f4ef7265caae31f43ac0766c1360ef442d8e430e2d80a6de7b46a7d5",
+  "result": {
+    "id": "GENERATE-f97cc86f07538827e0c0bd26",
+    "case_id": "a6d6b40a25334df496b61edabdcdadec",
+    "kind": "label",
+    "mode": "live",
+    "provider_path": "Direct AMD vision / managed-amd-shared",
+    "status": "unreviewed proposal",
+    "request_hash": "da1f3bd6739a77d02951269ac56cd0611ea2df95cbe07b0154d347d9fb8659fe",
+    "snapshot_hash": "172b8d4afa885eef59a04d9c40e5cdc061139e139906b6577faeac00ca1dcf47",
+    "actor": {
+      "user_id": null,
+      "identity_mode": "anonymous session; not independent identity"
+    },
+    "started_at": "2026-10-17T23:34:43.264034+00:00",
+    "reservation": {
+      "provider": "gemma",
+      "reservation": "8ed7eb73e92793168152fa14529dd52eb52122b7e159f8dbe96570582f75e634",
+      "dispatch": 1,
+      "conservative_remaining": 0.9869706730917096,
+      "stop_margin": 0.1
+    },
+    "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+    "raw_output": {
+      "candidates": [
+        "BF-00481"
+      ],
+      "unresolved_characters": [],
+      "unreadable": false
+    },
+    "provenance": {
+      "provider": "Configured AMD vision endpoint",
+      "at": "2026-10-17T23:34:47.242188+00:00",
+      "elapsed_ms": 3970,
+      "request_contract": {
+        "endpoint": "https://developer.amd.com.cn/radeon/api/v1/chat/completions",
+        "image_input": true,
+        "response_format": {
+          "type": "json_object"
+        },
+        "payload_sha256": "6cace3d8ef71c5254686efc5a4b007ce1e91f812f5a372faee88ffb957751fab",
+        "image_mime": "image/png",
+        "image_bytes": 10220,
+        "image_sha256": "c1dcdcc4f4ef7265caae31f43ac0766c1360ef442d8e430e2d80a6de7b46a7d5"
+      },
+      "requested_model_id": "Gemma-4-31B-IT",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "request_id": "fb109f7f69954670862c5a59e21ae352",
+      "usage": {
+        "prompt_tokens": 583,
+        "total_tokens": 609,
+        "completion_tokens": 26,
+        "prompt_tokens_details": {
+          "cached_tokens": 4,
+          "image_tokens": 264,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 2.20878e-05,
+        "cost_details": {
+          "upstream_inference_cost": 2.20878e-05,
+          "upstream_inference_prompt_cost": 2.02678e-05,
+          "upstream_inference_completions_cost": 1.82e-06,
+          "total_cost": 2.20878e-05,
+          "input_cost": 2.0265e-05,
+          "output_cost": 1.82e-06,
+          "cached_input_cost": 2.8e-09,
+          "cache_write_input_cost": 0,
+          "request_cost": 0,
+          "web_search_cost": 0,
+          "image_input_cost": null,
+          "image_output_cost": null,
+          "audio_input_cost": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "settings": {
+        "temperature": 0,
+        "max_tokens": 1600
+      },
+      "response_hash": "ea3484705dda2e4dac428a4685f948a63c5e0d38b608333536742a5f27b80747",
+      "http_status": 200,
+      "hosting_kind": "managed-amd-shared",
+      "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+    },
+    "library_provenance": null,
+    "finished_at": "2026-10-17T23:34:47.243811+00:00",
+    "draft": {
+      "id": "LABEL-2dfae3baa2d19c71da8cb431",
+      "case_id": "a6d6b40a25334df496b61edabdcdadec",
+      "filename": "deployed-diagnostic.png",
+      "original_hash": "760a27839c5f5ef49426236804bb51f03ce2c290f65f4d785e7d33620c3e65ef",
+      "derived_hash": "c1dcdcc4f4ef7265caae31f43ac0766c1360ef442d8e430e2d80a6de7b46a7d5",
+      "image_version": 1,
+      "transform": {
+        "oriented_width": 720,
+        "oriented_height": 330,
+        "derived_width": 720,
+        "derived_height": 330,
+        "crop_xywh": null,
+        "transform": "EXIF orientation -> RGB pixel copy -> optional operator crop -> metadata-free PNG",
+        "region_origin": "full image; no machine localization"
+      },
+      "at": "2026-10-17T23:34:43.119429+00:00",
+      "status": "Gemma reading proposed / visual confirmation required",
+      "reading": {
+        "candidates": [
+          "BF-00481"
+        ],
+        "unresolved_characters": [],
+        "unreadable": false
+      },
+      "review": null,
+      "purpose": "Label identity only. No defect or product-quality inference. Barcode decoding unavailable in this build.",
+      "reading_provenance": {
+        "provider": "Configured AMD vision endpoint",
+        "at": "2026-10-17T23:34:47.242188+00:00",
+        "elapsed_ms": 3970,
+        "request_contract": {
+          "endpoint": "https://developer.amd.com.cn/radeon/api/v1/chat/completions",
+          "image_input": true,
+          "response_format": {
+            "type": "json_object"
+          },
+          "payload_sha256": "6cace3d8ef71c5254686efc5a4b007ce1e91f812f5a372faee88ffb957751fab",
+          "image_mime": "image/png",
+          "image_bytes": 10220,
+          "image_sha256": "c1dcdcc4f4ef7265caae31f43ac0766c1360ef442d8e430e2d80a6de7b46a7d5"
+        },
+        "requested_model_id": "Gemma-4-31B-IT",
+        "model_id": "self-dploy/Gemma-4-31B-IT",
+        "request_id": "fb109f7f69954670862c5a59e21ae352",
+        "usage": {
+          "prompt_tokens": 583,
+          "total_tokens": 609,
+          "completion_tokens": 26,
+          "prompt_tokens_details": {
+            "cached_tokens": 4,
+            "image_tokens": 264,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "reasoning_tokens": 0,
+          "cost": 2.20878e-05,
+          "cost_details": {
+            "upstream_inference_cost": 2.20878e-05,
+            "upstream_inference_prompt_cost": 2.02678e-05,
+            "upstream_inference_completions_cost": 1.82e-06,
+            "total_cost": 2.20878e-05,
+            "input_cost": 2.0265e-05,
+            "output_cost": 1.82e-06,
+            "cached_input_cost": 2.8e-09,
+            "cache_write_input_cost": 0,
+            "request_cost": 0,
+            "web_search_cost": 0,
+            "image_input_cost": null,
+            "image_output_cost": null,
+            "audio_input_cost": null
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "settings": {
+          "temperature": 0,
+          "max_tokens": 1600
+        },
+        "response_hash": "ea3484705dda2e4dac428a4685f948a63c5e0d38b608333536742a5f27b80747",
+        "http_status": 200,
+        "hosting_kind": "managed-amd-shared",
+        "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+      }
+    }
+  },
+  "automatic_retries": 0,
+  "setup": "Fresh synthetic original image; no source text or transcription supplied to vision",
+  "core_inference_calls": 0
+}

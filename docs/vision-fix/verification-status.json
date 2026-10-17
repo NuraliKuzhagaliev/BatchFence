@@ -1,0 +1,24 @@
+{
+  "runtime_commit": "4978aafaad881452349640136cc28177aa6c800c",
+  "branch_ci": {
+    "id": 39079226828,
+    "conclusion": "success"
+  },
+  "main_ci": {
+    "id": 39079389694,
+    "conclusion": "success"
+  },
+  "affected_pytest": 33,
+  "production_typescript_vite_build": "passed",
+  "windows_installer_build": "passed",
+  "windows_silent_install": {
+    "exit_code": 0,
+    "executable_exists": true
+  },
+  "installed_asar_sanitation": "8886 entries, 33 private-value needles, zero findings",
+  "live_acceptance": "passed: actual public web and installed Windows,4/4 raw image readings, mandatory review and negative association containment",
+  "limitations": "CI uses synthetic fixture and injected tests. Native file dialogs not repeated. Installed live inference and review remain separate gates.",
+  "public_stale_approval_http_status": 409,
+  "current_reservations": 64,
+  "additional_version_test": true
+}

@@ -1,0 +1,55 @@
+{
+  "at": "2026-10-17T23:34:43.824Z",
+  "platform": "windows",
+  "passed": true,
+  "case_id": "038adff45fc045c3a8498b899220fc30",
+  "outcomes": [
+    {
+      "kind": "readable",
+      "status": "unreviewed proposal",
+      "expected": [
+        "BF-00591"
+      ],
+      "actual": {
+        "candidates": [
+          "BF-00591"
+        ],
+        "unresolved_characters": [],
+        "unreadable": false
+      },
+      "model": "self-dploy/Gemma-4-31B-IT",
+      "elapsed_ms": 5069,
+      "raw_candidates_exact": true,
+      "review_required": true,
+      "explicit_agent_review_accepted": true,
+      "holds_and_two_receipts_unchanged": true
+    },
+    {
+      "kind": "multiple",
+      "status": "unreviewed proposal",
+      "expected": [
+        "BF-00591",
+        "BF-00592"
+      ],
+      "actual": {
+        "candidates": [
+          "BF-00591",
+          "BF-00592"
+        ],
+        "unresolved_characters": [],
+        "unreadable": false
+      },
+      "model": "self-dploy/Gemma-4-31B-IT",
+      "elapsed_ms": 5449,
+      "raw_candidates_exact": true,
+      "review_required": true,
+      "rejection_message": "Error invoking remote method 'bf:request': Error: Unreadable, ambiguous or multiple labels require another explicit crop/reading before association",
+      "unsupported_association_rejected": true,
+      "holds_and_two_receipts_unchanged": true
+    }
+  ],
+  "errors": [],
+  "core_setup": "Explicit fixture preparation; vision is genuinely fresh direct AMD image inference; requested and actual model IDs are retained in raw job provenance. No text-only/recorded/manual transcription substitution.",
+  "review": "Agent-operated synthetic original-image and source relationship review; not independent human or physical-photo validation.",
+  "native_dialogs": "Not repeated; intake automation uses owned API/installed restricted IPC, inference and review through actual client UI. Prior real native dialogs remain separately verified."
+}

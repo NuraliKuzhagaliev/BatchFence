@@ -1,0 +1,104 @@
+{
+  "id": "LABEL-9200b9ccd7c94528be894418",
+  "case_id": "038adff45fc045c3a8498b899220fc30",
+  "filename": "windows-readable.png",
+  "original_hash": "431146e32e0f6f93db4833c0b742a00e97f92dd5645e6f12e6a08767875acf78",
+  "derived_hash": "ad582cb3ca8419c98f82d6b8ed6dcfcd1e0d9e4addddb045f5840092d3eafb87",
+  "image_version": 1,
+  "transform": {
+    "oriented_width": 720,
+    "oriented_height": 330,
+    "derived_width": 720,
+    "derived_height": 330,
+    "crop_xywh": null,
+    "transform": "EXIF orientation -> RGB pixel copy -> optional operator crop -> metadata-free PNG",
+    "region_origin": "full image; no machine localization"
+  },
+  "at": "2026-10-17T23:35:39.713534+00:00",
+  "status": "identity and source relationship reviewed / no inventory authority",
+  "reading": {
+    "candidates": [
+      "BF-00591"
+    ],
+    "unresolved_characters": [],
+    "unreadable": false
+  },
+  "review": {
+    "actor": {
+      "user_id": null,
+      "identity_mode": "anonymous session; not independent identity"
+    },
+    "at": "2026-10-17T23:35:50.998117+00:00",
+    "case_revision": 3,
+    "document_id": "DOC-57dcc689198c",
+    "source_hash": "da4cd7d372bce019f93da1d25029f1347b585901850efb2126bbf8c8d4c30e7b",
+    "quote": "Synthetic package record. The package identifier is BF-00591. Its source relationship to supplier lot SUP-A is confirmed in this synthetic record; no inventory release is authorized.",
+    "block_id": "line-1",
+    "selected_id": "BF-00591",
+    "identity_confirmed": true,
+    "relationship_verified": true,
+    "note": "Agent-operated synthetic original-image and source relationship review; not independent human or physical-photo validation."
+  },
+  "purpose": "Label identity only. No defect or product-quality inference. Barcode decoding unavailable in this build.",
+  "reading_provenance": {
+    "provider": "Configured AMD vision endpoint",
+    "at": "2026-10-17T23:35:47.182831+00:00",
+    "elapsed_ms": 5069,
+    "request_contract": {
+      "endpoint": "https://developer.amd.com.cn/radeon/api/v1/chat/completions",
+      "image_input": true,
+      "response_format": {
+        "type": "json_object"
+      },
+      "payload_sha256": "dedee70264365c8a2e71ebff90d8dfd75fe12d91b88e0d82ac57e90ce86a0003",
+      "image_mime": "image/png",
+      "image_bytes": 10492,
+      "image_sha256": "ad582cb3ca8419c98f82d6b8ed6dcfcd1e0d9e4addddb045f5840092d3eafb87"
+    },
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "9b8b6d761d0a44abb56421ac1329fa32",
+    "usage": {
+      "prompt_tokens": 583,
+      "total_tokens": 609,
+      "completion_tokens": 26,
+      "prompt_tokens_details": {
+        "cached_tokens": 47,
+        "image_tokens": 264,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.0000206129,
+      "cost_details": {
+        "upstream_inference_cost": 0.0000206129,
+        "upstream_inference_prompt_cost": 0.0000187929,
+        "upstream_inference_completions_cost": 0.00000182,
+        "total_cost": 0.0000206129,
+        "input_cost": 0.00001876,
+        "output_cost": 0.00000182,
+        "cached_input_cost": 3.29e-8,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "19843817e75abb8d62895e64dd4b541ded1da606a45c1566c27f459ecf807c43",
+    "http_status": 200,
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  }
+}

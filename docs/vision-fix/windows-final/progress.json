@@ -1,0 +1,45 @@
+[
+  {
+    "kind": "readable",
+    "status": "unreviewed proposal",
+    "expected": [
+      "BF-00591"
+    ],
+    "actual": {
+      "candidates": [
+        "BF-00591"
+      ],
+      "unresolved_characters": [],
+      "unreadable": false
+    },
+    "model": "self-dploy/Gemma-4-31B-IT",
+    "elapsed_ms": 5069,
+    "raw_candidates_exact": true,
+    "review_required": true,
+    "explicit_agent_review_accepted": true,
+    "holds_and_two_receipts_unchanged": true
+  },
+  {
+    "kind": "multiple",
+    "status": "unreviewed proposal",
+    "expected": [
+      "BF-00591",
+      "BF-00592"
+    ],
+    "actual": {
+      "candidates": [
+        "BF-00591",
+        "BF-00592"
+      ],
+      "unresolved_characters": [],
+      "unreadable": false
+    },
+    "model": "self-dploy/Gemma-4-31B-IT",
+    "elapsed_ms": 5449,
+    "raw_candidates_exact": true,
+    "review_required": true,
+    "rejection_message": "Error invoking remote method 'bf:request': Error: Unreadable, ambiguous or multiple labels require another explicit crop/reading before association",
+    "unsupported_association_rejected": true,
+    "holds_and_two_receipts_unchanged": true
+  }
+]

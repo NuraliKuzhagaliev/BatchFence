@@ -1,0 +1,124 @@
+{
+  "cases": [
+    {
+      "client": "web",
+      "case": "readable",
+      "started_at": "2026-10-17T23:35:05.515751+00:00",
+      "finished_at": "2026-10-17T23:35:08.754989+00:00",
+      "requested_model": "Gemma-4-31B-IT",
+      "actual_model": "self-dploy/Gemma-4-31B-IT",
+      "request_id": "b21d48c2f3f2487e914cd0fbd0f06164",
+      "elapsed_ms": 3229,
+      "image_tokens": 264,
+      "request_contract": {
+        "endpoint": "https://developer.amd.com.cn/radeon/api/v1/chat/completions",
+        "image_input": true,
+        "response_format": {
+          "type": "json_object"
+        },
+        "payload_sha256": "6cace3d8ef71c5254686efc5a4b007ce1e91f812f5a372faee88ffb957751fab",
+        "image_mime": "image/png",
+        "image_bytes": 10220,
+        "image_sha256": "c1dcdcc4f4ef7265caae31f43ac0766c1360ef442d8e430e2d80a6de7b46a7d5"
+      },
+      "raw_reading": {
+        "candidates": [
+          "BF-00481"
+        ],
+        "unresolved_characters": [],
+        "unreadable": false
+      }
+    },
+    {
+      "client": "web",
+      "case": "mismatch",
+      "started_at": "2026-10-17T23:35:14.825476+00:00",
+      "finished_at": "2026-10-17T23:35:21.412458+00:00",
+      "requested_model": "Gemma-4-31B-IT",
+      "actual_model": "self-dploy/Gemma-4-31B-IT",
+      "request_id": "77b6dbfed76b4154b8921bb39137135d",
+      "elapsed_ms": 6551,
+      "image_tokens": 264,
+      "request_contract": {
+        "endpoint": "https://developer.amd.com.cn/radeon/api/v1/chat/completions",
+        "image_input": true,
+        "response_format": {
+          "type": "json_object"
+        },
+        "payload_sha256": "fb5467ac2043cedac8fb478ce20402254a251086ebc919f72142d218914bc545",
+        "image_mime": "image/png",
+        "image_bytes": 10673,
+        "image_sha256": "48508cb13b13be46449d819d8333d7b003f8ba3fbc0bb21e6dfd1caab4bf8654"
+      },
+      "raw_reading": {
+        "candidates": [
+          "BF-00482"
+        ],
+        "unresolved_characters": [],
+        "unreadable": false
+      }
+    },
+    {
+      "client": "windows",
+      "case": "readable",
+      "started_at": "2026-10-17T23:35:42.067683+00:00",
+      "finished_at": "2026-10-17T23:35:47.185132+00:00",
+      "requested_model": "Gemma-4-31B-IT",
+      "actual_model": "self-dploy/Gemma-4-31B-IT",
+      "request_id": "9b8b6d761d0a44abb56421ac1329fa32",
+      "elapsed_ms": 5069,
+      "image_tokens": 264,
+      "request_contract": {
+        "endpoint": "https://developer.amd.com.cn/radeon/api/v1/chat/completions",
+        "image_input": true,
+        "response_format": {
+          "type": "json_object"
+        },
+        "payload_sha256": "dedee70264365c8a2e71ebff90d8dfd75fe12d91b88e0d82ac57e90ce86a0003",
+        "image_mime": "image/png",
+        "image_bytes": 10492,
+        "image_sha256": "ad582cb3ca8419c98f82d6b8ed6dcfcd1e0d9e4addddb045f5840092d3eafb87"
+      },
+      "raw_reading": {
+        "candidates": [
+          "BF-00591"
+        ],
+        "unresolved_characters": [],
+        "unreadable": false
+      }
+    },
+    {
+      "client": "windows",
+      "case": "multiple",
+      "started_at": "2026-10-17T23:35:55.715665+00:00",
+      "finished_at": "2026-10-17T23:36:01.175233+00:00",
+      "requested_model": "Gemma-4-31B-IT",
+      "actual_model": "self-dploy/Gemma-4-31B-IT",
+      "request_id": "aca51937e42d4b6f9b4c7825ecf8a1b2",
+      "elapsed_ms": 5449,
+      "image_tokens": 264,
+      "request_contract": {
+        "endpoint": "https://developer.amd.com.cn/radeon/api/v1/chat/completions",
+        "image_input": true,
+        "response_format": {
+          "type": "json_object"
+        },
+        "payload_sha256": "5627cbb20082d044100d272a09f651c11210eaa23d21f2f9663be5d6df8e9554",
+        "image_mime": "image/png",
+        "image_bytes": 15723,
+        "image_sha256": "7f449c5c6a92cf803c58d3591b4fb2ac373fa9cad418b54f7207e365a4563f27"
+      },
+      "raw_reading": {
+        "candidates": [
+          "BF-00591",
+          "BF-00592"
+        ],
+        "unresolved_characters": [],
+        "unreadable": false
+      }
+    }
+  ],
+  "conservative_reservations": 64,
+  "cap": 64,
+  "no_more_model_calls": true
+}

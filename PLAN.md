@@ -1,3 +1,11 @@
+# Vision release gate
+
+Completed: documented provider/image-contract audit;3 successful local controls;2 retained public failures; new sanitized diagnostic/provenance coverage;1 successful deployed diagnostic;4/4 fresh actual web/installed-Windows cases; mandatory review/mismatch/multiple containment; unchanged800 units/two receipts; stale approvalHTTP409; affected tests/build/install/sanitation.64/64 finite reservations, no more inference.
+
+Next: final metadata/version CI and existing Free Render deployment; rc3 source/installer/manifest/checksum publication and anonymous download verification; final evidence checkpoint/handoff. Preserve original failures and do not claim the transient500 cause was proved. No credentials or hosting changes required. All independent operational/physical-photo limits remain.
+
+---
+
 # Release complete — no further live calls required
 
 Published0.4.0-rc.2 at runtime/main/tag04e9c7b75ff90d83e9b6ff5ce7b9b2be90fc58ed. Existing free Render app verified; final Windows genuine Evolus/Gemma500→800/two receipts/export and remaining text extensions completed. Actual native dialogs passed.428pytest,30domain,200frozen local scenarios,16sequence IDs/18instances,60separate generated graph checks; branch/main Linux CI and exact-source container/restart passed. All5published assets fully downloaded anonymously and hashes match; website Windows download visible. Stable0.3.0/previous preview preserved.
