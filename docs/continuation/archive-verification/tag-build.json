@@ -1,0 +1,25 @@
+{
+  "source_commit": "c40bc08545270172537f09d5f6b0abfc700ab177",
+  "commit_archive_image": "sha256:1251cdb8aa73f43899668bfcc7f0755d8b73eadad144105ce40fe1154fe34964",
+  "default_tag_image": "sha256:4f5b803d0c5fcbec7746f251b2c1f3382463bbf5f0b2484bda42a13f6f7f656e",
+  "same_runtime_filesystem_layers": true,
+  "same_runtime_config": true,
+  "layers": [
+    "sha256:34467cc93912af891dfee8a3902adf9b4f355a9bca4eaa46f658d1181a21de0d",
+    "sha256:1417cb7bef0df2663bdb20421ee51958038707ccb0e11f7d24b0a5398b2c8df1",
+    "sha256:f7f4d045fbf2421f6cb61be2f5d973d294ca273f672aa8eff39d87bf5ef813ff",
+    "sha256:ef58fb36aef1a26a49a81c72a939f70bf1ca94f5ded32a7902e970057ba06665",
+    "sha256:8492ebcb9d3c5ecb4014173622c720bf2a1230bace259b1e94e37365d355af50",
+    "sha256:522e8faceb3284f53346c39e9f0d163bf92522455a36512a1364b5d7ad047291",
+    "sha256:db0bd17aec293986a70aae0164a2eee3c16fce091c6f7f3d7f65981a965e4207",
+    "sha256:afe9f2f3f5df0d30425fa23b332be10e8b9b8d0f5f6197aa28a41912cba6181b",
+    "sha256:d10cfa07721f85438fa0391c1092f45fe7981a6d30fb9bce62a45a2154e64b42",
+    "sha256:de86fbd61fa923ac0fad6eb560bb32ffa3f75754844801b28e18d4158d00abd7",
+    "sha256:5f25e65f2519a42d500ea0bdf5460bbe909f944153196c72de98c20c211e9b3b",
+    "sha256:92927c9cc2dae29f8c7032e036fdf81ce1621b608eea5106685cbff8271dcefe",
+    "sha256:c16106e1a8259a2f7a569985b7b31c7d7cd0615cefaf4bccfbb28d8cb105a806"
+  ],
+  "distinct_manifest_attestations": true,
+  "default_tag_build": "docker build -q -t batchfence:default-tag040rc1 .",
+  "accepted_runtime_checks": "container-results.json and continuation-results.json exercised the same filesystem and configuration"
+}

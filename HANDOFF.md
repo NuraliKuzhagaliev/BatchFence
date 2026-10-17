@@ -1,26 +1,34 @@
-# BatchFence 0.4.0-rc.1 engineering preview
+# Published BatchFence 0.4.0-rc.1 engineering preview
 
-All six connected extensions and Gemma/Evolus integration are implemented. Actual evidence: docs/continuation/scope-map.md, evaluation/README.md, cost-and-lifecycle.md and operator-walkthrough.md. Raw failures remain; mandatory critical review, conservative uncertainty, exact plan approval and stale rejection remain active. Model reliability is insufficient for autonomous decisions.
+Web https://batchfence.onrender.com. Windows/source https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.1. Release, main, default tag archive and deployed app commit c40bc08545270172537f09d5f6b0abfc700ab177. Existing Free Render deploy dep-db9tgvtg1s2s73aq86s0 is live; one instance, temporary SQLite. Both PR/main Linux CI passed (39065575924 /39066164549). Stable v0.3.0 latest, installer and installation remain preserved. New evidence/test-tool checkpoint is on release-evidence-0.4.0-rc.1; runtime files remain those of the one release commit.
 
-Verified: 171 pytest,30 domain cases,12 preserved web checks,6 connected groups,8 new shared web groups; installed Preview7 core,6 connected groups,8 new groups,4 named PostgreSQL pilot groups, offline retained actual packet,100%/125% renderer scaling. Owner-operated actual Windows source/image/save/reopen passed with no stubs. Actual Linux container restart preserved receipts/stock/image bytes/translation/handover. Docker socket failure was sandbox npipe access; host access required no ACL changes. Existing pilot PostgreSQL was stopped, causing DNS startup failure; starting that existing container restored stable8788 without deletion/reset.
+All six extensions implemented and engineering verified: Next Useful Evidence; Release Readiness; Label Photo Verification; Document Change Impact; Multilingual Evidence Review (EN/RU/IT); Shift Handover. Actual coverage and limitations: docs/continuation/scope-map.md. Core integration includes genuine Evolus extractor/AMD-configured Gemma agent and isolated read-only Blob retrieval. Existing jobs, source registry, review, deterministic planner, dual control and immutable receipts are reused.
 
-Real direct Gemma500/800 then reviewed700 versus800 applied, separate100 recovery and two original receipts passed. Genuine Evolus extractor+agent ran3 workflows, zero reported workflow credits. Configuration failure and invented document ID were rejected; attributed correction then separate review reached800. Actual isolated Blob retrieval and exact passage-key retest passed after a retained caveat-omission failure. Direct runtime model self-dploy/Gemma-4-31B-IT; Evolus verified configured own/gemma-4-31b-it, runtime ID unavailable.
+Real direct Gemma500/800 then reviewed700 versus800 applied, separate100 sandbox recovery and two original receipts passed. Actual Evolus3 workflows reported0.0 credits each: first output configuration failed, first notice500 passed, revised invented document ID rejected. Explicit attributed source correction and separate scope review reached800. Both receipts/idempotence/stale409 passed. Direct returned self-dploy/Gemma-4-31B-IT; Evolus configured own/gemma-4-31b-it, per-step runtime ID not returned. Actual isolated Blob retrieval first omitted a caveat and failed exact validation; passage-key retest rehydrated the complete authorized original. Raw errors remain. No agent review counts as independent human validation.
 
-Original frozen12 unchanged: Gemma5/12 and historical MiMo6/12. Fresh equivalent held-out pairs each supplier statuses2/2, scope1/2 (conflict labeledpartial), four unreviewed proposals and no actions. Full post-fix12 rerun remains unrun. All48 phase reservations used, including2 MiMo and6 Evolus steps; no further inference authorized. Last quota0.998201071517542 nonmonetary points is historical. Account displayed50000 Evolus credits, expiry2026-11-16; published offer2026-10-31. No owned ADC/vLLM or prize eligibility verified. No purchases, paid resources, external messages, event submission or real inventory actions.
+Original frozen12 unchanged: Gemma5/12 versus historical MiMo6/12 under differing wrappers. Fresh matched held-out two cases/model: supplier statuses2/2 each, scope1/2 each (both labeled conflicting revisionpartial). Full post-fix12 rerun remains unrun. Typed roles/statuses, strict JSON, negation/exclusion/uncertainty and source-scope checks contain known failure classes. Model reliability remains insufficient for autonomous scope or recovery. Physical-photo, independent language/domain and three-operator acceptance remain pending.
 
-Windows installer: releases/BatchFence-0.4.0-rc.1-win-x64-setup.exe; installed work/installed-0.4.0-rc.1/BatchFence Preview.exe, separate from stable0.3.0. Preview defaults to existing HTTPS backend. Public rollout/source tag/checksums status is recorded in docs/continuation/release-publication.json when completed. Until that evidence exists, do not infer deployment from this handoff. Stable0.3.0 tag/assets are preserved.
+Actual final checks:171 pytest and30 domain cases. Published12 core +6 existing module groups +8 new shared UI groups +5 access/control groups +4 web/installed distribution checks, zero browser errors. Installed Preview7 core,6 existing modules,8 new groups,4 named PostgreSQL pilot groups, retained real-response offline packet,100%/125% Chromium scaling. Owner actual Windows source/image/save/reopen passed with no stubs. Actual GitHub-downloaded source built on Linux;8 preserved checks and3 new image/translation/handover restart groups passed. Default tag archive1251 file hashes match and builds identical runtime filesystem/config (manifest attestations differ). Web, Linux and installed frontend assets match. One initial browser check used an obsolete proposal-label selector; failed attempt retained, selector corrected, all12 assertions passed. Product runtime code did not change.
 
-Local current web http://127.0.0.1:8801; retained-result capture backend8802 has no model keys; new container8803 and named PostgreSQL preview8804. Stable private pilot8788 remains0.3.0. See cost-and-lifecycle.md for safe stop commands, expiry/export and free Render limitations.
+New public Gemma/Evolus inference is UNAVAILABLE, not a fixture substitution. Actual fresh acceptance ran on the local backend; Windows verified shared transport/workflows and stored real packets, with no fresh Windows-originated Gemma/Evolus call. Existing private MiMo settings and protected-live control remain. Published invalid-key checks rejected both new routes before jobs/runs. docs/continuation/cloud-activation.md lists exact configuration and persistent-budget requirements. All48 phase model reservations used (46Gemma incl6Evolus steps,2MiMo); failed attempts counted. Prior MiMo cap29/30. Do not reset ledgers or rerun live scripts. No further calls authorized. Last observed0.998201071517542 nonmonetary AMD points is historical, not a fresh allowance. Evolus displayed50000 trial credits/expiry2026-11-16; published offer2026-10-31. No owned ADC/vLLM or eligibility verified. No paid resources, purchases, external messages, submission or real inventory actions.
 
-Run from D:\projects\BatchFence: `npm run build`; `.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-NEW`; `.venv\Scripts\python.exe -m scripts.evaluate`. Do not rerun one-shot live scripts or reset reservation ledgers. All actual review was agent-operated except owner native dialogs. Remaining human acceptance: independent quality/language/physical-photo/three-operator checks, actual scoped users/data approval, off-device backup with RPO/RTO, private rotation of the previously portal-exposed key. Cloud new live configuration/budget remains gated; current public capability must be checked separately.
+Windows installer releases/BatchFence-0.4.0-rc.1-win-x64-setup.exe,113796954 bytes, SHA2569de7ccf9dcec6294971c11a24b34a716e660325054592209b404f90555c7bb0d. Full anonymous download matches installed tested build. Installed work/installed-0.4.0-rc.1/BatchFence Preview.exe uses separate identity and existing HTTPS backend. Unsigned. SourceZIP, release manifest and SHA256SUMS published alongside it. Export packets before public restart; offline is historical/read-only. Image bytes need a separate authorized source-store backup.
 
-Release verdict: controlled engineering preview with explicit unresolved model and operational limitations. No production/enterprise certification, universal correctness, productivity gain or award claim.
+Current local synthetic web http://127.0.0.1:8801 refreshed to tested code with model keys empty in that process, preserving work/continuation-web.sqlite and source store. Capture8802 stopped. Task preview containers8803/8804/archive8805 stopped, with all data/images retained. Existing stable private pilot8788 and PostgreSQL remain running0.3.0. Docker original failure was sandbox access to npipe:////./pipe/dockerDesktopLinuxEngine (com.docker.backend.exe), resolved by authorized host execution, no ACL change/reset/deletion. Existing pilot's separate PostgreSQL Exited255 caused DNS failure; starting that same container restored it. docs/continuation/docker-diagnosis.json and actual logs preserve details.
+
+Run from D:projectsBatchFence: `npm run build`; `.venvScriptspython.exe -m pytest -q --basetemp work/pytest-NEW`; `.venvScriptspython.exe -m scripts.evaluate`; `.venvScriptspython.exe -m scripts.scope_comparison_report` (offline). Tests/evaluate can rewrite historical docs/evaluation-results.json: retain the current report separately, then restore only that generated file from Git. Browser scripts accept BATCHFENCE_BASE_URL; set versioned report/screenshot paths and BATCHFENCE_TEST_PACKET. Windows defaults to the public service; set BATCHFENCE_BACKEND_ORIGIN for an explicitly configured named pilot. Do not run one-shot live scripts with the exhausted allowance.
+
+Materials submission/continuation: validated editable seven-slide deck, cover,37.88-second captioned original-speed retained-result video, presenter script. Complete engineering sequence docs/continuation/operator-walkthrough.md. New public verification/release identities docs/continuation/release-publication.json; before/after model evidence evaluation/README.md and twelve-case-audit.md. No inference during media capture. No productivity gain or model-superiority claim.
+
+Owner actions: privately rotate the earlier portal-exposed provider key and update all authorized consumers; authorize a new finite verified-free budget and secure durable backend configuration if fresh cloud/desktop acceptance is required; complete professional policy/source, EN/RU/IT language, physical-photo and three unfamiliar-operator acceptance; provision real scoped users/data approval and off-device restore against owner-defined RPO/RTO before production. Own ADC allocation remains an eligibility blocker, not a required purchase. Keep the public host free and export before expiry/restart.
+
+Verdict: published controlled engineering preview. Production readiness and model reliability remain unresolved. No further feature work or score-chasing calls are required within this exhausted budget.
 
 ---
 
 Historical checkpoints below describe their state at that time.
 
-# Gemma / Evolus continuation вЂ” live verification and reliability fixes
+# Gemma / Evolus continuation Р Р†Р вЂљРІР‚Сњ live verification and reliability fixes
 
 Protected public release remains 0.3.0 / 34929d1. Development branch gemma-evolus-0.4, initial checkpoint f50349c. No new installer or public promotion yet.
 
@@ -69,7 +77,7 @@ All current evidence: docs/enterprise/final-release.json,release-artifacts.json,
 
 Historical checkpoints below describe their state at that time.
 
-# Enterprise candidate checkpoint вЂ” implementation complete, promotion blocked
+# Enterprise candidate checkpoint Р Р†Р вЂљРІР‚Сњ implementation complete, promotion blocked
 
 All four modules and their foundations are implemented as 0.3.0-rc.1. Clean package source: e616ff5b91bbe5716949dc3fc833be290a0802b1. Later evidence/tooling-only commits preserve these application bytes. Draft PR: https://github.com/NuraliKuzhagaliev/BatchFence/pull/1. Public web and Windows remain the protected 0.2.0 release at e70f4a0; no expanded Render rollout or new public release tag.
 
@@ -97,7 +105,7 @@ Reproduce from D:\projects\BatchFence:
 
 ---
 
-# Enterprise 0.3.0-rc.1 engineering candidate вЂ” release gate open
+# Enterprise 0.3.0-rc.1 engineering candidate Р Р†Р вЂљРІР‚Сњ release gate open
 
 Protected public app/Windows release remains e70f4a0 / v0.2.0. All four modules and shared foundations are implemented on enterprise-pilot-0.3. Current candidate is private/local; no claim of production readiness or independent human acceptance.
 
@@ -109,7 +117,7 @@ Next independent work: installed candidate/package/offline/default-pilot transpo
 
 ---
 
-# Enterprise client and OCR checkpoint вЂ” not yet released
+# Enterprise client and OCR checkpoint Р Р†Р вЂљРІР‚Сњ not yet released
 
 Protected release remains e70f4a0 / v0.2.0; development branch enterprise-pilot-0.3. Local backend checkpoint 28b0b5a follows foundation 84cf9a8. The four module interfaces, proposed/applied quantities, typed receiving review, recovery controls, pilot login, mapped imports, source OCR review, and module packet snapshots are now connected. Desktop IPC explicitly allows the new routes. No new public deployment or installer yet.
 
@@ -123,7 +131,7 @@ Next commands: `.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-ent
 
 ---
 
-# Enterprise development checkpoint вЂ” backend integration in progress
+# Enterprise development checkpoint Р Р†Р вЂљРІР‚Сњ backend integration in progress
 
 Protected public release remains e70f4a0 / v0.2.0. Foundation local checkpoint is 84cf9a8; later enterprise work remains on enterprise-pilot-0.3. Nothing from this expansion has been published.
 
@@ -137,7 +145,7 @@ Next: finish all module UI and integrated acceptance; preserve the verified rele
 
 ---
 
-# Enterprise upgrade in progress вЂ” protected 0.2.0 remains published
+# Enterprise upgrade in progress Р Р†Р вЂљРІР‚Сњ protected 0.2.0 remains published
 
 Development branch: enterprise-pilot-0.3. Entire enterprise brief read; no existing 0.2.1 work found. Do not publish the expansion until its gates pass. New implementation is currently foundations only, not four delivered modules.
 
@@ -160,9 +168,9 @@ Runtime implementation is 7431360; ebd1402 corrects the Docker frontend COPY and
 ## What changed
 
 1. Source-linked causes distinguish unresolved incident scope from actual receiving gaps, merge overlapping questions and count unique inventory.
-2. Bounded immutable scenarios compare individual and joint assumptions; complete SUP-B-only FG-C changes 500в†’400 / 800в†’700. Partial or inconclusive evidence preserves holds.
+2. Bounded immutable scenarios compare individual and joint assumptions; complete SUP-B-only FG-C changes 500Р Р†РІР‚В РІР‚в„ў400 / 800Р Р†РІР‚В РІР‚в„ў700. Partial or inconclusive evidence preserves holds.
 3. Linked receiving replies preserve raw output, require explicit source/replacement review, reject weak evidence, recalculate plans and invalidate old authority. A smaller proposal never releases applied holds.
-4. Immutable before/after comparison explains SUP-Cв†’FG-D (300 units)в†’O-104. Offline packets show saved graphs; detailed causal computation requires the owned online case.
+4. Immutable before/after comparison explains SUP-CР Р†РІР‚В РІР‚в„ўFG-D (300 units)Р Р†РІР‚В РІР‚в„ўO-104. Offline packets show saved graphs; detailed causal computation requires the owned online case.
 5. Guided per-lot unresolved defaults, adjacent quotes, early genealogy, elapsed inference indicator and responsive layouts replace the old CSV-style review flow.
 6. Verification separates raw/provider evidence from review and receipts. Six isolated challenges execute actual policy functions without changing the case.
 

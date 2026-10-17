@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-17T20:18:25.143551+00:00",
+  "downloads": [
+    {
+      "url": "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.4.0-rc.1/BatchFence-0.4.0-rc.1-win-x64-setup.exe",
+      "bytes": 113796954,
+      "sha256": "9de7ccf9dcec6294971c11a24b34a716e660325054592209b404f90555c7bb0d",
+      "elapsed_ms": 32317,
+      "authenticated": false,
+      "expected_sha_match": true
+    },
+    {
+      "url": "https://github.com/NuraliKuzhagaliev/BatchFence/archive/refs/tags/v0.4.0-rc.1.zip",
+      "bytes": 92789853,
+      "sha256": "0a34fd142aa79c1f04422b1914398b61a122ea01a8d0d4476519c6b6b2c07eb6",
+      "elapsed_ms": 7747,
+      "authenticated": false,
+      "expected_sha_match": null
+    }
+  ],
+  "default_tag_archive_matches_tested_commit_file_count": 1251,
+  "source_directory": "D:\\projects\\BatchFence\\work\\default-tag040rc1-source\\BatchFence-0.4.0-rc.1",
+  "model_calls": 0
+}
