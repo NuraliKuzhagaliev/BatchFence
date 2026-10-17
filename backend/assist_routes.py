@@ -405,9 +405,9 @@ def generate(case_id:str,data:Generate,request:Request):
                 _,label=repo.get_record(db,request.state.owner,'label',data.label_id)
                 if not label or label['case_id']!=case_id or label.get('reading'):raise DomainError('Owned untranscribed label required; import a new crop for a revised reading')
                 if os.getenv('GEMMA_VISION_VERIFIED')!='true':raise DomainError('UNAVAILABLE: deployed Gemma image acceptance not yet verified')
-                raw=repo.source_path(request.state.owner,label['derived_hash']).read_bytes()
-                if hashlib.sha256(raw).hexdigest()!=label['derived_hash']:raise DomainError('Derived image integrity failure')
-                image_url='data:image/png;base64,'+base64.b64encode(raw).decode()
+                image_bytes=repo.source_path(request.state.owner,label['derived_hash']).read_bytes()
+                if hashlib.sha256(image_bytes).hexdigest()!=label['derived_hash']:raise DomainError('Derived image integrity failure')
+                image_url='data:image/png;base64,'+base64.b64encode(image_bytes).decode()
                 context={'task':'Read only visible lot identifiers. Preserve spelling and leading zeros; abstain if unreadable. List O/0,B/8,S/5 ambiguity. Multiple labels stay separate. No quality or authenticity judgment.','crop':label['transform']};schema=label_images.LabelReading.model_json_schema()
             elif data.kind=='handover':
                 context=a.handover_snapshot(db,request.state.owner,state,data.previous_id)
