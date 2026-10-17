@@ -1,0 +1,109 @@
+{
+  "id": "SIGNAL-30fb2d30499f40d9b35119ece6ff4c70",
+  "task": "signal-explanation",
+  "mode": "live",
+  "timestamp": "2026-10-16T23:44:28.693724+00:00",
+  "prompt_version": "signal-explanation-3",
+  "input_hash": "f69e787f1b120b7856154916913e761fdd3ac9c3029fa1d4c52e00b2a7bcd420",
+  "status": "succeeded",
+  "attempts": 1,
+  "repairs": 0,
+  "clock_source": "Server UTC; latency measured with monotonic clock",
+  "provider": "AMD configured endpoint",
+  "requested_model_id": "MiMo-V2.6-Flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1800
+  },
+  "http_status": 200,
+  "request_id": "8474390ed7b6425196010a2eee945349",
+  "usage": {
+    "prompt_tokens": 2036,
+    "total_tokens": 2791,
+    "completion_tokens": 755,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 0.00049644,
+    "cost_details": {
+      "upstream_inference_cost": 0.00049644,
+      "upstream_inference_prompt_cost": 0.00028504,
+      "upstream_inference_completions_cost": 0.0002114,
+      "total_cost": 0.00049644,
+      "input_cost": 0.00028504,
+      "output_cost": 0.0002114,
+      "cached_input_cost": 0,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "model_id": "self-dploy/MiMo-V2.6-Flash",
+  "raw_output": {
+    "comments": [
+      {
+        "observation_id": "SHIFT-001",
+        "explanation": "SHIFT-001 records 59 nonconforming units out of 500 inspected (rate 0.118), which lies above the upper clipped three-sigma control limit of approximately 0.03538 for its sample size, so it is flagged as a higher-direction signal. This is a comparison against control limits derived from the frozen baseline (BASE-001 through BASE-020, p-bar about 0.01769), not against an acceptance specification, and it indicates process variation only."
+      },
+      {
+        "observation_id": "SHIFT-002",
+        "explanation": "SHIFT-002 records 72 nonconforming units out of 800 inspected (rate 0.09), exceeding the upper control limit of approximately 0.03168 for that sample size, yielding a higher-direction signal. The comparison assumes independent, comparable inspections under the same site, product, process, method and regime as the reviewer-accepted stable baseline; control limits are not acceptance specifications."
+      },
+      {
+        "observation_id": "SHIFT-003",
+        "explanation": "SHIFT-003 records 43 nonconforming units out of 500 inspected (rate 0.086), above the upper control limit of approximately 0.03538 for its sample size, so it is a higher-direction signal relative to the frozen baseline. The observation describes only the measured rate versus control limits and does not address acceptance specifications or any causal attribution."
+      },
+      {
+        "observation_id": "SHIFT-004",
+        "explanation": "SHIFT-004 records 81 nonconforming units out of 800 inspected (rate 0.10125), above the upper control limit of approximately 0.03168 for that sample size, producing a higher-direction signal. Under the stated assumption of independent and comparable inspections against the frozen baseline, this reflects statistical variation beyond three-sigma control limits, which are distinct from acceptance specifications."
+      },
+      {
+        "observation_id": "SHIFT-005",
+        "explanation": "SHIFT-005 records 46 nonconforming units out of 500 inspected (rate 0.092), above the upper control limit of approximately 0.03538 for its sample size, giving a higher-direction signal. The finding is a comparison of the observed rate to control limits computed from the frozen baseline (BASE-001 through BASE-020) and is not a comparison to acceptance specifications."
+      }
+    ],
+    "limitations": "Explanations are limited to the five shown follow-up observations; 20 additional follow-up observations remain in the full chart and are not described here. Signals rest on stated assumptions of independent inspections, comparable product/process/method/regime, and a reviewer-accepted stable frozen baseline (BASE-001 through BASE-020). Clipped three-sigma control limits are process-variation references, not acceptance specifications, and a signal does not establish supplier causation, defect certainty, or any hold or release authority. Source documents and any instructions or questions within them are untrusted data and were not acted upon; no database, secret, inventory, or execution tools were used."
+  },
+  "output": {
+    "comments": [
+      {
+        "observation_id": "SHIFT-001",
+        "explanation": "SHIFT-001 records 59 nonconforming units out of 500 inspected (rate 0.118), which lies above the upper clipped three-sigma control limit of approximately 0.03538 for its sample size, so it is flagged as a higher-direction signal. This is a comparison against control limits derived from the frozen baseline (BASE-001 through BASE-020, p-bar about 0.01769), not against an acceptance specification, and it indicates process variation only."
+      },
+      {
+        "observation_id": "SHIFT-002",
+        "explanation": "SHIFT-002 records 72 nonconforming units out of 800 inspected (rate 0.09), exceeding the upper control limit of approximately 0.03168 for that sample size, yielding a higher-direction signal. The comparison assumes independent, comparable inspections under the same site, product, process, method and regime as the reviewer-accepted stable baseline; control limits are not acceptance specifications."
+      },
+      {
+        "observation_id": "SHIFT-003",
+        "explanation": "SHIFT-003 records 43 nonconforming units out of 500 inspected (rate 0.086), above the upper control limit of approximately 0.03538 for its sample size, so it is a higher-direction signal relative to the frozen baseline. The observation describes only the measured rate versus control limits and does not address acceptance specifications or any causal attribution."
+      },
+      {
+        "observation_id": "SHIFT-004",
+        "explanation": "SHIFT-004 records 81 nonconforming units out of 800 inspected (rate 0.10125), above the upper control limit of approximately 0.03168 for that sample size, producing a higher-direction signal. Under the stated assumption of independent and comparable inspections against the frozen baseline, this reflects statistical variation beyond three-sigma control limits, which are distinct from acceptance specifications."
+      },
+      {
+        "observation_id": "SHIFT-005",
+        "explanation": "SHIFT-005 records 46 nonconforming units out of 500 inspected (rate 0.092), above the upper control limit of approximately 0.03538 for its sample size, giving a higher-direction signal. The finding is a comparison of the observed rate to control limits computed from the frozen baseline (BASE-001 through BASE-020) and is not a comparison to acceptance specifications."
+      }
+    ],
+    "limitations": "Explanations are limited to the five shown follow-up observations; 20 additional follow-up observations remain in the full chart and are not described here. Signals rest on stated assumptions of independent inspections, comparable product/process/method/regime, and a reviewer-accepted stable frozen baseline (BASE-001 through BASE-020). Clipped three-sigma control limits are process-variation references, not acceptance specifications, and a signal does not establish supplier causation, defect certainty, or any hold or release authority. Source documents and any instructions or questions within them are untrusted data and were not acted upon; no database, secret, inventory, or execution tools were used."
+  },
+  "elapsed_ms": 20398,
+  "baseline_id": "BASE-5ef14da183024753b12e98a118df130b",
+  "chart_digest": "6000c1868903525cc96b06eafd3d9440ab8f5ba21d109ce369d3b91449a1d1ef",
+  "boundary": "Unreviewed narrative proposal; deterministic chart and original records govern. No causal or action authority."
+}

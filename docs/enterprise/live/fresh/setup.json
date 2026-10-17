@@ -1,0 +1,80 @@
+{
+  "provenance": "Synthetic fixture extraction and agent review; zero AMD calls",
+  "case_id": "731897c8224642bfac00da5840e62c64",
+  "stale_http": 409,
+  "receipts": [
+    {
+      "transaction_id": "TX-04ccb66c8f944408862a48ed60470245",
+      "at": "2026-10-16T23:19:20.771570+00:00",
+      "execution": "SANDBOX INVENTORY",
+      "plan_id": "PLAN-60933c63542b",
+      "digest": "60933c63542b1328025ce121ebc49937f1214b2edb2af2e1cff205c64ac4f366",
+      "idempotency_key": "fresh-setup-500",
+      "changes": [
+        {
+          "pool_id": "FG-A",
+          "units": 240,
+          "before": "available",
+          "after": "held"
+        },
+        {
+          "pool_id": "FG-B",
+          "units": 160,
+          "before": "available",
+          "after": "held"
+        },
+        {
+          "pool_id": "FG-C",
+          "units": 100,
+          "before": "available",
+          "after": "held"
+        }
+      ],
+      "prior_inventory_version": 1,
+      "current_inventory_version": 2,
+      "evidence_revision": 2
+    },
+    {
+      "transaction_id": "TX-505035ec82b7452ca620b204ace6817d",
+      "at": "2026-10-16T23:19:20.939420+00:00",
+      "execution": "SANDBOX INVENTORY",
+      "plan_id": "PLAN-787070e5413d",
+      "digest": "787070e5413d680df4de2eecbfe45ca4198f7664dced65391f0da07cb688bbf7",
+      "idempotency_key": "fresh-setup-800",
+      "changes": [
+        {
+          "pool_id": "FG-A",
+          "units": 240,
+          "before": "held",
+          "after": "held"
+        },
+        {
+          "pool_id": "FG-B",
+          "units": 160,
+          "before": "held",
+          "after": "held"
+        },
+        {
+          "pool_id": "FG-C",
+          "units": 100,
+          "before": "held",
+          "after": "held"
+        },
+        {
+          "pool_id": "FG-D",
+          "units": 300,
+          "before": "available",
+          "after": "held"
+        }
+      ],
+      "prior_inventory_version": 2,
+      "current_inventory_version": 3,
+      "evidence_revision": 3
+    }
+  ],
+  "quantities": {
+    "applied_hold_units": 800,
+    "recovery_pending_units": 0,
+    "confirmed_recovery_units": 0
+  }
+}

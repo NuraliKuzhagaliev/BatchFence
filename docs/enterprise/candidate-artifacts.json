@@ -1,0 +1,34 @@
+{
+  "at": "2026-10-16T23:07:14.170950+00:00",
+  "version": "0.3.0-rc.1",
+  "clean_build_commit": "e616ff5b91bbe5716949dc3fc833be290a0802b1",
+  "artifacts": [
+    {
+      "file": "BatchFence-0.3.0-rc.1-win-x64-setup.exe",
+      "bytes": 113788302,
+      "sha256": "04db1f3adbf8426a343e0c29fe3c74de4315d6a32cf37012ecc17a7514103938"
+    },
+    {
+      "file": "BatchFence-0.3.0-rc.1-source-e616ff5.zip",
+      "bytes": 52104732,
+      "sha256": "8e90b30f11f0602811b034ce3e365709d4b339e8f1213bee50d65c97644ba5e8"
+    }
+  ],
+  "installed_asar_sha256": "7536c060bac57c6f7a593d00f6630d4487b40e71cb58c1d2db0bfafc9b19d79b",
+  "candidate_app_id": "app.batchfence.desktop.candidate",
+  "default_backend": "http://127.0.0.1:8788",
+  "unsigned": true,
+  "installed_on_this_windows_host": true,
+  "stable_020_installer_unchanged": true,
+  "stable_020_installed_executable_exists": true,
+  "side_by_side_stable_executable_hash_verified": true,
+  "checks": [
+    "7 core desktop checks",
+    "6 connected module groups",
+    "4 named default-pilot transport checks",
+    "offline700-unit packet/two containment receipts/recovery/module snapshot with no external Node/Python PATH"
+  ],
+  "native_dialog_selection": "stubbed; actual OS dialog acceptance pending",
+  "publication": "local candidate only; no new release tag or public installer; draft PR1",
+  "source_tag_gate": "default GitHub tag archive pending promotion; clean commit archive prepared"
+}

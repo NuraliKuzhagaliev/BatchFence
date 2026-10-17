@@ -1,0 +1,19 @@
+{
+  "run": 38978339209,
+  "commit": "bdbe579",
+  "passed_steps": [
+    "102 pytest",
+    "30 deterministic cases",
+    "renderer build",
+    "publication audit",
+    "Linux image build"
+  ],
+  "failure": "POST /api/cases/demo returned 500 in public-profile container",
+  "reproduced_locally": true,
+  "process": "uvicorn Python PID1, non-root UID10001",
+  "socket": "HTTP127.0.0.1:8796 (container8796); Docker Desktop named pipe previously diagnosed separately",
+  "trace": "repository.save_source -> path.parent.mkdir -> PermissionError13 /app/work",
+  "cause": "Public image lacked SOURCE_STORAGE_PATH; default /app/work is intentionally not writable by the runtime",
+  "fix": "Set SOURCE_STORAGE_PATH=/var/data/sources in image; existing writable data volume owns only this runtime data. No chmod/ACL reset. Extend restart regression to fetch/hash every original source and deny other owner.",
+  "status": "fix implemented; rerun pending"
+}

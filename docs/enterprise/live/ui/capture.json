@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-16T23:31:10.382Z",
+  "base": "http://127.0.0.1:8795",
+  "version": "0.3.0-rc.2",
+  "case_id": "731897c8224642bfac00da5840e62c64",
+  "provenance": "Actual application read-only display of persisted results from four fresh AMD calls. Sources are synthetic and every review is agent-operated. No new inference or inventory action during this recording. Typed errors and signal semantic error are retained in adjacent evidence.",
+  "writes": [],
+  "errors": []
+}

@@ -1,0 +1,8 @@
+{
+  "sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "items": 24,
+  "extraction": 12,
+  "knowledge": 12,
+  "frozen_before_new_prompts": true,
+  "labeling": "synthetic agent-authored; unseen to provider in this task, not independently held out"
+}

@@ -166,6 +166,9 @@ def test_observed_live_receiving_omission_stays_uncertain():
     assert s==before
     data.outcome='inconclusive';data.complete=False
     commit_reply(s,data,'historical regression replay')
-    assert s['plan']['result']['hold_units']==800
+    # This historical scope was reviewed under policy 2. Recalculation under
+    # the current policy cannot inherit its narrower authority automatically.
+    assert s['plan']['result']['hold_units']==1200
     assert sum(p['units'] for p in s['stocks'] if p['status']=='held')==800
+    assert s['receipts']==before['receipts']
     assert any(q['kind']=='possible_ancestry' for q in s['plan']['result']['requests'])

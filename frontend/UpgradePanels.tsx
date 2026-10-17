@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { Case, Evidence, Hypothesis, Question, Simulation, Upload } from './types';
 import { request, copyDraft, fileUpload, native } from './platform';
 import { Graph } from './Graph';
+import {TypedReceiving} from './RecoveryPanel';
 import completeReply from '../fixtures/resolution/receiving-complete.txt?raw';
 import inconclusiveReply from '../fixtures/resolution/receiving-inconclusive.txt?raw';
 
@@ -59,7 +60,8 @@ export function EvidencePlanner({state,readOnly,mode,onUpdate,onEvidence}:{state
       </div>
     </article>)}
     {!result?.requests.length && <p>No open evidence questions in this reviewed proposal.</p>}
-    {reply && state.pending_revision && <section className="reply-review">
+    <TypedReceiving state={state} readOnly={readOnly} mode={mode} update={onUpdate}/>
+    {reply && state.pending_revision && <details className="reply-review"><summary>Legacy bounded-syntax receiving review</summary>
       <h3>Review linked reply</h3><p>{reply.filename} · source revision {reply.revision} · {reply.synthetic?'Synthetic source':'Uploaded source'}</p>
       {reply.blocks.map(b=><blockquote key={b.id}>{b.text}</blockquote>)}
       <button className="button" disabled={readOnly||!!busy||reply.revision!==state.revision} onClick={()=>void act(mode==='live'?'Waiting for AMD reply interpretation':'Reading synthetic reply',async()=>{const s=await request<Case>('POST',route+'/analyze',{document_id:reply.id,mode});onUpdate(s);if(s.runs.at(-1)?.status!=='succeeded')throw Error(s.runs.at(-1)?.error||'Interpretation failed');})}>Interpret reply · {mode==='live'?'Live AMD':'Synthetic'}</button>
@@ -74,7 +76,7 @@ export function EvidencePlanner({state,readOnly,mode,onUpdate,onEvidence}:{state
       <label className="checkbox"><input type="checkbox" checked={reviewed} onChange={e=>setReviewed(e.target.checked)}/>I reviewed the exact reply and record identity</label>
       {complete && outcome==='resolved' && <label className="checkbox"><input type="checkbox" checked={replacement} onChange={e=>setReplacement(e.target.checked)}/>I reviewed every superseded parent and the complete replacement</label>}
       <button className="button primary" disabled={readOnly||!!busy||!preview||!reviewed||note.length<20||(complete&&outcome==='resolved'&&!replacement)} onClick={()=>void act('Recording explicit reply review',async()=>{onUpdate(await request<Case>('POST',route+'/reply-review',body));setReplyId('');setPreview(null);setScenario(null);setMessage('New proposal calculated. Existing holds remain; prior approval cannot transfer.');})}>Confirm reply & recalculate</button>
-    </section>}
+    </details>}
     <input ref={input} hidden type="file" accept=".txt,.pdf" onChange={e=>{const f=e.target.files?.[0];if(f&&question)void act('Attaching reply',async()=>attach(await fileUpload(f),question));e.target.value='';}}/>
   </section>;
 }

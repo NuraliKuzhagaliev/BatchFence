@@ -1,0 +1,97 @@
+{
+  "item": {
+    "id": "EXT-05",
+    "task": "extraction",
+    "category": "unknown",
+    "text": "Affected lots: UNKNOWN-807. We have not supplied genealogy for this identifier.",
+    "labels": {
+      "affected_supplier_lots": [
+        "UNKNOWN-807"
+      ],
+      "mentioned_supplier_lots": [],
+      "complete_boundary_support": false,
+      "action_authority": false
+    }
+  },
+  "run": {
+    "id": "21edab7a-e8a7-446f-8e88-5f337ffdf3ba",
+    "mode": "live",
+    "clock_source": "Server UTC wall clock; latency from monotonic clock",
+    "input_hash": "b6aa60fc452ce74164f022836b2d0380dc6d59e96707fe5a975ed5ec268a892e",
+    "provider": "AMD configured endpoint",
+    "prompt_version": "scope-extract-2",
+    "schema_version": 1,
+    "timestamp": "2026-10-16T23:36:55.861556+00:00",
+    "status": "succeeded",
+    "repairs": 0,
+    "requested_model_id": "MiMo-V2.6-Flash",
+    "http_status": 200,
+    "request_id": "2fbe1c9556e64f59921b73c7f633a2cf",
+    "usage": {
+      "prompt_tokens": 553,
+      "total_tokens": 768,
+      "completion_tokens": 215,
+      "prompt_tokens_details": {
+        "cached_tokens": 448,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 7.61544e-05,
+      "cost_details": {
+        "upstream_inference_cost": 7.61544e-05,
+        "upstream_inference_prompt_cost": 1.59544e-05,
+        "upstream_inference_completions_cost": 6.02e-05,
+        "total_cost": 7.61544e-05,
+        "input_cost": 1.47e-05,
+        "output_cost": 6.02e-05,
+        "cached_input_cost": 1.2544e-06,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "model_id": "self-dploy/MiMo-V2.6-Flash",
+    "output": {
+      "facts": [
+        {
+          "lot_id": "UNKNOWN-807",
+          "affected": true,
+          "evidence": [
+            {
+              "document_id": "DOC-7e87424112d0",
+              "block_id": "line-1",
+              "quote": "Affected lots: UNKNOWN-807. We have not supplied genealogy for this identifier."
+            }
+          ]
+        }
+      ],
+      "qualifiers": [
+        "The notice explicitly lists only UNKNOWN-807 as an affected lot; no other lots are named in the document.",
+        "The document states that genealogy has not been supplied for this identifier, so no upstream or downstream related lots can be identified from this source.",
+        "No conflicting or broader scope statements appear in the document; scope beyond UNKNOWN-807 is simply unknown rather than disputed."
+      ]
+    },
+    "elapsed_ms": 11843,
+    "revision": 6,
+    "document_id": "DOC-7e87424112d0",
+    "scope_concerns": [
+      {
+        "document_id": "DOC-7e87424112d0",
+        "block_id": "line-1",
+        "quote": "Affected lots: UNKNOWN-807. We have not supplied genealogy for this identifier."
+      }
+    ]
+  },
+  "provenance": "Unchanged frozen agent-authored synthetic label; actual application route. No human correction, approval or inventory action in this benchmark."
+}

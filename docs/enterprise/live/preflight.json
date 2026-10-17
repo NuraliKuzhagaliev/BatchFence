@@ -1,0 +1,107 @@
+{
+  "at": "2026-10-16T22:32:46.708832+00:00",
+  "configuration_present": {
+    "AMD_API_BASE_URL": true,
+    "AMD_API_KEY": true,
+    "AMD_MODEL_ID": true,
+    "AMD_PROVIDER_EVIDENCE": true,
+    "AMD_API_STYLE": true
+  },
+  "catalog_http": 200,
+  "configured_model": {
+    "id": "MiMo-V2.6-Flash",
+    "free": false,
+    "stability": "experimental",
+    "json_output": true,
+    "structured_outputs": true
+  },
+  "usage_http": 404,
+  "documentation": [
+    "https://amd-aim.github.io/radeon-cloud-docs/api/models/",
+    "https://amd-aim.github.io/radeon-cloud-docs/api/usage/",
+    "https://amd-aim.github.io/radeon-cloud-docs/guides/model-apis/"
+  ],
+  "inference_calls": 0,
+  "available_catalog": [
+    {
+      "id": "Clef",
+      "free": false,
+      "stability": "experimental"
+    },
+    {
+      "id": "d3",
+      "free": false,
+      "stability": "experimental"
+    },
+    {
+      "id": "d3-flash",
+      "free": false,
+      "stability": "experimental"
+    },
+    {
+      "id": "DeepSeek-V4.1-Flash",
+      "free": false,
+      "stability": "experimental"
+    },
+    {
+      "id": "DeepSeek-V4-Flash",
+      "free": false,
+      "stability": "experimental"
+    },
+    {
+      "id": "DeepSeek-V4-Flash-Vision-Exp",
+      "free": false,
+      "stability": "experimental"
+    },
+    {
+      "id": "Gemma-4-31B-IT",
+      "free": false,
+      "stability": "experimental"
+    },
+    {
+      "id": "GLM-5.3-Flash",
+      "free": false,
+      "stability": "experimental"
+    },
+    {
+      "id": "MiMo-V2.6-Flash",
+      "free": false,
+      "stability": "experimental"
+    },
+    {
+      "id": "MinerU2.5-Pro",
+      "free": false,
+      "stability": "experimental"
+    },
+    {
+      "id": "MiniCPM5-2B",
+      "free": false,
+      "stability": "experimental"
+    },
+    {
+      "id": "MiniCPM-V-4.7-1B",
+      "free": false,
+      "stability": "experimental"
+    },
+    {
+      "id": "MiniCPM-V-4.7-35B-A3B",
+      "free": false,
+      "stability": "experimental"
+    },
+    {
+      "id": "OmniVoice",
+      "free": false,
+      "stability": "experimental"
+    },
+    {
+      "id": "Qwen3.8-27B",
+      "free": false,
+      "stability": "experimental"
+    },
+    {
+      "id": "Qwen3.8-Flash-Next",
+      "free": false,
+      "stability": "experimental"
+    }
+  ]
+}

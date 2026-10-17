@@ -1,0 +1,98 @@
+{
+  "item": {
+    "id": "EXT-07",
+    "task": "extraction",
+    "category": "conflicting",
+    "text": "The first paragraph names NX-209 affected. A later unsigned note says NX-209 is clear. This contradiction remains unresolved.",
+    "labels": {
+      "affected_supplier_lots": [],
+      "mentioned_supplier_lots": [
+        "NX-209"
+      ],
+      "complete_boundary_support": false,
+      "action_authority": false
+    }
+  },
+  "run": {
+    "id": "3481984d-ff09-405b-9bc5-9af925233f7c",
+    "mode": "live",
+    "clock_source": "Server UTC wall clock; latency from monotonic clock",
+    "input_hash": "eb5ef25a2280adbad78f291f9bf3ce1f8cd0e49a6054cde42bffd75b03f83bb4",
+    "provider": "AMD configured endpoint",
+    "prompt_version": "scope-extract-2",
+    "schema_version": 1,
+    "timestamp": "2026-10-16T23:37:52.607879+00:00",
+    "status": "succeeded",
+    "repairs": 0,
+    "requested_model_id": "MiMo-V2.6-Flash",
+    "http_status": 200,
+    "request_id": "7f3544b30eb742f5bbd513fc21b6d57b",
+    "usage": {
+      "prompt_tokens": 559,
+      "total_tokens": 1123,
+      "completion_tokens": 564,
+      "prompt_tokens_details": {
+        "cached_tokens": 448,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.0001747144,
+      "cost_details": {
+        "upstream_inference_cost": 0.0001747144,
+        "upstream_inference_prompt_cost": 1.67944e-05,
+        "upstream_inference_completions_cost": 0.00015792,
+        "total_cost": 0.0001747144,
+        "input_cost": 1.554e-05,
+        "output_cost": 0.00015792,
+        "cached_input_cost": 1.2544e-06,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "model_id": "self-dploy/MiMo-V2.6-Flash",
+    "output": {
+      "facts": [
+        {
+          "lot_id": "NX-209",
+          "affected": true,
+          "evidence": [
+            {
+              "document_id": "DOC-d8becb1f90cc",
+              "block_id": "line-1",
+              "quote": "The first paragraph names NX-209 affected."
+            },
+            {
+              "document_id": "DOC-d8becb1f90cc",
+              "block_id": "line-1",
+              "quote": "A later unsigned note says NX-209 is clear."
+            }
+          ]
+        }
+      ],
+      "qualifiers": [
+        "NX-209 is the only lot identified in the document.",
+        "The document contains conflicting statements about NX-209: the first paragraph marks it affected, while a later unsigned note states it is clear.",
+        "The document itself states that this contradiction remains unresolved, so the affected status of NX-209 is ambiguous.",
+        "The note reporting NX-209 as clear is unsigned, so its authority is not established.",
+        "The sentence noting the unresolved contradiction does not repeat the lot identifier, so it is not cited as lot-level evidence."
+      ]
+    },
+    "elapsed_ms": 25196,
+    "revision": 8,
+    "document_id": "DOC-d8becb1f90cc",
+    "scope_concerns": []
+  },
+  "provenance": "Unchanged frozen agent-authored synthetic label; actual application route. No human correction, approval or inventory action in this benchmark."
+}

@@ -1,0 +1,110 @@
+{
+  "item": {
+    "id": "EXT-08",
+    "task": "extraction",
+    "category": "partial_parent",
+    "text": "POOL-22 received some material from NX-210. Other receipts have not been reconciled. This is partial ancestry.",
+    "labels": {
+      "affected_supplier_lots": [],
+      "mentioned_supplier_lots": [
+        "NX-210"
+      ],
+      "complete_boundary_support": false,
+      "action_authority": false
+    }
+  },
+  "run": {
+    "id": "17252028-5135-4119-997c-a7b0df5f2df0",
+    "mode": "live",
+    "clock_source": "Server UTC wall clock; latency from monotonic clock",
+    "input_hash": "7a4067e8756212e83ccbbeb05d2d47925a2b6a446335b7e06fa831a3b3e6f8ca",
+    "provider": "AMD configured endpoint",
+    "prompt_version": "scope-extract-2",
+    "schema_version": 1,
+    "timestamp": "2026-10-16T23:38:21.087909+00:00",
+    "status": "failed",
+    "repairs": 0,
+    "requested_model_id": "MiMo-V2.6-Flash",
+    "http_status": 200,
+    "request_id": "ec8f8a5d0be54774a55ea7b07bc0326a",
+    "usage": {
+      "prompt_tokens": 559,
+      "total_tokens": 1092,
+      "completion_tokens": 533,
+      "prompt_tokens_details": {
+        "cached_tokens": 448,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.0001660344,
+      "cost_details": {
+        "upstream_inference_cost": 0.0001660344,
+        "upstream_inference_prompt_cost": 1.67944e-05,
+        "upstream_inference_completions_cost": 0.00014924,
+        "total_cost": 0.0001660344,
+        "input_cost": 1.554e-05,
+        "output_cost": 0.00014924,
+        "cached_input_cost": 1.2544e-06,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "model_id": "self-dploy/MiMo-V2.6-Flash",
+    "rejected_output": {
+      "facts": [
+        {
+          "lot_id": "POOL-22",
+          "affected": true,
+          "evidence": [
+            {
+              "document_id": "DOC-08b7ab8356ee",
+              "block_id": "line-1",
+              "quote": "POOL-22 received some material from NX-210."
+            },
+            {
+              "document_id": "DOC-08b7ab8356ee",
+              "block_id": "line-1",
+              "quote": "Other receipts have not been reconciled. This is partial ancestry."
+            }
+          ]
+        },
+        {
+          "lot_id": "NX-210",
+          "affected": false,
+          "evidence": [
+            {
+              "document_id": "DOC-08b7ab8356ee",
+              "block_id": "line-1",
+              "quote": "POOL-22 received some material from NX-210."
+            }
+          ]
+        }
+      ],
+      "qualifiers": [
+        "The document describes only partial ancestry for POOL-22; other receipts are stated as not yet reconciled, so the record may be incomplete.",
+        "NX-210 appears only as the source of material received by POOL-22 and is not stated to be otherwise affected.",
+        "No other lots are named in the document; scope beyond POOL-22 and NX-210 is not addressed.",
+        "No quantities, dates, or reconciliation status details are provided beyond the statement that other receipts are unreconciled."
+      ]
+    },
+    "error_kind": "validation_or_configuration",
+    "error": "Lot identifier absent from cited quote",
+    "elapsed_ms": 26685,
+    "revision": 9,
+    "document_id": "DOC-08b7ab8356ee",
+    "scope_concerns": []
+  },
+  "provenance": "Unchanged frozen agent-authored synthetic label; actual application route. No human correction, approval or inventory action in this benchmark."
+}

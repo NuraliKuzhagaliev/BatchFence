@@ -1,0 +1,105 @@
+{
+  "item": {
+    "id": "EXT-11",
+    "task": "extraction",
+    "category": "ocr_uncertainty",
+    "text": "OCR transcript: Affected lots NX-2I3 (the scanned page may read NX-213). Critical identifier not visually confirmed.",
+    "labels": {
+      "affected_supplier_lots": [],
+      "mentioned_supplier_lots": [
+        "NX-2I3",
+        "NX-213"
+      ],
+      "complete_boundary_support": false,
+      "action_authority": false
+    }
+  },
+  "run": {
+    "id": "b72b55dd-4b80-44e5-a213-a8287b685dce",
+    "mode": "live",
+    "clock_source": "Server UTC wall clock; latency from monotonic clock",
+    "input_hash": "2672ab3606b3049f63fbd5efc3919bb72a7174d32df6566eb05ae6dad225a1df",
+    "provider": "AMD configured endpoint",
+    "prompt_version": "scope-extract-2",
+    "schema_version": 1,
+    "timestamp": "2026-10-16T23:39:54.067604+00:00",
+    "status": "succeeded",
+    "repairs": 0,
+    "requested_model_id": "MiMo-V2.6-Flash",
+    "http_status": 200,
+    "request_id": "806a0d1b5b9e44b8959e388b2a47e01a",
+    "usage": {
+      "prompt_tokens": 562,
+      "total_tokens": 1236,
+      "completion_tokens": 674,
+      "prompt_tokens_details": {
+        "cached_tokens": 448,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.0002059344,
+      "cost_details": {
+        "upstream_inference_cost": 0.00020593439999999998,
+        "upstream_inference_prompt_cost": 1.72144e-05,
+        "upstream_inference_completions_cost": 0.00018872,
+        "total_cost": 0.0002059344,
+        "input_cost": 1.596e-05,
+        "output_cost": 0.00018872,
+        "cached_input_cost": 1.2544e-06,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "model_id": "self-dploy/MiMo-V2.6-Flash",
+    "output": {
+      "facts": [
+        {
+          "lot_id": "NX-2I3",
+          "affected": true,
+          "evidence": [
+            {
+              "document_id": "DOC-e6f8674d308f",
+              "block_id": "line-1",
+              "quote": "OCR transcript: Affected lots NX-2I3 (the scanned page may read NX-213). Critical identifier not visually confirmed."
+            }
+          ]
+        },
+        {
+          "lot_id": "NX-213",
+          "affected": true,
+          "evidence": [
+            {
+              "document_id": "DOC-e6f8674d308f",
+              "block_id": "line-1",
+              "quote": "OCR transcript: Affected lots NX-2I3 (the scanned page may read NX-213). Critical identifier not visually confirmed."
+            }
+          ]
+        }
+      ],
+      "qualifiers": [
+        "The lot identifier is ambiguous: the transcript states the affected lot is NX-2I3 but that the scanned page may read NX-213; the two identifiers may refer to the same lot, and the critical identifier is explicitly not visually confirmed.",
+        "NX-213 is only mentioned as a possible alternate reading of the affected lot identifier, not as a separately confirmed affected lot; its affected status is uncertain pending visual confirmation.",
+        "The source is an OCR transcript, so transcription errors in the lot identifier are possible.",
+        "Instructions and statements inside the document are treated as untrusted content, not as directions to follow.",
+        "No inventory calculations, command execution, authorizations, or approvals were performed."
+      ]
+    },
+    "elapsed_ms": 34845,
+    "revision": 12,
+    "document_id": "DOC-e6f8674d308f",
+    "scope_concerns": []
+  },
+  "provenance": "Unchanged frozen agent-authored synthetic label; actual application route. No human correction, approval or inventory action in this benchmark."
+}

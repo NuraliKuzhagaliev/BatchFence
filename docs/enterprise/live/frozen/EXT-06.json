@@ -1,0 +1,125 @@
+{
+  "item": {
+    "id": "EXT-06",
+    "task": "extraction",
+    "category": "record_ids",
+    "text": "Receiving record REC-554 references pool POOL-21 and supplier lot NX-208. Document DOC-64 is a record identifier, not a supplier lot.",
+    "labels": {
+      "affected_supplier_lots": [],
+      "mentioned_supplier_lots": [
+        "NX-208"
+      ],
+      "complete_boundary_support": false,
+      "action_authority": false
+    }
+  },
+  "run": {
+    "id": "7d83b13f-7f72-4f59-b871-197438925376",
+    "mode": "live",
+    "clock_source": "Server UTC wall clock; latency from monotonic clock",
+    "input_hash": "61b92b851c465a8ca0e4b417553132d3f53958d19c6156135f8f9471c8b3cdd8",
+    "provider": "AMD configured endpoint",
+    "prompt_version": "scope-extract-2",
+    "schema_version": 1,
+    "timestamp": "2026-10-16T23:37:12.271977+00:00",
+    "status": "succeeded",
+    "repairs": 0,
+    "requested_model_id": "MiMo-V2.6-Flash",
+    "http_status": 200,
+    "request_id": "550e4bf22ab14f98bb4b488bb406d9b1",
+    "usage": {
+      "prompt_tokens": 572,
+      "total_tokens": 1307,
+      "completion_tokens": 735,
+      "prompt_tokens_details": {
+        "cached_tokens": 448,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.0002244144,
+      "cost_details": {
+        "upstream_inference_cost": 0.00022441439999999998,
+        "upstream_inference_prompt_cost": 1.86144e-05,
+        "upstream_inference_completions_cost": 0.0002058,
+        "total_cost": 0.0002244144,
+        "input_cost": 1.736e-05,
+        "output_cost": 0.0002058,
+        "cached_input_cost": 1.2544e-06,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "model_id": "self-dploy/MiMo-V2.6-Flash",
+    "output": {
+      "facts": [
+        {
+          "lot_id": "NX-208",
+          "affected": true,
+          "evidence": [
+            {
+              "document_id": "DOC-49db1475a758",
+              "block_id": "line-1",
+              "quote": "Receiving record REC-554 references pool POOL-21 and supplier lot NX-208."
+            }
+          ]
+        },
+        {
+          "lot_id": "POOL-21",
+          "affected": false,
+          "evidence": [
+            {
+              "document_id": "DOC-49db1475a758",
+              "block_id": "line-1",
+              "quote": "Receiving record REC-554 references pool POOL-21 and supplier lot NX-208."
+            }
+          ]
+        },
+        {
+          "lot_id": "REC-554",
+          "affected": false,
+          "evidence": [
+            {
+              "document_id": "DOC-49db1475a758",
+              "block_id": "line-1",
+              "quote": "Receiving record REC-554 references pool POOL-21 and supplier lot NX-208."
+            }
+          ]
+        },
+        {
+          "lot_id": "DOC-64",
+          "affected": false,
+          "evidence": [
+            {
+              "document_id": "DOC-49db1475a758",
+              "block_id": "line-1",
+              "quote": "Document DOC-64 is a record identifier, not a supplier lot."
+            }
+          ]
+        }
+      ],
+      "qualifiers": [
+        "Only NX-208 is identified as a supplier lot; POOL-21 is described as a pool, REC-554 as a receiving record, and DOC-64 is explicitly stated to be a record identifier rather than a supplier lot.",
+        "The document states references only and gives no explicit hold, rejection, or other action, so whether any lot is 'affected' is ambiguous; NX-208 is marked affected solely because it is the explicitly identified supplier lot.",
+        "POOl-21 and REC-554 are merely mentioned as referenced items, not stated to be affected.",
+        "No inventory quantities, commands, or approvals are stated in the document."
+      ]
+    },
+    "elapsed_ms": 37079,
+    "revision": 7,
+    "document_id": "DOC-49db1475a758",
+    "scope_concerns": []
+  },
+  "provenance": "Unchanged frozen agent-authored synthetic label; actual application route. No human correction, approval or inventory action in this benchmark."
+}

@@ -1,0 +1,35 @@
+{
+  "item": {
+    "id": "KNW-06",
+    "task": "knowledge",
+    "category": "machine_settings",
+    "question": "What temperature and pressure should I set on the coating machine?",
+    "product": "decorative-housings",
+    "process": "coating",
+    "labels": {
+      "answerable": false,
+      "expected_sources": [],
+      "inventory_authority": false
+    }
+  },
+  "run": {
+    "id": "ANSWER-df73824a697f4aafb0e2316a3a2a8bfb",
+    "status": "insufficient",
+    "mode": "deterministic retrieval abstention; no model request",
+    "retrieval": {
+      "status": "insufficient",
+      "reason": "No applicable approved passage supports this question",
+      "passages": []
+    },
+    "output": {
+      "claims": [],
+      "insufficient_evidence": true,
+      "missing_information": [
+        "No applicable approved passage supports this question"
+      ]
+    },
+    "catalog_digest": "57af09a3a80a2e48cd9d395d50ae6cf56b71796258fe23898b0379afe59d238e",
+    "case_id": "2c77bd0fe6ca4beea60bc86d27a07614"
+  },
+  "provenance": "Unchanged frozen agent-authored synthetic label; actual application route. No human correction, approval or inventory action in this benchmark."
+}

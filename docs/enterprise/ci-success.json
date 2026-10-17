@@ -1,0 +1,18 @@
+{
+  "run": 38978907998,
+  "url": "https://github.com/NuraliKuzhagaliev/BatchFence/actions/runs/38978907998",
+  "head": "15f69f778426083b44e45f0ed9e52f9b34966d95",
+  "conclusion": "success",
+  "profile": "Linux public synthetic container",
+  "checks": [
+    "renderer build",
+    "102 pytest",
+    "30 deterministic cases",
+    "publication audit",
+    "real Docker image",
+    "500/800/stale/receipt/session isolation",
+    "SQLite volume restart",
+    "every original source hash and cross-owner source denial after restart"
+  ],
+  "live_inference": false
+}

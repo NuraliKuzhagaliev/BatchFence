@@ -1,0 +1,158 @@
+{
+  "item": {
+    "id": "KNW-12",
+    "task": "knowledge",
+    "category": "no_evidence",
+    "question": "The only source is a chat message saying everything looks good. Can recovery proceed?",
+    "product": "decorative-housings",
+    "process": "coating",
+    "labels": {
+      "answerable": false,
+      "expected_sources": [],
+      "inventory_authority": false
+    }
+  },
+  "run": {
+    "id": "ANSWER-3a9c878cd1c34fafadff8274e3fb2b12",
+    "task": "approved-knowledge",
+    "mode": "live",
+    "timestamp": "2026-10-16T23:41:53.657688+00:00",
+    "prompt_version": "approved-knowledge-1",
+    "input_hash": "61034cc807f45e279f3233b0d33e2b6679db9f28f100fe9d3fad1c7fe30bd148",
+    "status": "succeeded",
+    "attempts": 1,
+    "repairs": 0,
+    "clock_source": "Server UTC; latency measured with monotonic clock",
+    "provider": "AMD configured endpoint",
+    "requested_model_id": "MiMo-V2.6-Flash",
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1800
+    },
+    "http_status": 200,
+    "request_id": "1b2dedda9aa1473ea42136b2ef576739",
+    "usage": {
+      "prompt_tokens": 1107,
+      "total_tokens": 1356,
+      "completion_tokens": 249,
+      "prompt_tokens_details": {
+        "cached_tokens": 384,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.0001720152,
+      "cost_details": {
+        "upstream_inference_cost": 0.00017201519999999999,
+        "upstream_inference_prompt_cost": 0.0001022952,
+        "upstream_inference_completions_cost": 6.972e-05,
+        "total_cost": 0.0001720152,
+        "input_cost": 0.00010122,
+        "output_cost": 6.972e-05,
+        "cached_input_cost": 1.0752e-06,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "model_id": "self-dploy/MiMo-V2.6-Flash",
+    "raw_output": {
+      "claims": [
+        {
+          "document_id": "PROC-100",
+          "version": 1,
+          "passage_id": "P1",
+          "quote": "Before considering recovery, verify receiving-source authenticity, review complete lot ancestry, and record a passed visual inspection for the exact held pool. A proposed scope change alone is insufficient."
+        },
+        {
+          "document_id": "PROC-100",
+          "version": 1,
+          "passage_id": "P2",
+          "quote": "Receiving-source authenticity must be checked against a known supplier contact or original controlled receiving system. Record who verified it, the source reference, and the verification date. An exact quote or document hash does not authenticate a supplier."
+        }
+      ],
+      "insufficient_evidence": false,
+      "missing_information": []
+    },
+    "output": {
+      "claims": [
+        {
+          "document_id": "PROC-100",
+          "version": 1,
+          "passage_id": "P1",
+          "quote": "Before considering recovery, verify receiving-source authenticity, review complete lot ancestry, and record a passed visual inspection for the exact held pool. A proposed scope change alone is insufficient."
+        },
+        {
+          "document_id": "PROC-100",
+          "version": 1,
+          "passage_id": "P2",
+          "quote": "Receiving-source authenticity must be checked against a known supplier contact or original controlled receiving system. Record who verified it, the source reference, and the verification date. An exact quote or document hash does not authenticate a supplier."
+        }
+      ],
+      "insufficient_evidence": false,
+      "missing_information": []
+    },
+    "elapsed_ms": 8377,
+    "catalog_digest": "57af09a3a80a2e48cd9d395d50ae6cf56b71796258fe23898b0379afe59d238e",
+    "case_id": "2c77bd0fe6ca4beea60bc86d27a07614",
+    "retrieval": {
+      "status": "retrieved",
+      "reason": "",
+      "passages": [
+        {
+          "document_id": "PROC-100",
+          "version": 1,
+          "passage_id": "P1",
+          "quote": "Before considering recovery, verify receiving-source authenticity, review complete lot ancestry, and record a passed visual inspection for the exact held pool. A proposed scope change alone is insufficient.",
+          "page": 1,
+          "source_hash": "627168b204127da543acb63ede31b0cfa725cea4ece2da62a1bc39f5426fb9ac"
+        },
+        {
+          "document_id": "PROC-100",
+          "version": 1,
+          "passage_id": "P2",
+          "quote": "Receiving-source authenticity must be checked against a known supplier contact or original controlled receiving system. Record who verified it, the source reference, and the verification date. An exact quote or document hash does not authenticate a supplier.",
+          "page": 1,
+          "source_hash": "627168b204127da543acb63ede31b0cfa725cea4ece2da62a1bc39f5426fb9ac"
+        },
+        {
+          "document_id": "PROC-100",
+          "version": 1,
+          "passage_id": "P3",
+          "quote": "A complete receiving replacement records the stock pool, every confirmed supplier parent, all superseded lineage row identifiers, and the supporting source passage. Unresolved contradictions retain the restriction.",
+          "page": 1,
+          "source_hash": "627168b204127da543acb63ede31b0cfa725cea4ece2da62a1bc39f5426fb9ac"
+        },
+        {
+          "document_id": "PROC-100",
+          "version": 1,
+          "passage_id": "P4",
+          "quote": "A quality reviewer prepares the exact whole-pool recovery action. A distinct authorized release approver checks the same evidence and policy revision. Other active restrictions remain effective.",
+          "page": 1,
+          "source_hash": "627168b204127da543acb63ede31b0cfa725cea4ece2da62a1bc39f5426fb9ac"
+        },
+        {
+          "document_id": "PROC-101",
+          "version": 1,
+          "passage_id": "P1",
+          "quote": "The visual inspection record identifies the stock pool, inspected and nonconforming unit counts, method, date, inspector and original source. Record the pass or fail against the owner-approved inspection criteria; statistical control limits are not product acceptance specifications.",
+          "page": 1,
+          "source_hash": "9c726139accd6e777eff3bd1446b09024c316b999da15077c8ba8f44a1677d9f"
+        }
+      ]
+    },
+    "question": "The only source is a chat message saying everything looks good. Can recovery proceed?",
+    "boundary": "AMD-selected exact procedure passages are proposals. They do not authorize inventory actions."
+  },
+  "provenance": "Unchanged frozen agent-authored synthetic label; actual application route. No human correction, approval or inventory action in this benchmark."
+}

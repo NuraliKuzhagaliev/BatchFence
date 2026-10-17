@@ -34,6 +34,9 @@ import {
 import type { Case, Document, Evidence, Packet, Upload, Run } from "./types";
 import { Graph, GenealogyPreview, labels } from "./Graph";
 import { EvidencePlanner, RevisionComparison, VerificationPanel, Elapsed } from "./UpgradePanels";
+import {PilotLogin,QuantityStrip,IntakePanel,OcrReview} from "./FoundationPanels";
+import {EnterprisePanels} from './EnterprisePanels';
+import {RecoveryPanel} from './RecoveryPanel';
 import "./style.css";
 const euro = (n: number) =>
   new Intl.NumberFormat("en-IE", {
@@ -80,8 +83,8 @@ function SourceText({
     </div>
   );
 }
-const RELEASE_URL = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.2.0";
-const WINDOWS_DOWNLOAD = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.2.0/BatchFence-0.2.0-win-x64-setup.exe";
+const RELEASE_URL = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.3.0";
+const WINDOWS_DOWNLOAD = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.3.0/BatchFence-0.3.0-win-x64-setup.exe";
 function PlatformLinks({ openWeb }: { openWeb: () => void }) {
   return native ? (
     <button className="button" onClick={openWeb}><ExternalLink size={16} />Open web app</button>
@@ -93,6 +96,7 @@ function PlatformLinks({ openWeb }: { openWeb: () => void }) {
   );
 }
 function App() {
+  const [section,setSection]=useState('incidents');
   const [data, setData] = useState<Case | null>(null),
     [packet, setPacket] = useState<Packet | null>(null),
     [busy, setBusy] = useState(""),
@@ -124,6 +128,8 @@ function App() {
     >([]),
     input = useRef<HTMLInputElement>(null),
     packetInput = useRef<HTMLInputElement>(null);
+  const [requiresSignIn,setRequiresSignIn]=useState(false);
+  const [pilotIdentity,setPilotIdentity]=useState<string>('');
   const [liveProtected, setLiveProtected] = useState(false);
   const [replayAvailable, setReplayAvailable] = useState(false);
   const [temporaryStorage, setTemporaryStorage] = useState(false);
@@ -169,6 +175,7 @@ function App() {
     async function boot() {
       try {
         const health = await request<{
+          profile?: string;
           inference_mode: string;
           amd_configured: boolean;
           live_protected: boolean;
@@ -176,6 +183,10 @@ function App() {
           storage_mode: string;
           replay_available: boolean;
         }>("GET", "/api/health");
+        if(health.profile==='pilot'){
+          try {const me=await request<{actor:{username:string}}>('GET','/api/auth/me');if(active)setPilotIdentity(me.actor.username);}
+          catch {if(active){setRequiresSignIn(true);setOnline(true);}return;}
+        }
         const all = await request<typeof cases>("GET", "/api/cases");
         if (!active) return;
         setCases(all);
@@ -192,6 +203,7 @@ function App() {
           const c = await request<Case>("GET", "/api/cases/" + id);
           if (active) setData(c);
         }
+        if(!connectionWasAvailable.current)setNotice('Backend reconnected. Current evidence and action state reloaded.');
         setOnline(true);
         connectionWasAvailable.current = true;
       } catch {
@@ -202,39 +214,13 @@ function App() {
       }
     }
     void boot();
-    const t = setInterval(
-      () =>
-        request("GET", "/api/health")
-          .then(async () => {
-            if (!active) return;
-            if (!connectionWasAvailable.current) {
-              const all = await request<typeof cases>("GET", "/api/cases");
-              const id = localStorage.getItem("bf.case");
-              const current =
-                id && all.some((c) => c.id === id)
-                  ? await request<Case>("GET", "/api/cases/" + id)
-                  : null;
-              if (!active) return;
-              setCases(all);
-              setData(current);
-              setReview(false);
-              setNotice(
-                "Backend reconnected. Current evidence and action state reloaded.",
-              );
-            }
-            connectionWasAvailable.current = true;
-            setOnline(true);
-          })
-          .catch(() => {
-            connectionWasAvailable.current = false;
-            if (active) setOnline(false);
-          }),
-      15000,
-    );
-    return () => {
-      active = false;
-      clearInterval(t);
-    };
+    // User activity checks connectivity without keeping a free host awake.
+    const focus = () => { if(document.visibilityState==='visible') void boot(); };
+    const offline=()=>{connectionWasAvailable.current=false;setOnline(false);};
+    window.addEventListener('focus',focus);
+    window.addEventListener('online',focus);
+    window.addEventListener('offline',offline);
+    return () => {active=false;window.removeEventListener('focus',focus);window.removeEventListener('online',focus);window.removeEventListener('offline',offline);};
   }, []);
   useEffect(() => {
     if (state)
@@ -470,6 +456,7 @@ function App() {
   const diff = state?.history
     .filter((h) => h.type === "reviewed" && h.old_units != null)
     .at(-1);
+  if(requiresSignIn&&!packet)return <PilotLogin onSuccess={()=>location.reload()} onPacket={openPacket}/>;
   return (
     <div className="app-shell">
       <aside className="rail">
@@ -478,19 +465,21 @@ function App() {
         </a>
         <div className="rail-line" />
         {[
-          [Network, "Incident", "map"],
-          [Files, "Sources", "sources"],
-          [History, "History", "timeline"],
+          [List, "Overview", "overview"],
+          [Network, "Signals", "signals"],
+          [Files, "Incidents", "incidents"],
+          [Search, "Knowledge", "knowledge"],
+          [PackageCheck, "Actions", "actions"],
+          [ShieldCheck, "Verification", "verification"],
         ].map(([Icon, title, key]) => {
           const I = Icon as typeof Network;
           return (
             <button
-              className={"rail-item " + (tab === key ? "active" : "")}
+              className={"rail-item " + (section === key ? "active" : "")}
               key={String(key)}
               title={String(title)}
               onClick={() => {
-                setTab(String(key));
-                setMobile(key === "sources" ? "sources" : "map");
+                setSection(String(key));
               }}
             >
               <I size={21} />
@@ -514,9 +503,11 @@ function App() {
         <header className="topbar">
           <div className="wordmark">
             BatchFence<span className="separator">/</span>
-            <span className="workspace-name">Containment desk</span>
+            <span className="workspace-name">Quality operations</span>
           </div>
           <div className="top-actions">
+            {pilotIdentity&&<><span className="caption">{pilotIdentity}</span><button className="text-button" onClick={async()=>{await request('POST','/api/auth/logout',{});location.reload();}}>Sign out</button></>}
+            {!online&&<button className="text-button" onClick={()=>location.reload()}>Retry connection</button>}
             <span className={"connection " + (!online ? "offline" : "")}>
               <i />
               {online ? "Backend connected" : "Backend offline"}
@@ -530,11 +521,14 @@ function App() {
             </button>
           </div>
         </header>
+        <nav className="module-mobile-nav" aria-label="Quality workspaces">
+          {['overview','signals','incidents','knowledge','actions','verification'].map(key=><button key={key} className={section===key?'active':''} onClick={()=>setSection(key)}>{key[0].toUpperCase()+key.slice(1)}</button>)}
+        </nav>
         <main>
           <div className="page-heading">
             <div>
               <div className="eyebrow">
-                QUALITY OPERATIONS <ChevronRight size={12} /> INCIDENT WORKBENCH
+                QUALITY OPERATIONS <ChevronRight size={12} /> {section.toUpperCase()}
               </div>
               <h1>{state ? state.name : "Evidence to action."}</h1>
               <p>
@@ -614,7 +608,7 @@ function App() {
               )}
             </div>
           )}
-          {!state ? (
+          {state && section!=='incidents' ? <EnterprisePanels key={state.id+section} section={section} state={state} readOnly={readOnly} mode={mode} setMode={setMode} update={accept} navigate={setSection} openCase={async id=>{accept(await request<Case>('GET','/api/cases/'+id));setSection('incidents');setReview(false);setTab('map');}}/> : !state ? (
             <section className="welcome">
               <div className="welcome-copy">
                 <span className="pill navy">
@@ -903,7 +897,7 @@ function App() {
                   <div className="map-heading">
                     <div>
                       <h2>
-                        {tab === "timeline"
+                        {tab === "recovery" ? "Controlled recovery" : tab === "timeline"
                           ? "Evidence revision timeline"
                           : tab === "sources"
                             ? "Source records"
@@ -938,10 +932,12 @@ function App() {
                   >
                     {[
                       ["map", "Exposure"],
+                      ["sources", "Sources & intake"],
                       ["requests", "Evidence requests"],
                       ["orders", "Order review"],
                       ["timeline", "Revisions"],
                       ["receipt", "Receipt"],
+                      ["recovery", "Recovery"],
                       ["verify", "Verification"],
                     ].map(([k, t]) => (
                       <button
@@ -960,7 +956,8 @@ function App() {
                       </button>
                     ))}
                   </div>
-                  {result && (
+                  <QuantityStrip state={state}/>
+                  {result && tab!=="recovery" && (
                     <div
                       className={
                         "comparison " +
@@ -981,7 +978,7 @@ function App() {
                         <span>
                           {state.pending_revision
                             ? "Previous plan · stale"
-                            : "Policy-required hold"}
+                            : "Proposed hold"}
                         </span>
                         <strong>
                           {num(result.hold_units)} <small>units</small>
@@ -1085,6 +1082,8 @@ function App() {
                         Confirm scope & calculate
                       </button>
                     </section>
+                  ) : tab === "recovery" ? (
+                    <RecoveryPanel key={state.id} state={state} readOnly={readOnly} update={accept}/>
                   ) : tab === "verify" ? (
                     <VerificationPanel state={state} replay={!!packet} readOnly={readOnly}/>
                   ) : tab === "timeline" ? (
@@ -1137,7 +1136,9 @@ function App() {
                   ) : tab === "sources" ? (
                     <section className="source-page">
                       <h3>{doc?.filename}</h3>
+                      {doc&&<OcrReview key={doc.id} state={state} doc={doc} readOnly={readOnly} onUpdate={accept}/>}
                       <SourceText doc={doc} />
+                      <IntakePanel key={state.id} state={state} readOnly={readOnly} onUpdate={accept}/>
                     </section>
                   ) : tab === "requests" ? (
                     <EvidencePlanner state={state} readOnly={readOnly||!!busy} mode={mode} onUpdate={s=>{accept(s);setNotice('');setError('');}} onEvidence={showEvidence}/>
@@ -1376,7 +1377,7 @@ function App() {
                             <code>{row.row_id}</code>
                           </dd>
                           <dt>Current state</dt>
-                          <dd>{row.status}</dd>
+                          <dd>{state.stocks.find(stock=>stock.id===row.id)?.status??row.status}</dd>
                         </dl>
                       </div>
                       <div className="inspector-sources">

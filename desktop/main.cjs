@@ -43,7 +43,7 @@ protocol.registerSchemesAsPrivileged([
 let win,
   capability = "";
 const apiPattern =
-  /^\/api\/(?:health|replay|challenges|cases(?:\/(?:demo|import|[a-f0-9]{32}(?:\/(?:documents|revision|analyze|reviews|approve|apply|export|simulate|reply-preview|reply-review|comparison))?))?)$/;
+  /^\/api\/(?:health|replay|challenges|audit|inspections|intake\/profiles|jobs(?:\/[A-Za-z0-9-]{1,80}\/cancel)?|auth\/(?:login|logout|me|membership|simulate)|enterprise\/example|signals(?:\/(?:baseline-review|investigation|explain))?|knowledge(?:\/(?:procedure-review|answer))?|recovery\/(?:policy-review|release-approve|recovery-execute|connector-enqueue|connector-dispatch)|actions(?:\/(?:create|ACTION-[a-f0-9]{32}\/(?:investigation-review|plan-review|implementation-review|monitoring-start|effectiveness|outcome-review|recurrence-review|reopen-review|synthetic-followup)))?|cases(?:\/(?:demo|import|[a-f0-9]{32}(?:\/(?:documents(?:\/DOC-[a-f0-9]{12}\/pages\/[1-8])?|revision|analyze|reviews|approve|apply|export|simulate|reply-preview|reply-review|comparison|intake-preview|intake-review|ocr-review|modules|knowledge-check|receiving-draft|receiving-preview|receiving-review|recovery|recovery-evidence|recovery-prepare))?))?)$/;
 function sender(event) {
   if (
     !win ||
@@ -99,16 +99,16 @@ app.whenReady().then(() => {
     const response = await fetch(origin + route, {
       method,
       redirect: "error",
-      signal: AbortSignal.timeout(55000),
+      signal: AbortSignal.timeout(route.endsWith("/documents") ? 120000 : 55000),
       headers: {
         "Content-Type": "application/json",
         "X-BF-Client": "desktop",
         ...(capability ? { "X-BF-Session": capability } : {}),
-        ...(method === "POST" && route.endsWith("/analyze") && accessToken ? { "X-BF-Demo-Token": accessToken } : {}),
+        ...(method === "POST" && /\/(analyze|receiving-draft|answer|explain)$/.test(route) && accessToken ? { "X-BF-Demo-Token": accessToken } : {}),
       },
       ...(method === "POST" ? { body: JSON.stringify(body || {}) } : {}),
     });
-    if (response.headers.get("x-bf-session"))
+    if (response.headers.has("x-bf-session"))
       capability = response.headers.get("x-bf-session");
     const text = await response.text();
     if (text.length > 8000000) throw Error("Backend response too large");

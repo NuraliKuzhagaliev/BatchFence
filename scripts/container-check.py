@@ -1,10 +1,11 @@
 """CI container integration: dynamic port, exact workflow, real Docker restart."""
 from pathlib import Path
 from datetime import datetime, timezone
-import json, subprocess, time, os
+import json, subprocess, time, os, hashlib
 import httpx
 
-base='http://127.0.0.1:8795'
+base=os.getenv('BATCHFENCE_CONTAINER_BASE_URL','http://127.0.0.1:8795')
+container=os.getenv('BATCHFENCE_CONTAINER_NAME','batchfence-ci')
 report={'at':datetime.now(timezone.utc).isoformat(), 'mode':'fixture', 'live_inference':False, 'checks':[]}
 
 def wait():
@@ -41,10 +42,16 @@ try:
     receipts=s['receipts']; assert len(receipts)==1
     other=httpx.Client(base_url=base)
     assert other.get(path).status_code==404
-    report['checks']+=['dynamic PORT=8795','500 to 800 synthetic workflow','stale approval rejected','sandbox receipt','two-session isolation']
-    subprocess.run(['docker','restart','batchfence-ci'],check=True,capture_output=True)
+    report['checks']+=['dynamic container port at '+base,'500 to 800 synthetic workflow','stale approval rejected','sandbox receipt','two-session isolation']
+    subprocess.run(['docker','restart',container],check=True,capture_output=True)
     wait(); saved=c.get(path).json()
     assert saved['receipts']==receipts and saved['stocks']==s['stocks']
+    for doc in saved['documents']:
+        source=c.get('/api/sources/'+doc['original_hash'])
+        source.raise_for_status()
+        assert hashlib.sha256(source.content).hexdigest()==doc['original_hash']
+        assert other.get('/api/sources/'+doc['original_hash']).status_code==404
+    report['checks'].append('all original source bytes and owner isolation survive restart')
     report['checks'].append('same SQLite volume survives actual container restart')
     assert c.get('/workspace/review',headers={'Accept':'text/html'}).status_code==200
     assert c.get('/api/missing').status_code==404

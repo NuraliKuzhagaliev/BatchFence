@@ -1,3 +1,101 @@
+# 0.3.0 final release checks in progress
+
+All four modules and foundations are implemented. Fresh AMD access is resolved. Across 27 attempts there were 26 HTTP 200 responses and one timeout, with no automatic retries or fixture substitution. All 24 frozen items were exercised: 20 made model requests and four abstained at retrieval. Raw extraction exactly matched 6/12 items; knowledge matched 11/12 pipeline labels (7/8 model responses). All sources are synthetic and all review is agent-operated.
+
+Source-only typed receiving retests passed 2/2. The complete AMD draft drove explicit review: 700 proposed while 800 remained applied, then separate named engineering approval and exact 100-unit sandbox recovery. The final compact signal explanation matched five computed observations and disclosed omitted follow-ups. Original errors and the timeout remain in docs/enterprise/live/.
+
+Review policy 3 adds explicit unresolved-conflict and unconfirmed-identifier guards. Old approvals are stale. A recalculated historical proposal can widen to 1,200 while 800 applied holds and original receipts remain unchanged. 110 project tests passed on the final backend, plus 30/30 deterministic cases, 12 core browser checks and six connected module groups. Saved fresh AMD results survived reload with no inference during capture. Loading indicators prevent transient zero counts while module records load. Final clean-release packaging checks follow.
+
+No more inference is needed for this release. Next: final clean 0.3.0 checkpoint, Windows/Linux packaging, interface/media checks, GitHub release and existing free Render deployment after CI. Preserve v0.2.0 and rc1 artifacts. Final exact identities and checksums will be in docs/enterprise/final-release.json.
+
+Human acceptance remains pending: quality professional, three unfamiliar operators, real scoped users/data approval, off-device restore against owner RPO/RTO, physical native dialogs, and any separately authorized real integration. Public Render is ephemeral; Windows is unsigned. Privately rotate the provider credential exposed by the portal during inspection and update private configuration. Do not paste secrets.
+
+---
+
+Historical checkpoints below describe their state at that time.
+
+# Enterprise candidate checkpoint — implementation complete, promotion blocked
+
+All four modules and their foundations are implemented as 0.3.0-rc.1. Clean package source: e616ff5b91bbe5716949dc3fc833be290a0802b1. Later evidence/tooling-only commits preserve these application bytes. Draft PR: https://github.com/NuraliKuzhagaliev/BatchFence/pull/1. Public web and Windows remain the protected 0.2.0 release at e70f4a0; no expanded Render rollout or new public release tag.
+
+Actual verification: 102 pytest,30 deterministic cases,12 preserved browser checks,6 connected browser groups; final installed Windows 7 core + 6 module groups,4 named default-pilot checks, offline 700-unit packet with 2 containment receipts plus recovery/module records and no external Node/Python on PATH. Actual PostgreSQL migration, distinct test accounts, connector failure/retry/process restart, idempotent ack and 16-source isolated restore passed. Actual Linux OCR processed 2 scanned pages / 52 word boxes and rejected pre-review narrowing. All review was agent-operated. Public Linux CI 38978907998 and final branch CI 38979895208 passed after correcting source storage to /var/data/sources; no permission broadening. All new model quality remains unmeasured 0/24.
+
+Candidate installer: D:\projects\BatchFence\releases\BatchFence-0.3.0-rc.1-win-x64-setup.exe. Installed: work/installed-0.3.0-rc.1/BatchFence.exe. Source ZIP and SHA256SUMS-0.3.0-rc.1.txt are in releases/. It has a separate candidate app identity and defaults to http://127.0.0.1:8788. The first candidate test installer reused the stable identity and replaced the old test installation; stable 0.2.0 was restored from its unchanged installer. Corrected candidate install verified the stable executable stayed byte-identical. Both local installations now coexist. Public assets were never replaced.
+
+Open local synthetic web: http://127.0.0.1:8794. Private named pilot: http://127.0.0.1:8788. Start pilot with `docker compose -f ops/compose.pilot.yml up --build -d`; provision real users via `docker compose -f ops/compose.pilot.yml exec app python -m scripts.pilot create-user --username YOUR_NAME --org northstar --site plant1 --roles quality_reviewer` and separate release_approver. Do not reuse engineering credentials. Full setup/restore in docs/enterprise/pilot-operations.md. For standalone synthetic mode, use the exact Uvicorn command below and set DATABASE_PATH, SOURCE_STORAGE_PATH, APP_ORIGIN and INFERENCE_MODE=fixture explicitly.
+
+Precise external blocker: configured MiMo-V2.6-Flash and every catalog entry report free=false; documented usage URL404. General free/event FAQ claims do not confirm this account's configured endpoint allowance. Zero new inference calls; no substitutions. Owner must confirm an existing zero-cost allowance for this endpoint/model, or privately configure the exact documented free event endpoint/model/key. Never paste secrets into chat. Cap remains four fresh calls. Then evaluate typed receiving, approved-procedure answers and signal explanations, preserve raw failures versus reviewed corrections, run affected checks, and only then promote a coherent version/tag/installer and existing free Render app.
+
+Other human acceptance: quality professional and 3 unfamiliar operators (currently 0), real distinct users/data-processing approval, off-device restore against owner RPO/RTO, actual Windows chooser/save/reopen. Reference connector is loopback sandbox only; real ERP/enterprise inventory action remains unauthorized. Free public SQLite is ephemeral and Windows is unsigned.
+
+Materials: submission/enterprise has the reviewed 7-slide deck, cover, 50.28-second actual synthetic walkthrough, narration and quickstart. Historical 0.2.0 AMD footage/results are identified as historical. Current public event requirements were checked; authenticated media constraints/cutoff still need owner inspection. No entry saved/submitted, external message or paid resource.
+
+Checks and exact evidence: docs/enterprise/evidence-matrix.md, candidate-artifacts.json, security.md and release-gates.md. npm production 0 findings, full 8 moderate build-tool findings remain; Python follow-up 0 known after local pip update. Publication scan includes known private pilot values and installed ASAR contents without exposing values.
+
+Reproduce from D:\projects\BatchFence:
+- `.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-NEW`
+- `.venv\Scripts\python.exe -m scripts.evaluate`
+- `node scripts/enterprise-browser.cjs` (default8794)
+- `node scripts/desktop-pilot.cjs` (installed candidate, default8788, private engineering test configuration)
+- Set BATCHFENCE_TEST_EXE/BATCHFENCE_BACKEND_ORIGIN for desktop-smoke.cjs and enterprise-browser.cjs; set BATCHFENCE_OFFLINE_PACKET/BATCHFENCE_EXPECTED_UNITS/BATCHFENCE_EXPECTED_RECEIPTS/BATCHFENCE_ENTERPRISE_PACKET for desktop-offline.cjs.
+- `.venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8794`
+
+---
+
+# Enterprise 0.3.0-rc.1 engineering candidate — release gate open
+
+Protected public app/Windows release remains e70f4a0 / v0.2.0. All four modules and shared foundations are implemented on enterprise-pilot-0.3. Current candidate is private/local; no claim of production readiness or independent human acceptance.
+
+Verified: 102 pytest passed (one deprecation warning); 30/30 frozen deterministic cases; six connected browser groups and 12 preserved core checks with zero page errors. Actual PostgreSQL named test identities exercised 800 applied / 700 proposed / exact 100 recovery, failed connector then explicit retry, connector process restart/idempotent acknowledgement, immutable original receipts, SQLite migration and isolated restore of all 16 source hashes. Restore 179 ms for this tiny same-device test; owner RPO/RTO unset. Actual Linux OCR 2 pages/52 boxes, pre-review narrowing rejected. Statistical simulation and 500-record microbenchmark are labeled synthetic, not field/capacity evidence.
+
+Fresh AMD: zero new inference calls. Current catalog free=false for every model; documented quota endpoint 404. Keep free-only. See docs/enterprise/release-gates.md and live/preflight.json. All 24 frozen new-task items remain unmeasured by fresh inference. Existing 0.2.0 live evidence remains historical, never relabeled.
+
+Next independent work: installed candidate/package/offline/default-pilot transport, coherent source/container build, dependency/security publication scan, operator/media deliverables. Promotion and Render update wait for new-task AMD gate. See docs/enterprise/evidence-matrix.md and ENTERPRISE_PLAN.md. Exact run commands are in docs/enterprise/pilot-operations.md; local web http://127.0.0.1:8794 and private pilot http://127.0.0.1:8788. Private files remain in ignored work/ and .env, all on D:.
+
+---
+
+# Enterprise client and OCR checkpoint — not yet released
+
+Protected release remains e70f4a0 / v0.2.0; development branch enterprise-pilot-0.3. Local backend checkpoint 28b0b5a follows foundation 84cf9a8. The four module interfaces, proposed/applied quantities, typed receiving review, recovery controls, pilot login, mapped imports, source OCR review, and module packet snapshots are now connected. Desktop IPC explicitly allows the new routes. No new public deployment or installer yet.
+
+Actual checks: 89 full pytest passed before the latest boundary additions; nine additional boundary tests passed. TypeScript/Vite build passed. Existing local Edge browser regression passed all 12 checks with zero page errors after fixing offline/reconnect events. Evidence: docs/enterprise/browser-core.json and ui/core. Narrow-window visual inspection found and fixed unreachable module navigation; synthetic baseline review through the UI showed 1.77% pooled baseline and five signals. This is agent-operated synthetic verification.
+
+Actual private Linux container Tesseract 5.3.0 processed two raster-only pages in 1,391 ms including retained-page fetches; 52 word boxes and original PDF bytes preserved. Narrowing before visual review rejected 422. After agent inspection of both retained page images and explicit review, the fixture parser/review produced a 500-unit proposal with zero applied units. Evidence: docs/enterprise/ocr. No AMD inference was used for this OCR check.
+
+Remaining: connected client acceptance (especially recovery/action transitions), fresh AMD cap-four evaluation, full PostgreSQL recovery/restore and SQLite-to-Postgres migration, actual local connector restart, security/performance review, Windows package/media and gated free Render release. No independent domain/operator validation or enterprise readiness claim. Owner consent PILOT_AMD_DATA_APPROVED defaults false; private pilot inference is blocked until owner authorization.
+
+Next commands: `.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-enterprise-next`; `npm run build`; local server on 8794; pilot container on 8788. OCR: `python -m scripts.verify-ocr upload`, then inspect both saved pages before `review-after-visual-inspection`. Existing release artifacts and source remain recoverable.
+
+---
+
+# Enterprise development checkpoint — backend integration in progress
+
+Protected public release remains e70f4a0 / v0.2.0. Foundation local checkpoint is 84cf9a8; later enterprise work remains on enterprise-pilot-0.3. Nothing from this expansion has been published.
+
+Implemented backend paths now cover mapped inventory/lineage/allocation/inspection imports; bounded local OCR integration and critical-field review; typed receiving review preserving old syntax; frozen p-chart signals and linked investigations; applicable approved-procedure retrieval and exact quoted AMD answers; shared whole-pool hold reasons; distinct-identity recovery and a persisted reference-connector outbox; corrective action, frozen effectiveness criteria and recurrence/reopen. Full web/desktop module UI, fresh AMD evaluation, final security/performance/media/package/deployment gates are still pending. Do not call these modules delivered yet.
+
+Verified since foundation: 83 tests through Signals/Knowledge and shared inventory; four targeted recovery tests pass including actual 800/700/100 API sequence, denied self/revoked approval, overlapping second-incident hold, duplicate execution, failed reference acknowledgement and explicit idempotent retry. Two effectiveness tests plus seven existing record tests pass. Reviews/test identities are agent-operated. OCR engine has been installed in the private Linux image; actual scanned-page test is next. The full latest suite is being rerun; use its actual result rather than summing overlapping test subsets.
+
+Local servers: development Uvicorn 127.0.0.1:8794 was started before the latest backend edits and needs restart for new routes. Private Compose app 127.0.0.1:8788 and PostgreSQL are running from a previous development build. Isolated PostgreSQL evaluator is on 127.0.0.1:55439. All new data/config is under ignored D:\projects\BatchFence\work. Never print private config contents. No existing unrelated containers were changed or deleted.
+
+Next: finish all module UI and integrated acceptance; preserve the verified release until gates pass. Existing native-dialog/human-domain/RPO-RTO acceptance remains pending. Frozen model set is evals/enterprise/frozen-v1.json (24 synthetic agent-labeled items), with a finite cap of four fresh authorized requests; none used yet.
+
+---
+
+# Enterprise upgrade in progress — protected 0.2.0 remains published
+
+Development branch: enterprise-pilot-0.3. Entire enterprise brief read; no existing 0.2.1 work found. Do not publish the expansion until its gates pass. New implementation is currently foundations only, not four delivered modules.
+
+Foundation checkpoint: 73 pytest pass (65 preserved plus 8 new cases); real PostgreSQL 17.11 run verified 500/800, stale rejection, concurrent duplicate execution, runtime privilege restrictions, and isolated backup/restore of one case, two receipts and 11 original sources. Measured restore 168 ms, backup age 0.227 s for this small synthetic drill. All named test identities/reviews are agent-operated. Same-device drill is not disaster recovery; owner RPO/RTO unset. Evidence: docs/enterprise/foundation-postgres.json.
+
+Added incremental SQLite/PostgreSQL repository and version-2 migration, private local identity with scoped roles and revocation, transactionally appended audit, original source storage/download, persisted single-attempt jobs with cancellation/interrupt status, and private loopback pilot Compose/setup/backup tooling. Existing extraction prompt is unchanged; no new AMD requests have been made. Model evaluation set must be frozen before prompt changes.
+
+Commands: `.venv\Scripts\python.exe -m pytest -q --basetemp work/pytest-foundation-04`; `.venv\Scripts\python.exe -m scripts.verify-pilot` (requires ignored local evaluation config); `python -m scripts.pilot-config`; `docker compose -f ops/compose.pilot.yml up --build -d`. Operational instructions and boundaries: docs/enterprise/pilot-operations.md. Plan/evidence/risk register: ENTERPRISE_PLAN.md and docs/enterprise.
+
+Next: finish private container profile acceptance, mapped onboarding and typed source review; then Signals/Knowledge, shared-ledger Recovery and Corrective Action in dependency order. All four remain in scope. No cloud deployment, installer replacement, paid resources or real inventory execution in this checkpoint.
+
+---
+
 # BatchFence 0.2.0 handoff
 
 All six core improvements are implemented and verified on the public web application and installed Windows client. Public app: https://batchfence.onrender.com. Windows: https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.2.0. Existing free Render service only; no purchases, paid disks or account-security changes.
@@ -51,3 +149,5 @@ Commit 011502d passed Linux CI run 38962137655 (65 tests, 30 domain cases, conta
 Cold-start acceptance remains inconclusive. An existing Chrome tab was open on BatchFence, whose existing connection-status code polls health every 15 seconds. The planned idle wait was cancelled, preserving that tab; the measured 1,075 ms application readiness was warm access, not a cold-start result. To check sleep/wake independently, first export work, close all BatchFence browser/desktop clients, leave the service without client traffic for at least 16 minutes, then reopen it. Other visitors can still keep the public service awake. No external keepalive service was introduced.
 
 The final documentation-only rollout retains identical app and installer bytes. Its final commit/asset verification is stored locally in releases/final-verification-0.2.0.json. The temporary local verification server was stopped; local mode can be started with the documented command.
+
+Final published candidate verification: branch commit9a99a2f passed CI38979895208; default GitHub archive for package commite616ff5 matched every byte of721tracked files in the supplemental source ZIP. Public health still reports0.2.0/e70f4a0; no new deployment or inference. docs/enterprise/finalization.json records the observations. A final metadata-only commit may follow without changing runtime or installer bytes.

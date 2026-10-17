@@ -1,0 +1,43 @@
+{
+  "at": "2026-10-16T23:10:47.891965+00:00",
+  "verified_branch_commit": "9a99a2ff25b239a4de70dc0f62eb114a0fa7af2a",
+  "clean_installer_commit": "e616ff5b91bbe5716949dc3fc833be290a0802b1",
+  "ci": {
+    "run": 38979895208,
+    "conclusion": "success",
+    "url": "https://github.com/NuraliKuzhagaliev/BatchFence/actions/runs/38979895208"
+  },
+  "source_archive": {
+    "at": "2026-10-16T23:08:52.326027+00:00",
+    "commit": "e616ff5b91bbe5716949dc3fc833be290a0802b1",
+    "github_default_commit_archive": "https://github.com/NuraliKuzhagaliev/BatchFence/archive/e616ff5b91bbe5716949dc3fc833be290a0802b1.zip",
+    "source_files_compared": 721,
+    "all_bytes_match": true,
+    "archive_sha256": "13d32b2a869124bd4e9319986e00638f9e71cf57288fe5612287a724362b2c80",
+    "tag_archive": "Pending release promotion; no candidate tag published",
+    "contains_current_docker_source_path": true
+  },
+  "protected_public": {
+    "at": "2026-10-16T23:08:53.212516+00:00",
+    "health": {
+      "status": "ok",
+      "database": "ready",
+      "version": "0.2.0",
+      "commit": "e70f4a08004992afd359a05671248808e5d874e6",
+      "inference_mode": "fixture",
+      "amd_configured": true,
+      "live_protected": true,
+      "public_demo": true,
+      "storage_mode": "ephemeral",
+      "replay_available": true
+    },
+    "new_deployment": false,
+    "new_inference_calls": 0,
+    "note": "Warm GET health observation only; not cold-start or live inference verification"
+  },
+  "candidate_status": "Implemented and engineering-tested; fresh AMD and independent pilot acceptance pending; not promoted",
+  "live_inference_calls": 0,
+  "human_unblock": "Confirm actual existing zero-cost configured AMD allowance or privately configure documented free event endpoint/model/key",
+  "source_tag_archive": "No new public tag until promotion gate passes",
+  "working_tree_before_report": ""
+}

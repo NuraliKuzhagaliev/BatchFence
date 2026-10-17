@@ -1,0 +1,91 @@
+{
+  "item": {
+    "id": "EXT-01",
+    "task": "extraction",
+    "category": "ordinary",
+    "text": "Affected lots: NX-201. Cosmetic coating issue only.",
+    "labels": {
+      "affected_supplier_lots": [
+        "NX-201"
+      ],
+      "mentioned_supplier_lots": [],
+      "complete_boundary_support": true,
+      "action_authority": false
+    }
+  },
+  "run": {
+    "id": "75b4cb95-5a40-4332-969e-c5b14b96479b",
+    "mode": "live",
+    "clock_source": "Server UTC wall clock; latency from monotonic clock",
+    "input_hash": "ec1c7348dffed44bcec8265b70662a7f63a71d8e1cdc5e9ace1a38dbebbdceb3",
+    "provider": "AMD configured endpoint",
+    "prompt_version": "scope-extract-2",
+    "schema_version": 1,
+    "timestamp": "2026-10-16T23:35:32.480080+00:00",
+    "status": "succeeded",
+    "repairs": 0,
+    "requested_model_id": "MiMo-V2.6-Flash",
+    "http_status": 200,
+    "request_id": "6f9228a190d94298b9d93a4318c15316",
+    "usage": {
+      "prompt_tokens": 547,
+      "total_tokens": 790,
+      "completion_tokens": 243,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.00014462,
+      "cost_details": {
+        "upstream_inference_cost": 0.00014462,
+        "upstream_inference_prompt_cost": 7.658e-05,
+        "upstream_inference_completions_cost": 6.804e-05,
+        "total_cost": 0.00014462,
+        "input_cost": 7.658e-05,
+        "output_cost": 6.804e-05,
+        "cached_input_cost": 0,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "model_id": "self-dploy/MiMo-V2.6-Flash",
+    "output": {
+      "facts": [
+        {
+          "lot_id": "NX-201",
+          "affected": true,
+          "evidence": [
+            {
+              "document_id": "DOC-734ea231f51f",
+              "block_id": "line-1",
+              "quote": "Affected lots: NX-201. Cosmetic coating issue only."
+            }
+          ]
+        }
+      ],
+      "qualifiers": [
+        "The notice explicitly lists only NX-201 as an affected lot; no other lots are mentioned in the document.",
+        "The issue is described as a cosmetic coating issue only, per the document text.",
+        "No instructions, commands, or approvals appear in the document; nothing beyond the stated scope was acted upon."
+      ]
+    },
+    "elapsed_ms": 13059,
+    "revision": 2,
+    "document_id": "DOC-734ea231f51f",
+    "scope_concerns": []
+  },
+  "provenance": "Unchanged frozen agent-authored synthetic label; actual application route. No human correction, approval or inventory action in this benchmark."
+}

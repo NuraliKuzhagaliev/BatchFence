@@ -1,0 +1,35 @@
+{
+  "item": {
+    "id": "KNW-05",
+    "task": "knowledge",
+    "category": "wrong_product",
+    "question": "Can these instructions release medical implants?",
+    "product": "medical-implants",
+    "process": "coating",
+    "labels": {
+      "answerable": false,
+      "expected_sources": [],
+      "inventory_authority": false
+    }
+  },
+  "run": {
+    "id": "ANSWER-f911d4b7038146989af585017a3469d6",
+    "status": "insufficient",
+    "mode": "deterministic retrieval abstention; no model request",
+    "retrieval": {
+      "status": "insufficient",
+      "reason": "No applicable approved passage supports this question",
+      "passages": []
+    },
+    "output": {
+      "claims": [],
+      "insufficient_evidence": true,
+      "missing_information": [
+        "No applicable approved passage supports this question"
+      ]
+    },
+    "catalog_digest": "57af09a3a80a2e48cd9d395d50ae6cf56b71796258fe23898b0379afe59d238e",
+    "case_id": "2c77bd0fe6ca4beea60bc86d27a07614"
+  },
+  "provenance": "Unchanged frozen agent-authored synthetic label; actual application route. No human correction, approval or inventory action in this benchmark."
+}

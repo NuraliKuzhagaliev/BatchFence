@@ -1,3 +1,25 @@
+# BatchFence 0.3.0 deployment
+
+Use only the existing Render Free service srv-db968c7btjjs73fghkog in workspace tea-d3pt0sbipnbc73a5v810. Its one free Docker instance in Frankfurt deploys main when checks pass. No paid disk or new resource. Public SQLite is ephemeral; export packets.
+
+Public Windows 0.3.0 defaults to https://batchfence.onrender.com. For the separate private PostgreSQL pilot, run `docker compose -f ops/compose.pilot.yml up --build -d`, then launch Windows with BATCHFENCE_BACKEND_ORIGIN=http://127.0.0.1:8788. Named scoped users, owner-approved model data use and backups are required. See docs/enterprise/pilot-operations.md. The rc1 installer is a historical candidate with a loopback default.
+
+Review policy 3 invalidates approvals under older policy. Re-review current evidence before narrowing; old receipts and applied holds remain. Controlled recovery is explicit. The reference connector is local sandbox only; no real ERP connector is supplied.
+
+Fresh AMD results: docs/enterprise/live/README.md. Private server configuration and public Live access controls remain unchanged. The event allowance covers the evaluated requests with zero additional monetary charge. Do not paste or commit credentials. Privately rotate the credential exposed by the portal during inspection, then update local/Render configuration.
+
+Clean release, installer hashes, CI and served-build verification are recorded in docs/enterprise/final-release.json when completed. Existing v0.2.0 remains recoverable. Its tag and installer are unchanged.
+
+---
+
+## Historical operating notes
+
+# Candidate deployment boundary
+
+The enterprise-pilot-0.3 branch is a 0.3.0-rc.1 local/private candidate. Follow docs/enterprise/pilot-operations.md and release-gates.md. The public 0.2.0 destination below remains protected. The candidate Windows default is loopback8788 and requires the private Compose backend. Do not point it at public0.2.0 for new modules. No new cloud service or paid resource.
+
+---
+
 # BatchFence deployment and operations
 
 Public app: https://batchfence.onrender.com · repository: https://github.com/NuraliKuzhagaliev/BatchFence

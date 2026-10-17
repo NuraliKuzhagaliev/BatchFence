@@ -1,0 +1,131 @@
+{
+  "id": "d6ae42bb047a427f86a28083691d717a",
+  "task": "typed-receiving",
+  "mode": "live",
+  "timestamp": "2026-10-16T23:19:28.828388+00:00",
+  "prompt_version": "typed-receiving-1",
+  "input_hash": "f57fa52a97a0485c4cee1b07ac16073ed5d5b02566931d065143add9578e81bc",
+  "status": "failed",
+  "attempts": 1,
+  "repairs": 0,
+  "clock_source": "Server UTC; latency measured with monotonic clock",
+  "provider": "AMD configured endpoint",
+  "requested_model_id": "MiMo-V2.6-Flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1800
+  },
+  "http_status": 200,
+  "request_id": "c050888ad5524be38c53be4f075e0e8c",
+  "usage": {
+    "prompt_tokens": 607,
+    "total_tokens": 1147,
+    "completion_tokens": 540,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 0.00023618,
+    "cost_details": {
+      "upstream_inference_cost": 0.00023618,
+      "upstream_inference_prompt_cost": 8.498e-05,
+      "upstream_inference_completions_cost": 0.0001512,
+      "total_cost": 0.00023618,
+      "input_cost": 8.498e-05,
+      "output_cost": 0.0001512,
+      "cached_input_cost": 0,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "model_id": "self-dploy/MiMo-V2.6-Flash",
+  "raw_output": {
+    "entities": [
+      {
+        "id": "FG-C",
+        "kind": "stock_pool",
+        "quote": "Receiving record REC-954 references FG-C and supplier lot SUP-B. FG-C received some material from SUP-B."
+      },
+      {
+        "id": "SUP-B",
+        "kind": "supplier_lot",
+        "quote": "Receiving record REC-954 references FG-C and supplier lot SUP-B. FG-C received some material from SUP-B."
+      },
+      {
+        "id": "REC-954",
+        "kind": "receipt_id",
+        "quote": "Receiving record REC-954 references FG-C and supplier lot SUP-B."
+      },
+      {
+        "id": "DOC-ef7e4ab8c62f",
+        "kind": "document_id",
+        "quote": "\"document_id\": \"DOC-ef7e4ab8c62f\""
+      },
+      {
+        "id": "line-1",
+        "kind": "lineage_row",
+        "quote": "\"id\": \"line-1\""
+      }
+    ],
+    "pool_id": "FG-C",
+    "parent_ids": [
+      "SUP-B"
+    ],
+    "completeness": "partial",
+    "completeness_quote": "Other receipts have not been reconciled. The full ancestry remains unknown; this partial record cannot exclude other parent lots.",
+    "contradictions": []
+  },
+  "output": {
+    "entities": [
+      {
+        "id": "FG-C",
+        "kind": "stock_pool",
+        "quote": "Receiving record REC-954 references FG-C and supplier lot SUP-B. FG-C received some material from SUP-B."
+      },
+      {
+        "id": "SUP-B",
+        "kind": "supplier_lot",
+        "quote": "Receiving record REC-954 references FG-C and supplier lot SUP-B. FG-C received some material from SUP-B."
+      },
+      {
+        "id": "REC-954",
+        "kind": "receipt_id",
+        "quote": "Receiving record REC-954 references FG-C and supplier lot SUP-B."
+      },
+      {
+        "id": "DOC-ef7e4ab8c62f",
+        "kind": "document_id",
+        "quote": "\"document_id\": \"DOC-ef7e4ab8c62f\""
+      },
+      {
+        "id": "line-1",
+        "kind": "lineage_row",
+        "quote": "\"id\": \"line-1\""
+      }
+    ],
+    "pool_id": "FG-C",
+    "parent_ids": [
+      "SUP-B"
+    ],
+    "completeness": "partial",
+    "completeness_quote": "Other receipts have not been reconciled. The full ancestry remains unknown; this partial record cannot exclude other parent lots.",
+    "contradictions": []
+  },
+  "elapsed_ms": 17353,
+  "error": "Invalid typed proposal or unsupported source reference; no record replacement",
+  "document_id": "DOC-ef7e4ab8c62f",
+  "revision": 4
+}

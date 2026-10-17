@@ -37,6 +37,9 @@ jobs:
           docker volume create batchfence-ci
           docker run -d --name batchfence-ci -p 8795:8795 -e PORT=8795 -e INFERENCE_MODE=fixture -v batchfence-ci:/var/data batchfence:ci
           python scripts/container-check.py
+      - name: Retain container diagnostics on failure
+        if: failure()
+        run: docker logs --tail 150 batchfence-ci
       - uses: actions/upload-artifact@v4
         if: always()
         with:

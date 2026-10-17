@@ -27,7 +27,7 @@ from .public_demo import public_demo, limiter, inference_access
 from .review_safety import REVIEW_POLICY_VERSION, mentions, scope_concerns, resolution_evidence
 
 load_dotenv(ROOT / '.env')
-app = FastAPI(title='BatchFence', version='0.2.0')
+app = FastAPI(title='BatchFence', version='0.3.0')
 DB = Path((os.getenv('DATABASE_PATH') or str(ROOT / 'work/batchfence.sqlite3')))
 DB.parent.mkdir(parents=True, exist_ok=True)
 ORIGIN = os.getenv('APP_ORIGIN') or os.getenv('RENDER_EXTERNAL_URL') or 'http://127.0.0.1:8787'
@@ -35,28 +35,11 @@ if public_demo() and not ORIGIN.startswith('https://'):
     raise RuntimeError('PUBLIC_DEMO requires APP_ORIGIN or RENDER_EXTERNAL_URL with HTTPS')
 
 
-class ClosingConnection(sqlite3.Connection):
-    def __exit__(self, *args):
-        try:
-            return super().__exit__(*args)
-        finally:
-            self.close()
+from . import repository, identity, workspace
 
 
 def connect():
-    db = sqlite3.connect(DB, timeout=15, factory=ClosingConnection)
-    version = db.execute('PRAGMA user_version').fetchone()[0]
-    if version not in (0, 1):
-        db.close()
-        raise sqlite3.DatabaseError('Unsupported database schema; migration required')
-    db.execute('PRAGMA foreign_keys=ON')
-    db.execute('PRAGMA journal_mode=WAL')
-    db.execute('CREATE TABLE IF NOT EXISTS cases(id TEXT PRIMARY KEY, owner TEXT NOT NULL, state TEXT NOT NULL)')
-    db.execute('CREATE INDEX IF NOT EXISTS cases_owner ON cases(owner)')
-    db.execute('CREATE TABLE IF NOT EXISTS receipts(owner TEXT NOT NULL, key TEXT NOT NULL, request_digest TEXT NOT NULL, receipt TEXT NOT NULL, PRIMARY KEY(owner,key))')
-    if version == 0:
-        db.execute('PRAGMA user_version=1')
-    return db
+    return repository.connect(DB)
 
 
 with connect():
@@ -83,12 +66,33 @@ async def protection(request: Request, call_next):
         if not secret or len(secret) < 32 or len(secret) > 200:
             secret = secrets.token_urlsafe(32)
         request.state.owner = hashlib.sha256(secret.encode()).hexdigest()
+        auth_context = None
+        if identity.pilot() and request.url.path not in ('/api/health', '/api/auth/login'):
+            try:
+                with connect() as db:
+                    actor = identity.authenticate(db, request.headers.get('x-bf-session') or request.cookies.get('bf_pilot'))
+                identity.authorize_route(actor, request.url.path, request.method)
+                request.state.owner = identity.scope(actor['org'], actor['site'])
+                actor['required_role'] = identity.route_role(request.url.path, request.method)
+                request.state.actor = actor
+                auth_context = identity.principal.set(actor)
+            except HTTPException as exc:
+                return JSONResponse({'detail': exc.detail}, exc.status_code)
+        if not identity.pilot() and request.url.path != '/api/health':
+            with connect() as db:
+                _,actor = repository.get_record(db, request.state.owner, 'simulated-identity', 'current')
+            if actor: auth_context = identity.principal.set(actor)
+        if identity.pilot() and not limiter.allow('pilot:' + (request.client.host if request.client else 'local')):
+            if auth_context is not None: identity.principal.reset(auth_context)
+            return JSONResponse({'detail': {'code':'RATE_LIMIT','message':'Request limit reached'}},429)
         if public_demo() and request.url.path != '/api/health' and not limiter.allow(request.state.owner):
+            if auth_context is not None: identity.principal.reset(auth_context)
             return JSONResponse({'detail': {'code': 'RATE_LIMIT', 'message': 'Request limit reached. Retry in one minute.'}}, 429, headers={'Retry-After': '60'})
         if request.method not in ('GET', 'HEAD', 'OPTIONS'):
             limit = 8_000_000
             try:
                 if int(request.headers.get('content-length', '0')) > limit:
+                    if auth_context is not None: identity.principal.reset(auth_context)
                     return JSONResponse({'detail': {'code': 'SIZE', 'message': 'Request exceeds 8 MB'}}, 413)
                 async def bounded_body():
                     chunks = []; size = 0
@@ -101,13 +105,18 @@ async def protection(request: Request, call_next):
                     request._body = b''.join(chunks)
                 await asyncio.wait_for(bounded_body(), timeout=15)
             except OverflowError:
+                if auth_context is not None: identity.principal.reset(auth_context)
                 return JSONResponse({'detail': {'code': 'SIZE', 'message': 'Request exceeds 8 MB'}}, 413)
             except (ValueError, asyncio.TimeoutError):
+                if auth_context is not None: identity.principal.reset(auth_context)
                 return JSONResponse({'detail': {'code': 'BODY', 'message': 'Invalid or incomplete request body'}}, 400)
-        response = await call_next(request)
+        try:
+            response = await call_next(request)
+        finally:
+            if auth_context is not None: identity.principal.reset(auth_context)
         response.set_cookie('bf_session', secret, httponly=True, samesite='strict',
                             secure=ORIGIN.startswith('https://'), max_age=604800)
-        if request.headers.get('x-bf-client') == 'desktop':
+        if request.headers.get('x-bf-client') == 'desktop' and not identity.pilot():
             response.headers['x-bf-session'] = secret
         response.headers['Cache-Control'] = 'no-store'
     else:
@@ -128,11 +137,18 @@ def transaction(case_id, owner):
     db = connect()
     try:
         db.execute('BEGIN IMMEDIATE')
+        identity.recheck(db)
         row = db.execute('SELECT state FROM cases WHERE id=? AND owner=?', (case_id, owner)).fetchone()
         if not row:
             fail('NOT_FOUND', 'Case unavailable in this session', 404)
         state = json.loads(row[0])
+        workspace.hydrate(db,owner,state)
+        before_state = copy.deepcopy(state)
         yield db, state
+        workspace.synchronize(db,owner,before_state,state)
+        if identity.pilot():
+            identity.recheck(db)
+            repository.audit(db, owner, identity.current_actor(), 'case.updated', before_state, state, [d['original_hash'] for d in state['documents']])
         encoded = json.dumps(state)
         if len(encoded.encode()) > 6_000_000:
             fail('CASE_SIZE', 'Case storage limit reached; export this case before continuing in a new draft.', 413)
@@ -148,9 +164,10 @@ def transaction(case_id, owner):
 def read(case_id, owner):
     with connect() as db:
         row = db.execute('SELECT state FROM cases WHERE id=? AND owner=?', (case_id, owner)).fetchone()
-    if not row:
-        fail('NOT_FOUND', 'Case unavailable in this session', 404)
-    return json.loads(row[0])
+        if not row:
+            fail('NOT_FOUND', 'Case unavailable in this session', 404)
+        state = json.loads(row[0])
+        return workspace.hydrate(db,owner,state)
 
 
 def insert(state, owner):
@@ -160,7 +177,19 @@ def insert(state, owner):
             fail('DEMO_CAPACITY', 'Workspace storage capacity is reached. Exported packets remain available; contact the workspace owner.', 429)
         if db.execute('SELECT count(*) FROM cases WHERE owner=?', (owner,)).fetchone()[0] >= 12:
             fail('CASE_LIMIT', 'Session limit: 12 cases', 429)
+        identity.recheck(db)
+        for doc in state['documents']:
+            candidate = ROOT / 'fixtures/demo' / doc['filename']
+            if doc.get('synthetic') and Path(doc['filename']).name == doc['filename'] and candidate.is_file():
+                raw = candidate.read_bytes()
+                if hashlib.sha256(raw).hexdigest() == doc['original_hash']:
+                    repository.save_source(db, owner, raw)
+        if workspace.enabled(state):
+            workspace.initialize(db,owner,state)
+            workspace.hydrate(db,owner,state)
         db.execute('INSERT INTO cases VALUES(?,?,?)', (state['id'], owner, json.dumps(state)))
+        if identity.pilot():
+            repository.audit(db, owner, identity.current_actor(), 'case.created', {}, state)
     return state
 
 
@@ -285,17 +314,17 @@ def health():
     try:
         with connect() as db:
             db.execute('SELECT count(*) FROM cases').fetchone()
-            schema = db.execute('PRAGMA user_version').fetchone()[0]
-        if schema != 1:
+            schema = db.execute('SELECT max(version) FROM bf_schema').fetchone()[0]
+        if schema != repository.SCHEMA:
             raise sqlite3.DatabaseError()
-    except (sqlite3.Error, OSError):
+    except Exception:
         return JSONResponse({'status': 'unavailable', 'database': 'unavailable'}, 503)
-    return {'status': 'ok', 'database': 'ready', 'version': '0.2.0',
+    return {'status': 'ok', 'database': 'ready', 'version': '0.3.0',
             'commit': os.getenv('RENDER_GIT_COMMIT', 'local'),
             'inference_mode': (os.getenv('INFERENCE_MODE') or 'fixture'),
             'amd_configured': all(os.getenv(k) for k in ['AMD_API_BASE_URL', 'AMD_API_KEY', 'AMD_MODEL_ID', 'AMD_PROVIDER_EVIDENCE']),
             'live_protected': public_demo() or bool(os.getenv('LIVE_DEMO_TOKEN')),
-            'public_demo': public_demo(), 'storage_mode': os.getenv('STORAGE_MODE') or 'local', 'replay_available': (ROOT / 'fixtures/replay/amd-reviewed.json').exists()}
+            'profile': 'pilot' if identity.pilot() else 'public' if public_demo() else 'local', 'public_demo': public_demo(), 'storage_mode': os.getenv('STORAGE_MODE') or 'local', 'replay_available': (ROOT / 'fixtures/replay/amd-reviewed.json').exists()}
 
 
 @app.get('/api/replay')
@@ -306,7 +335,7 @@ def replay():
 @app.get('/api/cases')
 def cases(request: Request):
     with connect() as db:
-        rows = db.execute('SELECT state FROM cases WHERE owner=? ORDER BY rowid DESC', (request.state.owner,)).fetchall()
+        rows = db.execute('SELECT state FROM cases WHERE owner=? ORDER BY id DESC', (request.state.owner,)).fetchall()
     return [{'id': s['id'], 'name': s['name'], 'revision': s['revision']}
             for s in [json.loads(r[0]) for r in rows]]
 
@@ -319,6 +348,9 @@ def demo(request: Request):
 @app.post('/api/cases/import')
 def promote(packet: Packet, request: Request):
     state = copy.deepcopy(validate_packet(packet))
+    for field in ('enterprise_packet','workspace_attached','enterprise_example','hold_ledger','recovery_receipts','quantities','procedure_checks','receiving_runs','origin_signal'):
+        state.pop(field,None)
+    for stock in state['stocks']:stock['status']='available'
     state.update({'id': uuid.uuid4().hex, 'revision': 1, 'inventory_version': 1,
                   'scope': {'lot_ids': [], 'revision': 0, 'qualifiers': []},
                   'plan': None, 'plans': [], 'runs': [], 'reviews': [], 'receipts': [],
@@ -356,39 +388,43 @@ def parse_csv(doc):
 
 @app.post('/api/cases/{case_id}/documents')
 def upload(case_id: str, data: Upload, request: Request):
+    read(case_id, request.state.owner)  # Authorize before expensive untrusted parsing.
     if '/' in data.filename or '\\' in data.filename:
         fail('FILENAME', 'Use a plain filename', 422)
     suffix = Path(data.filename).suffix.lower()
     if suffix not in ('.txt', '.csv', '.pdf'):
         fail('FORMAT', 'Supported inputs: UTF-8 TXT/CSV and text PDF', 422)
+    ocr_images = []
     try:
         raw = base64.b64decode(data.content_base64, validate=True)
         if not raw or len(raw) > 2_000_000:
             fail('SIZE', 'File limit: 2 MB', 413)
         if suffix == '.pdf':
-            reader = PdfReader(io.BytesIO(raw))
-            if len(reader.pages) > 30:
-                fail('PDF', 'PDF limit: 30 pages', 422)
-            text = '\n'.join(page.extract_text() or '' for page in reader.pages)
-            if not text.strip():
-                fail('OCR_UNSUPPORTED', 'Image-only PDF is unsupported; upload selectable text', 422)
-            doc = document(data.filename, text.encode(), synthetic=data.synthetic)
-            doc['original_hash'] = hashlib.sha256(raw).hexdigest()
-            doc['media_type'] = 'application/pdf'
+            from .documents import process_pdf
+            try:
+                doc, ocr_images = process_pdf(raw,data.filename,data.synthetic,request.state.owner,case_id,connect)
+            except DomainError as exc:
+                if 'engine unavailable' in str(exc): fail('OCR_UNSUPPORTED',str(exc),422)
+                raise
         else:
             doc = document(data.filename, raw, synthetic=data.synthetic)
     except csv.Error:
         fail('CSV', 'Malformed CSV record quoting', 422)
+    except DomainError:
+        raise
     except (ValueError, UnicodeDecodeError):
         fail('INPUT', 'Invalid UTF-8 or base64 input', 422)
-    except HTTPException:
+    except (HTTPException, DomainError):
         raise
     except Exception:
         fail('PDF', 'PDF could not be read; use a supported text PDF', 422)
     if sum(len(b['text']) for b in doc['blocks']) > 80_000:
         fail('TEXT_LIMIT', 'Normalized text exceeds 80,000 characters', 413)
     pending = parse_csv(doc) if suffix == '.csv' else None
-    with transaction(case_id, request.state.owner) as (_, s):
+    with transaction(case_id, request.state.owner) as (db, s):
+        repository.save_source(db, request.state.owner, raw)
+        for page in ocr_images:
+            repository.save_source(db, request.state.owner, page['raw'])
         if len(s['documents']) >= 24:
             fail('DOCUMENT_LIMIT', 'Case limit: 24 documents', 429)
         if data.request_id:
@@ -408,7 +444,7 @@ def upload(case_id: str, data: Upload, request: Request):
 
 @app.post('/api/cases/{case_id}/revision')
 def revision(case_id: str, request: Request):
-    with transaction(case_id, request.state.owner) as (_, s):
+    with transaction(case_id, request.state.owner) as (db, s):
         if not s['synthetic']:
             fail('SYNTHETIC_ONLY', 'Use source upload for a non-synthetic case')
         if any(d['filename'] == 'supplier_notice_v2.txt' for d in s['documents']):
@@ -416,6 +452,7 @@ def revision(case_id: str, request: Request):
         s['revision'] += 1
         s['documents'].append(document('supplier_notice_v2.txt',
             (ROOT / 'fixtures/demo/supplier_notice_v2.txt').read_bytes(), s['revision']))
+        repository.save_source(db, request.state.owner, (ROOT / 'fixtures/demo/supplier_notice_v2.txt').read_bytes())
         invalidate(s, 'Supplier correction expands affected lots. Previous approval is stale immediately.')
     return s
 
@@ -423,7 +460,7 @@ def revision(case_id: str, request: Request):
 @app.post('/api/cases/{case_id}/analyze')
 def analyze(case_id: str, data: Analyze, request: Request):
     with inference_access(data.mode, request.headers.get('x-bf-demo-token', '')):
-        with transaction(case_id, request.state.owner) as (_, s):
+        with transaction(case_id, request.state.owner) as (job_db, s):
             if len(s['runs']) >= int((os.getenv('MAX_RUNS_PER_SESSION') or '12')):
                 fail('RUN_LIMIT', 'Case inference limit reached', 429)
             # Sum across cases to bound session usage as well.
@@ -445,12 +482,18 @@ def analyze(case_id: str, data: Analyze, request: Request):
                 fail('FIXTURE_ONLY', 'Fixture parser accepts explicitly synthetic documents only', 422)
             rev = s['revision']
             slot = uuid.uuid4().hex
+            from . import jobs
+            jobs.start(job_db, request.state.owner, slot, 'extraction', {'case_id':case_id,'document_id':data.document_id,'revision':rev}, data.mode)
             s['runs'].append({'id': slot, 'mode': data.mode, 'status': 'running', 'revision': rev, 'timestamp': now()})
         run = extract(docs, data.mode)
         run['revision'] = rev
         run['document_id'] = data.document_id
         run['scope_concerns'] = scope_concerns(docs[0])
-        with transaction(case_id, request.state.owner) as (_, s):
+        with transaction(case_id, request.state.owner) as (job_db, s):
+            accepted = jobs.finish(job_db, request.state.owner, slot, run['status'], digest(run))
+            if not accepted:
+                run['status'] = 'cancelled'
+                run['error'] = 'Job result not accepted after cancellation or interruption; no review authority'
             if s['revision'] != rev:
                 run['status'] = 'stale'
                 run['error'] = 'Evidence changed during inference; analyze current sources'
@@ -466,6 +509,9 @@ def review(case_id: str, data: Review, request: Request):
         if not runs or not data.accept_scope:
             fail('REVIEW_REQUIRED', 'A successful current extraction and explicit scope review are required', 422)
         source = next(d for d in s['documents'] if d['id'] == runs[0]['document_id'])
+        if data.incident_scope_status == 'resolved':
+            from .ocr import require_visual_review
+            require_visual_review(source)
         if source.get('request_id'):
             fail('REPLY_REVIEW','Use linked reply reconciliation; receiving candidates cannot replace incident scope',422)
         lots = sorted(set(l.strip() for l in data.lot_ids))
@@ -521,7 +567,7 @@ def review(case_id: str, data: Review, request: Request):
                       'excluded_lot_ids': excluded, 'incident_scope_status': data.incident_scope_status,
                       'resolution_evidence': basis, 'review_policy_version': REVIEW_POLICY_VERSION,
                       'resolution_note': data.note, 'scope_concerns': concerns}
-        s['reviews'].append({'at': now(), 'reviewer': 'Anonymous session reviewer', 'run_id': data.run_id,
+        s['reviews'].append({'at': now(), 'reviewer': identity.current_actor() if identity.pilot() else 'Anonymous session reviewer', 'run_id': data.run_id,
                              'suggested_lots': [f['lot_id'] for f in runs[0]['output']['facts'] if f['affected']],
                              'accepted_lots': lots, 'previous_lots': prior,
                              'revision': s['revision'], 'note': data.note,
@@ -579,8 +625,8 @@ def approve(case_id: str, data: Approve, request: Request):
         if not approval_current(s,data.plan_id,data.digest):
             fail('STALE_APPROVAL', 'Only the current reviewed exact plan can be approved')
         p['status'] = 'approved'
-        p['approval'] = {'at': now(), 'reviewer': 'Anonymous session reviewer',
-                         'digest': p['digest'], 'plan_id': p['id']}
+        p['approval'] = {'at': now(), 'reviewer': identity.current_actor() if identity.pilot() else 'Anonymous session reviewer',
+                         'digest': p['digest'], 'plan_id': p['id'], 'authorization': identity.approval_identity()}
         s['history'].append({'at': now(), 'type': 'approved', 'revision': s['revision'],
                              'message': 'Approved exact plan ' + p['id']})
     return s
@@ -600,6 +646,8 @@ def apply(case_id: str, data: Apply, request: Request):
         p = s['plan']
         if not p or s['pending_revision'] or p['id'] != data.plan_id or p['status'] != 'approved' or p['digest'] != data.digest:
             fail('STALE_APPROVAL', 'Approval is absent, stale or already consumed')
+        if not identity.approval_still_authorized(db, p.get('approval',{}).get('authorization'), 'quality_reviewer'):
+            fail('REVOKED_APPROVAL','The named approver no longer holds the approval role')
         fresh = make_plan(s)
         actions = [a.model_dump() for a in data.actions]
         if not actions_exact(actions,fresh):
@@ -647,8 +695,28 @@ def challenges():
 @app.get('/api/cases/{case_id}/export')
 def export(case_id: str, request: Request):
     s = read(case_id, request.state.owner)
+    from .enterprise_routes import snapshot
+    with connect() as db:s['enterprise_packet']=snapshot(db,request.state.owner,case_id)
     return {'schema_version': 1, 'exported_at': now(), 'label': 'Historical read-only packet. Hash is change detection, not supplier authentication.',
             'case': s, 'integrity_hash': digest(s)}
+
+
+from .auth_routes import router as auth_router
+app.include_router(auth_router)
+from .intake_routes import router as intake_router
+app.include_router(intake_router)
+from .signal_routes import router as signal_router
+from .knowledge_routes import router as knowledge_router
+from .enterprise_routes import router as enterprise_router
+app.include_router(signal_router)
+app.include_router(knowledge_router)
+app.include_router(enterprise_router)
+from .receiving_routes import router as receiving_router
+app.include_router(receiving_router)
+from .recovery_routes import router as recovery_router
+app.include_router(recovery_router)
+from .action_routes import router as action_router
+app.include_router(action_router)
 
 
 if (ROOT / 'dist').exists():

@@ -1,0 +1,134 @@
+{
+  "id": "23ca7cdb651b4e4fb1370b66d409ba31",
+  "task": "typed-receiving",
+  "mode": "live",
+  "timestamp": "2026-10-16T23:32:23.365155+00:00",
+  "prompt_version": "typed-receiving-2",
+  "input_hash": "33e8b671f18cc11dd23018323d45cf8e5bec16de41abd234352233d7c072bed3",
+  "status": "succeeded",
+  "attempts": 1,
+  "repairs": 0,
+  "clock_source": "Server UTC; latency measured with monotonic clock",
+  "provider": "AMD configured endpoint",
+  "requested_model_id": "MiMo-V2.6-Flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1800
+  },
+  "http_status": 200,
+  "request_id": "252705a6eb4344f6a74e29296a7dfbd6",
+  "usage": {
+    "prompt_tokens": 610,
+    "total_tokens": 1066,
+    "completion_tokens": 456,
+    "prompt_tokens_details": {
+      "cached_tokens": 512,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 0.0001428336,
+    "cost_details": {
+      "upstream_inference_cost": 0.0001428336,
+      "upstream_inference_prompt_cost": 1.51536e-05,
+      "upstream_inference_completions_cost": 0.00012768,
+      "total_cost": 0.0001428336,
+      "input_cost": 1.372e-05,
+      "output_cost": 0.00012768,
+      "cached_input_cost": 1.4336e-06,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "model_id": "self-dploy/MiMo-V2.6-Flash",
+  "raw_output": {
+    "entities": [
+      {
+        "id": "FG-C",
+        "kind": "stock_pool",
+        "quote": "all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents"
+      },
+      {
+        "id": "SUP-B",
+        "kind": "supplier_lot",
+        "quote": "all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents"
+      },
+      {
+        "id": "REC-955",
+        "kind": "receipt_id",
+        "quote": "Signed receiving reconciliation REC-955: all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents."
+      },
+      {
+        "id": "LIN-3",
+        "kind": "lineage_row",
+        "quote": "This complete reconciliation supersedes lineage rows LIN-3 and LIN-4."
+      },
+      {
+        "id": "LIN-4",
+        "kind": "lineage_row",
+        "quote": "This complete reconciliation supersedes lineage rows LIN-3 and LIN-4."
+      }
+    ],
+    "pool_id": "FG-C",
+    "parent_ids": [
+      "SUP-B"
+    ],
+    "completeness": "complete",
+    "completeness_quote": "all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents",
+    "contradictions": [
+      "REC-955 supersedes lineage rows LIN-3 and LIN-4; the prior content of LIN-3 and LIN-4 is not provided, so any parents they asserted are unknown and may conflict with the stated single parent SUP-B."
+    ]
+  },
+  "output": {
+    "entities": [
+      {
+        "id": "FG-C",
+        "kind": "stock_pool",
+        "quote": "all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents"
+      },
+      {
+        "id": "SUP-B",
+        "kind": "supplier_lot",
+        "quote": "all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents"
+      },
+      {
+        "id": "REC-955",
+        "kind": "receipt_id",
+        "quote": "Signed receiving reconciliation REC-955: all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents."
+      },
+      {
+        "id": "LIN-3",
+        "kind": "lineage_row",
+        "quote": "This complete reconciliation supersedes lineage rows LIN-3 and LIN-4."
+      },
+      {
+        "id": "LIN-4",
+        "kind": "lineage_row",
+        "quote": "This complete reconciliation supersedes lineage rows LIN-3 and LIN-4."
+      }
+    ],
+    "pool_id": "FG-C",
+    "parent_ids": [
+      "SUP-B"
+    ],
+    "completeness": "complete",
+    "completeness_quote": "all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents",
+    "contradictions": [
+      "REC-955 supersedes lineage rows LIN-3 and LIN-4; the prior content of LIN-3 and LIN-4 is not provided, so any parents they asserted are unknown and may conflict with the stated single parent SUP-B."
+    ]
+  },
+  "elapsed_ms": 19067,
+  "document_id": "DOC-ef5c6f0994e2",
+  "revision": 5
+}

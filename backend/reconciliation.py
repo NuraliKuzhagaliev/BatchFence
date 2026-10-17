@@ -23,6 +23,8 @@ def preview_reply(state, data):
     hypothesis = {'kind':'inconclusive'}
     unresolved = re.search(r'\b(may|might|possibly|pending|inconclusive|conflicting|cannot|unknown)\b', ' '.join(b['text'] for b in doc['blocks']), re.I)
     if data.outcome == 'resolved':
+        from .ocr import require_visual_review
+        require_visual_review(doc)
         if unresolved:
             raise DomainError('Reply remains inconclusive or conflicting; records cannot be narrowed')
         if not mentions(data.pool_id,data.quote) or not mentions(data.supplier_lot_id,data.quote):

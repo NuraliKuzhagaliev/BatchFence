@@ -1,0 +1,1224 @@
+{
+  "receiving_partial": "Receiving record REC-954 references FG-C and supplier lot SUP-B. FG-C received some material from SUP-B. Other receipts have not been reconciled. The full ancestry remains unknown; this partial record cannot exclude other parent lots.",
+  "receiving_complete": "Signed receiving reconciliation REC-955: all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents. The receiver reconciled every receipt and authenticated the original supplier record. This complete reconciliation supersedes lineage rows LIN-3 and LIN-4. REC-955 is a receipt identifier; FG-C is a stock pool; SUP-B is the supplier lot.",
+  "knowledge": {
+    "id": "KNW-01",
+    "task": "knowledge",
+    "category": "checks",
+    "question": "What checks are required before considering recovery of decorative housings?",
+    "product": "decorative-housings",
+    "process": "coating",
+    "labels": {
+      "answerable": true,
+      "expected_sources": [
+        "PROC-100@1"
+      ],
+      "inventory_authority": false
+    }
+  },
+  "signal_chart": {
+    "baseline": {
+      "rows": [
+        {
+          "observation_id": "BASE-001",
+          "event_time": "2026-09-01T00:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 11,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-1",
+            "quote": "BASE-001,2026-09-01T00:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,11,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-002",
+          "event_time": "2026-09-01T01:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 16,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-2",
+            "quote": "BASE-002,2026-09-01T01:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,16,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-003",
+          "event_time": "2026-09-01T02:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 7,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-3",
+            "quote": "BASE-003,2026-09-01T02:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-004",
+          "event_time": "2026-09-01T03:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 13,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-4",
+            "quote": "BASE-004,2026-09-01T03:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,13,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-005",
+          "event_time": "2026-09-01T04:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 4,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-5",
+            "quote": "BASE-005,2026-09-01T04:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,4,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-006",
+          "event_time": "2026-09-01T05:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 10,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-6",
+            "quote": "BASE-006,2026-09-01T05:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,10,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-007",
+          "event_time": "2026-09-01T06:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 9,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-7",
+            "quote": "BASE-007,2026-09-01T06:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-008",
+          "event_time": "2026-09-01T07:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 14,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-8",
+            "quote": "BASE-008,2026-09-01T07:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,14,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-009",
+          "event_time": "2026-09-01T08:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 9,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-9",
+            "quote": "BASE-009,2026-09-01T08:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-010",
+          "event_time": "2026-09-01T09:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 15,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-10",
+            "quote": "BASE-010,2026-09-01T09:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,15,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-011",
+          "event_time": "2026-09-01T10:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 6,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-11",
+            "quote": "BASE-011,2026-09-01T10:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,6,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-012",
+          "event_time": "2026-09-01T11:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 18,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-12",
+            "quote": "BASE-012,2026-09-01T11:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,18,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-013",
+          "event_time": "2026-09-01T12:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 14,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-13",
+            "quote": "BASE-013,2026-09-01T12:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,14,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-014",
+          "event_time": "2026-09-01T13:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 15,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-14",
+            "quote": "BASE-014,2026-09-01T13:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,15,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-015",
+          "event_time": "2026-09-01T14:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 9,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-15",
+            "quote": "BASE-015,2026-09-01T14:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-016",
+          "event_time": "2026-09-01T15:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 16,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-16",
+            "quote": "BASE-016,2026-09-01T15:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,16,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-017",
+          "event_time": "2026-09-01T16:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 8,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-17",
+            "quote": "BASE-017,2026-09-01T16:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,8,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-018",
+          "event_time": "2026-09-01T17:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 19,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-18",
+            "quote": "BASE-018,2026-09-01T17:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,19,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-019",
+          "event_time": "2026-09-01T18:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 11,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-19",
+            "quote": "BASE-019,2026-09-01T18:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,11,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        },
+        {
+          "observation_id": "BASE-020",
+          "event_time": "2026-09-01T19:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 6,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-20",
+            "quote": "BASE-020,2026-09-01T19:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,6,cosmetic,FG-A;FG-D,nonconforming_units"
+          }
+        }
+      ],
+      "row_hash": "83544807c632b9705ec920d5d4aa81ddc982cda6c1551ecde312f1939aeba57b",
+      "group": {
+        "site": "NORTH-01",
+        "product": "Decorative housing",
+        "process": "coating",
+        "method": "visual-v1",
+        "regime": "steady",
+        "defect": "cosmetic",
+        "metric": "nonconforming_units"
+      },
+      "start": "2026-09-01T00:00:00+00:00",
+      "end": "2026-09-01T19:00:00+00:00",
+      "policy": {
+        "min_observations": 20,
+        "min_inspected": 5000,
+        "min_expected": 5,
+        "sigma": 3
+      },
+      "assumptions": [
+        "Independent inspections",
+        "Comparable product/process/method/regime",
+        "Reviewer-accepted stable baseline"
+      ],
+      "rule": "One observation strictly outside clipped three-sigma limits; limits are not acceptance specifications.",
+      "id": "BASE-1ee87d8a28c240b7aea52b6f96c314fb",
+      "review": {
+        "actor": {
+          "user_id": "934cdae5b3b34b2ea6a1841dd3f3c670",
+          "username": "fresh-reviewer",
+          "org": "liveeval",
+          "site": "synthetic",
+          "roles": [
+            "quality_reviewer",
+            "reporter"
+          ],
+          "identity_mode": "named local pilot user"
+        },
+        "at": "2026-10-16T23:31:32.800379+00:00",
+        "note": "Agent-operated review of synthetic engineering evidence; not independent human, supplier, or manufacturing validation."
+      },
+      "inspection_revision": 1
+    },
+    "chart": {
+      "p_bar": 0.01769230769230769,
+      "baseline_inspected": 13000,
+      "baseline_nonconforming": 230,
+      "baseline_count": 20,
+      "baseline_hash": "83544807c632b9705ec920d5d4aa81ddc982cda6c1551ecde312f1939aeba57b",
+      "rule": "One observation strictly outside clipped three-sigma limits; limits are not acceptance specifications.",
+      "group": {
+        "site": "NORTH-01",
+        "product": "Decorative housing",
+        "process": "coating",
+        "method": "visual-v1",
+        "regime": "steady",
+        "defect": "cosmetic",
+        "metric": "nonconforming_units"
+      },
+      "assumptions": [
+        "Independent inspections",
+        "Comparable product/process/method/regime",
+        "Reviewer-accepted stable baseline"
+      ],
+      "policy": {
+        "min_observations": 20,
+        "min_inspected": 5000,
+        "min_expected": 5,
+        "sigma": 3
+      },
+      "status": "ready",
+      "points": [
+        {
+          "observation_id": "STABLE-001",
+          "event_time": "2026-09-02T00:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 9,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-21",
+            "quote": "STABLE-001,2026-09-02T00:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,9,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.018,
+          "lower": 5.385435032086855e-06,
+          "upper": 0.0353792299495833,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-002",
+          "event_time": "2026-09-02T01:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 15,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-22",
+            "quote": "STABLE-002,2026-09-02T01:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,15,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.01875,
+          "lower": 0.003709567909478309,
+          "upper": 0.03167504747513707,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-003",
+          "event_time": "2026-09-02T02:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 7,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-23",
+            "quote": "STABLE-003,2026-09-02T02:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.014,
+          "lower": 5.385435032086855e-06,
+          "upper": 0.0353792299495833,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-004",
+          "event_time": "2026-09-02T03:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 17,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-24",
+            "quote": "STABLE-004,2026-09-02T03:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,17,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.02125,
+          "lower": 0.003709567909478309,
+          "upper": 0.03167504747513707,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-005",
+          "event_time": "2026-09-02T04:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 10,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-25",
+            "quote": "STABLE-005,2026-09-02T04:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,10,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.02,
+          "lower": 5.385435032086855e-06,
+          "upper": 0.0353792299495833,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-006",
+          "event_time": "2026-09-02T05:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 14,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-26",
+            "quote": "STABLE-006,2026-09-02T05:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,14,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.0175,
+          "lower": 0.003709567909478309,
+          "upper": 0.03167504747513707,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-007",
+          "event_time": "2026-09-02T06:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 10,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-27",
+            "quote": "STABLE-007,2026-09-02T06:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,10,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.02,
+          "lower": 5.385435032086855e-06,
+          "upper": 0.0353792299495833,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-008",
+          "event_time": "2026-09-02T07:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 19,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-28",
+            "quote": "STABLE-008,2026-09-02T07:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,19,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.02375,
+          "lower": 0.003709567909478309,
+          "upper": 0.03167504747513707,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-009",
+          "event_time": "2026-09-02T08:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 7,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-29",
+            "quote": "STABLE-009,2026-09-02T08:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.014,
+          "lower": 5.385435032086855e-06,
+          "upper": 0.0353792299495833,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-010",
+          "event_time": "2026-09-02T09:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 16,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-30",
+            "quote": "STABLE-010,2026-09-02T09:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,16,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.02,
+          "lower": 0.003709567909478309,
+          "upper": 0.03167504747513707,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-011",
+          "event_time": "2026-09-02T10:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 8,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-31",
+            "quote": "STABLE-011,2026-09-02T10:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,8,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.016,
+          "lower": 5.385435032086855e-06,
+          "upper": 0.0353792299495833,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-012",
+          "event_time": "2026-09-02T11:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 19,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-32",
+            "quote": "STABLE-012,2026-09-02T11:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,19,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.02375,
+          "lower": 0.003709567909478309,
+          "upper": 0.03167504747513707,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-013",
+          "event_time": "2026-09-02T12:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 8,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-33",
+            "quote": "STABLE-013,2026-09-02T12:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,8,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.016,
+          "lower": 5.385435032086855e-06,
+          "upper": 0.0353792299495833,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-014",
+          "event_time": "2026-09-02T13:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 22,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-34",
+            "quote": "STABLE-014,2026-09-02T13:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,22,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.0275,
+          "lower": 0.003709567909478309,
+          "upper": 0.03167504747513707,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-015",
+          "event_time": "2026-09-02T14:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 6,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-35",
+            "quote": "STABLE-015,2026-09-02T14:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,6,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.012,
+          "lower": 5.385435032086855e-06,
+          "upper": 0.0353792299495833,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-016",
+          "event_time": "2026-09-02T15:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 20,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-36",
+            "quote": "STABLE-016,2026-09-02T15:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,20,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.025,
+          "lower": 0.003709567909478309,
+          "upper": 0.03167504747513707,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-017",
+          "event_time": "2026-09-02T16:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 11,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-37",
+            "quote": "STABLE-017,2026-09-02T16:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,11,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.022,
+          "lower": 5.385435032086855e-06,
+          "upper": 0.0353792299495833,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-018",
+          "event_time": "2026-09-02T17:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 14,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-38",
+            "quote": "STABLE-018,2026-09-02T17:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,14,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.0175,
+          "lower": 0.003709567909478309,
+          "upper": 0.03167504747513707,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-019",
+          "event_time": "2026-09-02T18:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 7,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-39",
+            "quote": "STABLE-019,2026-09-02T18:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,7,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.014,
+          "lower": 5.385435032086855e-06,
+          "upper": 0.0353792299495833,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "STABLE-020",
+          "event_time": "2026-09-02T19:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 16,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-40",
+            "quote": "STABLE-020,2026-09-02T19:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,16,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.02,
+          "lower": 0.003709567909478309,
+          "upper": 0.03167504747513707,
+          "status": "within_limits",
+          "direction": null
+        },
+        {
+          "observation_id": "SHIFT-001",
+          "event_time": "2026-09-03T00:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 59,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-41",
+            "quote": "SHIFT-001,2026-09-03T00:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,59,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.118,
+          "lower": 5.385435032086855e-06,
+          "upper": 0.0353792299495833,
+          "status": "signal",
+          "direction": "higher"
+        },
+        {
+          "observation_id": "SHIFT-002",
+          "event_time": "2026-09-03T01:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 72,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-42",
+            "quote": "SHIFT-002,2026-09-03T01:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,72,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.09,
+          "lower": 0.003709567909478309,
+          "upper": 0.03167504747513707,
+          "status": "signal",
+          "direction": "higher"
+        },
+        {
+          "observation_id": "SHIFT-003",
+          "event_time": "2026-09-03T02:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 43,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-43",
+            "quote": "SHIFT-003,2026-09-03T02:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,43,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.086,
+          "lower": 5.385435032086855e-06,
+          "upper": 0.0353792299495833,
+          "status": "signal",
+          "direction": "higher"
+        },
+        {
+          "observation_id": "SHIFT-004",
+          "event_time": "2026-09-03T03:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 800,
+          "nonconforming": 81,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-44",
+            "quote": "SHIFT-004,2026-09-03T03:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,800,81,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.10125,
+          "lower": 0.003709567909478309,
+          "upper": 0.03167504747513707,
+          "status": "signal",
+          "direction": "higher"
+        },
+        {
+          "observation_id": "SHIFT-005",
+          "event_time": "2026-09-03T04:00:00+00:00",
+          "site": "NORTH-01",
+          "product": "Decorative housing",
+          "process": "coating",
+          "method": "visual-v1",
+          "regime": "steady",
+          "inspected": 500,
+          "nonconforming": 46,
+          "defect": "cosmetic",
+          "pool_ids": [
+            "FG-A",
+            "FG-D"
+          ],
+          "metric": "nonconforming_units",
+          "source": {
+            "document_id": "DOC-e8f202d85631",
+            "block_id": "row-45",
+            "quote": "SHIFT-005,2026-09-03T04:00:00+00:00,NORTH-01,Decorative housing,coating,visual-v1,steady,500,46,cosmetic,FG-A;FG-D,nonconforming_units"
+          },
+          "rate": 0.092,
+          "lower": 5.385435032086855e-06,
+          "upper": 0.0353792299495833,
+          "status": "signal",
+          "direction": "higher"
+        }
+      ],
+      "excluded": [],
+      "alerts": [
+        "SHIFT-001",
+        "SHIFT-002",
+        "SHIFT-003",
+        "SHIFT-004",
+        "SHIFT-005"
+      ],
+      "boundary": "A signal is evidence of process variation, not supplier causation, defect certainty, hold authority or release authority."
+    },
+    "chart_digest": "f4478afe9ed7b1c55f66152f6693b44351b8231a3241aa4a09c1b258dc1ef324"
+  },
+  "cap": 4,
+  "provenance": "Inputs frozen before calls; two new typed receiving cases, one exact frozen KNW-01 question (applicability label mapped), one synthetic chart. Not 24-item benchmark coverage."
+}

@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-16T23:58:51.702Z",
+  "provenance": "Actual read-only display of retained fresh AMD outputs. Synthetic sources; agent-operated review. No inference during capture.",
+  "reports": [
+    {
+      "profile": "frozen",
+      "version": "0.3.0",
+      "writes": [],
+      "errors": [],
+      "checks": "Actual v3 AMD response survives page reload, exact request provenance and chart shown"
+    },
+    {
+      "profile": "receiving-v2",
+      "version": "0.3.0",
+      "writes": [],
+      "errors": [],
+      "checks": "Actual v2 typed draft workflow: 700 applied,100 confirmed,two original receipts plus one recovery receipt"
+    }
+  ]
+}

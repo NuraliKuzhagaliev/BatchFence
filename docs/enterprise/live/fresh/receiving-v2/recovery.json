@@ -1,0 +1,264 @@
+{
+  "approval": {
+    "id": "RECOVERY-1cb26a05b29c49819ba8864f841c772e",
+    "case_id": "0a8cd679bf4b4e4ca26768a9e59f5abb",
+    "status": "approved",
+    "snapshot": {
+      "case_id": "0a8cd679bf4b4e4ca26768a9e59f5abb",
+      "case_revision": 5,
+      "inventory_revision": 4,
+      "plan_digest": "25103ec413389a724393c4c6562775fb0c9c8c017a95f1e47880a601d712c15a",
+      "policy_revision": 1,
+      "policy": {
+        "id": "RECOVER-WHOLE-1",
+        "revision": 1,
+        "whole_pool_only": true,
+        "require_verified_authenticity": true,
+        "inspection": "100% visual-v1; zero nonconforming units; at most 30 days old",
+        "distinct_release_approver": true,
+        "catalog_digest": "57af09a3a80a2e48cd9d395d50ae6cf56b71796258fe23898b0379afe59d238e",
+        "procedure_refs": [
+          "PROC-100@1"
+        ],
+        "approved_by": {
+          "user_id": "934cdae5b3b34b2ea6a1841dd3f3c670",
+          "username": "fresh-reviewer",
+          "org": "liveeval",
+          "site": "synthetic",
+          "roles": [
+            "quality_reviewer",
+            "reporter"
+          ],
+          "identity_mode": "named local pilot user",
+          "membership_revision": 1
+        },
+        "at": "2026-10-16T23:33:27.604608+00:00",
+        "note": "Agent-operated review of synthetic engineering evidence; not independent human, supplier, or manufacturing validation.",
+        "execution_boundary": "Sandbox only; no use-as-is waiver, destruction or real enterprise execution"
+      },
+      "catalog_digest": "57af09a3a80a2e48cd9d395d50ae6cf56b71796258fe23898b0379afe59d238e",
+      "evidence": [
+        {
+          "id": "REC-EVID-95140094935a4abdb776cd740fd15c86",
+          "case_id": "0a8cd679bf4b4e4ca26768a9e59f5abb",
+          "pool_id": "FG-C",
+          "receiving": {
+            "citation": {
+              "document_id": "DOC-ef5c6f0994e2",
+              "block_id": "line-1",
+              "quote": "Signed receiving reconciliation REC-955: all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents. The receiver reconciled every receipt and authenticated the original supplier record. This complete reconciliation supersedes lineage rows LIN-3 and LIN-4. REC-955 is a receipt identifier; FG-C is a stock pool; SUP-B is the supplier lot."
+            },
+            "original_hash": "50c552717c0730745ec1af547e567226985f7bda0ce774f03bd1792b6eb7fd38",
+            "document_revision": 5
+          },
+          "inspection": {
+            "citation": {
+              "document_id": "DOC-81a071b0d9e5",
+              "block_id": "line-1",
+              "quote": "FG-C: 100 pieces inspected using visual-v1; 0 nonconforming. Passed whole-pool cosmetic inspection."
+            },
+            "original_hash": "d74acce2d99ad71bc8d5421e6b7d75d87c09c2dca9e6c8edb04d78d9f48f4310",
+            "document_revision": 2
+          },
+          "inspected_units": 100,
+          "nonconforming_units": 0,
+          "inspected_at": "2026-10-16T23:33:27.717511+00:00",
+          "method": "visual-v1",
+          "authenticity": "reviewer verified",
+          "verification_reference": "Synthetic REC-955 record inspected by the operating agent; no external supplier verification",
+          "note": "Agent-operated review of synthetic engineering evidence; not independent human, supplier, or manufacturing validation.",
+          "actor": {
+            "user_id": "934cdae5b3b34b2ea6a1841dd3f3c670",
+            "username": "fresh-reviewer",
+            "org": "liveeval",
+            "site": "synthetic",
+            "roles": [
+              "quality_reviewer",
+              "reporter"
+            ],
+            "identity_mode": "named local pilot user",
+            "membership_revision": 1
+          },
+          "at": "2026-10-16T23:33:27.726188+00:00",
+          "case_revision": 5
+        }
+      ],
+      "actions": [
+        {
+          "hold_id": "HOLD-c7c1e174dbaaf39af9c6",
+          "hold_version": 1,
+          "pool_id": "FG-C",
+          "units": 100,
+          "disposition": "remove_incident_restriction"
+        }
+      ],
+      "other_active_restrictions": []
+    },
+    "digest": "a13acae6f139cf401758848f80c8c43fdba8336b752afd59391ed4a5a9529316",
+    "pool_ids": [
+      "FG-C"
+    ],
+    "hold_ids": [
+      "HOLD-c7c1e174dbaaf39af9c6"
+    ],
+    "evidence_ids": [
+      "REC-EVID-95140094935a4abdb776cd740fd15c86"
+    ],
+    "preparer": {
+      "user_id": "934cdae5b3b34b2ea6a1841dd3f3c670",
+      "username": "fresh-reviewer",
+      "org": "liveeval",
+      "site": "synthetic",
+      "roles": [
+        "quality_reviewer",
+        "reporter"
+      ],
+      "identity_mode": "named local pilot user",
+      "membership_revision": 1
+    },
+    "prepared_at": "2026-10-16T23:33:27.849029+00:00",
+    "note": "Agent-operated review of synthetic engineering evidence; not independent human, supplier, or manufacturing validation.",
+    "approval": {
+      "actor": {
+        "user_id": "13a12e985e2d48c799d1c1e621ca300e",
+        "username": "fresh-releaser",
+        "org": "liveeval",
+        "site": "synthetic",
+        "roles": [
+          "release_approver",
+          "reporter"
+        ],
+        "identity_mode": "named local pilot user",
+        "membership_revision": 1
+      },
+      "at": "2026-10-16T23:33:28.167582+00:00",
+      "digest": "a13acae6f139cf401758848f80c8c43fdba8336b752afd59391ed4a5a9529316"
+    },
+    "execution": "sandbox only"
+  },
+  "receipt": {
+    "transaction_id": "REC-TX-d9ffbeed2dc643849392c0a5f4d7d0ea",
+    "recovery_id": "RECOVERY-1cb26a05b29c49819ba8864f841c772e",
+    "at": "2026-10-16T23:33:28.281904+00:00",
+    "execution": "SANDBOX LEDGER",
+    "changes": [
+      {
+        "pool_id": "FG-C",
+        "units": 100,
+        "removed_hold_id": "HOLD-c7c1e174dbaaf39af9c6",
+        "became_available": true
+      }
+    ],
+    "prior_inventory_version": 4,
+    "current_inventory_version": 5,
+    "digest": "a13acae6f139cf401758848f80c8c43fdba8336b752afd59391ed4a5a9529316",
+    "preparer": {
+      "user_id": "934cdae5b3b34b2ea6a1841dd3f3c670",
+      "username": "fresh-reviewer",
+      "org": "liveeval",
+      "site": "synthetic",
+      "roles": [
+        "quality_reviewer",
+        "reporter"
+      ],
+      "identity_mode": "named local pilot user",
+      "membership_revision": 1
+    },
+    "approver": {
+      "user_id": "13a12e985e2d48c799d1c1e621ca300e",
+      "username": "fresh-releaser",
+      "org": "liveeval",
+      "site": "synthetic",
+      "roles": [
+        "release_approver",
+        "reporter"
+      ],
+      "identity_mode": "named local pilot user",
+      "membership_revision": 1
+    },
+    "policy": {
+      "id": "RECOVER-WHOLE-1",
+      "revision": 1,
+      "whole_pool_only": true,
+      "require_verified_authenticity": true,
+      "inspection": "100% visual-v1; zero nonconforming units; at most 30 days old",
+      "distinct_release_approver": true,
+      "catalog_digest": "57af09a3a80a2e48cd9d395d50ae6cf56b71796258fe23898b0379afe59d238e",
+      "procedure_refs": [
+        "PROC-100@1"
+      ],
+      "approved_by": {
+        "user_id": "934cdae5b3b34b2ea6a1841dd3f3c670",
+        "username": "fresh-reviewer",
+        "org": "liveeval",
+        "site": "synthetic",
+        "roles": [
+          "quality_reviewer",
+          "reporter"
+        ],
+        "identity_mode": "named local pilot user",
+        "membership_revision": 1
+      },
+      "at": "2026-10-16T23:33:27.604608+00:00",
+      "note": "Agent-operated review of synthetic engineering evidence; not independent human, supplier, or manufacturing validation.",
+      "execution_boundary": "Sandbox only; no use-as-is waiver, destruction or real enterprise execution"
+    },
+    "source_evidence": [
+      {
+        "id": "REC-EVID-95140094935a4abdb776cd740fd15c86",
+        "case_id": "0a8cd679bf4b4e4ca26768a9e59f5abb",
+        "pool_id": "FG-C",
+        "receiving": {
+          "citation": {
+            "document_id": "DOC-ef5c6f0994e2",
+            "block_id": "line-1",
+            "quote": "Signed receiving reconciliation REC-955: all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents. The receiver reconciled every receipt and authenticated the original supplier record. This complete reconciliation supersedes lineage rows LIN-3 and LIN-4. REC-955 is a receipt identifier; FG-C is a stock pool; SUP-B is the supplier lot."
+          },
+          "original_hash": "50c552717c0730745ec1af547e567226985f7bda0ce774f03bd1792b6eb7fd38",
+          "document_revision": 5
+        },
+        "inspection": {
+          "citation": {
+            "document_id": "DOC-81a071b0d9e5",
+            "block_id": "line-1",
+            "quote": "FG-C: 100 pieces inspected using visual-v1; 0 nonconforming. Passed whole-pool cosmetic inspection."
+          },
+          "original_hash": "d74acce2d99ad71bc8d5421e6b7d75d87c09c2dca9e6c8edb04d78d9f48f4310",
+          "document_revision": 2
+        },
+        "inspected_units": 100,
+        "nonconforming_units": 0,
+        "inspected_at": "2026-10-16T23:33:27.717511+00:00",
+        "method": "visual-v1",
+        "authenticity": "reviewer verified",
+        "verification_reference": "Synthetic REC-955 record inspected by the operating agent; no external supplier verification",
+        "note": "Agent-operated review of synthetic engineering evidence; not independent human, supplier, or manufacturing validation.",
+        "actor": {
+          "user_id": "934cdae5b3b34b2ea6a1841dd3f3c670",
+          "username": "fresh-reviewer",
+          "org": "liveeval",
+          "site": "synthetic",
+          "roles": [
+            "quality_reviewer",
+            "reporter"
+          ],
+          "identity_mode": "named local pilot user",
+          "membership_revision": 1
+        },
+        "at": "2026-10-16T23:33:27.726188+00:00",
+        "case_revision": 5
+      }
+    ],
+    "connector_acknowledgement": null,
+    "boundary": "Removes only the selected incident restriction; every other hold remains effective. No physical enterprise action."
+  },
+  "quantities": {
+    "applied_hold_units": 700,
+    "recovery_pending_units": 0,
+    "confirmed_recovery_units": 100
+  },
+  "duplicate_identical": true,
+  "reviewer_approval_http": 403,
+  "original_containment_receipts_unchanged": true,
+  "provenance": "Explicit source review of accepted fresh AMD typed draft; distinct named engineering identities, no independent humans or real inventory."
+}

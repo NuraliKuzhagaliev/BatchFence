@@ -1,0 +1,86 @@
+{
+  "review": {
+    "revision": 5,
+    "document_id": "DOC-766d672987fc",
+    "review_path": "structured_record",
+    "run_id": "7925776e15b94b7583c0779f595b9320",
+    "pool_id": "FG-C",
+    "parent_ids": [
+      "SUP-B"
+    ],
+    "complete": true,
+    "quote": "Signed receiving reconciliation REC-955: all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents. The receiver reconciled every receipt and authenticated the original supplier record. This complete reconciliation supersedes lineage rows LIN-3 and LIN-4. REC-955 is a receipt identifier; FG-C is a stock pool; SUP-B is the supplier lot.",
+    "superseded_row_ids": [
+      "LIN-3",
+      "LIN-4"
+    ],
+    "unresolved_contradictions": false,
+    "outcome": "resolved",
+    "reviewed": true,
+    "replacement_reviewed": true,
+    "completeness_confirmed": true,
+    "note": "Agent-operated review of synthetic engineering evidence; not independent human, supplier, or manufacturing validation. Full source explicitly reconciles every parent and supersedes both rows."
+  },
+  "preview": {
+    "old_relationships": [
+      {
+        "row_id": "LIN-3",
+        "source": "SUP-A",
+        "target": "FG-C",
+        "kind": "possible",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-7ae210a79e57",
+          "block_id": "row-3",
+          "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-4",
+        "source": "SUP-B",
+        "target": "FG-C",
+        "kind": "possible",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-7ae210a79e57",
+          "block_id": "row-4",
+          "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
+        }
+      }
+    ],
+    "proposed_relationships": [
+      {
+        "row_id": "RECV-DOC-766d672987fc-0",
+        "source": "SUP-B",
+        "target": "FG-C",
+        "kind": "confirmed",
+        "evidence": {
+          "document_id": "DOC-766d672987fc",
+          "block_id": "line-1",
+          "quote": "Signed receiving reconciliation REC-955: all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents. The receiver reconciled every receipt and authenticated the original supplier record. This complete reconciliation supersedes lineage rows LIN-3 and LIN-4. REC-955 is a receipt identifier; FG-C is a stock pool; SUP-B is the supplier lot."
+        }
+      }
+    ],
+    "before_units": 800,
+    "after_units": 700,
+    "applied_hold_units": 800,
+    "outcome": "resolved",
+    "complete": true,
+    "review_path": "structured_record",
+    "evidence": {
+      "document_id": "DOC-766d672987fc",
+      "block_id": "line-1",
+      "quote": "Signed receiving reconciliation REC-955: all 100 pieces in FG-C came exclusively from supplier lot SUP-B, with no additional parents. The receiver reconciled every receipt and authenticated the original supplier record. This complete reconciliation supersedes lineage rows LIN-3 and LIN-4. REC-955 is a receipt identifier; FG-C is a stock pool; SUP-B is the supplier lot."
+    },
+    "unknown_entities": [],
+    "authority": "Proposal only; no existing hold is removed"
+  },
+  "quantities": {
+    "applied_hold_units": 800,
+    "recovery_pending_units": 0,
+    "confirmed_recovery_units": 0
+  },
+  "proposal_units": 700
+}

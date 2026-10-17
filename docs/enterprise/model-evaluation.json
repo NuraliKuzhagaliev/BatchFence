@@ -1,0 +1,709 @@
+{
+  "at": "2026-10-16T23:46:30.317601+00:00",
+  "frozen_hash": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "full_denominator": 24,
+  "frozen_items_exercised": 24,
+  "frozen_model_requests": 20,
+  "frozen_retrieval_only_abstentions": 4,
+  "total_fresh_request_attempts": 27,
+  "http_200_responses": 26,
+  "timeouts": 1,
+  "retries": 0,
+  "automatic_repairs": 0,
+  "fixture_substitutions": 0,
+  "requested_models": [
+    "MiMo-V2.6-Flash"
+  ],
+  "actual_models": [
+    "self-dploy/MiMo-V2.6-Flash"
+  ],
+  "latency_ms": {
+    "measured_attempts": 27,
+    "median": 17233,
+    "min": 4293,
+    "max": 45964
+  },
+  "provenance": "Frozen agent-authored synthetic labels, one model, one pass. KNW-01 reuses the original fresh integrated request. No independent human validation; after-review results never replace raw scores.",
+  "extraction": {
+    "source_schema_accepted": {
+      "numerator": 11,
+      "denominator": 12,
+      "ratio": 0.9167
+    },
+    "supplier_entity_precision": {
+      "numerator": 15,
+      "denominator": 22,
+      "ratio": 0.6818
+    },
+    "supplier_entity_recall": {
+      "numerator": 15,
+      "denominator": 15,
+      "ratio": 1.0
+    },
+    "affected_precision": {
+      "numerator": 6,
+      "denominator": 13,
+      "ratio": 0.4615
+    },
+    "affected_recall": {
+      "numerator": 6,
+      "denominator": 6,
+      "ratio": 1.0
+    },
+    "exact_item_matches": {
+      "numerator": 6,
+      "denominator": 12,
+      "ratio": 0.5
+    },
+    "scope_boundary_accuracy": "Not measurable: legacy extraction schema has no completeness prediction. Frozen complete_boundary_support mixes ancestry/notice support and is not relabeled after outcomes. Reviewer completeness and unknown-entity controls remain separate.",
+    "raw_scope_errors": [
+      "EXT-04",
+      "EXT-06",
+      "EXT-07",
+      "EXT-08",
+      "EXT-09",
+      "EXT-11"
+    ],
+    "minimum_label_corrections": 12,
+    "correction_measurement": "Minimum entity/disposition edits inferred from labels, not observed human effort or elapsed productivity.",
+    "items": [
+      {
+        "id": "EXT-01",
+        "status": "succeeded",
+        "expected_supplier_lots": [
+          "NX-201"
+        ],
+        "proposed_entities": [
+          "NX-201"
+        ],
+        "correct_supplier_entities": 1,
+        "proposed_entity_count": 1,
+        "expected_entity_count": 1,
+        "non_supplier_entities": [],
+        "missing_entities": [],
+        "expected_affected": [
+          "NX-201"
+        ],
+        "proposed_affected": [
+          "NX-201"
+        ],
+        "true_positive_affected": 1,
+        "false_positive_affected": [],
+        "false_negative_affected": [],
+        "exact_entity_and_disposition_match": true,
+        "raw_scope_concerns_at_run": [],
+        "human_correction_applied": false
+      },
+      {
+        "id": "EXT-02",
+        "status": "succeeded",
+        "expected_supplier_lots": [
+          "NX-202",
+          "NX-203"
+        ],
+        "proposed_entities": [
+          "NX-202",
+          "NX-203"
+        ],
+        "correct_supplier_entities": 2,
+        "proposed_entity_count": 2,
+        "expected_entity_count": 2,
+        "non_supplier_entities": [],
+        "missing_entities": [],
+        "expected_affected": [
+          "NX-202",
+          "NX-203"
+        ],
+        "proposed_affected": [
+          "NX-202",
+          "NX-203"
+        ],
+        "true_positive_affected": 2,
+        "false_positive_affected": [],
+        "false_negative_affected": [],
+        "exact_entity_and_disposition_match": true,
+        "raw_scope_concerns_at_run": [],
+        "human_correction_applied": false
+      },
+      {
+        "id": "EXT-03",
+        "status": "succeeded",
+        "expected_supplier_lots": [
+          "NX-204",
+          "NX-205"
+        ],
+        "proposed_entities": [
+          "NX-204",
+          "NX-205"
+        ],
+        "correct_supplier_entities": 2,
+        "proposed_entity_count": 2,
+        "expected_entity_count": 2,
+        "non_supplier_entities": [],
+        "missing_entities": [],
+        "expected_affected": [
+          "NX-204"
+        ],
+        "proposed_affected": [
+          "NX-204"
+        ],
+        "true_positive_affected": 1,
+        "false_positive_affected": [],
+        "false_negative_affected": [],
+        "exact_entity_and_disposition_match": true,
+        "raw_scope_concerns_at_run": [],
+        "human_correction_applied": false
+      },
+      {
+        "id": "EXT-04",
+        "status": "succeeded",
+        "expected_supplier_lots": [
+          "NX-206"
+        ],
+        "proposed_entities": [
+          "NX-206"
+        ],
+        "correct_supplier_entities": 1,
+        "proposed_entity_count": 1,
+        "expected_entity_count": 1,
+        "non_supplier_entities": [],
+        "missing_entities": [],
+        "expected_affected": [],
+        "proposed_affected": [
+          "NX-206"
+        ],
+        "true_positive_affected": 0,
+        "false_positive_affected": [
+          "NX-206"
+        ],
+        "false_negative_affected": [],
+        "exact_entity_and_disposition_match": false,
+        "raw_scope_concerns_at_run": [
+          {
+            "document_id": "DOC-ceaf5a2ff7f3",
+            "block_id": "line-1",
+            "quote": "NX-206 may be involved; inspection is pending. The full affected boundary is unknown."
+          }
+        ],
+        "human_correction_applied": false
+      },
+      {
+        "id": "EXT-05",
+        "status": "succeeded",
+        "expected_supplier_lots": [
+          "UNKNOWN-807"
+        ],
+        "proposed_entities": [
+          "UNKNOWN-807"
+        ],
+        "correct_supplier_entities": 1,
+        "proposed_entity_count": 1,
+        "expected_entity_count": 1,
+        "non_supplier_entities": [],
+        "missing_entities": [],
+        "expected_affected": [
+          "UNKNOWN-807"
+        ],
+        "proposed_affected": [
+          "UNKNOWN-807"
+        ],
+        "true_positive_affected": 1,
+        "false_positive_affected": [],
+        "false_negative_affected": [],
+        "exact_entity_and_disposition_match": true,
+        "raw_scope_concerns_at_run": [
+          {
+            "document_id": "DOC-7e87424112d0",
+            "block_id": "line-1",
+            "quote": "Affected lots: UNKNOWN-807. We have not supplied genealogy for this identifier."
+          }
+        ],
+        "human_correction_applied": false
+      },
+      {
+        "id": "EXT-06",
+        "status": "succeeded",
+        "expected_supplier_lots": [
+          "NX-208"
+        ],
+        "proposed_entities": [
+          "DOC-64",
+          "NX-208",
+          "POOL-21",
+          "REC-554"
+        ],
+        "correct_supplier_entities": 1,
+        "proposed_entity_count": 4,
+        "expected_entity_count": 1,
+        "non_supplier_entities": [
+          "DOC-64",
+          "POOL-21",
+          "REC-554"
+        ],
+        "missing_entities": [],
+        "expected_affected": [],
+        "proposed_affected": [
+          "NX-208"
+        ],
+        "true_positive_affected": 0,
+        "false_positive_affected": [
+          "NX-208"
+        ],
+        "false_negative_affected": [],
+        "exact_entity_and_disposition_match": false,
+        "raw_scope_concerns_at_run": [],
+        "human_correction_applied": false
+      },
+      {
+        "id": "EXT-07",
+        "status": "succeeded",
+        "expected_supplier_lots": [
+          "NX-209"
+        ],
+        "proposed_entities": [
+          "NX-209"
+        ],
+        "correct_supplier_entities": 1,
+        "proposed_entity_count": 1,
+        "expected_entity_count": 1,
+        "non_supplier_entities": [],
+        "missing_entities": [],
+        "expected_affected": [],
+        "proposed_affected": [
+          "NX-209"
+        ],
+        "true_positive_affected": 0,
+        "false_positive_affected": [
+          "NX-209"
+        ],
+        "false_negative_affected": [],
+        "exact_entity_and_disposition_match": false,
+        "raw_scope_concerns_at_run": [],
+        "human_correction_applied": false
+      },
+      {
+        "id": "EXT-08",
+        "status": "failed",
+        "expected_supplier_lots": [
+          "NX-210"
+        ],
+        "proposed_entities": [
+          "NX-210",
+          "POOL-22"
+        ],
+        "correct_supplier_entities": 1,
+        "proposed_entity_count": 2,
+        "expected_entity_count": 1,
+        "non_supplier_entities": [
+          "POOL-22"
+        ],
+        "missing_entities": [],
+        "expected_affected": [],
+        "proposed_affected": [
+          "POOL-22"
+        ],
+        "true_positive_affected": 0,
+        "false_positive_affected": [
+          "POOL-22"
+        ],
+        "false_negative_affected": [],
+        "exact_entity_and_disposition_match": false,
+        "raw_scope_concerns_at_run": [],
+        "human_correction_applied": false
+      },
+      {
+        "id": "EXT-09",
+        "status": "succeeded",
+        "expected_supplier_lots": [
+          "NX-211"
+        ],
+        "proposed_entities": [
+          "NX-211",
+          "OLD-71",
+          "OLD-72",
+          "POOL-23"
+        ],
+        "correct_supplier_entities": 1,
+        "proposed_entity_count": 4,
+        "expected_entity_count": 1,
+        "non_supplier_entities": [
+          "OLD-71",
+          "OLD-72",
+          "POOL-23"
+        ],
+        "missing_entities": [],
+        "expected_affected": [],
+        "proposed_affected": [
+          "POOL-23"
+        ],
+        "true_positive_affected": 0,
+        "false_positive_affected": [
+          "POOL-23"
+        ],
+        "false_negative_affected": [],
+        "exact_entity_and_disposition_match": false,
+        "raw_scope_concerns_at_run": [],
+        "human_correction_applied": false
+      },
+      {
+        "id": "EXT-10",
+        "status": "succeeded",
+        "expected_supplier_lots": [
+          "NX-212"
+        ],
+        "proposed_entities": [
+          "NX-212"
+        ],
+        "correct_supplier_entities": 1,
+        "proposed_entity_count": 1,
+        "expected_entity_count": 1,
+        "non_supplier_entities": [],
+        "missing_entities": [],
+        "expected_affected": [
+          "NX-212"
+        ],
+        "proposed_affected": [
+          "NX-212"
+        ],
+        "true_positive_affected": 1,
+        "false_positive_affected": [],
+        "false_negative_affected": [],
+        "exact_entity_and_disposition_match": true,
+        "raw_scope_concerns_at_run": [],
+        "human_correction_applied": false
+      },
+      {
+        "id": "EXT-11",
+        "status": "succeeded",
+        "expected_supplier_lots": [
+          "NX-213",
+          "NX-2I3"
+        ],
+        "proposed_entities": [
+          "NX-213",
+          "NX-2I3"
+        ],
+        "correct_supplier_entities": 2,
+        "proposed_entity_count": 2,
+        "expected_entity_count": 2,
+        "non_supplier_entities": [],
+        "missing_entities": [],
+        "expected_affected": [],
+        "proposed_affected": [
+          "NX-213",
+          "NX-2I3"
+        ],
+        "true_positive_affected": 0,
+        "false_positive_affected": [
+          "NX-213",
+          "NX-2I3"
+        ],
+        "false_negative_affected": [],
+        "exact_entity_and_disposition_match": false,
+        "raw_scope_concerns_at_run": [],
+        "human_correction_applied": false
+      },
+      {
+        "id": "EXT-12",
+        "status": "succeeded",
+        "expected_supplier_lots": [
+          "NX-214"
+        ],
+        "proposed_entities": [
+          "NX-214"
+        ],
+        "correct_supplier_entities": 1,
+        "proposed_entity_count": 1,
+        "expected_entity_count": 1,
+        "non_supplier_entities": [],
+        "missing_entities": [],
+        "expected_affected": [],
+        "proposed_affected": [],
+        "true_positive_affected": 0,
+        "false_positive_affected": [],
+        "false_negative_affected": [],
+        "exact_entity_and_disposition_match": true,
+        "raw_scope_concerns_at_run": [],
+        "human_correction_applied": false
+      }
+    ]
+  },
+  "knowledge": {
+    "pipeline_label_matches": {
+      "numerator": 11,
+      "denominator": 12,
+      "ratio": 0.9167
+    },
+    "model_label_matches": {
+      "numerator": 7,
+      "denominator": 8,
+      "ratio": 0.875
+    },
+    "answerable_expected_source_matches": {
+      "numerator": 4,
+      "denominator": 4,
+      "ratio": 1.0
+    },
+    "unanswerable_abstentions": {
+      "numerator": 7,
+      "denominator": 8,
+      "ratio": 0.875
+    },
+    "exact_passage_claims": {
+      "numerator": 6,
+      "denominator": 6,
+      "ratio": 1.0
+    },
+    "source_entailment": "Four answerable outputs select directly relevant frozen procedure passages (P1, P2, PROC-101/P1, P3), inspected by the agent. KNW-12 is an abstention error even though its quotes are exact and conservative.",
+    "items": [
+      {
+        "id": "KNW-01",
+        "mode": "live",
+        "status": "succeeded",
+        "expected_answerable": true,
+        "returned_sources": [
+          "PROC-100@1"
+        ],
+        "retrieved_sources": [
+          "PROC-100@1"
+        ],
+        "claims": 1,
+        "exact_quote_validation": true,
+        "abstained": false,
+        "frozen_label_match": true,
+        "semantic_review": "Operating-agent assessment against frozen synthetic labels; no independent domain reviewer.",
+        "human_correction_applied": false
+      },
+      {
+        "id": "KNW-02",
+        "mode": "live",
+        "status": "succeeded",
+        "expected_answerable": true,
+        "returned_sources": [
+          "PROC-100@1"
+        ],
+        "retrieved_sources": [
+          "PROC-100@1",
+          "PROC-101@1"
+        ],
+        "claims": 1,
+        "exact_quote_validation": true,
+        "abstained": false,
+        "frozen_label_match": true,
+        "semantic_review": "Operating-agent assessment against frozen synthetic labels; no independent domain reviewer.",
+        "human_correction_applied": false
+      },
+      {
+        "id": "KNW-03",
+        "mode": "live",
+        "status": "succeeded",
+        "expected_answerable": true,
+        "returned_sources": [
+          "PROC-101@1"
+        ],
+        "retrieved_sources": [
+          "PROC-100@1",
+          "PROC-101@1"
+        ],
+        "claims": 1,
+        "exact_quote_validation": true,
+        "abstained": false,
+        "frozen_label_match": true,
+        "semantic_review": "Operating-agent assessment against frozen synthetic labels; no independent domain reviewer.",
+        "human_correction_applied": false
+      },
+      {
+        "id": "KNW-04",
+        "mode": "live",
+        "status": "succeeded",
+        "expected_answerable": false,
+        "returned_sources": [],
+        "retrieved_sources": [
+          "PROC-100@1"
+        ],
+        "claims": 0,
+        "exact_quote_validation": true,
+        "abstained": true,
+        "frozen_label_match": true,
+        "semantic_review": "Operating-agent assessment against frozen synthetic labels; no independent domain reviewer.",
+        "human_correction_applied": false
+      },
+      {
+        "id": "KNW-05",
+        "mode": "deterministic retrieval abstention; no model request",
+        "status": "insufficient",
+        "expected_answerable": false,
+        "returned_sources": [],
+        "retrieved_sources": [],
+        "claims": 0,
+        "exact_quote_validation": true,
+        "abstained": true,
+        "frozen_label_match": true,
+        "semantic_review": "Operating-agent assessment against frozen synthetic labels; no independent domain reviewer.",
+        "human_correction_applied": false
+      },
+      {
+        "id": "KNW-06",
+        "mode": "deterministic retrieval abstention; no model request",
+        "status": "insufficient",
+        "expected_answerable": false,
+        "returned_sources": [],
+        "retrieved_sources": [],
+        "claims": 0,
+        "exact_quote_validation": true,
+        "abstained": true,
+        "frozen_label_match": true,
+        "semantic_review": "Operating-agent assessment against frozen synthetic labels; no independent domain reviewer.",
+        "human_correction_applied": false
+      },
+      {
+        "id": "KNW-07",
+        "mode": "live",
+        "status": "succeeded",
+        "expected_answerable": false,
+        "returned_sources": [],
+        "retrieved_sources": [
+          "PROC-100@1"
+        ],
+        "claims": 0,
+        "exact_quote_validation": true,
+        "abstained": true,
+        "frozen_label_match": true,
+        "semantic_review": "Operating-agent assessment against frozen synthetic labels; no independent domain reviewer.",
+        "human_correction_applied": false
+      },
+      {
+        "id": "KNW-08",
+        "mode": "deterministic retrieval abstention; no model request",
+        "status": "insufficient",
+        "expected_answerable": false,
+        "returned_sources": [],
+        "retrieved_sources": [],
+        "claims": 0,
+        "exact_quote_validation": true,
+        "abstained": true,
+        "frozen_label_match": true,
+        "semantic_review": "Operating-agent assessment against frozen synthetic labels; no independent domain reviewer.",
+        "human_correction_applied": false
+      },
+      {
+        "id": "KNW-09",
+        "mode": "live",
+        "status": "succeeded",
+        "expected_answerable": false,
+        "returned_sources": [],
+        "retrieved_sources": [
+          "PROC-100@1"
+        ],
+        "claims": 0,
+        "exact_quote_validation": true,
+        "abstained": true,
+        "frozen_label_match": true,
+        "semantic_review": "Operating-agent assessment against frozen synthetic labels; no independent domain reviewer.",
+        "human_correction_applied": false
+      },
+      {
+        "id": "KNW-10",
+        "mode": "deterministic retrieval abstention; no model request",
+        "status": "insufficient",
+        "expected_answerable": false,
+        "returned_sources": [],
+        "retrieved_sources": [],
+        "claims": 0,
+        "exact_quote_validation": true,
+        "abstained": true,
+        "frozen_label_match": true,
+        "semantic_review": "Operating-agent assessment against frozen synthetic labels; no independent domain reviewer.",
+        "human_correction_applied": false
+      },
+      {
+        "id": "KNW-11",
+        "mode": "live",
+        "status": "succeeded",
+        "expected_answerable": true,
+        "returned_sources": [
+          "PROC-100@1"
+        ],
+        "retrieved_sources": [
+          "PROC-100@1"
+        ],
+        "claims": 1,
+        "exact_quote_validation": true,
+        "abstained": false,
+        "frozen_label_match": true,
+        "semantic_review": "Operating-agent assessment against frozen synthetic labels; no independent domain reviewer.",
+        "human_correction_applied": false
+      },
+      {
+        "id": "KNW-12",
+        "mode": "live",
+        "status": "succeeded",
+        "expected_answerable": false,
+        "returned_sources": [
+          "PROC-100@1"
+        ],
+        "retrieved_sources": [
+          "PROC-100@1",
+          "PROC-101@1"
+        ],
+        "claims": 2,
+        "exact_quote_validation": true,
+        "abstained": false,
+        "frozen_label_match": false,
+        "semantic_review": "KNW-12 returns exact prerequisite passages but fails the expected insufficient-evidence flag. It does not authorize recovery; no case check or recovery was performed.",
+        "human_correction_applied": false
+      }
+    ]
+  },
+  "receiving": {
+    "original_source_valid": {
+      "numerator": 0,
+      "denominator": 2,
+      "ratio": 0.0
+    },
+    "after_context_fix_source_valid": {
+      "numerator": 2,
+      "denominator": 2,
+      "ratio": 1.0
+    },
+    "retest_boundary": "Same two inputs after source-only context fix, not new holdout items.",
+    "reviewed_workflow": "Partial reply retained 800 held. Accepted complete AMD draft, explicit source/replacement review, 700 proposed while 800 applied, separate named engineering approval and exact 100-unit sandbox recovery. Original two receipts unchanged.",
+    "evidence": "live/fresh/receiving-v2/workflow-summary.json"
+  },
+  "signals": {
+    "original": "Schema accepted; baseline-ID semantic error. Non-signal investigation rejected 422.",
+    "context_v2": "ReadTimeout at 45964ms; no output or fallback.",
+    "context_v3_status": "succeeded",
+    "context_v3_semantic_review": "Agent inspected all five comments against retained numeric context: SHIFT-001..005 counts 59/500,72/800,43/500,81/800,46/500; rates 0.118,0.09,0.086,0.10125,0.092; rounded upper limits 0.03538 or 0.03168; baseline BASE-001..020,230/13000;20 omitted follow-ups disclosed. No unsupported causal/action statement identified. One successful retest, not independent validation.",
+    "evidence": "live/frozen/signal-v3.json"
+  },
+  "application_authority": {
+    "frozen_cases_reviewed": 0,
+    "frozen_approvals": 0,
+    "frozen_inventory_actions": 0,
+    "recorded_replay_checks": "Exact EXT-04/07/11 copied booleans reject 422; explicit unresolved review retains 1200/0 outside. Original receiving failures reject narrative narrowing. Old review-policy approvals reject 409. Actual core/typed workflows tested separately.",
+    "limitation": "No enumeration of every possible semantic error. Bounded English rules do not authenticate sources or replace responsible review."
+  },
+  "allowance": {
+    "confirmed_additional_monetary_charge_usd": 0,
+    "basis": "Authenticated event manual for exact endpoint/model; accounting points are nonmonetary.",
+    "maximum_total_authorized": 30,
+    "maximum_additional_authorized": 24,
+    "actual_additional_attempts": 21,
+    "last_quota": {
+      "at": "2026-10-16T23:44:50.378021+00:00",
+      "remaining_points": 0.9899342972785234,
+      "used_points": 0.010065702721476555,
+      "today_requests": 40,
+      "monetary_charge_usd": 0,
+      "unit_basis": "Authenticated event manual: points are not charges"
+    },
+    "reported_points_for_http_200": 0.0055679624,
+    "timeout_accounting": "Provider may account a timed-out request later; no response-based usage is available for it."
+  },
+  "limitations": [
+    "Small synthetic single-model exercise; no industrial accuracy, human timing, safety-critical or productivity claim.",
+    "Frozen extraction tests use new supplier IDs outside the prepared genealogy, so they do not prove narrow scope for real inventory.",
+    "No additional live request is needed merely to improve these scores. Retained errors are release limitations."
+  ]
+}

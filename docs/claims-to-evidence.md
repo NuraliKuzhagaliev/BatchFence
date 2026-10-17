@@ -1,3 +1,17 @@
+# Current 0.3.0 evidence
+
+See [fresh AMD evidence](enterprise/live/README.md), [item-level evaluation](enterprise/model-evaluation.json) and [release status](enterprise/release-0.3.0.md). 27 fresh attempts: 26 HTTP 200 and one timeout. Frozen 24 items exercised: 20 model requests and four retrieval-only abstentions. Raw extraction 6/12 exact; knowledge pipeline 11/12. Typed receiving retests 2/2 and the final signal explanation passed their bounded checks. Synthetic sources and agent-operated review do not establish independent human or field acceptance.
+
+Packaging/publication identity follows in enterprise/final-release.json. Earlier blocked/candidate statements below are historical.
+
+---
+
+# Enterprise candidate claims
+
+The candidate branch implements all four modules with synthetic/local engineering evidence in enterprise/evidence-matrix.md. New-task fresh AMD is0/24 and independent users/domain acceptance are0. Public and stable Windows remain0.2.0. This candidate is not production-ready or publicly promoted. See enterprise/release-gates.md, candidate-artifacts.json and operator-acceptance.md. Historical claims below apply to their recorded release, not automatically to the candidate.
+
+---
+
 # Claims to evidence — 0.2.0
 
 The six features were added in dependency order. Existing AMD adapter, citations, deterministic containment, exact approvals, stale rejection, transaction receipts, isolated sessions and offline packet viewer were preserved. Application code is 7431360, with Linux packaging correction ebd1402; later release-evidence commits do not change the packaged renderer.

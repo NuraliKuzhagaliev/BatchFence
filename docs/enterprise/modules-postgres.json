@@ -1,0 +1,71 @@
+{
+  "at": "2026-10-16T23:55:18.089713+00:00",
+  "provenance": "Actual local PostgreSQL and separate loopback HTTP connector processes; synthetic records and agent-operated named test accounts",
+  "checks": [
+    "500 then 800 containment",
+    "natural typed review: 700 proposed with 800 applied",
+    "distinct named release approval",
+    "actual connection-refused acknowledgement retains 800",
+    "explicit retry over loopback HTTP confirms exact 100",
+    "connector process restart returns same persisted acknowledgement",
+    "duplicate dispatch returns same receipt",
+    "original containment receipts unchanged",
+    "isolated database+source restore retains exact module snapshots and recovery receipts",
+    "sessions excluded from restore",
+    "post-restore repeated recovery rejected",
+    "actual legacy SQLite-to-Postgres CLI migration preserves anonymous owner and receipt JSON"
+  ],
+  "connector": {
+    "port": 62552,
+    "first_pid": 28996,
+    "restarted_pid": 14020,
+    "attempts": 2,
+    "execution": "LOCAL SANDBOX REFERENCE"
+  },
+  "backup": {
+    "created_at": "2026-10-16T23:55:16.215769+00:00",
+    "duration_ms": 54,
+    "counts": {
+      "cases": 1,
+      "receipts": 2,
+      "bf_records": 12,
+      "bf_users": 2,
+      "bf_members": 2,
+      "bf_audit": 32,
+      "bf_sources": 16,
+      "bf_schema": 1
+    },
+    "source_count": 16,
+    "sha256": "50e84d758dc7c3d70315d48d7ff338958d4c923457b6a481436924515aa0392d",
+    "bytes": 34251,
+    "boundary": "Same-device backup drill does not establish disaster recovery; owner RPO/RTO not agreed."
+  },
+  "restore": {
+    "restored_at": "2026-10-16T23:55:16.504120+00:00",
+    "duration_ms": 225,
+    "backup_age_seconds": 0.288,
+    "counts": {
+      "bf_audit": 32,
+      "bf_members": 2,
+      "bf_records": 12,
+      "bf_schema": 1,
+      "bf_sources": 16,
+      "bf_users": 2,
+      "cases": 1,
+      "receipts": 2
+    },
+    "source_hashes_verified": 16,
+    "all_record_values_match": true,
+    "sessions_restored": 0,
+    "independent_disaster_recovery": false
+  },
+  "legacy_migration": {
+    "migrated": {
+      "cases": 1,
+      "receipts": 1
+    },
+    "authority": "Legacy owners and anonymous receipts unchanged; no named approval granted",
+    "backup_created": true
+  },
+  "limits": "Same-device restore, not disaster recovery. Owner RPO/RTO unset. No real enterprise connector or physical stock action."
+}
