@@ -1,0 +1,119 @@
+{
+  "confirmed": [
+    {
+      "id": "D01",
+      "problem": "Explicit incomplete incident scope",
+      "implementation": "backend/review_safety.py",
+      "before": "reproduced-defects.xml",
+      "after": "fix01-tests.xml",
+      "status": "fixed and observed at referenced engineering boundary"
+    },
+    {
+      "id": "D02",
+      "problem": "Late caveat omitted from model quote",
+      "implementation": "backend/scope_proposals.py",
+      "before": "reproduced-defects02.xml",
+      "after": "fix02-tests.xml",
+      "status": "fixed and observed at referenced engineering boundary"
+    },
+    {
+      "id": "D03",
+      "problem": "Complete receiving despite uncertain original",
+      "implementation": "backend/receiving.py",
+      "before": "reproduced-defects02.xml",
+      "after": "fix02-tests.xml",
+      "status": "fixed and observed at referenced engineering boundary"
+    },
+    {
+      "id": "D04",
+      "problem": "Substring identifiers in receiving/label/recovery association",
+      "implementation": "backend/receiving.py; backend/label_images.py; backend/recovery.py",
+      "before": "reproduced-defects.xml",
+      "after": "fix01-tests.xml",
+      "status": "fixed and observed at referenced engineering boundary"
+    },
+    {
+      "id": "D05",
+      "problem": "Timestamp spelling changed chronology",
+      "implementation": "backend/signals.py",
+      "before": "reproduced-defects.xml",
+      "after": "fix01-tests.xml",
+      "status": "fixed and observed at referenced engineering boundary"
+    },
+    {
+      "id": "D06",
+      "problem": "Malformed handover escaped domain rejection",
+      "implementation": "backend/assisted.py",
+      "before": "reproduced-defects.xml",
+      "after": "fix01-tests.xml",
+      "status": "fixed and observed at referenced engineering boundary"
+    },
+    {
+      "id": "D07",
+      "problem": "Boolean/invalid procedure version or page metadata",
+      "implementation": "backend/knowledge.py",
+      "before": "reproduced-defects.xml",
+      "after": "fix01-tests.xml",
+      "status": "fixed and observed at referenced engineering boundary"
+    },
+    {
+      "id": "D08",
+      "problem": "Duplicate/ragged CSV and silent overwritten fields",
+      "implementation": "backend/fixtures.py",
+      "before": "reproduced-defects02.xml",
+      "after": "fix02-tests.xml",
+      "status": "fixed and observed at referenced engineering boundary"
+    },
+    {
+      "id": "D09",
+      "problem": "Blank evidence invalidated decisions",
+      "implementation": "backend/app.py",
+      "before": "reproduced-defects02.xml",
+      "after": "fix02-tests.xml",
+      "status": "fixed and observed at referenced engineering boundary"
+    },
+    {
+      "id": "D10",
+      "problem": "Windows/Linux contract digest mismatch",
+      "implementation": "Deployment exact LF source bytes; .gitattributes",
+      "before": "clients/early-web-harness3/failure.json",
+      "after": "clients/early-web-contractfix/result-after-review.json",
+      "status": "fixed and observed at referenced engineering boundary"
+    },
+    {
+      "id": "D11",
+      "problem": "Focus/reconnect overrode explicit inference mode",
+      "implementation": "frontend/main.tsx",
+      "before": "focus-mode-before.json",
+      "after": "focus-mode-web.json",
+      "status": "fixed and observed at referenced engineering boundary"
+    }
+  ],
+  "remaining": [
+    {
+      "id": "R-MODEL",
+      "status": "unresolved, contained by explicit source/scope review",
+      "evidence": "matched-comparison.json; public corrected Evolus raw job"
+    },
+    {
+      "id": "R-STORAGE",
+      "status": "Free Render ephemeral; export required, not production durability"
+    },
+    {
+      "id": "R-SECURITY-HISTORY",
+      "status": "Prior tool-history credential exposure; owner explicitly retains AMD and current valid Evolus keys. No additional rotation permitted. Sanitized artifact scan is separate."
+    },
+    {
+      "id": "R-BUILD-DEPS",
+      "status": "Eight moderate npm development-tool findings; production npm and pinned Python audits clear. No force downgrade or blanket override."
+    },
+    {
+      "id": "R-HUMAN",
+      "status": "Independent language/domain/physical-photo and unfamiliar-operator acceptance pending"
+    },
+    {
+      "id": "R-IDENTITY",
+      "status": "Public anonymous capability is intentionally not retained across installed app restarts; exported packets remain read-only. Private named pilot requires fresh login."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-17T22:25:17.391402+00:00",
+  "manifest_sha256": "92b5e71ebed03a442718e4f4ce55b4e24c39c5ea99c33b195280d93306bbb395",
+  "new_distinct_cases": 200,
+  "families": {
+    "ING": 32,
+    "SEM": 32,
+    "KNW": 24,
+    "SIG": 20,
+    "PLN": 28,
+    "IMG": 24,
+    "CHG": 16,
+    "OPS": 24
+  },
+  "held_out_by_family": {
+    "ING": 8,
+    "SEM": 8,
+    "KNW": 8,
+    "SIG": 8,
+    "PLN": 8,
+    "IMG": 8,
+    "CHG": 8,
+    "OPS": 8
+  },
+  "frozen_corpus_results": "200 passed after19 disclosed harness mistakes corrected without labels/source changes",
+  "final_suite_cases": 425,
+  "final_suite_failures": [],
+  "combined_sequences": 16,
+  "sequence_test_instances": 18,
+  "property_campaign": {
+    "seeds": [
+      1701,
+      2909,
+      6011
+    ],
+    "scenarios_per_seed": 20,
+    "counted_in_200": false,
+    "reference": "Independent direct parent-to-pool unit sum; rename/reorder/duplicate-path and unbounded-scope metamorphisms",
+    "counterexamples": []
+  },
+  "limitations": "All authored and operated by the same engineering agent. Exposed holdout cases are regression material, not unseen validation. Unit/API injection checks are not genuine model performance, physical photo validation or a real plant sample."
+}

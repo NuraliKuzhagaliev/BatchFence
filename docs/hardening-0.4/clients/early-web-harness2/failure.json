@@ -1,0 +1,5 @@
+{
+  "at": "2026-10-17T21:27:43.776Z",
+  "message": "locator.click: Error: strict mode violation: locator('details.assist-provider').locator('summary') resolved to 2 elements:\n    1) <summary>Connected assistance · Configured · acceptance se…</summary> aka getByText('Connected assistance ·')\n    2) <summary>Provider availability and verification limits</summary> aka getByText('Provider availability and')\n\nCall log:\n\u001b[2m  - waiting for locator('details.assist-provider').locator('summary')\u001b[22m\n",
+  "errors": []
+}

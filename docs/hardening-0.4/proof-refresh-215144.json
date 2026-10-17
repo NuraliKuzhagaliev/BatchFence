@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-17T21:51:44.912654+00:00",
+  "amd": {
+    "daily_cost_limit_usd": 1,
+    "daily_cost_used_usd": 0.003029326908290386,
+    "daily_cost_remaining_usd": 0.9969706730917096,
+    "daily_reset_at": "2026-10-18T16:00:00.000Z"
+  },
+  "evolus_balance": [
+    {
+      "bucketId": "92e2bcdc-315a-4113-a101-146575a6f72e",
+      "applicationId": "705220fb-be5e-4d61-b1ee-5a5fc824ab8e",
+      "bucketType": {
+        "code": "LLM_CREDITS"
+      },
+      "monthlyBalance": 50000.0,
+      "extraBalance": 0.0,
+      "totalBalance": 50000.0,
+      "lastResetAt": "2026-10-16T22:01:20.3065606Z",
+      "monthlyAllocation": null,
+      "lots": [],
+      "monthlyCreditsResetAt": "2026-11-16T00:00:00Z",
+      "monthlyCreditsRemaining": 50000.0
+    }
+  ],
+  "own_model_price": {
+    "kind": "byok-free",
+    "unit": "1M-token",
+    "input": 0,
+    "output": 0,
+    "estimated": false
+  },
+  "expiry": "2026-10-18T16:00:00+00:00",
+  "phase_identity_preserved": true,
+  "configuration_secrets_changed": false,
+  "dispatch_counters_reset": false,
+  "source_account_plan": "account-controls.json; event TRIALING, no automatic renewal; no plan operation performed"
+}

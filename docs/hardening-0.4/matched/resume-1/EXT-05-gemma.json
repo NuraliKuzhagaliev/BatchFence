@@ -1,0 +1,138 @@
+{
+  "id": "EXT-05-gemma",
+  "at": "2026-10-17T21:50:55.276841+00:00",
+  "requested_model": "Gemma-4-31B-IT",
+  "source": {
+    "id": "MATCHED-EXT-05",
+    "blocks": [
+      {
+        "id": "original-1",
+        "text": "Affected lots: UNKNOWN-807. We have not supplied genealogy for this identifier.",
+        "page": null
+      }
+    ]
+  },
+  "original_labels": {
+    "affected_supplier_lots": [
+      "UNKNOWN-807"
+    ],
+    "mentioned_supplier_lots": [],
+    "complete_boundary_support": false,
+    "action_authority": false
+  },
+  "benchmark_sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "prompt_version": "source-proposals-3",
+  "source_hash": "7861d1d2ac85df927411a68f67f82b645fc8d6fa25916811a72109f24dc0ce0f",
+  "user_context_hash": "efdcb0e9131670fabb4b8b661cbb852302e3b152d6343a810a51bdd8ec8ebc26",
+  "state_effect": "None; standalone raw benchmark and application validator only",
+  "review": "No corrections or independent human validation",
+  "http_status": 200,
+  "request_id": "03239c4caece4aea9d34990215002803",
+  "response_hash": "96e1a558c7b4998e270d2c0d9e25dcf5130d8d57132c4080757a1c62ce131240",
+  "quota_headers": {
+    "x-ratelimit-limit-user-daily-usd": "1",
+    "x-ratelimit-limit-user-rpm": "20",
+    "x-ratelimit-remaining-user-daily-usd": "0.99719405",
+    "x-ratelimit-remaining-user-rpm": "14",
+    "x-ratelimit-reset-user-daily-usd": "1792339200",
+    "x-ratelimit-used-user-daily-usd": "0.00280595"
+  },
+  "retry_after": null,
+  "actual_model": "self-dploy/Gemma-4-31B-IT",
+  "usage": {
+    "prompt_tokens": 931,
+    "total_tokens": 1024,
+    "completion_tokens": 93,
+    "prompt_tokens_details": {
+      "cached_tokens": 880,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 8.911e-06,
+    "cost_details": {
+      "upstream_inference_cost": 8.911e-06,
+      "upstream_inference_prompt_cost": 2.401e-06,
+      "upstream_inference_completions_cost": 6.51e-06,
+      "total_cost": 8.911e-06,
+      "input_cost": 1.785e-06,
+      "output_cost": 6.51e-06,
+      "cached_input_cost": 6.16e-07,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "raw_response": "{\"facts\": [{\"lot_id\": \"UNKNOWN-807\", \"kind\": \"supplier_lot\", \"status\": \"affected\", \"evidence\": [{\"document_id\": \"MATCHED-EXT-05\", \"block_id\": \"original-1\", \"quote\": \"Affected lots: UNKNOWN-807\"}]}], \"qualifiers\": [], \"scope_status\": \"unknown\", \"scope_evidence\": []}",
+  "parsed": {
+    "facts": [
+      {
+        "lot_id": "UNKNOWN-807",
+        "kind": "supplier_lot",
+        "status": "affected",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-05",
+            "block_id": "original-1",
+            "quote": "Affected lots: UNKNOWN-807"
+          }
+        ]
+      }
+    ],
+    "qualifiers": [],
+    "scope_status": "unknown",
+    "scope_evidence": []
+  },
+  "original_supplier_pairs_exact": true,
+  "expected_pairs": [
+    [
+      "UNKNOWN-807",
+      true
+    ]
+  ],
+  "actual_pairs": [
+    [
+      "UNKNOWN-807",
+      true
+    ]
+  ],
+  "validated": {
+    "facts": [
+      {
+        "lot_id": "UNKNOWN-807",
+        "kind": "supplier_lot",
+        "status": "affected",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-05",
+            "block_id": "original-1",
+            "quote": "Affected lots: UNKNOWN-807"
+          }
+        ]
+      }
+    ],
+    "qualifiers": [],
+    "scope_status": "unknown",
+    "scope_evidence": []
+  },
+  "application": "accepted unreviewed proposal; mandatory source/scope review remains",
+  "elapsed_ms": 3106
+}

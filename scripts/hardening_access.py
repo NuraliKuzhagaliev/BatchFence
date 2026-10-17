@@ -45,20 +45,21 @@ def main():
   balance=get('evolus-current-bucket-balances',evo+'/api/v1/applications/'+aid+'/buckets/balances',headers)
   if balance is not None:report['evolus_balance']=balance
   connections=get('evolus-current-own-connection',evo+'/api/v1/own-models/connections',headers)
-  if isinstance(connections,list):report['evolus_connections']=[{k:c.get(k) for k in ('id','name','baseUrl','isDisabled','hasApiKey','lastVerifiedAt','lastVerificationStatus')} for c in connections]
+  if isinstance(connections,list):report['evolus_connections']=[{k:c.get(k) for k in ('id','name','apiBaseUrl','disabled','hasApiKey','lastVerifiedAt','lastVerificationStatus')} for c in connections]
   catalog=get('evolus-current-catalog',evo+'/api/v1/ai/catalog',headers,{'capability':'chat','context':'workflow-llm'})
   if catalog is not None:
    # Discover shape without publishing account-wide configuration.
    def find(x):
     if isinstance(x,list):return [v for a in x for v in find(a)]
     if isinstance(x,dict):
-     if x.get('key')==values.get('EVOLUS_GEMMA_MODEL_KEY') or x.get('modelKey')==values.get('EVOLUS_GEMMA_MODEL_KEY'):return [{k:x.get(k) for k in ('key','modelKey','name','source','pricing','available','isAvailable','capabilities','contextWindow')}]
+     if values.get('EVOLUS_GEMMA_MODEL_KEY') in (x.get('id'),x.get('key'),x.get('modelKey')):return [{k:x.get(k) for k in ('id','key','modelKey','name','source','pricing','available','unavailable','locked','capabilities','contextWindow')}]
      return [v for a in x.values() for v in find(a)]
     return []
    report['evolus_model']=find(catalog)
  text=json.dumps(report,ensure_ascii=False,indent=2)
  if any(s in text for s in secrets):raise RuntimeError('Secret in account response; publication suppressed')
  path=OUT/('access-'+str(time.time_ns())+'.json');path.write_text(text+'\n',encoding='utf-8')
- (PRIVATE/'configuration-fingerprints.json').write_text(json.dumps({k:hashlib.sha256(values[k].encode()).hexdigest() for k in KEYS if values.get(k)},indent=2),encoding='utf-8')
+ fingerprint=PRIVATE/'configuration-fingerprints.json'
+ if not fingerprint.exists():fingerprint.write_text(json.dumps({k:hashlib.sha256(values[k].encode()).hexdigest() for k in KEYS if values.get(k)},indent=2),encoding='utf-8')
  print(text)
 if __name__=='__main__':main()

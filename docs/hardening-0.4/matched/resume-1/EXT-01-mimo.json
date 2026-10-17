@@ -1,0 +1,154 @@
+{
+  "id": "EXT-01-mimo-retry1",
+  "at": "2026-10-17T21:49:38.506503+00:00",
+  "requested_model": "MiMo-V2.6-Flash",
+  "source": {
+    "id": "MATCHED-EXT-01",
+    "blocks": [
+      {
+        "id": "original-1",
+        "text": "Affected lots: NX-201. Cosmetic coating issue only.",
+        "page": null
+      }
+    ]
+  },
+  "original_labels": {
+    "affected_supplier_lots": [
+      "NX-201"
+    ],
+    "mentioned_supplier_lots": [],
+    "complete_boundary_support": true,
+    "action_authority": false
+  },
+  "benchmark_sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "prompt_version": "source-proposals-3",
+  "source_hash": "eaf39217de445abfa1f5dc1bb75772f0a1db4706126246e9a1a623c23369f4e9",
+  "user_context_hash": "40f8748e4e5b5328c9b51547f9e0e91b46468fac4eec61107ff45b89c12e6656",
+  "state_effect": "None; standalone raw benchmark and application validator only",
+  "review": "No corrections or independent human validation",
+  "http_status": 200,
+  "request_id": "c2b2cb1b2205488eab5275edb4c41f0f",
+  "response_hash": "85e6da806d5928983da4679555ba5685d362f13f321866a085c95c82d6df635e",
+  "quota_headers": {
+    "x-ratelimit-limit-user-daily-usd": "1",
+    "x-ratelimit-limit-user-rpm": "20",
+    "x-ratelimit-remaining-user-daily-usd": "0.99779813",
+    "x-ratelimit-remaining-user-rpm": "19",
+    "x-ratelimit-reset-user-daily-usd": "1792339200",
+    "x-ratelimit-used-user-daily-usd": "0.00220187"
+  },
+  "retry_after": null,
+  "actual_model": "self-dploy/MiMo-V2.6-Flash",
+  "usage": {
+    "prompt_tokens": 908,
+    "total_tokens": 1075,
+    "completion_tokens": 167,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 0.00017388,
+    "cost_details": {
+      "upstream_inference_cost": 0.00017387999999999998,
+      "upstream_inference_prompt_cost": 0.00012712,
+      "upstream_inference_completions_cost": 4.676e-05,
+      "total_cost": 0.00017388,
+      "input_cost": 0.00012712,
+      "output_cost": 4.676e-05,
+      "cached_input_cost": 0,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "raw_response": "{\"facts\": [{\"lot_id\": \"NX-201\", \"kind\": \"supplier_lot\", \"status\": \"affected\", \"evidence\": [{\"document_id\": \"MATCHED-EXT-01\", \"block_id\": \"original-1\", \"quote\": \"Affected lots: NX-201. Cosmetic coating issue only.\"}]}], \"qualifiers\": [\"Source asserts NX-201 affected with cosmetic coating issue only; no other lots named in this document, and absence of other lots does not imply exclusion.\"], \"scope_status\": \"unknown\", \"scope_evidence\": [{\"document_id\": \"MATCHED-EXT-01\", \"block_id\": \"original-1\", \"quote\": \"Affected lots: NX-201. Cosmetic coating issue only.\"}]}",
+  "parsed": {
+    "facts": [
+      {
+        "lot_id": "NX-201",
+        "kind": "supplier_lot",
+        "status": "affected",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-01",
+            "block_id": "original-1",
+            "quote": "Affected lots: NX-201. Cosmetic coating issue only."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Source asserts NX-201 affected with cosmetic coating issue only; no other lots named in this document, and absence of other lots does not imply exclusion."
+    ],
+    "scope_status": "unknown",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-01",
+        "block_id": "original-1",
+        "quote": "Affected lots: NX-201. Cosmetic coating issue only."
+      }
+    ]
+  },
+  "original_supplier_pairs_exact": true,
+  "expected_pairs": [
+    [
+      "NX-201",
+      true
+    ]
+  ],
+  "actual_pairs": [
+    [
+      "NX-201",
+      true
+    ]
+  ],
+  "validated": {
+    "facts": [
+      {
+        "lot_id": "NX-201",
+        "kind": "supplier_lot",
+        "status": "affected",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-01",
+            "block_id": "original-1",
+            "quote": "Affected lots: NX-201. Cosmetic coating issue only."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Source asserts NX-201 affected with cosmetic coating issue only; no other lots named in this document, and absence of other lots does not imply exclusion."
+    ],
+    "scope_status": "unknown",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-01",
+        "block_id": "original-1",
+        "quote": "Affected lots: NX-201. Cosmetic coating issue only."
+      }
+    ]
+  },
+  "application": "accepted unreviewed proposal; mandatory source/scope review remains",
+  "elapsed_ms": 7329
+}

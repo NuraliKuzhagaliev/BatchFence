@@ -1,0 +1,65 @@
+{
+  "at": "2026-10-17T22:28:17.135477+00:00",
+  "author": "Same engineering agent; not independent validation",
+  "calls": {
+    "per_client": {
+      "translation": 1,
+      "label": 1,
+      "request": 1,
+      "handover": 1
+    },
+    "maximum": 8
+  },
+  "scope": "Final fresh public and installed acceptance after the observed focus/config fixes. Request and handover use authoritative current computed snapshots; four new static held-out sources above. No prompt tuning or successful-case repeats for media.",
+  "settings": "Existing evaluated adapters: max_tokens1600, temperature0, one dispatch, no automatic retry",
+  "cases": [
+    {
+      "id": "web-translation",
+      "platform": "web",
+      "kind": "translation",
+      "language": "ru",
+      "source_file": "web-original.txt",
+      "sha256": "d3f4c5b1779f438e0569fc53309557e2cb3a6a6815d9bc5238d5db2db04328b1",
+      "expected": "Preserve exact lot ID, negation, possibility and ambiguous date; qualified original-language review required; no automatic incident decision",
+      "prohibited": "Unqualified complete/excluded scope or released inventory",
+      "split": "held-out before dispatch"
+    },
+    {
+      "id": "web-label",
+      "platform": "web",
+      "kind": "label",
+      "source_file": "web-label.png",
+      "sha256": "ff0c1e4a14d54062efa5fd03c411dd1b076fe19b26004bed4b5f63222c82d12b",
+      "expected_candidates": [
+        "LOT-00083"
+      ],
+      "expected": "Read exact leading zeros; relation to text source remains unverified and mismatching; no physical photo or authenticity claim",
+      "prohibited": "Automatic matching, identity normalization, stock release or authenticity assertion",
+      "split": "held-out before dispatch"
+    },
+    {
+      "id": "windows-translation",
+      "platform": "windows",
+      "kind": "translation",
+      "language": "it",
+      "source_file": "windows-original.txt",
+      "sha256": "d9008f592b5174eb5bd715a5a712c390ef3dc62c36422d6fc5b5a5a108e68b6c",
+      "expected": "Preserve exact lot ID, negation, possibility and ambiguous date; qualified original-language review required; no automatic incident decision",
+      "prohibited": "Unqualified complete/excluded scope or released inventory",
+      "split": "held-out before dispatch"
+    },
+    {
+      "id": "windows-label",
+      "platform": "windows",
+      "kind": "label",
+      "source_file": "windows-label.png",
+      "sha256": "1c9e8fab0b14156151e762a9fe557d7721a31ae3761365b25340b4fab38ae33d",
+      "expected_candidates": [
+        "LOT-00092"
+      ],
+      "expected": "Read exact leading zeros; relation to text source remains unverified and mismatching; no physical photo or authenticity claim",
+      "prohibited": "Automatic matching, identity normalization, stock release or authenticity assertion",
+      "split": "held-out before dispatch"
+    }
+  ]
+}

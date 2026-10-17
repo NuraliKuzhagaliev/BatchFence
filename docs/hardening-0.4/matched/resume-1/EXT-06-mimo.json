@@ -1,0 +1,230 @@
+{
+  "id": "EXT-06-mimo",
+  "at": "2026-10-17T21:51:24.102859+00:00",
+  "requested_model": "MiMo-V2.6-Flash",
+  "source": {
+    "id": "MATCHED-EXT-06",
+    "blocks": [
+      {
+        "id": "original-1",
+        "text": "Receiving record REC-554 references pool POOL-21 and supplier lot NX-208. Document DOC-64 is a record identifier, not a supplier lot.",
+        "page": null
+      }
+    ]
+  },
+  "original_labels": {
+    "affected_supplier_lots": [],
+    "mentioned_supplier_lots": [
+      "NX-208"
+    ],
+    "complete_boundary_support": false,
+    "action_authority": false
+  },
+  "benchmark_sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "prompt_version": "source-proposals-3",
+  "source_hash": "11715a75d32b8f01ef4dbffecf9be6266fa553873adc80c288ce73545808bc78",
+  "user_context_hash": "bc5135fbd9d13667df0d3fa25dbea9e09554394838e2db7960a8c8e65ff71d5e",
+  "state_effect": "None; standalone raw benchmark and application validator only",
+  "review": "No corrections or independent human validation",
+  "http_status": 200,
+  "request_id": "262c22c25d4c44d58f6d80234610bf1f",
+  "response_hash": "e434731ff46169f00b50704686adfc0429f5a750aec99cbd3390b208717f7067",
+  "quota_headers": {
+    "x-ratelimit-limit-user-daily-usd": "1",
+    "x-ratelimit-limit-user-rpm": "20",
+    "x-ratelimit-remaining-user-daily-usd": "0.99709494",
+    "x-ratelimit-remaining-user-rpm": "13",
+    "x-ratelimit-reset-user-daily-usd": "1792339200",
+    "x-ratelimit-used-user-daily-usd": "0.00290506"
+  },
+  "retry_after": null,
+  "actual_model": "self-dploy/MiMo-V2.6-Flash",
+  "usage": {
+    "prompt_tokens": 933,
+    "total_tokens": 1318,
+    "completion_tokens": 385,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 0.0001242696,
+    "cost_details": {
+      "upstream_inference_cost": 0.0001242696,
+      "upstream_inference_prompt_cost": 1.64696e-05,
+      "upstream_inference_completions_cost": 0.0001078,
+      "total_cost": 0.0001242696,
+      "input_cost": 1.414e-05,
+      "output_cost": 0.0001078,
+      "cached_input_cost": 2.3296e-06,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "raw_response": "{\"facts\":[{\"lot_id\":\"REC-554\",\"kind\":\"receipt_id\",\"status\":\"mentioned\",\"evidence\":[{\"document_id\":\"MATCHED-EXT-06\",\"block_id\":\"original-1\",\"quote\":\"Receiving record REC-554 references pool POOL-21 and supplier lot NX-208.\"}]},{\"lot_id\":\"POOL-21\",\"kind\":\"stock_pool\",\"status\":\"mentioned\",\"evidence\":[{\"document_id\":\"MATCHED-EXT-06\",\"block_id\":\"original-1\",\"quote\":\"Receiving record REC-554 references pool POOL-21 and supplier lot NX-208.\"}]},{\"lot_id\":\"NX-208\",\"kind\":\"supplier_lot\",\"status\":\"mentioned\",\"evidence\":[{\"document_id\":\"MATCHED-EXT-06\",\"block_id\":\"original-1\",\"quote\":\"Receiving record REC-554 references pool POOL-21 and supplier lot NX-208.\"}]},{\"lot_id\":\"DOC-64\",\"kind\":\"document_id\",\"status\":\"mentioned\",\"evidence\":[{\"document_id\":\"MATCHED-EXT-06\",\"block_id\":\"original-1\",\"quote\":\"Document DOC-64 is a record identifier, not a supplier lot.\"}]}],\"qualifiers\":[\"No incident or quality assertion appears in the source for any identifier; none is affected and none is excluded.\",\"DOC-64 is explicitly described as a record identifier, not a supplier lot.\",\"Scope of any incident is not established by the source.\"],\"scope_status\":\"unknown\",\"scope_evidence\":[{\"document_id\":\"MATCHED-EXT-06\",\"block_id\":\"original-1\",\"quote\":\"Receiving record REC-554 references pool POOL-21 and supplier lot NX-208. Document DOC-64 is a record identifier, not a supplier lot.\"}]}",
+  "parsed": {
+    "facts": [
+      {
+        "lot_id": "REC-554",
+        "kind": "receipt_id",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-06",
+            "block_id": "original-1",
+            "quote": "Receiving record REC-554 references pool POOL-21 and supplier lot NX-208."
+          }
+        ]
+      },
+      {
+        "lot_id": "POOL-21",
+        "kind": "stock_pool",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-06",
+            "block_id": "original-1",
+            "quote": "Receiving record REC-554 references pool POOL-21 and supplier lot NX-208."
+          }
+        ]
+      },
+      {
+        "lot_id": "NX-208",
+        "kind": "supplier_lot",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-06",
+            "block_id": "original-1",
+            "quote": "Receiving record REC-554 references pool POOL-21 and supplier lot NX-208."
+          }
+        ]
+      },
+      {
+        "lot_id": "DOC-64",
+        "kind": "document_id",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-06",
+            "block_id": "original-1",
+            "quote": "Document DOC-64 is a record identifier, not a supplier lot."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "No incident or quality assertion appears in the source for any identifier; none is affected and none is excluded.",
+      "DOC-64 is explicitly described as a record identifier, not a supplier lot.",
+      "Scope of any incident is not established by the source."
+    ],
+    "scope_status": "unknown",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-06",
+        "block_id": "original-1",
+        "quote": "Receiving record REC-554 references pool POOL-21 and supplier lot NX-208. Document DOC-64 is a record identifier, not a supplier lot."
+      }
+    ]
+  },
+  "original_supplier_pairs_exact": true,
+  "expected_pairs": [
+    [
+      "NX-208",
+      false
+    ]
+  ],
+  "actual_pairs": [
+    [
+      "NX-208",
+      false
+    ]
+  ],
+  "validated": {
+    "facts": [
+      {
+        "lot_id": "REC-554",
+        "kind": "receipt_id",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-06",
+            "block_id": "original-1",
+            "quote": "Receiving record REC-554 references pool POOL-21 and supplier lot NX-208."
+          }
+        ]
+      },
+      {
+        "lot_id": "POOL-21",
+        "kind": "stock_pool",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-06",
+            "block_id": "original-1",
+            "quote": "Receiving record REC-554 references pool POOL-21 and supplier lot NX-208."
+          }
+        ]
+      },
+      {
+        "lot_id": "NX-208",
+        "kind": "supplier_lot",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-06",
+            "block_id": "original-1",
+            "quote": "Receiving record REC-554 references pool POOL-21 and supplier lot NX-208."
+          }
+        ]
+      },
+      {
+        "lot_id": "DOC-64",
+        "kind": "document_id",
+        "status": "mentioned",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-06",
+            "block_id": "original-1",
+            "quote": "Document DOC-64 is a record identifier, not a supplier lot."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "No incident or quality assertion appears in the source for any identifier; none is affected and none is excluded.",
+      "DOC-64 is explicitly described as a record identifier, not a supplier lot.",
+      "Scope of any incident is not established by the source."
+    ],
+    "scope_status": "unknown",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-06",
+        "block_id": "original-1",
+        "quote": "Receiving record REC-554 references pool POOL-21 and supplier lot NX-208. Document DOC-64 is a record identifier, not a supplier lot."
+      }
+    ]
+  },
+  "application": "accepted unreviewed proposal; mandatory source/scope review remains",
+  "elapsed_ms": 14984
+}

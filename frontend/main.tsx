@@ -135,6 +135,7 @@ function App() {
   const [replayAvailable, setReplayAvailable] = useState(false);
   const [temporaryStorage, setTemporaryStorage] = useState(false);
   const connectionWasAvailable = useRef(true);
+  const inferenceModeInitialized = useRef(false);
   const state = packet?.case || data,
     plan = state?.plan,
     result = plan?.result,
@@ -194,11 +195,14 @@ function App() {
         setLiveProtected(health.live_protected);
         setTemporaryStorage(health.storage_mode === "ephemeral");
         setReplayAvailable(health.replay_available);
+        if (!inferenceModeInitialized.current) {
         setMode(
           health.amd_configured && health.inference_mode === "live" && !health.live_protected
             ? "live"
             : "fixture",
         );
+        inferenceModeInitialized.current = true;
+        }
         const id = localStorage.getItem("bf.case");
         if (id && all.some((c) => c.id === id)) {
           const c = await request<Case>("GET", "/api/cases/" + id);

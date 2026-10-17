@@ -1,0 +1,156 @@
+{
+  "id": "EXT-05-mimo",
+  "at": "2026-10-17T21:51:01.385942+00:00",
+  "requested_model": "MiMo-V2.6-Flash",
+  "source": {
+    "id": "MATCHED-EXT-05",
+    "blocks": [
+      {
+        "id": "original-1",
+        "text": "Affected lots: UNKNOWN-807. We have not supplied genealogy for this identifier.",
+        "page": null
+      }
+    ]
+  },
+  "original_labels": {
+    "affected_supplier_lots": [
+      "UNKNOWN-807"
+    ],
+    "mentioned_supplier_lots": [],
+    "complete_boundary_support": false,
+    "action_authority": false
+  },
+  "benchmark_sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "prompt_version": "source-proposals-3",
+  "source_hash": "7861d1d2ac85df927411a68f67f82b645fc8d6fa25916811a72109f24dc0ce0f",
+  "user_context_hash": "efdcb0e9131670fabb4b8b661cbb852302e3b152d6343a810a51bdd8ec8ebc26",
+  "state_effect": "None; standalone raw benchmark and application validator only",
+  "review": "No corrections or independent human validation",
+  "http_status": 200,
+  "request_id": "dce7b4e1babe4e288ed011457d4e6587",
+  "response_hash": "3bb6c0d301576d80bcdf4dd328dfe0309c48d0c53160fd6c79bd1946dde0ec32",
+  "quota_headers": {
+    "x-ratelimit-limit-user-daily-usd": "1",
+    "x-ratelimit-limit-user-rpm": "20",
+    "x-ratelimit-remaining-user-daily-usd": "0.99718514",
+    "x-ratelimit-remaining-user-rpm": "14",
+    "x-ratelimit-reset-user-daily-usd": "1792339200",
+    "x-ratelimit-used-user-daily-usd": "0.00281486"
+  },
+  "retry_after": null,
+  "actual_model": "self-dploy/MiMo-V2.6-Flash",
+  "usage": {
+    "prompt_tokens": 913,
+    "total_tokens": 1104,
+    "completion_tokens": 191,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 6.71496e-05,
+    "cost_details": {
+      "upstream_inference_cost": 6.71496e-05,
+      "upstream_inference_prompt_cost": 1.36696e-05,
+      "upstream_inference_completions_cost": 5.348e-05,
+      "total_cost": 6.71496e-05,
+      "input_cost": 1.134e-05,
+      "output_cost": 5.348e-05,
+      "cached_input_cost": 2.3296e-06,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "raw_response": "{\"facts\": [{\"lot_id\": \"UNKNOWN-807\", \"kind\": \"supplier_lot\", \"status\": \"uncertain\", \"evidence\": [{\"document_id\": \"MATCHED-EXT-05\", \"block_id\": \"original-1\", \"quote\": \"Affected lots: UNKNOWN-807. We have not supplied genealogy for this identifier.\"}]}], \"qualifiers\": [\"Source labels UNKNOWN-807 as an affected lot but simultaneously states genealogy was not supplied, so involvement and scope are unconfirmed.\", \"No genealogy, receipt, document or lineage identifiers are provided in this source.\"], \"scope_status\": \"unknown\", \"scope_evidence\": [{\"document_id\": \"MATCHED-EXT-05\", \"block_id\": \"original-1\", \"quote\": \"Affected lots: UNKNOWN-807. We have not supplied genealogy for this identifier.\"}]}",
+  "parsed": {
+    "facts": [
+      {
+        "lot_id": "UNKNOWN-807",
+        "kind": "supplier_lot",
+        "status": "uncertain",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-05",
+            "block_id": "original-1",
+            "quote": "Affected lots: UNKNOWN-807. We have not supplied genealogy for this identifier."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Source labels UNKNOWN-807 as an affected lot but simultaneously states genealogy was not supplied, so involvement and scope are unconfirmed.",
+      "No genealogy, receipt, document or lineage identifiers are provided in this source."
+    ],
+    "scope_status": "unknown",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-05",
+        "block_id": "original-1",
+        "quote": "Affected lots: UNKNOWN-807. We have not supplied genealogy for this identifier."
+      }
+    ]
+  },
+  "original_supplier_pairs_exact": false,
+  "expected_pairs": [
+    [
+      "UNKNOWN-807",
+      true
+    ]
+  ],
+  "actual_pairs": [
+    [
+      "UNKNOWN-807",
+      false
+    ]
+  ],
+  "validated": {
+    "facts": [
+      {
+        "lot_id": "UNKNOWN-807",
+        "kind": "supplier_lot",
+        "status": "uncertain",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-05",
+            "block_id": "original-1",
+            "quote": "Affected lots: UNKNOWN-807. We have not supplied genealogy for this identifier."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Source labels UNKNOWN-807 as an affected lot but simultaneously states genealogy was not supplied, so involvement and scope are unconfirmed.",
+      "No genealogy, receipt, document or lineage identifiers are provided in this source."
+    ],
+    "scope_status": "unknown",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-05",
+        "block_id": "original-1",
+        "quote": "Affected lots: UNKNOWN-807. We have not supplied genealogy for this identifier."
+      }
+    ]
+  },
+  "application": "accepted unreviewed proposal; mandatory source/scope review remains",
+  "elapsed_ms": 8078
+}

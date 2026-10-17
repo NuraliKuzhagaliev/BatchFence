@@ -1,0 +1,20 @@
+# Risk to executed evidence
+
+Frozen200: ING32,SEM32,KNW24,SIG20,PLN28,IMG24,CHG16,OPS24.64 held-out cases were distributed before measurement; after execution they are regression material. Initial181/200 plus19 harness errors; correcting the historical applied-plan expectation and actual factual enum yielded200/200 without changing frozen sources or labels. No claim of independent or representative plant validation. Exact hashes/counts: coverage-results.json.
+
+| Boundary | Actual checks | Evidence |
+|---|---|---|
+| Ingestion/mapping/source integrity | Duplicate/ragged CSV, blank text, BOM/Unicode, source bytes, rejected imports unchanged, 500row/schema/unit bounds | ING01–32; test_onboarding; test_records; regressions; final-pytest.xml |
+| Semantic scope | Negation, provisional identities, late caveats, incomplete ancestry, typed roles, unknown scope and receipt preservation | SEM01–32; source_proposals; new regressions; matched original12/model |
+| Approved knowledge | Applicability/version/page metadata, missing caveats, exact full-passages, library membership before reads | KNW01–24; continuation_contract/corrections; previous genuine isolated-library evidence reused |
+| Signals/effectiveness | Weighted denominators, invalid/missing exposures, timezone chronology, frozen baseline and inconclusive outcomes | SIG01–20; signals_knowledge/effectiveness; six module UI groups/client |
+| Evidence/readiness/recovery | Distinct physical pools, whole-pool exact approval, overlaps, outbox timeout/retry/duplicate ack, 800/700/100 and immutable receipts | PLN01–28; test_recovery; sequences04/07/12/16; module UI/client |
+| Labels/languages | Exact IDs, uncertainty, image limits, source relationship, qualified original-language review | IMG01–24; continuation; four new sealed final live inputs |
+| Change/handover | Material/scheduled revisions, historical receipts, stale briefs, malformed/invented/missing statements | CHG01–16; continuation/corrections; sequences03/11/13/15 |
+| Access/jobs/operations | Named pilot org/site scopes, revocation, cancelled/expired jobs, limits, rollback, backup/restore, container restart and restricted installed IPC | OPS01–24; foundations/enterprise_boundaries; sequences05/09/10/14; Docker and installed reports |
+
+The16 sequence IDs are in test_hardening_sequences.py (18 test instances because sequence14 has three transport errors). Three separate seeds1701/2909/6011 exercise60 generated graph scenarios and metamorphisms; they are not counted in the200. Sequence03 uses a newly uploaded policy source while a proposal/approval is pending; registered transitive document changes and approved-procedure/recovery invalidation are separately tested by continuation and recovery tests. Sequence05 combines named API/source/export/job scopes and library scope keys; installed transport confinement and library membership-before-read are separately exercised, not represented as a hostile third-party cloud penetration test. Sequence10 reopens a real SQLite connection and rejects a late interrupted result; separate outbox/reference-connector and actual Docker restart checks cover acknowledgement persistence. Those are bounded composed controls, not a process-crash injection at every possible instruction boundary.
+
+No observed inventory authority is granted by a translation, label reading, repeated model claim, knowledge response, request draft or handover. Module synthetic fixtures and injected connector/provider faults are explicitly separate from fresh direct AMD and genuine Evolus records. Model raw mistakes, application containment and results after explicit review have separate reports.
+
+Full suite425 passed and deterministic domain30/30 before the later frontend focus fix. Affected focus/reconnect, build, shared six-module browser/installed and final live checks cover that UI change. One Starlette/httpx deprecation warning remains. Source/installer/container/CI identity is recorded separately at publication; do not infer deployment from these local test counts.

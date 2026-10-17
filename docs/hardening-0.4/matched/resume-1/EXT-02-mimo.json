@@ -1,0 +1,191 @@
+{
+  "id": "EXT-02-mimo",
+  "at": "2026-10-17T21:49:58.354562+00:00",
+  "requested_model": "MiMo-V2.6-Flash",
+  "source": {
+    "id": "MATCHED-EXT-02",
+    "blocks": [
+      {
+        "id": "original-1",
+        "text": "Revision 2 replaces the initial notice. Affected lots: NX-202, NX-203.",
+        "page": null
+      }
+    ]
+  },
+  "original_labels": {
+    "affected_supplier_lots": [
+      "NX-202",
+      "NX-203"
+    ],
+    "mentioned_supplier_lots": [],
+    "complete_boundary_support": true,
+    "action_authority": false
+  },
+  "benchmark_sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "prompt_version": "source-proposals-3",
+  "source_hash": "d2533d9ca3b66c5f7882d389a6c1e4dea6c46e124f651e4753ebeaf60c324acd",
+  "user_context_hash": "87525d1d1278c6f497b07689325c64801b1342c9550b2da990e59e859707d8c0",
+  "state_effect": "None; standalone raw benchmark and application validator only",
+  "review": "No corrections or independent human validation",
+  "http_status": 200,
+  "request_id": "ca4fdb38e9ee437ea0387a3bcd259365",
+  "response_hash": "09e65d52d6ac510eb1cc0591374598a54eb38e52882f8350f0dc5cc01082e500",
+  "quota_headers": {
+    "x-ratelimit-limit-user-daily-usd": "1",
+    "x-ratelimit-limit-user-rpm": "20",
+    "x-ratelimit-remaining-user-daily-usd": "0.99758894",
+    "x-ratelimit-remaining-user-rpm": "17",
+    "x-ratelimit-reset-user-daily-usd": "1792339200",
+    "x-ratelimit-used-user-daily-usd": "0.00241106"
+  },
+  "retry_after": null,
+  "actual_model": "self-dploy/MiMo-V2.6-Flash",
+  "usage": {
+    "prompt_tokens": 918,
+    "total_tokens": 1275,
+    "completion_tokens": 357,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 0.00022848,
+    "cost_details": {
+      "upstream_inference_cost": 0.00022847999999999998,
+      "upstream_inference_prompt_cost": 0.00012852,
+      "upstream_inference_completions_cost": 9.996e-05,
+      "total_cost": 0.00022848,
+      "input_cost": 0.00012852,
+      "output_cost": 9.996e-05,
+      "cached_input_cost": 0,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "raw_response": "{\n  \"facts\": [\n    {\n      \"lot_id\": \"NX-202\",\n      \"kind\": \"supplier_lot\",\n      \"status\": \"affected\",\n      \"evidence\": [\n        {\n          \"document_id\": \"MATCHED-EXT-02\",\n          \"block_id\": \"original-1\",\n          \"quote\": \"Revision 2 replaces the initial notice. Affected lots: NX-202, NX-203.\"\n        }\n      ]\n    },\n    {\n      \"lot_id\": \"NX-203\",\n      \"kind\": \"supplier_lot\",\n      \"status\": \"affected\",\n      \"evidence\": [\n        {\n          \"document_id\": \"MATCHED-EXT-02\",\n          \"block_id\": \"original-1\",\n          \"quote\": \"Revision 2 replaces the initial notice. Affected lots: NX-202, NX-203.\"\n        }\n      ]\n    }\n  ],\n  \"qualifiers\": [\n    \"Revision 2 replaces the initial notice; the superseded initial notice is not provided, so its content and any lots it named cannot be compared.\",\n    \"The source lists affected lots but does not state that the list is exhaustive, so absence of other lots does not exclude them.\",\n    \"Only one document block is available; scope beyond it is unknown.\"\n  ],\n  \"scope_status\": \"partial\",\n  \"scope_evidence\": [\n    {\n      \"document_id\": \"MATCHED-EXT-02\",\n      \"block_id\": \"original-1\",\n      \"quote\": \"Revision 2 replaces the initial notice. Affected lots: NX-202, NX-203.\"\n    }\n  ]\n}",
+  "parsed": {
+    "facts": [
+      {
+        "lot_id": "NX-202",
+        "kind": "supplier_lot",
+        "status": "affected",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-02",
+            "block_id": "original-1",
+            "quote": "Revision 2 replaces the initial notice. Affected lots: NX-202, NX-203."
+          }
+        ]
+      },
+      {
+        "lot_id": "NX-203",
+        "kind": "supplier_lot",
+        "status": "affected",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-02",
+            "block_id": "original-1",
+            "quote": "Revision 2 replaces the initial notice. Affected lots: NX-202, NX-203."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Revision 2 replaces the initial notice; the superseded initial notice is not provided, so its content and any lots it named cannot be compared.",
+      "The source lists affected lots but does not state that the list is exhaustive, so absence of other lots does not exclude them.",
+      "Only one document block is available; scope beyond it is unknown."
+    ],
+    "scope_status": "partial",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-02",
+        "block_id": "original-1",
+        "quote": "Revision 2 replaces the initial notice. Affected lots: NX-202, NX-203."
+      }
+    ]
+  },
+  "original_supplier_pairs_exact": true,
+  "expected_pairs": [
+    [
+      "NX-202",
+      true
+    ],
+    [
+      "NX-203",
+      true
+    ]
+  ],
+  "actual_pairs": [
+    [
+      "NX-202",
+      true
+    ],
+    [
+      "NX-203",
+      true
+    ]
+  ],
+  "validated": {
+    "facts": [
+      {
+        "lot_id": "NX-202",
+        "kind": "supplier_lot",
+        "status": "affected",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-02",
+            "block_id": "original-1",
+            "quote": "Revision 2 replaces the initial notice. Affected lots: NX-202, NX-203."
+          }
+        ]
+      },
+      {
+        "lot_id": "NX-203",
+        "kind": "supplier_lot",
+        "status": "affected",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-02",
+            "block_id": "original-1",
+            "quote": "Revision 2 replaces the initial notice. Affected lots: NX-202, NX-203."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Revision 2 replaces the initial notice; the superseded initial notice is not provided, so its content and any lots it named cannot be compared.",
+      "The source lists affected lots but does not state that the list is exhaustive, so absence of other lots does not exclude them.",
+      "Only one document block is available; scope beyond it is unknown."
+    ],
+    "scope_status": "partial",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-02",
+        "block_id": "original-1",
+        "quote": "Revision 2 replaces the initial notice. Affected lots: NX-202, NX-203."
+      }
+    ]
+  },
+  "application": "accepted unreviewed proposal; mandatory source/scope review remains",
+  "elapsed_ms": 13798
+}

@@ -1,0 +1,825 @@
+{
+  "schema_version": 1,
+  "exported_at": "2026-10-17T21:51:54.821888+00:00",
+  "label": "Historical read-only packet. Hash is change detection, not supplier authentication.",
+  "case": {
+    "id": "5f8af6fe3eed496b952f7d5cbbb2fdc8",
+    "name": "Northstar Enclosures",
+    "incident": "Cosmetic coating defect · decorative housings",
+    "synthetic": true,
+    "revision": 2,
+    "inventory_version": 1,
+    "documents": [
+      {
+        "id": "DOC-f6aa575359aa",
+        "filename": "ambiguous_receipt.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-17T21:51:51.648754+00:00",
+        "original_hash": "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
+        "text_hash": "689bf8568c62f20b1244ed2ab782c8ccdc31b2f783d8365c1052a500ddec4bf9",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC receiving exception RX-103 | Revision 1",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "The 100-unit consignment in FG-C has an unreadable original supplier label. Its origin is SUP-A or SUP-B. No exact original-lot identity is available. Keep both possible paths.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-28fd74a3e610",
+        "filename": "completeness_manifest.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-17T21:51:51.649618+00:00",
+        "original_hash": "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
+        "text_hash": "62d2e7e53afc6d1dfbf6ec75d17c0670552acb2092b11f30f08bd2c9215c27d3",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC bounded scope manifest | Dataset 1 | Reviewed fixture assumptions",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "Universe: NORTH-01 decorative housings, six distinct current finished-stock pools. FG-A/B/D/E/F have reviewed complete ancestry. FG-C has unresolved receiving identity. No additional current finished inventory exists in this synthetic snapshot. All units are on site.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-fc9f2993b946",
+        "filename": "containment_policy.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-17T21:51:51.650055+00:00",
+        "original_hash": "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
+        "text_hash": "156ce745644b3c2eb33ac4582b628cc4814c81923a65fa1aab13f833937017a6",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC policy CONTAIN-1 | Revision 1",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "Hold all on-site documented and possible descendants. Unknown ancestry remains uncertain. Shipped stock creates shipment review. Never automatically release existing holds. Approval binds exact evidence, inventory, policy and actions.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-4a6672f742b6",
+        "filename": "inventory.csv",
+        "media_type": "text/csv",
+        "revision": 1,
+        "ingested_at": "2026-10-17T21:51:51.651173+00:00",
+        "original_hash": "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
+        "text_hash": "36a32fa10935eaca2716772dd55f5bd9cc5acb7c28f2e4baade4fc3cb5b07d46",
+        "blocks": [
+          {
+            "id": "row-0",
+            "text": "row_id,pool_id,units,unit_cents,status,ancestry_complete,site,product_family,timestamp,dataset_version",
+            "page": null
+          },
+          {
+            "id": "row-1",
+            "text": "INV-1,FG-A,240,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          },
+          {
+            "id": "row-2",
+            "text": "INV-2,FG-B,160,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          },
+          {
+            "id": "row-3",
+            "text": "INV-3,FG-C,100,4000,available,false,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          },
+          {
+            "id": "row-4",
+            "text": "INV-4,FG-D,300,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          },
+          {
+            "id": "row-5",
+            "text": "INV-5,FG-E,250,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          },
+          {
+            "id": "row-6",
+            "text": "INV-6,FG-F,150,4000,available,true,NORTH-01,Decorative housing,2026-10-16T00:00:00Z,1",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-af588a9b7b8d",
+        "filename": "lineage.csv",
+        "media_type": "text/csv",
+        "revision": 1,
+        "ingested_at": "2026-10-17T21:51:51.651990+00:00",
+        "original_hash": "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
+        "text_hash": "72d5843d03bb794a20dfb4823bcaa7147454171d0257ad7fd1783d497f7427f5",
+        "blocks": [
+          {
+            "id": "row-0",
+            "text": "row_id,source,target,kind,revision,timestamp",
+            "page": null
+          },
+          {
+            "id": "row-1",
+            "text": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-2",
+            "text": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-3",
+            "text": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-4",
+            "text": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-5",
+            "text": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-6",
+            "text": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z",
+            "page": null
+          },
+          {
+            "id": "row-7",
+            "text": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-37538fea81ab",
+        "filename": "order_allocations.csv",
+        "media_type": "text/csv",
+        "revision": 1,
+        "ingested_at": "2026-10-17T21:51:51.652340+00:00",
+        "original_hash": "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
+        "text_hash": "4416f1b3965d47c6827bf9f128fddabf892c636e0a2b54125f1d3f4b966c8cee",
+        "blocks": [
+          {
+            "id": "row-0",
+            "text": "row_id,order_id,pool_id,units,due_date,revision,status",
+            "page": null
+          },
+          {
+            "id": "row-1",
+            "text": "ALLOC-1,O-101,FG-A,240,2026-10-19,1,open",
+            "page": null
+          },
+          {
+            "id": "row-2",
+            "text": "ALLOC-2,O-102,FG-B,160,2026-10-20,1,open",
+            "page": null
+          },
+          {
+            "id": "row-3",
+            "text": "ALLOC-3,O-103,FG-C,100,2026-10-21,1,open",
+            "page": null
+          },
+          {
+            "id": "row-4",
+            "text": "ALLOC-4,O-104,FG-D,300,2026-10-22,1,open",
+            "page": null
+          },
+          {
+            "id": "row-5",
+            "text": "ALLOC-5,O-105,FG-E,250,2026-10-23,1,open",
+            "page": null
+          },
+          {
+            "id": "row-6",
+            "text": "ALLOC-6,O-106,FG-F,150,2026-10-24,1,open",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-14d4008e0d10",
+        "filename": "production_travelers.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-17T21:51:51.652697+00:00",
+        "original_hash": "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
+        "text_hash": "d270b5a9760e6dc190e578bec613f7359bff974ee473726c238e24689dffb02e",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC traveler manifest | Revision 1",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "TR-A→FG-A; TR-B→FG-B; TR-C→FG-C; TR-D→FG-D; TR-E→FG-E; TR-F→FG-F. The accompanying lineage.csv provides confirmed and possible relations. This manifest does not add inventory.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-94df5a8b3fc2",
+        "filename": "receiving_register.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-17T21:51:51.653012+00:00",
+        "original_hash": "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
+        "text_hash": "f58ec49fa6dea427433a697b458aa693d2a44e253bd9ef3ef063ca20b115d23e",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC receiving register | Dataset 1",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "RX-101/102: SUP-A for FG-A/B. RX-103: unresolved FG-C identity. RX-104: SUP-C for FG-D. RX-105: SUP-D for FG-E. RX-106: SUP-E for FG-F. Quantities exist only at terminal stock; this is not an extra ledger.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-759edbcd8df7",
+        "filename": "supplier_notice_v1.txt",
+        "media_type": "text/plain",
+        "revision": 1,
+        "ingested_at": "2026-10-17T21:51:51.653304+00:00",
+        "original_hash": "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
+        "text_hash": "ff07ad2458eba4c25a50b880712e57d4f22da8e940992ce2590ac85418637404",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "SYNTHETIC · NORTHSTAR ENCLOSURES",
+            "page": null
+          },
+          {
+            "id": "line-2",
+            "text": "Supplier quality notice N-26-041 | Revision 1 | 2026-10-15",
+            "page": null
+          },
+          {
+            "id": "line-3",
+            "text": "Supplier: Meridian Coatings (fictional)",
+            "page": null
+          },
+          {
+            "id": "line-4",
+            "text": "Affected lots: SUP-A",
+            "page": null
+          },
+          {
+            "id": "line-5",
+            "text": "Cosmetic coating adhesion is inconsistent on decorative housings. Contain on-site descendants pending review. Non-safety-critical demonstration.",
+            "page": null
+          }
+        ],
+        "synthetic": true
+      },
+      {
+        "id": "DOC-8441b47779ab",
+        "filename": "fresh-italian-notice.txt",
+        "media_type": "text/plain",
+        "revision": 2,
+        "ingested_at": "2026-10-17T21:51:51.879335+00:00",
+        "original_hash": "d3cdc846f3b083654e4b63b946a37deea76026dba83bd327a73dc4139dbd5531",
+        "text_hash": "d3cdc846f3b083654e4b63b946a37deea76026dba83bd327a73dc4139dbd5531",
+        "blocks": [
+          {
+            "id": "line-1",
+            "text": "Il lotto SUP-001 potrebbe essere interessato. La completezza è sconosciuta.",
+            "page": null
+          }
+        ],
+        "synthetic": true,
+        "evidence_language": "it",
+        "language_review_required": true,
+        "language_review": {
+          "translation_id": "TR-ea5ce830ab4fa5962773a461",
+          "original_hash": "d3cdc846f3b083654e4b63b946a37deea76026dba83bd327a73dc4139dbd5531",
+          "at": "2026-10-17T21:51:52.281405+00:00",
+          "actor": {
+            "user_id": null,
+            "identity_mode": "anonymous session; not independent identity"
+          },
+          "qualification_reference": "Agent engineering review; independent language validation pending"
+        }
+      }
+    ],
+    "stocks": [
+      {
+        "id": "FG-A",
+        "units": 240,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-1",
+        "snapshot_version": 1
+      },
+      {
+        "id": "FG-B",
+        "units": 160,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-2",
+        "snapshot_version": 1
+      },
+      {
+        "id": "FG-C",
+        "units": 100,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": false,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-3",
+        "snapshot_version": 1
+      },
+      {
+        "id": "FG-D",
+        "units": 300,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-4",
+        "snapshot_version": 1
+      },
+      {
+        "id": "FG-E",
+        "units": 250,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-5",
+        "snapshot_version": 1
+      },
+      {
+        "id": "FG-F",
+        "units": 150,
+        "unit_cents": 4000,
+        "status": "available",
+        "complete": true,
+        "site": "NORTH-01",
+        "product_family": "Decorative housing",
+        "row_id": "INV-6",
+        "snapshot_version": 1
+      }
+    ],
+    "edges": [
+      {
+        "row_id": "LIN-1",
+        "source": "SUP-A",
+        "target": "FG-A",
+        "kind": "confirmed",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-af588a9b7b8d",
+          "block_id": "row-1",
+          "quote": "LIN-1,SUP-A,FG-A,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-2",
+        "source": "SUP-A",
+        "target": "FG-B",
+        "kind": "confirmed",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-af588a9b7b8d",
+          "block_id": "row-2",
+          "quote": "LIN-2,SUP-A,FG-B,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-3",
+        "source": "SUP-A",
+        "target": "FG-C",
+        "kind": "possible",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-af588a9b7b8d",
+          "block_id": "row-3",
+          "quote": "LIN-3,SUP-A,FG-C,possible,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-4",
+        "source": "SUP-B",
+        "target": "FG-C",
+        "kind": "possible",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-af588a9b7b8d",
+          "block_id": "row-4",
+          "quote": "LIN-4,SUP-B,FG-C,possible,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-5",
+        "source": "SUP-C",
+        "target": "FG-D",
+        "kind": "confirmed",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-af588a9b7b8d",
+          "block_id": "row-5",
+          "quote": "LIN-5,SUP-C,FG-D,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-6",
+        "source": "SUP-D",
+        "target": "FG-E",
+        "kind": "confirmed",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-af588a9b7b8d",
+          "block_id": "row-6",
+          "quote": "LIN-6,SUP-D,FG-E,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      },
+      {
+        "row_id": "LIN-7",
+        "source": "SUP-E",
+        "target": "FG-F",
+        "kind": "confirmed",
+        "revision": "1",
+        "timestamp": "2026-10-15T12:00:00Z",
+        "evidence": {
+          "document_id": "DOC-af588a9b7b8d",
+          "block_id": "row-7",
+          "quote": "LIN-7,SUP-E,FG-F,confirmed,1,2026-10-15T12:00:00Z"
+        }
+      }
+    ],
+    "allocations": [
+      {
+        "row_id": "ALLOC-1",
+        "order_id": "O-101",
+        "pool_id": "FG-A",
+        "units": 240,
+        "due_date": "2026-10-19",
+        "revision": "1",
+        "status": "open"
+      },
+      {
+        "row_id": "ALLOC-2",
+        "order_id": "O-102",
+        "pool_id": "FG-B",
+        "units": 160,
+        "due_date": "2026-10-20",
+        "revision": "1",
+        "status": "open"
+      },
+      {
+        "row_id": "ALLOC-3",
+        "order_id": "O-103",
+        "pool_id": "FG-C",
+        "units": 100,
+        "due_date": "2026-10-21",
+        "revision": "1",
+        "status": "open"
+      },
+      {
+        "row_id": "ALLOC-4",
+        "order_id": "O-104",
+        "pool_id": "FG-D",
+        "units": 300,
+        "due_date": "2026-10-22",
+        "revision": "1",
+        "status": "open"
+      },
+      {
+        "row_id": "ALLOC-5",
+        "order_id": "O-105",
+        "pool_id": "FG-E",
+        "units": 250,
+        "due_date": "2026-10-23",
+        "revision": "1",
+        "status": "open"
+      },
+      {
+        "row_id": "ALLOC-6",
+        "order_id": "O-106",
+        "pool_id": "FG-F",
+        "units": 150,
+        "due_date": "2026-10-24",
+        "revision": "1",
+        "status": "open"
+      }
+    ],
+    "bounded": true,
+    "policy": {
+      "id": "CONTAIN-1",
+      "revision": 1,
+      "rule": "Hold every documented or possible on-site descendant. Never automatically release existing holds."
+    },
+    "scope": {
+      "lot_ids": [],
+      "revision": 0,
+      "qualifiers": []
+    },
+    "runs": [],
+    "reviews": [],
+    "plans": [],
+    "plan": null,
+    "history": [
+      {
+        "at": "2026-10-17T21:51:51.883491+00:00",
+        "type": "evidence_changed",
+        "message": "New source: fresh-italian-notice.txt. Re-extract and review current evidence.",
+        "revision": 2
+      }
+    ],
+    "receipts": [],
+    "pending_data": null,
+    "pending_revision": true,
+    "enterprise_packet": {
+      "handover": [
+        {
+          "id": "HANDOVER-87509e35e373c274d877f445",
+          "case_id": "5f8af6fe3eed496b952f7d5cbbb2fdc8",
+          "previous_id": null,
+          "as_of": "2026-10-17T21:51:53.205798+00:00",
+          "snapshot": {
+            "case_id": "5f8af6fe3eed496b952f7d5cbbb2fdc8",
+            "case_revision": 2,
+            "inventory_version": 1,
+            "quantities": {
+              "proposed_hold_units": null,
+              "applied_hold_units": 0,
+              "pending_recovery_units": 0,
+              "confirmed_recovery_units": 0
+            },
+            "facts": [
+              {
+                "id": "quantity-proposed_hold_units",
+                "text": "proposed hold units: unknown / not calculated",
+                "value": null
+              },
+              {
+                "id": "quantity-applied_hold_units",
+                "text": "applied hold units: 0",
+                "value": 0
+              },
+              {
+                "id": "quantity-pending_recovery_units",
+                "text": "pending recovery units: 0",
+                "value": 0
+              },
+              {
+                "id": "quantity-confirmed_recovery_units",
+                "text": "confirmed recovery units: 0",
+                "value": 0
+              },
+              {
+                "id": "next-action",
+                "text": "Next permitted action: Review current scope before planning recovery"
+              },
+              {
+                "id": "gap-CAUSE-7c9c634eaef12a",
+                "text": "Complete incident boundary. Review the existing notice and completeness manifest before narrowing. Complete receiving records are not missing merely because incident scope is unconfirmed."
+              },
+              {
+                "id": "gap-CAUSE-ff8ef0880ab384",
+                "text": "Receiving identity for FG-C. Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. The completeness manifest also needs confirmation."
+              },
+              {
+                "id": "event-0",
+                "text": "New source: fresh-italian-notice.txt. Re-extract and review current evidence."
+              }
+            ],
+            "events": [
+              {
+                "id": "event-0",
+                "at": "2026-10-17T21:51:51.883491+00:00",
+                "type": "evidence_changed",
+                "message": "New source: fresh-italian-notice.txt. Re-extract and review current evidence."
+              }
+            ],
+            "task_owners_missing": [],
+            "previous_id": null,
+            "fingerprint": "9c66bdff82be37f35756d2d0ab19b5d7ddad6c552d28f24f8ced10cd7b73284a",
+            "records_hash": "63f6fb7c0e17c45f1f80aaf403796df1ac95a3fe3022d297b861b43d6b5b9b45",
+            "required_fact_ids": [
+              "quantity-proposed_hold_units",
+              "quantity-applied_hold_units",
+              "quantity-pending_recovery_units",
+              "quantity-confirmed_recovery_units",
+              "next-action"
+            ],
+            "as_of": "2026-10-17T21:51:53.205798+00:00"
+          },
+          "statements": [
+            {
+              "id": "quantity-proposed_hold_units",
+              "text": "proposed hold units: unknown / not calculated",
+              "value": null
+            },
+            {
+              "id": "quantity-applied_hold_units",
+              "text": "applied hold units: 0",
+              "value": 0
+            },
+            {
+              "id": "quantity-pending_recovery_units",
+              "text": "pending recovery units: 0",
+              "value": 0
+            },
+            {
+              "id": "quantity-confirmed_recovery_units",
+              "text": "confirmed recovery units: 0",
+              "value": 0
+            },
+            {
+              "id": "next-action",
+              "text": "Next permitted action: Review current scope before planning recovery"
+            },
+            {
+              "id": "gap-CAUSE-7c9c634eaef12a",
+              "text": "Complete incident boundary. Review the existing notice and completeness manifest before narrowing. Complete receiving records are not missing merely because incident scope is unconfirmed."
+            },
+            {
+              "id": "gap-CAUSE-ff8ef0880ab384",
+              "text": "Receiving identity for FG-C. Alternative possible ancestry remains. A preferred supplier mention alone cannot remove other possible links; a complete replacement needs explicit evidence and review. The completeness manifest also needs confirmation."
+            },
+            {
+              "id": "event-0",
+              "text": "New source: fresh-italian-notice.txt. Re-extract and review current evidence."
+            }
+          ],
+          "provenance": {
+            "provider": "Deterministic snapshot summary / no model call"
+          },
+          "fallback": null,
+          "author": {
+            "user_id": null,
+            "identity_mode": "anonymous session; not independent identity"
+          },
+          "review": {
+            "actor": {
+              "user_id": null,
+              "identity_mode": "anonymous session; not independent identity"
+            },
+            "at": "2026-10-17T21:51:53.335490+00:00",
+            "note": "Agent-operated current handover review; no recovery or inventory authorization."
+          },
+          "authority": "Read/acknowledge/export only; this brief never approves or executes recovery"
+        }
+      ],
+      "label": [
+        {
+          "id": "LABEL-cd65538778ebaad375852ffd",
+          "case_id": "5f8af6fe3eed496b952f7d5cbbb2fdc8",
+          "filename": "IMG-01.png",
+          "original_hash": "cb1faa73dfb2a415ff2d3abbd863d2ff0c8e2e2a5f43c45cb26d26b65e638704",
+          "derived_hash": "cb1faa73dfb2a415ff2d3abbd863d2ff0c8e2e2a5f43c45cb26d26b65e638704",
+          "image_version": 1,
+          "transform": {
+            "oriented_width": 720,
+            "oriented_height": 330,
+            "derived_width": 720,
+            "derived_height": 330,
+            "crop_xywh": null,
+            "transform": "EXIF orientation -> RGB pixel copy -> optional operator crop -> metadata-free PNG",
+            "region_origin": "full image; no machine localization"
+          },
+          "at": "2026-10-17T21:51:52.560431+00:00",
+          "status": "identity and source relationship reviewed / no inventory authority",
+          "reading": {
+            "candidates": [
+              "SUP-001"
+            ],
+            "unresolved_characters": [],
+            "unreadable": false
+          },
+          "review": {
+            "actor": {
+              "user_id": null,
+              "identity_mode": "anonymous session; not independent identity"
+            },
+            "at": "2026-10-17T21:51:52.870975+00:00",
+            "case_revision": 2,
+            "document_id": "DOC-8441b47779ab",
+            "source_hash": "d3cdc846f3b083654e4b63b946a37deea76026dba83bd327a73dc4139dbd5531",
+            "quote": "Il lotto SUP-001 potrebbe essere interessato. La completezza è sconosciuta.",
+            "block_id": "line-1",
+            "selected_id": "SUP-001",
+            "identity_confirmed": true,
+            "relationship_verified": true,
+            "note": "Agent synthetic identity relationship review; no independent human acceptance."
+          },
+          "purpose": "Label identity only. No defect or product-quality inference. Barcode decoding unavailable in this build.",
+          "reading_provenance": {
+            "provider": "Manual operator transcription / not Gemma vision",
+            "reference": "Actual rendered engineering label inspected by agent; not a physical photo",
+            "actor": {
+              "user_id": null,
+              "identity_mode": "anonymous session; not independent identity"
+            },
+            "at": "2026-10-17T21:51:52.727184+00:00"
+          }
+        }
+      ],
+      "translation": [
+        {
+          "id": "TR-ea5ce830ab4fa5962773a461",
+          "case_id": "5f8af6fe3eed496b952f7d5cbbb2fdc8",
+          "document_id": "DOC-8441b47779ab",
+          "original_hash": "d3cdc846f3b083654e4b63b946a37deea76026dba83bd327a73dc4139dbd5531",
+          "source_language": "it",
+          "target_language": "en",
+          "segments": [
+            {
+              "source": {
+                "document_id": "DOC-8441b47779ab",
+                "block_id": "line-1",
+                "quote": "Il lotto SUP-001 potrebbe essere interessato. La completezza è sconosciuta.",
+                "original_hash": "d3cdc846f3b083654e4b63b946a37deea76026dba83bd327a73dc4139dbd5531",
+                "document_revision": 2,
+                "page": null,
+                "location_origin": "retained local parser; no provider bounding-box claim"
+              },
+              "translation": "Lot SUP-001 may be affected. Completeness is unknown.",
+              "protected_original_values": [
+                "SUP-001"
+              ]
+            }
+          ],
+          "flags": [],
+          "status": "reviewed translation / original remains authoritative",
+          "provenance": {
+            "provider": "Explicit manually supplied derived translation",
+            "reference": "Agent-operated synthetic bilingual engineering check",
+            "live_evolus_or_gemma": false
+          },
+          "at": "2026-10-17T21:51:52.127793+00:00",
+          "case_revision": 2,
+          "review": {
+            "actor": {
+              "user_id": null,
+              "identity_mode": "anonymous session; not independent identity"
+            },
+            "at": "2026-10-17T21:51:52.281390+00:00",
+            "qualification_reference": "Agent engineering review; independent language validation pending",
+            "note": "Synthetic original-language review only, not independent human validation.",
+            "critical_fields_confirmed": true
+          },
+          "authority": "Original source only; translation is not a verbatim original quotation or inventory fact"
+        }
+      ],
+      "signals": [],
+      "outbox": [],
+      "policy_revision": 0,
+      "actor": {
+        "user_id": null,
+        "identity_mode": "anonymous session; not independent identity"
+      },
+      "snapshot_at": "2026-10-17T21:51:54.821426+00:00",
+      "boundary": "Historical snapshots confer no action authority. Synthetic records and simulated identities are not independent human validation."
+    }
+  },
+  "integrity_hash": "6e9afb34d159c12ca68706856d75d39f2bcbfb2e721b77d008b0b874f103b71b"
+}

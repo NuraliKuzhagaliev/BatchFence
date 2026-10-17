@@ -1,4 +1,10 @@
-# Published BatchFence 0.4.0-rc.1 engineering preview
+# Hardening0.4.0-rc.2 checkpoint
+
+Completed: baseline171; reproduced/fixed source/ancestry/identifier/time/CSV/metadata/handover defects; frozen200/64 heldout; matched12/model; public and installed genuine Gemma/Evolus500/800; controlled recovery100 and both immutable receipts;425 final local tests/domain30;16 combined IDs and60 generated property scenarios; real Windows dialogs; container restart; module/extension UI and focus fix. All review agent-operated. Current remaining work: final candidate GitHub CI/Render deployment with nonsecret provider proof merge, fresh final client extensions, attested release artifacts/checksums/media and handoff. Preserve stable releases and previous phase ledgers. No credential rotation/revocation, purchases, messages or real inventory.
+
+---
+
+# Historical published BatchFence 0.4.0-rc.1 engineering preview
 
 Web https://batchfence.onrender.com. Windows/source https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.1. Release, main, default tag archive and deployed app commit c40bc08545270172537f09d5f6b0abfc700ab177. Existing Free Render deploy dep-db9tgvtg1s2s73aq86s0 is live; one instance, temporary SQLite. Both PR/main Linux CI passed (39065575924 /39066164549). Stable v0.3.0 latest, installer and installation remain preserved. New evidence/test-tool checkpoint is on release-evidence-0.4.0-rc.1; runtime files remain those of the one release commit.
 

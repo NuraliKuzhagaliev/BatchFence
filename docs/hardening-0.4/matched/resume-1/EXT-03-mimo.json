@@ -1,0 +1,190 @@
+{
+  "id": "EXT-03-mimo",
+  "at": "2026-10-17T21:50:25.148509+00:00",
+  "requested_model": "MiMo-V2.6-Flash",
+  "source": {
+    "id": "MATCHED-EXT-03",
+    "blocks": [
+      {
+        "id": "original-1",
+        "text": "Affected lots: NX-204. NX-205 is explicitly outside this notice.",
+        "page": null
+      }
+    ]
+  },
+  "original_labels": {
+    "affected_supplier_lots": [
+      "NX-204"
+    ],
+    "mentioned_supplier_lots": [
+      "NX-205"
+    ],
+    "complete_boundary_support": true,
+    "action_authority": false
+  },
+  "benchmark_sha256": "6d13cbbbf017b5b87508b87e26f484454cf4bd53a115e8ffcdfdfbc04840c3e2",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 1600,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "prompt_version": "source-proposals-3",
+  "source_hash": "37cb8a1d91d3d23db70743e724d9f98841132454866d2aa990c1f07fe7a3ce2b",
+  "user_context_hash": "f134ebd13250d016f461ae884e4293e527f1541ddbf973a007b90b931e37b319",
+  "state_effect": "None; standalone raw benchmark and application validator only",
+  "review": "No corrections or independent human validation",
+  "http_status": 200,
+  "request_id": "8e6484c86d354cf391bd3cf600a20347",
+  "response_hash": "1008f5f8a050b4f4bd90c39fbc6470f9b97bbbaeead019d0ff5ff2aa428b34ab",
+  "quota_headers": {
+    "x-ratelimit-limit-user-daily-usd": "1",
+    "x-ratelimit-limit-user-rpm": "20",
+    "x-ratelimit-remaining-user-daily-usd": "0.99734157",
+    "x-ratelimit-remaining-user-rpm": "15",
+    "x-ratelimit-reset-user-daily-usd": "1792339200",
+    "x-ratelimit-used-user-daily-usd": "0.00265843"
+  },
+  "retry_after": null,
+  "actual_model": "self-dploy/MiMo-V2.6-Flash",
+  "usage": {
+    "prompt_tokens": 914,
+    "total_tokens": 1148,
+    "completion_tokens": 234,
+    "prompt_tokens_details": {
+      "cached_tokens": 832,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0,
+      "image_tokens": 0
+    },
+    "reasoning_tokens": 0,
+    "cost": 7.93296e-05,
+    "cost_details": {
+      "upstream_inference_cost": 7.93296e-05,
+      "upstream_inference_prompt_cost": 1.38096e-05,
+      "upstream_inference_completions_cost": 6.552e-05,
+      "total_cost": 7.93296e-05,
+      "input_cost": 1.148e-05,
+      "output_cost": 6.552e-05,
+      "cached_input_cost": 2.3296e-06,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "web_search_cost": 0,
+      "image_input_cost": null,
+      "image_output_cost": null,
+      "audio_input_cost": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "finish_reason": "stop",
+  "raw_response": "{\"facts\":[{\"lot_id\":\"NX-204\",\"kind\":\"supplier_lot\",\"status\":\"affected\",\"evidence\":[{\"document_id\":\"MATCHED-EXT-03\",\"block_id\":\"original-1\",\"quote\":\"Affected lots: NX-204. NX-205 is explicitly outside this notice.\"}]},{\"lot_id\":\"NX-205\",\"kind\":\"supplier_lot\",\"status\":\"explicitly_excluded\",\"evidence\":[{\"document_id\":\"MATCHED-EXT-03\",\"block_id\":\"original-1\",\"quote\":\"Affected lots: NX-204. NX-205 is explicitly outside this notice.\"}]}],\"qualifiers\":[\"Single-document evidence; no other lots are named, and absence of other identifiers is not an exclusion.\",\"The exclusion of NX-205 is scoped to 'this notice' only; scope beyond that notice is not established.\"],\"scope_status\":\"partial\",\"scope_evidence\":[{\"document_id\":\"MATCHED-EXT-03\",\"block_id\":\"original-1\",\"quote\":\"Affected lots: NX-204. NX-205 is explicitly outside this notice.\"}]}",
+  "parsed": {
+    "facts": [
+      {
+        "lot_id": "NX-204",
+        "kind": "supplier_lot",
+        "status": "affected",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-03",
+            "block_id": "original-1",
+            "quote": "Affected lots: NX-204. NX-205 is explicitly outside this notice."
+          }
+        ]
+      },
+      {
+        "lot_id": "NX-205",
+        "kind": "supplier_lot",
+        "status": "explicitly_excluded",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-03",
+            "block_id": "original-1",
+            "quote": "Affected lots: NX-204. NX-205 is explicitly outside this notice."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Single-document evidence; no other lots are named, and absence of other identifiers is not an exclusion.",
+      "The exclusion of NX-205 is scoped to 'this notice' only; scope beyond that notice is not established."
+    ],
+    "scope_status": "partial",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-03",
+        "block_id": "original-1",
+        "quote": "Affected lots: NX-204. NX-205 is explicitly outside this notice."
+      }
+    ]
+  },
+  "original_supplier_pairs_exact": true,
+  "expected_pairs": [
+    [
+      "NX-204",
+      true
+    ],
+    [
+      "NX-205",
+      false
+    ]
+  ],
+  "actual_pairs": [
+    [
+      "NX-204",
+      true
+    ],
+    [
+      "NX-205",
+      false
+    ]
+  ],
+  "validated": {
+    "facts": [
+      {
+        "lot_id": "NX-204",
+        "kind": "supplier_lot",
+        "status": "affected",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-03",
+            "block_id": "original-1",
+            "quote": "Affected lots: NX-204. NX-205 is explicitly outside this notice."
+          }
+        ]
+      },
+      {
+        "lot_id": "NX-205",
+        "kind": "supplier_lot",
+        "status": "explicitly_excluded",
+        "evidence": [
+          {
+            "document_id": "MATCHED-EXT-03",
+            "block_id": "original-1",
+            "quote": "Affected lots: NX-204. NX-205 is explicitly outside this notice."
+          }
+        ]
+      }
+    ],
+    "qualifiers": [
+      "Single-document evidence; no other lots are named, and absence of other identifiers is not an exclusion.",
+      "The exclusion of NX-205 is scoped to 'this notice' only; scope beyond that notice is not established."
+    ],
+    "scope_status": "partial",
+    "scope_evidence": [
+      {
+        "document_id": "MATCHED-EXT-03",
+        "block_id": "original-1",
+        "quote": "Affected lots: NX-204. NX-205 is explicitly outside this notice."
+      }
+    ]
+  },
+  "application": "accepted unreviewed proposal; mandatory source/scope review remains",
+  "elapsed_ms": 9592
+}
