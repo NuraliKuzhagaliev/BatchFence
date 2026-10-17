@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="3" time="2.759" timestamp="2026-10-18T03:51:34.146541+05:00" hostname="BlackWolf"><testcase classname="tests.test_label_provider_failure" name="test_image_error_is_terminal_and_preserves_applied_authority[http500]" time="0.360"><failure message="UnboundLocalError: cannot access local variable 'response' where it is not associated with a value">args = ({'task': 'Read only visible lot identifiers. Preserve spelling and leading zeros; abstain if unreadable. List O/0,B/8... 'type': 'boolean'}}, 'required': ['candidates', 'unresolved_characters', 'unreadable'], 'title': 'LabelReading', ...})
+kwargs = {'image': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaQAAAC0CAIAAABUj89NAAACaElEQVR4nO3UwQ3AIBDAMOj+Ox9bUInYE+SVP...ZAQlmBySYHZBgdkCC2QEJZgckmB2QYHZAgtkBCWYHJJgdkGB2QILZAQlmBySYHZBgdkCC2QEJZgckmB2QYHbAKjgkEQRl97kn2AAAAABJRU5ErkJggg=='}
+
+    def fail(*args, **kwargs):
+        calls.append(kwargs['image'])
+        if fault == 'http500':
+&gt;           raise external.ProviderFailure('Gemma endpoint HTTP 500; no retry', {'http_status': 500, 'requested_model_id': 'synthetic-model', 'request_id': 'synthetic-request'})
+E           backend.evolus_adapter.ProviderFailure: Gemma endpoint HTTP 500; no retry
+
+tests\test_label_provider_failure.py:23: ProviderFailure
+
+The above exception was the direct cause of the following exception:
+
+client = &lt;starlette.testclient.TestClient object at 0x000002AFDBA3EF90&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000002AFDBCDD220&gt;
+fault = 'http500'
+
+    @pytest.mark.parametrize('fault', ['http500', 'timeout', 'malformed'])
+    def test_image_error_is_terminal_and_preserves_applied_authority(client, monkeypatch, fault):
+        state = approve(client, review(client, post(client, '/api/cases/demo')))
+        route = '/api/cases/' + state['id']
+        state = post(client, route + '/apply', payload(state, 'image-failure-original-receipt'))
+        before = copy.deepcopy(state)
+        label = post(client, route + '/label-image', image_body())
+        monkeypatch.setenv('GEMMA_VISION_VERIFIED', 'true')
+        monkeypatch.setattr(external, 'allowance', lambda *args: {})
+        monkeypatch.setattr(external, 'reserve', lambda *args: {})
+        calls = []
+        def fail(*args, **kwargs):
+            calls.append(kwargs['image'])
+            if fault == 'http500':
+                raise external.ProviderFailure('Gemma endpoint HTTP 500; no retry', {'http_status': 500, 'requested_model_id': 'synthetic-model', 'request_id': 'synthetic-request'})
+            if fault == 'timeout':
+                raise httpx.ReadTimeout('Synthetic test timeout')
+            return {'result': {'candidates': ['LOT-007'], 'unreadable': 'not-a-bool'}, 'provider': 'injected malformed response'}
+        monkeypatch.setattr(external, 'gemma', fail)
+        body = {'kind': 'label', 'label_id': label['id'], 'revision': state['revision'], 'idempotency_key': 'same-image-failure-' + fault}
+&gt;       result = post(client, route + '/assist-generate', body)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_label_provider_failure.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_api.py:18: in post
+    r = c.post(route, json=payload or {})
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+.venv\Lib\site-packages\starlette\testclient.py:457: in request
+    return super().request(
+.venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+.venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+.venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\starlette\testclient.py:354: in handle_request
+    raise exc
+.venv\Lib\site-packages\starlette\testclient.py:351: in handle_request
+    portal.call(self.app, scope, receive, send)
+.venv\Lib\site-packages\anyio\from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\nural\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Users\nural\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+.venv\Lib\site-packages\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\fastapi\applications.py:1216: in __call__
+    await super().__call__(scope, receive, send)
+.venv\Lib\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+.venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+.venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+.venv\Lib\site-packages\fastapi\telemetry\_asgi.py:151: in __call__
+    await self.app(scope, receive, send)
+.venv\Lib\site-packages\starlette\middleware\base.py:203: in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend\app.py:114: in protection
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\starlette\middleware\base.py:179: in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+.venv\Lib\site-packages\starlette\middleware\base.py:149: in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+.venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+.venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+.venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+.venv\Lib\site-packages\starlette\routing.py:676: in __call__
+    await self.middleware_stack(scope, receive, send)
+.venv\Lib\site-packages\fastapi\routing.py:2791: in app
+    await route.handle(scope, receive, send)
+.venv\Lib\site-packages\fastapi\routing.py:1819: in handle
+    await self.original_router.handle(scope, receive, send)
+.venv\Lib\site-packages\fastapi\routing.py:2874: in handle
+    await included_router._handle_selected(scope, receive, send)
+.venv\Lib\site-packages\fastapi\routing.py:1845: in _handle_selected
+    await original_route.handle(scope, receive, send)
+.venv\Lib\site-packages\fastapi\routing.py:1308: in handle
+    await effective_context.app(scope, receive, send)
+.venv\Lib\site-packages\fastapi\routing.py:165: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+.venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+.venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+.venv\Lib\site-packages\fastapi\routing.py:151: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\fastapi\routing.py:727: in app
+    raw_response = await run_endpoint_function(
+.venv\Lib\site-packages\fastapi\routing.py:362: in run_endpoint_function
+    return await run_in_threadpool(
+.venv\Lib\site-packages\starlette\concurrency.py:34: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\anyio\to_thread.py:65: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+.venv\Lib\site-packages\anyio\_backends\_asyncio.py:2706: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+.venv\Lib\site-packages\anyio\_backends\_asyncio.py:1100: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\fastapi\telemetry\_api.py:244: in _run_sync_endpoint
+    return function(**arguments)
+           ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case_id = '9389b58a915240a7b37c2341189ee9e2'
+data = Generate(kind='label', idempotency_key='same-image-failure-http500', revision=1, document_ids=[], language='en', label_id='LABEL-b0eb77847d143443560087c4', cause_id='', previous_id=None, question='', product='', process='coating')
+request = &lt;starlette.requests.Request object at 0x000002AFDBEEA970&gt;
+
+    @router.post('/api/cases/{case_id}/assist-generate')
+    def generate(case_id:str,data:Generate,request:Request):
+        from .app import connect,read
+        from . import knowledge
+        state=read(case_id,request.state.owner)
+        if data.revision!=state['revision']:raise DomainError('Current incident revision required')
+        key='GENERATE-'+digest([case_id,data.idempotency_key])[:24];signature=digest(data.model_dump())
+        image_url=None;label=None;binding=None;retrieval=None
+        with inference_access('live',request.headers.get('x-bf-demo-token','')):
+            with repo.write(connect) as db:
+                identity.recheck(db,'reporter');_,prior=repo.get_record(db,request.state.owner,'assist',key)
+                if prior:
+                    if prior['request_hash']!=signature:raise DomainError('Idempotency key belongs to another generation')
+                    return prior
+                if data.kind in ('document','translation'):
+                    context=source_context(state,data.document_ids)
+                    from .scope_proposals import INSTRUCTIONS
+                    context['task']=(INSTRUCTIONS+' Use the supplied ReviewDraft shape: value is the identifier, disposition describes the identity assertion, incident_status separately describes incident involvement. asserted identity never means affected. Cite source. Include semantic paired changes and contradictions when comparing sources.') if data.kind=='document' else 'Translate into English. Preserve exact IDs,numbers,units,negation,modality and ambiguous dates. Cite originals; do not invent missing information.'
+                    if data.kind=='translation' and len(data.document_ids)!=1:raise DomainError('Translate one original document at a time')
+                    schema=ReviewDraft.model_json_schema() if data.kind=='document' else TranslatedDraft.model_json_schema()
+                elif data.kind=='request':
+                    q=next((q for q in a.evidence_requests(db,request.state.owner,state)['requests'] if q['id']==data.cause_id),None)
+                    if not q:raise DomainError('Current unresolved evidence request required')
+                    context={'task':'Draft one specific missing-evidence request. No invented probabilities,dates,response times or release promises. It is a saved draft only.','computed_gap':q};schema=RequestDraft.model_json_schema()
+                elif data.kind=='label':
+                    _,label=repo.get_record(db,request.state.owner,'label',data.label_id)
+                    if not label or label['case_id']!=case_id or label.get('reading'):raise DomainError('Owned untranscribed label required; import a new crop for a revised reading')
+                    if os.getenv('GEMMA_VISION_VERIFIED')!='true':raise DomainError('UNAVAILABLE: deployed Gemma image acceptance not yet verified')
+                    raw=repo.source_path(request.state.owner,label['derived_hash']).read_bytes()
+                    if hashlib.sha256(raw).hexdigest()!=label['derived_hash']:raise DomainError('Derived image integrity failure')
+                    image_url='data:image/png;base64,'+base64.b64encode(raw).decode()
+                    context={'task':'Read only visible lot identifiers. Preserve spelling and leading zeros; abstain if unreadable. List O/0,B/8,S/5 ambiguity. Multiple labels stay separate. No quality or authenticity judgment.','crop':label['transform']};schema=label_images.LabelReading.model_json_schema()
+                elif data.kind=='handover':
+                    context=a.handover_snapshot(db,request.state.owner,state,data.previous_id)
+                    context['task']='Select a concise next-shift brief. Each statement must copy one exact fact text and its fact_id. Never invent numbers,statuses,owners,deadlines or authority.';schema=HandoverDraft.model_json_schema()
+                else:
+                    retrieval=knowledge.retrieve(catalog(db,request.state.owner),data.question,data.product,data.process,state['synthetic'])
+                    if retrieval['status']!='retrieved':return {'status':'insufficient / local applicability abstention','provider_calls':0,'retrieval':retrieval}
+                    documents=evolus_api.applicable_documents(catalog(db,request.state.owner),data.product,data.process,state['synthetic'])
+                    scope=evolus_api.library_scope(request.state.owner,data.product,data.process,documents)
+                    _,binding=repo.get_record(db,request.state.owner,'knowledge-binding',scope)
+                    if not binding or binding['status']!='indexed verified scope' or binding['scope']!=scope:
+                        raise DomainError('UNAVAILABLE: a dedicated verified library for this organization/site and exact approved catalog is required before any retrieval')
+                    external.contract()
+                    context={'task':'Select only exact authorized document_id/version/passage_id keys that directly answer the question. Do not copy or paraphrase passages: the server displays the full retained original. Return insufficient_evidence=true for unsupported questions, bypass requests or missing evidence. Never invent keys, revisions, instructions or authority.',
+                        'question':data.question,'approved_passages':retrieval['passages']};schema=knowledge.PassageSelection.model_json_schema()
+                external.allowance('gemma');reservation=external.reserve(db,'gemma')
+                jobs.start(db,request.state.owner,key,'gemma-'+data.kind,{'case_id':case_id,'kind':data.kind,'revision':state['revision'],'context_hash':digest(context)},'live')
+                record={'id':key,'case_id':case_id,'kind':data.kind,'mode':'live','provider_path':'Direct Gemma / '+os.getenv('GEMMA_HOSTING_KIND','unverified'),
+                    'status':'running','request_hash':signature,'snapshot_hash':fingerprint(state,catalog(db,request.state.owner)),
+                    'actor':identity.current_actor(),'started_at':now(),'reservation':reservation,'authority':'Unreviewed draft only; existing review/calculation/approval remain mandatory'}
+                repo.put_record(db,request.state.owner,'assist',key,record,0)
+            try:
+                library_provenance=None
+                if binding:
+                    def reserve_library_call():
+                        with repo.write(connect) as db:
+                            identity.recheck(db,'reporter');external.reserve(db,'evolus')
+                            current_docs=evolus_api.applicable_documents(catalog(db,request.state.owner),data.product,data.process,state['synthetic'])
+                            if evolus_api.library_scope(request.state.owner,data.product,data.process,current_docs)!=binding['scope']:raise DomainError('Approved applicability changed before retrieval')
+                    passages,library_provenance=evolus_api.library_passages(binding,retrieval['passages'],before_call=reserve_library_call)
+                    context['approved_passages']=passages
+                response=external.gemma(context,schema,image=image_url)
+                raw=response.pop('result')
+                with repo.write(connect) as db:
+                    identity.recheck(db,'reporter');current=read(case_id,request.state.owner);rev,record=repo.get_record(db,request.state.owner,'assist',key)
+                    record.update(raw_output=raw,provenance=response,library_provenance=library_provenance,finished_at=now())
+                    _,job=repo.get_record(db,request.state.owner,'job',key)
+                    if fingerprint(current,catalog(db,request.state.owner))!=record['snapshot_hash'] or job['status']!='running' or job['lease_until']&lt;__import__('time').time() or current.get('cancelled'):
+                        record['status']='obsolete / changed or cancelled';jobs.finish(db,request.state.owner,key,'obsolete',digest(raw))
+                    else:
+                        if data.kind=='document':record['draft']=validate_draft(current,raw)
+                        elif data.kind=='translation':
+                            parsed=TranslatedDraft.model_validate(raw).model_dump()
+                            record['draft']=a.make_translation(db,request.state.owner,current,data.document_ids[0],data.language,parsed['segments'],response,key)
+                            db.execute('UPDATE cases SET state=? WHERE owner=? AND id=?',(json.dumps(current),request.state.owner,case_id))
+                            record['snapshot_hash']=fingerprint(current,catalog(db,request.state.owner))
+                        elif data.kind=='label':
+                            result=label_images.validate_reading(raw);lrev,current_label=repo.get_record(db,request.state.owner,'label',data.label_id)
+                            if current_label.get('reading'):raise DomainError('Label reading changed during inference; result cannot overwrite it')
+                            current_label.update(reading=result,reading_provenance=response,status='Gemma reading proposed / visual confirmation required');a.save(db,request.state.owner,'label',data.label_id,current_label,lrev);record['draft']=current_label
+                        elif data.kind=='request':
+                            result=RequestDraft.model_validate(raw).model_dump()
+                            if result['cause_id']!=data.cause_id or __import__('re').search(r'\d\s*%|probability|guaranteed|will release',result['draft'],__import__('re').I):raise DomainError('Request invented probability or release authority')
+                            record['draft']=result
+                        elif data.kind=='handover':record['draft']=a.create_handover(db,request.state.owner,current,key,data.previous_id,raw,response)
+                        else:
+                            record['draft']=knowledge.selected_answer(raw,retrieval)
+                            record['quote_origin']='Deterministically resolved full authorized original passages; the model selected keys and did not author the displayed quotes'
+                            linked={'id':key,'case_id':case_id,'status':'succeeded','mode':'Live Gemma / isolated Evolus library','output':record['draft'],
+                                'catalog_digest':digest(catalog(db,request.state.owner)),'retrieval':retrieval,'question':data.question,'provenance':response,
+                                'library_provenance':library_provenance,'timestamp':now(),'boundary':'Exact applicable passage proposals; explicit original evidence review required for any check'}
+                            repo.put_record(db,request.state.owner,'answer',key,linked,0);record['linked_answer']=linked
+                        record['status']='unreviewed proposal';jobs.finish(db,request.state.owner,key,'succeeded',digest(record['draft']))
+                    repo.put_record(db,request.state.owner,'assist',key,record,rev);return record
+            except Exception as exc:
+                with repo.write(connect) as db:
+                    rev,record=repo.get_record(db,request.state.owner,'assist',key)
+                    record.update(status='failed validation' if 'raw' in locals() else 'failed provider request',error=str(exc) if isinstance(exc,DomainError) else 'Structured-output,timeout or transport failure; no fallback',finished_at=now())
+                    if isinstance(exc,external.ProviderFailure):record['failed_request_metadata']=exc.evidence
+&gt;                   if 'raw' in locals():record.update(raw_output=raw,provenance=response)
+                                                                                 ^^^^^^^^
+E                   UnboundLocalError: cannot access local variable 'response' where it is not associated with a value
+
+backend\assist_routes.py:480: UnboundLocalError</failure></testcase><testcase classname="tests.test_label_provider_failure" name="test_image_error_is_terminal_and_preserves_applied_authority[timeout]" time="0.290"><failure message="UnboundLocalError: cannot access local variable 'response' where it is not associated with a value">args = ({'task': 'Read only visible lot identifiers. Preserve spelling and leading zeros; abstain if unreadable. List O/0,B/8... 'type': 'boolean'}}, 'required': ['candidates', 'unresolved_characters', 'unreadable'], 'title': 'LabelReading', ...})
+kwargs = {'image': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaQAAAC0CAIAAABUj89NAAACaElEQVR4nO3UwQ3AIBDAMOj+Ox9bUInYE+SVP...ZAQlmBySYHZBgdkCC2QEJZgckmB2QYHZAgtkBCWYHJJgdkGB2QILZAQlmBySYHZBgdkCC2QEJZgckmB2QYHbAKjgkEQRl97kn2AAAAABJRU5ErkJggg=='}
+
+    def fail(*args, **kwargs):
+        calls.append(kwargs['image'])
+        if fault == 'http500':
+            raise external.ProviderFailure('Gemma endpoint HTTP 500; no retry', {'http_status': 500, 'requested_model_id': 'synthetic-model', 'request_id': 'synthetic-request'})
+        if fault == 'timeout':
+&gt;           raise httpx.ReadTimeout('Synthetic test timeout')
+E           httpx.ReadTimeout: Synthetic test timeout
+
+tests\test_label_provider_failure.py:25: ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+client = &lt;starlette.testclient.TestClient object at 0x000002AFDBEAFD90&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000002AFDBCDD0F0&gt;
+fault = 'timeout'
+
+    @pytest.mark.parametrize('fault', ['http500', 'timeout', 'malformed'])
+    def test_image_error_is_terminal_and_preserves_applied_authority(client, monkeypatch, fault):
+        state = approve(client, review(client, post(client, '/api/cases/demo')))
+        route = '/api/cases/' + state['id']
+        state = post(client, route + '/apply', payload(state, 'image-failure-original-receipt'))
+        before = copy.deepcopy(state)
+        label = post(client, route + '/label-image', image_body())
+        monkeypatch.setenv('GEMMA_VISION_VERIFIED', 'true')
+        monkeypatch.setattr(external, 'allowance', lambda *args: {})
+        monkeypatch.setattr(external, 'reserve', lambda *args: {})
+        calls = []
+        def fail(*args, **kwargs):
+            calls.append(kwargs['image'])
+            if fault == 'http500':
+                raise external.ProviderFailure('Gemma endpoint HTTP 500; no retry', {'http_status': 500, 'requested_model_id': 'synthetic-model', 'request_id': 'synthetic-request'})
+            if fault == 'timeout':
+                raise httpx.ReadTimeout('Synthetic test timeout')
+            return {'result': {'candidates': ['LOT-007'], 'unreadable': 'not-a-bool'}, 'provider': 'injected malformed response'}
+        monkeypatch.setattr(external, 'gemma', fail)
+        body = {'kind': 'label', 'label_id': label['id'], 'revision': state['revision'], 'idempotency_key': 'same-image-failure-' + fault}
+&gt;       result = post(client, route + '/assist-generate', body)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_label_provider_failure.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_api.py:18: in post
+    r = c.post(route, json=payload or {})
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\httpx\_client.py:1144: in post
+    return self.request(
+.venv\Lib\site-packages\starlette\testclient.py:457: in request
+    return super().request(
+.venv\Lib\site-packages\httpx\_client.py:825: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\httpx\_client.py:914: in send
+    response = self._send_handling_auth(
+.venv\Lib\site-packages\httpx\_client.py:942: in _send_handling_auth
+    response = self._send_handling_redirects(
+.venv\Lib\site-packages\httpx\_client.py:979: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\httpx\_client.py:1014: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\starlette\testclient.py:354: in handle_request
+    raise exc
+.venv\Lib\site-packages\starlette\testclient.py:351: in handle_request
+    portal.call(self.app, scope, receive, send)
+.venv\Lib\site-packages\anyio\from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\nural\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Users\nural\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+.venv\Lib\site-packages\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\fastapi\applications.py:1216: in __call__
+    await super().__call__(scope, receive, send)
+.venv\Lib\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+.venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+.venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+.venv\Lib\site-packages\fastapi\telemetry\_asgi.py:151: in __call__
+    await self.app(scope, receive, send)
+.venv\Lib\site-packages\starlette\middleware\base.py:203: in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend\app.py:114: in protection
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\starlette\middleware\base.py:179: in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+.venv\Lib\site-packages\starlette\middleware\base.py:149: in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+.venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+.venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+.venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+.venv\Lib\site-packages\starlette\routing.py:676: in __call__
+    await self.middleware_stack(scope, receive, send)
+.venv\Lib\site-packages\fastapi\routing.py:2791: in app
+    await route.handle(scope, receive, send)
+.venv\Lib\site-packages\fastapi\routing.py:1819: in handle
+    await self.original_router.handle(scope, receive, send)
+.venv\Lib\site-packages\fastapi\routing.py:2874: in handle
+    await included_router._handle_selected(scope, receive, send)
+.venv\Lib\site-packages\fastapi\routing.py:1845: in _handle_selected
+    await original_route.handle(scope, receive, send)
+.venv\Lib\site-packages\fastapi\routing.py:1308: in handle
+    await effective_context.app(scope, receive, send)
+.venv\Lib\site-packages\fastapi\routing.py:165: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+.venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+.venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+.venv\Lib\site-packages\fastapi\routing.py:151: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\fastapi\routing.py:727: in app
+    raw_response = await run_endpoint_function(
+.venv\Lib\site-packages\fastapi\routing.py:362: in run_endpoint_function
+    return await run_in_threadpool(
+.venv\Lib\site-packages\starlette\concurrency.py:34: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\anyio\to_thread.py:65: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+.venv\Lib\site-packages\anyio\_backends\_asyncio.py:2706: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+.venv\Lib\site-packages\anyio\_backends\_asyncio.py:1100: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\fastapi\telemetry\_api.py:244: in _run_sync_endpoint
+    return function(**arguments)
+           ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case_id = '7177baf372d440f88a1e7a44e646ce43'
+data = Generate(kind='label', idempotency_key='same-image-failure-timeout', revision=1, document_ids=[], language='en', label_id='LABEL-5d62d3777b5549a448fce8de', cause_id='', previous_id=None, question='', product='', process='coating')
+request = &lt;starlette.requests.Request object at 0x000002AFDC469BD0&gt;
+
+    @router.post('/api/cases/{case_id}/assist-generate')
+    def generate(case_id:str,data:Generate,request:Request):
+        from .app import connect,read
+        from . import knowledge
+        state=read(case_id,request.state.owner)
+        if data.revision!=state['revision']:raise DomainError('Current incident revision required')
+        key='GENERATE-'+digest([case_id,data.idempotency_key])[:24];signature=digest(data.model_dump())
+        image_url=None;label=None;binding=None;retrieval=None
+        with inference_access('live',request.headers.get('x-bf-demo-token','')):
+            with repo.write(connect) as db:
+                identity.recheck(db,'reporter');_,prior=repo.get_record(db,request.state.owner,'assist',key)
+                if prior:
+                    if prior['request_hash']!=signature:raise DomainError('Idempotency key belongs to another generation')
+                    return prior
+                if data.kind in ('document','translation'):
+                    context=source_context(state,data.document_ids)
+                    from .scope_proposals import INSTRUCTIONS
+                    context['task']=(INSTRUCTIONS+' Use the supplied ReviewDraft shape: value is the identifier, disposition describes the identity assertion, incident_status separately describes incident involvement. asserted identity never means affected. Cite source. Include semantic paired changes and contradictions when comparing sources.') if data.kind=='document' else 'Translate into English. Preserve exact IDs,numbers,units,negation,modality and ambiguous dates. Cite originals; do not invent missing information.'
+                    if data.kind=='translation' and len(data.document_ids)!=1:raise DomainError('Translate one original document at a time')
+                    schema=ReviewDraft.model_json_schema() if data.kind=='document' else TranslatedDraft.model_json_schema()
+                elif data.kind=='request':
+                    q=next((q for q in a.evidence_requests(db,request.state.owner,state)['requests'] if q['id']==data.cause_id),None)
+                    if not q:raise DomainError('Current unresolved evidence request required')
+                    context={'task':'Draft one specific missing-evidence request. No invented probabilities,dates,response times or release promises. It is a saved draft only.','computed_gap':q};schema=RequestDraft.model_json_schema()
+                elif data.kind=='label':
+                    _,label=repo.get_record(db,request.state.owner,'label',data.label_id)
+                    if not label or label['case_id']!=case_id or label.get('reading'):raise DomainError('Owned untranscribed label required; import a new crop for a revised reading')
+                    if os.getenv('GEMMA_VISION_VERIFIED')!='true':raise DomainError('UNAVAILABLE: deployed Gemma image acceptance not yet verified')
+                    raw=repo.source_path(request.state.owner,label['derived_hash']).read_bytes()
+                    if hashlib.sha256(raw).hexdigest()!=label['derived_hash']:raise DomainError('Derived image integrity failure')
+                    image_url='data:image/png;base64,'+base64.b64encode(raw).decode()
+                    context={'task':'Read only visible lot identifiers. Preserve spelling and leading zeros; abstain if unreadable. List O/0,B/8,S/5 ambiguity. Multiple labels stay separate. No quality or authenticity judgment.','crop':label['transform']};schema=label_images.LabelReading.model_json_schema()
+                elif data.kind=='handover':
+                    context=a.handover_snapshot(db,request.state.owner,state,data.previous_id)
+                    context['task']='Select a concise next-shift brief. Each statement must copy one exact fact text and its fact_id. Never invent numbers,statuses,owners,deadlines or authority.';schema=HandoverDraft.model_json_schema()
+                else:
+                    retrieval=knowledge.retrieve(catalog(db,request.state.owner),data.question,data.product,data.process,state['synthetic'])
+                    if retrieval['status']!='retrieved':return {'status':'insufficient / local applicability abstention','provider_calls':0,'retrieval':retrieval}
+                    documents=evolus_api.applicable_documents(catalog(db,request.state.owner),data.product,data.process,state['synthetic'])
+                    scope=evolus_api.library_scope(request.state.owner,data.product,data.process,documents)
+                    _,binding=repo.get_record(db,request.state.owner,'knowledge-binding',scope)
+                    if not binding or binding['status']!='indexed verified scope' or binding['scope']!=scope:
+                        raise DomainError('UNAVAILABLE: a dedicated verified library for this organization/site and exact approved catalog is required before any retrieval')
+                    external.contract()
+                    context={'task':'Select only exact authorized document_id/version/passage_id keys that directly answer the question. Do not copy or paraphrase passages: the server displays the full retained original. Return insufficient_evidence=true for unsupported questions, bypass requests or missing evidence. Never invent keys, revisions, instructions or authority.',
+                        'question':data.question,'approved_passages':retrieval['passages']};schema=knowledge.PassageSelection.model_json_schema()
+                external.allowance('gemma');reservation=external.reserve(db,'gemma')
+                jobs.start(db,request.state.owner,key,'gemma-'+data.kind,{'case_id':case_id,'kind':data.kind,'revision':state['revision'],'context_hash':digest(context)},'live')
+                record={'id':key,'case_id':case_id,'kind':data.kind,'mode':'live','provider_path':'Direct Gemma / '+os.getenv('GEMMA_HOSTING_KIND','unverified'),
+                    'status':'running','request_hash':signature,'snapshot_hash':fingerprint(state,catalog(db,request.state.owner)),
+                    'actor':identity.current_actor(),'started_at':now(),'reservation':reservation,'authority':'Unreviewed draft only; existing review/calculation/approval remain mandatory'}
+                repo.put_record(db,request.state.owner,'assist',key,record,0)
+            try:
+                library_provenance=None
+                if binding:
+                    def reserve_library_call():
+                        with repo.write(connect) as db:
+                            identity.recheck(db,'reporter');external.reserve(db,'evolus')
+                            current_docs=evolus_api.applicable_documents(catalog(db,request.state.owner),data.product,data.process,state['synthetic'])
+                            if evolus_api.library_scope(request.state.owner,data.product,data.process,current_docs)!=binding['scope']:raise DomainError('Approved applicability changed before retrieval')
+                    passages,library_provenance=evolus_api.library_passages(binding,retrieval['passages'],before_call=reserve_library_call)
+                    context['approved_passages']=passages
+                response=external.gemma(context,schema,image=image_url)
+                raw=response.pop('result')
+                with repo.write(connect) as db:
+                    identity.recheck(db,'reporter');current=read(case_id,request.state.owner);rev,record=repo.get_record(db,request.state.owner,'assist',key)
+                    record.update(raw_output=raw,provenance=response,library_provenance=library_provenance,finished_at=now())
+                    _,job=repo.get_record(db,request.state.owner,'job',key)
+                    if fingerprint(current,catalog(db,request.state.owner))!=record['snapshot_hash'] or job['status']!='running' or job['lease_until']&lt;__import__('time').time() or current.get('cancelled'):
+                        record['status']='obsolete / changed or cancelled';jobs.finish(db,request.state.owner,key,'obsolete',digest(raw))
+                    else:
+                        if data.kind=='document':record['draft']=validate_draft(current,raw)
+                        elif data.kind=='translation':
+                            parsed=TranslatedDraft.model_validate(raw).model_dump()
+                            record['draft']=a.make_translation(db,request.state.owner,current,data.document_ids[0],data.language,parsed['segments'],response,key)
+                            db.execute('UPDATE cases SET state=? WHERE owner=? AND id=?',(json.dumps(current),request.state.owner,case_id))
+                            record['snapshot_hash']=fingerprint(current,catalog(db,request.state.owner))
+                        elif data.kind=='label':
+                            result=label_images.validate_reading(raw);lrev,current_label=repo.get_record(db,request.state.owner,'label',data.label_id)
+                            if current_label.get('reading'):raise DomainError('Label reading changed during inference; result cannot overwrite it')
+                            current_label.update(reading=result,reading_provenance=response,status='Gemma reading proposed / visual confirmation required');a.save(db,request.state.owner,'label',data.label_id,current_label,lrev);record['draft']=current_label
+                        elif data.kind=='request':
+                            result=RequestDraft.model_validate(raw).model_dump()
+                            if result['cause_id']!=data.cause_id or __import__('re').search(r'\d\s*%|probability|guaranteed|will release',result['draft'],__import__('re').I):raise DomainError('Request invented probability or release authority')
+                            record['draft']=result
+                        elif data.kind=='handover':record['draft']=a.create_handover(db,request.state.owner,current,key,data.previous_id,raw,response)
+                        else:
+                            record['draft']=knowledge.selected_answer(raw,retrieval)
+                            record['quote_origin']='Deterministically resolved full authorized original passages; the model selected keys and did not author the displayed quotes'
+                            linked={'id':key,'case_id':case_id,'status':'succeeded','mode':'Live Gemma / isolated Evolus library','output':record['draft'],
+                                'catalog_digest':digest(catalog(db,request.state.owner)),'retrieval':retrieval,'question':data.question,'provenance':response,
+                                'library_provenance':library_provenance,'timestamp':now(),'boundary':'Exact applicable passage proposals; explicit original evidence review required for any check'}
+                            repo.put_record(db,request.state.owner,'answer',key,linked,0);record['linked_answer']=linked
+                        record['status']='unreviewed proposal';jobs.finish(db,request.state.owner,key,'succeeded',digest(record['draft']))
+                    repo.put_record(db,request.state.owner,'assist',key,record,rev);return record
+            except Exception as exc:
+                with repo.write(connect) as db:
+                    rev,record=repo.get_record(db,request.state.owner,'assist',key)
+                    record.update(status='failed validation' if 'raw' in locals() else 'failed provider request',error=str(exc) if isinstance(exc,DomainError) else 'Structured-output,timeout or transport failure; no fallback',finished_at=now())
+                    if isinstance(exc,external.ProviderFailure):record['failed_request_metadata']=exc.evidence
+&gt;                   if 'raw' in locals():record.update(raw_output=raw,provenance=response)
+                                                                                 ^^^^^^^^
+E                   UnboundLocalError: cannot access local variable 'response' where it is not associated with a value
+
+backend\assist_routes.py:480: UnboundLocalError</failure></testcase><testcase classname="tests.test_label_provider_failure" name="test_image_error_is_terminal_and_preserves_applied_authority[malformed]" time="0.343" /></testsuite></testsuites>

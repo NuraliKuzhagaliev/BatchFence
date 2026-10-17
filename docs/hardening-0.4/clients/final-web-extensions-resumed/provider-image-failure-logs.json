@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-17T22:50:55.996Z",
+  "runtime_commit": "d9a8b6aa27af4e5329340b1774958405394ec69f",
+  "logs": [
+    {
+      "at": "2026-10-17T22:48:27.974205623Z",
+      "message": "INFO:     127.0.0.1:49098 - \"POST /api/cases/00964a734d804031bccbbfec8971b9d6/assist-generate HTTP/1.1\" 500 Internal Server Error"
+    },
+    {
+      "at": "2026-10-17T22:48:27.97971142Z",
+      "message": "  File \"/app/backend/assist_routes.py\", line 442, in generate"
+    },
+    {
+      "at": "2026-10-17T22:48:27.979717411Z",
+      "message": "    response=external.gemma(context,schema,image=image_url)"
+    },
+    {
+      "at": "2026-10-17T22:48:27.979722191Z",
+      "message": "  File \"/app/backend/evolus_adapter.py\", line 171, in gemma"
+    },
+    {
+      "at": "2026-10-17T22:48:27.979727381Z",
+      "message": "    raise ProviderFailure('Gemma endpoint HTTP '+str(response.status_code)+'; no retry',{'provider':'Configured Gemma endpoint','at':now(),"
+    },
+    {
+      "at": "2026-10-17T22:48:27.979745091Z",
+      "message": "backend.evolus_adapter.ProviderFailure: Gemma endpoint HTTP 500; no retry"
+    }
+  ]
+}
