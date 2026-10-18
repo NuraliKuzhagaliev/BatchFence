@@ -24,8 +24,10 @@ def test_unsupported_inputs_keep_case_unchanged(client):
     assert current['revision'] == 1 and current['plan']['digest'] == s['plan']['digest']
 
 
-def test_image_pdf_has_clear_unsupported_result(client):
+def test_image_pdf_has_clear_unsupported_result(client,monkeypatch):
     import io
+    # This contract concerns an unavailable engine, independently of host tools.
+    monkeypatch.setenv('TESSERACT_PATH','batchfence-test-no-ocr-engine')
     writer = PdfWriter()
     writer.add_blank_page(width=300,height=200)
     raw = io.BytesIO()

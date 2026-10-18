@@ -359,7 +359,7 @@ export function KnowledgePanel({
 }) {
   const [answer, setAnswer] = useState<RecordData | null>(null),
     [claim, setClaim] = useState(0),
-    [libraryMode, setLibraryMode] = useState(initialLibrary);
+    [libraryMode, setLibraryMode] = useState(initialLibrary ? "evolus" : "amd");
   const shown = answer || (data.answer || []).at(-1),
     docs = data.procedure || [];
   return (
@@ -374,10 +374,11 @@ export function KnowledgePanel({
       </p>
       <p className="caption">
         Unicode lexical matching supports Russian, English and Italian
-        originals. It does not translate a cross-language question. Evolus
-        semantic retrieval is unavailable: its live acceptance response lacked
-        resolvable citations and was rejected. Approved Blob/local evidence
-        remains available.
+        originals. It does not translate a cross-language question. Evolus RAG
+        uses an isolated approved source set. Each selected passage must match
+        an identified indexed chunk and the complete approved original. Source
+        citations are verified by BatchFence; provider-native citation
+        annotations are not implied. Missing source proof blocks the answer.
       </p>
       <div className="module-columns">
         <div>
@@ -386,13 +387,16 @@ export function KnowledgePanel({
               Live evidence route
               <select
                 aria-label="Live knowledge evidence route"
-                value={libraryMode ? "evolus" : "amd"}
+                value={libraryMode}
                 disabled={readOnly}
-                onChange={(e) => setLibraryMode(e.target.value === "evolus")}
+                onChange={(e) => setLibraryMode(e.target.value)}
               >
                 <option value="amd">AMD · approved local catalog</option>
                 <option value="evolus">
                   Gemma · local lexical + isolated Evolus Blob
+                </option>
+                <option value="rag">
+                  Evolus RAG · verified indexed sources
                 </option>
               </select>
             </label>
@@ -417,13 +421,14 @@ export function KnowledgePanel({
               { key: "process", label: "Process", required: true },
             ]}
             onSubmit={async (b) => {
-              if (mode === "live" && libraryMode) {
+              if (mode === "live" && libraryMode !== "amd") {
                 const r = await request<RecordData>(
                   "POST",
                   "/api/cases/" + state.id + "/assist-generate",
                   {
                     ...b,
                     kind: "knowledge",
+                    retrieval_mode: libraryMode === "rag" ? "rag" : "blob",
                     revision: state.revision,
                     idempotency_key: crypto.randomUUID(),
                   },
@@ -452,6 +457,9 @@ export function KnowledgePanel({
                   : "Source-backed proposals"}
               </h3>
               {shown.error && <p role="alert">{shown.error}</p>}
+              {shown.quote_origin && (
+                <p className="caption">{shown.quote_origin}</p>
+              )}
               {shown.output?.claims?.map((c: RecordData, i: number) => (
                 <blockquote key={i}>
                   <p>{c.quote}</p>
@@ -548,18 +556,39 @@ export function KnowledgePanel({
           <details className="module-card">
             <summary>Set up an isolated Evolus library · administrator</summary>
             <p>
-              Use a dedicated empty read-only Blob library from the configured
-              Evolus application. Organization, site, product, process and
-              approved revisions are bound before retrieval. Existing libraries
-              cannot be silently reused.
+              Blob uses a dedicated empty read-only library. RAG accepts only
+              the fictional source hashes authorized by the current event
+              allowance. Leave the RAG library ID empty to create an isolated
+              library, or explicitly reconcile an agent for this source set.
+              Reconciliation reuses the existing index without re-uploading.
+              Organization, site, product, process and approved revisions remain
+              bound.
             </p>
             <ReviewForm
               title="Bind this approved source set"
               fields={[
                 {
                   key: "library_id",
-                  label: "Dedicated empty Evolus library ID",
-                  required: true,
+                  label:
+                    "Evolus library ID (required for Blob; optional for new RAG)",
+                },
+                {
+                  key: "library_type",
+                  label: "Library type",
+                  type: "select",
+                  value: "Blob",
+                  options: [
+                    { value: "Blob", label: "Blob · exact source content" },
+                    {
+                      value: "Rag",
+                      label: "RAG · isolated indexed source citations",
+                    },
+                  ],
+                },
+                {
+                  key: "reconcile_agent_id",
+                  label:
+                    "Existing isolated RAG agent ID (explicit reconciliation only)",
                 },
                 { key: "product", label: "Applicable product", required: true },
                 { key: "process", label: "Applicable process", required: true },

@@ -59,7 +59,8 @@ def test_submission_parse_failure_retains_known_execution_id(monkeypatch):
 
 def test_uncertain_submission_deduplicates_and_reconciles_without_new_inference(client,monkeypatch):
     from backend import evolus_adapter as external,evolus_api
-    state=post(client,'/api/cases/demo');doc=state['documents'][0];r='/api/cases/'+state['id'];calls=[]
+    # Isolate transport reconciliation from deliberate lot-omission rejection.
+    state=post(client,'/api/cases/demo');doc=next(d for d in state['documents'] if d['filename']=='containment_policy.txt');r='/api/cases/'+state['id'];calls=[]
     monkeypatch.setattr(external,'contract',lambda:{})
     monkeypatch.setattr(external,'reserve',lambda *a,**k:{'injected':True})
     monkeypatch.setattr(external,'allowance',lambda *a,**k:{})
@@ -143,9 +144,10 @@ def test_rag_missing_foreign_and_obsolete_citations_abstain_full_passage_retaine
 def test_rag_unverified_capability_blocks_before_dispatch(client,monkeypatch):
     from backend import evolus_adapter as e
     s=post(client,'/api/cases/demo');monkeypatch.delenv('EVOLUS_RAG_ENABLED',raising=False)
+    post(client,'/api/knowledge/procedure-review',{'document':procedure('Recovery evidence and separate approval are required.'),'reviewed':True,'note':'Fictional exact scope reviewed for no-dispatch regression.'})
     monkeypatch.setattr(e,'gemma',lambda *a,**k:pytest.fail('Blocked mode dispatched a model'))
     result=client.post('/api/cases/'+s['id']+'/assist-generate',json={'kind':'knowledge','retrieval_mode':'rag','revision':s['revision'],'idempotency_key':'blocked-rag-citations','question':'Recovery evidence?','product':'Decorative housing','process':'coating'})
-    assert result.status_code==422 and 'no resolvable citations' in result.text
+    assert result.status_code==422 and 'dedicated verified library' in result.text
 
 
 def test_rag_membership_or_incomplete_index_prevents_content_read(monkeypatch):

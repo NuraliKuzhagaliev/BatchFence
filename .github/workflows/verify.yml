@@ -48,3 +48,50 @@ jobs:
             work/ci-evidence/container-results.json
             docs/cloud/publication-audit.json
             docs/evaluation-results.json
+  windows-hotfix:
+    needs: verify
+    # Standard public-repository runner only; never use a paid larger runner.
+    if: github.repository == 'NuraliKuzhagaliev/BatchFence' && github.event.repository.private == false
+    runs-on: windows-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.20.0'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: npm ci --ignore-scripts
+      - run: pip install -r requirements.txt
+      - run: npm run package:desktop
+      - name: Check actual packaged Electron UI and native transport
+        shell: pwsh
+        run: |
+          $env:BATCHFENCE_CLIENT_EXE = Join-Path $pwd 'releases/win-unpacked/BatchFence Evidence Preview.exe'
+          node scripts/lot-citation-client-check.cjs
+      - name: Publish only this authorized hotfix after Linux and Windows checks
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $version = (Get-Content package.json | ConvertFrom-Json).version
+          if ($version -ne '0.4.0-rc.5') { exit 0 }
+          gh release view "v$version" *> $null
+          if ($LASTEXITCODE -eq 0) { Write-Output 'Existing release preserved; no asset overwritten.'; exit 0 }
+          git archive --format=zip --output="releases/BatchFence-$version-source.zip" HEAD
+          Copy-Item 'work/lot-citation-fix/client-results.json' "releases/BatchFence-$version-windows-checks.json"
+          $files = @(Get-ChildItem "releases/BatchFence-$version-*" -File | Where-Object { $_.Extension -in '.exe','.zip','.json' })
+          if ($files.Count -ne 3) { throw 'Expected installer, source archive and client report.' }
+          $lines = $files | ForEach-Object { "$( (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower() )  $($_.Name)" }
+          $sum = "releases/BatchFence-$version-SHA256SUMS.txt"
+          $lines | Set-Content -Encoding ascii $sum
+          $assets = @($files.FullName) + @($sum)
+          gh release create "v$version" @assets --target "$env:GITHUB_SHA" --prerelease --title "BatchFence $version engineering preview" --notes-file docs/lot-citation-fix/RELEASE.md
+          if ($LASTEXITCODE -ne 0) { throw 'Release publication failed; no retry or asset overwrite.' }
