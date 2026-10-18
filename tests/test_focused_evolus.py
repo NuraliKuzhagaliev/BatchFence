@@ -189,6 +189,9 @@ def test_actual_evolus_omission_cannot_become_scope_or_bypass_correction(client,
     corrected=copy.deepcopy(execution['draft']);positive=next(b for b in doc['blocks'] if 'Affected lots: SUP-A, SUP-C' in b['text']);negative=next(b for b in doc['blocks'] if 'SUP-B is not affected' in b['text'])
     for value,status,block in [('SUP-C','affected',positive),('SUP-B','explicitly_excluded',negative)]:corrected['candidates'].append({'kind':'supplier_lot','value':value,'disposition':'asserted' if status=='affected' else 'negated','incident_status':status,'source':{'document_id':doc['id'],'block_id':block['id'],'quote':block['text']}})
     note='Explicit agent-operated source correction for the retained live omission; not new model success or independent human validation.'
+    invalid=copy.deepcopy(corrected);metadata=next(c for c in invalid['candidates'] if c['kind']=='document_id');invalid['candidates'].append({**metadata,'kind':'supplier_lot','incident_status':'mentioned'})
+    rejected=client.post(route+'/assist-review',json={'proposal_id':job['id'],'corrected_draft':invalid,'reviewed':True,'note':note})
+    assert rejected.status_code==422 and 'Source proposal requires correction' in rejected.text
     fixed=post(client,route+'/assist-review',{'proposal_id':job['id'],'corrected_draft':corrected,'reviewed':True,'note':note})
     assert fixed['raw_draft']==execution['draft'] and fixed['raw_quality_status']=='failed validation' and fixed['correction']
     s=post(client,route+'/assist-intake',{'proposal_id':job['id'],'document_id':doc['id'],'revision':s['revision']})

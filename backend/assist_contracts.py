@@ -63,8 +63,12 @@ def validate_draft(state,raw):
     # grammar. Their exact source presence is still checked above.
     if any(c['kind']=='document_id' and c.get('incident_status') not in (None,'mentioned') for c in draft['candidates']):raise DomainError('Document metadata cannot assert an incident disposition')
     identified=[c for c in draft['candidates'] if c.get('incident_status') is not None and c['kind'] in ('supplier_lot','stock_pool','receipt_id','lineage_row')]
-    validate_proposals({'facts':[{'lot_id':c['value'],'kind':c['kind'],'status':c['incident_status'],'evidence':[{k:c['source'][k] for k in ('document_id','block_id','quote')}]} for c in identified],
-        'qualifiers':draft['unresolved'],'scope_status':draft['incident_scope'],'scope_evidence':draft['scope_evidence']},state['documents'])
+    try:
+        validate_proposals({'facts':[{'lot_id':c['value'],'kind':c['kind'],'status':c['incident_status'],'evidence':[{k:c['source'][k] for k in ('document_id','block_id','quote')}]} for c in identified],
+            'qualifiers':draft['unresolved'],'scope_status':draft['incident_scope'],'scope_evidence':draft['scope_evidence']},state['documents'])
+    except ValueError as exc:
+        detail=exc.errors(include_input=False,include_url=False,include_context=False)[0]['msg'] if hasattr(exc,'errors') else str(exc)[:200]
+        raise DomainError('Source proposal requires correction: '+detail) from None
     draft['scope_evidence']=[citation(state,e) for e in draft['scope_evidence']]
     for pair in draft['changes']+draft['contradictions']:
         pair['before']=citation(state,pair['before']);pair['after']=citation(state,pair['after'])
