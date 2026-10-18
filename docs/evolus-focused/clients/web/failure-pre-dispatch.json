@@ -1,0 +1,7 @@
+{
+  "at": "2026-10-18T01:05:04.432Z",
+  "error": "locator.click: Error: strict mode violation: locator('details.module-card').filter({ hasText: 'Set up an isolated Evolus library' }).locator(':scope > summary') resolved to 2 elements:\n    1) <summary>Consult applicable approved procedures</summary> aka getByText('Consult applicable approved')\n    2) <summary>Set up an isolated Evolus library · administrator</summary> aka getByText('Set up an isolated Evolus')\n\nCall log:\n\u001b[2m  - waiting for locator('details.module-card').filter({ hasText: 'Set up an isolated Evolus library' }).locator(':scope > summary')\u001b[22m\n",
+  "outcomes": [],
+  "errors": [],
+  "automatic_retry": false
+}

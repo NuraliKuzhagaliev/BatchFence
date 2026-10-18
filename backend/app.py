@@ -24,7 +24,7 @@ from .domain import DomainError, calculate, digest, make_plan, validate_dataset
 from .fixtures import ROOT, load_demo, document, now
 from .provider import extract
 from .public_demo import public_demo, limiter, inference_access
-from .review_safety import REVIEW_POLICY_VERSION, mentions, scope_concerns, resolution_evidence
+from .review_safety import REVIEW_POLICY_VERSION, mentions, scope_concerns, resolution_evidence,listed_source_lots
 
 load_dotenv(ROOT / '.env')
 app = FastAPI(title='BatchFence', version='0.4.0-rc.4')
@@ -533,6 +533,8 @@ def review(case_id: str, data: Review, request: Request):
         if not set(data.lot_corrections) <= candidates or (data.lot_corrections and len(data.note.strip()) < 20):
             fail('CORRECTION_REVIEW','Identifier corrections need an original candidate and a review explanation',422)
         candidates = {data.lot_corrections.get(c,c).strip() for c in candidates}
+        missing=listed_source_lots(s,source)-set(lots+uncertain+excluded)
+        if missing:fail('UNREVIEWED_SOURCE_LOTS','Review every recorded identity in the source affected list: '+', '.join(sorted(missing))+'. Correct the source proposal before narrowing.',422)
         if not candidates <= set(lots + uncertain + excluded):
             fail('UNREVIEWED_LOTS', 'Review every model candidate, including negative proposals; keep unresolved lots uncertain', 422)
         concerns = scope_concerns(source)

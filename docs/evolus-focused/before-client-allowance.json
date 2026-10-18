@@ -1,0 +1,40 @@
+{
+  "at": "2026-10-18T01:01:01.491874+00:00",
+  "evolus": {
+    "spendable_platform_credits": 50000.0,
+    "at": "2026-10-18T01:01:01.491793+00:00",
+    "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+  },
+  "inference_dispatches": 0,
+  "hosted_attempt_cap": 17,
+  "private_reserved_equivalents": 7,
+  "phase_maximum": 24,
+  "amd": {
+    "daily_cost_limit_usd": 1,
+    "daily_cost_used_usd": 0.004935649689286947,
+    "daily_cost_remaining_usd": 0.995064350310713,
+    "daily_reset_at": "2026-10-18T16:00:00.000Z",
+    "today": {
+      "requests": 129,
+      "errors": 5,
+      "total_tokens": 127209,
+      "prompt_tokens": 108230,
+      "prefill_tokens": 108230,
+      "completion_tokens": 18979,
+      "decoding_tokens": 18979,
+      "reasoning_tokens": 0,
+      "cached_tokens": 48969,
+      "kv_cache_hit_tokens": 48969,
+      "cache_write_tokens": 0,
+      "kv_cache_hit_rate": 0.4524531091194678,
+      "input_cost": 0.0025654304772615433,
+      "output_cost": 0.002318470273166895,
+      "cached_input_cost": 5.175031765247695e-05,
+      "cache_write_input_cost": 0,
+      "request_cost": 0,
+      "cost": 0.004935649689286947,
+      "last_request_at": "2026-10-18 00:48:16.395605"
+    }
+  },
+  "raw_field_interpretation": "AMD event manual identifies this shared endpoint meter as nonmonetary points, despite the API field suffixusd."
+}

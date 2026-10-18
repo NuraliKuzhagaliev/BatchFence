@@ -1,0 +1,30 @@
+{
+  "health": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.4.0-rc.4",
+    "commit": "5e0f7a856ba755e2d73b2c1c5c88e993adcab32b",
+    "inference_mode": "fixture",
+    "amd_configured": true,
+    "live_protected": true,
+    "profile": "public",
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  },
+  "assets": [
+    {
+      "asset": "/assets/index-BeYKFizs.js",
+      "sha256": "23c10705db15554379ccb192651dcb255dbdba91734494a32fc754e8a12f8262",
+      "public_local_installed_match": true
+    },
+    {
+      "asset": "/assets/index-C1izMUIu.css",
+      "sha256": "dc2916c8692bf131bb62ddba706fd4a2247de174d0d35d14039b57bcc4b7121e",
+      "public_local_installed_match": true
+    }
+  ],
+  "deploy_id": "dep-dba1mblg1s2s73atu2i0",
+  "plan": "Existing Free service; no new resources",
+  "nonsecret_configuration_merged_only": true
+}

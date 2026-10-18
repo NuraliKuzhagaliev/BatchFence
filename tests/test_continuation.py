@@ -168,6 +168,7 @@ def test_adapter_documented_mapping_auth_limits_and_secret_echo_rejection(monkey
 
 
 def test_cost_expiry_quota_restart_and_no_paid_fallback(monkeypatch,tmp_path):
+    monkeypatch.delenv('GEMMA_COST_APPROVAL_JSON',raising=False)
     current=datetime.now(timezone.utc);p=tmp_path/'allowance.json';data={'provider':'gemma','additional_cash_limit':0,'overages_disabled':True,'storage_network_cash_limit':0,'verified_at':current.isoformat(),'expires_at':(current+timedelta(minutes=20)).isoformat(),'max_dispatches':2,'remaining_credits':1,'stop_margin':.5,'max_credits_per_dispatch':.2,'evidence_reference':'Synthetic allowance contract','own_amd_vllm_verified':True,'resource_lifecycle_verified':True}
     p.write_text(json.dumps(data));monkeypatch.setenv('GEMMA_COST_APPROVAL_FILE',str(p));dbfile=tmp_path/'quota.sqlite3'
     for _ in range(2):

@@ -1,0 +1,122 @@
+{
+  "kind": "Deterministic accounting only; no additional model call or review authority",
+  "cases": [
+    {
+      "explicit_reviewed_affected_ids": [
+        "SUP-A"
+      ],
+      "hold_units": 500,
+      "pools": [
+        {
+          "id": "FG-A",
+          "units": 240,
+          "classification": "documented"
+        },
+        {
+          "id": "FG-B",
+          "units": 160,
+          "classification": "documented"
+        },
+        {
+          "id": "FG-C",
+          "units": 100,
+          "classification": "uncertain"
+        },
+        {
+          "id": "FG-D",
+          "units": 300,
+          "classification": "outside"
+        },
+        {
+          "id": "FG-E",
+          "units": 250,
+          "classification": "outside"
+        },
+        {
+          "id": "FG-F",
+          "units": 150,
+          "classification": "outside"
+        }
+      ]
+    },
+    {
+      "explicit_reviewed_affected_ids": [
+        "SUP-A",
+        "SUP-B"
+      ],
+      "hold_units": 500,
+      "pools": [
+        {
+          "id": "FG-A",
+          "units": 240,
+          "classification": "documented"
+        },
+        {
+          "id": "FG-B",
+          "units": 160,
+          "classification": "documented"
+        },
+        {
+          "id": "FG-C",
+          "units": 100,
+          "classification": "uncertain"
+        },
+        {
+          "id": "FG-D",
+          "units": 300,
+          "classification": "outside"
+        },
+        {
+          "id": "FG-E",
+          "units": 250,
+          "classification": "outside"
+        },
+        {
+          "id": "FG-F",
+          "units": 150,
+          "classification": "outside"
+        }
+      ]
+    },
+    {
+      "explicit_reviewed_affected_ids": [
+        "SUP-A",
+        "SUP-C"
+      ],
+      "hold_units": 800,
+      "pools": [
+        {
+          "id": "FG-A",
+          "units": 240,
+          "classification": "documented"
+        },
+        {
+          "id": "FG-B",
+          "units": 160,
+          "classification": "documented"
+        },
+        {
+          "id": "FG-C",
+          "units": 100,
+          "classification": "uncertain"
+        },
+        {
+          "id": "FG-D",
+          "units": 300,
+          "classification": "documented"
+        },
+        {
+          "id": "FG-E",
+          "units": 250,
+          "classification": "outside"
+        },
+        {
+          "id": "FG-F",
+          "units": 150,
+          "classification": "outside"
+        }
+      ]
+    }
+  ],
+  "meaning": "SUP-B shares already-uncertainFG-C; SUP-C adds300-unit FG-D. Unknown ancestry is not resolved by the notice."
+}

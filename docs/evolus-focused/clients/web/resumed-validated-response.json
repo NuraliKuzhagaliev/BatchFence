@@ -1,0 +1,4 @@
+{
+  "at": "2026-10-18T01:23:36.941Z",
+  "reason": "Verification harness continuation of the exact case/source. Existing successful model jobs are reused and never submitted again; raw outcomes remain preserved."
+}

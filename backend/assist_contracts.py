@@ -64,8 +64,50 @@ def validate_draft(state,raw):
     draft['scope_evidence']=[citation(state,e) for e in draft['scope_evidence']]
     for pair in draft['changes']+draft['contradictions']:
         pair['before']=citation(state,pair['before']);pair['after']=citation(state,pair['after'])
+    from .review_safety import listed_source_lots
+    cited={c['source']['document_id'] for c in draft['candidates']}|{e['document_id'] for e in draft['scope_evidence']}
+    proposed={c['value'] for c in draft['candidates'] if c['kind'] in ('supplier_lot','stock_pool')}
+    required=set().union(*(listed_source_lots(state,d) for d in state['documents'] if d['id'] in cited))
+    if required-proposed:raise DomainError('Source affected list has unproposed recorded identities: '+', '.join(sorted(required-proposed))+'. Inspect and correct the original proposal before critical-fact review.')
     if any(len(s)>2000 for s in draft['unresolved']+draft['request_drafts']):raise DomainError('Draft text limit exceeded')
     return draft
+
+
+def extractor_coverage(state,execution,draft,document_ids):
+    """An interpretation may not silently erase source-backed extractor IDs.
+
+    The check proposes no disposition and merges no facts. Missing or malformed
+    extractor evidence blocks acceptance until explicit original-based review.
+    """
+    from .scope_proposals import parse_json
+    from .review_safety import mentions
+    extractor=next((s for s in execution.get('steps',[]) if s.get('kind')=='extractor'),{})
+    try:raw=parse_json(extractor.get('output'));candidates=raw['candidates']
+    except (ValueError,KeyError,TypeError):raise DomainError('Actual extractor candidate output is missing or malformed; no interpreted scope accepted')
+    if not isinstance(candidates,list) or len(candidates)>40:raise DomainError('Extractor candidate envelope invalid')
+    critical={'supplier_lot','stock_pool','receipt_id','lineage_row'};expected=set()
+    for c in candidates:
+        if not isinstance(c,dict):raise DomainError('Malformed extractor identity')
+        if c.get('kind') not in critical:continue
+        value,quote=c.get('value'),c.get('quote')
+        if not isinstance(value,str) or not 1<=len(value)<=500 or not isinstance(quote,str) or not 1<=len(quote)<=2000 or not mentions(value,quote) or not any(quote in b['text'] for d in state['documents'] if d['id'] in document_ids for b in d['blocks']):
+            raise DomainError('Extractor identity lacks exact retained-source grounding; explicit correction/clarification required')
+        expected.add((c['kind'],value))
+    proposed={(c['kind'],c['value']) for c in draft.get('candidates',[]) if c.get('kind') in critical}
+    missing=expected-proposed
+    if missing:raise DomainError('Interpretation omitted source-backed extractor identities: '+', '.join(k+' '+v for k,v in sorted(missing))+'. Explicit source-checked correction is required; no facts or narrowed scope accepted.')
+    return {'status':'all source-backed extractor identities retained for review','identities':[{'kind':k,'value':v} for k,v in sorted(expected)],'authority':'Proposal coverage only; no fact, scope or action approval'}
+
+
+def revalidate_stored_draft(state,draft):
+    """Remove only server-added citation metadata before strict revalidation."""
+    import copy
+    value=copy.deepcopy(draft)
+    citations=[c['source'] for c in value.get('candidates',[])]+value.get('scope_evidence',[])
+    for pair in value.get('changes',[])+value.get('contradictions',[]):citations.extend([pair['before'],pair['after']])
+    for source in citations:
+        for key in ('original_hash','document_revision','page','location_origin'):source.pop(key,None)
+    return validate_draft(state,value)
 
 
 def fingerprint(state,catalog=()):

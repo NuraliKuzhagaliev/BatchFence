@@ -5,7 +5,7 @@ from typing import Literal
 from fastapi import APIRouter,Request,HTTPException
 from pydantic import Field
 from . import assisted as a,repository as repo,identity,jobs,evolus_adapter as external,label_images,evolus_api
-from .assist_contracts import Strict,ReviewDraft,Citation,validate_draft,fingerprint,source_context
+from .assist_contracts import Strict,ReviewDraft,Citation,validate_draft,fingerprint,source_context,extractor_coverage,revalidate_stored_draft
 from .domain import DomainError,digest
 from .fixtures import now
 from .knowledge_routes import catalog
@@ -68,7 +68,9 @@ def result_for_job(db,owner,state,key,execution):
                 raise DomainError('Actual extractor/agent/model step evidence missing; integration remains unverified')
             record['runtime_model_identity']=execution.get('runtime_model_identity','Not returned / independent inference verification pending')
         record['raw_draft']=execution.get('draft')
-        try:record['draft']=validate_draft(state,execution['draft'])
+        try:
+            if record['mode']=='live':record['source_coverage']=extractor_coverage(state,execution,execution['draft'],record.get('document_ids',[]))
+            record['draft']=validate_draft(state,execution['draft'])
         except Exception as exc:
             record.update(status='failed validation',error='Raw interpretation failed source/schema validation; no fact or scope update')
             record['validation_issues']=exc.errors(include_input=False,include_url=False,include_context=False) if hasattr(exc,'errors') else [{'message':str(exc)[:300]}]
@@ -590,7 +592,8 @@ def review_intake(case_id:str,data:ReviewIntake,request:Request):
             raise DomainError('Current source-validated proposal required')
         doc=next((d for d in state['documents'] if d['id']==data.document_id),None)
         if not doc or doc.get('request_id'):raise DomainError('Use receiving review for a linked response; choose an incident notice here')
-        draft=proposal['draft'];facts=[]
+        draft=revalidate_stored_draft(state,proposal['draft']);facts=[]
+        if proposal['mode']=='live' and not proposal.get('kind'):extractor_coverage(state,proposal['executions'][-1],draft,proposal.get('document_ids',[]))
         for c in draft.get('candidates',[]):
             if c['kind']=='supplier_lot' and c['source']['document_id']==doc['id']:
                 # An asserted LOT ID is not an asserted incident effect. The
@@ -607,6 +610,7 @@ def review_intake(case_id:str,data:ReviewIntake,request:Request):
                 'runtime_model_identity':proposal.get('runtime_model_identity'),'scope_concerns':scope_concerns(doc),
                 'proposal_correction':proposal.get('correction'),
                 'output':{'facts':facts,'qualifiers':draft.get('unresolved',[])+['Identity proposals only; presence or asserted identity does not establish affected incident scope. All candidates require explicit current source and scope review.']}})
+            if provenance.get('model_id') is None:state['runs'][-1].pop('model_id',None)
         return state
 
 
@@ -619,6 +623,7 @@ def proposal_review(case_id:str,data:ProposalReview,request:Request):
         if not record or record['case_id']!=case_id or record.get('kind') not in (None,'document') or record['status'] not in permitted or not data.reviewed or fingerprint(state,catalog(db,request.state.owner))!=record['snapshot_hash']:raise DomainError('Current document proposal and explicit original-source inspection required')
         if data.corrected_draft is not None:
             corrected=validate_draft(state,data.corrected_draft.model_dump())
+            if record['mode']=='live' and not record.get('kind'):record['source_coverage']=extractor_coverage(state,record['executions'][-1],corrected,record.get('document_ids',[]))
             # Original raw output and failed job remain intact. This explicit
             # quality-review correction is not a new successful model response.
             record['raw_quality_status']=record['status'];record['draft']=corrected

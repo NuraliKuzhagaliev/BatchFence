@@ -1,0 +1,21 @@
+{
+  "installer": "BatchFence-0.4.0-rc.4-win-x64-setup.exe",
+  "bytes": 113799533,
+  "sha256": "04d56c9787bda9d12dad1e3dee265c1c8f32329148f3a266ae19197b511acd0e",
+  "silent_install_exit": 0,
+  "installed_path": "D:\\projects\\BatchFence\\work\\installed-0.4.0-rc.4\\BatchFence Evidence Preview.exe",
+  "separate_app_id": "app.batchfence.focused040rc4",
+  "unsigned": true,
+  "installed_local_assets_match": [
+    {
+      "name": "index-C1izMUIu.css",
+      "sha256": "dc2916c8692bf131bb62ddba706fd4a2247de174d0d35d14039b57bcc4b7121e"
+    },
+    {
+      "name": "index-C_vv_RXA.js",
+      "sha256": "c6d2611e234d5df7bd56b1ae293f462195d0e2be21018c257031ea621d509517"
+    }
+  ],
+  "reason_for_rebuild": "Shared historical packet reader now accepts an explicitly unknown/null model ID without changing source, integrity or authority checks. Backend omission guard is packaged server code only.",
+  "rc3_preserved": true
+}

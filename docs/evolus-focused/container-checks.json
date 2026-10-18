@@ -1,0 +1,16 @@
+{
+  "run_id": 39085032356,
+  "runtime_commit": "5e0f7a856ba755e2d73b2c1c5c88e993adcab32b",
+  "actual_container_checks": [
+    "dynamic container port at http://127.0.0.1:8795",
+    "500 to 800 synthetic workflow",
+    "stale approval rejected",
+    "sandbox receipt",
+    "two-session isolation",
+    "all original source bytes and owner isolation survive restart",
+    "same SQLite volume survives actual container restart",
+    "SPA refresh and missing API routing"
+  ],
+  "passed": true,
+  "evidence": "Actual main CI log; independent Linux container, fixture inference only"
+}
