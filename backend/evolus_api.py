@@ -207,6 +207,12 @@ def library_passages(binding,allowed_passages,transport=None,before_call=lambda:
         # Retained exact passages must survive indexing. No fabricated source offsets.
         for p in relevant:
             if p['quote'] not in text:raise DomainError('Library lacks the exact approved original passage; retrieval abstains')
-            passages.append({**p,'provider_document_id':document['remote_document_id'],'local_quote_mapping':'Exact approved passage in retained library content; provider span unavailable'})
+            mapped={**p,'provider_document_id':document['remote_document_id'],'local_quote_mapping':'Exact approved passage in retained library content; provider span unavailable'}
+            if binding.get('library_type')=='Rag':
+                matched=[c for c in reply['result'] if c.get('id') and p['quote'] in (c.get('body') or '')]
+                if not matched:raise DomainError('Complete approved passage is not present in an identified indexed chunk; no source citation accepted')
+                mapped['provider_chunk_proof']={'remote_document_id':document['remote_document_id'],'source_hash':document['source_hash'],
+                    'chunks':[{'id':c['id'],'body_hash':hashlib.sha256(c['body'].encode('utf-8')).hexdigest()} for c in matched]}
+            passages.append(mapped)
         provenance.append({k:v for k,v in reply.items() if k!='result'})
     return passages,provenance

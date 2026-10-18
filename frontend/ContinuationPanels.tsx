@@ -461,12 +461,12 @@ export function ContinuationPanel({
                     <div className="assist-uncertain">
                       <strong>Original identities retained for review</strong>
                       <p>
-                        {r.proposal_assembly.source_identity_count} extracted
-                        identities ·{" "}
+                        {r.proposal_assembly.source_identity_count} source
+                        identities retained ·{" "}
                         {r.proposal_assembly.annotated_identity_count} model
-                        interpretations. Identity rows come from exact
-                        source-backed extraction; incident involvement remains
-                        an unreviewed proposal.
+                        interpretations. Identity rows come from retained
+                        originals and source-backed extraction; incident
+                        involvement remains an unreviewed proposal.
                       </p>
                       {!!r.proposal_assembly.missing_annotations?.length && (
                         <p>
@@ -476,6 +476,16 @@ export function ContinuationPanel({
                             .join(", ")}
                           . These rows remain unresolved and scope is unknown
                           until explicit original review.
+                        </p>
+                      )}
+                      {!!r.proposal_assembly.missing_extractions?.length && (
+                        <p>
+                          Recorded references missing from extraction:{" "}
+                          {r.proposal_assembly.missing_extractions
+                            .map((c: RecordData) => c.value)
+                            .join(", ")}
+                          . The original references remain visible and scope
+                          stays unknown pending explicit review.
                         </p>
                       )}
                     </div>

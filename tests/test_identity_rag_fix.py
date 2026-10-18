@@ -99,73 +99,22 @@ def test_new_result_keeps_raw_annotations_separate_and_never_applies(client,monk
     state=client.get(route).json();assert state['plan'] is None and state['receipts']==[] and not state.get('approval')
 
 
-def passage_case():
-    quote='Recorded receiving evidence and separate approval are required. A citation never releases existing holds.'
-    retrieval={'passages':[{'document_id':'SOP-X','version':2,'passage_id':'recovery','quote':quote}]}
-    binding={'documents':[{'document_id':'SOP-X','version':2,'remote_document_id':'exact-version'}]}
-    return quote,retrieval,binding
-
-
-def test_prose_rag_requires_actual_citation_and_full_original_caveat():
-    quote,retrieval,binding=passage_case()
-    raw={'answer':quote+' [source]','citations':[{'documentId':'exact-version'}]}
-    assert rag.map_answer(raw,binding,retrieval)['claims'][0]['quote']==quote
-    for bad in [dict(raw,citations=[]),dict(raw,citations=[{'documentId':'old-version'}]),
-                dict(raw,answer=quote.split(' A citation')[0]),dict(raw,answer='Paraphrased permission to release')]:
-        with pytest.raises(DomainError):rag.map_answer(bad,binding,retrieval)
+def test_both_stages_omitting_recorded_reference_cannot_hide_it_in_review():
+    from tests.test_omission_citation_contracts import source_state
+    state=source_state('SUP-A is affected. SUP-B is not affected. SUP-C remains under investigation.')
+    e={'steps':[{'kind':'extractor','output':json.dumps({'candidates':[{'kind':'supplier_lot','value':'SUP-A','disposition':'asserted','quote':'SUP-A is affected.','page':None}],'unresolved':[]})}]}
+    raw={'annotations':[{'kind':'supplier_lot','value':'SUP-A','incident_status':'affected','quote':'SUP-A is affected.'}],'incident_scope':'complete','scope_evidence':[]}
+    draft,p=ia.assemble(state,e,raw,['notice'])
+    assert {c['value'] for c in draft['candidates']}=={'SUP-A','SUP-B','SUP-C'}
+    assert {c['value'] for c in p['missing_extractions']}=={'SUP-B','SUP-C'}
+    assert draft['incident_scope']=='unknown'
+    assert all(c['incident_status']=='uncertain' and c['disposition']=='unresolved' for c in draft['candidates'] if c['value']!='SUP-A')
+    assert validate_draft(state,draft,['notice'])['incident_scope']=='unknown'
 
 
 @pytest.mark.parametrize('citations',[{},['fake'],[{'documentId':'other-tenant'}]])
-def test_malformed_foreign_rag_citations_fail(citations):
-    quote,retrieval,binding=passage_case()
-    with pytest.raises(DomainError):rag.map_answer({'answer':quote,'citations':citations},binding,retrieval)
+def test_malformed_or_foreign_annotations_cannot_override_index_proof(citations):
+    from tests.test_omission_citation_contracts import quoted_fixture
+    _,retrieval,binding,raw=quoted_fixture();raw['citations']=citations
+    with pytest.raises(DomainError):rag.map_answer(raw,binding,retrieval)
 
-
-def test_rag_abstention_grants_no_claims():
-    _,retrieval,binding=passage_case()
-    answer=rag.map_answer({'answer':'INSUFFICIENT_EVIDENCE','citations':[]},binding,retrieval)
-    assert answer['insufficient_evidence'] and answer['claims']==[]
-
-
-def inline_case():
-    quote,retrieval,binding=passage_case();h='b'*64
-    retrieval['passages'][0].update(source_hash=h,page=4);binding['documents'][0]['source_hash']=h
-    reference=f'Document ID: SOP-X, Revision: 2, Source hash: {h}, Passage ID: recovery, Page: 4'
-    return quote+'\n'+reference,retrieval,binding
-
-
-def test_inline_reference_requires_all_immutable_fields_and_preserves_native_absence():
-    text,retrieval,binding=inline_case()
-    answer,proof=rag.resolve_answer({'answer':text,'citations':[]},binding,retrieval)
-    assert answer['claims'][0]['quote']==retrieval['passages'][0]['quote']
-    assert proof['basis']=='validated inline source reference' and proof['provider_annotation_count']==0
-    assert proof['inline_references'][0]['remote_document_id']=='exact-version'
-
-
-@pytest.mark.parametrize('bad',['hash','version','page','passage','document','caveat','malformed extra','keys only'])
-def test_inline_citation_does_not_weaken_source_or_full_caveat_checks(bad):
-    text,retrieval,binding=inline_case()
-    if bad=='hash':text=text.replace('b'*64,'c'*64)
-    elif bad=='version':text=text.replace('Revision: 2','Revision: 1')
-    elif bad=='page':text=text.replace('Page: 4','Page: 3')
-    elif bad=='passage':text=text.replace('Passage ID: recovery','Passage ID: invented')
-    elif bad=='document':text=text.replace('SOP-X','OTHER-TENANT')
-    elif bad=='caveat':text=text.replace(' A citation never releases existing holds.','')
-    elif bad=='malformed extra':text+='\nDocument ID: invented'
-    else:text=json.dumps({'selections':[{'document_id':'SOP-X','version':2,'passage_id':'recovery'}],'insufficient_evidence':False,'missing_information':[]})
-    with pytest.raises(DomainError):rag.map_answer({'answer':text,'citations':[]},binding,retrieval)
-
-
-@pytest.mark.parametrize('drift',['none','origin','model'])
-def test_rag_free_route_checks_actual_connection_without_key_access(monkeypatch,drift):
-    from backend import evolus_adapter as guard,evolus_api as api
-    monkeypatch.setenv('EVOLUS_RAG_MODEL_KEY','own/route')
-    proof={'rag_route':{'catalog_model_key':'own/route','connection_id':'C','provider_base_url':'https://provider.invalid/v1','model_registration_id':'M','provider_model_id':'Exact-Model'}}
-    c={'id':'C','hasApiKey':True,'apiBaseUrl':'https://provider.invalid/v1','models':[{'id':'M','modelId':'Exact-Model'}]}
-    if drift=='origin':c['apiBaseUrl']='https://different.invalid/v1'
-    if drift=='model':c['models'][0]['modelId']='Other-Model'
-    monkeypatch.setattr(guard,'allowance',lambda *a:proof)
-    monkeypatch.setattr(api,'call',lambda method,path,**kw:{'result':[c]})
-    if drift=='none':rag.verify_route()
-    else:
-        with pytest.raises(DomainError):rag.verify_route()

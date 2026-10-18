@@ -1,0 +1,20 @@
+{
+  "installer": "BatchFence-0.4.0-rc.5-win-x64-setup.exe",
+  "bytes": 113799676,
+  "sha256": "5609395537b3664db86305b33bad83a21749824ea1e41236eeadd800749e575f",
+  "silent_install_exit": 0,
+  "installed_path": "D:\\projects\\BatchFence\\work\\installed-0.4.0-rc.5\\BatchFence Evidence Preview.exe",
+  "app_id": "app.batchfence.identity040rc5",
+  "unsigned": true,
+  "installed_local_assets_equal": [
+    {
+      "name": "index-C1izMUIu.css",
+      "sha256": "dc2916c8692bf131bb62ddba706fd4a2247de174d0d35d14039b57bcc4b7121e"
+    },
+    {
+      "name": "index-Cv22MHJf.js",
+      "sha256": "45ea5cdbde9868976779e4f2c0b9031d574b0ab5dac63754b32e297a3914716a"
+    }
+  ],
+  "previous_installers_preserved": true
+}

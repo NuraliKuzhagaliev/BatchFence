@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "at": "2026-10-18T05:54:05.493444+00:00",
+  "health": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.4.0-rc.5",
+    "commit": "e51ef7ec0080b2873a8d46734a09aebedc4380ab",
+    "inference_mode": "fixture",
+    "amd_configured": true,
+    "live_protected": true,
+    "profile": "public",
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  },
+  "assets_sha256": {
+    "index-BHxmjd9P.js": "df8ab08f2341388cbafb4e0316e513681c67cddcda01af7a24f73a486b381b8a",
+    "index-C1izMUIu.css": "dc2916c8692bf131bb62ddba706fd4a2247de174d0d35d14039b57bcc4b7121e"
+  },
+  "review": "Agent-operated synthetic publication acceptance; not genuine fresh model processing or independent human validation",
+  "provider_dispatches": 0,
+  "fixture_holds": [
+    500,
+    800
+  ],
+  "receipts": 2,
+  "stale_approval_status": 409,
+  "stale_apply_status": 409,
+  "no_private_token_rag_status": 403,
+  "new_rag_application_acceptance": "Blocked by missing private live-access token; not claimed",
+  "existing_receipts_unchanged_after_denied_rag": true,
+  "packet_integrity_verified": true
+}

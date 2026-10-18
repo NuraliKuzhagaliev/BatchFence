@@ -43,8 +43,7 @@ def status():
         'gemma_hosting_kind':os.getenv('GEMMA_HOSTING_KIND','unverified'),
         'vision_model_id':os.getenv('GEMMA_VISION_MODEL_ID') or os.getenv('GEMMA_MODEL_ID'),
         'knowledge_mode':'Local Unicode lexical selection + dedicated Evolus read-only Blob content; not semantic search',
-        'semantic_rag_enabled':os.getenv('EVOLUS_RAG_ENABLED')=='true',
-        'semantic_rag_state':'Enabled: isolated agent retrieval; every answer still requires returned exact-source citations and full original passages.' if os.getenv('EVOLUS_RAG_ENABLED')=='true' else 'UNAVAILABLE: citation-backed acceptance is required before enabling semantic Rag. Blob/local mode retained.',
+        'semantic_rag_state':'Exact isolated indexed-source binding required. Source citations verify complete approved passages against identified Evolus chunks; provider-native citation annotations are not implied. Fresh application acceptance remains separate.',
         'missing_variables':[k for k in required if not os.getenv(k)],'eligibility':'unverified: requires actual own vLLM on AMD Developer Cloud, two building blocks and API execution',
         'no_automatic_retry':True,'public_access':'Existing protected live-access gate and persisted job budget also apply'}
 

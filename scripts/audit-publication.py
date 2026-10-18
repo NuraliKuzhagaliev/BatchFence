@@ -9,7 +9,7 @@ def git(*args):
     return subprocess.check_output(['git', *args], cwd=ROOT)
 needles = {v.encode() for private_file in (ROOT/'.env', ROOT/'work/cloud-demo.env')
            for k,v in dotenv_values(private_file).items()
-           if v and k not in ('EVOLUS_GEMMA_MODEL_KEY','EVOLUS_RAG_MODEL_KEY') and any(x in k.upper() for x in ('KEY', 'TOKEN', 'SECRET', 'PASSWORD'))}
+           if v and k!='EVOLUS_GEMMA_MODEL_KEY' and any(x in k.upper() for x in ('KEY', 'TOKEN', 'SECRET', 'PASSWORD'))}
 for private_file in (ROOT/'work/pilot-config').glob('*.env'):
     for k,v in dotenv_values(private_file).items():
         if not v: continue
