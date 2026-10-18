@@ -10,6 +10,39 @@ Evidence-backed lot containment for quality teams: turn supplier notices into re
 
 **Public web: 0.4.0-rc.7**, with verified anonymous document analysis at runtime [`becdb4b`](https://github.com/NuraliKuzhagaliev/BatchFence/commit/becdb4b3335a5ea334be7db463cb915c6a6bd7ef). **Windows/source release: 0.4.0-rc.6**, preserved at tag [`d6fa31f`](https://github.com/NuraliKuzhagaliev/BatchFence/commit/d6fa31f7d321b0e0c51dad5afcb577b6e31e8130). The new browser entry needs no private token or provider account. This is a review-controlled hackathon application; independent operational acceptance and production enterprise readiness remain outstanding.
 
+## Free credits and future availability
+
+**Live AI access depends on free/event provider allowances and is not guaranteed indefinitely.** Credits or daily quota can run out; an event can end, a model can be withdrawn, or the provider can become unavailable. BatchFence does not buy additional credits or switch to paid access. If live access is unavailable or exhausted, the app reports that state; it never silently replaces your analysis with sample or recorded output. Saved packets remain available for read-only review without inference.
+
+The last retained entitlement check was **18 October 2026 at 11:27:07 UTC**: the configured AMD shared Gemma route was accessible, with **0.993072 nonmonetary points remaining before the successful request**. The authenticated [AMD TokenFactory User Manual](https://notebooks.amd.com/tokenfactory) described shared access as free and points as usage accounting rather than charges. The generic catalog nevertheless returned `free: false`; both records are preserved in the [provider preflight](docs/judge-access/provider-preflight.json) and [successful request evidence](docs/judge-access/public/fresh-analysis.json). This is a dated observation, not a promise of future access or a claim that all AMD/Evolus services are free.
+
+**No event-access expiration date was published.** The recorded **18 October 2026, 16:00 UTC** time was a daily quota reset, not an access end date. The public visitor workflow checks current provider catalog/access and remaining allowance before dispatch. Other connected capabilities also depend on their configured AMD/Evolus access and remaining event credits. No paid overage or hosting upgrade is authorized.
+
+The website uses **Free Render hosting**, which may sleep and take time to wake. Temporary server data can be lost on restart or redeployment. Keep your original documents and export review packets; this host does not provide guaranteed uptime or durable enterprise storage.
+
+## Proof of genuine AMD processing
+
+A fresh fictional supplier notice, uploaded through a clean public browser session without an owner token or provider account, produced a real AMD Gemma response that drove the displayed proposals and uncertainties. This was live inference, separate from fixtures, historical replay and connection-only checks.
+
+| Retained request evidence | Actual value |
+| --- | --- |
+| AMD endpoint | `https://developer.amd.com.cn/radeon/api/v1/chat/completions` |
+| Requested model | `Gemma-4-31B-IT` |
+| Model returned by provider | `self-dploy/Gemma-4-31B-IT` |
+| Provider request ID | `cda7667045ce40ddb408c92921826672` |
+| Response timestamp (UTC) | `2026-10-18T11:27:44.802408+00:00` |
+| HTTP result / measured request latency | `200` / `37,091 ms` |
+| Provider-reported tokens | 1,469 input + 548 output = 2,017 total |
+| Application behavior | Original PDF beside source-backed proposals for `HELIO-731`, `HELIO-732` and `HELIO-733`; all inventory relationships remained unresolved pending review/context. |
+
+Inspect the [uploaded PDF](docs/judge-access/inputs/supplier-quality-helio.pdf), [matching source text](docs/judge-access/inputs/supplier-quality-helio.txt), [actual response and provenance](docs/judge-access/public/fresh-analysis.json), and [deployed browser acceptance record](docs/judge-access/public/result.json). The JSON retains request/response hashes, settings, usage and entitlement metadata without credentials.
+
+![Actual public web application showing the original PDF beside live AMD Gemma proposals](docs/judge-access/public/fresh-review-1440.png)
+
+*Actual application capture using a fictional engineering notice. Source inspection was agent-operated, not independent human validation.*
+
+This proves integration with the **managed AMD shared service**; it does not establish ownership of AMD GPUs, a self-hosted vLLM deployment or independent hardware attestation. Model quality and application containment are separate: raw incident-status labels matched **2 of 3** expectations on this notice, while the application kept every inventory disposition unresolved. See the [raw-versus-assembled results](docs/judge-access/public/raw-quality.json). Two earlier attempts are also retained: [provider/transport failure with unconfirmed exact cause](docs/judge-access/public/attempt-1-failure.json) and [a real HTTP 200 response rejected by source validation](docs/judge-access/public/attempt-2-validation-failure.json). These records are not a broad accuracy benchmark.
+
 ## Upload your own document (public judging)
 
 Click **Analyze your document**: start an isolated editable source-review session, upload a nonsensitive supplier/quality notice, confirm external processing and run genuine direct AMD Gemma analysis without an owner token or provider account. Supported: UTF-8 TXT and readable native-text PDF, 2 MB, at most 8 PDF pages, within the existing bounded source context. Original passages, raw model output, proposed dispositions and unresolved inventory context remain separate. No sample inventory, automatic release or enterprise action authority is added.
