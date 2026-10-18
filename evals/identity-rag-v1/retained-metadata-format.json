@@ -1,0 +1,224 @@
+{
+  "source_document": {
+    "id": "DOC-bd1d14ae7614",
+    "filename": "incident-windows-revision.pdf",
+    "media_type": "application/pdf",
+    "revision": 2,
+    "ingested_at": "2026-10-18T06:57:38.295081+00:00",
+    "original_hash": "90c826b9f5b927f131e86039a7f99f8ec550d44906be2fdb9fb1b1754a93afc7",
+    "text_hash": "0fc055d1d97c96af3b597d2f47cccd96a4345faa8090444d534977b93411f8e5",
+    "blocks": [
+      {
+        "id": "page-1-line-1",
+        "page": 1,
+        "text": "BatchFence | Revised supplier boundary"
+      },
+      {
+        "id": "page-1-line-2",
+        "page": 1,
+        "text": "FICTIONAL ENGINEERING SOURCE - no real inventory"
+      },
+      {
+        "id": "page-1-line-3",
+        "page": 1,
+        "text": "Supplier bulletin QA-901, revision 3, 18 October 2026."
+      },
+      {
+        "id": "page-1-line-4",
+        "page": 1,
+        "text": "This bulletin supersedes the earlier supplier boundary for this case."
+      },
+      {
+        "id": "page-1-line-5",
+        "page": 1,
+        "text": "Complete incident boundary: this is the exhaustive affected supplier lot list."
+      },
+      {
+        "id": "page-1-line-6",
+        "page": 1,
+        "text": "Affected lots: SUP-C, SUP-A."
+      },
+      {
+        "id": "page-1-line-7",
+        "page": 1,
+        "text": "SUP-C is affected by the confirmed coating defect."
+      },
+      {
+        "id": "page-1-line-8",
+        "page": 1,
+        "text": "SUP-A remains affected by the same confirmed coating defect."
+      },
+      {
+        "id": "page-1-line-9",
+        "page": 1,
+        "text": "SUP-B is explicitly excluded from this notice."
+      },
+      {
+        "id": "page-1-line-10",
+        "page": 1,
+        "text": "Every listed supplier identity is confirmed. No other supplier lots are affected."
+      },
+      {
+        "id": "page-1-line-11",
+        "page": 1,
+        "text": "No inventory action or release is authorized. Review and approval remain separate."
+      },
+      {
+        "id": "page-1-line-12",
+        "page": 1,
+        "text": "Synthetic held-out original | page 1 of 1"
+      }
+    ],
+    "synthetic": true,
+    "page_count": 1,
+    "evidence_language": "en",
+    "language_review_required": false
+  },
+  "execution": {
+    "execution_id": "c77abe33-c1ca-f111-bf5b-6045bd9ce552",
+    "status": "completed",
+    "provider_status": "Completed",
+    "steps": [
+      {
+        "kind": "extractor",
+        "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+        "step_id": "ad1ba06c-f2d0-4533-a6ef-832746c5432c",
+        "state": {
+          "status": "done",
+          "branch": null,
+          "iterations": null,
+          "iterationsCompleted": null,
+          "iterationsFailed": null,
+          "iterationDetails": null,
+          "branchCounts": null,
+          "childExecutionId": null,
+          "durationMs": 17826,
+          "outputCheckNote": null,
+          "decision": null
+        },
+        "configured_model_key": "own/gemma-4-31b-it",
+        "model_identity_basis": "Configuration, not a returned runtime model ID",
+        "output_hash": "13048400affe2902cee705ca54fe6a053472bd68646fe3d204629ae651972566",
+        "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"QA-901\",\"disposition\":\"mentioned\",\"quote\":\"Supplier bulletin QA-901, revision 3, 18 October 2026.\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"SUP-C is affected by the confirmed coating defect.\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"SUP-A remains affected by the same confirmed coating defect.\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"disposition\":\"negated\",\"quote\":\"SUP-B is explicitly excluded from this notice.\",\"page\":1},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"Complete incident boundary: this is the exhaustive affected supplier lot list.\",\"page\":1}],\"unresolved\":[]}",
+        "execution_step_key": "2"
+      },
+      {
+        "kind": "agent",
+        "id": "4cd7fff3-a2a7-4c43-a16a-1974779bfaad",
+        "step_id": "f8280daa-d181-4890-9994-b5b9afe9b9d2",
+        "state": {
+          "status": "done",
+          "branch": null,
+          "iterations": null,
+          "iterationsCompleted": null,
+          "iterationsFailed": null,
+          "iterationDetails": null,
+          "branchCounts": null,
+          "childExecutionId": null,
+          "durationMs": 10736,
+          "outputCheckNote": null,
+          "decision": null
+        },
+        "configured_model_key": "own/gemma-4-31b-it",
+        "model_identity_basis": "Configuration, not a returned runtime model ID",
+        "output_hash": "d5c20b0d1a29a2f3c411819b8fe8dbd650bac0c123b39407e928e146fa8e8cf1",
+        "output": "{\"annotations\":[{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"incident_status\":\"affected\",\"quote\":\"SUP-A remains affected by the same confirmed coating defect.\"},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"incident_status\":\"explicitly_excluded\",\"quote\":\"SUP-B is explicitly excluded from this notice.\"},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"incident_status\":\"affected\",\"quote\":\"SUP-C is affected by the confirmed coating defect.\"}],\"incident_scope\":\"complete\",\"scope_evidence\":[{\"document_id\":\"DOC-bd1d14ae7614\",\"block_id\":\"page-1-line-5\",\"quote\":\"Complete incident boundary: this is the exhaustive affected supplier lot list.\"}],\"changes\":[],\"contradictions\":[],\"unresolved\":[],\"request_drafts\":[]}",
+        "execution_step_key": "3"
+      }
+    ],
+    "draft": {
+      "annotations": [
+        {
+          "kind": "supplier_lot",
+          "value": "SUP-A",
+          "incident_status": "affected",
+          "quote": "SUP-A remains affected by the same confirmed coating defect."
+        },
+        {
+          "kind": "supplier_lot",
+          "value": "SUP-B",
+          "incident_status": "explicitly_excluded",
+          "quote": "SUP-B is explicitly excluded from this notice."
+        },
+        {
+          "kind": "supplier_lot",
+          "value": "SUP-C",
+          "incident_status": "affected",
+          "quote": "SUP-C is affected by the confirmed coating defect."
+        }
+      ],
+      "incident_scope": "complete",
+      "scope_evidence": [
+        {
+          "document_id": "DOC-bd1d14ae7614",
+          "block_id": "page-1-line-5",
+          "quote": "Complete incident boundary: this is the exhaustive affected supplier lot list."
+        }
+      ],
+      "changes": [],
+      "contradictions": [],
+      "unresolved": [],
+      "request_drafts": []
+    },
+    "document_reading": {
+      "step_id": "e394f109-14e1-4eb4-91ce-e60739578cea",
+      "configured_ocr_model": "azure/document-intelligence-layout",
+      "state": {
+        "status": "done",
+        "branch": null,
+        "iterations": null,
+        "iterationsCompleted": null,
+        "iterationsFailed": null,
+        "iterationDetails": null,
+        "branchCounts": null,
+        "childExecutionId": null,
+        "durationMs": 6,
+        "outputCheckNote": null,
+        "decision": null
+      },
+      "output_hash": "b0a91d202c0bff77194f907e075825e0a97bd1f7c3ae98d15576bd0d73e0c1fc",
+      "text": "BatchFence | Revised supplier boundary\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier bulletin QA-901, revision 3, 18 October 2026.\nThis bulletin supersedes the earlier supplier boundary for this case.\nComplete incident boundary: this is the exhaustive affected supplier lot list.\nAffected lots: SUP-C, SUP-A.\nSUP-C is affected by the confirmed coating defect.\nSUP-A remains affected by the same confirmed coating defect.\nSUP-B is explicitly excluded from this notice.\nEvery listed supplier identity is confirmed. No other supplier lots are affected.\nNo inventory action or release is authorized. Review and approval remain separate.\nSynthetic held-out original | page 1 of 1\n",
+      "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+      "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+    },
+    "interpretation_contract": "identity-annotations-v1",
+    "consumption": {
+      "credits": 0,
+      "pendingEntries": 0,
+      "costUsd": null,
+      "llmTokens": null,
+      "ocrPages": null,
+      "embeddingTokens": null,
+      "speechToTextSeconds": null,
+      "entries": null
+    },
+    "requested_at": "2026-10-18T06:57:42.3541251Z",
+    "completed_at": "2026-10-18T06:58:11.0473524Z",
+    "trace_id": "fa23343b2ac0e5de97f5f95edd647357",
+    "error_present": false,
+    "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+    "transport_provenance": {
+      "provider": "Evolus",
+      "at": "2026-10-18T06:58:14.035056+00:00",
+      "method": "GET",
+      "path": "/api/v1/workflows/15ea93a2-9a30-4a17-bf47-ef18a16207bd/executions/c77abe33-c1ca-f111-bf5b-6045bd9ce552",
+      "http_status": 200,
+      "elapsed_ms": 179,
+      "response_hash": "7f718eade47492038b2834b5873f2e53fd32791b8b7badcb72930f9057b1767d",
+      "request_id": null,
+      "execution_header": null,
+      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+    }
+  },
+  "raw_validation_failure": [
+    {
+      "type": "literal_error",
+      "loc": [
+        "candidates",
+        0,
+        "disposition"
+      ],
+      "msg": "Input should be 'asserted', 'uncertain', 'negated' or 'unresolved'"
+    }
+  ]
+}

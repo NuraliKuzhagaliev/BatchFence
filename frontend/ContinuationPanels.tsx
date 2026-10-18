@@ -488,6 +488,11 @@ export function ContinuationPanel({
                           stays unknown pending explicit review.
                         </p>
                       )}
+                      {!!r.proposal_assembly.extractor_format_issues?.length && (
+                        <p>
+                          Extraction format needs original review. Document metadata stays unresolved and scope is unknown. The raw response is retained in technical details.
+                        </p>
+                      )}
                     </div>
                   )}
                   {r.stale && (

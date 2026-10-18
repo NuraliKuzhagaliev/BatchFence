@@ -1,0 +1,6 @@
+{
+  "at": "2026-10-18T06:52:20.296Z",
+  "error": "locator.waitFor: Timeout 35000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('heading', { name: 'Confirm the affected lots' }) to be visible\u001b[22m\n",
+  "errors": [],
+  "no_automatic_retry": true
+}

@@ -118,3 +118,28 @@ def test_malformed_or_foreign_annotations_cannot_override_index_proof(citations)
     _,retrieval,binding,raw=quoted_fixture();raw['citations']=citations
     with pytest.raises(DomainError):rag.map_answer(raw,binding,retrieval)
 
+
+def test_actual_metadata_incident_vocabulary_is_unresolved_with_raw_error_retained():
+    saved=json.loads((ROOT/'evals/identity-rag-v1/retained-metadata-format.json').read_text(encoding='utf-8'))
+    execution=saved['execution']; original=copy.deepcopy(execution); doc=saved['source_document']
+    state={'documents':[doc],'edges':[]}
+    draft,proof=ia.assemble(state,execution,execution['draft'],[doc['id']])
+    validated=validate_draft(state,draft,[doc['id']])
+    metadata=next(c for c in validated['candidates'] if c['kind']=='document_id')
+    assert metadata['value']=='QA-901' and metadata['disposition']=='unresolved'
+    assert metadata['incident_status'] is None and validated['incident_scope']=='unknown'
+    assert len(proof['extractor_format_issues'])==1 and proof['raw_scope_claim']=='complete'
+    assert {c['value']:c['incident_status'] for c in validated['candidates'] if c['kind']=='supplier_lot'}=={
+        'SUP-A':'affected','SUP-B':'explicitly_excluded','SUP-C':'affected'}
+    assert execution==original and 'mentioned' in execution['steps'][0]['output']
+    assert validated['unresolved'] and not any(k in validated for k in ['plan','approval','receipts'])
+
+
+@pytest.mark.parametrize('kind',['supplier_lot','stock_pool','receipt_id','lineage_row'])
+def test_metadata_containment_does_not_relax_critical_identity_grammar(kind):
+    state,execution,raw=heldout('AX-0007 is affected. AX-0008 may be affected.')
+    candidate=json.loads(execution['steps'][0]['output'])
+    candidate['candidates'][0].update(kind=kind,disposition='mentioned')
+    execution['steps'][0]['output']=json.dumps(candidate)
+    with pytest.raises(ValueError):ia.assemble(state,execution,raw,['NEW'])
+

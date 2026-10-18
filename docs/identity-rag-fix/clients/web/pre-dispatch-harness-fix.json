@@ -1,0 +1,5 @@
+{
+  "at": "2026-10-18T06:54:40.549Z",
+  "reason": "Incorrect test heading corrected from actual interface; initial fixture extraction succeeded and no live request was submitted. New test workspace only.",
+  "equivalents_before": 6
+}

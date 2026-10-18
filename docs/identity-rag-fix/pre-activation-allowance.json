@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-18T06:45:29.261016+00:00",
+  "evolus_platform_balance": 50000.0,
+  "amd": {
+    "daily_cost_limit_usd": 1,
+    "daily_cost_used_usd": 0.006201632786542177,
+    "daily_cost_remaining_usd": 0.9937983672134578,
+    "daily_reset_at": "2026-10-18T16:00:00.000Z"
+  },
+  "private_equivalents_reserved": 6,
+  "hosted_final_acceptance_cap": 10,
+  "phase_cap": 16,
+  "current_model": "Gemma document annotations and existing versioned Gemma RAG selection; MiMo quote diagnostic historical only",
+  "model_dispatches": 0,
+  "additional_cash_spend": 0
+}

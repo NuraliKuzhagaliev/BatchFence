@@ -53,7 +53,18 @@ release, inventory changes, tools, commentary or code fences.'''
 
 def assemble(state, execution, raw, document_ids):
     step = next((s for s in execution.get('steps', []) if s.get('kind') == 'extractor'), {})
-    extracted = ExtractorDraft.model_validate(parse_json(step.get('output'))).model_dump()
+    extractor_raw=parse_json(step.get('output'))
+    format_issues=[]
+    # The actual extractor used incident vocabulary for document metadata.
+    # Preserve that raw output in execution evidence. Only this demonstrated
+    # non-stock case is contained as an unresolved identity, never an assertion
+    # or an incident disposition; every other malformed value still rejects.
+    if isinstance(extractor_raw.get('candidates'),list):
+        for c in extractor_raw['candidates']:
+            if isinstance(c,dict) and c.get('kind')=='document_id' and c.get('disposition')=='mentioned':
+                c['disposition']='unresolved'
+                format_issues.append('Document metadata '+str(c.get('value'))+' used incident disposition mentioned; retained as unresolved identity, original review required')
+    extracted = ExtractorDraft.model_validate(extractor_raw).model_dump()
     interpreted = Interpretation.model_validate(raw).model_dump()
     docs = [d for d in state['documents'] if d['id'] in document_ids]
     missing_extractions=[]
@@ -100,14 +111,16 @@ def assemble(state, execution, raw, document_ids):
     if missing_extractions:
         unresolved.append('Recorded original references missing from extraction; original review required for: '+
                           ', '.join(c['value'] for c in missing_extractions))
+    unresolved.extend(format_issues)
     # Preserve the raw claim separately; an incomplete annotation set cannot
     # claim complete scope in the assembled review proposal.
     draft = {'candidates': candidates, 'changes': interpreted['changes'], 'contradictions': interpreted['contradictions'],
              'unresolved': unresolved, 'request_drafts': interpreted['request_drafts'],
-             'incident_scope': 'unknown' if missing or missing_extractions else interpreted['incident_scope'],
+             'incident_scope': 'unknown' if missing or missing_extractions or format_issues else interpreted['incident_scope'],
              'scope_evidence': interpreted['scope_evidence']}
     return draft, {'contract': VERSION, 'source_identity_count': len(inventory),
                    'annotated_identity_count': len(annotations), 'missing_annotations': missing,
                    'missing_extractions':missing_extractions,
+                   'extractor_format_issues':format_issues,
                    'raw_scope_claim': interpreted['incident_scope'],
                    'authority': 'Extracted identities and model annotations are proposals; explicit original review and approval remain mandatory'}

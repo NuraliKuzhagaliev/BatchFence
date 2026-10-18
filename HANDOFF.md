@@ -1,3 +1,15 @@
+# rc.6 focused metadata containment — final live gate pending
+
+The updated workflow passed fresh public-web acceptance: revised original PDF retained SUP-A/SUP-B/SUP-C, source review and approval reached 800 units with two receipts, stale apply was rejected, and genuine Evolus RAG displayed the complete original caveat with independently verified chunk identities. Provider-native annotations were empty; these are explicitly application-verified indexed-source citations.
+
+The first fresh installed rc6 run also retained all three lots with correct incident labels, but its extractor emitted `document_id: QA-901, disposition: mentioned`. Strict validation rejected this before review or a narrowed plan; its existing fixture baseline of 500 units/one receipt was preserved. Raw execution and original source are frozen in `evals/identity-rag-v1/retained-metadata-format.json`. The focused fix contains only this non-stock metadata case as unresolved, records the raw format issue and forces unknown scope pending explicit original review. All four critical identity kinds still reject this malformed disposition. 78 affected regressions pass.
+
+Finite plan refinement: preserve the 13 already reserved conservative equivalents and raise the disclosed ceiling from 16 to 18 solely for one changed installed-client PDF retest (2 steps) and its remaining RAG check (3 equivalents). No unchanged retry, old-ledger reset, purchase or key rotation. Existing free-event proof expires 18 October 2026 at 16:00 UTC / 21:00 Qyzylorda. The public source/RAG proof is reused; no additional web model requests are planned.
+
+Next: clean follow-up CI, rebuild/install the unpublished rc6 candidate, activate the same existing Free Render service after CI, run that one bounded Windows check, then publish verified artifacts and final evidence. Earlier rc4/rc5 releases and all failures remain preserved. Agent-operated review is not independent human validation; free storage remains temporary and installer unsigned.
+
+---
+
 # Targeted continuation — rc.6 candidate, preserving newer rc.5
 
 Remote main advanced to9c55808 with published rc.5/runtimee51ef7e while this local checkout retained rc4 evidence3ca013a. Those changes are now reconciled: preserve the broader exact-recorded-identity guard, independently identified chunk proof, explicit RAG reconciliation UI,180second native transport and Windows CI. Candidate version becomesrc.6; do not overwrite rc.5 assets. The source annotation contract adds identity-preserving proposals and keeps missing interpretations unresolved with unknown scope. Paired changes, contradictions, request drafts, source review, stale approval and receipts remain.

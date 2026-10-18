@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-18T07:04:38.547119+00:00",
+  "head": "1e456db376caa37be2860483d44109342f3f9fe8",
+  "commits": 66,
+  "history_blobs": 2623,
+  "files_and_archive_members": 5568,
+  "known_private_values_checked": 40,
+  "findings": [],
+  "largest_history_files": [
+    {
+      "file": "submission/BatchFence-demo-0.1.1.mp4",
+      "bytes": 5391989
+    },
+    {
+      "file": "submission/enterprise/BatchFence-0.3.0-verified-workflows.mp4",
+      "bytes": 4491710
+    },
+    {
+      "file": "submission/BatchFence-demo-0.2.0.mp4",
+      "bytes": 3730919
+    },
+    {
+      "file": "submission/enterprise/BatchFence-connected-synthetic-rc1.mp4",
+      "bytes": 2721748
+    },
+    {
+      "file": "submission/BatchFence-demo.mp4",
+      "bytes": 1778738
+    }
+  ],
+  "limitations": "Known-value and credential-pattern scan, archive contents and prohibited-path checks; not a general security audit. Evidence records are synthetic. Image pixels are not OCR-scanned."
+}

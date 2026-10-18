@@ -1,0 +1,30 @@
+{
+  "actual_original_failure": "clients/windows/document-raw-job.json",
+  "additional_model_calls": 0,
+  "retained_raw_unchanged": true,
+  "proposal_assembly": {
+    "contract": "identity-annotations-v1",
+    "source_identity_count": 3,
+    "annotated_identity_count": 3,
+    "missing_annotations": [],
+    "missing_extractions": [],
+    "extractor_format_issues": [
+      "Document metadata QA-901 used incident disposition mentioned; retained as unresolved identity, original review required"
+    ],
+    "raw_scope_claim": "complete",
+    "authority": "Extracted identities and model annotations are proposals; explicit original review and approval remain mandatory"
+  },
+  "assembled_scope": "unknown",
+  "document_metadata": {
+    "kind": "document_id",
+    "value": "QA-901",
+    "disposition": "unresolved",
+    "incident_status": null,
+    "source": {
+      "document_id": "DOC-bd1d14ae7614",
+      "block_id": "page-1-line-3",
+      "quote": "Supplier bulletin QA-901, revision 3, 18 October 2026."
+    }
+  },
+  "validation": "Passed original-source, exact-recorded-ID and proposal validation; no facts, plan, approval or action created"
+}
