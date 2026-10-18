@@ -68,7 +68,7 @@ def test_uncertain_submission_deduplicates_and_reconciles_without_new_inference(
     def operation(name,inputs,**kwargs):
         calls.append(name)
         if name=='workflow_start':raise evolus_api.UncertainExecution(eid)
-        return {'result':{'execution_id':eid,'status':'completed','draft':{'candidates':[],'unresolved':['No supported supplier lot in this injected source.']},'steps':[{'kind':'extractor','id':'extractor'},{'kind':'agent','id':'agent','configured_model_key':'own/test'}]}}
+        return {'result':{'execution_id':eid,'status':'completed','draft':{'candidates':[],'unresolved':['No supported supplier lot in this injected source.']},'steps':[{'kind':'extractor','id':'extractor','output':'{"candidates":[]}'},{'kind':'agent','id':'agent','configured_model_key':'own/test'}]}}
     monkeypatch.setattr(external,'operation',operation)
     payload={'document_ids':[doc['id']],'revision':state['revision'],'idempotency_key':'uncertain-first','mode':'live'}
     first=post(client,r+'/assist-run',payload);assert first['external_execution_id']==eid
@@ -167,3 +167,42 @@ def test_rag_unauthorized_fictional_source_has_no_remote_upload(client,monkeypat
     monkeypatch.setattr(api,'call',lambda *a,**k:pytest.fail('Unauthorized source reached provider'))
     result=client.post('/api/assist/knowledge-index',json={'library_type':'Rag','product':'Decorative housing','process':'coating','synthetic':True,'reviewed':True,'note':'No remote action allowed with a source outside this exact test phase.'})
     assert result.status_code==422 and 'exact fictional hashes' in result.text
+
+
+def test_actual_evolus_omission_cannot_become_scope_or_bypass_correction(client,monkeypatch):
+    from backend import evolus_adapter as external
+    root=Path(__file__).resolve().parents[1];e=json.loads((root/'evals/evolus-focused-v1/retained-omission.json').read_text())
+    s=post(client,'/api/cases/demo');route='/api/cases/'+s['id']
+    s=post(client,route+'/documents',{'filename':'retained-omission.pdf','content_base64':base64.b64encode((root/'evals/evolus-focused-v1/notice-revised-sup-c.pdf').read_bytes()).decode(),'synthetic':True});doc=s['documents'][-1]
+    execution=json.loads(json.dumps(e['execution']).replace(e['source_document']['id'],doc['id']))
+    monkeypatch.setattr(external,'contract',lambda:{})
+    monkeypatch.setattr(external,'allowance',lambda *a:{})
+    monkeypatch.setattr(external,'reserve',lambda *a,**k:{'injected':True})
+    for k,v in {'EVOLUS_WORKFLOW_ID':'injected','EVOLUS_EXTRACTOR_ID':execution['steps'][0]['id'],'EVOLUS_AGENT_ID':execution['steps'][1]['id'],'EVOLUS_GEMMA_MODEL_KEY':'own/gemma-4-31b-it','GEMMA_MODEL_ID':'test'}.items():monkeypatch.setenv(k,v)
+    monkeypatch.setattr(external,'operation',lambda *a,**k:{'result':execution})
+    job=post(client,route+'/assist-run',{'mode':'live','revision':s['revision'],'document_ids':[doc['id']],'idempotency_key':'actual-omission-regression'})
+    assert job['status']=='failed validation' and 'SUP-C' in job['validation_issues'][0]['message']
+    assert job['raw_draft']==execution['draft'] and not job.get('draft')
+    assert client.post(route+'/assist-intake',json={'proposal_id':job['id'],'document_id':doc['id'],'revision':s['revision']}).status_code==422
+    assert client.get(route).json()['plan'] is None
+    corrected=copy.deepcopy(execution['draft']);positive=next(b for b in doc['blocks'] if 'Affected lots: SUP-A, SUP-C' in b['text']);negative=next(b for b in doc['blocks'] if 'SUP-B is not affected' in b['text'])
+    for value,status,block in [('SUP-C','affected',positive),('SUP-B','explicitly_excluded',negative)]:corrected['candidates'].append({'kind':'supplier_lot','value':value,'disposition':'asserted' if status=='affected' else 'negated','incident_status':status,'source':{'document_id':doc['id'],'block_id':block['id'],'quote':block['text']}})
+    note='Explicit agent-operated source correction for the retained live omission; not new model success or independent human validation.'
+    fixed=post(client,route+'/assist-review',{'proposal_id':job['id'],'corrected_draft':corrected,'reviewed':True,'note':note})
+    assert fixed['raw_draft']==execution['draft'] and fixed['raw_quality_status']=='failed validation' and fixed['correction']
+    s=post(client,route+'/assist-intake',{'proposal_id':job['id'],'document_id':doc['id'],'revision':s['revision']})
+    body={'run_id':s['runs'][-1]['id'],'revision':s['revision'],'lot_ids':['SUP-A'],'uncertain_lot_ids':[],'excluded_lot_ids':['SUP-B'],'accept_scope':True,'incident_scope_status':'resolved','resolution_quote':corrected['scope_evidence'][0]['quote'],'bounded_scope_reviewed':True,'note':note}
+    wrong=client.post(route+'/reviews',json=body);assert wrong.status_code==422 and 'UNREVIEWED_SOURCE_LOTS' in wrong.text
+    good=post(client,route+'/reviews',{**body,'lot_ids':['SUP-A','SUP-C']});assert good['plan']['result']['hold_units']==800 and good['receipts']==[]
+
+
+@pytest.mark.parametrize('text,known,expected',[
+    ('Affected supplier batches: MAT-004 and MAT-005. MAT-006 is not affected.',['MAT-004','MAT-005','MAT-006'],{'MAT-004','MAT-005'}),
+    ('Affected lots: 0007, 0008. Keep originals.',['0007','0008','7'],{'0007','0008'}),
+    ('Affected lots: LOT.004, LOT.005. Other lots excluded.',['LOT.004','LOT.005','LOT'],{'LOT.004','LOT.005'}),
+])
+def test_source_list_coverage_distinct_notices_and_exact_identifiers(text,known,expected):
+    from backend.review_safety import listed_source_lots,mentions
+    state={'edges':[{'source':k,'target':'FG'} for k in known]};doc={'blocks':[{'text':text}]}
+    assert listed_source_lots(state,doc)==expected
+    assert not mentions('A','АA') and not mentions('A','AА') and mentions('LOT.004','LOT.004.')

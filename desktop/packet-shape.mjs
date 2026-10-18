@@ -171,7 +171,9 @@ export function validateShape(p) {
         str(r.id) &&
         str(r.mode) &&
         str(r.status) &&
-        (r.model_id === undefined || str(r.model_id)) &&
+        // Evolus does not return a runtime model ID. Explicit unknown is valid
+        // historical provenance, never model verification or action authority.
+        (r.model_id === undefined || r.model_id === null || str(r.model_id)) &&
         (r.error === undefined || str(r.error)),
     ) ||
     !c.receipts.every(

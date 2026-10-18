@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-18T01:26:24.528789+00:00",
+  "runtime": "5e0f7a856ba755e2d73b2c1c5c88e993adcab32b",
+  "processing": "Fresh public UI Blob answer and two genuine original-PDF Evolus workflows; no repeated model calls during harness recovery",
+  "case_id": "793f8783cf964846a7584198eacbf685",
+  "applied_units": 800,
+  "receipts": 2,
+  "raw_first": "CorrectSUP-A affected/SUP-B excluded/complete",
+  "raw_revised": "Extractor correct; interpretation omittedSUP-C andSUP-B while claimingcomplete. Old validator accepted proposal. Engineering test stopped before review/apply.",
+  "correction": "Explicit agent-operated source correction added missing identities as unresolved proposals; separate UI critical review selectedSUP-A/SUP-C affected andSUP-B excluded, then exact plan approval and sandbox execution. Not independent human validation.",
+  "stale_approval_http": 409,
+  "stale_response": {
+    "detail": {
+      "code": "STALE_APPROVAL",
+      "message": "Approval is absent, stale or already consumed"
+    }
+  },
+  "sop_obsolescence_stales_suggestion": true,
+  "receipts_unchanged_after_obsolescence": true,
+  "packet_original_sha256": "c64eae2d5b671003e1e3f11ab67e51a8631da1e47f455efa30e70aec6ffaed17",
+  "packet_issue": "Old reader rejected legitimate model_id:null. Fixed shared validator accepts exact unchanged packet locally; fresh published/installed offline reopening pending.",
+  "model_equivalents_reserved_this_client": 5,
+  "harness_failures": "Retained locator failures and bounded polling interruption; scoped reconciliation reused known execution. No model retry."
+}

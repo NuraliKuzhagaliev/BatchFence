@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-18T01:15:16.811Z",
+  "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    'SUP-A',\n-   'SUP-C'\n  ]\n",
+  "outcomes": [
+    {
+      "stage": "first",
+      "expected_affected": [
+        "SUP-A"
+      ],
+      "raw_affected": [
+        "SUP-A"
+      ],
+      "raw_scope": "complete",
+      "raw_correction": false,
+      "review": "Agent-operated review of retained fictional originals, exact lot dispositions and complete boundary. Explicit engineering approval only; no independent human acceptance.",
+      "applied_units": 500,
+      "receipts": 1,
+      "client_elapsed_ms": 2057,
+      "continued_existing_response": true,
+      "model_application_elapsed_ms": 45704,
+      "remote_execution_id": "4306c85b-90ca-f111-bf5b-6045bd9ce552",
+      "explicit_status_reconciliations": 0
+    }
+  ],
+  "errors": [],
+  "automatic_retry": false
+}

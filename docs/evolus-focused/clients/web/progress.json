@@ -1,0 +1,46 @@
+[
+  {
+    "stage": "first",
+    "expected_affected": [
+      "SUP-A"
+    ],
+    "raw_affected": [
+      "SUP-A"
+    ],
+    "raw_scope": "complete",
+    "raw_correction": false,
+    "review": "Agent-operated review of retained fictional originals, exact lot dispositions and complete boundary. Explicit engineering approval only; no independent human acceptance.",
+    "applied_units": 500,
+    "receipts": 1,
+    "client_elapsed_ms": 2057,
+    "continued_existing_response": true,
+    "model_application_elapsed_ms": 45704,
+    "remote_execution_id": "4306c85b-90ca-f111-bf5b-6045bd9ce552",
+    "explicit_status_reconciliations": 0
+  },
+  {
+    "stage": "revised",
+    "expected_affected": [
+      "SUP-A",
+      "SUP-C"
+    ],
+    "raw_affected": [
+      "SUP-A"
+    ],
+    "raw_scope": "complete",
+    "raw_correction": true,
+    "raw_affected_correct": false,
+    "reviewed_affected": [
+      "SUP-A",
+      "SUP-C"
+    ],
+    "review": "Agent-operated review of retained fictional originals, exact lot dispositions and complete boundary. Explicit engineering approval only; no independent human acceptance.",
+    "applied_units": 800,
+    "receipts": 2,
+    "client_elapsed_ms": 2444,
+    "continued_existing_response": true,
+    "model_application_elapsed_ms": 317998,
+    "remote_execution_id": "00a115b5-90ca-f111-bf5b-6045bd9ce552",
+    "explicit_status_reconciliations": 0
+  }
+]

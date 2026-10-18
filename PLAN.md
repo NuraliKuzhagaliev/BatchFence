@@ -1,3 +1,15 @@
+# Focused rc4 hardening gate — live omission fixed locally
+
+Fresh public processing reached500→800 and two sandbox receipts, with exact stale409 and SOP-obsolescence invalidation. Raw revised extraction was correct but the agent omittedSUP-C/SUP-B while claimingcomplete. Old validation accepted the proposal; engineering acceptance stopped before narrowing. Explicit attributed source correction and separate UI scope review reached800. No model retry or independent human-validation claim. All original outputs/failures are preserved in docs/evolus-focused/clients/web/.
+
+New guards retain every source-backed critical extractor identity, reject omitted recorded IDs in explicit affected-list headers, and require all such source IDs in reviewed dispositions. They recheck old proposals at intake and corrections. Review policy5 invalidates older approvals.70affected regressions, including the exact retained failure and distinct numbered/dotted notices, pass. Last full local run:449passed,2test-isolation failures due to private JSON proof precedence; both isolated budget tests now pass. Final CI must pass before deploy.
+
+A genuine Evolus packet exposed a second defect: unknown runtime model_id:null was rejected. The shared reader now accepts explicit unknown without inventing identity or relaxing integrity/action checks. New exports omit absent model IDs. Rebuilt/separately installed rc4, source/package secret scan and actual offline opening of the unchanged800-unit/two-receipt web packet pass. Native dialog return was stubbed for engineering automation; prior real-dialog evidence is preserved.
+
+Finite plan remains24equivalents/8possible OCR pages:12reserved so far. Reuse valid first-web/Blob evidence; add one fresh public corrective PDF workflow(2steps), then full Windows PDF500→800/Blob acceptance(5steps):19total planned, with no RAG retuning. Before redeploy preserve the old live case packet (done); reduce the new deployment cap to12 so prior12 + new12 cannot exceed24. Event credits remain monitored, no cash, new hosting or credential changes. Next: CI-gated safety patch, final protected public/Windows checks, release assets and handoff.
+
+---
+
 # Focused Evolus rc4 release gate
 
 447pytest,30domain,36focused controls,12core browser checks and focused save/PDF/layout checks pass. Production build, separate rc4 Windows installer/install and packaged-source sanitation pass. Unicode/source workflow/checkpoint changes are implemented. Fresh supported/incomplete original-PDF evidence and exact downstream safety are retained. Rag returned no provider citations, so it remains unavailable; Blob/local mode preserved.

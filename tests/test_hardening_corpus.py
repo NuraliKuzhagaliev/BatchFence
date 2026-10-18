@@ -25,6 +25,7 @@ def local(tmp_path,monkeypatch):
  monkeypatch.setenv('DEPLOYMENT_PROFILE','local');monkeypatch.setenv('PUBLIC_DEMO','false');monkeypatch.setenv('LIVE_DEMO_TOKEN','')
  monkeypatch.setenv('MAX_REQUESTS_PER_MINUTE','5000');monkeypatch.setenv('MAX_SESSION_REQUESTS_PER_MINUTE','1000');monkeypatch.setattr(module,'limiter',RequestLimiter())
  for k in ('AMD_API_KEY','GEMMA_API_KEY','EVOLUS_API_KEY','EVOLUS_USER_API_KEY','PILOT_DATABASE_URL'):monkeypatch.delenv(k,raising=False)
+ for k in ('GEMMA_COST_APPROVAL_JSON','EVOLUS_COST_APPROVAL_JSON'):monkeypatch.delenv(k,raising=False)
  return TestClient(module.app),tmp_path,monkeypatch
 
 def applied(c):

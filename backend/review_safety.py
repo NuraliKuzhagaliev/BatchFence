@@ -6,7 +6,7 @@ narrowed incident requires a separate, source-backed scope review.
 """
 import re
 
-REVIEW_POLICY_VERSION = 4
+REVIEW_POLICY_VERSION = 5
 UNRESOLVED = re.compile(
     r'\b(?:scope|extent|affected (?:lot|batch)(?:s|es)?(?: list| set)?)\b[^.!?\n]{0,65}'
     r'\b(?:unresolved|unknown|undetermined|not (?:yet )?(?:known|final|complete)|pending|under investigation)\b'
@@ -25,7 +25,23 @@ UNRESOLVED = re.compile(
 def mentions(lot, text):
     # A terminal period is sentence punctuation; a dot followed by identifier
     # characters still belongs to a longer lot ID and must not match a prefix.
-    return re.search(r'(?<![A-Za-z0-9._/-])' + re.escape(lot) + r'(?![A-Za-z0-9_/-]|\.[A-Za-z0-9._/-])', text) is not None
+    return re.search(r'(?<![\w./-])' + re.escape(lot) + r'(?![\w/-]|\.[\w./-])', text) is not None
+
+
+def listed_source_lots(state,source):
+    """Bounded extra check for explicit English affected-list headers.
+
+    This is not a general source classifier. It prevents a model from dropping
+    exact recorded identifiers from the common list form; no fuzzy identity,
+    translation, disposition or genealogy is inferred.
+    """
+    known={str(e[k]) for e in state.get('edges',[]) for k in ('source','target')}
+    result=set()
+    for block in source['blocks']:
+        for match in re.finditer(r'\bAffected\s+(?:supplier\s+)?(?:lots|batches)\s*:\s*',block['text'],re.I):
+            span=re.split(r'\.\s+|[!?]|\n',block['text'][match.end():],maxsplit=1)[0]
+            result.update(lot for lot in known if mentions(lot,span))
+    return result
 
 
 def scope_concerns(source):

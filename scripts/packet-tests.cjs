@@ -6,6 +6,13 @@ const packet = JSON.parse(
   fs.readFileSync("docs/verified-decision-packet.json", "utf8"),
 );
 validatePacket(packet);
+const unknownModel=structuredClone(packet);
+unknownModel.case.runs[0].model_id=null;
+unknownModel.integrity_hash=createHash('sha256').update(canonical(unknownModel.case)).digest('hex');
+validatePacket(unknownModel);
+unknownModel.case.runs[0].model_id={unverified:'not a model ID'};
+unknownModel.integrity_hash=createHash('sha256').update(canonical(unknownModel.case)).digest('hex');
+assert.throws(()=>validatePacket(unknownModel),/Invalid/);
 for (const mutate of [
   (p) => {
     p.case.edges[0].kind = "release";

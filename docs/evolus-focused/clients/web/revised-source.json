@@ -1,0 +1,65 @@
+{
+  "id": "DOC-8ae34a7a6dfe",
+  "filename": "focused-web-revised.pdf",
+  "media_type": "application/pdf",
+  "revision": 3,
+  "ingested_at": "2026-10-18T01:10:24.184854+00:00",
+  "original_hash": "74112b00f8d562663471d4f9894f9277bc878d21388f3a1db709da69266382e5",
+  "text_hash": "797528864b3c01f08cb5c544d312fa4dd8181c047f22a6e8a9b346d7170fc6fc",
+  "blocks": [
+    {
+      "id": "page-1-line-1",
+      "page": 1,
+      "text": "BatchFence | Revised supplier boundary"
+    },
+    {
+      "id": "page-1-line-2",
+      "page": 1,
+      "text": "FICTIONAL ENGINEERING SOURCE - no real inventory"
+    },
+    {
+      "id": "page-1-line-3",
+      "page": 1,
+      "text": "Supplier notice QF-733 revision 2, 18 October 2026."
+    },
+    {
+      "id": "page-1-line-4",
+      "page": 1,
+      "text": "This signed revision supersedes the earlier SUP-A-only notice."
+    },
+    {
+      "id": "page-1-line-5",
+      "page": 1,
+      "text": "Complete incident boundary: this is the final affected supplier lot list."
+    },
+    {
+      "id": "page-1-line-6",
+      "page": 1,
+      "text": "Affected lots: SUP-A, SUP-C"
+    },
+    {
+      "id": "page-1-line-7",
+      "page": 1,
+      "text": "SUP-C is newly affected; SUP-A remains affected."
+    },
+    {
+      "id": "page-1-line-8",
+      "page": 1,
+      "text": "SUP-B is not affected by this revision."
+    },
+    {
+      "id": "page-1-line-9",
+      "page": 1,
+      "text": "No release is authorized; existing holds and approvals remain controlled."
+    },
+    {
+      "id": "page-1-line-10",
+      "page": 1,
+      "text": "Synthetic acceptance original | page 1 of 1"
+    }
+  ],
+  "synthetic": true,
+  "page_count": 1,
+  "evidence_language": "en",
+  "language_review_required": false
+}
