@@ -157,3 +157,26 @@ def test_bounded_transport_failure_has_sanitized_evidence(monkeypatch):
     assert e.value.evidence['request_contract']['timeout_seconds']==90
     assert 'mock-private-test-key' not in json.dumps(e.value.evidence)
     with pytest.raises(v.DomainError):v.external.gemma({}, {},timeout_seconds=600)
+
+
+def test_exact_live_validation_failure_retained_as_unreviewed_source_proposals():
+    from pathlib import Path
+    root=Path(__file__).resolve().parents[1]/'docs/judge-access/public'
+    original=json.loads((root/'attempt-2-validation-failure.json').read_text())['actual']['raw_output']
+    state=json.loads((root/'attempt-2-packet.json').read_text())['case'];before=copy.deepcopy(original)
+    doc=state['documents'][0];draft=v.retain_unknown_ids(state,original,doc)
+    assert original==before and draft['model_incident_scope']=='partial' and draft['incident_scope']=='unknown'
+    assert all(c['incident_status']=='uncertain' and c['disposition']=='unresolved' for c in draft['candidates'])
+    assert {c['model_incident_status'] for c in draft['candidates']}=={'affected','explicitly_excluded','mentioned'}
+    assert not state['stocks'] and not state['edges'] and not state['receipts']
+    bad=copy.deepcopy(original);bad['candidates'][0]['source']['quote']='Fabricated assertion'
+    with pytest.raises(v.DomainError):v.retain_unknown_ids(state,bad,doc)
+
+
+@pytest.mark.parametrize('line,status',[('Supplier lot OTHER-931 is not affected by this notice.','affected'),('Batch OTHER-931 remains unconfirmed while receiving records conflict.','explicitly_excluded')])
+def test_different_conflicting_model_claims_cannot_narrow_visitor_scope(setup,line,status):
+    c,s,upload=setup;s=upload(line);doc=s['documents'][0]
+    raw={'candidates':[{'kind':'supplier_lot','value':'OTHER-931','disposition':'asserted','incident_status':status,'source':{'document_id':doc['id'],'block_id':doc['blocks'][0]['id'],'quote':line}}],'incident_scope':'complete','scope_evidence':[]}
+    draft=v.retain_unknown_ids(s,raw,doc)
+    assert draft['candidates'][0]['model_incident_status']==status
+    assert draft['candidates'][0]['incident_status']=='uncertain' and draft['incident_scope']=='unknown'

@@ -90,12 +90,12 @@ export function VisitorReview({ state, update, renderOriginal, leave, readOnly =
           <p>{result.error || result.authority}</p>
           {result.provenance && <p className="caption">Actual model: {result.provenance.model_id || "not returned"} · requested: {result.provenance.requested_model_id} · HTTP {result.provenance.http_status} · {result.provenance.elapsed_ms} ms · {result.provenance.at}</p>}
           {result.draft?.candidates?.map((c: RecordData, i: number) => <div className="visitor-candidate" key={i}>
-            <strong>{c.value}</strong><p>{c.kind} · {c.origin ? "local unresolved reference" : "model proposal"}: {c.incident_status || c.disposition}</p>
+            <strong>{c.value}</strong><p>{c.kind} · {c.origin ? "local unresolved reference" : "model proposal"}: {c.model_incident_status || c.model_disposition || c.incident_status || c.disposition}</p>
             {c.inventory_status && <p className="assist-uncertain">Inventory: {c.inventory_status}</p>}
             {c.origin && <p>{c.origin}</p>}
             <blockquote>{c.source.quote}</blockquote><span className="caption">{c.source.block_id} · exact original passage</span>
           </div>)}
-          {result.draft && <><h4>Uncertainties and missing context</h4><p>Proposed source scope: {result.draft.incident_scope}. Inventory scope: unresolved.</p><ul>{result.draft.unresolved.map((s: string, i: number) => <li key={i}>{s}</li>)}</ul>
+          {result.draft && <><h4>Uncertainties and missing context</h4><p>Model-proposed source scope: {result.draft.model_incident_scope || result.draft.incident_scope}. Guarded incident and inventory scope: unresolved.</p><ul>{result.draft.unresolved.map((s: string, i: number) => <li key={i}>{s}</li>)}</ul>
             {!!result.draft.request_drafts.length && <><h4>Suggested evidence requests</h4><ul>{result.draft.request_drafts.map((s: string, i: number) => <li key={i}>{s}</li>)}</ul></>}
           </>}
           {result.status === "completed / review required" && !readOnly && <form onSubmit={e => { e.preventDefault(); void act("Recording original-source inspection", async () => { await request("POST", route + "/visitor-review", { proposal_id: result.id, revision: state.revision, reviewed, note }); await refresh(); }); }}>

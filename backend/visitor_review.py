@@ -98,7 +98,22 @@ def source_check(doc):
 
 def retain_unknown_ids(state,raw,doc):
     """Bounded source checklist, no invented identifiers, relationships or effects."""
-    draft=validate_draft(state,raw,[doc['id']])
+    # Source-only review must not turn an interpretation into an inventory
+    # assertion. Preserve the exact model proposals separately, then validate
+    # grounding on unresolved identities. The protected action-level vocabulary
+    # and every downstream approval check remain unchanged.
+    proposed=ReviewDraft.model_validate(raw).model_dump()
+    safe=json.loads(json.dumps(proposed))
+    for candidate in safe['candidates']:
+        if candidate['source']['document_id']!=doc['id']:raise DomainError('Visitor candidates must cite the selected original')
+        if candidate['kind'] in ('supplier_lot','stock_pool','receipt_id','lineage_row'):
+            candidate.update(disposition='unresolved',incident_status='uncertain')
+    safe['incident_scope']='unknown'
+    draft=validate_draft(state,safe,[doc['id']])
+    for candidate,original in zip(draft['candidates'],proposed['candidates']):
+        candidate['model_incident_status']=original['incident_status']
+        candidate['model_disposition']=original['disposition']
+    draft['model_incident_scope']=proposed['incident_scope']
     selected={c['value'] for c in draft['candidates']}
     for b in doc['blocks']:
         if not re.search(r'\b(lots?|batches|batch)\b|парт|lott[oi]',b['text'],re.I):continue
@@ -112,7 +127,7 @@ def retain_unknown_ids(state,raw,doc):
     # Preserve raw model interpretation separately from missing inventory context.
     for c in draft['candidates']:
         if c['kind'] in ('supplier_lot','stock_pool','receipt_id','lineage_row'):c['inventory_status']='unresolved / no inventory relationship supplied'
-    draft['unresolved']=list(dict.fromkeys(draft['unresolved']+['Supply reviewed inventory quantities, supplier-to-stock lineage and allocations before any containment calculation.']))
+    draft['unresolved']=list(dict.fromkeys(draft['unresolved']+['Model incident effects remain unreviewed proposals. Source inspection does not resolve inventory or incident scope.','Supply reviewed inventory quantities, supplier-to-stock lineage and allocations before any containment calculation.']))
     return draft
 
 
