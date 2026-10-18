@@ -1,0 +1,568 @@
+{
+  "id": "ASSIST-3f861351243b8efb812fa046",
+  "case_id": "2f2f1a5ea0d44565a6531f1fa263c08d",
+  "document_ids": [
+    "DOC-bb64891d8b09"
+  ],
+  "mode": "live",
+  "status": "unreviewed proposal",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "snapshot_hash": "cb0274d45a6e8f6b9ca76f319796343c2e29964221990ef1bd887a859521b5a5",
+  "request_hash": "29b47013565bdc2726dbc88d284b1786138af05ede1e3b96561d674039580abe",
+  "context_hash": "4a84ee8fb487a642e87c8c88db63ea06d3981df94484c70b5553349d71b69e72",
+  "started_at": "2026-10-18T06:56:11.483850+00:00",
+  "reservation": {
+    "provider": "evolus",
+    "reservation": "5d1c23d37feb625c4005830ecee0bb9d8c3e034f2de2840ea7de49b2379a3a47",
+    "dispatch": 1,
+    "conservative_remaining": 49989.53333333333,
+    "stop_margin": 49000
+  },
+  "executions": [
+    {
+      "execution_id": "0f8e40fe-c0ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Queued",
+      "enqueued_at": "2026-10-18T06:56:13.4928914Z",
+      "trace_id": "0e4fc0641b608cc868922ca8bd8ef2e8",
+      "queue_job_id": "4307693",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-18T06:56:13.499621+00:00",
+        "method": "POST",
+        "path": "/api/v1/workflows/15ea93a2-9a30-4a17-bf47-ef18a16207bd/execute",
+        "http_status": 202,
+        "elapsed_ms": 352,
+        "response_hash": "27694c3335fb27daa46a1e4d93760056f57518736104f2d7a3bc0e5321e20f34",
+        "request_id": null,
+        "execution_header": "0f8e40fe-c0ca-f111-bf5b-6045bd9ce552",
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4",
+        "configuration_proof": {
+          "checked_at": "2026-10-18T06:56:13.147783+00:00",
+          "configuration_hash": "2660864a9ea7eca14afb9b57872fd8b908f8900dfb1e852e8577bc94b74c5b2b",
+          "requests": [
+            {
+              "provider": "Evolus",
+              "at": "2026-10-18T06:56:11.962225+00:00",
+              "method": "GET",
+              "path": "/api/v1/workflows/15ea93a2-9a30-4a17-bf47-ef18a16207bd",
+              "http_status": 200,
+              "elapsed_ms": 458,
+              "response_hash": "64cd631adcfc42b34c0d04fedb3c36fd8b525bec72bbc23275e58bd4335ed3e7",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-18T06:56:12.237719+00:00",
+              "method": "GET",
+              "path": "/api/v1/own-models/connections",
+              "http_status": 200,
+              "elapsed_ms": 265,
+              "response_hash": "a4310cc7aab43fc523b4d5c85082e94aee972aac8eac944059c3c8bac04bb586",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-18T06:56:12.360027+00:00",
+              "method": "GET",
+              "path": "/api/v1/agents/0412148a-94de-4696-8aed-23e08ae2b1ab",
+              "http_status": 200,
+              "elapsed_ms": 114,
+              "response_hash": "9c13a2a7bcced7d215bca1e2e9305449cbaf93776bb7a1b9d21f89c34c2219fa",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-18T06:56:12.677523+00:00",
+              "method": "GET",
+              "path": "/api/v1/agents/0412148a-94de-4696-8aed-23e08ae2b1ab/json/f56aab1b-9b7e-45c8-af13-24ecee68b34c",
+              "http_status": 200,
+              "elapsed_ms": 287,
+              "response_hash": "ad76cbaae7b635f0a1e3d935fe7cfe907d252d3941af148ab297262e105a840d",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-18T06:56:12.931854+00:00",
+              "method": "GET",
+              "path": "/api/v1/agents/4cd7fff3-a2a7-4c43-a16a-1974779bfaad",
+              "http_status": 200,
+              "elapsed_ms": 244,
+              "response_hash": "d4844b311ea4c24bdcb689d01c4bcf512a2b0e54baf399156bf46ff3a678e5c9",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            },
+            {
+              "provider": "Evolus",
+              "at": "2026-10-18T06:56:13.147393+00:00",
+              "method": "GET",
+              "path": "/api/v1/agents/4cd7fff3-a2a7-4c43-a16a-1974779bfaad/json/b7b8d4b8-6f89-4243-a9f4-856a2239dcac",
+              "http_status": 200,
+              "elapsed_ms": 207,
+              "response_hash": "be68b30e635eacc62fc7be7eeeaab986c8b3dd6af83f1d8081b7cc8d05d842ec",
+              "request_id": null,
+              "execution_header": null,
+              "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+            }
+          ],
+          "model_identity_basis": "Verified own-model configuration; WorkflowExecution does not return runtime model ID",
+          "provider_internal_retries": "BatchFence makes one dispatch. Structured correction budget is zero; undocumented provider infrastructure retries are not claimed absent."
+        }
+      }
+    },
+    {
+      "execution_id": "0f8e40fe-c0ca-f111-bf5b-6045bd9ce552",
+      "status": "running",
+      "provider_status": "Running",
+      "steps": [
+        {
+          "kind": "extractor",
+          "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+          "step_id": "ad1ba06c-f2d0-4533-a6ef-832746c5432c",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 10305,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "configured_model_key": "own/gemma-4-31b-it",
+          "model_identity_basis": "Configuration, not a returned runtime model ID",
+          "output_hash": "6f978b17054e8ace942a4832d988f5f92cd5857fc17cbb7ba90147daf76ed91b",
+          "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"QF-733 revision 2\",\"disposition\":\"asserted\",\"quote\":\"Supplier notice QF-733 revision 2, 18 October 2026\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A, SUP-C\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A, SUP-C\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"disposition\":\"negated\",\"quote\":\"SUP-B is not affected by this revision\",\"page\":1},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"Complete incident boundary: this is the final affected supplier lot list\",\"page\":1}],\"unresolved\":[]}",
+          "execution_step_key": "2"
+        }
+      ],
+      "draft": null,
+      "document_reading": {
+        "step_id": "e394f109-14e1-4eb4-91ce-e60739578cea",
+        "configured_ocr_model": "azure/document-intelligence-layout",
+        "state": {
+          "status": "done",
+          "branch": null,
+          "iterations": null,
+          "iterationsCompleted": null,
+          "iterationsFailed": null,
+          "iterationDetails": null,
+          "branchCounts": null,
+          "childExecutionId": null,
+          "durationMs": 5,
+          "outputCheckNote": null,
+          "decision": null
+        },
+        "output_hash": "6d583ba58cbce6018fe827736ce2e753062436cb4afdbe77024c85c547fc6b38",
+        "text": "BatchFence | Revised supplier boundary\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-733 revision 2, 18 October 2026.\nThis signed revision supersedes the earlier SUP-A-only notice.\nComplete incident boundary: this is the final affected supplier lot list.\nAffected lots: SUP-A, SUP-C\nSUP-C is newly affected; SUP-A remains affected.\nSUP-B is not affected by this revision.\nNo release is authorized; existing holds and approvals remain controlled.\nSynthetic acceptance original | page 1 of 1\n",
+        "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+        "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+      },
+      "interpretation_contract": "identity-annotations-v1",
+      "consumption": null,
+      "requested_at": "2026-10-18T06:56:13.4721982Z",
+      "completed_at": null,
+      "trace_id": "0e4fc0641b608cc868922ca8bd8ef2e8",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-18T06:56:24.113809+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/15ea93a2-9a30-4a17-bf47-ef18a16207bd/executions/0f8e40fe-c0ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 245,
+        "response_hash": "f76fd5ab327725657d6606ab671857be92f0d353255572c43c4742511d9ef77a",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    },
+    {
+      "execution_id": "0f8e40fe-c0ca-f111-bf5b-6045bd9ce552",
+      "status": "completed",
+      "provider_status": "Completed",
+      "steps": [
+        {
+          "kind": "extractor",
+          "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+          "step_id": "ad1ba06c-f2d0-4533-a6ef-832746c5432c",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 10305,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "configured_model_key": "own/gemma-4-31b-it",
+          "model_identity_basis": "Configuration, not a returned runtime model ID",
+          "output_hash": "6f978b17054e8ace942a4832d988f5f92cd5857fc17cbb7ba90147daf76ed91b",
+          "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"QF-733 revision 2\",\"disposition\":\"asserted\",\"quote\":\"Supplier notice QF-733 revision 2, 18 October 2026\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A, SUP-C\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A, SUP-C\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"disposition\":\"negated\",\"quote\":\"SUP-B is not affected by this revision\",\"page\":1},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"Complete incident boundary: this is the final affected supplier lot list\",\"page\":1}],\"unresolved\":[]}",
+          "execution_step_key": "2"
+        },
+        {
+          "kind": "agent",
+          "id": "4cd7fff3-a2a7-4c43-a16a-1974779bfaad",
+          "step_id": "f8280daa-d181-4890-9994-b5b9afe9b9d2",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 8976,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "configured_model_key": "own/gemma-4-31b-it",
+          "model_identity_basis": "Configuration, not a returned runtime model ID",
+          "output_hash": "ba51251427cca4ba5f6a0f7e19cd698aa209b420edd5c3c4bb2be557bb8eab33",
+          "output": "{\"annotations\":[{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"incident_status\":\"affected\",\"quote\":\"Affected lots: SUP-A, SUP-C\"},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"incident_status\":\"explicitly_excluded\",\"quote\":\"SUP-B is not affected by this revision.\"},{\"kind\":\"supplier_lot\",\"value\":\"SUP-C\",\"incident_status\":\"affected\",\"quote\":\"Affected lots: SUP-A, SUP-C\"}],\"incident_scope\":\"complete\",\"scope_evidence\":[{\"document_id\":\"DOC-bb64891d8b09\",\"block_id\":\"page-1-line-5\",\"quote\":\"Complete incident boundary: this is the final affected supplier lot list.\"}],\"changes\":[],\"contradictions\":[],\"unresolved\":[],\"request_drafts\":[]}",
+          "execution_step_key": "3"
+        }
+      ],
+      "draft": {
+        "annotations": [
+          {
+            "kind": "supplier_lot",
+            "value": "SUP-A",
+            "incident_status": "affected",
+            "quote": "Affected lots: SUP-A, SUP-C"
+          },
+          {
+            "kind": "supplier_lot",
+            "value": "SUP-B",
+            "incident_status": "explicitly_excluded",
+            "quote": "SUP-B is not affected by this revision."
+          },
+          {
+            "kind": "supplier_lot",
+            "value": "SUP-C",
+            "incident_status": "affected",
+            "quote": "Affected lots: SUP-A, SUP-C"
+          }
+        ],
+        "incident_scope": "complete",
+        "scope_evidence": [
+          {
+            "document_id": "DOC-bb64891d8b09",
+            "block_id": "page-1-line-5",
+            "quote": "Complete incident boundary: this is the final affected supplier lot list."
+          }
+        ],
+        "changes": [],
+        "contradictions": [],
+        "unresolved": [],
+        "request_drafts": []
+      },
+      "document_reading": {
+        "step_id": "e394f109-14e1-4eb4-91ce-e60739578cea",
+        "configured_ocr_model": "azure/document-intelligence-layout",
+        "state": {
+          "status": "done",
+          "branch": null,
+          "iterations": null,
+          "iterationsCompleted": null,
+          "iterationsFailed": null,
+          "iterationDetails": null,
+          "branchCounts": null,
+          "childExecutionId": null,
+          "durationMs": 5,
+          "outputCheckNote": null,
+          "decision": null
+        },
+        "output_hash": "6d583ba58cbce6018fe827736ce2e753062436cb4afdbe77024c85c547fc6b38",
+        "text": "BatchFence | Revised supplier boundary\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-733 revision 2, 18 October 2026.\nThis signed revision supersedes the earlier SUP-A-only notice.\nComplete incident boundary: this is the final affected supplier lot list.\nAffected lots: SUP-A, SUP-C\nSUP-C is newly affected; SUP-A remains affected.\nSUP-B is not affected by this revision.\nNo release is authorized; existing holds and approvals remain controlled.\nSynthetic acceptance original | page 1 of 1\n",
+        "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+        "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+      },
+      "interpretation_contract": "identity-annotations-v1",
+      "consumption": {
+        "credits": 0,
+        "pendingEntries": 0,
+        "costUsd": null,
+        "llmTokens": null,
+        "ocrPages": null,
+        "embeddingTokens": null,
+        "speechToTextSeconds": null,
+        "entries": null
+      },
+      "requested_at": "2026-10-18T06:56:13.4721982Z",
+      "completed_at": "2026-10-18T06:56:32.8728177Z",
+      "trace_id": "0e4fc0641b608cc868922ca8bd8ef2e8",
+      "error_present": false,
+      "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+      "transport_provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-18T06:56:34.739666+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/15ea93a2-9a30-4a17-bf47-ef18a16207bd/executions/0f8e40fe-c0ca-f111-bf5b-6045bd9ce552",
+        "http_status": 200,
+        "elapsed_ms": 215,
+        "response_hash": "8cd5e11a24d8231d95a8097c6df4620f9c60fd55c337c6d1345555f66eedfaf9",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    }
+  ],
+  "external_execution_id": "0f8e40fe-c0ca-f111-bf5b-6045bd9ce552",
+  "authority": "Unreviewed proposal only; no inventory, genealogy or approval writes",
+  "poll_count": 2,
+  "last_polled_at": 1792306594.5146651,
+  "poll_in_flight_until": 0,
+  "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+  "raw_draft": {
+    "annotations": [
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-A",
+        "incident_status": "affected",
+        "quote": "Affected lots: SUP-A, SUP-C"
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-B",
+        "incident_status": "explicitly_excluded",
+        "quote": "SUP-B is not affected by this revision."
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-C",
+        "incident_status": "affected",
+        "quote": "Affected lots: SUP-A, SUP-C"
+      }
+    ],
+    "incident_scope": "complete",
+    "scope_evidence": [
+      {
+        "document_id": "DOC-bb64891d8b09",
+        "block_id": "page-1-line-5",
+        "quote": "Complete incident boundary: this is the final affected supplier lot list."
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": []
+  },
+  "proposal_assembly": {
+    "contract": "identity-annotations-v1",
+    "source_identity_count": 3,
+    "annotated_identity_count": 3,
+    "missing_annotations": [],
+    "missing_extractions": [],
+    "raw_scope_claim": "complete",
+    "authority": "Extracted identities and model annotations are proposals; explicit original review and approval remain mandatory"
+  },
+  "review_draft": {
+    "candidates": [
+      {
+        "kind": "document_id",
+        "value": "QF-733 revision 2",
+        "disposition": "asserted",
+        "incident_status": null,
+        "source": {
+          "document_id": "DOC-bb64891d8b09",
+          "block_id": "page-1-line-3",
+          "quote": "Supplier notice QF-733 revision 2, 18 October 2026"
+        }
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-A",
+        "disposition": "asserted",
+        "incident_status": "affected",
+        "source": {
+          "document_id": "DOC-bb64891d8b09",
+          "block_id": "page-1-line-6",
+          "quote": "Affected lots: SUP-A, SUP-C"
+        }
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-C",
+        "disposition": "asserted",
+        "incident_status": "affected",
+        "source": {
+          "document_id": "DOC-bb64891d8b09",
+          "block_id": "page-1-line-6",
+          "quote": "Affected lots: SUP-A, SUP-C"
+        }
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-B",
+        "disposition": "negated",
+        "incident_status": "explicitly_excluded",
+        "source": {
+          "document_id": "DOC-bb64891d8b09",
+          "block_id": "page-1-line-8",
+          "quote": "SUP-B is not affected by this revision."
+        }
+      },
+      {
+        "kind": "completeness",
+        "value": "complete",
+        "disposition": "asserted",
+        "incident_status": null,
+        "source": {
+          "document_id": "DOC-bb64891d8b09",
+          "block_id": "page-1-line-5",
+          "quote": "Complete incident boundary: this is the final affected supplier lot list"
+        }
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": [],
+    "incident_scope": "complete",
+    "scope_evidence": [
+      {
+        "document_id": "DOC-bb64891d8b09",
+        "block_id": "page-1-line-5",
+        "quote": "Complete incident boundary: this is the final affected supplier lot list."
+      }
+    ]
+  },
+  "source_coverage": {
+    "status": "all source-backed extractor identities retained for review",
+    "identities": [
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-A"
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-B"
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-C"
+      }
+    ],
+    "authority": "Proposal coverage only; no fact, scope or action approval"
+  },
+  "draft": {
+    "candidates": [
+      {
+        "kind": "document_id",
+        "value": "QF-733 revision 2",
+        "disposition": "asserted",
+        "incident_status": null,
+        "source": {
+          "document_id": "DOC-bb64891d8b09",
+          "block_id": "page-1-line-3",
+          "quote": "Supplier notice QF-733 revision 2, 18 October 2026",
+          "original_hash": "74112b00f8d562663471d4f9894f9277bc878d21388f3a1db709da69266382e5",
+          "document_revision": 2,
+          "page": 1,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-A",
+        "disposition": "asserted",
+        "incident_status": "affected",
+        "source": {
+          "document_id": "DOC-bb64891d8b09",
+          "block_id": "page-1-line-6",
+          "quote": "Affected lots: SUP-A, SUP-C",
+          "original_hash": "74112b00f8d562663471d4f9894f9277bc878d21388f3a1db709da69266382e5",
+          "document_revision": 2,
+          "page": 1,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-C",
+        "disposition": "asserted",
+        "incident_status": "affected",
+        "source": {
+          "document_id": "DOC-bb64891d8b09",
+          "block_id": "page-1-line-6",
+          "quote": "Affected lots: SUP-A, SUP-C",
+          "original_hash": "74112b00f8d562663471d4f9894f9277bc878d21388f3a1db709da69266382e5",
+          "document_revision": 2,
+          "page": 1,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-B",
+        "disposition": "negated",
+        "incident_status": "explicitly_excluded",
+        "source": {
+          "document_id": "DOC-bb64891d8b09",
+          "block_id": "page-1-line-8",
+          "quote": "SUP-B is not affected by this revision.",
+          "original_hash": "74112b00f8d562663471d4f9894f9277bc878d21388f3a1db709da69266382e5",
+          "document_revision": 2,
+          "page": 1,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      },
+      {
+        "kind": "completeness",
+        "value": "complete",
+        "disposition": "asserted",
+        "incident_status": null,
+        "source": {
+          "document_id": "DOC-bb64891d8b09",
+          "block_id": "page-1-line-5",
+          "quote": "Complete incident boundary: this is the final affected supplier lot list",
+          "original_hash": "74112b00f8d562663471d4f9894f9277bc878d21388f3a1db709da69266382e5",
+          "document_revision": 2,
+          "page": 1,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      }
+    ],
+    "changes": [],
+    "contradictions": [],
+    "unresolved": [],
+    "request_drafts": [],
+    "incident_scope": "complete",
+    "scope_evidence": [
+      {
+        "document_id": "DOC-bb64891d8b09",
+        "block_id": "page-1-line-5",
+        "quote": "Complete incident boundary: this is the final affected supplier lot list.",
+        "original_hash": "74112b00f8d562663471d4f9894f9277bc878d21388f3a1db709da69266382e5",
+        "document_revision": 2,
+        "page": 1,
+        "location_origin": "retained local parser; no provider bounding-box claim"
+      }
+    ]
+  },
+  "finished_at": "2026-10-18T06:56:34.786557+00:00",
+  "stale": false
+}

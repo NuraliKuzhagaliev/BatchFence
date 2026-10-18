@@ -1,0 +1,45 @@
+{
+  "run": 39105185366,
+  "commit": "1e456db376caa37be2860483d44109342f3f9fe8",
+  "results": [
+    {
+      "job_log": "windows-hotfix/8_Check actual packaged Electron UI and native transport.txt",
+      "result": {
+        "passed": true,
+        "surface": "Windows packaged Electron",
+        "checks": [
+          "Explicit synthetic route preserved across focus and reconnect",
+          "Client transport loads owned case through actual backend",
+          "RAG route and explicit existing-agent reconciliation visible and selectable",
+          "Application source-citation origin and missing-proof rejection disclosed",
+          "Changing retrieval route creates no plan, receipt or inventory action"
+        ],
+        "inference_calls": 0,
+        "cash_spent": 0,
+        "native_dialogs": "Not exercised; no native-dialog or independent human acceptance claim",
+        "fresh_rag_application_acceptance": "Not exercised: no private live-access token or provider configuration in the build runner",
+        "page_errors": []
+      }
+    },
+    {
+      "job_log": "verify/11_Build Linux container and verify restart persistence.txt",
+      "result": {
+        "at": "2026-10-18T06:47:08.518135+00:00",
+        "mode": "fixture",
+        "live_inference": false,
+        "checks": [
+          "dynamic container port at http://127.0.0.1:8795",
+          "500 to 800 synthetic workflow",
+          "stale approval rejected",
+          "sandbox receipt",
+          "two-session isolation",
+          "all original source bytes and owner isolation survive restart",
+          "same SQLite volume survives actual container restart",
+          "SPA refresh and missing API routing"
+        ],
+        "passed": true
+      }
+    }
+  ],
+  "inference_calls": 0
+}

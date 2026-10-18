@@ -1,0 +1,75 @@
+{
+  "id": "DOC-bd1d14ae7614",
+  "filename": "incident-windows-revision.pdf",
+  "media_type": "application/pdf",
+  "revision": 2,
+  "ingested_at": "2026-10-18T06:57:38.295081+00:00",
+  "original_hash": "90c826b9f5b927f131e86039a7f99f8ec550d44906be2fdb9fb1b1754a93afc7",
+  "text_hash": "0fc055d1d97c96af3b597d2f47cccd96a4345faa8090444d534977b93411f8e5",
+  "blocks": [
+    {
+      "id": "page-1-line-1",
+      "page": 1,
+      "text": "BatchFence | Revised supplier boundary"
+    },
+    {
+      "id": "page-1-line-2",
+      "page": 1,
+      "text": "FICTIONAL ENGINEERING SOURCE - no real inventory"
+    },
+    {
+      "id": "page-1-line-3",
+      "page": 1,
+      "text": "Supplier bulletin QA-901, revision 3, 18 October 2026."
+    },
+    {
+      "id": "page-1-line-4",
+      "page": 1,
+      "text": "This bulletin supersedes the earlier supplier boundary for this case."
+    },
+    {
+      "id": "page-1-line-5",
+      "page": 1,
+      "text": "Complete incident boundary: this is the exhaustive affected supplier lot list."
+    },
+    {
+      "id": "page-1-line-6",
+      "page": 1,
+      "text": "Affected lots: SUP-C, SUP-A."
+    },
+    {
+      "id": "page-1-line-7",
+      "page": 1,
+      "text": "SUP-C is affected by the confirmed coating defect."
+    },
+    {
+      "id": "page-1-line-8",
+      "page": 1,
+      "text": "SUP-A remains affected by the same confirmed coating defect."
+    },
+    {
+      "id": "page-1-line-9",
+      "page": 1,
+      "text": "SUP-B is explicitly excluded from this notice."
+    },
+    {
+      "id": "page-1-line-10",
+      "page": 1,
+      "text": "Every listed supplier identity is confirmed. No other supplier lots are affected."
+    },
+    {
+      "id": "page-1-line-11",
+      "page": 1,
+      "text": "No inventory action or release is authorized. Review and approval remain separate."
+    },
+    {
+      "id": "page-1-line-12",
+      "page": 1,
+      "text": "Synthetic held-out original | page 1 of 1"
+    }
+  ],
+  "synthetic": true,
+  "page_count": 1,
+  "evidence_language": "en",
+  "language_review_required": false
+}
