@@ -154,3 +154,18 @@ def test_inline_citation_does_not_weaken_source_or_full_caveat_checks(bad):
     elif bad=='malformed extra':text+='\nDocument ID: invented'
     else:text=json.dumps({'selections':[{'document_id':'SOP-X','version':2,'passage_id':'recovery'}],'insufficient_evidence':False,'missing_information':[]})
     with pytest.raises(DomainError):rag.map_answer({'answer':text,'citations':[]},binding,retrieval)
+
+
+@pytest.mark.parametrize('drift',['none','origin','model'])
+def test_rag_free_route_checks_actual_connection_without_key_access(monkeypatch,drift):
+    from backend import evolus_adapter as guard,evolus_api as api
+    monkeypatch.setenv('EVOLUS_RAG_MODEL_KEY','own/route')
+    proof={'rag_route':{'catalog_model_key':'own/route','connection_id':'C','provider_base_url':'https://provider.invalid/v1','model_registration_id':'M','provider_model_id':'Exact-Model'}}
+    c={'id':'C','hasApiKey':True,'apiBaseUrl':'https://provider.invalid/v1','models':[{'id':'M','modelId':'Exact-Model'}]}
+    if drift=='origin':c['apiBaseUrl']='https://different.invalid/v1'
+    if drift=='model':c['models'][0]['modelId']='Other-Model'
+    monkeypatch.setattr(guard,'allowance',lambda *a:proof)
+    monkeypatch.setattr(api,'call',lambda method,path,**kw:{'result':[c]})
+    if drift=='none':rag.verify_route()
+    else:
+        with pytest.raises(DomainError):rag.verify_route()

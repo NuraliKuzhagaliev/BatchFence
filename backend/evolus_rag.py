@@ -24,6 +24,20 @@ def model_key():
     return key
 
 
+def verify_route(transport=None):
+    route=guard.allowance('evolus').get('rag_route')
+    if not route:
+        if os.getenv('EVOLUS_RAG_MODEL_KEY'):raise DomainError('Verified free own-model connection proof required for the selected Rag route')
+        return # Historical Gemma-only configuration; its existing gate remains.
+    if route.get('catalog_model_key')!=model_key():raise DomainError('Rag model differs from the verified free route')
+    connections=api.call('GET','/api/v1/own-models/connections',personal=True,transport=transport)['result']
+    c=next((c for c in connections if c.get('id')==route.get('connection_id')),None)
+    if not c or c.get('disabled') or not c.get('hasApiKey') or c.get('apiBaseUrl')!=guard.https_origin(route['provider_base_url']):
+        raise DomainError('Verified AMD Rag connection changed or became unavailable')
+    if not any(m.get('id')==route.get('model_registration_id') and m.get('modelId')==route.get('provider_model_id') for m in c.get('models',[])):
+        raise DomainError('Verified Rag provider model registration changed')
+
+
 def balance(transport=None,*,enforce=True):
     reply=api.call('GET','/api/v1/applications/'+api.identifier(os.environ['EVOLUS_APPLICATION_ID'])+'/buckets/balances',personal=True,transport=transport)
     amount=sum(x['totalBalance'] for x in reply['result'] if x.get('bucketType',{}).get('code')=='LLM_CREDITS')
@@ -54,6 +68,7 @@ def reconcile_binding(binding,agent_id,transport=None):
 
 
 def verify(binding,transport=None):
+    verify_route(transport)
     aid=api.identifier(binding['agent_id']);agent=api.call('GET',f'/api/v1/agents/{aid}',transport=transport)['result']
     if agent.get('applicationId')!=os.environ['EVOLUS_APPLICATION_ID'] or digest(agent.get('prompt'))!=binding['agent_prompt_hash'] or agent.get('modelKey')!=model_key():
         raise DomainError('Isolated Rag agent ownership, prompt or model changed')
