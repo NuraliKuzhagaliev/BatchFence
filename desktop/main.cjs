@@ -99,7 +99,7 @@ app.whenReady().then(() => {
     const response = await fetch(origin + route, {
       method,
       redirect: "error",
-      signal: AbortSignal.timeout(route.endsWith("/documents") ? 120000 : 55000),
+      signal: AbortSignal.timeout(route.endsWith("/assist-generate") ? 180000 : route.endsWith("/documents") ? 120000 : 55000),
       headers: {
         "Content-Type": "application/json",
         "X-BF-Client": "desktop",

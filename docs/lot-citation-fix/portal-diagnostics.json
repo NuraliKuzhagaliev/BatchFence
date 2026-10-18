@@ -1,0 +1,65 @@
+{
+  "date_utc": "2026-10-18",
+  "surface": "Authenticated Evolus portal Try it; genuine configured own Gemma, not fixture",
+  "dispatches": 3,
+  "application_api_acceptance": false,
+  "cash_purchases": 0,
+  "credential_changes": 0,
+  "automatic_application_retries": 0,
+  "reindex_operations": 0,
+  "diagnostic_agent_id": "0240f5fc-b802-481e-bcc1-532d91423da8",
+  "original_agent_unchanged": true,
+  "library_id": "df996134-8cca-f111-bf5b-6045bd9ce552",
+  "remote_document_id": "dcedf524-40a2-4993-bc4c-b8ec4102214f",
+  "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+  "question": "Какие доказательства и разрешение нужны перед снятием блокировки?",
+  "observations": [
+    {
+      "probe": "Natural language plus native footnotes",
+      "result": "Correct recovery quotation with plain bibliographic text; no clickable native citation was visible. Hypothesis of JSON alone causing missing annotations was not established.",
+      "raw_full_response_retained": false
+    },
+    {
+      "probe": "Full quote JSON",
+      "visible_response": {
+        "claims": [
+          {
+            "document_id": "SOP-FOCUSED-EN",
+            "version": "1",
+            "passage_id": "recovery",
+            "quote": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required."
+          }
+        ],
+        "insufficient_evidence": false,
+        "missing_information": null
+      },
+      "accepted": false,
+      "reason": "Omitted final safeguard; missing_information null violates array contract"
+    },
+    {
+      "probe": "Indexed-source key selection with exact schema",
+      "visible_response": {
+        "selections": [
+          {
+            "document_id": "SOP-FOCUSED-EN",
+            "version": 1,
+            "passage_id": "recovery"
+          }
+        ],
+        "insufficient_evidence": false,
+        "missing_information": []
+      },
+      "selection_valid": true,
+      "application_chunk_proof_verification": "Pending fresh API read; injected regression covers contract, not a claim of live API acceptance"
+    }
+  ],
+  "separately_read_portal_index": {
+    "status": "Ready",
+    "sections": 2,
+    "complete_recovery_passage": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. A source citation, model answer or narrower proposed hold never releases existing applied holds.",
+    "chunk_ids_visible": false,
+    "index_edited": false
+  },
+  "credits_observation": "Rounded portal display 50K before and after; exact consumption not established",
+  "authority": "Evidence proposals only; no stock, plan, approval or receipt mutation"
+}

@@ -30,12 +30,12 @@ def reconcile_rag(case_id,key,request):
         r['reconcile_reads']=r.get('reconcile_reads',0)+1;repo.put_record(db,owner,'assist',key,r,rev);external.reserve(db,'evolus',metadata=True)
     # Membership is verified before reading a response; no local passages are
     # sent to the agent and no ask is submitted on this recovery path.
-    evolus_api.library_passages(r['rag_binding'],r['retrieval']['passages'])
+    passages,chunk_provenance=evolus_api.library_passages(r['rag_binding'],r['retrieval']['passages'])
     response=evolus_rag.reconcile(r['rag_binding'],r['external_conversation_id'])
     if response is None:return {**r,'next_action':'Provider has no completed response; preserve conversation ID. No retry was submitted.'}
     with repo.write(connect) as db:
         identity.recheck(db,'reporter');rev,r=repo.get_record(db,owner,'assist',key);state=read(case_id,owner)
-        r.update(raw_output=response.pop('result'),provenance=response,finished_at=now())
+        r.update(raw_output=response.pop('result'),provenance=response,finished_at=now(),retrieval={**r['retrieval'],'passages':passages},library_provenance=chunk_provenance)
         try:
             if fingerprint(state,catalog(db,owner))!=r['snapshot_hash'] or state.get('cancelled'):raise DomainError('Evidence changed; response is historical only')
             r['draft']=evolus_rag.map_answer(r['raw_output'],r['rag_binding'],r['retrieval'])
@@ -70,7 +70,7 @@ def result_for_job(db,owner,state,key,execution):
         record['raw_draft']=execution.get('draft')
         try:
             if record['mode']=='live':record['source_coverage']=extractor_coverage(state,execution,execution['draft'],record.get('document_ids',[]))
-            record['draft']=validate_draft(state,execution['draft'])
+            record['draft']=validate_draft(state,execution['draft'],record.get('document_ids') if record['mode']=='live' else None)
         except Exception as exc:
             record.update(status='failed validation',error='Raw interpretation failed source/schema validation; no fact or scope update')
             record['validation_issues']=exc.errors(include_input=False,include_url=False,include_context=False) if hasattr(exc,'errors') else [{'message':str(exc)[:300]}]
@@ -478,7 +478,6 @@ def generate(case_id:str,data:Generate,request:Request):
             else:
                 documents=evolus_api.applicable_documents(catalog(db,request.state.owner),data.product,data.process,state['synthetic'])
                 if data.retrieval_mode=='rag':
-                    if os.getenv('EVOLUS_RAG_ENABLED')!='true':raise DomainError('UNAVAILABLE: live agent-bound Rag returned no resolvable citations in acceptance; use approved Blob/local evidence. No new model request.')
                     retrieval={'status':'authorized originals / remote semantic retrieval pending','method':'Evolus agent-bound Rag; no local lexical pre-ranking','passages':[{'document_id':d['id'],'version':d['version'],'passage_id':p['id'],'quote':p['text'],'page':p['page'],'source_hash':d['source_hash']} for d in documents for p in d['passages']]}
                 else:retrieval=knowledge.retrieve(catalog(db,request.state.owner),data.question,data.product,data.process,state['synthetic'])
                 if (data.retrieval_mode!='rag' and retrieval['status']!='retrieved') or not retrieval['passages']:return {'status':'insufficient / applicable source abstention','provider_calls':0,'retrieval':retrieval}
@@ -487,6 +486,9 @@ def generate(case_id:str,data:Generate,request:Request):
                 _,binding=repo.get_record(db,request.state.owner,'knowledge-binding',scope)
                 if not binding or binding['status']!='indexed verified scope' or binding['scope']!=scope:
                     raise DomainError('UNAVAILABLE: a dedicated verified library for this organization/site and exact approved catalog is required before any retrieval')
+                if data.retrieval_mode=='rag':
+                    from .evolus_rag import CITATION_PROTOCOL
+                    if binding.get('citation_protocol')!=CITATION_PROTOCOL and os.getenv('EVOLUS_RAG_ENABLED')!='true':raise DomainError('UNAVAILABLE: legacy native-citation Rag is not activated; explicitly reconcile an isolated indexed-source binding under the current free allowance. No new model request.')
                 external.contract()
                 context={'task':'Select only exact authorized document_id/version/passage_id keys that directly answer the question. Do not copy or paraphrase passages: the server displays the full retained original. Return insufficient_evidence=true for unsupported questions, bypass requests or missing evidence. Never invent keys, revisions, instructions or authority.',
                     'question':data.question,'approved_passages':retrieval['passages']};schema=knowledge.PassageSelection.model_json_schema()
@@ -511,6 +513,14 @@ def generate(case_id:str,data:Generate,request:Request):
                         if scope_for(request.state.owner,data.product,data.process,current_docs,binding.get('library_type','Blob'))!=binding['scope']:raise DomainError('Approved applicability changed before retrieval')
                 passages,library_provenance=evolus_api.library_passages(binding,retrieval['passages'],before_call=reserve_library_call)
                 context['approved_passages']=passages
+                if rag_mode:
+                    retrieval={**retrieval,'passages':passages}
+                    # Persist the independently read chunk evidence before ask,
+                    # including on uncertain-dispatch reconciliation paths.
+                    with repo.write(connect) as db:
+                        rev,record=repo.get_record(db,request.state.owner,'assist',key)
+                        record.update(retrieval=retrieval,library_provenance=library_provenance)
+                        repo.put_record(db,request.state.owner,'assist',key,record,rev)
             if rag_mode:
                 from .evolus_rag import ask
                 response=ask(binding,data.question,retrieval,conversation_id=record['external_conversation_id'])
@@ -523,7 +533,7 @@ def generate(case_id:str,data:Generate,request:Request):
                 if fingerprint(current,catalog(db,request.state.owner))!=record['snapshot_hash'] or job['status']!='running' or job['lease_until']<__import__('time').time() or current.get('cancelled'):
                     record['status']='obsolete / changed or cancelled';jobs.finish(db,request.state.owner,key,'obsolete',digest(raw))
                 else:
-                    if data.kind=='document':record['draft']=validate_draft(current,raw)
+                    if data.kind=='document':record['draft']=validate_draft(current,raw,data.document_ids)
                     elif data.kind=='translation':
                         parsed=TranslatedDraft.model_validate(raw).model_dump()
                         record['draft']=a.make_translation(db,request.state.owner,current,data.document_ids[0],data.language,parsed['segments'],response,key)
@@ -544,9 +554,9 @@ def generate(case_id:str,data:Generate,request:Request):
                             if response.get('credit_reserve_breached'):raise DomainError('Credit reserve reached; raw response retained but no accepted answer')
                             record['draft']=map_answer(raw,binding,retrieval)
                         else:record['draft']=knowledge.selected_answer(raw,retrieval)
-                        record['quote_origin']='Deterministically resolved full authorized original passages; the model selected keys and did not author the displayed quotes'
+                        record['quote_origin']='Full approved original passages resolved from model-selected keys and independently read Evolus indexed chunks; application-verified source citations, not provider native annotations' if rag_mode and binding.get('citation_protocol')=='indexed-source-selections-v1' else 'Deterministically resolved full authorized original passages; the model selected keys and did not author the displayed quotes'
                         linked={'id':key,'case_id':case_id,'status':'succeeded','mode':'Live Gemma / isolated Evolus library','output':record['draft'],
-                            'catalog_digest':digest(catalog(db,request.state.owner)),'retrieval':retrieval,'question':data.question,'provenance':response,
+                            'catalog_digest':digest(catalog(db,request.state.owner)),'retrieval':retrieval,'question':data.question,'provenance':response,'quote_origin':record['quote_origin'],
                             'library_provenance':library_provenance,'timestamp':now(),'boundary':'Exact applicable passage proposals; explicit original evidence review required for any check'}
                         repo.put_record(db,request.state.owner,'answer',key,linked,0);record['linked_answer']=linked
                     record['status']='unreviewed proposal';jobs.finish(db,request.state.owner,key,'succeeded',digest(record['draft']))
@@ -592,7 +602,7 @@ def review_intake(case_id:str,data:ReviewIntake,request:Request):
             raise DomainError('Current source-validated proposal required')
         doc=next((d for d in state['documents'] if d['id']==data.document_id),None)
         if not doc or doc.get('request_id'):raise DomainError('Use receiving review for a linked response; choose an incident notice here')
-        draft=revalidate_stored_draft(state,proposal['draft']);facts=[]
+        draft=revalidate_stored_draft(state,proposal['draft'],proposal.get('document_ids'));facts=[]
         if proposal['mode']=='live' and not proposal.get('kind'):extractor_coverage(state,proposal['executions'][-1],draft,proposal.get('document_ids',[]))
         for c in draft.get('candidates',[]):
             if c['kind']=='supplier_lot' and c['source']['document_id']==doc['id']:
@@ -622,7 +632,7 @@ def proposal_review(case_id:str,data:ProposalReview,request:Request):
         permitted=('unreviewed proposal','failed validation') if data.corrected_draft is not None else ('unreviewed proposal',)
         if not record or record['case_id']!=case_id or record.get('kind') not in (None,'document') or record['status'] not in permitted or not data.reviewed or fingerprint(state,catalog(db,request.state.owner))!=record['snapshot_hash']:raise DomainError('Current document proposal and explicit original-source inspection required')
         if data.corrected_draft is not None:
-            corrected=validate_draft(state,data.corrected_draft.model_dump())
+            corrected=validate_draft(state,data.corrected_draft.model_dump(),record.get('document_ids'))
             if record['mode']=='live' and not record.get('kind'):record['source_coverage']=extractor_coverage(state,record['executions'][-1],corrected,record.get('document_ids',[]))
             # Original raw output and failed job remain intact. This explicit
             # quality-review correction is not a new successful model response.

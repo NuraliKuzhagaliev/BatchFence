@@ -30,7 +30,8 @@ def index(data,request):
             scope=scope_for(owner,data.product,data.process,approved,data.library_type);snapshot=digest(docs)
             _,prior=repo.get_record(db,owner,'knowledge-binding',scope)
             if prior:
-                if not data.reconcile_agent_id or data.library_type!='Rag' or prior['status']=='indexed verified scope':return prior
+                if not data.reconcile_agent_id or data.library_type!='Rag':return prior
+                if data.library_id and data.library_id!=prior['library_id']:raise DomainError('Reconciliation cannot substitute the bound source library')
                 if prior['catalog_digest']!=snapshot or not prior.get('documents') or len(prior['documents'])!=len(approved):raise DomainError('Partial source upload requires explicit investigation; no automatic re-ingestion')
                 passages=[{'document_id':d['id'],'version':d['version'],'quote':p['text']} for d in approved for p in d['passages']]
                 api.library_passages(prior,passages)
@@ -75,7 +76,7 @@ def index(data,request):
                 with repo.write(connect) as db:a.save(db,owner,'knowledge-binding',scope,value)
             if data.library_type=='Rag':
                 def retain(made):
-                    value.update(agent_id=made['agent_id'],agent_prompt_hash=made['prompt_hash'],configured_model_key=made['configured_model_key'])
+                    value.update(agent_id=made['agent_id'],agent_prompt_hash=made['prompt_hash'],configured_model_key=made['configured_model_key'],citation_protocol=made['citation_protocol'])
                     with repo.write(connect) as db:a.save(db,owner,'knowledge-binding',scope,value)
                 made=rag.create_agent(lid,retain=retain);rag.verify(value)
             with repo.write(connect) as db:
