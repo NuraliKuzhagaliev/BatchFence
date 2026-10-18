@@ -6,6 +6,7 @@ import hashlib
 import io
 import json
 import os
+import re
 from pathlib import Path
 import secrets
 import sqlite3
@@ -27,7 +28,7 @@ from .public_demo import public_demo, limiter, inference_access
 from .review_safety import REVIEW_POLICY_VERSION, mentions, scope_concerns, resolution_evidence,listed_source_lots
 
 load_dotenv(ROOT / '.env')
-app = FastAPI(title='BatchFence', version='0.4.0-rc.6')
+app = FastAPI(title='BatchFence', version='0.4.0-rc.7')
 DB = Path((os.getenv('DATABASE_PATH') or str(ROOT / 'work/batchfence.sqlite3')))
 DB.parent.mkdir(parents=True, exist_ok=True)
 ORIGIN = os.getenv('APP_ORIGIN') or os.getenv('RENDER_EXTERNAL_URL') or 'http://127.0.0.1:8787'
@@ -88,6 +89,13 @@ async def protection(request: Request, call_next):
         if public_demo() and request.url.path != '/api/health' and not limiter.allow(request.state.owner):
             if auth_context is not None: identity.principal.reset(auth_context)
             return JSONResponse({'detail': {'code': 'RATE_LIMIT', 'message': 'Request limit reached. Retry in one minute.'}}, 429, headers={'Retry-After': '60'})
+        visitor_case = re.fullmatch(r'/api/cases/([a-f0-9]{32})/(.+)', request.url.path)
+        if visitor_case and request.method == 'POST':
+            with connect() as db:
+                row = db.execute('SELECT state FROM cases WHERE id=? AND owner=?', (visitor_case[1], request.state.owner)).fetchone()
+            if row and json.loads(row[0]).get('visitor_review') and visitor_case[2] not in ('documents','visitor-analysis','visitor-review'):
+                if auth_context is not None: identity.principal.reset(auth_context)
+                return JSONResponse({'detail': {'code':'REVIEW_ONLY','message':'Visitor source review has no inventory, scope-approval or execution authority.'}},403)
         if request.method not in ('GET', 'HEAD', 'OPTIONS'):
             limit = 8_000_000
             try:
@@ -325,6 +333,7 @@ def health():
             'inference_mode': (os.getenv('INFERENCE_MODE') or 'fixture'),
             'amd_configured': all(os.getenv(k) for k in ['AMD_API_BASE_URL', 'AMD_API_KEY', 'AMD_MODEL_ID', 'AMD_PROVIDER_EVIDENCE']),
             'live_protected': public_demo() or bool(os.getenv('LIVE_DEMO_TOKEN')),
+            'visitor_review_enabled': __import__('backend.visitor_review',fromlist=['enabled']).enabled(),
             'profile': 'pilot' if identity.pilot() else 'public' if public_demo() else 'local', 'public_demo': public_demo(), 'storage_mode': os.getenv('STORAGE_MODE') or 'local', 'replay_available': (ROOT / 'fixtures/replay/amd-reviewed.json').exists()}
 
 
@@ -389,7 +398,9 @@ def parse_csv(doc):
 
 @app.post('/api/cases/{case_id}/documents')
 def upload(case_id: str, data: Upload, request: Request):
-    read(case_id, request.state.owner)  # Authorize before expensive untrusted parsing.
+    state = read(case_id, request.state.owner)  # Authorize before expensive untrusted parsing.
+    if state.get('visitor_review') and (Path(data.filename).suffix.lower() not in ('.txt','.pdf') or data.synthetic or data.request_id):
+        fail('UNSUPPORTED_INPUT','Visitor review accepts UTF-8 TXT or readable text PDF originals; no sample, CSV mapping or linked receiving substitution.',422)
     if '/' in data.filename or '\\' in data.filename:
         fail('FILENAME', 'Use a plain filename', 422)
     suffix = Path(data.filename).suffix.lower()
@@ -732,6 +743,8 @@ from .action_routes import router as action_router
 app.include_router(action_router)
 from .assist_routes import router as assist_router
 app.include_router(assist_router)
+from .visitor_review import router as visitor_router
+app.include_router(visitor_router)
 
 
 if (ROOT / 'dist').exists():

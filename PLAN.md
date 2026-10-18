@@ -1,3 +1,15 @@
+# Public judging workflow — in progress (2026-10-18)
+
+Branch `feat/public-judge-review` preserves rc6 runtime/tag/evidence and the existing README/presentation work. Source-only visitor cases start with empty inventory. Direct AMD Gemma processing checks current shared catalog/usage rather than historical engineering reservations. Old owner routes remain token-protected; visitor inventory/scope/action endpoints reject.
+
+Completed locally: 13 targeted mocked regressions and production build. Metadata-only AMD preflight passed (Gemma-4-31B-IT, approximately 0.993254 nonmonetary points). Current manual says shared endpoints are free with a hard daily cap; no published event-access end date. Quota reset 2026-10-18T16:00Z is not access expiry. No new inference yet.
+
+Pending: targeted browser/UI and safety verification, minimal fresh deployed acceptance on a new fictional non-sample document, unrelated-input rejection, independent-session isolation, CI/publication. `PUBLIC_REVIEW_ENABLED` defaults false until activation. Existing 18/18 engineering ledger and all credentials remain unchanged. No purchase, key rotation, real inventory action or hackathon submission. Windows rc6 installer stays preserved; new visitor entry is web-only.
+
+Resume: finish targeted checks, then publish via existing GitHub/Free Render flow and verify anonymous deployed upload → genuine model response → original-source inspection. Do not claim live judging acceptance before this passes.
+
+---
+
 # BatchFence 0.4.0-rc.6 — verified source identity and RAG release
 
 Web: https://batchfence.onrender.com. Windows and source release: https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.6. Verified runtime/tag/source **d6fa31f7d321b0e0c51dad5afcb577b6e31e8130**; final evidence is a separate recoverable Git checkpoint linked from the release body. Prior rc4/rc5/stable releases are preserved.

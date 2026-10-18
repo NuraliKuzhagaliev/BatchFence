@@ -21,12 +21,12 @@ class RequestLimiter:
         self.lock = threading.Lock()
         self.buckets = {}
 
-    def allow(self, owner):
+    def allow(self, owner, *, global_limit=None, owner_limit=None):
         now = time.monotonic()
         with self.lock:
             self.buckets = {k:v for k,v in self.buckets.items() if v and v[-1] > now-60}
-            keys = [('global', int((os.getenv('MAX_REQUESTS_PER_MINUTE') or '300'))),
-                    (owner, int((os.getenv('MAX_SESSION_REQUESTS_PER_MINUTE') or '90')))]
+            keys = [('global', global_limit if global_limit is not None else int((os.getenv('MAX_REQUESTS_PER_MINUTE') or '300'))),
+                    (owner, owner_limit if owner_limit is not None else int((os.getenv('MAX_SESSION_REQUESTS_PER_MINUTE') or '90')))]
             for key, limit in keys:
                 bucket = self.buckets.setdefault(key, deque())
                 while bucket and bucket[0] <= now-60: bucket.popleft()

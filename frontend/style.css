@@ -3749,3 +3749,16 @@ td small {
 .process-next li {
   line-height: 1.6;
 }
+/* Source-only visitor workflow reuses the workbench cards and original viewer. */
+.visitor-review { max-width: 1480px; margin: 0 auto; padding: 24px; }
+.visitor-review > .module-card { margin: 20px 0; }
+.visitor-columns { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 20px; align-items: start; }
+.visitor-columns > * { min-width: 0; }
+.visitor-candidate { padding: 16px 0; border-bottom: 1px solid #dce4ed; }
+.visitor-candidate blockquote { margin: 12px 0; padding-left: 14px; border-left: 3px solid #137c78; white-space: pre-wrap; overflow-wrap: anywhere; }
+.visitor-raw { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 420px; overflow: auto; font-size: 12px; }
+.visitor-feedback { padding: 16px; background: #e5f3f1; border-radius: 10px; }
+.visitor-review label { display: block; margin: 12px 0; }
+.visitor-review .check { display: flex; gap: 10px; align-items: flex-start; }
+.visitor-review select, .visitor-review textarea { max-width: 100%; }
+@media (max-width: 900px) { .visitor-columns { grid-template-columns: minmax(0, 1fr); } .visitor-review { padding: 16px; } }
