@@ -69,7 +69,7 @@ jobs:
           python-version: '3.13'
       - run: npm ci --ignore-scripts
       - run: pip install -r requirements.txt
-      - run: npm run package:desktop
+      - run: npm run package:desktop -- --publish never
       - name: Check actual packaged Electron UI and native transport
         shell: pwsh
         run: |
