@@ -22,8 +22,8 @@ const R=path.resolve(__dirname,'..'),base='http://127.0.0.1:8816';
   const state=await page.evaluate(async()=>{
    const id=localStorage.getItem('bf.case');return window.batchfence?window.batchfence.request('GET','/api/cases/'+id):fetch('/api/cases/'+id).then(r=>r.json());
   });assert(state.id);checks.push('Client transport loads owned case through actual backend');
-  await page.getByRole('button',{name:'Knowledge',exact:true}).filter({visible:true}).first().click();
   await page.getByLabel('Run mode',{exact:true}).selectOption('live');
+  await page.getByRole('button',{name:'Knowledge',exact:true}).filter({visible:true}).first().click();
   await page.getByLabel('Live knowledge evidence route',{exact:true}).selectOption('rag');
   assert.equal(await page.getByLabel('Live knowledge evidence route',{exact:true}).inputValue(),'rag');
   await page.getByText('Set up an isolated Evolus library · administrator',{exact:true}).click();
