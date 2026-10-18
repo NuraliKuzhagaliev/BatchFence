@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "client": "public web",
+      "health": {
+        "status": "ok",
+        "database": "ready",
+        "version": "0.4.0-rc.3",
+        "commit": "7d5b291bbd5e9e1b2bd9e3195ff1803f5f67c2ac",
+        "inference_mode": "fixture",
+        "amd_configured": true,
+        "live_protected": true,
+        "profile": "public",
+        "public_demo": true,
+        "storage_mode": "ephemeral",
+        "replay_available": true
+      },
+      "platform_actions_correct": true,
+      "page_errors": [],
+      "no_inference_calls": true
+    },
+    {
+      "client": "installed Windows",
+      "health": {
+        "status": "ok",
+        "database": "ready",
+        "version": "0.4.0-rc.3",
+        "commit": "7d5b291bbd5e9e1b2bd9e3195ff1803f5f67c2ac",
+        "inference_mode": "fixture",
+        "amd_configured": true,
+        "live_protected": true,
+        "profile": "public",
+        "public_demo": true,
+        "storage_mode": "ephemeral",
+        "replay_available": true
+      },
+      "platform_actions_correct": true,
+      "page_errors": [],
+      "no_inference_calls": true
+    }
+  ]
+}

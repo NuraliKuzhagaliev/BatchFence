@@ -42,6 +42,8 @@ def status():
         'gemma_state':'UNAVAILABLE' if any(not os.getenv(k) for k in ('GEMMA_API_BASE_URL','GEMMA_API_KEY','GEMMA_MODEL_ID','GEMMA_COST_APPROVAL_FILE')) else 'CONFIGURED / live acceptance not implied',
         'gemma_hosting_kind':os.getenv('GEMMA_HOSTING_KIND','unverified'),
         'vision_model_id':os.getenv('GEMMA_VISION_MODEL_ID') or os.getenv('GEMMA_MODEL_ID'),
+        'knowledge_mode':'Local Unicode lexical selection + dedicated Evolus read-only Blob content; not semantic search',
+        'semantic_rag_state':'UNAVAILABLE: isolated indexing and agent ask verified, but live acceptance returned no resolvable citations; answer rejected. Blob/local mode retained.',
         'missing_variables':[k for k in required if not os.getenv(k)],'eligibility':'unverified: requires actual own vLLM on AMD Developer Cloud, two building blocks and API execution',
         'no_automatic_retry':True,'public_access':'Existing protected live-access gate and persisted job budget also apply'}
 
@@ -67,6 +69,14 @@ def allowance(provider):
             if provider=='evolus' and boundary.get('kind')=='event-trial-own-model-zero-price' and boundary.get('renews_automatically') is False:
                 end=datetime.fromisoformat(boundary['trial_ends_at'].replace('Z','+00:00'))
                 if end.tzinfo and expiry<=end:max_age=86400
+            if provider=='evolus' and boundary.get('kind')=='event-trial-bounded-document-credits' and boundary.get('renews_automatically') is False:
+                end=datetime.fromisoformat(boundary['trial_ends_at'].replace('Z','+00:00'))
+                valid=valid and data.get('phase_id') and data.get('platform_credit_cap',0)<=1000 and data.get('platform_credit_cap',0)>0
+                valid=valid and data['remaining_credits']-data['stop_margin']<=data['platform_credit_cap']
+                valid=valid and data.get('ocr_credits_per_page',0)>0 and data.get('max_ocr_pages_per_dispatch')==8
+                valid=valid and data['max_credits_per_dispatch']>=8*data['ocr_credits_per_page']
+                valid=valid and (data.get('embedding_indexing_authorized') is False or data.get('funding_strategy')=='owner-authorized-small-event-probe-with-balance-stop')
+                if end.tzinfo and expiry<=end:max_age=86400
         valid=valid and checked.tzinfo and expiry.tzinfo and checked<=current<expiry and (current-checked).total_seconds()<max_age and (expiry-checked).total_seconds()<=max_age
         valid=valid and 1<=data['max_dispatches']<=64 and data['remaining_credits']>data['stop_margin']>=0 and data['max_credits_per_dispatch']>=0
         if data['max_credits_per_dispatch']==0:
@@ -81,15 +91,25 @@ def allowance(provider):
     return data
 
 
-def reserve(db,provider):
+def reserve(db,provider,*,metadata=False,credits=None):
     from . import repository as repo
     a=allowance(provider);key=digest({k:a.get(k) for k in ('provider','evidence_reference','allowance_id')})
+    if metadata and a.get('phase_id'):
+        rev,ledger=repo.get_record(db,'system:assisted-budget',provider+'-metadata',key,{'requests':0})
+        if ledger['requests']>=256:raise DomainError('Phase metadata/status request limit reached; no model was dispatched')
+        ledger.update(requests=ledger['requests']+1,at=now())
+        repo.put_record(db,'system:assisted-budget',provider+'-metadata',key,ledger,rev)
+        return {'provider':provider,'metadata_requests':ledger['requests'],'model_dispatches':0}
     rev,ledger=repo.get_record(db,'system:assisted-budget',provider,key,{'dispatches':0})
     n=ledger['dispatches']+1
     since=(ledger.get('since_verified',0)+1) if ledger.get('verified_at')==a['verified_at'] else 1
-    if n>a['max_dispatches'] or a['remaining_credits']-since*a['max_credits_per_dispatch']<a['stop_margin']:
+    cost=a['max_credits_per_dispatch'] if credits is None else credits
+    if not isinstance(cost,(int,float)) or not 0<=cost<=a['max_credits_per_dispatch']:raise DomainError('Operation credit reservation exceeds its verified envelope')
+    total=ledger.get('reserved_credits',0)+cost
+    remaining=a['remaining_credits']-total if a.get('phase_id') else a['remaining_credits']-since*a['max_credits_per_dispatch']
+    if n>a['max_dispatches'] or remaining<a['stop_margin']:
         raise DomainError('Provider stop margin reached; failed attempts count and no automatic retry is permitted')
-    ledger.update(dispatches=n,since_verified=since,verified_at=a['verified_at'],at=now(),remaining_conservative=a['remaining_credits']-since*a['max_credits_per_dispatch'],expiry=a['expires_at'])
+    ledger.update(dispatches=n,reserved_credits=total,since_verified=since,verified_at=a['verified_at'],at=now(),remaining_conservative=remaining,expiry=a['expires_at'])
     repo.put_record(db,'system:assisted-budget',provider,key,ledger,rev)
     return {'provider':provider,'reservation':key,'dispatch':n,'conservative_remaining':ledger['remaining_conservative'],'stop_margin':a['stop_margin']}
 
@@ -106,7 +126,7 @@ def operation(name,inputs,*,transport=None,before_call=lambda:None):
         if name in ('workflow_start','workflow_status'):
             path=os.getenv('EVOLUS_WORKFLOW_MANIFEST_FILE')
             if not path:raise DomainError('UNAVAILABLE: verified workflow manifest required')
-            raw=Path(path).read_bytes()
+            raw=os.environ['EVOLUS_WORKFLOW_MANIFEST_JSON'].encode('utf-8') if os.getenv('EVOLUS_WORKFLOW_MANIFEST_JSON') else Path(path).read_bytes()
             if hashlib.sha256(raw).hexdigest()!=os.getenv('EVOLUS_WORKFLOW_MANIFEST_SHA256'):raise DomainError('Workflow configuration changed; recheck its manifest')
             manifest=json.loads(raw)
             if name=='workflow_start':

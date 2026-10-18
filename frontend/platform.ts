@@ -2,7 +2,9 @@ import type { Packet, Upload } from "./types";
 import { validateShape } from "../desktop/packet-shape.mjs";
 export const native = window.batchfence;
 let liveDemoToken = "";
-export function setLiveDemoToken(value: string) { liveDemoToken = value; }
+export function setLiveDemoToken(value: string) {
+  liveDemoToken = value;
+}
 export async function copyDraft(text: string) {
   if (native) await native.copyDraft(text);
   else await navigator.clipboard.writeText(text);
@@ -12,13 +14,26 @@ export async function request<T>(
   route: string,
   body?: unknown,
 ): Promise<T> {
-  const inference=/\/(analyze|receiving-draft|answer|explain|assist-run|assist-poll|assist-generate|knowledge-index)$/.test(route);
-  if (native) return (await native.request(method, route, body, inference ? liveDemoToken : undefined)) as T;
+  if (method === "POST") window.dispatchEvent(new Event("bf:work-changed"));
+  const inference =
+    /\/(analyze|receiving-draft|answer|explain|assist-run|assist-poll|assist-generate|knowledge-index)$/.test(
+      route,
+    );
+  if (native)
+    return (await native.request(
+      method,
+      route,
+      body,
+      inference ? liveDemoToken : undefined,
+    )) as T;
   const response = await fetch(route, {
     method,
     credentials: "same-origin",
-    headers: { "Content-Type": "application/json",
-      ...(inference && liveDemoToken ? {"X-BF-Demo-Token": liveDemoToken} : {}),
+    headers: {
+      "Content-Type": "application/json",
+      ...(inference && liveDemoToken
+        ? { "X-BF-Demo-Token": liveDemoToken }
+        : {}),
     },
     ...(body === undefined ? {} : { body: JSON.stringify(body) }),
   });
@@ -31,6 +46,38 @@ export async function request<T>(
 }
 export async function savePacket(p: Packet) {
   if (native) return native.savePacket(p);
+  const picker = (
+    window as unknown as {
+      showSaveFilePicker?: (
+        options: unknown,
+      ) => Promise<{
+        createWritable: () => Promise<{
+          write: (value: string) => Promise<void>;
+          close: () => Promise<void>;
+        }>;
+      }>;
+    }
+  ).showSaveFilePicker;
+  if (picker) {
+    try {
+      const handle = await picker({
+        suggestedName: "BatchFence-decision.json",
+        types: [
+          {
+            description: "Decision packet",
+            accept: { "application/json": [".json"] },
+          },
+        ],
+      });
+      const writable = await handle.createWritable();
+      await writable.write(JSON.stringify(p, null, 2));
+      await writable.close();
+      return true;
+    } catch (e) {
+      if (e instanceof DOMException && e.name === "AbortError") return false;
+      throw e;
+    }
+  }
   const url = URL.createObjectURL(
     new Blob([JSON.stringify(p, null, 2)], { type: "application/json" }),
   );
@@ -38,8 +85,8 @@ export async function savePacket(p: Packet) {
   a.href = url;
   a.download = "BatchFence-decision.json";
   a.click();
-  URL.revokeObjectURL(url);
-  return true;
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  return "download-started" as const;
 }
 export async function fileUpload(f: File): Promise<Upload> {
   if (f.size > 2000000) throw Error("File limit is 2 MB");
@@ -67,7 +114,15 @@ export function canonical(v: unknown): string {
     );
   return JSON.stringify(v);
 }
-export async function contentHash(value:unknown){const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(canonical(value)));return Array.from(new Uint8Array(bytes)).map(v=>v.toString(16).padStart(2,'0')).join('');}
+export async function contentHash(value: unknown) {
+  const bytes = await crypto.subtle.digest(
+    "SHA-256",
+    new TextEncoder().encode(canonical(value)),
+  );
+  return Array.from(new Uint8Array(bytes))
+    .map((v) => v.toString(16).padStart(2, "0"))
+    .join("");
+}
 export async function validatePacket(v: unknown): Promise<Packet> {
   validateShape(v);
   const p = v as Packet;

@@ -1,0 +1,49 @@
+{
+  "before": {
+    "spendable_platform_credits": 50000.0,
+    "at": "2026-10-18T00:54:22.062712+00:00",
+    "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+  },
+  "after": {
+    "spendable_platform_credits": 50000.0,
+    "at": "2026-10-18T00:54:24.781525+00:00",
+    "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+  },
+  "created": {
+    "web": {
+      "library_id": "235c84a5-8eca-f111-bf5b-6045bd9ce552",
+      "type": "Blob",
+      "fictional_sources_only": true,
+      "provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-18T00:54:22.785804+00:00",
+        "method": "POST",
+        "path": "/api/v1/memories/simple",
+        "http_status": 201,
+        "elapsed_ms": 723,
+        "response_hash": "6878acc7b5230152bbc8bac99d4bf0d7cc9b3db89543aadf4bd0c9033a1ceaf9",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    },
+    "windows": {
+      "library_id": "245c84a5-8eca-f111-bf5b-6045bd9ce552",
+      "type": "Blob",
+      "fictional_sources_only": true,
+      "provenance": {
+        "provider": "Evolus",
+        "at": "2026-10-18T00:54:24.113714+00:00",
+        "method": "POST",
+        "path": "/api/v1/memories/simple",
+        "http_status": 201,
+        "elapsed_ms": 676,
+        "response_hash": "01c4ce464e239f02b04abba96ec866be8d65fd72d2e89e1160b207dfcbaf6fde",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    }
+  },
+  "inference_calls": 0
+}

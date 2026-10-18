@@ -1,0 +1,14 @@
+{
+  "frozen_before_dispatch": true,
+  "file": "notice-revised-sup-c.pdf",
+  "sha256": "74112b00f8d562663471d4f9894f9277bc878d21388f3a1db709da69266382e5",
+  "expected_affected": [
+    "SUP-A",
+    "SUP-C"
+  ],
+  "expected_excluded": [
+    "SUP-B"
+  ],
+  "expected_hold_units": 800,
+  "reason": "Original frozen v2 names SUP-B, whose possible descendant FG-C was already conservatively held. That boundary change correctly stays500 units. This distinct frozen notice tests the300-unit FG-D consequence of SUP-C; original benchmark unchanged."
+}

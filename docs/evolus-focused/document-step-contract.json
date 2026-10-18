@@ -1,0 +1,23 @@
+{
+  "Ocr": {
+    "key": "Ocr",
+    "title": "Read the document (OCR)",
+    "part": 2,
+    "parts": 2,
+    "text": "Ocr (options): stepConfigJson may contain { filesOptional?, preferNativeText?, skipUnsupportedFiles?, nativeTextOnly? } - filesOptional true lets the step tolerate an execute call WITHOUT files (empty text, pipeline continues; e.g. an email with optional PDF attachments), default false = the step fails without files. Plain-text files (.txt/.md/.csv) and Excel workbooks (.xls/.xlsx) are ALWAYS read natively, no OCR call and no OCR cost; emails attached as files (.eml, .msg) are EXPANDED by the step into their text (sender, date, subject, body) plus their own attachments, read with the same rules, up to 3 levels deep; skipUnsupportedFiles true makes the step SKIP, with a warning in logs and trace, the files it cannot read (e.g. .eml/.msg/.zip/.p7s attachments of an email) instead of failing the whole run, default false = an unreadable file is a step error; preferNativeText true additionally reads .docx and text-based PDFs natively at no OCR cost, with scanned PDFs still going through the OCR model (the chosen one, the agent's or the platform's), default false = every non-plain-text file goes through the OCR model as before (page-chunk parallel groups always use the OCR model, ignoring the flag; with nativeTextOnly they read only the text already in the PDF)."
+  },
+  "input": {
+    "key": "input",
+    "title": "Step input (inputMode)",
+    "part": 1,
+    "parts": 1,
+    "text": "STEP INPUT (inputMode): PreviousOutput (0, default) = the output of the linked sources (inputStepIds): one source as is, several joined in inputStepIds order with a '------' separator line; OriginalInput (1) = the text the run started with; All (2) = the original input, the text of the last Ocr step and the output of the last step run, joined; Template (3) = inputTemplate with its placeholders resolved; OriginalPlusSources (4) = the original input followed by the output of the linked sources. The first step added to a workflow is saved with OriginalInput, whatever inputMode says. Sources that produce FILES (CreateFile, AgentCall with a file, AiTool with fileOutput, an endpoint with a file response, CallWorkflow with returnDocuments) add no text: their files go to the linked blocks that read documents or deliver them (Ocr, DataExtractor, AiTool on documents, Email, Webhook, CallWorkflow); a ForEach always adds its array of results."
+  },
+  "DataExtractor": {
+    "key": "DataExtractor",
+    "title": "Call a data extractor",
+    "part": 1,
+    "parts": 1,
+    "text": "DataExtractor (call a data extractor): agentId (an agent marked as data extractor) and outputStructureId (the schema to fill) are both REQUIRED; without them the run fails. It runs the same pipeline as a manual scan of that extractor (its own OCR, the extraction with the schema, the output check and the extractor review audit), on the startup files of the run or on the files produced by the linked sources, which win; without files the step fails. Output = the extracted data in the format of the output structure (JSON, CSV or text), or the file the extractor delivers with its file tools. A DataExtractor can be the head of a page-chunk group (see page-groups), where it runs its whole pipeline on every chunk."
+  }
+}

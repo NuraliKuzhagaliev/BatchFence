@@ -20,5 +20,18 @@
   "limitations": "CI uses synthetic fixture and injected tests. Native file dialogs not repeated. Installed live inference and review remain separate gates.",
   "public_stale_approval_http_status": 409,
   "current_reservations": 64,
-  "additional_version_test": true
+  "additional_version_test": true,
+  "final_runtime_commit": "7d5b291bbd5e9e1b2bd9e3195ff1803f5f67c2ac",
+  "final_main_ci": {
+    "id": 39079908608,
+    "conclusion": "success",
+    "pytest_passed": 432
+  },
+  "final_branch_ci": {
+    "id": 39079803386,
+    "conclusion": "success"
+  },
+  "final_render_deploy": "dep-dba0fdnlk1mc73cdh8d0",
+  "publication": "complete; all5anonymous downloads and1929 GitHub source members match",
+  "final_platform_smoke": "web and installed Windows passed; no inference"
 }

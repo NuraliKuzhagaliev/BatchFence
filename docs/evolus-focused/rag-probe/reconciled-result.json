@@ -1,0 +1,198 @@
+{
+  "job": {
+    "id": "GENERATE-4acecd878fb0510ecb94b47f",
+    "case_id": "4e268f99a81f4f2bb1b6838faad6420b",
+    "kind": "knowledge",
+    "mode": "live",
+    "provider_path": "Evolus agent-bound Rag / configured own Gemma",
+    "status": "failed validation",
+    "request_hash": "6cd8f36a0468cfa5d49a87c53059544bcf675b4de0e4c2c94450eb2e33697ad9",
+    "snapshot_hash": "f8a6ae7007ea47bd8952a9f2d0c6c5abdc632d76856d2135340ab2fdeb55ea5d",
+    "actor": {
+      "user_id": null,
+      "identity_mode": "anonymous session; not independent identity"
+    },
+    "started_at": "2026-10-18T00:40:50.315201+00:00",
+    "reservation": {
+      "provider": "gemma",
+      "reservation": "a4bba417414313892eb8145c247f0fc08499948df34768c91135ea557d8688df",
+      "dispatch": 1,
+      "conservative_remaining": 0.9853761575743556,
+      "stop_margin": 0.1
+    },
+    "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+    "retrieval_mode": "rag",
+    "external_conversation_id": "d5d80b47-73e3-5986-a8ad-11d910d142d7",
+    "rag_binding": {
+      "library_id": "df996134-8cca-f111-bf5b-6045bd9ce552",
+      "library_type": "Rag",
+      "scope": "ad93d1a0523b60c0e7623358598cf4b3ca4793299550c92c7507d7b2fbd23f1b",
+      "product": "Decorative housing",
+      "process": "coating",
+      "status": "indexed verified scope",
+      "catalog_digest": "80211d4f60579a4ee7bc6049fb4a1ff19aca6e68c720ed31b7fa8fc8e189b9bd",
+      "documents": [
+        {
+          "document_id": "SOP-FOCUSED-EN",
+          "version": 1,
+          "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+          "remote_document_id": "dcedf524-40a2-4993-bc4c-b8ec4102214f",
+          "ingestion_status": 2,
+          "uploaded_content_hash": "9c72943ae39faf048024a1c18f3aa631d4fd4356ae355ccc2710798a663ac397",
+          "source_basis": "Approved retained passages; Rag adds explicit document/version/passage headers"
+        }
+      ],
+      "at": "2026-10-18T00:40:50.293703+00:00",
+      "actor": {
+        "user_id": null,
+        "identity_mode": "anonymous session; not independent identity"
+      },
+      "note": "Create one isolated read-only fictional SOP set; original source/version hashes reviewed.",
+      "provenance": [
+        {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:36:57.822367+00:00",
+          "method": "POST",
+          "path": "/api/v1/memories/df996134-8cca-f111-bf5b-6045bd9ce552/documents",
+          "http_status": 201,
+          "elapsed_ms": 1543,
+          "response_hash": "8feffa6a66732e101b2f9e93b3dc2d2c5437cd47e1c293cdcedd811565e63006",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      ],
+      "credit_observations": [
+        {
+          "before": {
+            "spendable_platform_credits": 50000.0,
+            "at": "2026-10-18T00:36:56.273505+00:00",
+            "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+          },
+          "after": {
+            "spendable_platform_credits": 50000.0,
+            "at": "2026-10-18T00:36:58.470705+00:00",
+            "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+          },
+          "delta_account_wide": 0.0,
+          "tariff": "Metadata403; authorized small event-credit probe, actual balance monitored"
+        }
+      ],
+      "error": null,
+      "agent_id": "c2f572a6-fe82-41db-9f43-0807af22d44e",
+      "agent_prompt_hash": "ce2d9cc1ac40526d3deb6b0cf438765be14f08fd3a4ce1d6a98fe54ad4008e8f",
+      "configured_model_key": "own/gemma-4-31b-it",
+      "reconciled": true
+    },
+    "retrieval": {
+      "status": "authorized originals / remote semantic retrieval pending",
+      "method": "Evolus agent-bound Rag; no local lexical pre-ranking",
+      "passages": [
+        {
+          "document_id": "SOP-FOCUSED-EN",
+          "version": 1,
+          "passage_id": "containment",
+          "quote": "For a supplier notice, retain the original and verify the exact affected lot list and complete incident boundary. Keep unresolved ancestry uncertain. An operator must inspect every critical source assertion before a deterministic containment plan can be approved.",
+          "page": 1,
+          "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee"
+        },
+        {
+          "document_id": "SOP-FOCUSED-EN",
+          "version": 1,
+          "passage_id": "recovery",
+          "quote": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. A source citation, model answer or narrower proposed hold never releases existing applied holds.",
+          "page": 1,
+          "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee"
+        }
+      ]
+    },
+    "error": "Selected procedure lacks a returned citation to its exact authorized version",
+    "finished_at": "2026-10-18T00:41:18.470714+00:00",
+    "raw_output": {
+      "answer": "```json\n{\n  \"selections\": [\n    {\n      \"document_id\": \"SOP-FOCUSED-EN\",\n      \"version\": 1,\n      \"passage_id\": \"recovery\"\n    }\n  ],\n  \"insufficient_evidence\": false,\n  \"missing_information\": []\n}\n```",
+      "title": "Api request",
+      "agentId": "c2f572a6-fe82-41db-9f43-0807af22d44e",
+      "conversationId": "d5d80b47-73e3-5986-a8ad-11d910d142d7",
+      "totalTokenCount": null,
+      "citations": []
+    },
+    "provenance": {
+      "provider": "Evolus agent-bound Rag",
+      "at": "2026-10-18T00:41:17.018281+00:00",
+      "elapsed_ms": 22785,
+      "request_id": null,
+      "response_hash": "48f8f7f8472848da0222fd9631af65c52a5baffe709913141483c18a57cb4607",
+      "configured_model_key": "own/gemma-4-31b-it",
+      "runtime_model_identity": "Not returned by this API; configured own Gemma only",
+      "library_id": "df996134-8cca-f111-bf5b-6045bd9ce552",
+      "agent_id": "c2f572a6-fe82-41db-9f43-0807af22d44e",
+      "conversation_id": "d5d80b47-73e3-5986-a8ad-11d910d142d7",
+      "raw_output": {
+        "answer": "```json\n{\n  \"selections\": [\n    {\n      \"document_id\": \"SOP-FOCUSED-EN\",\n      \"version\": 1,\n      \"passage_id\": \"recovery\"\n    }\n  ],\n  \"insufficient_evidence\": false,\n  \"missing_information\": []\n}\n```",
+        "title": "Api request",
+        "agentId": "c2f572a6-fe82-41db-9f43-0807af22d44e",
+        "conversationId": "d5d80b47-73e3-5986-a8ad-11d910d142d7",
+        "totalTokenCount": null,
+        "citations": []
+      },
+      "consumption": {
+        "credits": 0.0,
+        "pendingEntries": 0,
+        "costUsd": null,
+        "llmTokens": null,
+        "ocrPages": null,
+        "embeddingTokens": null,
+        "speechToTextSeconds": null,
+        "entries": null
+      },
+      "balance_before": {
+        "spendable_platform_credits": 50000.0,
+        "at": "2026-10-18T00:40:54.233354+00:00",
+        "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+      },
+      "balance_after": {
+        "spendable_platform_credits": 50000.0,
+        "at": "2026-10-18T00:41:18.465144+00:00",
+        "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+      },
+      "accounting_state": "finalized",
+      "credit_reserve_breached": false,
+      "retry_policy": "One BatchFence dispatch; up to3 provider attempt equivalents reserved conservatively; provider internals not returned"
+    },
+    "library_provenance": [
+      {
+        "provider": "Evolus",
+        "at": "2026-10-18T00:40:50.982732+00:00",
+        "method": "GET",
+        "path": "/api/v1/memories/df996134-8cca-f111-bf5b-6045bd9ce552/documents",
+        "http_status": 200,
+        "elapsed_ms": 657,
+        "response_hash": "093928f79d370823ce02d5dfb705bf219e72fe446d9f7c321b5a1b096b2b1f0b",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      },
+      {
+        "provider": "Evolus",
+        "at": "2026-10-18T00:40:51.662827+00:00",
+        "method": "GET",
+        "path": "/api/v1/memories/df996134-8cca-f111-bf5b-6045bd9ce552/documents/dcedf524-40a2-4993-bc4c-b8ec4102214f/chunks",
+        "http_status": 200,
+        "elapsed_ms": 674,
+        "response_hash": "8ea613485af05b7cd5c297545091879a79fae9edeefe43978534de69823e35b5",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    ],
+    "validation_issues": [
+      {
+        "message": "Selected procedure lacks a returned citation to its exact authorized version"
+      }
+    ]
+  },
+  "elapsed_client_ms": 28170,
+  "question_language": "Russian",
+  "approved_original_language": "English",
+  "review": "Engineering agent; no independent human validation"
+}

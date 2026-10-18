@@ -1,3 +1,29 @@
+# Focused Evolus rc4 release gate
+
+447pytest,30domain,36focused controls,12core browser checks and focused save/PDF/layout checks pass. Production build, separate rc4 Windows installer/install and packaged-source sanitation pass. Unicode/source workflow/checkpoint changes are implemented. Fresh supported/incomplete original-PDF evidence and exact downstream safety are retained. Rag returned no provider citations, so it remains unavailable; Blob/local mode preserved.
+
+Nonsecret phase proofs/workflow manifest were merged into the existing local .env and existing Free Render service without replacing any credentials or unrelated settings. Current public runtime remains rc3 until CI-gated merge/deploy. Next: branch/main CI, fresh public/installed PDF500→800 plus actual Blob evidence and offline packets, release artifact verification. No additional routine approval required. Details: docs/evolus-focused/RESULTS.md and FOCUSED_PLAN.md. Old release and evidence below are preserved historical records.
+
+---
+
+# Focused Evolus completion — in progress
+
+Branch focused-evolus-0.4 preserves rc3 (runtime7d5b291, evidence103f088). Unicode lexical retrieval and scoped UI encoding repair implemented; original-PDF Evolus reader/extractor/Gemma workflow configured separately. Source preview, suitability, proposed facts, approved originals, bounded status polling and truthful checkpoint feedback implemented.36 affected local controls pass. Current changes are not yet published or client-accepted.
+
+Fresh evidence: original nativePDF probe completed with source-validated SUP-A affected/SUP-B excluded and complete scope; initial4-second polling window expired and one later read reconciled the same execution, without another inference. Initial incomplete-case harness stopped before dispatch because the earlier owner job was still running; a separate bounded incomplete case is now running. Isolated Rag indexing reachedIndexed; agent response field is documented agentId, and the existing created resource was recovered without reupload/recreation. One genuine cross-language ask selected the relevant exact key but returnedcitations=[]: validation rejected it. Semantic mode remains unavailable; approved Blob/local mode retained. Actual account balances remained50000 credits, finalized ask consumption0credits; embedding tariff metadata403 remains unknown. No cash, key changes, real actions or independent human-validation claim.
+
+Next: finish incomplete-case evidence, affected failure/packet/UI checks; final regression/domain/build; rc4 packaging/CI; merge nonsecret phase configuration only; fresh public-web and installed-Windows PDF→review→500/800→two-receipt plus Blob workflow; publish and verify artifacts. No more RAG tuning or unchanged vision calls. All raw failures and prior release/evidence preserved. Exact finite budget/run commands: FOCUSED_PLAN.md.
+
+---
+
+# Vision release complete
+
+Fresh public web and installed Windows image acceptance passed4/4, with required visual/source review, mismatch/multiple containment, unchanged800-unit holds/two receipts and stale409. Actual final432pytest/domain/Linux restart CI passed; rc3 existing Free Render deploy verified. Installer/source/notes/manifest/checksums published;5 anonymous full downloads and1929 tag members match. Final non-inference web/Windows health/platform checks passed. No more model calls;64/64 reservations preserved. Original500 cause remains unconfirmed, all failures retained and new diagnostic metadata available.
+
+Only remaining acceptance is independent physical-photo/operator/domain/language/operational work and future verified-free proof renewal after18October2026 16:00UTC. Preserve keys, old releases, data and evidence. No further autonomous feature work, broad evaluation, purchases or cosmetic changes needed.
+
+---
+
 # Vision release gate
 
 Completed: documented provider/image-contract audit;3 successful local controls;2 retained public failures; new sanitized diagnostic/provenance coverage;1 successful deployed diagnostic;4/4 fresh actual web/installed-Windows cases; mandatory review/mismatch/multiple containment; unchanged800 units/two receipts; stale approvalHTTP409; affected tests/build/install/sanitation.64/64 finite reservations, no more inference.

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "SOP-FOCUSED-EN",
+    "version": 1,
+    "status": "approved",
+    "valid_from": "2026-01-01T00:00:00Z",
+    "valid_to": null,
+    "products": [
+      "Decorative housing"
+    ],
+    "processes": [
+      "coating"
+    ],
+    "owner": "Fictional quality owner",
+    "passages": [
+      {
+        "id": "containment",
+        "page": 1,
+        "text": "For a supplier notice, retain the original and verify the exact affected lot list and complete incident boundary. Keep unresolved ancestry uncertain. An operator must inspect every critical source assertion before a deterministic containment plan can be approved."
+      },
+      {
+        "id": "recovery",
+        "page": 1,
+        "text": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. A source citation, model answer or narrower proposed hold never releases existing applied holds."
+      }
+    ],
+    "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+    "synthetic": true
+  }
+]

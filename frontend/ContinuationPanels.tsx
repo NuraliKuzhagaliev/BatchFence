@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { KnowledgePanel } from "./SignalsKnowledge";
+import type { Evidence } from "./types";
 import {
   ArrowRight,
   Camera,
@@ -33,9 +35,16 @@ type Props = {
   readOnly: boolean;
   update: (s: Case) => void;
   openReview?: (s: Case) => void;
+  onEvidence?: (e: Evidence) => void;
 };
 const uid = () => crypto.randomUUID();
-function SourceQuote({ source }: { source: RecordData }) {
+function SourceQuote({
+  source,
+  onInspect,
+}: {
+  source: RecordData;
+  onInspect?: (e: Evidence) => void;
+}) {
   return (
     <div className="assist-citation">
       <span>
@@ -43,6 +52,14 @@ function SourceQuote({ source }: { source: RecordData }) {
         {source.page ? " · page " + source.page : ""}
       </span>
       <blockquote>{source.quote}</blockquote>
+      {onInspect && (
+        <button
+          className="text-button"
+          onClick={() => onInspect(source as Evidence)}
+        >
+          Inspect original passage
+        </button>
+      )}
     </div>
   );
 }
@@ -137,6 +154,7 @@ export function ContinuationPanel({
   readOnly,
   update,
   openReview,
+  onEvidence,
 }: Props) {
   const [data, setData] = useState<RecordData>({}),
     [error, setError] = useState(""),
@@ -188,6 +206,34 @@ export function ContinuationPanel({
       active = false;
     };
   }, [route, state.revision, state.inventory_version, readOnly]);
+  useEffect(() => {
+    let active = true;
+    const running = (data.assist || []).find(
+      (r: RecordData) =>
+        r.status === "running" &&
+        r.external_execution_id &&
+        (r.poll_count || 0) < 16 &&
+        !r.stale,
+    );
+    if (readOnly || part !== "sources" || !running) return;
+    const timer = setTimeout(async () => {
+      try {
+        await request("POST", route + "/assist-poll", { job_id: running.id });
+        const next = await request<RecordData>("GET", route + "/assisted");
+        if (active) setData(next);
+      } catch (e) {
+        if (active)
+          setLast({
+            status: "Status unavailable; original and execution ID preserved",
+            error: String(e),
+          });
+      }
+    }, 10000);
+    return () => {
+      active = false;
+      clearTimeout(timer);
+    };
+  }, [route, part, readOnly, data]);
   async function mutate(endpoint: string, body: unknown) {
     const result = await request<RecordData>(
       "POST",
@@ -224,6 +270,28 @@ export function ContinuationPanel({
     currentDoc = doc || state.documents.at(-1),
     docs = state.documents.map((d) => ({ value: d.id, label: d.filename })),
     q = data.next_evidence;
+  const currentJob = (data.assist || [])
+    .filter(
+      (r: RecordData) =>
+        (!r.kind || r.kind === "document") &&
+        (!r.document_ids || r.document_ids.includes(currentDoc?.id)),
+    )
+    .at(-1);
+  const waiting =
+    currentJob &&
+    ["running", "submission uncertain / reconcile before retry"].includes(
+      currentJob.status,
+    ) &&
+    !currentJob.stale;
+  const nextInstruction = currentJob?.stale
+    ? "Evidence changed. Inspect the revision consequences before a current interpretation."
+    : waiting
+      ? "Submitted. Reconcile the saved execution; another click must not submit a duplicate."
+      : currentJob?.draft?.candidates?.length
+        ? "Inspect the cited originals and unresolved items, then open critical-fact review."
+        : currentJob && currentJob.status !== "running"
+          ? "Insufficient or failed interpretation: inspect the original and the recorded diagnostic before an explicit new request."
+          : "Interpret the selected original with Evolus, then review the proposed scope.";
   const live = (
     <details className="assist-provider">
       <summary>
@@ -267,6 +335,37 @@ export function ContinuationPanel({
       )}
       {part === "sources" && (
         <>
+          <article
+            className="module-card process-next"
+            aria-label="Evidence process next step"
+          >
+            <span className="eyebrow">WHAT ARRIVED · WHAT HAPPENS NEXT</span>
+            <h3>{currentDoc?.filename || "Select an original source"}</h3>
+            <p>
+              <strong>Current next step:</strong> {nextInstruction}
+            </p>
+            {data.suitability
+              ?.filter((s: RecordData) => s.document_id === currentDoc?.id)
+              .map((s: RecordData) => (
+                <div key={s.document_id}>
+                  <p>
+                    {s.status} · {s.readable_blocks} retained blocks
+                    {s.pages.length ? " · pages " + s.pages.join(", ") : ""}
+                  </p>
+                  {s.gaps.length > 0 && (
+                    <ul>
+                      {s.gaps.map((g: string) => (
+                        <li key={g}>{g}</li>
+                      ))}
+                    </ul>
+                  )}
+                  <p>
+                    <strong>Next:</strong> {s.next_action}
+                  </p>
+                  <p className="caption">{s.boundary}</p>
+                </div>
+              ))}
+          </article>
           <Section
             eyebrow="EVIDENCE INTERPRETATION"
             title="Read the source. Review the proposal."
@@ -298,8 +397,8 @@ export function ContinuationPanel({
               </label>
               <div className="button-row">
                 <button
-                  className="button primary"
-                  disabled={disabled || !currentDoc}
+                  className="button"
+                  disabled={disabled || !currentDoc || !!waiting}
                   onClick={() =>
                     void op.act(async () => {
                       await generate("document", {
@@ -314,8 +413,8 @@ export function ContinuationPanel({
                   Interpret with live Gemma
                 </button>
                 <button
-                  className="button"
-                  disabled={disabled || !currentDoc}
+                  className="button primary"
+                  disabled={disabled || !currentDoc || !!waiting}
                   onClick={() =>
                     void op.act(async () => {
                       await mutate("assist-run", {
@@ -341,11 +440,26 @@ export function ContinuationPanel({
                   <div className="assist-card-heading">
                     <h3>Source interpretation</h3>
                     <span className="assist-status">
-                      {r.mode === "live" ? "LIVE" : "SYNTHETIC"} · {r.status}
+                      {r.mode === "live"
+                        ? r.provider_path || "Live Evolus"
+                        : "SYNTHETIC"}{" "}
+                      ·{" "}
+                      {r.status === "unreviewed proposal" &&
+                      !r.draft?.candidates?.length
+                        ? "Insufficient evidence / no source facts"
+                        : r.status === "running"
+                          ? "Submitted · extracting / interpreting"
+                          : r.status}
                     </span>
                   </div>
                   <p>{r.error || r.authority}</p>
-                  {r.stale && <p className="caption">Historical proposal · evidence or reviewed facts changed. Start a current interpretation before revising this decision.</p>}
+                  {r.stale && (
+                    <p className="caption">
+                      Historical proposal · evidence or reviewed facts changed.
+                      Start a current interpretation before revising this
+                      decision.
+                    </p>
+                  )}
                   {r.correction && (
                     <p className="assist-uncertain">
                       Manually corrected after {r.raw_quality_status}. The
@@ -363,19 +477,23 @@ export function ContinuationPanel({
                       }
                     />
                   )}
-                  {r.status === "running" && (
-                    <button
-                      className="button"
-                      disabled={disabled}
-                      onClick={() =>
-                        void op.act(async () => {
-                          await mutate("assist-poll", { job_id: r.id });
-                        })
-                      }
-                    >
-                      Fetch authenticated execution status
-                    </button>
-                  )}
+                  {[
+                    "running",
+                    "submission uncertain / reconcile before retry",
+                  ].includes(r.status) &&
+                    r.external_execution_id && (
+                      <button
+                        className="button"
+                        disabled={disabled}
+                        onClick={() =>
+                          void op.act(async () => {
+                            await mutate("assist-poll", { job_id: r.id });
+                          })
+                        }
+                      >
+                        Reconcile saved execution status
+                      </button>
+                    )}
                   {(r.draft?.candidates || []).map(
                     (c: RecordData, i: number) => (
                       <div className="assist-claim" key={i}>
@@ -392,23 +510,23 @@ export function ContinuationPanel({
                             </span>
                           )}
                         </div>
-                        <SourceQuote source={c.source} />
+                        <SourceQuote source={c.source} onInspect={onEvidence} />
                       </div>
                     ),
                   )}
                   {(r.draft?.changes || []).map((c: RecordData, i: number) => (
                     <div className="assist-diff" key={"d" + i}>
-                      <SourceQuote source={c.before} />
+                      <SourceQuote source={c.before} onInspect={onEvidence} />
                       <ArrowRight size={18} />
-                      <SourceQuote source={c.after} />
+                      <SourceQuote source={c.after} onInspect={onEvidence} />
                     </div>
                   ))}
                   {(r.draft?.contradictions || []).map(
                     (c: RecordData, i: number) => (
                       <div className="assist-conflict" key={"c" + i}>
                         <strong>Contradiction · review both passages</strong>
-                        <SourceQuote source={c.before} />
-                        <SourceQuote source={c.after} />
+                        <SourceQuote source={c.before} onInspect={onEvidence} />
+                        <SourceQuote source={c.after} onInspect={onEvidence} />
                       </div>
                     ),
                   )}
@@ -454,6 +572,24 @@ export function ContinuationPanel({
                 </article>
               ))}
           </Section>
+          <details className="module-card process-knowledge">
+            <summary>Consult applicable approved procedures</summary>
+            <p>
+              Optional evidence support for the current decision. This does not
+              approve scope or release stock. Current Blob mode uses Unicode
+              lexical selection and retained Evolus content, not Evolus semantic
+              search.
+            </p>
+            <KnowledgePanel
+              state={state}
+              data={data}
+              readOnly={readOnly}
+              mode="live"
+              initialLibrary
+              update={update}
+              refresh={refresh}
+            />
+          </details>
           <Section
             eyebrow="ORIGINAL-LINKED LANGUAGE REVIEW"
             title="Keep the original authoritative"
@@ -1407,7 +1543,10 @@ function LabelPanel({
               >
                 Read with live AMD vision
               </button>
-              <p className="caption">Label model: {data.provider?.vision_model_id || 'Unavailable'} · original-image review remains required.</p>
+              <p className="caption">
+                Label model: {data.provider?.vision_model_id || "Unavailable"} ·
+                original-image review remains required.
+              </p>
               <details>
                 <summary>
                   Manual operator transcription · explicit alternative

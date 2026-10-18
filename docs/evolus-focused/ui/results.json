@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": [
+    "Focus/reconnect preserves Synthetic selection",
+    "Cancelled save makes no checkpoint claim",
+    "Failed close makes no checkpoint claim",
+    "Injected successful browser write+close records exact packet hash",
+    "Reload compares export hash and detects newer work",
+    "Original PDF page2 rendered from hash-verified retained source",
+    "1440/1092/390 layouts and keyboard focus checked",
+    "Fallback download saved by test runner; UI correctly reports unconfirmed completion"
+  ],
+  "page_errors": [],
+  "inference_calls": 0,
+  "method": "Real local web UI; browser file-picker outcomes injected, not native-dialog acceptance. Actual fallback download and server PDF renderer used."
+}

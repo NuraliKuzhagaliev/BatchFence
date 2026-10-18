@@ -1,0 +1,10 @@
+{
+  "commit": "7d5b291bbd5e9e1b2bd9e3195ff1803f5f67c2ac",
+  "source_archive_members": 1929,
+  "source_path_check": "no private/runtime/release/dependency paths",
+  "accepted_client_source_matches_release": true,
+  "final_runtime_delta_from_acceptance": "backend health version metadata only, plus evidence/regression files",
+  "installer_sha256": "df0e3f3beee5a69d5e1d4b552dce69ff0515496190883de8c3bd289b38d37f26",
+  "installer_bytes": 113797084,
+  "source_sha256": "2fc2694489342f2adcdcf22a8b3feaf7be5a1eb28cdd33301be0e5c9a6c7a401"
+}

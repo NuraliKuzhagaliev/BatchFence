@@ -1,8 +1,12 @@
 export type Evidence = { document_id: string; block_id: string; quote: string };
 export type Document = {
-  evidence_language?:string;
-  language_review_required?:boolean;
-  ocr?: {engine:string;critical_fields_confirmed:boolean;pages:{page:number;image_hash:string}[]};
+  evidence_language?: string;
+  language_review_required?: boolean;
+  ocr?: {
+    engine: string;
+    critical_fields_confirmed: boolean;
+    pages: { page: number; image_hash: string }[];
+  };
   request_id?: string;
   request_snapshot?: Question;
   id: string;
@@ -10,7 +14,7 @@ export type Document = {
   revision: number;
   media_type: string;
   synthetic: boolean;
-  blocks: { id: string; text: string }[];
+  blocks: { id: string; text: string; page?: number }[];
   original_hash: string;
   text_hash: string;
 };
@@ -58,25 +62,44 @@ export type Result = {
   shipment_reviews: string[];
   narrowing_available: boolean;
 };
-export type Hypothesis = {kind: "identity" | "boundary" | "inconclusive"; pool_id?: string; supplier_lot_id?: string; complete?: boolean; lot_ids?: string[]; uncertain_lot_ids?: string[]};
-export type Question = {
-    id: string;
-    pool_ids: string[];
-    units: number;
-    value_cents: number;
-    missing: string;
-    reason: string;
-    draft: string;
-    kind?: string;
-    evidence?: Evidence[];
-    suggested_role?: string;
-    review_existing_first?: boolean;
-    global?: boolean;
-    hypotheses?: Hypothesis[];
-    impact_note?: string;
-    sort_reason?: string;
+export type Hypothesis = {
+  kind: "identity" | "boundary" | "inconclusive";
+  pool_id?: string;
+  supplier_lot_id?: string;
+  complete?: boolean;
+  lot_ids?: string[];
+  uncertain_lot_ids?: string[];
 };
-export type Simulation = {label:string; before:Result; after:Result; changed_units:number; changed_value_cents:number; changed_pool_ids:string[]; new_order_reviews:string[]; removed_order_reviews:string[]; applied_hold_units:number; warning:string; remaining_blockers:Question[]};
+export type Question = {
+  id: string;
+  pool_ids: string[];
+  units: number;
+  value_cents: number;
+  missing: string;
+  reason: string;
+  draft: string;
+  kind?: string;
+  evidence?: Evidence[];
+  suggested_role?: string;
+  review_existing_first?: boolean;
+  global?: boolean;
+  hypotheses?: Hypothesis[];
+  impact_note?: string;
+  sort_reason?: string;
+};
+export type Simulation = {
+  label: string;
+  before: Result;
+  after: Result;
+  changed_units: number;
+  changed_value_cents: number;
+  changed_pool_ids: string[];
+  new_order_reviews: string[];
+  removed_order_reviews: string[];
+  applied_hold_units: number;
+  warning: string;
+  remaining_blockers: Question[];
+};
 export type Run = {
   timestamp?: string;
   clock_source?: string;
@@ -96,14 +119,27 @@ export type Run = {
   elapsed_ms?: number;
   error?: string;
   scope_concerns?: Evidence[];
-  validated_proposals?: {facts:{lot_id:string;status:string}[];scope_status:string};
+  validated_proposals?: {
+    facts: { lot_id: string; status: string }[];
+    scope_status: string;
+  };
   output?: {
-    facts: { lot_id: string; affected: boolean; proposal_disposition?:string; proposal_incident_status?:string; evidence: Evidence[] }[];
+    facts: {
+      lot_id: string;
+      affected: boolean;
+      proposal_disposition?: string;
+      proposal_incident_status?: string;
+      evidence: Evidence[];
+    }[];
     qualifiers: string[];
   };
 };
 export type Plan = {
-  inputs?: {lineage: Case['edges']; stocks: Stock[]; reviewed_scope: Case['scope']};
+  inputs?: {
+    lineage: Case["edges"];
+    stocks: Stock[];
+    reviewed_scope: Case["scope"];
+  };
   id: string;
   digest: string;
   status: string;
@@ -127,7 +163,11 @@ export type Case = {
   receiving_runs?: Record<string, any>[];
   hold_ledger?: Record<string, any>[];
   recovery_receipts?: Record<string, any>[];
-  quantities?: {applied_hold_units:number;recovery_pending_units:number;confirmed_recovery_units:number};
+  quantities?: {
+    applied_hold_units: number;
+    recovery_pending_units: number;
+    confirmed_recovery_units: number;
+  };
   id: string;
   name: string;
   incident: string;
@@ -137,7 +177,13 @@ export type Case = {
   documents: Document[];
   stocks: Stock[];
   edges: { source: string; target: string; kind: string; evidence: Evidence }[];
-  scope: { lot_ids: string[]; revision: number; uncertain_lot_ids?: string[]; excluded_lot_ids?: string[]; incident_scope_status?: "unresolved" | "resolved" };
+  scope: {
+    lot_ids: string[];
+    revision: number;
+    uncertain_lot_ids?: string[];
+    excluded_lot_ids?: string[];
+    incident_scope_status?: "unresolved" | "resolved";
+  };
   bounded: boolean;
   policy: { id: string; rule: string };
   runs: Run[];

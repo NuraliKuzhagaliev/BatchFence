@@ -1,0 +1,20 @@
+{
+  "installer": "BatchFence-0.4.0-rc.4-win-x64-setup.exe",
+  "bytes": 113799064,
+  "sha256": "d564f116deafa987e00e167976d72122f7f7522c7900601ee17a60c9ab2982bf",
+  "silent_install_exit": 0,
+  "installed_path": "D:\\projects\\BatchFence\\work\\installed-0.4.0-rc.4\\BatchFence Evidence Preview.exe",
+  "separate_app_id": "app.batchfence.focused040rc4",
+  "unsigned": true,
+  "installed_local_assets_match": [
+    {
+      "name": "index-BeYKFizs.js",
+      "sha256": "23c10705db15554379ccb192651dcb255dbdba91734494a32fc754e8a12f8262"
+    },
+    {
+      "name": "index-C1izMUIu.css",
+      "sha256": "dc2916c8692bf131bb62ddba706fd4a2247de174d0d35d14039b57bcc4b7121e"
+    }
+  ],
+  "rc3_preserved": true
+}

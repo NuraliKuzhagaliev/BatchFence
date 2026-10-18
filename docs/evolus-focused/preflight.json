@@ -1,0 +1,238 @@
+{
+  "at": "2026-10-18T00:12:29.002032+00:00",
+  "operations": "Read-only account/catalog/configuration; no model or indexing dispatch",
+  "evolus_balance": [
+    {
+      "bucketId": "92e2bcdc-315a-4113-a101-146575a6f72e",
+      "applicationId": "705220fb-be5e-4d61-b1ee-5a5fc824ab8e",
+      "bucketType": {
+        "code": "LLM_CREDITS"
+      },
+      "monthlyBalance": 50000.0,
+      "extraBalance": 0.0,
+      "totalBalance": 50000.0,
+      "lastResetAt": "2026-10-16T22:01:20.3065606Z",
+      "monthlyAllocation": null,
+      "lots": [],
+      "monthlyCreditsResetAt": "2026-11-16T00:00:00Z",
+      "monthlyCreditsRemaining": 50000.0
+    }
+  ],
+  "catalog": {
+    "http_status": 422
+  },
+  "amd": {
+    "daily_cost_limit_usd": 1,
+    "daily_cost_used_usd": 0.004623842425644398,
+    "daily_cost_remaining_usd": 0.9953761575743556,
+    "daily_reset_at": "2026-10-18T16:00:00.000Z"
+  },
+  "document_formats": {
+    "extensions": [
+      ".txt",
+      ".md",
+      ".csv",
+      ".json",
+      ".xml",
+      ".html",
+      ".htm",
+      ".pdf",
+      ".docx"
+    ],
+    "maxFileSizeMb": 50,
+    "maxFileSizeBytes": 52428800
+  },
+  "workflow_step_catalog": {
+    "steps": [
+      {
+        "key": "Ocr",
+        "type": 0,
+        "title": "Read the document (OCR)",
+        "summary": "Reads the text of the startup files or of the files of the linked sources.",
+        "parts": 2
+      },
+      {
+        "key": "AgentCall",
+        "type": 1,
+        "title": "Ask an agent",
+        "summary": "Asks an agent of the application, optionally with an output structure.",
+        "parts": 1
+      },
+      {
+        "key": "Webhook",
+        "type": 2,
+        "title": "Call an endpoint (API)",
+        "summary": "Sends the data to a catalog webhook or makes a custom HTTP call.",
+        "parts": 2
+      },
+      {
+        "key": "Email",
+        "type": 3,
+        "title": "Send an email",
+        "summary": "Sends an email with templates and, optionally, the files of the linked sources.",
+        "parts": 1
+      },
+      {
+        "key": "Merge",
+        "type": 4,
+        "title": "Merge results",
+        "summary": "Combines JSON data, also from several linked sources.",
+        "parts": 1
+      },
+      {
+        "key": "CreateFile",
+        "type": 5,
+        "title": "Create a file",
+        "summary": "Turns the JSON input into a CSV or JSON file for the delivery steps.",
+        "parts": 1
+      },
+      {
+        "key": "WhatsApp",
+        "type": 6,
+        "title": "Send on WhatsApp",
+        "summary": "Sends a text or an approved template from a WhatsApp number of the application.",
+        "parts": 1
+      },
+      {
+        "key": "LlmCall",
+        "type": 7,
+        "title": "Process with AI",
+        "summary": "Calls a model inline with a system prompt and an optional output structure.",
+        "parts": 3
+      },
+      {
+        "key": "If",
+        "type": 8,
+        "title": "Choice (if\u2026 else)",
+        "summary": "Activates the true or false branch with rules, a script, an AI prompt or a typed decision.",
+        "parts": 2
+      },
+      {
+        "key": "ForEach",
+        "type": 9,
+        "title": "Repeat for each item",
+        "summary": "Runs the loop body once per item of a list, or once per document.",
+        "parts": 5
+      },
+      {
+        "key": "CreateEmployeeTask",
+        "type": 10,
+        "title": "Task for the digital employee",
+        "summary": "Creates a task for a digital employee and goes on.",
+        "parts": 1
+      },
+      {
+        "key": "CallWorkflow",
+        "type": 11,
+        "title": "Start another automation",
+        "summary": "Runs another workflow of the same application.",
+        "parts": 1
+      },
+      {
+        "key": "Switch",
+        "type": 12,
+        "title": "Routing",
+        "summary": "Activates the branch of one case, or the default branch.",
+        "parts": 2
+      },
+      {
+        "key": "DataExtractor",
+        "type": 13,
+        "title": "Call a data extractor",
+        "summary": "Extracts data from the documents with a data extractor and its schema.",
+        "parts": 1
+      },
+      {
+        "key": "Output",
+        "type": 14,
+        "title": "Automation output",
+        "summary": "Declares the result of the automation.",
+        "parts": 1
+      },
+      {
+        "key": "PhoneCall",
+        "type": 15,
+        "title": "Call a number",
+        "summary": "Calls a number with an AI switchboard of the application.",
+        "parts": 1
+      },
+      {
+        "key": "AiTool",
+        "type": 16,
+        "title": "AI Tool",
+        "summary": "Runs one of the AI Tools of the platform catalog on text or documents.",
+        "parts": 2
+      },
+      {
+        "key": "AnonymizeData",
+        "type": 17,
+        "title": "Anonymize data",
+        "summary": "Replaces personal data with surrogates that RestoreData can reverse.",
+        "parts": 1
+      },
+      {
+        "key": "RestoreData",
+        "type": 18,
+        "title": "Restore data",
+        "summary": "Puts back the real values replaced by an AnonymizeData step.",
+        "parts": 1
+      },
+      {
+        "key": "Script",
+        "type": 19,
+        "title": "Run a script",
+        "summary": "Transforms the data with deterministic JavaScript.",
+        "parts": 2
+      },
+      {
+        "key": "Decision",
+        "type": 20,
+        "title": "Decision",
+        "summary": "Asks a decision model one or more typed questions and outputs the answers with their probabilities.",
+        "parts": 2
+      }
+    ],
+    "topics": [
+      {
+        "key": "fields",
+        "title": "Step fields",
+        "parts": 1
+      },
+      {
+        "key": "input",
+        "title": "Step input (inputMode)",
+        "parts": 1
+      },
+      {
+        "key": "links",
+        "title": "Links and If/Switch branches",
+        "parts": 1
+      },
+      {
+        "key": "placeholders",
+        "title": "Placeholders",
+        "parts": 1
+      },
+      {
+        "key": "parameters",
+        "title": "Execution parameters",
+        "parts": 1
+      },
+      {
+        "key": "default-model",
+        "title": "AI blocks without a model (let Evolus choose) and own models",
+        "parts": 2
+      },
+      {
+        "key": "page-groups",
+        "title": "Page-chunk groups",
+        "parts": 1
+      },
+      {
+        "key": "loops",
+        "title": "ForEach body, iteration context and documents",
+        "parts": 3
+      }
+    ]
+  }
+}

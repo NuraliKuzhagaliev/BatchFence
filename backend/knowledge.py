@@ -1,5 +1,5 @@
 """Authorized revision selection precedes lexical retrieval and AMD context."""
-import re
+import re,unicodedata
 from datetime import datetime,timezone
 from pydantic import BaseModel,ConfigDict,Field
 from .domain import DomainError,digest
@@ -57,7 +57,14 @@ def validate_document(doc):
     if not start.tzinfo or (end and (not end.tzinfo or end<=start)):raise DomainError('Procedure validity must use a valid timezone-aware interval')
 
 
+def lexical_terms(text):
+    # Search-only canonical normalization. Original text and identifier
+    # comparisons remain byte/exact-string based; no confusable folding.
+    return set(re.findall(r'[^\W_]+',unicodedata.normalize('NFC',text).casefold()))
+
+
 def retrieve(documents,question,product,process,synthetic,at=None):
+    if not isinstance(question,str) or not 1<=len(question)<=1000:raise DomainError('Knowledge question limit: 1–1000 characters')
     at=at or datetime.now(timezone.utc)
     applicable=[]
     for doc in documents:
@@ -69,14 +76,15 @@ def retrieve(documents,question,product,process,synthetic,at=None):
     for doc in applicable:by_id.setdefault(doc['id'],[]).append(doc)
     conflicts=[key for key,versions in by_id.items() if len(versions)>1]
     if conflicts:return {'status':'insufficient','reason':'Overlapping approved revisions require owner resolution: '+', '.join(conflicts),'passages':[]}
-    terms=set(re.findall('[a-z0-9]+',question.lower()))-{'the','a','is','are','to','of','in','and','what','how','for','which','can','i','it','this'}
+    terms=lexical_terms(question)-{'the','a','is','are','to','of','in','and','what','how','for','which','can','i','it','this'}
+    if len(terms)>128:raise DomainError('Knowledge question limit: 128 distinct search terms')
     scored=[]
     for doc in applicable:
         for p in doc['passages']:
-            score=len(terms & set(re.findall('[a-z0-9]+',p['text'].lower())))
+            score=len(terms & lexical_terms(p['text']))
             if score:scored.append((score,{'document_id':doc['id'],'version':doc['version'],'passage_id':p['id'],'quote':p['text'],'page':p['page'],'source_hash':doc['source_hash']}))
     scored.sort(key=lambda x:(-x[0],x[1]['document_id'],x[1]['passage_id']))
-    return {'status':'retrieved' if scored else 'insufficient','reason':'' if scored else 'No applicable approved passage supports this question','passages':[p for _,p in scored[:8]]}
+    return {'status':'retrieved' if scored else 'insufficient','reason':'' if scored else 'No applicable approved passage supports this question; lexical matching does not translate across languages','passages':[p for _,p in scored[:8]],'method':'Unicode lexical matching of approved applicable originals; no translation or semantic-search claim'}
 
 
 def validate_answer(raw,retrieval):

@@ -1,0 +1,61 @@
+{
+  "library_id": "df996134-8cca-f111-bf5b-6045bd9ce552",
+  "library_type": "Rag",
+  "scope": "ad93d1a0523b60c0e7623358598cf4b3ca4793299550c92c7507d7b2fbd23f1b",
+  "product": "Decorative housing",
+  "process": "coating",
+  "status": "indexed verified scope",
+  "catalog_digest": "80211d4f60579a4ee7bc6049fb4a1ff19aca6e68c720ed31b7fa8fc8e189b9bd",
+  "documents": [
+    {
+      "document_id": "SOP-FOCUSED-EN",
+      "version": 1,
+      "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+      "remote_document_id": "dcedf524-40a2-4993-bc4c-b8ec4102214f",
+      "ingestion_status": 2,
+      "uploaded_content_hash": "9c72943ae39faf048024a1c18f3aa631d4fd4356ae355ccc2710798a663ac397",
+      "source_basis": "Approved retained passages; Rag adds explicit document/version/passage headers"
+    }
+  ],
+  "at": "2026-10-18T00:40:50.293703+00:00",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "note": "Create one isolated read-only fictional SOP set; original source/version hashes reviewed.",
+  "provenance": [
+    {
+      "provider": "Evolus",
+      "at": "2026-10-18T00:36:57.822367+00:00",
+      "method": "POST",
+      "path": "/api/v1/memories/df996134-8cca-f111-bf5b-6045bd9ce552/documents",
+      "http_status": 201,
+      "elapsed_ms": 1543,
+      "response_hash": "8feffa6a66732e101b2f9e93b3dc2d2c5437cd47e1c293cdcedd811565e63006",
+      "request_id": null,
+      "execution_header": null,
+      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+    }
+  ],
+  "credit_observations": [
+    {
+      "before": {
+        "spendable_platform_credits": 50000.0,
+        "at": "2026-10-18T00:36:56.273505+00:00",
+        "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+      },
+      "after": {
+        "spendable_platform_credits": 50000.0,
+        "at": "2026-10-18T00:36:58.470705+00:00",
+        "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+      },
+      "delta_account_wide": 0.0,
+      "tariff": "Metadata403; authorized small event-credit probe, actual balance monitored"
+    }
+  ],
+  "error": null,
+  "agent_id": "c2f572a6-fe82-41db-9f43-0807af22d44e",
+  "agent_prompt_hash": "ce2d9cc1ac40526d3deb6b0cf438765be14f08fd3a4ce1d6a98fe54ad4008e8f",
+  "configured_model_key": "own/gemma-4-31b-it",
+  "reconciled": true
+}

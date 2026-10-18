@@ -1,0 +1,39 @@
+{
+  "release": "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.3",
+  "commit": "7d5b291bbd5e9e1b2bd9e3195ff1803f5f67c2ac",
+  "assets": [
+    {
+      "name": "BatchFence-0.4.0-rc.3-win-x64-setup.exe",
+      "bytes": 113797084,
+      "sha256": "df0e3f3beee5a69d5e1d4b552dce69ff0515496190883de8c3bd289b38d37f26",
+      "anonymous_full_download_matches": true
+    },
+    {
+      "name": "BatchFence-0.4.0-rc.3-source.zip",
+      "bytes": 130401986,
+      "sha256": "2fc2694489342f2adcdcf22a8b3feaf7be5a1eb28cdd33301be0e5c9a6c7a401",
+      "anonymous_full_download_matches": true
+    },
+    {
+      "name": "RELEASE-NOTES-0.4.0-rc.3.md",
+      "bytes": 2275,
+      "sha256": "cec29ec4de7ca12afb65592969f797165c5bce6783c7b93294778555f3a4419d",
+      "anonymous_full_download_matches": true
+    },
+    {
+      "name": "release-manifest-0.4.0-rc.3.json",
+      "bytes": 1582,
+      "sha256": "86da4b99a3d404517f98a1b863ad8c181b120dca3b633758e5631cb24038501f",
+      "anonymous_full_download_matches": true
+    },
+    {
+      "name": "SHA256SUMS-0.4.0-rc.3.txt",
+      "bytes": 402,
+      "sha256": "3568750a0d78226bda2dc27272fec82c658cebf732e33ed43100a054f3d0bdba",
+      "anonymous_full_download_matches": true
+    }
+  ],
+  "github_tag_source_members_byte_match": 1929,
+  "private_authorization_headers_used": false,
+  "no_provider_calls": true
+}

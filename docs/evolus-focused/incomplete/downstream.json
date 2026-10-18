@@ -1,0 +1,18 @@
+{
+  "raw_quality": "SUP-A affected; SUP-B uncertain; partial boundary; receiving contradiction retained; raw unchanged.",
+  "application_containment": "Existing block-level conservative review prevents confirming SUP-A when its retained block also contains SUP-B uncertainty. Both kept uncertain in agent review; clarification needed for narrowing.",
+  "initial_review_http": 422,
+  "initial_review_error": "UNRESOLVED_LOT",
+  "reviewed_proposed_hold_units": 1200,
+  "unsupported_exclusion_http": 422,
+  "unsupported_exclusion_response": {
+    "detail": {
+      "code": "UNRESOLVED_LOT",
+      "message": "The source leaves this lot unresolved. Keep it uncertain or upload a clarifying notice"
+    }
+  },
+  "applied_hold_units": 0,
+  "receipts_unchanged": true,
+  "harness_corrections": "An initial assertion incorrectly assumed1500 total units. Actual inventory sums1200; no model output or source changed.",
+  "authority": "No approval or execution; agent-operated evidence only"
+}

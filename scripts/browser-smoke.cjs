@@ -146,6 +146,9 @@ async function main() {
     .getByRole("heading", { name: "Holds applied. Evidence preserved." })
     .waitFor();
   await shot("06-receipt-1440");
+  // Exercise the download fallback; file-picker success/cancel/failure is
+  // verified separately by focused-ui.cjs, without an unattended OS dialog.
+  await page.evaluate(()=>Object.defineProperty(window,'showSaveFilePicker',{value:undefined,configurable:true}));
   const downloadPromise = page.waitForEvent("download");
   await click("Export packet");
   const download = await downloadPromise;
