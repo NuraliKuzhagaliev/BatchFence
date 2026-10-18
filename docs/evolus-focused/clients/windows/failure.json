@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-18T01:43:05.839Z",
+  "error": "locator.waitFor: Timeout 25000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.assist-proposal').filter({ hasText: 'ASSIST-6ea01e9802f07d084116a128' }).getByText(/Manually corrected after/) to be visible\u001b[22m\n",
+  "outcomes": [
+    {
+      "stage": "first",
+      "expected_affected": [
+        "SUP-A"
+      ],
+      "raw_affected": [
+        "SUP-A"
+      ],
+      "raw_scope": "complete",
+      "raw_correction": false,
+      "raw_affected_correct": true,
+      "reviewed_affected": [
+        "SUP-A"
+      ],
+      "review": "Agent-operated review of retained fictional originals, exact lot dispositions and complete boundary. Explicit engineering approval only; no independent human acceptance.",
+      "applied_units": 500,
+      "receipts": 1,
+      "client_elapsed_ms": 31480,
+      "continued_existing_response": false,
+      "model_application_elapsed_ms": 28422,
+      "remote_execution_id": "06674c42-95ca-f111-bf5b-6045bd9ce552",
+      "explicit_status_reconciliations": 0
+    }
+  ],
+  "errors": [],
+  "automatic_retry": false
+}

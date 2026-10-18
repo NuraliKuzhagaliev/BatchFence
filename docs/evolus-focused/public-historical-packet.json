@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "runtime": "e847bb7cfb557e7fa055bb52244b9e9477701168",
+  "packet_sha256": "c64eae2d5b671003e1e3f11ab67e51a8631da1e47f455efa30e70aec6ffaed17",
+  "null_runtime_model_preserved": true,
+  "original_two_receipts_readable": true,
+  "approve_controls_absent": true,
+  "inference_calls": 0,
+  "provenance": "Original genuine pre-fix public packet, reopened unchanged by the fixed public reader; historical evidence, not fresh inference"
+}

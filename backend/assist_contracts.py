@@ -58,7 +58,11 @@ def validate_draft(state,raw):
         if c['kind'] in ('supplier_lot','stock_pool','receipt_id','document_id','lineage_row') and not mentions(c['value'],c['source']['quote']):
             raise DomainError('Identifier candidate must preserve its exact source spelling')
     from .scope_proposals import validate_proposals
-    identified=[c for c in draft['candidates'] if c.get('incident_status') is not None and c['kind'] in ('supplier_lot','stock_pool','receipt_id','document_id','lineage_row')]
+    # Document labels may legitimately contain a revision or spaces. They are
+    # cited metadata, never stock-lot seeds; do not pass them through the lot-ID
+    # grammar. Their exact source presence is still checked above.
+    if any(c['kind']=='document_id' and c.get('incident_status') not in (None,'mentioned') for c in draft['candidates']):raise DomainError('Document metadata cannot assert an incident disposition')
+    identified=[c for c in draft['candidates'] if c.get('incident_status') is not None and c['kind'] in ('supplier_lot','stock_pool','receipt_id','lineage_row')]
     validate_proposals({'facts':[{'lot_id':c['value'],'kind':c['kind'],'status':c['incident_status'],'evidence':[{k:c['source'][k] for k in ('document_id','block_id','quote')}]} for c in identified],
         'qualifiers':draft['unresolved'],'scope_status':draft['incident_scope'],'scope_evidence':draft['scope_evidence']},state['documents'])
     draft['scope_evidence']=[citation(state,e) for e in draft['scope_evidence']]

@@ -1,0 +1,264 @@
+{
+  "id": "GENERATE-1ff1244df5e4114853434ed7",
+  "case_id": "319fc58783a44d3791cc284ad2874580",
+  "kind": "knowledge",
+  "document_ids": [],
+  "mode": "live",
+  "provider_path": "Direct Gemma / managed-amd-shared",
+  "status": "unreviewed proposal",
+  "request_hash": "71d667a4d5daa3132951f935371b83be613720d1ab13fc0857ce486f5cd5efd5",
+  "generation_hash": "2444d8f27239a240df82e83ea4216016061e56e814485107d3115049be5a913e",
+  "snapshot_hash": "aae8176f3fa4f3140a9625d68a621d208f622ca8622c728ba6611f0f31aaf2e4",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "started_at": "2026-10-18T01:42:46.468944+00:00",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "a4bba417414313892eb8145c247f0fc08499948df34768c91135ea557d8688df",
+    "dispatch": 3,
+    "conservative_remaining": 0.9647839761152863,
+    "stop_margin": 0.1
+  },
+  "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+  "raw_output": {
+    "selections": [
+      {
+        "document_id": "SOP-FOCUSED-EN",
+        "version": 1,
+        "passage_id": "recovery"
+      }
+    ],
+    "insufficient_evidence": false,
+    "missing_information": []
+  },
+  "provenance": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-18T01:42:56.053082+00:00",
+    "elapsed_ms": 9079,
+    "request_contract": {
+      "endpoint": "https://developer.amd.com.cn/radeon/api/v1/chat/completions",
+      "image_input": false,
+      "response_format": {
+        "type": "json_object"
+      },
+      "payload_sha256": "57dbfbc5428eb48861b790e9acd90d41aae56be4b4df67d0ca96153a05a1c674"
+    },
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "00fb54f9e13c41098a9cecaa514f09a7",
+    "usage": {
+      "prompt_tokens": 812,
+      "total_tokens": 862,
+      "completion_tokens": 50,
+      "prompt_tokens_details": {
+        "cached_tokens": 4,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.0000317828,
+      "cost_details": {
+        "upstream_inference_cost": 0.0000317828,
+        "upstream_inference_prompt_cost": 0.0000282828,
+        "upstream_inference_completions_cost": 0.0000035,
+        "total_cost": 0.0000317828,
+        "input_cost": 0.00002828,
+        "output_cost": 0.0000035,
+        "cached_input_cost": 2.8e-9,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "105de483c2ef06e31ff17a34ba1de1725557cec379ab7ff095e95b52c03578cc",
+    "http_status": 200,
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "library_provenance": [
+    {
+      "provider": "Evolus",
+      "at": "2026-10-18T01:42:46.761493+00:00",
+      "method": "GET",
+      "path": "/api/v1/memories/245c84a5-8eca-f111-bf5b-6045bd9ce552/documents",
+      "http_status": 200,
+      "elapsed_ms": 235,
+      "response_hash": "d98472b9239042331f0b16e36aa74708ece124362d35b20dfbc4291c5d7ac03e",
+      "request_id": null,
+      "execution_header": null,
+      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+    },
+    {
+      "provider": "Evolus",
+      "at": "2026-10-18T01:42:46.973926+00:00",
+      "method": "GET",
+      "path": "/api/v1/memories/245c84a5-8eca-f111-bf5b-6045bd9ce552/documents/7e61a7d6-b7a0-40b7-9ae0-843151b03607/download",
+      "http_status": 200,
+      "elapsed_ms": 203,
+      "response_hash": "6f579714a6d6a17e7edbad0c9ba841b3b6817b68ebf24898b98076dd44d69c47",
+      "request_id": null,
+      "execution_header": null,
+      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+    }
+  ],
+  "finished_at": "2026-10-18T01:42:56.054792+00:00",
+  "draft": {
+    "claims": [
+      {
+        "document_id": "SOP-FOCUSED-EN",
+        "version": 1,
+        "passage_id": "recovery",
+        "quote": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. A source citation, model answer or narrower proposed hold never releases existing applied holds."
+      }
+    ],
+    "insufficient_evidence": false,
+    "missing_information": []
+  },
+  "quote_origin": "Deterministically resolved full authorized original passages; the model selected keys and did not author the displayed quotes",
+  "linked_answer": {
+    "id": "GENERATE-1ff1244df5e4114853434ed7",
+    "case_id": "319fc58783a44d3791cc284ad2874580",
+    "status": "succeeded",
+    "mode": "Live Gemma / isolated Evolus library",
+    "output": {
+      "claims": [
+        {
+          "document_id": "SOP-FOCUSED-EN",
+          "version": 1,
+          "passage_id": "recovery",
+          "quote": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. A source citation, model answer or narrower proposed hold never releases existing applied holds."
+        }
+      ],
+      "insufficient_evidence": false,
+      "missing_information": []
+    },
+    "catalog_digest": "80211d4f60579a4ee7bc6049fb4a1ff19aca6e68c720ed31b7fa8fc8e189b9bd",
+    "retrieval": {
+      "status": "retrieved",
+      "reason": "",
+      "passages": [
+        {
+          "document_id": "SOP-FOCUSED-EN",
+          "version": 1,
+          "passage_id": "recovery",
+          "quote": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. A source citation, model answer or narrower proposed hold never releases existing applied holds.",
+          "page": 1,
+          "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee"
+        },
+        {
+          "document_id": "SOP-FOCUSED-EN",
+          "version": 1,
+          "passage_id": "containment",
+          "quote": "For a supplier notice, retain the original and verify the exact affected lot list and complete incident boundary. Keep unresolved ancestry uncertain. An operator must inspect every critical source assertion before a deterministic containment plan can be approved.",
+          "page": 1,
+          "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee"
+        }
+      ],
+      "method": "Unicode lexical matching of approved applicable originals; no translation or semantic-search claim"
+    },
+    "question": "What evidence and approval are required before recovery?",
+    "provenance": {
+      "provider": "Configured Gemma endpoint",
+      "at": "2026-10-18T01:42:56.053082+00:00",
+      "elapsed_ms": 9079,
+      "request_contract": {
+        "endpoint": "https://developer.amd.com.cn/radeon/api/v1/chat/completions",
+        "image_input": false,
+        "response_format": {
+          "type": "json_object"
+        },
+        "payload_sha256": "57dbfbc5428eb48861b790e9acd90d41aae56be4b4df67d0ca96153a05a1c674"
+      },
+      "requested_model_id": "Gemma-4-31B-IT",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "request_id": "00fb54f9e13c41098a9cecaa514f09a7",
+      "usage": {
+        "prompt_tokens": 812,
+        "total_tokens": 862,
+        "completion_tokens": 50,
+        "prompt_tokens_details": {
+          "cached_tokens": 4,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.0000317828,
+        "cost_details": {
+          "upstream_inference_cost": 0.0000317828,
+          "upstream_inference_prompt_cost": 0.0000282828,
+          "upstream_inference_completions_cost": 0.0000035,
+          "total_cost": 0.0000317828,
+          "input_cost": 0.00002828,
+          "output_cost": 0.0000035,
+          "cached_input_cost": 2.8e-9,
+          "cache_write_input_cost": 0,
+          "request_cost": 0,
+          "web_search_cost": 0,
+          "image_input_cost": null,
+          "image_output_cost": null,
+          "audio_input_cost": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "settings": {
+        "temperature": 0,
+        "max_tokens": 1600
+      },
+      "response_hash": "105de483c2ef06e31ff17a34ba1de1725557cec379ab7ff095e95b52c03578cc",
+      "http_status": 200,
+      "hosting_kind": "managed-amd-shared",
+      "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+    },
+    "library_provenance": [
+      {
+        "provider": "Evolus",
+        "at": "2026-10-18T01:42:46.761493+00:00",
+        "method": "GET",
+        "path": "/api/v1/memories/245c84a5-8eca-f111-bf5b-6045bd9ce552/documents",
+        "http_status": 200,
+        "elapsed_ms": 235,
+        "response_hash": "d98472b9239042331f0b16e36aa74708ece124362d35b20dfbc4291c5d7ac03e",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      },
+      {
+        "provider": "Evolus",
+        "at": "2026-10-18T01:42:46.973926+00:00",
+        "method": "GET",
+        "path": "/api/v1/memories/245c84a5-8eca-f111-bf5b-6045bd9ce552/documents/7e61a7d6-b7a0-40b7-9ae0-843151b03607/download",
+        "http_status": 200,
+        "elapsed_ms": 203,
+        "response_hash": "6f579714a6d6a17e7edbad0c9ba841b3b6817b68ebf24898b98076dd44d69c47",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    ],
+    "timestamp": "2026-10-18T01:42:56.055296+00:00",
+    "boundary": "Exact applicable passage proposals; explicit original evidence review required for any check"
+  },
+  "stale": false
+}

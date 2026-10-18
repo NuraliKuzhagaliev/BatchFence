@@ -1,0 +1,14 @@
+{
+  "run_id": 39087000201,
+  "commit": "e847bb7cfb557e7fa055bb52244b9e9477701168",
+  "selected_test_and_container_log_lines": [
+    "2026-10-18T01:35:34.5770121Z 451 passed, 1 warning in 24.69s",
+    "2026-10-18T01:36:03.0401026Z   \"checks\": [",
+    "2026-10-18T01:36:03.0403108Z   \"passed\": true",
+    "2026-10-18T01:35:34.5770118Z 451 passed, 1 warning in 24.69s",
+    "2026-10-18T01:36:03.0401024Z   \"checks\": [",
+    "2026-10-18T01:36:03.0403106Z   \"passed\": true"
+  ],
+  "raw_log_zip": "Private work directory; not published",
+  "inference_calls": 0
+}

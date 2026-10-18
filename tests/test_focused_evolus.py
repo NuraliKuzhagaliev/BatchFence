@@ -169,9 +169,10 @@ def test_rag_unauthorized_fictional_source_has_no_remote_upload(client,monkeypat
     assert result.status_code==422 and 'exact fictional hashes' in result.text
 
 
-def test_actual_evolus_omission_cannot_become_scope_or_bypass_correction(client,monkeypatch):
+@pytest.mark.parametrize('fixture_name',['retained-omission.json','retained-windows-omission.json'])
+def test_actual_evolus_omission_cannot_become_scope_or_bypass_correction(client,monkeypatch,fixture_name):
     from backend import evolus_adapter as external
-    root=Path(__file__).resolve().parents[1];e=json.loads((root/'evals/evolus-focused-v1/retained-omission.json').read_text())
+    root=Path(__file__).resolve().parents[1];e=json.loads((root/'evals/evolus-focused-v1'/fixture_name).read_text())
     s=post(client,'/api/cases/demo');route='/api/cases/'+s['id']
     s=post(client,route+'/documents',{'filename':'retained-omission.pdf','content_base64':base64.b64encode((root/'evals/evolus-focused-v1/notice-revised-sup-c.pdf').read_bytes()).decode(),'synthetic':True});doc=s['documents'][-1]
     execution=json.loads(json.dumps(e['execution']).replace(e['source_document']['id'],doc['id']))
@@ -191,6 +192,7 @@ def test_actual_evolus_omission_cannot_become_scope_or_bypass_correction(client,
     fixed=post(client,route+'/assist-review',{'proposal_id':job['id'],'corrected_draft':corrected,'reviewed':True,'note':note})
     assert fixed['raw_draft']==execution['draft'] and fixed['raw_quality_status']=='failed validation' and fixed['correction']
     s=post(client,route+'/assist-intake',{'proposal_id':job['id'],'document_id':doc['id'],'revision':s['revision']})
+    assert {f['lot_id'] for f in s['runs'][-1]['output']['facts']}=={'SUP-A','SUP-B','SUP-C'}
     body={'run_id':s['runs'][-1]['id'],'revision':s['revision'],'lot_ids':['SUP-A'],'uncertain_lot_ids':[],'excluded_lot_ids':['SUP-B'],'accept_scope':True,'incident_scope_status':'resolved','resolution_quote':corrected['scope_evidence'][0]['quote'],'bounded_scope_reviewed':True,'note':note}
     wrong=client.post(route+'/reviews',json=body);assert wrong.status_code==422 and 'UNREVIEWED_SOURCE_LOTS' in wrong.text
     good=post(client,route+'/reviews',{**body,'lot_ids':['SUP-A','SUP-C']});assert good['plan']['result']['hold_units']==800 and good['receipts']==[]
@@ -206,3 +208,15 @@ def test_source_list_coverage_distinct_notices_and_exact_identifiers(text,known,
     state={'edges':[{'source':k,'target':'FG'} for k in known]};doc={'blocks':[{'text':text}]}
     assert listed_source_lots(state,doc)==expected
     assert not mentions('A','АA') and not mentions('A','AА') and mentions('LOT.004','LOT.004.')
+
+
+@pytest.mark.parametrize('status',['affected','explicitly_excluded','uncertain'])
+def test_document_metadata_has_no_stock_incident_disposition(status):
+    from backend.assist_contracts import validate_draft
+    text='Supplier notice QF-733 revision 2, 18 October 2026.'
+    state={'documents':[{'id':'D','revision':1,'original_hash':'retained','blocks':[{'id':'B','text':text}]}],'edges':[]}
+    candidate={'kind':'document_id','value':'QF-733 revision 2','disposition':'asserted','incident_status':'mentioned','source':{'document_id':'D','block_id':'B','quote':text}}
+    assert validate_draft(state,{'candidates':[candidate]})['candidates'][0]['value']=='QF-733 revision 2'
+    with pytest.raises(DomainError,match='metadata cannot'):validate_draft(state,{'candidates':[{**candidate,'incident_status':status}]})
+    # This allowance is metadata-only. A stock/supplier ID keeps the strict ID grammar.
+    with pytest.raises(ValueError):validate_draft(state,{'candidates':[{**candidate,'kind':'supplier_lot'}]})

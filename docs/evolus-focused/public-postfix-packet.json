@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "runtime": "e847bb7cfb557e7fa055bb52244b9e9477701168",
+  "packet_sha256": "a87b4e6ac4a8b2f6fe16e643a45ffd2d9769587de2f0b23869137df521775d41",
+  "runtime_identity": "Evolus runtime model ID is not returned; absent ID remains unknown",
+  "original_two_receipts_readable": true,
+  "approve_controls_absent": true,
+  "inference_calls": 0,
+  "provenance": "Current corrective packet: explicitly fixture500 baseline and fresh revised800 response. Reopening is historical read-only evidence, no new inference."
+}

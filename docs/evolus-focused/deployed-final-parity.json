@@ -1,0 +1,28 @@
+{
+  "health": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.4.0-rc.4",
+    "commit": "e847bb7cfb557e7fa055bb52244b9e9477701168",
+    "inference_mode": "fixture",
+    "amd_configured": true,
+    "live_protected": true,
+    "profile": "public",
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  },
+  "assets": [
+    {
+      "asset": "/assets/index-C_vv_RXA.js",
+      "sha256": "c6d2611e234d5df7bd56b1ae293f462195d0e2be21018c257031ea621d509517"
+    },
+    {
+      "asset": "/assets/index-C1izMUIu.css",
+      "sha256": "dc2916c8692bf131bb62ddba706fd4a2247de174d0d35d14039b57bcc4b7121e"
+    }
+  ],
+  "deploy_id": "dep-dba252m1egvs73d9i5r0",
+  "review_policy_version": 5,
+  "installed_public_local_parity": true
+}

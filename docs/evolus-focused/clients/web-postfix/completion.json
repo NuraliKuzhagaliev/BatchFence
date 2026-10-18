@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "at": "2026-10-18T01:41:16.649269+00:00",
+  "runtime": "e847bb7cfb557e7fa055bb52244b9e9477701168",
+  "case_id": "1db9ff5226b64875961720922cc7068c",
+  "raw_scope": "complete",
+  "raw_affected": [
+    "SUP-A",
+    "SUP-C"
+  ],
+  "raw_excluded": [
+    "SUP-B"
+  ],
+  "raw_correction": false,
+  "source_coverage": {
+    "status": "all source-backed extractor identities retained for review",
+    "identities": [
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-A"
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-B"
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-C"
+      }
+    ],
+    "authority": "Proposal coverage only; no fact, scope or action approval"
+  },
+  "baseline": "Explicit fixture500 and receipt; genuine first public500 evidence retained separately. Revised PDF uses fresh Evolus reader/extractor/agent.",
+  "applied_units": 800,
+  "receipts": 2,
+  "stale_rejection": "Original runner assertedHTTP409 before writing progress/receipt evidence",
+  "packet_readonly_verified": true,
+  "original_runner": "Core workflow completed, then final offline wait failed because a test text literal was corrupted. Fixed literal; separate actual public reader check passed without another model call.",
+  "model_equivalents_reserved": 2,
+  "consumption": {
+    "credits": 0,
+    "pendingEntries": 0,
+    "costUsd": null,
+    "llmTokens": null,
+    "ocrPages": null,
+    "embeddingTokens": null,
+    "speechToTextSeconds": null,
+    "entries": null
+  },
+  "review": "Agent-operated fictional source/scope review and explicit sandbox approval; not independent human validation."
+}

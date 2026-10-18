@@ -1,0 +1,28 @@
+[
+  {
+    "stage": "revised",
+    "expected_affected": [
+      "SUP-A",
+      "SUP-C"
+    ],
+    "raw_affected": [
+      "SUP-A",
+      "SUP-C"
+    ],
+    "raw_scope": "complete",
+    "raw_correction": false,
+    "raw_affected_correct": true,
+    "reviewed_affected": [
+      "SUP-A",
+      "SUP-C"
+    ],
+    "review": "Agent-operated review of retained fictional originals, exact lot dispositions and complete boundary. Explicit engineering approval only; no independent human acceptance.",
+    "applied_units": 800,
+    "receipts": 2,
+    "client_elapsed_ms": 51095,
+    "continued_existing_response": false,
+    "model_application_elapsed_ms": 45124,
+    "remote_execution_id": "029a739a-94ca-f111-bf5b-6045bd9ce552",
+    "explicit_status_reconciliations": 0
+  }
+]
