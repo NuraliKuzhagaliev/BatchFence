@@ -175,7 +175,7 @@ def analyze(case_id:str,data:Analyze,request:Request):
             # current provider-enforced entitlement, never a phase reservation.
             jobs.start(db,request.state.owner,key,'visitor-document',{'case_id':case_id,'document_id':doc['id'],'revision':state['revision']},'visitor-live',lease_seconds=120)
         try:
-            response=external.gemma(context,ReviewDraft.model_json_schema());raw=response.pop('result')
+            response=external.gemma(context,ReviewDraft.model_json_schema(),timeout_seconds=90);raw=response.pop('result')
             record.update(raw_output=raw,provenance=response,finished_at=now())
             current=read(case_id,request.state.owner)
             if fingerprint(current)!=record['snapshot_hash']:raise DomainError('Evidence changed during processing; response retained as stale, not a current proposal')

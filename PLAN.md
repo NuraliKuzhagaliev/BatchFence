@@ -1,3 +1,11 @@
+# Visitor live acceptance — transport fix pending (2026-10-18)
+
+Public rc7 commit23a0627 deployed after main CI39120790589:506 regressions,30 domain cases,8 Linux checks and5 packaged Windows checks. First clean-browser PDF upload/original page preview passed, but fresh analysis returned provider unavailable after40.7seconds. No accepted proposals or fixtures. Original failure retained in docs/judge-access/public/attempt-1-failure.json; exact original exception was not captured. Provider usage did not yet show a new completed request.
+
+Focused fix: visitor-only90-second timeout within120-second job lease; existing protected routes retain40seconds. Sanitized transport exception/request metadata now retained.72 affected tests pass. No successful anonymous live acceptance claim yet. Next: existing GitHub/Free Render publication gates, then one changed-timeout retest (two conservative model attempts total), unrelated rejection and cross-session isolation. Historical18/18 ledger, keys,rc6 installer and all evidence remain unchanged.
+
+---
+
 # Public judging workflow — in progress (2026-10-18)
 
 Branch `feat/public-judge-review` preserves rc6 runtime/tag/evidence and the existing README/presentation work. Source-only visitor cases start with empty inventory. Direct AMD Gemma processing checks current shared catalog/usage rather than historical engineering reservations. Old owner routes remain token-protected; visitor inventory/scope/action endpoints reject.

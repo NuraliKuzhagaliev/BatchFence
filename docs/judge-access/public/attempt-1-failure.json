@@ -1,0 +1,51 @@
+{
+  "at": "2026-10-18T10:54:42.890Z",
+  "runtime": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.4.0-rc.7",
+    "commit": "23a062784fec2ecb39a59b238f1d288f9148032c",
+    "inference_mode": "fixture",
+    "amd_configured": true,
+    "live_protected": true,
+    "visitor_review_enabled": true,
+    "profile": "public",
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  },
+  "input": "../inputs/supplier-quality-helio.pdf",
+  "http_status": 200,
+  "actual": {
+    "id": "VISITOR-7de0edeb677383d0055e838f34527d3b",
+    "case_id": "cc6e85440031445fa4f1a158db144594",
+    "kind": "document",
+    "document_ids": [
+      "DOC-ea67a0a74702"
+    ],
+    "mode": "live",
+    "status": "provider unavailable",
+    "started_at": "2026-10-18T10:55:24.405710+00:00",
+    "provider_path": "Direct AMD shared Gemma / visitor source review",
+    "request_hash": "28b9aabf303b0d68d654768fc2bb267cd689d399c8172742f09f7a8acfb7814a",
+    "snapshot_hash": "32cbf2f48a1c6178547e9f69d3b54475a0199629b56bdc880ecbd64f72ea6024",
+    "entitlement": {
+      "status": "available",
+      "provider": "AMD shared Gemma",
+      "requested_model_id": "Gemma-4-31B-IT",
+      "checked_at": "2026-10-18T10:55:24.404627+00:00",
+      "remaining_nonmonetary_points": 0.9932541246525943,
+      "daily_limit_nonmonetary_points": 1,
+      "quota_reset_at": "2026-10-18T16:00:00.000Z",
+      "access_expires_at": null,
+      "availability": "Event access has no published end date; it can be withdrawn. Quota reset is not an access expiration.",
+      "additional_cash": 0,
+      "basis": "https://notebooks.amd.com/tokenfactory (User Manual, checked 2026-10-18)",
+      "catalog_free_flag": false,
+      "cost_note": "The shared-event manual defines pricing as nonmonetary points, despite the generic catalog free flag. No dedicated or paid endpoint is used."
+    },
+    "authority": "Unreviewed proposals only. No inventory relationships or action authority.",
+    "error": "Provider response was unavailable or malformed. No retry or fixture substitution.",
+    "finished_at": "2026-10-18T10:56:05.113596+00:00"
+  }
+}
