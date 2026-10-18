@@ -1,0 +1,23 @@
+{
+  "checked": [
+    {
+      "name": "RELEASE-NOTES-0.4.0-rc.4.md",
+      "sha256": "c71b7205e47091af2558089fb496838a00a75f5801cbe9275a488de6ebec2feb",
+      "known_private_values_absent": true
+    },
+    {
+      "name": "release-manifest-0.4.0-rc.4.json",
+      "sha256": "f5681565449d29fd13e415fb72b4ce191c65da471035624b5948bfb3f450b685",
+      "known_private_values_absent": true
+    },
+    {
+      "name": "SHA256SUMS-0.4.0-rc.4.txt",
+      "sha256": "ffe89aa9605c53ea29f50f226f99e627a0300dd7dc93ae47785cdde59de65b0c",
+      "known_private_values_absent": true
+    }
+  ],
+  "known_private_values": 4,
+  "source_archive": "Exact main commit, separately source-history audited; tag/archive member comparison follows publication",
+  "installer": "Final installed package known-value audit retained in final-packaged-audit/publication-audit.json",
+  "limitations": "Known-value scan, not an exhaustive security audit"
+}

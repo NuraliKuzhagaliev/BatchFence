@@ -1,0 +1,53 @@
+{
+  "timings": [
+    {
+      "evidence": "docs/evolus-focused/clients/web/first-raw-job.json",
+      "remote_execution_id": "4306c85b-90ca-f111-bf5b-6045bd9ce552",
+      "provider_reported_requested_at": "2026-10-18T01:07:59.9121043Z",
+      "provider_reported_completed_at": "2026-10-18T01:08:34.7609133Z",
+      "provider_reported_execution_ms": 34849,
+      "application_observed_elapsed_ms": 45705
+    },
+    {
+      "evidence": "docs/evolus-focused/clients/web/revised-raw-job.json",
+      "remote_execution_id": "00a115b5-90ca-f111-bf5b-6045bd9ce552",
+      "provider_reported_requested_at": "2026-10-18T01:10:29.73698Z",
+      "provider_reported_completed_at": null,
+      "provider_reported_execution_ms": null,
+      "application_observed_elapsed_ms": null
+    },
+    {
+      "evidence": "docs/evolus-focused/clients/web-postfix/revised-raw-job.json",
+      "remote_execution_id": "029a739a-94ca-f111-bf5b-6045bd9ce552",
+      "provider_reported_requested_at": "2026-10-18T01:38:23.0414061Z",
+      "provider_reported_completed_at": "2026-10-18T01:39:03.6593512Z",
+      "provider_reported_execution_ms": 40618,
+      "application_observed_elapsed_ms": 45124
+    },
+    {
+      "evidence": "docs/evolus-focused/clients/windows/first-raw-job.json",
+      "remote_execution_id": "06674c42-95ca-f111-bf5b-6045bd9ce552",
+      "provider_reported_requested_at": "2026-10-18T01:43:04.6442018Z",
+      "provider_reported_completed_at": "2026-10-18T01:43:26.7760419Z",
+      "provider_reported_execution_ms": 22132,
+      "application_observed_elapsed_ms": 28423
+    },
+    {
+      "evidence": "docs/evolus-focused/clients/windows/revised-raw-job.json",
+      "remote_execution_id": "31d16756-95ca-f111-bf5b-6045bd9ce552",
+      "provider_reported_requested_at": "2026-10-18T01:43:38.3760904Z",
+      "provider_reported_completed_at": "2026-10-18T01:43:58.3852833Z",
+      "provider_reported_execution_ms": 20009,
+      "application_observed_elapsed_ms": 23185
+    },
+    {
+      "evidence": "docs/evolus-focused/clients/windows-postfix/revised-raw-job.json",
+      "remote_execution_id": "a492b298-98ca-f111-bf5b-6045bd9ce552",
+      "provider_reported_requested_at": "2026-10-18T02:06:58.0858989Z",
+      "provider_reported_completed_at": "2026-10-18T02:10:30.0930605Z",
+      "provider_reported_execution_ms": 212007,
+      "application_observed_elapsed_ms": 266823
+    }
+  ],
+  "limitations": "Provider requested/completed interval includes its execution/queue stages; not isolated GPU inference. Application duration includes status discovery. Client progress includes review and may be a resumed harness continuation. Clocks are not independently synchronized. No independent operator productivity or before/after speedup claim."
+}

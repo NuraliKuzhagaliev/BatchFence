@@ -6,7 +6,7 @@ Fresh public and installed workflows are documented separately from fixture base
 
 455 main-CI tests, 30 domain cases, eight container/restart checks and 74 affected controls passed. Installer rebuilt/installed; final backend-only metadata fix has no packaged-input changes.21/24 model steps reserved; stop live calls. No purchases or key rotation.
 
-Remaining work: finish authorized GitHub release uploads, verify all five anonymous downloads and exact source tag, publish final evidence checkpoint and clean up only the task-owned fixture server. No more inference for publication. Human dependencies/limits: RAG citations, independent acceptance, unsigned installer, temporary hosting and allowance expiry at18October16:00UTC. Detailed evidence and run commands are in HANDOFF.md.
+Publication completed: all five anonymous downloads matched checksums, 2,079 source members match the actual tag, and public/local/installed assets are identical. Final evidence is on release-evidence-0.4.0-rc.4-final. Only the verified task-owned port8813 fixture server was stopped; no data was deleted. No further engineering model calls or routine release work remain. Human dependencies/limits: RAG citations, independent acceptance, unsigned installer, temporary hosting and allowance expiry at18October16:00UTC. Detailed evidence and run commands are in HANDOFF.md.
 
 ---
 

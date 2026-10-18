@@ -1,6 +1,6 @@
 # BatchFence 0.4.0-rc.4 — morning handoff
 
-The public app runs commit `37832f08a933644cd364567b9551444c934e508a` at https://batchfence.onrender.com. The supported review-controlled workflow passed engineering acceptance through the public web app and installed Windows client. Release publication and anonymous artifact verification are being finalized; their final record will be `docs/evolus-focused/publication.json`.
+The public app runs commit `37832f08a933644cd364567b9551444c934e508a` at https://batchfence.onrender.com. The supported review-controlled workflow passed engineering acceptance through the public web app and installed Windows client. Release: https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.4. All five assets were fully downloaded anonymously and matched checksums; all 2,079 source members match the actual release tag. Public/local/installed frontend bytes match. Exact record: `docs/evolus-focused/publication.json`.
 
 ## What works
 
@@ -37,6 +37,8 @@ Open either client, then Sources & intake → connected assistance. Use only the
 Free Render storage is temporary and may show its wake-up interstitial: export before sleep/restart/redeploy. The installer is unsigned. Current native save/open acceptance used the actual filesystem with stubbed dialog returns; prior real four-dialog evidence is retained. Independent operator, domain, language and physical-photo acceptance remain pending. Own AMD Cloud/vLLM and partner eligibility, production durability/identity, README/media and submission are deferred. Rag needs resolvable provider citations before activation.
 
 Run from `D:\projects\BatchFence`: `npm run build`; `.venv\Scripts\python.exe -m pytest -q`; `.venv\Scripts\python.exe -m scripts.evaluate`; `.venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8787`; `npm run package:desktop`. Existing `.env` remains the only local configuration. Do not rerun one-shot live helpers or reset ledgers. See `docs/evolus-focused/RESULTS.md`, `main-ci.json`, `final-accounting.json` and `clients/windows-postfix/result.json`.
+
+Hosted dispatch counters share temporary storage. The private phase ledger remains authoritative for this engineering run; restart does not renew the finite plan or authorize additional evaluation. Provider credit boundaries remain enforced upstream. This is scoped demo protection, not durable billing infrastructure.
 
 ---
 

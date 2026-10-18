@@ -1,0 +1,38 @@
+{
+  "version": "0.4.0-rc.4",
+  "runtime_source_commit": "37832f08a933644cd364567b9551444c934e508a",
+  "release": "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.4",
+  "status": "Review-controlled hackathon workflow engineering verified; raw model omissions and unavailable semantic Rag remain limitations",
+  "modules": {
+    "unicode_encoding": "Implemented and regression/client verified",
+    "original_pdf_evolus": "Native-text originals freshly verified; platform scan OCR not freshly accepted",
+    "knowledge": "Actual Blob/local route verified; Rag indexed but citationless ask rejected, mode disabled",
+    "decision_experience": "Original preview/review/quantity separation and keyboard/scaled/narrow views verified",
+    "failure_checkpoint": "Bounded status/deduplication, confirmed/unconfirmed save feedback and read-only packets verified",
+    "release_acceptance": "Fresh public/installed evidence,455tests/30domain/8container checks;5downloads/2079source members and asset parity verified"
+  },
+  "raw_revised_agent_omissions_retained": 3,
+  "final_windows_explicit_correction": true,
+  "independent_human_validation": false,
+  "model_equivalents_reserved": 21,
+  "model_equivalent_cap": 24,
+  "future_live_calls_this_phase": 0,
+  "credentials_rotated": false,
+  "additional_spending": 0,
+  "task_server_8813_stopped": true,
+  "task_client_processes_closed": true,
+  "data_deleted": false,
+  "deferred": [
+    "Independent operator/domain/language/physical-photo acceptance",
+    "Own AMD Cloud/vLLM and partner award eligibility",
+    "Production durability/identity",
+    "README/media/submission"
+  ],
+  "remaining_human_actions": [
+    "Install unsigned rc4 preview if desired",
+    "Export before server sleep/restart/redeploy",
+    "Obtain fresh allowance evidence and update only necessary nonsecret proof before live use after18October16:00UTC",
+    "Independent acceptance before operational use"
+  ],
+  "citations_dependency": "Semantic Rag needs provider-returned citations resolvable to retained exact source/version/passage; keep disabled until demonstrated."
+}

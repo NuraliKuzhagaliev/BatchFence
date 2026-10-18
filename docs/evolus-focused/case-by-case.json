@@ -117,5 +117,10 @@
   },
   "benchmark_integrity": "Original frozenv1 manifest unchanged. expected_lot_mentions incorrectly omitted negativeSUP-B; distinguish literal mentions from affected truth. Originalv2 does not raise500 because its possible descendant already held. AdditionalSUP-C fixture frozen separately.",
   "interpretation": "No model superiority or general accuracy claim; prompts/model settings unchanged. Improvements are evidence coverage/type validation and containment; raw omissions remain failures.",
-  "publication": "Final release in progress; runtime source checkpoint fixed"
+  "publication": {
+    "release": "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.4",
+    "verified": true,
+    "runtime": "37832f08a933644cd364567b9551444c934e508a",
+    "artifact_evidence": "publication.json"
+  }
 }

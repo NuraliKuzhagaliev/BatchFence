@@ -1,6 +1,6 @@
 # Focused phase complete — final evidence
 
-Runtime37832f08a933644cd364567b9551444c934e508a,455cleanCI tests/30domain/8container checks. New workflow and client acceptance passed with limitations in HANDOFF/RESULTS.21/24conservative equivalents reserved,9possible reader/OCRpages. No more modelcalls in this finite phase. Rag citation capability blocked; Blob retained. Publication checks and final handoff remain bookkeeping only. Old counters and all original evidence preserved.
+Runtime37832f08a933644cd364567b9551444c934e508a,455cleanCI tests/30domain/8container checks. New workflow and client acceptance passed with limitations in HANDOFF/RESULTS.21/24conservative equivalents reserved,9possible reader/OCRpages. No more modelcalls in this finite phase. Rag citation capability blocked; Blob retained. Release publication, all five anonymous download hashes, source-tag comparison and final handoff are complete. Old counters and all original evidence preserved.
 
 ---
 
