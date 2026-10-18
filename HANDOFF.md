@@ -1,3 +1,13 @@
+# Targeted continuation — rc.6 candidate, preserving newer rc.5
+
+Remote main advanced to9c55808 with published rc.5/runtimee51ef7e while this local checkout retained rc4 evidence3ca013a. Those changes are now reconciled: preserve the broader exact-recorded-identity guard, independently identified chunk proof, explicit RAG reconciliation UI,180second native transport and Windows CI. Candidate version becomesrc.6; do not overwrite rc.5 assets. The source annotation contract adds identity-preserving proposals and keeps missing interpretations unresolved with unknown scope. Paired changes, contradictions, request drafts, source review, stale approval and receipts remain.
+
+Reuse the newer indexed-source-selections-v1 RAG contract. It displays the full independently verified original, so model quotation shortening cannot remove caveats. Native provider citations remain absent and are not fabricated. Our Gemma/MiMo quote-format diagnostics and local inline-reference experiment are retained as historical, unshipped experiments; MiMo registration changed no key and is not the selected RAG route. Final fresh RAG uses the existing free Gemma connection and explicit current protocol.
+
+Current local phase has6of16conservative equivalents reserved. Remaining fixed batch: one PDF2steps and one RAG3equivalents through each actual public/Windows client. New same-owner isolated one-SOP libraries avoid cross-owner adoption. Existing phase/campaign ledgers, free-only funding and expiry unchanged. No more optional diagnostics or purchases. Next: finish reconciliation, clean CI, rc6 packaging and the fixed fresh acceptance batch, then publish artifacts and final handoff.
+
+---
+
 # Published rc.5 — guarded implementation; live acceptance still pending
 
 Runtime **e51ef7e** is live at https://batchfence.onrender.com/ and release **v0.4.0-rc.5** is published. PR #10 merged; final CI39101811517 passed 471 regression tests, 30 domain cases, full publication scan, Linux container/restart and actual packaged Windows UI/native transport. Downloaded installer/source/report checksums passed, including source ZIP CRC and commit identity. Public asset bytes match the tested build; one synthetic 500→800/two-receipt check and stale approval/apply409 passed. Denied private RAG403 left receipts unchanged. The RAG route is visible/selectable in actual Chrome. See `docs/lot-citation-fix/verification.json` and `RESULTS.md` for exact evidence and limits.
@@ -23,6 +33,50 @@ Publication: candidate includes shared web/Windows UI, desktop timeout compatibi
 Next authorized local acceptance: retain/export current real packet; use the existing private .env without printing keys; verify the finite free allowance is current and has necessary remaining capacity without resetting history; verify diagnostic agent's prompt/model/tools/sole library with `backend.evolus_rag.verify`; explicitly reconcile the existing same-owner library through `/api/assist/knowledge-index` with `library_type="Rag"`, the current approved source product/process, `synthetic=true`, `reviewed=true`, and `reconcile_agent_id` above. The exact prompt is exported as `backend.evolus_rag.PROMPT`; its current hash must match. Do not adopt a library belonging to another owner or create duplicate uploads to work around a scope mismatch.
 
 Run one RAG question from the visible live route, inspect independently read chunk IDs/body hashes, complete original caveat and unchanged receipts. If a fresh lot measurement is needed, one revised-notice workflow is enough; retain raw omissions and use correction, never repeated calls until lucky. Verify installed rc.5 route/transport against the same source; do not describe historical packets or fixture checks as fresh live acceptance. Native dialogs and independent domain/photo review remain separate. Stop on genuine missing private access, funding expiry or provider proof failure, and continue independent work. No purchases, key rotations, event submission or enterprise actions.
+
+---
+
+# BatchFence 0.4.0-rc.4 — morning handoff
+
+The public app runs commit `37832f08a933644cd364567b9551444c934e508a` at https://batchfence.onrender.com. The supported review-controlled workflow passed engineering acceptance through the public web app and installed Windows client. Release: https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.4. All five assets were fully downloaded anonymously and matched checksums; all 2,079 source members match the actual release tag. Public/local/installed frontend bytes match. Exact record: `docs/evolus-focused/publication.json`.
+
+## What works
+
+- Unicode lexical retrieval supports Russian, English and Italian originals, with explicit abstention for unsupported cross-language questions. It is not translation or semantic search.
+- Supplier PDF intake retains original bytes and hashes. The connected Evolus reader, extractor, configured Gemma agent and output feed source-backed proposals, original-page review, applicable procedures, deterministic scope, explicit approval and sandbox receipts.
+- Source preview, page navigation, highlighting, suitability/gaps and next actions share the existing interface. Normal/scaled Windows views, narrow web layout and keyboard focus were checked.
+- Unknown submissions retain execution identity and reconcile status without resubmitting inference. Polling is bounded. Export feedback distinguishes confirmed saves from unconfirmed downloads; reopening a packet grants no action authority.
+- Existing recovery, uncertainty, stale-approval and immutable receipt controls remain. Prior rc3 vision evidence is preserved without new image calls.
+
+## Actual live results and limits
+
+Fresh first-PDF workflows reached 500 units and one receipt in both clients. Genuine Evolus Blob content plus fresh direct AMD Gemma selection retained the full procedure caveats. The original public revised agent omitted SUP-C/SUP-B while claiming complete scope. The old validator accepted a proposal; engineering stopped before review/apply. Explicit source correction and separate review then reached 800 units and two receipts.
+
+The new guard compares source-backed extractor identities with interpretation and checks exact recorded identities in explicit affected-list headers. The installed client demonstrated rejection before facts or narrowing. A subsequent correction exposed freeform document metadata incorrectly using stock-ID grammar. That contract is fixed without relaxing stock identifiers or granting metadata stock authority. Invalid stock corrections now return bounded HTTP422 diagnostics.
+
+Final installed execution `a492b298-98ca-f111-bf5b-6045bd9ce552` again omitted identities and was rejected. Explicit source correction added them as unresolved proposals; separate review established the complete original boundary, then approval/application reached 800 units and two receipts. Stale approval was rejected, and the exported packet reopened read-only. This corrective run used an explicitly labeled fixture 500 baseline and reused the separate genuine first-500/Blob evidence. It took 273,694ms including review/status reconciliation; the application model job took 266,823ms. One existing-ID status read followed 16 automatic reads; no model retry or browser errors.
+
+Raw interpretation reliability remains limited. These are agent-operated fictional cases, not independent human validation. The controls demonstrate a safe review path, not autonomous completeness or general model accuracy. Exact raw failures, corrections and expectations are separate in `docs/evolus-focused/case-by-case.json`.
+
+Isolated Rag ingestion completed, but its actual ask returned no resolvable citations. The answer was rejected and semantic mode remains disabled. Blob plus local lexical retrieval works. Evolus is configured as `own/gemma-4-31b-it`; its workflow API does not expose runtime model identity. Direct AMD returned `self-dploy/Gemma-4-31B-IT`. Fresh native-text PDFs were verified; platform scan OCR was not freshly accepted.
+
+## Verification and artifacts
+
+Main CI39088735180 passed 455 tests, the production build, 30 domain scenarios and eight actual Linux container/restart/isolation checks. The 74 affected source/metadata controls passed. The legitimate unknown-model packet issue was fixed and the installer rebuilt and separately installed successfully. The final metadata fix is backend-only: frontend, desktop and package inputs have an empty diff, so another installer build was unnecessary. Known-value/pattern audits found no credentials in publishable source/package inputs.
+
+Installer: `D:\projects\BatchFence\releases\BatchFence-0.4.0-rc.4-win-x64-setup.exe`, 113,799,533 bytes, SHA256 `04d56c9787bda9d12dad1e3dee265c1c8f32329148f3a266ae19197b511acd0e`. Installed executable: `D:\projects\BatchFence\work\installed-0.4.0-rc.4\BatchFence Evidence Preview.exe`. Source ZIP, notes, manifest and checksums are beside the installer. Stable0.3.0, rc3 and previous previews remain preserved. Final evidence is published separately from runtime to avoid redeploying for bookkeeping.
+
+## Funding and remaining human actions
+
+At 02:11:43UTC, Evolus had 50,000 platform credits and shared AMD had 0.9942839029245079 nonmonetary points remaining. The phase reserved 21 of 24 conservative model steps and nine possible reader/OCR pages, within the 1,000-credit exposure cap and 49,000-credit reserve. Available finalized BYOK accounting reports zero credits and zero pending entries; unavailable internal cost/token fields remain unknown. Indexing-specific final accounting/tariff is unavailable; a zero observed balance delta is not a universal free-embedding claim. No purchases, credential rotation, new hosting, external messages, real inventory actions or submission occurred. Stop model calls for this phase; exhausted older ledgers remain unchanged.
+
+Open either client, then Sources & intake → connected assistance. Use only the separate private workspace live-access token from ignored `work/cloud-demo.env`; never put provider keys into the client. Review original passages, proposals, scope and plan before approval. No credential action is needed now. Current verified-free proof expires 18October2026 at 16:00UTC /21:00Qyzylorda; later live use requires fresh allowance evidence and the necessary nonsecret configuration update, without key rotation or counter resets.
+
+Free Render storage is temporary and may show its wake-up interstitial: export before sleep/restart/redeploy. The installer is unsigned. Current native save/open acceptance used the actual filesystem with stubbed dialog returns; prior real four-dialog evidence is retained. Independent operator, domain, language and physical-photo acceptance remain pending. Own AMD Cloud/vLLM and partner eligibility, production durability/identity, README/media and submission are deferred. Rag needs resolvable provider citations before activation.
+
+Run from `D:\projects\BatchFence`: `npm run build`; `.venv\Scripts\python.exe -m pytest -q`; `.venv\Scripts\python.exe -m scripts.evaluate`; `.venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8787`; `npm run package:desktop`. Existing `.env` remains the only local configuration. Do not rerun one-shot live helpers or reset ledgers. See `docs/evolus-focused/RESULTS.md`, `main-ci.json`, `final-accounting.json` and `clients/windows-postfix/result.json`.
+
+Hosted dispatch counters share temporary storage. The private phase ledger remains authoritative for this engineering run; restart does not renew the finite plan or authorize additional evaluation. Provider credit boundaries remain enforced upstream. This is scoped demo protection, not durable billing infrastructure.
 
 ---
 

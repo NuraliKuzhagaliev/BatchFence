@@ -69,8 +69,13 @@ def result_for_job(db,owner,state,key,execution):
             record['runtime_model_identity']=execution.get('runtime_model_identity','Not returned / independent inference verification pending')
         record['raw_draft']=execution.get('draft')
         try:
-            if record['mode']=='live':record['source_coverage']=extractor_coverage(state,execution,execution['draft'],record.get('document_ids',[]))
-            record['draft']=validate_draft(state,execution['draft'],record.get('document_ids') if record['mode']=='live' else None)
+            proposal=execution['draft']
+            if execution.get('interpretation_contract')=='identity-annotations-v1':
+                from .identity_annotations import assemble
+                proposal,record['proposal_assembly']=assemble(state,execution,proposal,record.get('document_ids',[]))
+                record['review_draft']=proposal
+            if record['mode']=='live':record['source_coverage']=extractor_coverage(state,execution,proposal,record.get('document_ids',[]))
+            record['draft']=validate_draft(state,proposal,record.get('document_ids') if record['mode']=='live' else None)
         except Exception as exc:
             record.update(status='failed validation',error='Raw interpretation failed source/schema validation; no fact or scope update')
             record['validation_issues']=exc.errors(include_input=False,include_url=False,include_context=False) if hasattr(exc,'errors') else [{'message':str(exc)[:300]}]

@@ -1,0 +1,86 @@
+{
+  "agent": {
+    "agentId": "f31cf1e9-c78b-472b-9c31-2a4d3ea40c87",
+    "modelKey": "own/gemma-4-31b-it",
+    "serviceType": "MICROSOFT_FRAMEWORK",
+    "useAskStream": false,
+    "modelParameters": {
+      "temperature": 0,
+      "max_tokens": 1600
+    }
+  },
+  "memory": {
+    "type": 0,
+    "aiAccess": 0,
+    "ownerAgentId": null,
+    "embeddingModelKey": "openai/text-embedding-3-small",
+    "vectorStoreType": 0,
+    "isConversationMemory": false
+  },
+  "chunks": [
+    {
+      "id": "C001",
+      "docType": "prose",
+      "tags": [],
+      "title": "Document ID: SOP-FOCUSED-EN",
+      "body": "Document ID: SOP-FOCUSED-EN\nRevision: 1\nSource hash: 9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee\n\nPassage ID: containment\nPage: 1\nFor a supplier notice, retain the original and verify the exact affected lot list and complete incident boundary. Keep unresolved ancestry uncertain. An operator must inspect every critical source assertion before a deterministic containment plan can be approved.\n\nPassage ID: recovery\nPage: 1\nBefore release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. A source citation, model answer or narrower proposed hold never releases existing applied holds.",
+      "context": null,
+      "additionalQuestions": null,
+      "splitReason": null
+    },
+    {
+      "id": "C002",
+      "docType": "prose",
+      "tags": [],
+      "title": "ust inspect every critical source assertion before a deterministic containment plan can be approved.",
+      "body": "ust inspect every critical source assertion before a deterministic containment plan can be approved.\n\nPassage ID: recovery\nPage: 1\nBefore release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. A source citation, model answer or narrower proposed hold never releases existing applied holds.",
+      "context": null,
+      "additionalQuestions": null,
+      "splitReason": null
+    }
+  ],
+  "configured_model_capabilities": {
+    "tools": true,
+    "vision": false,
+    "structuredOutput": false,
+    "reasoning": []
+  },
+  "documented_configuration_schemas": {
+    "CreateSimpleMemoryRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "nullable": true
+        },
+        "type": {
+          "$ref": "#/components/schemas/MemoryType"
+        },
+        "aiAccess": {
+          "$ref": "#/components/schemas/MemoryAiAccess"
+        }
+      },
+      "additionalProperties": false
+    },
+    "UpdateSimpleMemoryRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "nullable": true
+        },
+        "defaultOcrModelKey": {
+          "type": "string",
+          "nullable": true
+        },
+        "clearDefaultOcrModelKey": {
+          "type": "boolean"
+        },
+        "aiAccess": {
+          "$ref": "#/components/schemas/MemoryAiAccess"
+        }
+      },
+      "additionalProperties": {}
+    }
+  }
+}

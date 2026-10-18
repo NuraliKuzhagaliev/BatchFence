@@ -1,0 +1,65 @@
+{
+  "at": "2026-10-18T02:20:34.274548+00:00",
+  "runtime": "37832f08a933644cd364567b9551444c934e508a",
+  "version": "0.4.0-rc.4",
+  "assets": [
+    {
+      "name": "BatchFence-0.4.0-rc.4-win-x64-setup.exe",
+      "bytes": 113799533,
+      "sha256": "04d56c9787bda9d12dad1e3dee265c1c8f32329148f3a266ae19197b511acd0e",
+      "anonymous_full_download_verified": true
+    },
+    {
+      "name": "BatchFence-0.4.0-rc.4-source.zip",
+      "bytes": 135824000,
+      "sha256": "fc673940e7e4010ee7d4a88b2a17c3b5a2aae8d6aebd4ae8649f808a9db3cf7d",
+      "anonymous_full_download_verified": true
+    },
+    {
+      "name": "RELEASE-NOTES-0.4.0-rc.4.md",
+      "bytes": 3954,
+      "sha256": "c71b7205e47091af2558089fb496838a00a75f5801cbe9275a488de6ebec2feb",
+      "anonymous_full_download_verified": true
+    },
+    {
+      "name": "release-manifest-0.4.0-rc.4.json",
+      "bytes": 1613,
+      "sha256": "f5681565449d29fd13e415fb72b4ce191c65da471035624b5948bfb3f450b685",
+      "anonymous_full_download_verified": true
+    },
+    {
+      "name": "SHA256SUMS-0.4.0-rc.4.txt",
+      "bytes": 402,
+      "sha256": "ffe89aa9605c53ea29f50f226f99e627a0300dd7dc93ae47785cdde59de65b0c",
+      "anonymous_full_download_verified": true
+    }
+  ],
+  "public_health": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.4.0-rc.4",
+    "commit": "37832f08a933644cd364567b9551444c934e508a",
+    "inference_mode": "fixture",
+    "amd_configured": true,
+    "live_protected": true,
+    "profile": "public",
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  },
+  "client_asset_parity": [
+    {
+      "asset": "/assets/index-C_vv_RXA.js",
+      "sha256": "c6d2611e234d5df7bd56b1ae293f462195d0e2be21018c257031ea621d509517",
+      "public_local_installed_equal": true
+    },
+    {
+      "asset": "/assets/index-C1izMUIu.css",
+      "sha256": "dc2916c8692bf131bb62ddba706fd4a2247de174d0d35d14039b57bcc4b7121e",
+      "public_local_installed_equal": true
+    }
+  ],
+  "source_tag_archive_members_identical": 2079,
+  "inference_calls": 0,
+  "unsigned_installer": true
+}

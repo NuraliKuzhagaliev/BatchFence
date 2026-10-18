@@ -1,0 +1,61 @@
+{
+  "response": {
+    "provider": "Evolus agent-bound Rag",
+    "at": "2026-10-18T06:14:37.101271+00:00",
+    "elapsed_ms": 19104,
+    "request_id": null,
+    "response_hash": "d63282c0ead0dfd092ce811d8a8bfc951bb2a3a5cc7795c1b10be5f03711a607",
+    "configured_model_key": "own/mimo-v2.6-flash",
+    "runtime_model_identity": "Not returned by this API; configured own model only",
+    "library_id": "df996134-8cca-f111-bf5b-6045bd9ce552",
+    "agent_id": "8c595b4e-425c-49d7-9f0a-5d00293be82f",
+    "conversation_id": "66f82b76-1d29-48f0-805b-a1554337a294",
+    "raw_output": {
+      "answer": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. A source citation, model answer or narrower proposed hold never releases existing applied holds.\n\n\u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a: Document ID: SOP-FOCUSED-EN, Revision: 1, Source hash: 9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee.txt, Passage ID: recovery, Page: 1",
+      "title": "Api request",
+      "agentId": "8c595b4e-425c-49d7-9f0a-5d00293be82f",
+      "conversationId": "66f82b76-1d29-48f0-805b-a1554337a294",
+      "totalTokenCount": null,
+      "citations": []
+    },
+    "consumption": {
+      "credits": 0.0,
+      "pendingEntries": 0,
+      "costUsd": null,
+      "llmTokens": null,
+      "ocrPages": null,
+      "embeddingTokens": null,
+      "speechToTextSeconds": null,
+      "entries": null
+    },
+    "balance_before": {
+      "spendable_platform_credits": 50000.0,
+      "at": "2026-10-18T06:14:17.996755+00:00",
+      "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+    },
+    "balance_after": {
+      "spendable_platform_credits": 50000.0,
+      "at": "2026-10-18T06:14:38.718305+00:00",
+      "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+    },
+    "accounting_state": "finalized",
+    "credit_reserve_breached": false,
+    "retry_policy": "One BatchFence dispatch; up to3 provider attempt equivalents reserved conservatively; provider internals not returned"
+  },
+  "raw": {
+    "answer": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. A source citation, model answer or narrower proposed hold never releases existing applied holds.\n\n\u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a: Document ID: SOP-FOCUSED-EN, Revision: 1, Source hash: 9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee.txt, Passage ID: recovery, Page: 1",
+    "title": "Api request",
+    "agentId": "8c595b4e-425c-49d7-9f0a-5d00293be82f",
+    "conversationId": "66f82b76-1d29-48f0-805b-a1554337a294",
+    "totalTokenCount": null,
+    "citations": []
+  },
+  "validation": {
+    "accepted": false,
+    "class": "DomainError",
+    "error": "Rag answer lacks a full exact original passage with a returned source citation"
+  },
+  "model_equivalents": 3,
+  "changed_contract": "Same full-original quotation prompt; different documented free own MiMo route. Gemma document workflow unchanged",
+  "review": "Fictional engineering probe; no inventory or independent human acceptance"
+}

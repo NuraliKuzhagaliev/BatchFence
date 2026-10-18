@@ -1,0 +1,107 @@
+{
+  "connection": {
+    "id": "f2f3d7ea-d7a9-4ddd-b09a-913df0b695ba",
+    "apiBaseUrl": "https://developer.amd.com.cn/radeon/api/v1",
+    "disabled": false,
+    "hasApiKey": true
+  },
+  "models": [
+    {
+      "id": "174f620f-6da0-4568-9599-31e2ed0f2d0c",
+      "name": "Gemma-4-31B-IT",
+      "modelId": "Gemma-4-31B-IT",
+      "supportsTools": true,
+      "disabled": null,
+      "contextLength": 262144,
+      "probe": null
+    }
+  ],
+  "discovered": {
+    "success": true,
+    "errorCode": null,
+    "message": null,
+    "models": [
+      {
+        "id": "Clef",
+        "contextLength": null,
+        "ownedBy": null
+      },
+      {
+        "id": "d3",
+        "contextLength": null,
+        "ownedBy": null
+      },
+      {
+        "id": "d3-flash",
+        "contextLength": null,
+        "ownedBy": null
+      },
+      {
+        "id": "DeepSeek-V4.1-Flash",
+        "contextLength": 1048576,
+        "ownedBy": null
+      },
+      {
+        "id": "DeepSeek-V4-Flash",
+        "contextLength": 1048576,
+        "ownedBy": null
+      },
+      {
+        "id": "DeepSeek-V4-Flash-Vision-Exp",
+        "contextLength": 1048576,
+        "ownedBy": null
+      },
+      {
+        "id": "Gemma-4-31B-IT",
+        "contextLength": 262144,
+        "ownedBy": null
+      },
+      {
+        "id": "GLM-5.3-Flash",
+        "contextLength": 262144,
+        "ownedBy": null
+      },
+      {
+        "id": "MiMo-V2.6-Flash",
+        "contextLength": 1048576,
+        "ownedBy": null
+      },
+      {
+        "id": "MinerU2.5-Pro",
+        "contextLength": null,
+        "ownedBy": null
+      },
+      {
+        "id": "MiniCPM5-2B",
+        "contextLength": 131072,
+        "ownedBy": null
+      },
+      {
+        "id": "MiniCPM-V-4.7-1B",
+        "contextLength": 262144,
+        "ownedBy": null
+      },
+      {
+        "id": "MiniCPM-V-4.7-35B-A3B",
+        "contextLength": 262144,
+        "ownedBy": null
+      },
+      {
+        "id": "OmniVoice",
+        "contextLength": null,
+        "ownedBy": null
+      },
+      {
+        "id": "Qwen3.8-27B",
+        "contextLength": 262144,
+        "ownedBy": null
+      },
+      {
+        "id": "Qwen3.8-Flash-Next",
+        "contextLength": 262144,
+        "ownedBy": null
+      }
+    ]
+  },
+  "source": "Actual official model-connection client; discovery GET only, no test/model dispatch"
+}

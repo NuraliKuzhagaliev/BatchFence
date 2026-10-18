@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-18T02:10:00.209Z",
+  "poll_count": 16,
+  "ui_last": [
+    {
+      "status": "running"
+    }
+  ],
+  "operation": "Explicit existing-job status read; no model retry"
+}

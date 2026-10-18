@@ -1,0 +1,46 @@
+{
+  "actual_catalog_model": {
+    "id": "own/mimo-v2.6-flash",
+    "name": "MiMo-V2.6-Flash",
+    "author": "own",
+    "capabilities": {
+      "tools": false,
+      "vision": false,
+      "structuredOutput": false,
+      "reasoning": []
+    },
+    "contextLength": 1048576,
+    "tier": null,
+    "locked": false,
+    "lockReason": null,
+    "requiredPlanFeature": null,
+    "requiredPlanName": null,
+    "pricing": {
+      "kind": "byok-free",
+      "unit": "1M-token",
+      "input": 0,
+      "output": 0,
+      "estimated": false
+    },
+    "dataBadges": [],
+    "badges": [],
+    "recommended": false,
+    "deprecated": false,
+    "unavailable": false,
+    "outsideShowcase": false,
+    "logicalKey": null,
+    "voice": null,
+    "connectionId": null,
+    "dimensions": null,
+    "immutableAfterCreation": false
+  },
+  "model_registration_id": "813266f5-d8bb-49a0-9f8f-871fccca16d7",
+  "connection_id": "f2f3d7ea-d7a9-4ddd-b09a-913df0b695ba",
+  "no_key_fields_sent": true,
+  "catalog_response_bytes": 169520,
+  "configuration_failures": [
+    "Registration succeeded; subsequent catalog metadata read exceeded generic128k adapter bound. Read-only catalog now bounded512k, no application response bound relaxed.",
+    "A helper attempted an unverified own-model slug and received404 before creating an agent or dispatching inference. Corrected from actual catalog."
+  ],
+  "source": "Official current own-model client and actual API catalog; BYOK0 pricing plus current event hard boundary"
+}

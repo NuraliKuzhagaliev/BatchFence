@@ -1,0 +1,61 @@
+{
+  "response": {
+    "provider": "Evolus agent-bound Rag",
+    "at": "2026-10-18T06:09:43.866124+00:00",
+    "elapsed_ms": 26860,
+    "request_id": null,
+    "response_hash": "6e69d043d8694bf9d5f48ad3c5d48d203f8dcc890a5fdd09d30e57bcf5689a2a",
+    "configured_model_key": "own/gemma-4-31b-it",
+    "runtime_model_identity": "Not returned by this API; configured own Gemma only",
+    "library_id": "df996134-8cca-f111-bf5b-6045bd9ce552",
+    "agent_id": "f31cf1e9-c78b-472b-9c31-2a4d3ea40c87",
+    "conversation_id": "b914342d-bc6f-4848-b2f9-8da12fb7701b",
+    "raw_output": {
+      "answer": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. (SOP-FOCUSED-EN, Passage ID: recovery)",
+      "title": "Api request",
+      "agentId": "f31cf1e9-c78b-472b-9c31-2a4d3ea40c87",
+      "conversationId": "b914342d-bc6f-4848-b2f9-8da12fb7701b",
+      "totalTokenCount": null,
+      "citations": []
+    },
+    "consumption": {
+      "credits": 0.0,
+      "pendingEntries": 0,
+      "costUsd": null,
+      "llmTokens": null,
+      "ocrPages": null,
+      "embeddingTokens": null,
+      "speechToTextSeconds": null,
+      "entries": null
+    },
+    "balance_before": {
+      "spendable_platform_credits": 50000.0,
+      "at": "2026-10-18T06:09:17.006092+00:00",
+      "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+    },
+    "balance_after": {
+      "spendable_platform_credits": 50000.0,
+      "at": "2026-10-18T06:09:46.125615+00:00",
+      "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+    },
+    "accounting_state": "finalized",
+    "credit_reserve_breached": false,
+    "retry_policy": "One BatchFence dispatch; up to3 provider attempt equivalents reserved conservatively; provider internals not returned"
+  },
+  "raw": {
+    "answer": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. (SOP-FOCUSED-EN, Passage ID: recovery)",
+    "title": "Api request",
+    "agentId": "f31cf1e9-c78b-472b-9c31-2a4d3ea40c87",
+    "conversationId": "b914342d-bc6f-4848-b2f9-8da12fb7701b",
+    "totalTokenCount": null,
+    "citations": []
+  },
+  "validation": {
+    "accepted": false,
+    "class": "DomainError",
+    "error": "Rag answer lacks a full exact original passage with a returned source citation"
+  },
+  "model_equivalents": 3,
+  "changed_contract": "Full verbatim original with provider citations; no JSON-only restriction",
+  "review": "Fictional engineering probe; no inventory or independent human acceptance"
+}

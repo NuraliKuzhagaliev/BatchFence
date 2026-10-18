@@ -197,9 +197,9 @@ function SourceText({
   );
 }
 const RELEASE_URL =
-  "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.5";
+  "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.6";
 const WINDOWS_DOWNLOAD =
-  "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.4.0-rc.5/BatchFence-0.4.0-rc.5-win-x64-setup.exe";
+  "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.4.0-rc.6/BatchFence-0.4.0-rc.6-win-x64-setup.exe";
 function PlatformLinks({ openWeb }: { openWeb: () => void }) {
   return native ? (
     <button className="button" onClick={openWeb}>

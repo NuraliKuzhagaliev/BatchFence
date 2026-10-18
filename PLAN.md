@@ -1,3 +1,37 @@
+# Targeted continuation — rc.6 candidate, preserving newer rc.5
+
+Remote main advanced to9c55808 with published rc.5/runtimee51ef7e while this local checkout retained rc4 evidence3ca013a. Those changes are now reconciled: preserve the broader exact-recorded-identity guard, independently identified chunk proof, explicit RAG reconciliation UI,180second native transport and Windows CI. Candidate version becomesrc.6; do not overwrite rc.5 assets. The source annotation contract adds identity-preserving proposals and keeps missing interpretations unresolved with unknown scope. Paired changes, contradictions, request drafts, source review, stale approval and receipts remain.
+
+Reuse the newer indexed-source-selections-v1 RAG contract. It displays the full independently verified original, so model quotation shortening cannot remove caveats. Native provider citations remain absent and are not fabricated. Our Gemma/MiMo quote-format diagnostics and local inline-reference experiment are retained as historical, unshipped experiments; MiMo registration changed no key and is not the selected RAG route. Final fresh RAG uses the existing free Gemma connection and explicit current protocol.
+
+Current local phase has6of16conservative equivalents reserved. Remaining fixed batch: one PDF2steps and one RAG3equivalents through each actual public/Windows client. New same-owner isolated one-SOP libraries avoid cross-owner adoption. Existing phase/campaign ledgers, free-only funding and expiry unchanged. No more optional diagnostics or purchases. Next: finish reconciliation, clean CI, rc6 packaging and the fixed fresh acceptance batch, then publish artifacts and final handoff.
+
+---
+
+# Identity and RAG completion — candidate rc5
+
+Preserve rc4/runtime37832f0 and final evidence3ca013a. New branchfix-source-identity-rag; old ledgers and working provider resources unchanged. Source interpretation now annotates extracted identities rather than recreating the inventory. Assembly retains missing interpretations as unresolved proposals, marks scope unknown and preserves raw model output separately. Existing source validation, critical review, approval, stale rejection and receipts remain mandatory. Paired revision changes, contradictions and request drafts remain supported.
+
+RAG diagnostics: current free Gemma returned a shortened passage and no native citations. Existing indexed chunks contain the full caveat. The separately configured available free MiMo route returned the complete passage plus exact document/revision/hash/passage/page, while Evolus native citations remainedempty. New strict inline-reference resolution checks every field and full quotation against the current isolated remote chunks; provenance explicitly distinguishes this from provider-native annotations. Original citationless keys-only responses, wrong hashes/versions/pages, shortened caveats and foreign sources still reject. The provider-native metadata limitation remains unresolved; no fabricated CitationInfo. Final model routing is task-specific, not a general model-superiority claim.
+
+Funding: actual active event trial,50000platformcredits, no renewal, ownGemma/MiMo zero token price and sharedAMD hard free boundary confirmed. Separate phase identity-rag-fix-2026-10-18-v1:16conservative equivalents maximum.6reserved for changed-contract Gemma and compatibleMiMo diagnostics;10remain for one PDF2steps and one Rag3equivalents per final public/Windows client. Two final exact one-SOP libraries are necessary for owner isolation; no broad indexing.1000platform exposurecap/49000reserve and18October16:00UTC expiry remain. No purchases, key changes or old counter resets. No additional unchanged retries.
+
+Verification so far:66affected tests and4version tests passed. Full run478passed/1failure because its oldversion literal was collected before the version-test edit; isolated updated test passes. New final CI must pass. Production build and affected Windows packaging in progress. Native citation absence and all raw failures retained in docs/identity-rag-fix. Candidate has not yet passed fresh published-client acceptance. Next: CI-gated deploy of existing Free service, one fresh workflow per client, artifact publication and final handoff.
+
+---
+
+# Focused rc4 — completion checkpoint
+
+Runtime37832f08a933644cd364567b9551444c934e508a is deployed. Unicode retrieval, scoped encoding repair, original-PDF Evolus processing, connected source review, failure/reconnect protection and packet checkpoint controls are implemented and engineering verified. Rag remains disabled because the live ask lacked citations; Blob/local mode works.
+
+Fresh public and installed workflows are documented separately from fixture baselines and agent corrections. Final Windows correction, 800 units, two receipts, stale rejection and read-only packet passed. Raw revised interpretation still omits identities; the guard rejects it and review remains mandatory.
+
+455 main-CI tests, 30 domain cases, eight container/restart checks and 74 affected controls passed. Installer rebuilt/installed; final backend-only metadata fix has no packaged-input changes.21/24 model steps reserved; stop live calls. No purchases or key rotation.
+
+Publication completed: all five anonymous downloads matched checksums, 2,079 source members match the actual tag, and public/local/installed assets are identical. Final evidence is on release-evidence-0.4.0-rc.4-final. Only the verified task-owned port8813 fixture server was stopped; no data was deleted. No further engineering model calls or routine release work remain. Human dependencies/limits: RAG citations, independent acceptance, unsigned installer, temporary hosting and allowance expiry at18October16:00UTC. Detailed evidence and run commands are in HANDOFF.md.
+
+---
+
 # Focused rc4 metadata correction — final gate
 
 Live guarded runtime e847bb7: public corrective PDF returned all3identities/complete scope and reached800/two receipts with explicitly fixture500 baseline; original genuine public500 proof is separate. Public and installed fixed reader reopen the unchanged real packet without granting action authority.451clean LinuxCI passed;70source-guard controls and30domain cases passed.

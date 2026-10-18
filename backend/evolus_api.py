@@ -150,6 +150,7 @@ def normalize_execution(raw,manifest):
         if status=='completed' and (not text or not states.get(k) or states[k].get('status') not in (None,'done')):
             status='failed';draft=None
     return {'execution_id':raw['id'],'status':status,'provider_status':provider_status,'steps':steps,'draft':draft,'document_reading':reading,
+        'interpretation_contract':manifest.get('interpretation_contract'),
         'consumption':raw.get('consumption'),'requested_at':raw.get('requestedAt'),'completed_at':raw.get('completedAt'),
         'trace_id':raw.get('traceId'),'error_present':bool(raw.get('error')),
         'runtime_model_identity':'Not returned by this API; independent AMD request evidence is required for runtime identity verification'}

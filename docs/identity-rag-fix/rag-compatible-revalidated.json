@@ -1,0 +1,33 @@
+{
+  "original_response_unchanged": "rag-compatible.json",
+  "additional_model_calls": 0,
+  "answer": {
+    "claims": [
+      {
+        "document_id": "SOP-FOCUSED-EN",
+        "version": 1,
+        "passage_id": "recovery",
+        "quote": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. A source citation, model answer or narrower proposed hold never releases existing applied holds."
+      }
+    ],
+    "insufficient_evidence": false,
+    "missing_information": []
+  },
+  "citation_resolution": {
+    "basis": "validated inline source reference",
+    "provider_annotation_count": 0,
+    "inline_references": [
+      {
+        "document_id": "SOP-FOCUSED-EN",
+        "version": 1,
+        "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+        "passage_id": "recovery",
+        "page": 1,
+        "remote_document_id": "dcedf524-40a2-4993-bc4c-b8ec4102214f"
+      }
+    ],
+    "boundary": "Inline references are model output checked against the current isolated indexed original; they are not provider-native citation metadata or approval."
+  },
+  "provider_native_citations_still_empty": true,
+  "security_change": "Require full verbatim original plus exact model-returned document/revision/hash/passage/page against already-verified isolated remote chunks. Legacy keys-only citationless response still rejects."
+}

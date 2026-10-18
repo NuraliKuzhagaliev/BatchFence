@@ -57,7 +57,8 @@ def map_answer(raw,binding,retrieval):
     from .scope_proposals import parse_json
     try:selected=parse_json(raw.get('answer',''))
     except (ValueError,TypeError):raise DomainError('Malformed Rag response; no answer accepted')
-    citations=raw.get('citations') or []
+    citations=raw.get('citations')
+    if citations is None:citations=[]
     expected={d['remote_document_id']:d for d in binding['documents']}
     if not isinstance(citations,list) or len(citations)>40 or any(not isinstance(c,dict) or c.get('documentId') not in expected for c in citations):raise DomainError('Unresolvable or outside-scope citation; no answer accepted')
     if binding.get('citation_protocol')==CITATION_PROTOCOL:

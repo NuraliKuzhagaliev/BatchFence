@@ -74,7 +74,11 @@ function SourceCorrection({
   save: (body: RecordData) => void;
 }) {
   const [text, setText] = useState(
-    JSON.stringify(record.raw_draft || record.raw_output || {}, null, 2),
+    JSON.stringify(
+      record.review_draft || record.raw_draft || record.raw_output || {},
+      null,
+      2,
+    ),
   );
   const [note, setNote] = useState(""),
     [checked, setChecked] = useState(false),
@@ -453,6 +457,39 @@ export function ContinuationPanel({
                     </span>
                   </div>
                   <p>{r.error || r.authority}</p>
+                  {r.proposal_assembly && (
+                    <div className="assist-uncertain">
+                      <strong>Original identities retained for review</strong>
+                      <p>
+                        {r.proposal_assembly.source_identity_count} source
+                        identities retained ·{" "}
+                        {r.proposal_assembly.annotated_identity_count} model
+                        interpretations. Identity rows come from retained
+                        originals and source-backed extraction; incident
+                        involvement remains an unreviewed proposal.
+                      </p>
+                      {!!r.proposal_assembly.missing_annotations?.length && (
+                        <p>
+                          Missing model interpretations:{" "}
+                          {r.proposal_assembly.missing_annotations
+                            .map((c: RecordData) => c.value)
+                            .join(", ")}
+                          . These rows remain unresolved and scope is unknown
+                          until explicit original review.
+                        </p>
+                      )}
+                      {!!r.proposal_assembly.missing_extractions?.length && (
+                        <p>
+                          Recorded references missing from extraction:{" "}
+                          {r.proposal_assembly.missing_extractions
+                            .map((c: RecordData) => c.value)
+                            .join(", ")}
+                          . The original references remain visible and scope
+                          stays unknown pending explicit review.
+                        </p>
+                      )}
+                    </div>
+                  )}
                   {r.stale && (
                     <p className="caption">
                       Historical proposal · evidence or reviewed facts changed.

@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "at": "2026-10-18T02:10:10.830Z",
+  "surface": "windows-postfix",
+  "health": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.4.0-rc.4",
+    "commit": "37832f08a933644cd364567b9551444c934e508a",
+    "inference_mode": "fixture",
+    "amd_configured": true,
+    "live_protected": true,
+    "profile": "public",
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  },
+  "outcomes": [
+    {
+      "stage": "revised",
+      "expected_affected": [
+        "SUP-A",
+        "SUP-C"
+      ],
+      "raw_affected": [
+        "SUP-A"
+      ],
+      "raw_scope": "complete",
+      "raw_correction": true,
+      "raw_affected_correct": false,
+      "reviewed_affected": [
+        "SUP-A",
+        "SUP-C"
+      ],
+      "review": "Agent-operated review of retained fictional originals, exact lot dispositions and complete boundary. Explicit engineering approval only; no independent human acceptance.",
+      "applied_units": 800,
+      "receipts": 2,
+      "client_elapsed_ms": 273694,
+      "continued_existing_response": false,
+      "model_application_elapsed_ms": 266823,
+      "remote_execution_id": "a492b298-98ca-f111-bf5b-6045bd9ce552",
+      "explicit_status_reconciliations": 1
+    }
+  ],
+  "receipts": 2,
+  "applied_units": 800,
+  "baseline": "Explicit fixture500; revised800 uses fresh actual Evolus extraction/interpretation",
+  "stale_approval_rejected": true,
+  "sop_revision_evidence": "Original genuine public stale-SOP proof and shared regressions reused; original installed live Blob evidence retained separately",
+  "offline_no_mutation_authority": true,
+  "packet_sha256": "9af50b49a03d5ba235b5b3b6bccb5e85cdfe253b74d863fe96a681f850e78d72",
+  "workspace_token_not_in_browser_storage": true,
+  "errors": [],
+  "review": "Agent-operated review of retained fictional originals, exact lot dispositions and complete boundary. Explicit engineering approval only; no independent human acceptance.",
+  "native_dialogs": "Not repeated; installed filesystem save/open exercised with explicit test dialog-return stubs. Previous real native-dialog acceptance retained."
+}
