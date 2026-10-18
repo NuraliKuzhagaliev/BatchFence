@@ -1,0 +1,13 @@
+{
+  "basis": "public/attempt-2-validation-failure.json and exact local replay",
+  "genuine_model_id": "self-dploy/Gemma-4-31B-IT",
+  "genuine_request_id": "dcc73c205f0b43baa1caa7e81ca197b3",
+  "actual_latency_ms": 49806,
+  "format": "Valid structured response with exact source IDs/quotes.",
+  "application_failure": "Visitor source review called the action-level assertion vocabulary: has a coating adhesion defect was not one of affected/implicated/contaminated/defective.",
+  "raw_quality": "HELIO-733 has uncertain disposition but incident_status mentioned, whereas the acceptance expectation is uncertain. Preserve this distinction; no independent human or universal accuracy claim.",
+  "fix": "Preserve raw model interpretations and proposed scope verbatim. Grounding validation operates on unresolved identities; every critical visitor disposition and scope remains uncertain/unknown. Model proposals remain visible separately. Protected action validators are unchanged.",
+  "local_checks": "99 affected controls passed, including exact retained response, forged-quote rejection and two distinct misleading/conflicting claims. No fresh inference during replay.",
+  "finite_plan_update": "The original initial+timeout-retest plan revealed this second application defect. One final changed-application verification is necessary: three conservative attempts total, all failed attempts retained. No additional prompt tuning or broad benchmarks.",
+  "new_inference_status": "pending CI/deploy; do not claim anonymous acceptance yet."
+}

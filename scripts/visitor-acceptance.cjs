@@ -1,10 +1,11 @@
 // Explicit one-shot deployed acceptance; no owner/provider credentials loaded.
 const {chromium}=require('playwright');
 const fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict');
+const {createHash}=require('node:crypto');
 const root=path.resolve(__dirname,'..'),out=path.join(root,'docs/judge-access/public'),privateDir=path.join(root,'work/judge-access');
 async function main(){
   assert.equal(process.env.BATCHFENCE_VISITOR_LIVE,'true','Fresh inference requires explicit test activation');
-  const attempt=process.env.BATCHFENCE_VISITOR_ATTEMPT||'1';assert(['1','2'].includes(attempt),'Finite plan: initial request plus one changed-timeout retest only');
+  const attempt=process.env.BATCHFENCE_VISITOR_ATTEMPT||'1';assert(['1','2','3'].includes(attempt),'Finite plan: initial failure, timeout retest, one source-only validation-fix verification');
   const base='https://batchfence.onrender.com',checks=[],errors=[],modelPosts=[];
   await fs.mkdir(out,{recursive:true});await fs.mkdir(privateDir,{recursive:true});
   const browserTmp=path.join(privateDir,'browser-tmp');await fs.mkdir(browserTmp,{recursive:true});
@@ -40,9 +41,12 @@ async function main(){
       await page.getByLabel('Uploaded original',{exact:true}).selectOption({label:filename});
     };
     await upload('supplier-quality-helio.pdf');
+    const uploaded=await (await context.request.get(route)).json();
+    const inputHash=createHash('sha256').update(await fs.readFile(path.join(root,'docs/judge-access/inputs/supplier-quality-helio.pdf'))).digest('hex');
+    assert.equal(uploaded.documents[0].original_hash,inputHash);assert.equal(uploaded.documents[0].synthetic,false);
     await page.getByRole('img',{name:'Original PDF page 1 of supplier-quality-helio.pdf',exact:true}).waitFor({state:'visible',timeout:30000});
     await context.storageState({path:path.join(privateDir,'public-session-'+attempt+'.json')});
-    await fs.writeFile(path.join(privateDir,'fresh-started'+(attempt==='1'?'':'-2')+'.json'),JSON.stringify({at:new Date().toISOString(),caseId,planned_model_calls:1}),{flag:'wx'});
+    await fs.writeFile(path.join(privateDir,'fresh-started'+(attempt==='1'?'':'-'+attempt)+'.json'),JSON.stringify({at:new Date().toISOString(),caseId,planned_model_calls:1}),{flag:'wx'});
     await page.getByRole('checkbox',{name:/I may share this nonsensitive document/}).check();
     const pending=page.waitForResponse(r=>r.url()===route+'/visitor-analysis'&&r.request().method()==='POST',{timeout:150000});
     await page.getByRole('button',{name:'Analyze with AMD Gemma',exact:true}).click();
@@ -87,7 +91,7 @@ async function main(){
     checks.push('Unrelated upload explicitly rejected before inference; earlier result preserved stale; no visitor approval/execution authority');
     assert.deepEqual(errors,[]);
     const report={at:new Date().toISOString(),passed:true,url:base,version:health.version,commit:health.commit,case_id:caseId,checks,
-      fresh_model_requests:1,browser_analysis_posts:modelPosts.length,unrelated_model_requests:0,no_owner_or_provider_token_in_browser:true,
+      fresh_model_requests:1,phase_conservative_model_attempts:Number(attempt),prior_failed_attempts:['attempt-1-failure.json',...(attempt==='3'?['attempt-2-validation-failure.json']:[])].slice(0,Number(attempt)-1),input_sha256:inputHash,browser_analysis_posts:modelPosts.length,unrelated_model_requests:0,no_owner_or_provider_token_in_browser:true,
       provenance:actual.provenance,raw_quality_file:'raw-quality.json',review:'Agent-operated fictional engineering acceptance; not independent judge/domain validation',page_errors:errors,
       provider_access_end:'Not published; shared free access can be withdrawn. Daily reset is not expiry.',entitlement:actual.entitlement};
     await fs.writeFile(path.join(out,'result.json'),JSON.stringify(report,null,2));

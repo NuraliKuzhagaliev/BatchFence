@@ -1,3 +1,13 @@
+# Visitor source-only proposal boundary — final live check pending
+
+The second genuine deployed Gemma response (self-dploy/Gemma-4-31B-IT,request dcc73c205f0b43baa1caa7e81ca197b3,49,806ms) had exact source citations but the action-level vocabulary rejected has a coating adhesion defect. Raw HELIO-733 incident_status=mentioned despite uncertain disposition is retained as a raw-quality distinction. Both failed attempts and read-only packets are preserved.
+
+Focused fix: preserve model-proposed statuses/scope separately, validate exact grounded identities in unresolved state, leave every visitor lot disposition and inventory/incident scope unresolved. Do not alter protected action validators, source grounding, original/frozen benchmarks, approval/receipt controls or keys.99 affected local checks and build pass; no inference during replay.
+
+Next: publish through existing GitHub/Free Render gates, then one final fresh changed-application check, three conservative attempts total. No success claim until deployed source inspection, unrelated rejection and second-browser isolation pass. Initial18/18 ledger and rc6 release unchanged.
+
+---
+
 # Visitor live acceptance — transport fix pending (2026-10-18)
 
 Public rc7 commit23a0627 deployed after main CI39120790589:506 regressions,30 domain cases,8 Linux checks and5 packaged Windows checks. First clean-browser PDF upload/original page preview passed, but fresh analysis returned provider unavailable after40.7seconds. No accepted proposals or fixtures. Original failure retained in docs/judge-access/public/attempt-1-failure.json; exact original exception was not captured. Provider usage did not yet show a new completed request.
