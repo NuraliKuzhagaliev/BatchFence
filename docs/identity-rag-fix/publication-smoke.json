@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-18T07:17:44.068Z",
+  "passed": true,
+  "checks": [
+    "Public Windows download target; no redundant Open web app;390px layout",
+    "Actual installed client backend/commit; desktop-only Open web app target, shell launch intercepted; no desktop download"
+  ],
+  "errors": [],
+  "inference_calls": 0
+}

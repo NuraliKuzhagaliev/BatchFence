@@ -1,0 +1,126 @@
+[
+  {
+    "surface": "web",
+    "raw_incident_annotations": [
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-A",
+        "incident_status": "affected",
+        "quote": "Affected lots: SUP-A, SUP-C"
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-B",
+        "incident_status": "explicitly_excluded",
+        "quote": "SUP-B is not affected by this revision."
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-C",
+        "incident_status": "affected",
+        "quote": "Affected lots: SUP-A, SUP-C"
+      }
+    ],
+    "raw_incident_labels_expected": true,
+    "raw_extractor_format_valid": true,
+    "raw_extractor_format_errors": [],
+    "application_status": "unreviewed proposal",
+    "assembly": {
+      "contract": "identity-annotations-v1",
+      "source_identity_count": 3,
+      "annotated_identity_count": 3,
+      "missing_annotations": [],
+      "missing_extractions": [],
+      "raw_scope_claim": "complete",
+      "authority": "Extracted identities and model annotations are proposals; explicit original review and approval remain mandatory"
+    },
+    "review": "Explicit attributed engineering review; not independent human validation"
+  },
+  {
+    "surface": "windows",
+    "raw_incident_annotations": [
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-A",
+        "incident_status": "affected",
+        "quote": "SUP-A remains affected by the same confirmed coating defect."
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-B",
+        "incident_status": "explicitly_excluded",
+        "quote": "SUP-B is explicitly excluded from this notice."
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-C",
+        "incident_status": "affected",
+        "quote": "SUP-C is affected by the confirmed coating defect."
+      }
+    ],
+    "raw_incident_labels_expected": true,
+    "raw_extractor_format_valid": false,
+    "raw_extractor_format_errors": [
+      {
+        "location": [
+          "candidates",
+          0,
+          "disposition"
+        ],
+        "type": "literal_error"
+      }
+    ],
+    "application_status": "failed validation",
+    "assembly": null,
+    "review": "Explicit attributed engineering review; not independent human validation"
+  },
+  {
+    "surface": "windows-corrective",
+    "raw_incident_annotations": [
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-A",
+        "incident_status": "affected",
+        "quote": "SUP-A remains affected by the same confirmed coating defect."
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-B",
+        "incident_status": "explicitly_excluded",
+        "quote": "SUP-B is explicitly excluded from this notice."
+      },
+      {
+        "kind": "supplier_lot",
+        "value": "SUP-C",
+        "incident_status": "affected",
+        "quote": "SUP-C is affected by the confirmed coating defect."
+      }
+    ],
+    "raw_incident_labels_expected": true,
+    "raw_extractor_format_valid": false,
+    "raw_extractor_format_errors": [
+      {
+        "location": [
+          "candidates",
+          0,
+          "disposition"
+        ],
+        "type": "literal_error"
+      }
+    ],
+    "application_status": "unreviewed proposal",
+    "assembly": {
+      "contract": "identity-annotations-v1",
+      "source_identity_count": 3,
+      "annotated_identity_count": 3,
+      "missing_annotations": [],
+      "missing_extractions": [],
+      "extractor_format_issues": [
+        "Document metadata QA-901 used incident disposition mentioned; retained as unresolved identity, original review required"
+      ],
+      "raw_scope_claim": "complete",
+      "authority": "Extracted identities and model annotations are proposals; explicit original review and approval remain mandatory"
+    },
+    "review": "Explicit attributed engineering review; not independent human validation"
+  }
+]

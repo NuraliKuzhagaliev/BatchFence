@@ -1,0 +1,16 @@
+{
+  "service_id": "srv-db968c7btjjs73fghkog",
+  "workspace_id": "tea-d3pt0sbipnbc73a5v810",
+  "plan": "free",
+  "instances": 1,
+  "commit": "d6fa31f7d321b0e0c51dad5afcb577b6e31e8130",
+  "deploy_id": "dep-dba73tbvi4us73a9nh0g",
+  "status": "live",
+  "configuration_merge": "Six nonsecret workflow/finite-allowance keys; replace=false, all credentials preserved",
+  "prior_reserved": 13,
+  "hosted_remaining_cap": 5,
+  "phase_cap": 18,
+  "expires_at": "2026-10-18T16:00:00Z",
+  "additional_cash_spend": 0,
+  "key_rotations": 0
+}

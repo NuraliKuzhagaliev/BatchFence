@@ -1,0 +1,115 @@
+{
+  "phase_id": "identity-rag-fix-2026-10-18-v1",
+  "original_ceiling": 16,
+  "explicit_refined_ceiling": 18,
+  "reserved_conservative_equivalents": 18,
+  "remaining_evaluation_equivalents": 0,
+  "attempts": [
+    {
+      "id": "rag-diagnostic-0",
+      "at": "2026-10-18T06:09:14.281371+00:00",
+      "outcome": "Reserved before one actual changed-contract ask; no retry"
+    },
+    {
+      "id": "rag-diagnostic-1",
+      "at": "2026-10-18T06:09:14.281381+00:00",
+      "outcome": "Reserved before one actual changed-contract ask; no retry"
+    },
+    {
+      "id": "rag-diagnostic-2",
+      "at": "2026-10-18T06:09:14.281384+00:00",
+      "outcome": "Reserved before one actual changed-contract ask; no retry"
+    },
+    {
+      "id": "rag-compatible-0",
+      "at": "2026-10-18T06:14:15.262125+00:00",
+      "outcome": "Reserved before one actual changed-contract ask; no retry"
+    },
+    {
+      "id": "rag-compatible-1",
+      "at": "2026-10-18T06:14:15.262133+00:00",
+      "outcome": "Reserved before one actual changed-contract ask; no retry"
+    },
+    {
+      "id": "rag-compatible-2",
+      "at": "2026-10-18T06:14:15.262136+00:00",
+      "outcome": "Reserved before one actual changed-contract ask; no retry"
+    },
+    {
+      "id": "web-document-0",
+      "at": "2026-10-18T06:54:49.190Z",
+      "outcome": "Reserved before actual client dispatch; no automatic retry"
+    },
+    {
+      "id": "web-document-1",
+      "at": "2026-10-18T06:54:49.190Z",
+      "outcome": "Reserved before actual client dispatch; no automatic retry"
+    },
+    {
+      "id": "web-rag-0",
+      "at": "2026-10-18T06:55:24.014Z",
+      "outcome": "Reserved before actual client dispatch; no automatic retry"
+    },
+    {
+      "id": "web-rag-1",
+      "at": "2026-10-18T06:55:24.014Z",
+      "outcome": "Reserved before actual client dispatch; no automatic retry"
+    },
+    {
+      "id": "web-rag-2",
+      "at": "2026-10-18T06:55:24.014Z",
+      "outcome": "Reserved before actual client dispatch; no automatic retry"
+    },
+    {
+      "id": "windows-document-0",
+      "at": "2026-10-18T06:56:18.500Z",
+      "outcome": "Reserved before actual client dispatch; no automatic retry"
+    },
+    {
+      "id": "windows-document-1",
+      "at": "2026-10-18T06:56:18.500Z",
+      "outcome": "Reserved before actual client dispatch; no automatic retry"
+    },
+    {
+      "id": "windows-corrective-document-0",
+      "at": "2026-10-18T07:15:17.449Z",
+      "outcome": "Reserved before actual client dispatch; no automatic retry"
+    },
+    {
+      "id": "windows-corrective-document-1",
+      "at": "2026-10-18T07:15:17.449Z",
+      "outcome": "Reserved before actual client dispatch; no automatic retry"
+    },
+    {
+      "id": "windows-corrective-rag-0",
+      "at": "2026-10-18T07:16:03.367Z",
+      "outcome": "Reserved before actual client dispatch; no automatic retry"
+    },
+    {
+      "id": "windows-corrective-rag-1",
+      "at": "2026-10-18T07:16:03.367Z",
+      "outcome": "Reserved before actual client dispatch; no automatic retry"
+    },
+    {
+      "id": "windows-corrective-rag-2",
+      "at": "2026-10-18T07:16:03.367Z",
+      "outcome": "Reserved before actual client dispatch; no automatic retry"
+    }
+  ],
+  "refinements": [
+    {
+      "previous_ceiling": 16,
+      "new_ceiling": 18,
+      "reason": "One actual fresh metadata-enum defect contained locally; native helper closed its memory-only capability after rejection. One changed Windows PDF retest2steps plus final Rag3equivalents needed. No unchanged retry or counter reset."
+    }
+  ],
+  "top_level_live_workload": {
+    "native_pdf_workflows": 3,
+    "rag_asks": 4,
+    "note": "Two Rag diagnostics, public PDF/Rag, failed Windows PDF and changed Windows PDF/Rag. Model-internal dispatches are not independently enumerated; conservative step equivalents are reserved."
+  },
+  "key_rotations": 0,
+  "additional_cash_spend": 0,
+  "old_ledgers_unchanged": true,
+  "future_use": "This engineering evaluation is complete. Do not rerun one-shot scripts, silently reset this ledger or claim unlimited live access. Subsequent live use needs a distinct bounded authorized allowance with actual current provider evidence; no key rotation or purchase is required."
+}

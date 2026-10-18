@@ -1,0 +1,10 @@
+{
+  "existing_env_loaded": "D:\\projects\\BatchFence\\.env",
+  "documented_contract_hash_valid": true,
+  "workflow_manifest_hash_valid": true,
+  "selected_resources_match": true,
+  "free_proof_valid_now": true,
+  "configuration_only_no_inference": true,
+  "provider_keys_displayed": false,
+  "evaluation_cap_completed": "No further model calls allowed by the completed private phase ledger"
+}

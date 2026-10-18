@@ -1,0 +1,14 @@
+{
+  "runtime": "d6fa31f7d321b0e0c51dad5afcb577b6e31e8130",
+  "raw_annotation_correctness": "All three supplier-lot labels match each of the three new PDF responses; small fixed evidence, not a general benchmark",
+  "format_failures": "Two Windows raw extractions use mentioned as document metadata disposition; original rejected, corrective explicitly unresolved/unknown until review",
+  "lot_omissions": "Original two omissions preserved and locally replayed; new union of grounded extraction plus independently detected recorded identities prevents silent erasure",
+  "rag": "Both public and installed fresh asks independently verified complete approved originals against identified Evolus chunks; native annotations absent",
+  "superseded_experiments": "Natural quote and inline-reference alternatives remain historical, not shipped. Final route reuses newer indexed-source-selections-v1",
+  "model_comparison": "Gemma and MiMo one-ask diagnostic differences do not establish superiority; final task-specific configured Gemma selection accepted under independent proof",
+  "approval_controls": "Preserved, no automatic inventory actions or releases",
+  "review": "Agent-operated fictional engineering; independent acceptance pending",
+  "evaluation_finished": true,
+  "remaining_model_requests": 0,
+  "publication": "Assets uploading; anonymous downloads and tag/source parity are final separate checks"
+}

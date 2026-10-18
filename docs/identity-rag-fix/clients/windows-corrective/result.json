@@ -1,0 +1,102 @@
+{
+  "passed": true,
+  "at": "2026-10-18T07:16:40.844Z",
+  "surface": "windows-corrective",
+  "health": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.4.0-rc.6",
+    "commit": "d6fa31f7d321b0e0c51dad5afcb577b6e31e8130",
+    "inference_mode": "fixture",
+    "amd_configured": true,
+    "live_protected": true,
+    "profile": "public",
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  },
+  "document": {
+    "raw_affected": [
+      "SUP-A",
+      "SUP-C"
+    ],
+    "raw_excluded": [
+      "SUP-B"
+    ],
+    "raw_scope": "complete",
+    "raw_correct": true,
+    "assembly": {
+      "contract": "identity-annotations-v1",
+      "source_identity_count": 3,
+      "annotated_identity_count": 3,
+      "missing_annotations": [],
+      "missing_extractions": [],
+      "extractor_format_issues": [
+        "Document metadata QA-901 used incident disposition mentioned; retained as unresolved identity, original review required"
+      ],
+      "raw_scope_claim": "complete",
+      "authority": "Extracted identities and model annotations are proposals; explicit original review and approval remain mandatory"
+    },
+    "manual_source_correction": false,
+    "explicit_original_scope_review": true,
+    "remote_execution_id": "ef6caadd-c3ca-f111-bf5b-6045bd9ce552",
+    "application_elapsed_ms": 34102,
+    "explicit_status_reads": 0
+  },
+  "rag": {
+    "configured_model": "own/gemma-4-31b-it",
+    "runtime_model_identity": "Not returned by this API; configured own Gemma only",
+    "conversation_id": "dceaf91a-afd6-5ab7-a916-75ef5ad18e06",
+    "citation_resolution": {
+      "basis": "application-verified indexed sources",
+      "provider_annotation_count": 0,
+      "chunks": [
+        {
+          "remote_document_id": "ab3cc023-14a8-42f4-bff3-5441e3960974",
+          "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+          "chunks": [
+            {
+              "id": "C001",
+              "body_hash": "9c72943ae39faf048024a1c18f3aa631d4fd4356ae355ccc2710798a663ac397"
+            }
+          ]
+        },
+        {
+          "remote_document_id": "ab3cc023-14a8-42f4-bff3-5441e3960974",
+          "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+          "chunks": [
+            {
+              "id": "C001",
+              "body_hash": "9c72943ae39faf048024a1c18f3aa631d4fd4356ae355ccc2710798a663ac397"
+            },
+            {
+              "id": "C002",
+              "body_hash": "305d3ab800b878a3c2f048cbff48548484c532a73285a239d6b1e02b82955b01"
+            }
+          ]
+        }
+      ]
+    },
+    "consumption": {
+      "credits": 0,
+      "pendingEntries": 0,
+      "costUsd": null,
+      "llmTokens": null,
+      "ocrPages": null,
+      "embeddingTokens": null,
+      "speechToTextSeconds": null,
+      "entries": null
+    },
+    "full_caveat_retained": true
+  },
+  "applied_units": 800,
+  "receipts": 2,
+  "baseline": "Explicit synthetic500; revised PDF and Rag are fresh live processing",
+  "stale_rejected": true,
+  "offline_no_action_authority": true,
+  "token_not_in_packet_or_storage": true,
+  "packet_sha256": "b31a0ad484247ea14fae4d4c99b2feed40bc6a49de0ff5fb096c795306e881a9",
+  "errors": [],
+  "review": "Agent-operated review of fictional originals and exact source, lot, scope and approval controls. Not independent human validation.",
+  "native_dialogs": "Real filesystem export/open; chooser returns stubbed. Prior real-dialog evidence reused."
+}

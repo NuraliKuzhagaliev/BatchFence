@@ -1,0 +1,371 @@
+{
+  "id": "GENERATE-9c34bd57df7a56b19f20f345",
+  "case_id": "ecbe4db8e7634f3b8ce9c2270c42ddc6",
+  "kind": "knowledge",
+  "document_ids": [],
+  "mode": "live",
+  "provider_path": "Evolus agent-bound Rag / configured own Gemma",
+  "status": "unreviewed proposal",
+  "request_hash": "f20ce93b4d2d9729e83a7d5c8123a98bc1a887820bb4d1e33db5cec154159b08",
+  "generation_hash": "038288fe403efe192d6fc38a9be935678cad5d91e7cfc9475a5ab58cb3b13ae3",
+  "snapshot_hash": "aaf9430e78c6421c7cb2dcc874907384f0b322c788fad3ab9766272dfd10a22e",
+  "actor": {
+    "user_id": null,
+    "identity_mode": "anonymous session; not independent identity"
+  },
+  "started_at": "2026-10-18T07:17:25.630855+00:00",
+  "reservation": {
+    "provider": "gemma",
+    "reservation": "30b2fe9d97f2fb9cc2d17561ecf1a656e67099e355e11094cb7827c38fa22288",
+    "dispatch": 3,
+    "conservative_remaining": 0.9634539357200265,
+    "stop_margin": 0.1
+  },
+  "authority": "Unreviewed draft only; existing review/calculation/approval remain mandatory",
+  "retrieval_mode": "rag",
+  "external_conversation_id": "dceaf91a-afd6-5ab7-a916-75ef5ad18e06",
+  "rag_binding": {
+    "library_id": "bb3375f0-c3ca-f111-bf5b-6045bd9ce552",
+    "library_type": "Rag",
+    "scope": "4eb6db52831d2204bb46e2b8aba82107bd778b35562cdce795687c5fa0058078",
+    "product": "Decorative housing",
+    "process": "coating",
+    "status": "indexed verified scope",
+    "catalog_digest": "80211d4f60579a4ee7bc6049fb4a1ff19aca6e68c720ed31b7fa8fc8e189b9bd",
+    "documents": [
+      {
+        "document_id": "SOP-FOCUSED-EN",
+        "version": 1,
+        "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+        "remote_document_id": "ab3cc023-14a8-42f4-bff3-5441e3960974",
+        "ingestion_status": 2,
+        "uploaded_content_hash": "9c72943ae39faf048024a1c18f3aa631d4fd4356ae355ccc2710798a663ac397",
+        "source_basis": "Approved retained passages; Rag adds explicit document/version/passage headers"
+      }
+    ],
+    "at": "2026-10-18T07:17:24.554355+00:00",
+    "actor": {
+      "user_id": null,
+      "identity_mode": "anonymous session; not independent identity"
+    },
+    "note": "Agent-operated review of fictional originals and exact source, lot, scope and approval controls. Not independent human validation.",
+    "provenance": [
+      {
+        "provider": "Evolus",
+        "at": "2026-10-18T07:17:23.164388+00:00",
+        "method": "POST",
+        "path": "/api/v1/memories/bb3375f0-c3ca-f111-bf5b-6045bd9ce552/documents",
+        "http_status": 201,
+        "elapsed_ms": 1061,
+        "response_hash": "bf9a56b2bfbb9df3eb2ead71553880e0eb6cd958d2aa2b7ccdcc4b4615f321fc",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    ],
+    "credit_observations": [
+      {
+        "before": {
+          "spendable_platform_credits": 50000,
+          "at": "2026-10-18T07:17:22.094322+00:00",
+          "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+        },
+        "after": {
+          "spendable_platform_credits": 50000,
+          "at": "2026-10-18T07:17:23.401620+00:00",
+          "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+        },
+        "delta_account_wide": 0,
+        "tariff": "Metadata403; authorized small event-credit probe, actual balance monitored"
+      }
+    ],
+    "agent_id": "2f5ca401-42a3-4f61-a5bf-d155355ce66e",
+    "agent_prompt_hash": "9aae83f1c8441a301492a55aae81db79d7ff559459bbd1a3b826bfd4eeb0e958",
+    "configured_model_key": "own/gemma-4-31b-it",
+    "citation_protocol": "indexed-source-selections-v1"
+  },
+  "retrieval": {
+    "status": "authorized originals / remote semantic retrieval pending",
+    "method": "Evolus agent-bound Rag; no local lexical pre-ranking",
+    "passages": [
+      {
+        "document_id": "SOP-FOCUSED-EN",
+        "version": 1,
+        "passage_id": "containment",
+        "quote": "For a supplier notice, retain the original and verify the exact affected lot list and complete incident boundary. Keep unresolved ancestry uncertain. An operator must inspect every critical source assertion before a deterministic containment plan can be approved.",
+        "page": 1,
+        "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+        "provider_document_id": "ab3cc023-14a8-42f4-bff3-5441e3960974",
+        "local_quote_mapping": "Exact approved passage in retained library content; provider span unavailable",
+        "provider_chunk_proof": {
+          "remote_document_id": "ab3cc023-14a8-42f4-bff3-5441e3960974",
+          "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+          "chunks": [
+            {
+              "id": "C001",
+              "body_hash": "9c72943ae39faf048024a1c18f3aa631d4fd4356ae355ccc2710798a663ac397"
+            }
+          ]
+        }
+      },
+      {
+        "document_id": "SOP-FOCUSED-EN",
+        "version": 1,
+        "passage_id": "recovery",
+        "quote": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. A source citation, model answer or narrower proposed hold never releases existing applied holds.",
+        "page": 1,
+        "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+        "provider_document_id": "ab3cc023-14a8-42f4-bff3-5441e3960974",
+        "local_quote_mapping": "Exact approved passage in retained library content; provider span unavailable",
+        "provider_chunk_proof": {
+          "remote_document_id": "ab3cc023-14a8-42f4-bff3-5441e3960974",
+          "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+          "chunks": [
+            {
+              "id": "C001",
+              "body_hash": "9c72943ae39faf048024a1c18f3aa631d4fd4356ae355ccc2710798a663ac397"
+            },
+            {
+              "id": "C002",
+              "body_hash": "305d3ab800b878a3c2f048cbff48548484c532a73285a239d6b1e02b82955b01"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "library_provenance": [
+    {
+      "provider": "Evolus",
+      "at": "2026-10-18T07:17:25.942247+00:00",
+      "method": "GET",
+      "path": "/api/v1/memories/bb3375f0-c3ca-f111-bf5b-6045bd9ce552/documents",
+      "http_status": 200,
+      "elapsed_ms": 294,
+      "response_hash": "339a15c099391050495179589efd7ec38460db68c75f836ad2ce21b4f08a475f",
+      "request_id": null,
+      "execution_header": null,
+      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+    },
+    {
+      "provider": "Evolus",
+      "at": "2026-10-18T07:17:26.267964+00:00",
+      "method": "GET",
+      "path": "/api/v1/memories/bb3375f0-c3ca-f111-bf5b-6045bd9ce552/documents/ab3cc023-14a8-42f4-bff3-5441e3960974/chunks",
+      "http_status": 200,
+      "elapsed_ms": 314,
+      "response_hash": "8ea613485af05b7cd5c297545091879a79fae9edeefe43978534de69823e35b5",
+      "request_id": null,
+      "execution_header": null,
+      "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+    }
+  ],
+  "raw_output": {
+    "answer": "```json\n{\n  \"selections\": [\n    {\n      \"document_id\": \"SOP-FOCUSED-EN\",\n      \"version\": 1,\n      \"passage_id\": \"recovery\"\n    }\n  ],\n  \"insufficient_evidence\": false,\n  \"missing_information\": []\n}\n```",
+    "title": "Api request",
+    "agentId": "2f5ca401-42a3-4f61-a5bf-d155355ce66e",
+    "conversationId": "dceaf91a-afd6-5ab7-a916-75ef5ad18e06",
+    "totalTokenCount": null,
+    "citations": []
+  },
+  "provenance": {
+    "provider": "Evolus agent-bound Rag",
+    "at": "2026-10-18T07:17:58.413964+00:00",
+    "elapsed_ms": 31205,
+    "request_id": null,
+    "response_hash": "41a9f94b933fad946d4cdb3213812fac89cf0b8c140c3f2d03da71a843485254",
+    "configured_model_key": "own/gemma-4-31b-it",
+    "runtime_model_identity": "Not returned by this API; configured own Gemma only",
+    "library_id": "bb3375f0-c3ca-f111-bf5b-6045bd9ce552",
+    "agent_id": "2f5ca401-42a3-4f61-a5bf-d155355ce66e",
+    "conversation_id": "dceaf91a-afd6-5ab7-a916-75ef5ad18e06",
+    "raw_output": {
+      "answer": "```json\n{\n  \"selections\": [\n    {\n      \"document_id\": \"SOP-FOCUSED-EN\",\n      \"version\": 1,\n      \"passage_id\": \"recovery\"\n    }\n  ],\n  \"insufficient_evidence\": false,\n  \"missing_information\": []\n}\n```",
+      "title": "Api request",
+      "agentId": "2f5ca401-42a3-4f61-a5bf-d155355ce66e",
+      "conversationId": "dceaf91a-afd6-5ab7-a916-75ef5ad18e06",
+      "totalTokenCount": null,
+      "citations": []
+    },
+    "consumption": {
+      "credits": 0,
+      "pendingEntries": 0,
+      "costUsd": null,
+      "llmTokens": null,
+      "ocrPages": null,
+      "embeddingTokens": null,
+      "speechToTextSeconds": null,
+      "entries": null
+    },
+    "balance_before": {
+      "spendable_platform_credits": 50000,
+      "at": "2026-10-18T07:17:27.209010+00:00",
+      "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+    },
+    "balance_after": {
+      "spendable_platform_credits": 50000,
+      "at": "2026-10-18T07:17:58.699317+00:00",
+      "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+    },
+    "accounting_state": "finalized",
+    "credit_reserve_breached": false,
+    "retry_policy": "One BatchFence dispatch; up to3 provider attempt equivalents reserved conservatively; provider internals not returned"
+  },
+  "finished_at": "2026-10-18T07:17:58.701431+00:00",
+  "draft": {
+    "claims": [
+      {
+        "document_id": "SOP-FOCUSED-EN",
+        "version": 1,
+        "passage_id": "recovery",
+        "quote": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. A source citation, model answer or narrower proposed hold never releases existing applied holds."
+      }
+    ],
+    "insufficient_evidence": false,
+    "missing_information": []
+  },
+  "quote_origin": "Full approved original passages resolved from model-selected keys and independently read Evolus indexed chunks; application-verified source citations, not provider native annotations",
+  "linked_answer": {
+    "id": "GENERATE-9c34bd57df7a56b19f20f345",
+    "case_id": "ecbe4db8e7634f3b8ce9c2270c42ddc6",
+    "status": "succeeded",
+    "mode": "Live Gemma / isolated Evolus library",
+    "output": {
+      "claims": [
+        {
+          "document_id": "SOP-FOCUSED-EN",
+          "version": 1,
+          "passage_id": "recovery",
+          "quote": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. A source citation, model answer or narrower proposed hold never releases existing applied holds."
+        }
+      ],
+      "insufficient_evidence": false,
+      "missing_information": []
+    },
+    "catalog_digest": "80211d4f60579a4ee7bc6049fb4a1ff19aca6e68c720ed31b7fa8fc8e189b9bd",
+    "retrieval": {
+      "status": "authorized originals / remote semantic retrieval pending",
+      "method": "Evolus agent-bound Rag; no local lexical pre-ranking",
+      "passages": [
+        {
+          "document_id": "SOP-FOCUSED-EN",
+          "version": 1,
+          "passage_id": "containment",
+          "quote": "For a supplier notice, retain the original and verify the exact affected lot list and complete incident boundary. Keep unresolved ancestry uncertain. An operator must inspect every critical source assertion before a deterministic containment plan can be approved.",
+          "page": 1,
+          "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+          "provider_document_id": "ab3cc023-14a8-42f4-bff3-5441e3960974",
+          "local_quote_mapping": "Exact approved passage in retained library content; provider span unavailable",
+          "provider_chunk_proof": {
+            "remote_document_id": "ab3cc023-14a8-42f4-bff3-5441e3960974",
+            "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+            "chunks": [
+              {
+                "id": "C001",
+                "body_hash": "9c72943ae39faf048024a1c18f3aa631d4fd4356ae355ccc2710798a663ac397"
+              }
+            ]
+          }
+        },
+        {
+          "document_id": "SOP-FOCUSED-EN",
+          "version": 1,
+          "passage_id": "recovery",
+          "quote": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. A source citation, model answer or narrower proposed hold never releases existing applied holds.",
+          "page": 1,
+          "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+          "provider_document_id": "ab3cc023-14a8-42f4-bff3-5441e3960974",
+          "local_quote_mapping": "Exact approved passage in retained library content; provider span unavailable",
+          "provider_chunk_proof": {
+            "remote_document_id": "ab3cc023-14a8-42f4-bff3-5441e3960974",
+            "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+            "chunks": [
+              {
+                "id": "C001",
+                "body_hash": "9c72943ae39faf048024a1c18f3aa631d4fd4356ae355ccc2710798a663ac397"
+              },
+              {
+                "id": "C002",
+                "body_hash": "305d3ab800b878a3c2f048cbff48548484c532a73285a239d6b1e02b82955b01"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "question": "What recorded evidence and separate approval are required before recovery? Include the complete original passage and its final caveat.",
+    "provenance": {
+      "provider": "Evolus agent-bound Rag",
+      "at": "2026-10-18T07:17:58.413964+00:00",
+      "elapsed_ms": 31205,
+      "request_id": null,
+      "response_hash": "41a9f94b933fad946d4cdb3213812fac89cf0b8c140c3f2d03da71a843485254",
+      "configured_model_key": "own/gemma-4-31b-it",
+      "runtime_model_identity": "Not returned by this API; configured own Gemma only",
+      "library_id": "bb3375f0-c3ca-f111-bf5b-6045bd9ce552",
+      "agent_id": "2f5ca401-42a3-4f61-a5bf-d155355ce66e",
+      "conversation_id": "dceaf91a-afd6-5ab7-a916-75ef5ad18e06",
+      "raw_output": {
+        "answer": "```json\n{\n  \"selections\": [\n    {\n      \"document_id\": \"SOP-FOCUSED-EN\",\n      \"version\": 1,\n      \"passage_id\": \"recovery\"\n    }\n  ],\n  \"insufficient_evidence\": false,\n  \"missing_information\": []\n}\n```",
+        "title": "Api request",
+        "agentId": "2f5ca401-42a3-4f61-a5bf-d155355ce66e",
+        "conversationId": "dceaf91a-afd6-5ab7-a916-75ef5ad18e06",
+        "totalTokenCount": null,
+        "citations": []
+      },
+      "consumption": {
+        "credits": 0,
+        "pendingEntries": 0,
+        "costUsd": null,
+        "llmTokens": null,
+        "ocrPages": null,
+        "embeddingTokens": null,
+        "speechToTextSeconds": null,
+        "entries": null
+      },
+      "balance_before": {
+        "spendable_platform_credits": 50000,
+        "at": "2026-10-18T07:17:27.209010+00:00",
+        "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+      },
+      "balance_after": {
+        "spendable_platform_credits": 50000,
+        "at": "2026-10-18T07:17:58.699317+00:00",
+        "response_hash": "6c357c1371155d069c0c71bf7f9af7b961558215a8eb8a8ebbc32048543eaf55"
+      },
+      "accounting_state": "finalized",
+      "credit_reserve_breached": false,
+      "retry_policy": "One BatchFence dispatch; up to3 provider attempt equivalents reserved conservatively; provider internals not returned"
+    },
+    "quote_origin": "Full approved original passages resolved from model-selected keys and independently read Evolus indexed chunks; application-verified source citations, not provider native annotations",
+    "library_provenance": [
+      {
+        "provider": "Evolus",
+        "at": "2026-10-18T07:17:25.942247+00:00",
+        "method": "GET",
+        "path": "/api/v1/memories/bb3375f0-c3ca-f111-bf5b-6045bd9ce552/documents",
+        "http_status": 200,
+        "elapsed_ms": 294,
+        "response_hash": "339a15c099391050495179589efd7ec38460db68c75f836ad2ce21b4f08a475f",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      },
+      {
+        "provider": "Evolus",
+        "at": "2026-10-18T07:17:26.267964+00:00",
+        "method": "GET",
+        "path": "/api/v1/memories/bb3375f0-c3ca-f111-bf5b-6045bd9ce552/documents/ab3cc023-14a8-42f4-bff3-5441e3960974/chunks",
+        "http_status": 200,
+        "elapsed_ms": 314,
+        "response_hash": "8ea613485af05b7cd5c297545091879a79fae9edeefe43978534de69823e35b5",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    ],
+    "timestamp": "2026-10-18T07:17:58.701962+00:00",
+    "boundary": "Exact applicable passage proposals; explicit original evidence review required for any check"
+  },
+  "stale": false
+}
