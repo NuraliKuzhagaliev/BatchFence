@@ -1,0 +1,85 @@
+{
+  "at": "2026-10-18T08:07:16.866639+00:00",
+  "runtime": "d6fa31f7d321b0e0c51dad5afcb577b6e31e8130",
+  "version": "0.4.0-rc.6",
+  "assets": [
+    {
+      "name": "BatchFence-0.4.0-rc.6-win-x64-setup.exe",
+      "bytes": 113799966,
+      "sha256": "fcf7ad60d417c9a63b0ec56681312c6967197956a666c32231aa67f5cb0cc803",
+      "anonymous_full_download_verified": true,
+      "reused_previous_anonymous_download": true
+    },
+    {
+      "name": "BatchFence-0.4.0-rc.6-source.zip",
+      "bytes": 140861434,
+      "sha256": "9a852b5fe9d98facdbea6159710a31e66c6f61f844f9f1a255ffae8e57ddf228",
+      "anonymous_full_download_verified": true,
+      "range_resume": true,
+      "new_network_bytes": 39149562
+    },
+    {
+      "name": "RELEASE-NOTES-0.4.0-rc.6.md",
+      "bytes": 3949,
+      "sha256": "07795535e7109fe6bbb760de5adea49f7e049a7988ffe89446d5a048cf52522b",
+      "anonymous_full_download_verified": true,
+      "range_resume": false,
+      "new_network_bytes": 3949
+    },
+    {
+      "name": "release-manifest-0.4.0-rc.6.json",
+      "bytes": 1531,
+      "sha256": "aadef8132f478db0ac7fcc0c42fd984549f621584565ade3555273eef3c18364",
+      "anonymous_full_download_verified": true,
+      "range_resume": false,
+      "new_network_bytes": 1531
+    },
+    {
+      "name": "SHA256SUMS-0.4.0-rc.6.txt",
+      "bytes": 402,
+      "sha256": "c9a2e23033c0a8b6940c8a44660a75373bc09f42cfdfafa13edb9e881e00b4c2",
+      "anonymous_full_download_verified": true,
+      "range_resume": false,
+      "new_network_bytes": 402
+    }
+  ],
+  "public_health": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.4.0-rc.6",
+    "commit": "d6fa31f7d321b0e0c51dad5afcb577b6e31e8130",
+    "inference_mode": "fixture",
+    "amd_configured": true,
+    "live_protected": true,
+    "profile": "public",
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  },
+  "client_asset_parity": [
+    {
+      "asset": "/assets/index-DyAKLV_5.js",
+      "sha256": "420f5914e9e231f7b6a70d73d32c9b35f6ae8c667fe9ff5cdda838e5e3734856",
+      "public_local_installed_equal": true
+    },
+    {
+      "asset": "/assets/index-C1izMUIu.css",
+      "sha256": "dc2916c8692bf131bb62ddba706fd4a2247de174d0d35d14039b57bcc4b7121e",
+      "public_local_installed_equal": true
+    }
+  ],
+  "source_tag_archive_members_identical": 2185,
+  "source_zip_crc_pass": true,
+  "tag_zip_crc_pass": true,
+  "partial_download_preserved": {
+    "path": "D:\\projects\\BatchFence\\work\\identity-rag-fix\\downloads\\BatchFence-0.4.0-rc.6-source.zip",
+    "bytes": 101711872,
+    "sha256": "650d791419eaed2c7bea6922830e55f3e56d0d0af374b6a76d9f2b1d69851095",
+    "matches_release_prefix": true
+  },
+  "partial_unchanged": true,
+  "inference_calls": 0,
+  "builds": 0,
+  "deployments": 0,
+  "unsigned_installer": true
+}
