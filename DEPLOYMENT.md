@@ -1,3 +1,15 @@
+# Focused rc4 metadata correction — final gate
+
+Live guarded runtime e847bb7: public corrective PDF returned all3identities/complete scope and reached800/two receipts with explicitly fixture500 baseline; original genuine public500 proof is separate. Public and installed fixed reader reopen the unchanged real packet without granting action authority.451clean LinuxCI passed;70source-guard controls and30domain cases passed.
+
+Installed live acceptance: fresh Blob/source-caveat answer and genuine firstPDF500/receipt passed. Revised agent again droppedSUP-C/SUP-B; new guard correctly rejected it before facts/plan. Its correction exposed a typed-contract defect: cited freeform document metadata was incorrectly validated as a stock-lot ID. The fix excludes document metadata from lot grammar, preserves exact source checks, forbids document metadata from carrying stock incident effects, and leaves stock/supplier IDs strict.74affected controls now pass, including both actual retained omissions and the metadata boundary. Backend-only change; installed/frontend runtime inputs unchanged, no rebuild needed.
+
+19/24conservative phase equivalents and8possible OCR pages reserved. One necessary final Windows corrective workflow adds2equivalents (21/24) and1possible native/OCR fallback page. Revised finite overall page bound9(~94.2credits worst case), still within1000platform cap/49000demo reserve; actual native PDF consumption finalized0 so far. No percentage target, new purchase, key rotation or cap24extension. Replacement deployment cap5 plus prior19 enforces the phase ceiling. Raw failures/partial packet preserved; native auth was not recovered or bypassed. Final retest uses explicitly fixture500 baseline and fresh revised PDF; genuine first500/Blob evidence is reused.
+
+Next: CI-gated metadata fix and existing Free Render activation; bounded final Windows retest; sanitized assets/checksums/publication and handoff. Rag remains unavailable because its actual ask returned no resolvable citations; Blob/local mode works. Independent acceptance and ephemeral/unsigned limitations remain.
+
+---
+
 # Focused rc4 hardening gate — live omission fixed locally
 
 Fresh public processing reached500→800 and two sandbox receipts, with exact stale409 and SOP-obsolescence invalidation. Raw revised extraction was correct but the agent omittedSUP-C/SUP-B while claimingcomplete. Old validation accepted the proposal; engineering acceptance stopped before narrowing. Explicit attributed source correction and separate UI scope review reached800. No model retry or independent human-validation claim. All original outputs/failures are preserved in docs/evolus-focused/clients/web/.

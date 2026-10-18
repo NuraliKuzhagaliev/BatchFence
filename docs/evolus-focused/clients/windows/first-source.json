@@ -1,0 +1,65 @@
+{
+  "id": "DOC-cf0e34bc3050",
+  "filename": "focused-windows-first.pdf",
+  "media_type": "application/pdf",
+  "revision": 2,
+  "ingested_at": "2026-10-18T01:42:41.918862+00:00",
+  "original_hash": "664a61651109bf0f04c029192876f554a254d60320f8b02c6139afc35d25dc90",
+  "text_hash": "e9f12eec22840e220b6b0a757249ee3e808e6aabe54aee96e8e1b9ad2b9ee96b",
+  "blocks": [
+    {
+      "id": "page-1-line-1",
+      "page": 1,
+      "text": "BatchFence | Revision 1"
+    },
+    {
+      "id": "page-1-line-2",
+      "page": 1,
+      "text": "FICTIONAL ENGINEERING SOURCE - no real inventory"
+    },
+    {
+      "id": "page-1-line-3",
+      "page": 1,
+      "text": "Supplier notice QF-731, revision 1, 18 October 2026."
+    },
+    {
+      "id": "page-1-line-4",
+      "page": 1,
+      "text": "Complete incident boundary: the affected supplier lot list is final for this revision."
+    },
+    {
+      "id": "page-1-line-5",
+      "page": 1,
+      "text": "Affected lots: SUP-A"
+    },
+    {
+      "id": "page-1-line-6",
+      "page": 1,
+      "text": "On-site descendants of SUP-A require containment pending quality review."
+    },
+    {
+      "id": "page-1-line-7",
+      "page": 1,
+      "text": "SUP-B is not affected by this revision."
+    },
+    {
+      "id": "page-1-line-8",
+      "page": 1,
+      "text": "This notice does not authorize inventory actions. Review the retained records"
+    },
+    {
+      "id": "page-1-line-9",
+      "page": 1,
+      "text": "separately."
+    },
+    {
+      "id": "page-1-line-10",
+      "page": 1,
+      "text": "Synthetic acceptance original | page 1 of 1"
+    }
+  ],
+  "synthetic": true,
+  "page_count": 1,
+  "evidence_language": "en",
+  "language_review_required": false
+}
