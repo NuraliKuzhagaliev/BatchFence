@@ -1,3 +1,33 @@
+# Public judging workflow complete — verified rc7
+
+Public: https://batchfence.onrender.com/. Runtime/version: **becdb4b3335a5ea334be7db463cb915c6a6bd7ef /0.4.0-rc.7**. Existing Free Render deploy **dep-dbaaonavcj2c73a18icg** is live. GitHub PRs 13, 14 and 15 are merged. Final evidence branch: `evidence/public-judge-rc7`. Only PUBLIC_REVIEW_ENABLED=true was added to Render; keys and existing protected access controls are unchanged. Original rc6 tag/release/installer and all evidence remain preserved.
+
+## What judges can do now
+
+Open a private/new browser window → Analyze your document → upload nonsensitive UTF-8 TXT or readable native-text PDF (2 MB, 1–8 PDF pages,existing 18,000-character context including metadata / 20 KB serialized-request bounds) → consent → Analyze with AMD Gemma → inspect original, raw model-proposed labels and uncertainties → record source inspection/export. No owner token/provider account. No sample inventory is loaded. Every visitor lot disposition and incident/inventory scope remains unresolved; quantities/lineage/allocations require separate reviewed context in an authorized workspace. Visitor approval/execution and sample seeding are blocked. Four AI attempts/session, existing throttles/isolation and upstream hard cap remain.
+
+## Actual verification and retained limitations
+
+Clean anonymous deployed PDF workflow passed with **self-dploy/Gemma-4-31B-IT**, request **cda7667045ce40ddb408c92921826672**, HTTP 200, **37,091 ms**,server UTC **2026-10-18T11:27:44.802408Z**. Source hash matched actual PDF bytes; all 3 new IDs visible. Unrelated garden input rejected 422 before inference; second clean context could not list/read/export first case or upload into it(404). Visitor approve/apply 403; no stocks/edges/plans/receipts; later evidence made the result stale. Actual packet integrity and shared web/Windows shape passed; public/local JS/CSS bytes match.390 px view had no horizontal overflow and zero page errors. Review was agent-operated fictional engineering, not independent human/domain validation.
+
+Three conservative attempts total, with failures retained: first generic transport failure at 40.7 s(original exact exception unavailable), then actual 49.8 s model response rejected by the action vocabulary for has a coating adhesion defect. Visitor timeout is now bounded 90 s within 120 s job lease; protected default stays 40 s. Visitor proposals now preserve model effects separately while strict grounding validates unresolved identities. Protected action validators are unchanged. Raw HELIO-733 incident_status=mentioned despite uncertain disposition remains: 2/3exact incident-status labels, not universal model correctness. All 3 application dispositions stay uncertain and inventory context unknown. No further inference is planned.
+
+Main CI **39122820283** passed **510 tests**, 30 domain cases,production build/audit,8 actual Linux container checks and5 packaged Windows UI/transport checks; final affected local set: 99 passed. Existing rc6 Windows installer remains published/unsigned; the new entry is web-only. CI packaged shared code; no new installed Windows live acceptance claimed. Free server state is temporary: keep originals/export packets. Native scans, arbitrary document/model reliability, independent operator/domain acceptance and production durability remain unestablished.
+
+## Entitlement and exact next action
+
+Provider-verified shared free Gemma route checked **2026-10-18T11:27:07.604154Z**,remaining **0.993072119075805 nonmonetary points** before final call. Next quota reset **2026-10-18T16:00:00Z /21:00Qyzylorda** is NOT access expiry. No event-key end date is published; service/models may be withdrawn. Each visitor dispatch checks actual catalog/usage instead of engineering reservations. The historical 18/18 ledger is unchanged; do not rerun old phase helpers/reset ledgers. No purchases, paid fallback, hosting upgrades, key rotations, messages or hackathon submission/inventory actions.
+
+Evidence: **docs/judge-access/README.md**,public/result.json,fresh-analysis.json,raw-quality.json,attempt-1/2failures and packets,final-packet.json,screenshots,final-ci.json,publication.json. Client capture clock was observed 81 seconds behind server; timestamps are retained as recorded. Use server UTC/monotonic latency; no clock changed.
+
+No access/configuration action is required for a judge to use the verified visitor path now. Next useful action is independent human judging with a nonsensitive supported document while actual provider access remains available. Do not make more engineering model calls or cosmetic/build changes without a new task. Final documentation publication should skip CI/Render because runtime code is unchanged; verify the live commit remains becdb4b. No task-owned local servers/tests/provider operations remain running; the public service continues normally.
+
+---
+
+## Historical milestones below
+
+Earlier pending statements are retained records and are superseded by the completed verification above.
+
 # Visitor source-only proposal boundary — final live check pending
 
 The second genuine deployed Gemma response (self-dploy/Gemma-4-31B-IT,request dcc73c205f0b43baa1caa7e81ca197b3,49,806ms) had exact source citations but the action-level vocabulary rejected has a coating adhesion defect. Raw HELIO-733 incident_status=mentioned despite uncertain disposition is retained as a raw-quality distinction. Both failed attempts and read-only packets are preserved.

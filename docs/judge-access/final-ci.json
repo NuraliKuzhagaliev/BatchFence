@@ -1,0 +1,48 @@
+{
+  "runtime": "becdb4b3335a5ea334be7db463cb915c6a6bd7ef",
+  "run_id": 39122820283,
+  "url": "https://github.com/NuraliKuzhagaliev/BatchFence/actions/runs/39122820283",
+  "jobs": [
+    {
+      "id": 117661717544,
+      "name": "verify",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 117662059197,
+      "name": "windows-hotfix",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "regression_result": "510 passed, 1 warning in 29.94s",
+  "domain_cases": 30,
+  "container_checks": [
+    "dynamic container port at http://127.0.0.1:8795",
+    "500 to 800 synthetic workflow",
+    "stale approval rejected",
+    "sandbox receipt",
+    "two-session isolation",
+    "all original source bytes and owner isolation survive restart",
+    "same SQLite volume survives actual container restart",
+    "SPA refresh and missing API routing"
+  ],
+  "packaged_windows": {
+    "passed": true,
+    "surface": "Windows packaged Electron",
+    "checks": [
+      "Explicit synthetic route preserved across focus and reconnect",
+      "Client transport loads owned case through actual backend",
+      "RAG route and explicit existing-agent reconciliation visible and selectable",
+      "Application source-citation origin and missing-proof rejection disclosed",
+      "Changing retrieval route creates no plan, receipt or inventory action"
+    ],
+    "inference_calls": 0,
+    "cash_spent": 0,
+    "native_dialogs": "Not exercised; no native-dialog or independent human acceptance claim",
+    "fresh_rag_application_acceptance": "Not exercised: no private live-access token or provider configuration in the build runner",
+    "page_errors": []
+  },
+  "scope": "Engineering CI; no fresh inference in CI. rc6 Windows installer and all release assets remain preserved. Public fresh acceptance is a separate artifact."
+}

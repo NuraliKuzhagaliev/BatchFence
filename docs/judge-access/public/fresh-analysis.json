@@ -1,0 +1,250 @@
+{
+  "at": "2026-10-18T11:26:22.582Z",
+  "runtime": {
+    "status": "ok",
+    "database": "ready",
+    "version": "0.4.0-rc.7",
+    "commit": "becdb4b3335a5ea334be7db463cb915c6a6bd7ef",
+    "inference_mode": "fixture",
+    "amd_configured": true,
+    "live_protected": true,
+    "visitor_review_enabled": true,
+    "profile": "public",
+    "public_demo": true,
+    "storage_mode": "ephemeral",
+    "replay_available": true
+  },
+  "input": "../inputs/supplier-quality-helio.pdf",
+  "http_status": 200,
+  "actual": {
+    "id": "VISITOR-2721a370b6aa6072b6dff997ffc83e98",
+    "case_id": "e7a8588010d240eba43e66ef5ff7d332",
+    "kind": "document",
+    "document_ids": [
+      "DOC-62849252fa3f"
+    ],
+    "mode": "live",
+    "status": "completed / review required",
+    "started_at": "2026-10-18T11:27:07.605596+00:00",
+    "provider_path": "Direct AMD shared Gemma / visitor source review",
+    "request_hash": "a31f10124845c53d3e3455021771863858147731d03062f8902720716b852d3a",
+    "snapshot_hash": "5e7b5a183285d201ced95cb5c27ab0df1ffb07c40890d2f6e02d5e05e6224ab9",
+    "entitlement": {
+      "status": "available",
+      "provider": "AMD shared Gemma",
+      "requested_model_id": "Gemma-4-31B-IT",
+      "checked_at": "2026-10-18T11:27:07.604154+00:00",
+      "remaining_nonmonetary_points": 0.993072119075805,
+      "daily_limit_nonmonetary_points": 1,
+      "quota_reset_at": "2026-10-18T16:00:00.000Z",
+      "access_expires_at": null,
+      "availability": "Event access has no published end date; it can be withdrawn. Quota reset is not an access expiration.",
+      "additional_cash": 0,
+      "basis": "https://notebooks.amd.com/tokenfactory (User Manual, checked 2026-10-18)",
+      "catalog_free_flag": false,
+      "cost_note": "The shared-event manual defines pricing as nonmonetary points, despite the generic catalog free flag. No dedicated or paid endpoint is used."
+    },
+    "authority": "Unreviewed proposals only. No inventory relationships or action authority.",
+    "raw_output": {
+      "candidates": [
+        {
+          "kind": "supplier_lot",
+          "value": "HELIO-731",
+          "disposition": "asserted",
+          "incident_status": "affected",
+          "source": {
+            "document_id": "DOC-62849252fa3f",
+            "block_id": "page-1-line-3",
+            "quote": "Supplier lot HELIO-731 has a coating adhesion defect and requires containment review."
+          }
+        },
+        {
+          "kind": "supplier_lot",
+          "value": "HELIO-732",
+          "disposition": "negated",
+          "incident_status": "explicitly_excluded",
+          "source": {
+            "document_id": "DOC-62849252fa3f",
+            "block_id": "page-1-line-4",
+            "quote": "Supplier lot HELIO-732 is explicitly excluded from this notice after the separate"
+          }
+        },
+        {
+          "kind": "supplier_lot",
+          "value": "HELIO-733",
+          "disposition": "uncertain",
+          "incident_status": "mentioned",
+          "source": {
+            "document_id": "DOC-62849252fa3f",
+            "block_id": "page-1-line-6",
+            "quote": "The relationship of lot HELIO-733 to this shipment is unconfirmed; do not exclude it based"
+          }
+        }
+      ],
+      "changes": [],
+      "contradictions": [],
+      "unresolved": [],
+      "request_drafts": [],
+      "incident_scope": "partial",
+      "scope_evidence": [
+        {
+          "document_id": "DOC-62849252fa3f",
+          "block_id": "page-1-line-8",
+          "quote": "This is an interim notice. The final incident boundary remains unresolved pending the"
+        },
+        {
+          "document_id": "DOC-62849252fa3f",
+          "block_id": "page-1-line-9",
+          "quote": "receiving records."
+        }
+      ]
+    },
+    "provenance": {
+      "provider": "Configured Gemma endpoint",
+      "at": "2026-10-18T11:27:44.802408+00:00",
+      "elapsed_ms": 37091,
+      "request_contract": {
+        "endpoint": "https://developer.amd.com.cn/radeon/api/v1/chat/completions",
+        "image_input": false,
+        "response_format": {
+          "type": "json_object"
+        },
+        "timeout_seconds": 90,
+        "payload_sha256": "95783423861aca64c47a39e3599d19dff1a15cd72d944c527b1c05b7501f2026"
+      },
+      "requested_model_id": "Gemma-4-31B-IT",
+      "model_id": "self-dploy/Gemma-4-31B-IT",
+      "request_id": "cda7667045ce40ddb408c92921826672",
+      "usage": {
+        "prompt_tokens": 1469,
+        "total_tokens": 2017,
+        "completion_tokens": 548,
+        "prompt_tokens_details": {
+          "cached_tokens": 4,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0,
+          "image_tokens": 0
+        },
+        "reasoning_tokens": 0,
+        "cost": 0.0000896378,
+        "cost_details": {
+          "upstream_inference_cost": 0.0000896378,
+          "upstream_inference_prompt_cost": 0.0000512778,
+          "upstream_inference_completions_cost": 0.00003836,
+          "total_cost": 0.0000896378,
+          "input_cost": 0.000051275,
+          "output_cost": 0.00003836,
+          "cached_input_cost": 2.8e-9,
+          "cache_write_input_cost": 0,
+          "request_cost": 0,
+          "web_search_cost": 0,
+          "image_input_cost": null,
+          "image_output_cost": null,
+          "audio_input_cost": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "settings": {
+        "temperature": 0,
+        "max_tokens": 1600
+      },
+      "response_hash": "c61eb450c98604e7069b0464d1afbb6fb0e6afc057fe1e5e05bc2a7996019011",
+      "http_status": 200,
+      "hosting_kind": "managed-amd-shared",
+      "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+    },
+    "finished_at": "2026-10-18T11:27:44.802506+00:00",
+    "draft": {
+      "candidates": [
+        {
+          "kind": "supplier_lot",
+          "value": "HELIO-731",
+          "disposition": "unresolved",
+          "incident_status": "uncertain",
+          "source": {
+            "document_id": "DOC-62849252fa3f",
+            "block_id": "page-1-line-3",
+            "quote": "Supplier lot HELIO-731 has a coating adhesion defect and requires containment review.",
+            "original_hash": "eddf031896f0549786bb5fdaff23e4696602db10f58989abe13f4de09f8ba15e",
+            "document_revision": 2,
+            "page": 1,
+            "location_origin": "retained local parser; no provider bounding-box claim"
+          },
+          "model_incident_status": "affected",
+          "model_disposition": "asserted",
+          "inventory_status": "unresolved / no inventory relationship supplied"
+        },
+        {
+          "kind": "supplier_lot",
+          "value": "HELIO-732",
+          "disposition": "unresolved",
+          "incident_status": "uncertain",
+          "source": {
+            "document_id": "DOC-62849252fa3f",
+            "block_id": "page-1-line-4",
+            "quote": "Supplier lot HELIO-732 is explicitly excluded from this notice after the separate",
+            "original_hash": "eddf031896f0549786bb5fdaff23e4696602db10f58989abe13f4de09f8ba15e",
+            "document_revision": 2,
+            "page": 1,
+            "location_origin": "retained local parser; no provider bounding-box claim"
+          },
+          "model_incident_status": "explicitly_excluded",
+          "model_disposition": "negated",
+          "inventory_status": "unresolved / no inventory relationship supplied"
+        },
+        {
+          "kind": "supplier_lot",
+          "value": "HELIO-733",
+          "disposition": "unresolved",
+          "incident_status": "uncertain",
+          "source": {
+            "document_id": "DOC-62849252fa3f",
+            "block_id": "page-1-line-6",
+            "quote": "The relationship of lot HELIO-733 to this shipment is unconfirmed; do not exclude it based",
+            "original_hash": "eddf031896f0549786bb5fdaff23e4696602db10f58989abe13f4de09f8ba15e",
+            "document_revision": 2,
+            "page": 1,
+            "location_origin": "retained local parser; no provider bounding-box claim"
+          },
+          "model_incident_status": "mentioned",
+          "model_disposition": "uncertain",
+          "inventory_status": "unresolved / no inventory relationship supplied"
+        }
+      ],
+      "changes": [],
+      "contradictions": [],
+      "unresolved": [
+        "Model incident effects remain unreviewed proposals. Source inspection does not resolve inventory or incident scope.",
+        "Supply reviewed inventory quantities, supplier-to-stock lineage and allocations before any containment calculation."
+      ],
+      "request_drafts": [],
+      "incident_scope": "unknown",
+      "scope_evidence": [
+        {
+          "document_id": "DOC-62849252fa3f",
+          "block_id": "page-1-line-8",
+          "quote": "This is an interim notice. The final incident boundary remains unresolved pending the",
+          "original_hash": "eddf031896f0549786bb5fdaff23e4696602db10f58989abe13f4de09f8ba15e",
+          "document_revision": 2,
+          "page": 1,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        },
+        {
+          "document_id": "DOC-62849252fa3f",
+          "block_id": "page-1-line-9",
+          "quote": "receiving records.",
+          "original_hash": "eddf031896f0549786bb5fdaff23e4696602db10f58989abe13f4de09f8ba15e",
+          "document_revision": 2,
+          "page": 1,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        }
+      ],
+      "model_incident_scope": "partial"
+    }
+  }
+}

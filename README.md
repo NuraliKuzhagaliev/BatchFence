@@ -8,11 +8,11 @@ Evidence-backed lot containment for quality teams: turn supplier notices into re
 
 *Illustrative project cover; actual application evidence appears below.*
 
-**Preserved verified Windows/source release: 0.4.0-rc.6.** The rc7 public-web judging update has separate acceptance evidence in the judge guide. Web and Windows share the same review-controlled workflow. The release has passed engineering acceptance for a hackathon demonstration; independent operational acceptance and production enterprise readiness remain outstanding. Runtime/source tag: [`d6fa31f`](https://github.com/NuraliKuzhagaliev/BatchFence/commit/d6fa31f7d321b0e0c51dad5afcb577b6e31e8130). Evidence checkpoint: [`c641897`](https://github.com/NuraliKuzhagaliev/BatchFence/commit/c641897c28e484f2968868b404460ba4e3e0e71a).
+**Public web: 0.4.0-rc.7**, with verified anonymous document analysis at runtime [`becdb4b`](https://github.com/NuraliKuzhagaliev/BatchFence/commit/becdb4b3335a5ea334be7db463cb915c6a6bd7ef). **Windows/source release: 0.4.0-rc.6**, preserved at tag [`d6fa31f`](https://github.com/NuraliKuzhagaliev/BatchFence/commit/d6fa31f7d321b0e0c51dad5afcb577b6e31e8130). The new browser entry needs no private token or provider account. This is a review-controlled hackathon application; independent operational acceptance and production enterprise readiness remain outstanding.
 
 ## Upload your own document (public judging)
 
-The rc7 web update adds **Analyze your document**: start an isolated editable source-review session, upload a nonsensitive supplier/quality notice, confirm external processing and run genuine direct AMD Gemma analysis without an owner token or provider account. Supported: UTF-8 TXT and readable native-text PDF, 2 MB, at most 8 PDF pages, within the existing bounded source context. Original passages, raw model output, proposed dispositions and unresolved inventory context remain separate. No sample inventory, automatic release or enterprise action authority is added.
+Click **Analyze your document**: start an isolated editable source-review session, upload a nonsensitive supplier/quality notice, confirm external processing and run genuine direct AMD Gemma analysis without an owner token or provider account. Supported: UTF-8 TXT and readable native-text PDF, 2 MB, at most 8 PDF pages, within the existing bounded source context. Original passages, raw model output, proposed dispositions and unresolved inventory context remain separate. No sample inventory, automatic release or enterprise action authority is added.
 
 Four AI attempts per visitor session, source-only routes, shared throttling and fresh provider catalog/usage checks apply. Historical engineering reservations remain intact and do not gate this route. The currently verified shared endpoint is free with an upstream daily cap. No event-access end date is published; the daily reset is not an access expiry, and availability can be withdrawn. See the [judge guide and actual acceptance status](docs/judge-access/README.md). Existing protected workspace routes still require their private access token.
 
@@ -117,7 +117,9 @@ Package on Windows with `npm run package:desktop -- --publish never`. The packag
 
 ## Verification evidence
 
-These are **retained results for the verified release**, not new tests performed for this README update:
+The current public judging workflow passed on a new native-text PDF in two clean browser contexts: genuine Gemma proposals beside the original, source inspection, unrelated-input rejection before inference, cross-session 404s and no visitor inventory authority. Three conservative attempts include two retained failures; raw incident-status labels remain 2/3 on this notice, while application dispositions stay unresolved. No general accuracy claim is made. Main CI passed **510 regressions**, 30 domain cases, eight Linux checks and five packaged Windows UI/transport checks; the focused local set passed 99. [Actual current evidence and restrictions](docs/judge-access/README.md).
+
+The following are **retained rc6 foundation results**, with their own release identity:
 
 | Check | Actual result / evidence |
 | --- | --- |
@@ -152,4 +154,4 @@ The domain evaluator rewrites `docs/evaluation-results.json`; preserve historica
 
 [Deployment](DEPLOYMENT.md) · [Handoff and exact next actions](HANDOFF.md) · [Operator walkthrough](docs/continuation/operator-walkthrough.md) · [AMD evidence](docs/amd_evidence.md)
 
-The [13-slide PowerPoint](presentations/BatchFence_Deck.pptx) and [PDF preview](presentations/BatchFence_Project_Deck_Preview.pdf) summarize the current project. Older versioned videos and pitches under `submission/` remain historical media with their original provenance; they are not fresh rc6 processing.
+The [13-slide rc6 PowerPoint](presentations/BatchFence_Deck.pptx) and [PDF preview](presentations/BatchFence_Project_Deck_Preview.pdf) cover the preserved project foundation; the current public judging update is documented in the judge guide. Older versioned videos and pitches under `submission/` remain historical media with their original provenance; they are not fresh rc6 processing.

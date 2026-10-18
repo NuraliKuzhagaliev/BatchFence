@@ -25,6 +25,8 @@ async function main(){
     assert.equal((await context.storageState()).cookies.length,0);
     await page.goto(base,{waitUntil:'networkidle'});
     const health=await (await context.request.get(base+'/api/health')).json();
+    assert(process.env.BATCHFENCE_EXPECTED_COMMIT,'Require an exact deployed commit before fresh inference');
+    assert.equal(health.commit,process.env.BATCHFENCE_EXPECTED_COMMIT);
     assert(health.visitor_review_enabled);assert.equal(health.version,'0.4.0-rc.7');
     assert.deepEqual(await (await context.request.get(base+'/api/cases')).json(),[]);
     await page.getByRole('button',{name:'Analyze your document',exact:true}).click();
@@ -54,6 +56,10 @@ async function main(){
     await fs.writeFile(path.join(out,'fresh-analysis.json'),JSON.stringify({at:new Date().toISOString(),runtime:health,input:'../inputs/supplier-quality-helio.pdf',http_status:response.status(),actual},null,2));
     assert.equal(response.status(),200);assert.equal(actual.status,'completed / review required');
     assert.equal(actual.provenance.http_status,200);assert(actual.provenance.model_id);assert.equal(actual.provenance.requested_model_id,'Gemma-4-31B-IT');
+    if(attempt==='3'){
+      const previous=JSON.parse(await fs.readFile(path.join(out,'attempt-2-validation-failure.json'),'utf8'));
+      assert.notEqual(actual.provenance.response_hash,previous.actual.provenance.response_hash,'Retained response cannot substitute for fresh inference');
+    }
     const required=['HELIO-731','HELIO-732','HELIO-733'];
     for(const id of required){assert(actual.draft.candidates.some(c=>c.value===id&&c.inventory_status.includes('unresolved')));await page.getByText(id,{exact:true}).first().waitFor();}
     checks.push('Fresh AMD model response drives visible source-grounded proposals; all three non-sample IDs retained unresolved against inventory');

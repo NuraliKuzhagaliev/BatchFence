@@ -1,0 +1,119 @@
+[
+  {
+    "id": "HELIO-731",
+    "expected": "affected",
+    "raw": [
+      {
+        "kind": "supplier_lot",
+        "value": "HELIO-731",
+        "disposition": "asserted",
+        "incident_status": "affected",
+        "source": {
+          "document_id": "DOC-62849252fa3f",
+          "block_id": "page-1-line-3",
+          "quote": "Supplier lot HELIO-731 has a coating adhesion defect and requires containment review."
+        }
+      }
+    ],
+    "assembled": [
+      {
+        "kind": "supplier_lot",
+        "value": "HELIO-731",
+        "disposition": "unresolved",
+        "incident_status": "uncertain",
+        "source": {
+          "document_id": "DOC-62849252fa3f",
+          "block_id": "page-1-line-3",
+          "quote": "Supplier lot HELIO-731 has a coating adhesion defect and requires containment review.",
+          "original_hash": "eddf031896f0549786bb5fdaff23e4696602db10f58989abe13f4de09f8ba15e",
+          "document_revision": 2,
+          "page": 1,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        },
+        "model_incident_status": "affected",
+        "model_disposition": "asserted",
+        "inventory_status": "unresolved / no inventory relationship supplied"
+      }
+    ],
+    "inventory_context": "unresolved",
+    "review": "Agent-operated source inspection, not independent human validation"
+  },
+  {
+    "id": "HELIO-732",
+    "expected": "explicitly_excluded",
+    "raw": [
+      {
+        "kind": "supplier_lot",
+        "value": "HELIO-732",
+        "disposition": "negated",
+        "incident_status": "explicitly_excluded",
+        "source": {
+          "document_id": "DOC-62849252fa3f",
+          "block_id": "page-1-line-4",
+          "quote": "Supplier lot HELIO-732 is explicitly excluded from this notice after the separate"
+        }
+      }
+    ],
+    "assembled": [
+      {
+        "kind": "supplier_lot",
+        "value": "HELIO-732",
+        "disposition": "unresolved",
+        "incident_status": "uncertain",
+        "source": {
+          "document_id": "DOC-62849252fa3f",
+          "block_id": "page-1-line-4",
+          "quote": "Supplier lot HELIO-732 is explicitly excluded from this notice after the separate",
+          "original_hash": "eddf031896f0549786bb5fdaff23e4696602db10f58989abe13f4de09f8ba15e",
+          "document_revision": 2,
+          "page": 1,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        },
+        "model_incident_status": "explicitly_excluded",
+        "model_disposition": "negated",
+        "inventory_status": "unresolved / no inventory relationship supplied"
+      }
+    ],
+    "inventory_context": "unresolved",
+    "review": "Agent-operated source inspection, not independent human validation"
+  },
+  {
+    "id": "HELIO-733",
+    "expected": "uncertain",
+    "raw": [
+      {
+        "kind": "supplier_lot",
+        "value": "HELIO-733",
+        "disposition": "uncertain",
+        "incident_status": "mentioned",
+        "source": {
+          "document_id": "DOC-62849252fa3f",
+          "block_id": "page-1-line-6",
+          "quote": "The relationship of lot HELIO-733 to this shipment is unconfirmed; do not exclude it based"
+        }
+      }
+    ],
+    "assembled": [
+      {
+        "kind": "supplier_lot",
+        "value": "HELIO-733",
+        "disposition": "unresolved",
+        "incident_status": "uncertain",
+        "source": {
+          "document_id": "DOC-62849252fa3f",
+          "block_id": "page-1-line-6",
+          "quote": "The relationship of lot HELIO-733 to this shipment is unconfirmed; do not exclude it based",
+          "original_hash": "eddf031896f0549786bb5fdaff23e4696602db10f58989abe13f4de09f8ba15e",
+          "document_revision": 2,
+          "page": 1,
+          "location_origin": "retained local parser; no provider bounding-box claim"
+        },
+        "model_incident_status": "mentioned",
+        "model_disposition": "uncertain",
+        "inventory_status": "unresolved / no inventory relationship supplied"
+      }
+    ],
+    "inventory_context": "unresolved",
+    "review": "Agent-operated source inspection, not independent human validation"
+  }
+]

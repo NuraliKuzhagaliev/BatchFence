@@ -1,0 +1,62 @@
+{
+  "baseline": "c641897c28e484f2968868b404460ba4e3e0e71a",
+  "comparison": "Exact Git blobs, applying the repository clean filter to Windows checkout line endings; no source/ledger/evaluation content changed.",
+  "files": [
+    {
+      "path": "docs/identity-rag-fix/phase-ledger.json",
+      "git_blob": "1f34d5e77421fb176049e658b4dfe263d77fd433",
+      "unchanged_from_rc6_evidence": true,
+      "canonical_sha256": "fea46e7bd3fe4e480949d179065a4cc91c63856ec2e2c8e6c1c8f83b11c2e637",
+      "working_tree_line_endings": "CRLF"
+    },
+    {
+      "path": "evals/enterprise/frozen-v1.json",
+      "git_blob": "3e3e815cbaa50de78558f585980fe02c6b11ab59",
+      "unchanged_from_rc6_evidence": true,
+      "canonical_sha256": "4dc46ce970814f26133f1bcffd582e27697b6578d4fa92d87243108fc813476b",
+      "working_tree_line_endings": "CRLF"
+    },
+    {
+      "path": "backend/domain.py",
+      "git_blob": "13119cdb1068100869947d23c4da3d210dbd4087",
+      "unchanged_from_rc6_evidence": true,
+      "canonical_sha256": "0432752bab8f86c5f1f2c64eca9c39c6e35cefe9bac4f8a5c48a8bad0d2ce9d9",
+      "working_tree_line_endings": "CRLF"
+    },
+    {
+      "path": "backend/scope_proposals.py",
+      "git_blob": "9aab80a169f76fbe7d74bfb0069853eca258e582",
+      "unchanged_from_rc6_evidence": true,
+      "canonical_sha256": "43ad4da3a00f4b84b5bd5c540570a18420146b9e4cf80cd08b6fb6a7338bd021",
+      "working_tree_line_endings": "LF"
+    },
+    {
+      "path": "backend/review_safety.py",
+      "git_blob": "3553fa1cfd604abdc8a8307cfabd9772573c75db",
+      "unchanged_from_rc6_evidence": true,
+      "canonical_sha256": "34ea543bc75f93cf1ab4ef78f445d1e21ace3ae866fe4652ec38660df310a413",
+      "working_tree_line_endings": "CRLF"
+    },
+    {
+      "path": "desktop/main.cjs",
+      "git_blob": "8a22886d53c4d160ceb87cfedf18126e2edcf1ed",
+      "unchanged_from_rc6_evidence": true,
+      "canonical_sha256": "d22a5b1e54e5f91e0f7db432df9089efc2e88a0df8d5adf44aa86ac1cb8a09f0",
+      "working_tree_line_endings": "LF"
+    },
+    {
+      "path": "desktop/packet-shape.mjs",
+      "git_blob": "b4a6cdfe1aaba362e41eb4f8377d52d6a8a59c4d",
+      "unchanged_from_rc6_evidence": true,
+      "canonical_sha256": "3798a18378d61ee50c5350bcd9a86e29f40e97a34c7adb218d9bce55995b36c5",
+      "working_tree_line_endings": "LF"
+    },
+    {
+      "path": "desktop/backend-origin.json",
+      "git_blob": "6387453b91991073b79b3eee71f06529e5c6b6c9",
+      "unchanged_from_rc6_evidence": true,
+      "canonical_sha256": "8ccb1c2b1184007dfcd5946e851f8b4c5a89da93c3aa0734ffd31264c0030405",
+      "working_tree_line_endings": "LF"
+    }
+  ]
+}

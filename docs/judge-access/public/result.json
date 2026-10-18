@@ -1,0 +1,102 @@
+{
+  "at": "2026-10-18T11:26:27.361Z",
+  "passed": true,
+  "url": "https://batchfence.onrender.com",
+  "version": "0.4.0-rc.7",
+  "commit": "becdb4b3335a5ea334be7db463cb915c6a6bd7ef",
+  "case_id": "e7a8588010d240eba43e66ef5ff7d332",
+  "checks": [
+    "Clean visitor session without owner token; editable blank case has no sample/private inventory",
+    "Fresh AMD model response drives visible source-grounded proposals; all three non-sample IDs retained unresolved against inventory",
+    "Second clean browser context cannot list/read/export first visitor case, its proposals or upload to it",
+    "Unrelated upload explicitly rejected before inference; earlier result preserved stale; no visitor approval/execution authority"
+  ],
+  "fresh_model_requests": 1,
+  "phase_conservative_model_attempts": 3,
+  "prior_failed_attempts": [
+    "attempt-1-failure.json",
+    "attempt-2-validation-failure.json"
+  ],
+  "input_sha256": "eddf031896f0549786bb5fdaff23e4696602db10f58989abe13f4de09f8ba15e",
+  "browser_analysis_posts": 2,
+  "unrelated_model_requests": 0,
+  "no_owner_or_provider_token_in_browser": true,
+  "provenance": {
+    "provider": "Configured Gemma endpoint",
+    "at": "2026-10-18T11:27:44.802408+00:00",
+    "elapsed_ms": 37091,
+    "request_contract": {
+      "endpoint": "https://developer.amd.com.cn/radeon/api/v1/chat/completions",
+      "image_input": false,
+      "response_format": {
+        "type": "json_object"
+      },
+      "timeout_seconds": 90,
+      "payload_sha256": "95783423861aca64c47a39e3599d19dff1a15cd72d944c527b1c05b7501f2026"
+    },
+    "requested_model_id": "Gemma-4-31B-IT",
+    "model_id": "self-dploy/Gemma-4-31B-IT",
+    "request_id": "cda7667045ce40ddb408c92921826672",
+    "usage": {
+      "prompt_tokens": 1469,
+      "total_tokens": 2017,
+      "completion_tokens": 548,
+      "prompt_tokens_details": {
+        "cached_tokens": 4,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0,
+        "image_tokens": 0
+      },
+      "reasoning_tokens": 0,
+      "cost": 0.0000896378,
+      "cost_details": {
+        "upstream_inference_cost": 0.0000896378,
+        "upstream_inference_prompt_cost": 0.0000512778,
+        "upstream_inference_completions_cost": 0.00003836,
+        "total_cost": 0.0000896378,
+        "input_cost": 0.000051275,
+        "output_cost": 0.00003836,
+        "cached_input_cost": 2.8e-9,
+        "cache_write_input_cost": 0,
+        "request_cost": 0,
+        "web_search_cost": 0,
+        "image_input_cost": null,
+        "image_output_cost": null,
+        "audio_input_cost": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "settings": {
+      "temperature": 0,
+      "max_tokens": 1600
+    },
+    "response_hash": "c61eb450c98604e7069b0464d1afbb6fb0e6afc057fe1e5e05bc2a7996019011",
+    "http_status": 200,
+    "hosting_kind": "managed-amd-shared",
+    "amd_execution": "Managed AMD shared service; not own AMD Cloud vLLM"
+  },
+  "raw_quality_file": "raw-quality.json",
+  "review": "Agent-operated fictional engineering acceptance; not independent judge/domain validation",
+  "page_errors": [],
+  "provider_access_end": "Not published; shared free access can be withdrawn. Daily reset is not expiry.",
+  "entitlement": {
+    "status": "available",
+    "provider": "AMD shared Gemma",
+    "requested_model_id": "Gemma-4-31B-IT",
+    "checked_at": "2026-10-18T11:27:07.604154+00:00",
+    "remaining_nonmonetary_points": 0.993072119075805,
+    "daily_limit_nonmonetary_points": 1,
+    "quota_reset_at": "2026-10-18T16:00:00.000Z",
+    "access_expires_at": null,
+    "availability": "Event access has no published end date; it can be withdrawn. Quota reset is not an access expiration.",
+    "additional_cash": 0,
+    "basis": "https://notebooks.amd.com/tokenfactory (User Manual, checked 2026-10-18)",
+    "catalog_free_flag": false,
+    "cost_note": "The shared-event manual defines pricing as nonmonetary points, despite the generic catalog free flag. No dedicated or paid endpoint is used."
+  }
+}
