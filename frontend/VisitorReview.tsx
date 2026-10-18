@@ -25,7 +25,16 @@ export function VisitorReview({ state, update, renderOriginal, leave, readOnly =
       setAvailability(await request<RecordData>("GET", "/api/visitor/status"));
     }
   }
-  useEffect(() => { void refresh().catch(e => setError(String(e.message))); }, [state.id, state.revision, readOnly]);
+  useEffect(() => {
+    let active = true;
+    if (!readOnly) void Promise.all([
+      request<RecordData[]>("GET", route + "/visitor-analysis"),
+      request<RecordData>("GET", "/api/visitor/status"),
+    ]).then(([results, provider]) => {
+      if (active) { setRecords(results); setAvailability(provider); }
+    }).catch(e => { if (active) setError(String(e.message)); });
+    return () => { active = false; };
+  }, [state.id, state.revision, readOnly]);
   async function act(label: string, work: () => Promise<unknown>) {
     setBusy(label); setError("");
     try { await work(); } catch (e) { setError(e instanceof Error ? e.message : "Operation unavailable; retained originals remain available."); }
@@ -81,7 +90,7 @@ export function VisitorReview({ state, update, renderOriginal, leave, readOnly =
           <p>{result.error || result.authority}</p>
           {result.provenance && <p className="caption">Actual model: {result.provenance.model_id || "not returned"} · requested: {result.provenance.requested_model_id} · HTTP {result.provenance.http_status} · {result.provenance.elapsed_ms} ms · {result.provenance.at}</p>}
           {result.draft?.candidates?.map((c: RecordData, i: number) => <div className="visitor-candidate" key={i}>
-            <strong>{c.value}</strong><p>{c.kind} · model proposal: {c.incident_status || c.disposition}</p>
+            <strong>{c.value}</strong><p>{c.kind} · {c.origin ? "local unresolved reference" : "model proposal"}: {c.incident_status || c.disposition}</p>
             {c.inventory_status && <p className="assist-uncertain">Inventory: {c.inventory_status}</p>}
             {c.origin && <p>{c.origin}</p>}
             <blockquote>{c.source.quote}</blockquote><span className="caption">{c.source.block_id} · exact original passage</span>

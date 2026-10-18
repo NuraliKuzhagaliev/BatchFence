@@ -111,6 +111,27 @@ def test_persistent_session_attempt_bound(setup,monkeypatch):
     r=analyze(c,s);assert r.status_code==429 and r.json()['detail']['code']=='SESSION_LIMIT'
 
 
+def test_stale_source_review_rejects(setup,monkeypatch):
+    c,s,upload=setup;s=upload()
+    monkeypatch.setattr(v.external,'gemma',lambda *a,**k:{'result':proposal(s)})
+    result=analyze(c,s).json();updated=upload(NOTICE+'\nAdditional receiving context is awaited.')
+    r=c.post(f"/api/cases/{s['id']}/visitor-review",json={'proposal_id':result['id'],'revision':updated['revision'],'reviewed':True,'note':'Attempted inspection after source revision.'})
+    assert r.status_code==409 and r.json()['detail']['code']=='STALE_REVIEW'
+
+
+def test_expired_job_is_reported_without_resubmission(setup,monkeypatch):
+    c,s,upload=setup;s=upload()
+    monkeypatch.setattr(v.external,'gemma',lambda *a,**k:{'result':proposal(s)})
+    result=analyze(c,s).json();owner=__import__('hashlib').sha256(c.cookies.get('bf_session').encode()).hexdigest()
+    with module.connect() as db:
+        rev,job=v.repo.get_record(db,owner,'job',result['id']);job.update(status='running',lease_until=0);v.repo.put_record(db,owner,'job',result['id'],job,rev)
+        rev,record=v.repo.get_record(db,owner,'assist',result['id']);record['status']='running';v.repo.put_record(db,owner,'assist',result['id'],record,rev)
+    monkeypatch.setattr(v.external,'gemma',lambda *a,**k:pytest.fail('No automatic resubmission'))
+    r=c.get(f"/api/cases/{s['id']}/visitor-analysis").json()[0]
+    assert r['status']=='provider unavailable' and 'interrupted' in r['error']
+    assert analyze(c,s).json()['status']=='provider unavailable'
+
+
 @pytest.mark.parametrize('remaining,catalog,http_status,expected',[(0.5,True,200,200),(0.001,True,200,429),(0.5,False,200,503),(0.5,True,401,503)])
 def test_actual_entitlement_contract(monkeypatch,remaining,catalog,http_status,expected):
     monkeypatch.setenv('PUBLIC_REVIEW_ENABLED','true');monkeypatch.setenv('DEPLOYMENT_PROFILE','public')
