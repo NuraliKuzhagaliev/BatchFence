@@ -347,6 +347,7 @@ export function KnowledgePanel({
   mode,
   refresh,
   update,
+  initialLibrary=false,
 }: {
   state: Case;
   data: ModuleData;
@@ -354,10 +355,11 @@ export function KnowledgePanel({
   mode: string;
   refresh: () => Promise<void>;
   update: (s: Case) => void;
+  initialLibrary?:boolean;
 }) {
   const [answer, setAnswer] = useState<RecordData | null>(null),
     [claim, setClaim] = useState(0),
-    [libraryMode, setLibraryMode] = useState(false);
+    [libraryMode, setLibraryMode] = useState(initialLibrary);
   const shown = answer || (data.answer || []).at(-1),
     docs = data.procedure || [];
   return (
@@ -370,6 +372,7 @@ export function KnowledgePanel({
         passages remain proposals until an explicit, evidence-backed check is
         recorded.
       </p>
+      <p className="caption">Unicode lexical matching supports Russian, English and Italian originals. It does not translate a cross-language question. Evolus semantic retrieval is unavailable: its live acceptance response lacked resolvable citations and was rejected. Approved Blob/local evidence remains available.</p>
       <div className="module-columns">
         <div>
           {mode === "live" && (
@@ -382,7 +385,7 @@ export function KnowledgePanel({
                 onChange={(e) => setLibraryMode(e.target.value === "evolus")}
               >
                 <option value="amd">AMD · approved local catalog</option>
-                <option value="evolus">Gemma · isolated Evolus library</option>
+                <option value="evolus">Gemma · local lexical + isolated Evolus Blob</option>
               </select>
             </label>
           )}
@@ -447,6 +450,7 @@ export function KnowledgePanel({
                   <cite>
                     {c.document_id} · revision {c.version} · {c.passage_id}
                   </cite>
+                  <details><summary>Inspect complete approved original</summary>{docs.filter((d:RecordData)=>d.id===c.document_id&&d.version===c.version).map((d:RecordData)=><div key={d.id}><p className="caption">{d.owner} · approved revision{d.version} · product{d.products.join(', ')} · process{d.processes.join(', ')} · valid from{d.valid_from} · source{d.source_hash}</p>{d.passages.map((p:RecordData)=><div key={p.id} className={'source-block '+(p.id===c.passage_id?'highlight':'')}><span>Page {p.page} · {p.id}</span><p>{p.text}</p></div>)}</div>)}</details>
                 </blockquote>
               ))}
               {shown.output?.missing_information?.map(

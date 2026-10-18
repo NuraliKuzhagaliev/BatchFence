@@ -1,0 +1,125 @@
+{
+  "at": "2026-10-18T00:14:48.858689+00:00",
+  "reference": "Owner OpenAPI plus official public client main-BUOWUGDZ.js, retrieved this phase; GET only",
+  "access": {
+    "subscriptionStatus": "TRIALING",
+    "planCode": "EVOLUS_DEVELOPER_EVENT",
+    "isTrial": true,
+    "serviceUsable": true,
+    "creditsBlocked": {
+      "blocked": false,
+      "reason": null
+    },
+    "renewsAutomatically": false,
+    "trialEndsAt": "2026-11-15T22:59:00Z",
+    "eventConditionsPending": false,
+    "legalAcceptanceBlocking": false
+  },
+  "ocr_catalog": {
+    "managed": {
+      "role": "ocr.default",
+      "resolvesTo": "azure/document-intelligence-layout",
+      "requiresOwnModel": false
+    },
+    "groups": [
+      {
+        "source": "evolus",
+        "items": [
+          {
+            "id": "azure/document-intelligence-layout",
+            "name": "Azure Document Intelligence (layout)",
+            "author": "azure",
+            "capabilities": {
+              "tools": false,
+              "vision": false,
+              "structuredOutput": false,
+              "reasoning": []
+            },
+            "contextLength": null,
+            "tier": null,
+            "locked": false,
+            "lockReason": null,
+            "requiredPlanFeature": null,
+            "requiredPlanName": null,
+            "pricing": {
+              "kind": "credits",
+              "unit": "page",
+              "input": 10.466666666666667,
+              "output": null,
+              "estimated": false
+            },
+            "dataBadges": [
+              "eu"
+            ],
+            "badges": [],
+            "recommended": false,
+            "deprecated": false,
+            "unavailable": false,
+            "outsideShowcase": false,
+            "logicalKey": null,
+            "voice": null,
+            "connectionId": null,
+            "dimensions": null,
+            "immutableAfterCreation": false
+          },
+          {
+            "id": "greenpt/documents",
+            "name": "GreenPT Documents",
+            "author": "greenpt",
+            "capabilities": {
+              "tools": false,
+              "vision": false,
+              "structuredOutput": false,
+              "reasoning": []
+            },
+            "contextLength": null,
+            "tier": null,
+            "locked": false,
+            "lockReason": null,
+            "requiredPlanFeature": null,
+            "requiredPlanName": null,
+            "pricing": {
+              "kind": "credits",
+              "unit": "page",
+              "input": 10.466666666666667,
+              "output": null,
+              "estimated": false
+            },
+            "dataBadges": [
+              "eu",
+              "zdr"
+            ],
+            "badges": [],
+            "recommended": false,
+            "deprecated": false,
+            "unavailable": false,
+            "outsideShowcase": false,
+            "logicalKey": null,
+            "voice": null,
+            "connectionId": null,
+            "dimensions": null,
+            "immutableAfterCreation": false
+          }
+        ]
+      },
+      {
+        "source": "byok",
+        "items": []
+      },
+      {
+        "source": "own",
+        "items": []
+      }
+    ],
+    "dataPolicy": {
+      "level": "any",
+      "requireZdr": false,
+      "notice": null,
+      "lockedModels": 0
+    },
+    "ownModelsScope": "all"
+  },
+  "embeddings": {
+    "http_status": 403
+  }
+}

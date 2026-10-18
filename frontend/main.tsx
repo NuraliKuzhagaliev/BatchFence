@@ -64,13 +64,22 @@ function Empty({ text }: { text: string }) {
 function SourceText({
   doc,
   evidence,
+  caseId,
+  readOnly=false,
 }: {
   doc?: Document;
   evidence?: Evidence | null;
+  caseId?:string;
+  readOnly?:boolean;
 }) {
+  const pages=[...new Set(doc?.blocks.map(b=>b.page||1)||[1])].sort((a,b)=>a-b);
+  const [page,setPage]=useState(1),[image,setImage]=useState(''),[imageError,setImageError]=useState('');
+  useEffect(()=>{setPage(doc?.blocks.find(b=>b.id===evidence?.block_id)?.page||1);},[doc?.id,evidence?.block_id]);
+  useEffect(()=>{let active=true;setImage('');setImageError('');if(caseId&&doc?.media_type==='application/pdf'&&!readOnly)request<{data_url:string}>('GET',`/api/cases/${caseId}/documents/${doc.id}/pages/${page}`).then(r=>{if(active)setImage(r.data_url);},e=>{if(active)setImageError(e.message);});return()=>{active=false;};},[caseId,doc?.id,page,readOnly]);
   return (
     <div className="source-text">
-      {doc?.blocks.map((b) => (
+      {doc?.media_type==='application/pdf'&&<><label>Original PDF page<select aria-label="Original PDF page" value={page} onChange={e=>setPage(Number(e.target.value))}>{pages.map(p=><option key={p} value={p}>Page {p}</option>)}</select></label>{image&&<img className="pdf-page-preview" src={image} alt={`Original PDF page ${page} of ${doc.filename}`}/>}<p className="caption">Retained original PDF · {doc.original_hash.slice(0,12)}. Page preview is derived rendering; passages below come from the retained parser.</p>{imageError&&<p className="caption" role="status">Page preview unavailable: {imageError}. Retained text remains available.</p>}{readOnly&&<p className="caption">Original page preview requires the authorized source store; this historical packet contains retained text and provenance.</p>}</>}
+      {doc?.blocks.filter(b=>doc.media_type!=='application/pdf'||(b.page||1)===page).map((b) => (
         <div
           key={b.id}
           className={
@@ -97,6 +106,10 @@ function PlatformLinks({ openWeb }: { openWeb: () => void }) {
   );
 }
 function App() {
+  type Checkpoint={caseId:string;revision:number;inventoryVersion:number;hash:string;at:string;dirty:boolean};
+  const [checkpoint,setCheckpoint]=useState<Checkpoint|null>(()=>{try{return JSON.parse(localStorage.getItem('bf.checkpoint.v1')||'null');}catch{return null;}});
+  const workGeneration=useRef(0);
+  useEffect(()=>{const changed=()=>{workGeneration.current++;setCheckpoint(c=>{if(!c)return c;const next={...c,dirty:true};localStorage.setItem('bf.checkpoint.v1',JSON.stringify(next));return next;});};window.addEventListener('bf:work-changed',changed);return()=>window.removeEventListener('bf:work-changed',changed);},[]);
   const [section,setSection]=useState('incidents');
   const [data, setData] = useState<Case | null>(null),
     [packet, setPacket] = useState<Packet | null>(null),
@@ -207,6 +220,7 @@ function App() {
         if (id && all.some((c) => c.id === id)) {
           const c = await request<Case>("GET", "/api/cases/" + id);
           if (active) setData(c);
+          try{const saved=JSON.parse(localStorage.getItem('bf.checkpoint.v1')||'null');if(saved?.caseId===id){const current=await request<Packet>('GET',`/api/cases/${id}/export`);if(active){const next={...saved,dirty:saved.hash!==current.integrity_hash};setCheckpoint(next);localStorage.setItem('bf.checkpoint.v1',JSON.stringify(next));}}}catch{/* An unavailable checkpoint comparison cannot establish a successful save. */}
         }
         if(!connectionWasAvailable.current)setNotice('Backend reconnected. Current evidence and action state reloaded.');
         setOnline(true);
@@ -254,7 +268,7 @@ function App() {
     await task("Opening historical AMD evidence", async () => {
       const p = await validatePacket(await request<Packet>("GET", "/api/replay"));
       setPacket(p); setReview(false); setSource(""); setEvidence(null); setTab("map");
-      setNotice("Replay В· historical live AMD response on synthetic records. Agent-operated review; no new inference or independent human validation.");
+      setNotice("Replay · historical live AMD response on synthetic records. Agent-operated review; no new inference or independent human validation.");
     });
   }
   async function analyze() {
@@ -417,10 +431,15 @@ function App() {
       const p =
         packet ||
         (await request<Packet>("GET", "/api/cases/" + state.id + "/export"));
-      if (await savePacket(p))
+      const generation=workGeneration.current;
+      const saved=await savePacket(p);
+      if (saved===true){
+        const savedCheckpoint={caseId:p.case.id,revision:p.case.revision,inventoryVersion:p.case.inventory_version,hash:p.integrity_hash,at:new Date().toISOString(),dirty:generation!==workGeneration.current};
+        setCheckpoint(savedCheckpoint);localStorage.setItem('bf.checkpoint.v1',JSON.stringify(savedCheckpoint));
         setNotice(
           "Decision packet saved with source extracts, review history and receipts.",
         );
+      }else setNotice(saved==='download-started'?'Packet download started. Completion is unconfirmed by this browser; check your Downloads folder. No saved-checkpoint claim is made.':'Packet save cancelled; the current work has not been checkpointed.');
     });
   }
   async function openPacket() {
@@ -448,15 +467,15 @@ function App() {
     setInspector(true);
   }
   const status = packet
-    ? "Historical packet В· read-only"
+    ? "Historical packet · read-only"
     : state?.pending_revision
-      ? "Evidence changed В· approval stale"
+      ? "Evidence changed · approval stale"
       : plan?.status === "applied"
         ? "Holds applied"
         : plan?.status === "approved"
           ? "Exact plan approved"
           : plan
-            ? "Review complete В· awaiting approval"
+            ? "Review complete · awaiting approval"
             : "Critical scope review required";
   const diff = state?.history
     .filter((h) => h.type === "reviewed" && h.old_units != null)
@@ -510,6 +529,7 @@ function App() {
             BatchFence<span className="separator">/</span>
             <span className="workspace-name">Quality operations</span>
           </div>
+          {state&&<p className="checkpoint-status" role="status">{checkpoint?.caseId===state.id?`Last saved checkpoint ${new Date(checkpoint.at).toLocaleString()} · evidence r${checkpoint.revision}. ${!checkpoint.dirty&&checkpoint.revision===state.revision&&checkpoint.inventoryVersion===state.inventory_version?'This client has no newer unsaved work.':'New or changed work is not in that checkpoint.'}`:'No confirmed saved checkpoint for this incident.'} {temporaryStorage?'Server storage is temporary; save a packet before leaving.':''}</p>}
           <div className="top-actions">
             {pilotIdentity&&<><span className="caption">{pilotIdentity}</span><button className="text-button" onClick={async()=>{await request('POST','/api/auth/logout',{});location.reload();}}>Sign out</button></>}
             {!online&&<button className="text-button" onClick={()=>location.reload()}>Retry connection</button>}
@@ -563,11 +583,11 @@ function App() {
             <section className="technical">
               <strong>Execution provenance</strong>
               <p>
-                {run?.model_id || "No model run"} В· {run?.mode || mode} В·{" "}
+                {run?.model_id || "No model run"} · {run?.mode || mode} ·{" "}
                 {run?.elapsed_ms !== undefined
                   ? run.elapsed_ms + " ms"
                   : "Latency not measured"}{" "}
-                В· {run?.status || "Not started"}
+                · {run?.status || "Not started"}
               </p>
               <p>
                 Live AMD verification:{" "}
@@ -691,7 +711,7 @@ function App() {
                         )
                       }
                     >
-                      {c.name} В· r{c.revision}
+                      {c.name} · r{c.revision}
                     </button>
                   ))}
                 </div>
@@ -724,7 +744,7 @@ function App() {
                   <LockKeyhole size={20} />
                   <div>
                     <strong>
-                      Offline evidence review В· historical snapshot
+                      Offline evidence review · historical snapshot
                     </strong>
                     <p>
                       Saved {new Date(packet.exported_at).toLocaleString()}.
@@ -821,7 +841,7 @@ function App() {
                             {d.filename.replaceAll("_", " ")}
                           </strong>
                           <small>
-                            {d.synthetic ? "Synthetic" : "Uploaded"} В· r
+                            {d.synthetic ? "Synthetic" : "Uploaded"} · r
                             {d.revision}
                           </small>
                         </span>
@@ -839,7 +859,7 @@ function App() {
                       Add evidence
                     </button>
                     <span className="caption">
-                      TXT, CSV, text PDF В· 2 MB/file
+                      UTF-8 TXT/CSV or PDF · 2 MB/file · PDF up to 8 pages
                     </span>
                   </div>
                   <div className="extract-box">
@@ -854,9 +874,9 @@ function App() {
                       onChange={(e) => setMode(e.target.value)}
                     >
                       <option value="fixture">
-                        Fixture В· synthetic parser
+                        Fixture · synthetic parser
                       </option>
-                      <option value="live">Live В· AMD endpoint</option>
+                      <option value="live">Live · AMD endpoint</option>
                     </select>
                     {liveProtected && mode === "live" && !packet && <>
                       <label className="field-label" htmlFor="live-demo-access">Live access key</label>
@@ -874,7 +894,7 @@ function App() {
                     </button>
                     <p className="caption">
                       {packet
-                        ? "Historical model run В· no new inference."
+                        ? "Historical model run · no new inference."
                         : mode === "fixture"
                         ? "Synthetic walkthrough. No AI inference is claimed."
                         : "Fresh AMD request. Failures stay visible."}
@@ -919,11 +939,11 @@ function App() {
                     )}
                   </div>
                   <nav className="guided-steps" aria-label="Incident guide">
-                    <button onClick={()=>setTab('sources')}>1 В· Notice</button>
-                    <button onClick={()=>{setTab('map');if(currentRun && !doc?.request_id && run)beginReview(run);}}>2 В· Review exposure</button>
-                    <button onClick={()=>setTab('requests')}>3 В· Resolve a question</button>
-                    <button onClick={()=>setTab('timeline')}>4 В· Revision consequences</button>
-                    <button onClick={()=>setTab('verify')}>5 В· Verify & export</button>
+                    <button onClick={()=>setTab('sources')}>1 · Notice</button>
+                    <button onClick={()=>{setTab('map');if(currentRun && !doc?.request_id && run)beginReview(run);}}>2 · Review exposure</button>
+                    <button onClick={()=>setTab('requests')}>3 · Resolve a question</button>
+                    <button onClick={()=>setTab('timeline')}>4 · Revision consequences</button>
+                    <button onClick={()=>setTab('verify')}>5 · Verify & export</button>
                   </nav>
                   <div
                     className="tabs"
@@ -978,7 +998,7 @@ function App() {
                       <div className="required">
                         <span>
                           {state.pending_revision
-                            ? "Previous plan В· stale"
+                            ? "Previous plan · stale"
                             : "Proposed hold"}
                         </span>
                         <strong>
@@ -992,7 +1012,7 @@ function App() {
                           {num(result.outside_units)} <small>units</small>
                         </strong>
                         <p>
-                          {euro(result.excluded_cents)} В· value, not savings
+                          {euro(result.excluded_cents)} · value, not savings
                         </p>
                       </div>
                     </div>
@@ -1034,14 +1054,14 @@ function App() {
                       <label className="field-label" htmlFor="review-scope-status">Incident scope certainty</label>
                       <select id="review-scope-status" value={scopeResolved ? "resolved" : "unresolved"}
                         onChange={e => { setScopeResolved(e.target.value === "resolved"); setBounded(false); }}>
-                        <option value="unresolved">Unresolved В· no narrowed exclusions</option>
-                        <option value="resolved" disabled={!!run?.scope_concerns?.length}>Resolved В· complete boundary reviewed</option>
+                        <option value="unresolved">Unresolved · no narrowed exclusions</option>
+                        <option value="resolved" disabled={!!run?.scope_concerns?.length}>Resolved · complete boundary reviewed</option>
                       </select>
                       {scopeResolved && <>
-                        <label className="field-label" htmlFor="review-basis">Scope resolution basis В· exact source quote</label>
+                        <label className="field-label" htmlFor="review-basis">Scope resolution basis · exact source quote</label>
                         <textarea id="review-basis" value={resolutionQuote} onChange={e => setResolutionQuote(e.target.value)} />
                       </>}
-                      <label className="field-label" htmlFor="review-note">Review explanation В· scope and exclusions</label>
+                      <label className="field-label" htmlFor="review-note">Review explanation · scope and exclusions</label>
                       <textarea id="review-note" value={reviewNote} onChange={e => setReviewNote(e.target.value)}
                         placeholder="Explain the source-backed boundary and any excluded lots. Leave unresolved claims uncertain." />
                       <label className="checkbox">
@@ -1104,7 +1124,7 @@ function App() {
                           >
                             <i />
                             <small>
-                              {new Date(h.at).toLocaleTimeString()} В· evidence r
+                              {new Date(h.at).toLocaleTimeString()} · evidence r
                               {h.revision}
                             </small>
                             <h3>{h.type.replaceAll("_", " ")}</h3>
@@ -1141,7 +1161,7 @@ function App() {
                     <section className="source-page">
                       <h3>{doc?.filename}</h3>
                       {doc&&<OcrReview key={doc.id} state={state} doc={doc} readOnly={readOnly} onUpdate={accept}/>}
-                      <details className="source-mapping"><summary>Map original inventory and lineage records</summary><IntakePanel key={state.id} state={state} readOnly={readOnly} onUpdate={accept}/></details><div className="source-review-layout"><aside className="original-source"><span className="eyebrow">RETAINED ORIGINAL</span><SourceText doc={doc}/></aside><ContinuationPanel state={state} part="sources" doc={doc} readOnly={readOnly} update={accept} openReview={s=>{beginReview(s.runs.at(-1)!);setTab('map');}}/></div>
+                      <details className="source-mapping"><summary>Map original inventory and lineage records</summary><IntakePanel key={state.id} state={state} readOnly={readOnly} onUpdate={accept}/></details><div className="source-review-layout"><aside className="original-source"><span className="eyebrow">RETAINED ORIGINAL</span><SourceText doc={doc} evidence={evidence} caseId={state.id} readOnly={readOnly}/></aside><ContinuationPanel state={state} part="sources" doc={doc} readOnly={readOnly} update={accept} onEvidence={showEvidence} openReview={s=>{beginReview(s.runs.at(-1)!);setTab('map');}}/></div>
                     </section>
                   ) : tab === "requests" ? (
                     <><EvidencePlanner state={state} readOnly={readOnly||!!busy} mode={mode} onUpdate={s=>{accept(s);setNotice('');setError('');}} onEvidence={showEvidence}/><ContinuationPanel state={state} part="requests" readOnly={readOnly||!!busy} update={accept}/></>
@@ -1238,7 +1258,7 @@ function App() {
                             </span>
                             <h3>Holds applied. Evidence preserved.</h3>
                             <p>
-                              The approved transaction updated this workspaceвЂ™s inventory.
+                              The approved transaction updated this workspace’s inventory.
                             </p>
                             <dl>
                               <dt>Transaction</dt>
@@ -1247,8 +1267,8 @@ function App() {
                               </dd>
                               <dt>Evidence / inventory</dt>
                               <dd>
-                                r{r.evidence_revision} В· v
-                                {r.prior_inventory_version} в†’ v
+                                r{r.evidence_revision} · v
+                                {r.prior_inventory_version} → v
                                 {r.current_inventory_version}
                               </dd>
                               <dt>Committed</dt>
@@ -1264,7 +1284,7 @@ function App() {
                                   <code>{c.pool_id}</code>
                                   <span>{c.units} units</span>
                                   <span>
-                                    {c.before} в†’ {c.after}
+                                    {c.before} → {c.after}
                                   </span>
                                 </div>
                               ))}
@@ -1313,7 +1333,7 @@ function App() {
                                 </td>
                                 <td>
                                   <code>
-                                    {r.path.join(" в†’ ") || "Unknown ancestry"}
+                                    {r.path.join(" → ") || "Unknown ancestry"}
                                   </code>
                                 </td>
                                 <td>{r.reason}</td>
@@ -1450,7 +1470,7 @@ function App() {
                           : "SELECTED DOCUMENT"}
                       </div>
                       <h3>{inspectorDoc?.filename}</h3>
-                      <SourceText doc={inspectorDoc} evidence={evidence} />
+                      <SourceText doc={inspectorDoc} evidence={evidence} caseId={state.id} readOnly={readOnly}/>
                       {evidence && (
                         <button
                           className="text-button"
@@ -1491,13 +1511,13 @@ function App() {
                           ? "Changed facts require fresh review and approval. Previous actions are blocked."
                           : result
                             ? num(result.hold_units) +
-                              " units proposed В· including " +
+                              " units proposed · including " +
                               num(result.uncertain_units) +
-                              " uncertain В· " +
+                              " uncertain · " +
                               state.scope.lot_ids.join(", ")
                             : "Review the notice to create the first plan."}
                     </p>
-                    {!packet && <p className="execution-scope">Holds update this workspaceвЂ™s inventory. No external inventory system is connected.</p>}
+                    {!packet && <p className="execution-scope">Holds update this workspace’s inventory. No external inventory system is connected.</p>}
                   </div>
                 </div>
                 <div className="decision-actions">
@@ -1578,8 +1598,8 @@ function App() {
               {diff && (
                 <div className="revision-summary">
                   <History size={14} />
-                  Reviewed revision: {diff.previous_lots?.join(", ")} в†’{" "}
-                  {diff.lot_ids?.join(", ")} В· {diff.old_units} в†’{" "}
+                  Reviewed revision: {diff.previous_lots?.join(", ")} →{" "}
+                  {diff.lot_ids?.join(", ")} · {diff.old_units} →{" "}
                   {diff.new_units} proposed units. Prior approval does not
                   transfer.
                 </div>

@@ -129,7 +129,13 @@ def ocr_page(case_id:str,doc_id:str,number:int,request:Request):
     state=read(case_id,request.state.owner)
     doc=next((d for d in state['documents'] if d['id']==doc_id),None)
     page=next((p for p in doc.get('ocr',{}).get('pages',[]) if p['page']==number),None) if doc else None
-    if not page: raise HTTPException(404,'Page unavailable')
+    if not page:
+        if not doc or doc.get('media_type')!='application/pdf' or not 1<=number<=doc.get('page_count',0):raise HTTPException(404,'Page unavailable')
+        original=repo.source_path(request.state.owner,doc['original_hash']).read_bytes()
+        if hashlib.sha256(original).hexdigest()!=doc['original_hash']:raise DomainError('Original PDF integrity failure')
+        from .documents import render_page
+        raw=render_page(original,number)
+        return {'page':number,'hash':hashlib.sha256(raw).hexdigest(),'original_hash':doc['original_hash'],'operation':'Derived preview of retained original PDF; no OCR/inference','data_url':'data:image/png;base64,'+base64.b64encode(raw).decode()}
     with connect() as db:
         row=db.execute('SELECT size FROM bf_sources WHERE owner=? AND hash=?',(request.state.owner,page['image_hash'])).fetchone()
     if not row: raise HTTPException(404,'Page source unavailable')

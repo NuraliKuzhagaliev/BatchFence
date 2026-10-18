@@ -1,3 +1,13 @@
+# Focused Evolus completion — in progress
+
+Branch focused-evolus-0.4 preserves rc3 (runtime7d5b291, evidence103f088). Unicode lexical retrieval and scoped UI encoding repair implemented; original-PDF Evolus reader/extractor/Gemma workflow configured separately. Source preview, suitability, proposed facts, approved originals, bounded status polling and truthful checkpoint feedback implemented.36 affected local controls pass. Current changes are not yet published or client-accepted.
+
+Fresh evidence: original nativePDF probe completed with source-validated SUP-A affected/SUP-B excluded and complete scope; initial4-second polling window expired and one later read reconciled the same execution, without another inference. Initial incomplete-case harness stopped before dispatch because the earlier owner job was still running; a separate bounded incomplete case is now running. Isolated Rag indexing reachedIndexed; agent response field is documented agentId, and the existing created resource was recovered without reupload/recreation. One genuine cross-language ask selected the relevant exact key but returnedcitations=[]: validation rejected it. Semantic mode remains unavailable; approved Blob/local mode retained. Actual account balances remained50000 credits, finalized ask consumption0credits; embedding tariff metadata403 remains unknown. No cash, key changes, real actions or independent human-validation claim.
+
+Next: finish incomplete-case evidence, affected failure/packet/UI checks; final regression/domain/build; rc4 packaging/CI; merge nonsecret phase configuration only; fresh public-web and installed-Windows PDF→review→500/800→two-receipt plus Blob workflow; publish and verify artifacts. No more RAG tuning or unchanged vision calls. All raw failures and prior release/evidence preserved. Exact finite budget/run commands: FOCUSED_PLAN.md.
+
+---
+
 # Vision release complete
 
 Fresh public web and installed Windows image acceptance passed4/4, with required visual/source review, mismatch/multiple containment, unchanged800-unit holds/two receipts and stale409. Actual final432pytest/domain/Linux restart CI passed; rc3 existing Free Render deploy verified. Installer/source/notes/manifest/checksums published;5 anonymous full downloads and1929 tag members match. Final non-inference web/Windows health/platform checks passed. No more model calls;64/64 reservations preserved. Original500 cause remains unconfirmed, all failures retained and new diagnostic metadata available.

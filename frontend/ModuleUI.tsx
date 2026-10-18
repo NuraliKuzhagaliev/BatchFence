@@ -1,4 +1,4 @@
-import {useEffect,useState,type ReactNode} from 'react';
+import {useEffect,useState,useRef,type ReactNode} from 'react';
 import {request} from './platform';
 import type {Case} from './types';
 
@@ -6,7 +6,7 @@ import type {Case} from './types';
 export type RecordData = Record<string, any>;
 export type ModuleData = Record<string, any>;
 export function Details({title,value}:{title:string;value:unknown}){return <details className="evidence-details"><summary>{title}</summary><pre>{JSON.stringify(value,null,2)}</pre></details>;}
-export function useOperation(){const [busy,setBusy]=useState(false),[error,setError]=useState('');return {busy,error,act:async(fn:()=>Promise<void>)=>{setBusy(true);setError('');try{await fn();}catch(e){setError(e instanceof Error?e.message:'Operation failed');}finally{setBusy(false);}}};}
+export function useOperation(){const [busy,setBusy]=useState(false),[error,setError]=useState(''),pending=useRef(false);return {busy,error,act:async(fn:()=>Promise<void>)=>{if(pending.current)return;pending.current=true;setBusy(true);setError('');try{await fn();}catch(e){setError(e instanceof Error?e.message:'Operation failed');}finally{pending.current=false;setBusy(false);}}};}
 export type Field={key:string;label:string;type?:'text'|'area'|'number'|'date'|'check'|'list'|'select';options?:{value:string;label:string}[];value?:string|number|boolean;required?:boolean};
 export function ReviewForm({title,help,fields,submit,disabled=false,onSubmit}:{title:string;help?:string;fields:Field[];submit:string;disabled?:boolean;onSubmit:(body:RecordData)=>Promise<void>}){
  const [values,setValues]=useState<RecordData>(()=>Object.fromEntries(fields.map(f=>[f.key,f.value??(f.type==='check'?false:'')]))),op=useOperation();

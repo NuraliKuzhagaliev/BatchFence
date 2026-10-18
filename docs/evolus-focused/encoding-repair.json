@@ -1,0 +1,40 @@
+{
+  "scope": "Exact reviewed UI literals only; UTF-8 valid bytes contained mojibake. No source/evidence recoding.",
+  "replacements": [
+    {
+      "file": "frontend\\main.tsx",
+      "malformed_codepoints": [
+        "0x412",
+        "0xb7"
+      ],
+      "replacement_codepoints": [
+        "0xb7"
+      ],
+      "occurrences": 30
+    },
+    {
+      "file": "frontend\\main.tsx",
+      "malformed_codepoints": [
+        "0x432",
+        "0x402",
+        "0x2122"
+      ],
+      "replacement_codepoints": [
+        "0x2019"
+      ],
+      "occurrences": 2
+    },
+    {
+      "file": "frontend\\main.tsx",
+      "malformed_codepoints": [
+        "0x432",
+        "0x2020",
+        "0x2019"
+      ],
+      "replacement_codepoints": [
+        "0x2192"
+      ],
+      "occurrences": 5
+    }
+  ]
+}

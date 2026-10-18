@@ -1,0 +1,1150 @@
+{
+  "source": "notice-v1.pdf",
+  "document": {
+    "id": "DOC-f3f7c0db7476",
+    "filename": "notice-v1.pdf",
+    "media_type": "application/pdf",
+    "revision": 2,
+    "ingested_at": "2026-10-18T00:27:33.459953+00:00",
+    "original_hash": "664a61651109bf0f04c029192876f554a254d60320f8b02c6139afc35d25dc90",
+    "text_hash": "e9f12eec22840e220b6b0a757249ee3e808e6aabe54aee96e8e1b9ad2b9ee96b",
+    "blocks": [
+      {
+        "id": "page-1-line-1",
+        "page": 1,
+        "text": "BatchFence | Revision 1"
+      },
+      {
+        "id": "page-1-line-2",
+        "page": 1,
+        "text": "FICTIONAL ENGINEERING SOURCE - no real inventory"
+      },
+      {
+        "id": "page-1-line-3",
+        "page": 1,
+        "text": "Supplier notice QF-731, revision 1, 18 October 2026."
+      },
+      {
+        "id": "page-1-line-4",
+        "page": 1,
+        "text": "Complete incident boundary: the affected supplier lot list is final for this revision."
+      },
+      {
+        "id": "page-1-line-5",
+        "page": 1,
+        "text": "Affected lots: SUP-A"
+      },
+      {
+        "id": "page-1-line-6",
+        "page": 1,
+        "text": "On-site descendants of SUP-A require containment pending quality review."
+      },
+      {
+        "id": "page-1-line-7",
+        "page": 1,
+        "text": "SUP-B is not affected by this revision."
+      },
+      {
+        "id": "page-1-line-8",
+        "page": 1,
+        "text": "This notice does not authorize inventory actions. Review the retained records"
+      },
+      {
+        "id": "page-1-line-9",
+        "page": 1,
+        "text": "separately."
+      },
+      {
+        "id": "page-1-line-10",
+        "page": 1,
+        "text": "Synthetic acceptance original | page 1 of 1"
+      }
+    ],
+    "synthetic": true,
+    "page_count": 1,
+    "evidence_language": "en",
+    "language_review_required": false
+  },
+  "result": {
+    "id": "ASSIST-3a89ed98923c22b20d6674b0",
+    "case_id": "908e93f00cd542c290d1c6a3857778d9",
+    "document_ids": [
+      "DOC-f3f7c0db7476"
+    ],
+    "mode": "live",
+    "status": "running",
+    "actor": {
+      "user_id": null,
+      "identity_mode": "anonymous session; not independent identity"
+    },
+    "snapshot_hash": "bfdeb27b949abfe4866cd80eef6260319371a7a7b85a8a8906cd0618b5fea749",
+    "request_hash": "629bcb97e183ff1ba20fc935ad71bf760a4696e821624a6aed37fec5c8dc2dce",
+    "context_hash": "70534aba4c17e01632791a587b1ec24437692e31b9d48d83cb2999e81eafca58",
+    "started_at": "2026-10-18T00:27:33.513563+00:00",
+    "reservation": {
+      "provider": "evolus",
+      "reservation": "08f63fd2135a52c9caf727aaafbef942996612efadfb5f5622ff2405e4e78747",
+      "dispatch": 1,
+      "conservative_remaining": 49900,
+      "stop_margin": 49000
+    },
+    "executions": [
+      {
+        "execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+        "status": "running",
+        "provider_status": "Running",
+        "steps": [],
+        "draft": null,
+        "document_reading": {
+          "step_id": "d3061c68-4aa4-4a45-8318-3b121b867913",
+          "configured_ocr_model": "azure/document-intelligence-layout",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "output_hash": "12b211648cee50d26ff2aac9f0120ae3440917dbf578be45a0838e54b34a8989",
+          "text": "BatchFence | Revision 1\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-731, revision 1, 18 October 2026.\nComplete incident boundary: the affected supplier lot list is final for this revision.\nAffected lots: SUP-A\nOn-site descendants of SUP-A require containment pending quality review.\nSUP-B is not affected by this revision.\nThis notice does not authorize inventory actions. Review the retained records\nseparately.\nSynthetic acceptance original | page 1 of 1\n",
+          "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+          "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+        },
+        "consumption": null,
+        "requested_at": "2026-10-18T00:29:00.8719253Z",
+        "completed_at": null,
+        "trace_id": "918b4e786e7d8d8fca820278f6869c02",
+        "error_present": false,
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "transport_provenance": {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:27:43.830286+00:00",
+          "method": "GET",
+          "path": "/api/v1/workflows/615b739c-0eca-4a6e-a1d2-1e54b4359560/executions/53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+          "http_status": 200,
+          "elapsed_ms": 775,
+          "response_hash": "d08e44baa299cde8bbe7dfc657285f4ba83197306166efec9f10bfc4bd94c627",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      },
+      {
+        "execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+        "status": "running",
+        "provider_status": "Running",
+        "steps": [],
+        "draft": null,
+        "document_reading": {
+          "step_id": "d3061c68-4aa4-4a45-8318-3b121b867913",
+          "configured_ocr_model": "azure/document-intelligence-layout",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "output_hash": "12b211648cee50d26ff2aac9f0120ae3440917dbf578be45a0838e54b34a8989",
+          "text": "BatchFence | Revision 1\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-731, revision 1, 18 October 2026.\nComplete incident boundary: the affected supplier lot list is final for this revision.\nAffected lots: SUP-A\nOn-site descendants of SUP-A require containment pending quality review.\nSUP-B is not affected by this revision.\nThis notice does not authorize inventory actions. Review the retained records\nseparately.\nSynthetic acceptance original | page 1 of 1\n",
+          "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+          "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+        },
+        "consumption": null,
+        "requested_at": "2026-10-18T00:29:00.8719253Z",
+        "completed_at": null,
+        "trace_id": "918b4e786e7d8d8fca820278f6869c02",
+        "error_present": false,
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "transport_provenance": {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:27:48.547557+00:00",
+          "method": "GET",
+          "path": "/api/v1/workflows/615b739c-0eca-4a6e-a1d2-1e54b4359560/executions/53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+          "http_status": 200,
+          "elapsed_ms": 695,
+          "response_hash": "d08e44baa299cde8bbe7dfc657285f4ba83197306166efec9f10bfc4bd94c627",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      },
+      {
+        "execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+        "status": "running",
+        "provider_status": "Running",
+        "steps": [],
+        "draft": null,
+        "document_reading": {
+          "step_id": "d3061c68-4aa4-4a45-8318-3b121b867913",
+          "configured_ocr_model": "azure/document-intelligence-layout",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "output_hash": "12b211648cee50d26ff2aac9f0120ae3440917dbf578be45a0838e54b34a8989",
+          "text": "BatchFence | Revision 1\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-731, revision 1, 18 October 2026.\nComplete incident boundary: the affected supplier lot list is final for this revision.\nAffected lots: SUP-A\nOn-site descendants of SUP-A require containment pending quality review.\nSUP-B is not affected by this revision.\nThis notice does not authorize inventory actions. Review the retained records\nseparately.\nSynthetic acceptance original | page 1 of 1\n",
+          "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+          "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+        },
+        "consumption": null,
+        "requested_at": "2026-10-18T00:29:00.8719253Z",
+        "completed_at": null,
+        "trace_id": "918b4e786e7d8d8fca820278f6869c02",
+        "error_present": false,
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "transport_provenance": {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:27:53.259938+00:00",
+          "method": "GET",
+          "path": "/api/v1/workflows/615b739c-0eca-4a6e-a1d2-1e54b4359560/executions/53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+          "http_status": 200,
+          "elapsed_ms": 690,
+          "response_hash": "d08e44baa299cde8bbe7dfc657285f4ba83197306166efec9f10bfc4bd94c627",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      },
+      {
+        "execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+        "status": "running",
+        "provider_status": "Running",
+        "steps": [
+          {
+            "kind": "extractor",
+            "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+            "step_id": "92441f92-cd13-4042-944e-ee71201a8567",
+            "state": {
+              "status": "done",
+              "branch": null,
+              "iterations": null,
+              "iterationsCompleted": null,
+              "iterationsFailed": null,
+              "iterationDetails": null,
+              "branchCounts": null,
+              "childExecutionId": null,
+              "durationMs": 18214,
+              "outputCheckNote": null,
+              "decision": null
+            },
+            "configured_model_key": "own/gemma-4-31b-it",
+            "model_identity_basis": "Configuration, not a returned runtime model ID",
+            "output_hash": "1bb051402f6d58cefe07b4cba39437315865265efbaea1c3f9a01b37435ba683",
+            "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"QF-731\",\"disposition\":\"asserted\",\"quote\":\"Supplier notice QF-731\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"disposition\":\"negated\",\"quote\":\"SUP-B is not affected by this revision\",\"page\":1},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"Complete incident boundary: the affected supplier lot list is final for this revision\",\"page\":1}],\"unresolved\":[]}",
+            "execution_step_key": "2"
+          }
+        ],
+        "draft": null,
+        "document_reading": {
+          "step_id": "d3061c68-4aa4-4a45-8318-3b121b867913",
+          "configured_ocr_model": "azure/document-intelligence-layout",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "output_hash": "12b211648cee50d26ff2aac9f0120ae3440917dbf578be45a0838e54b34a8989",
+          "text": "BatchFence | Revision 1\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-731, revision 1, 18 October 2026.\nComplete incident boundary: the affected supplier lot list is final for this revision.\nAffected lots: SUP-A\nOn-site descendants of SUP-A require containment pending quality review.\nSUP-B is not affected by this revision.\nThis notice does not authorize inventory actions. Review the retained records\nseparately.\nSynthetic acceptance original | page 1 of 1\n",
+          "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+          "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+        },
+        "consumption": null,
+        "requested_at": "2026-10-18T00:29:00.8719253Z",
+        "completed_at": null,
+        "trace_id": "918b4e786e7d8d8fca820278f6869c02",
+        "error_present": false,
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "transport_provenance": {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:27:57.955169+00:00",
+          "method": "GET",
+          "path": "/api/v1/workflows/615b739c-0eca-4a6e-a1d2-1e54b4359560/executions/53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+          "http_status": 200,
+          "elapsed_ms": 675,
+          "response_hash": "d1f9859f5a843e019fa70be6a0f0e5aa3b377263bd4f8bd8f720736e140c3565",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      },
+      {
+        "execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+        "status": "running",
+        "provider_status": "Running",
+        "steps": [
+          {
+            "kind": "extractor",
+            "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+            "step_id": "92441f92-cd13-4042-944e-ee71201a8567",
+            "state": {
+              "status": "done",
+              "branch": null,
+              "iterations": null,
+              "iterationsCompleted": null,
+              "iterationsFailed": null,
+              "iterationDetails": null,
+              "branchCounts": null,
+              "childExecutionId": null,
+              "durationMs": 18214,
+              "outputCheckNote": null,
+              "decision": null
+            },
+            "configured_model_key": "own/gemma-4-31b-it",
+            "model_identity_basis": "Configuration, not a returned runtime model ID",
+            "output_hash": "1bb051402f6d58cefe07b4cba39437315865265efbaea1c3f9a01b37435ba683",
+            "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"QF-731\",\"disposition\":\"asserted\",\"quote\":\"Supplier notice QF-731\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"disposition\":\"negated\",\"quote\":\"SUP-B is not affected by this revision\",\"page\":1},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"Complete incident boundary: the affected supplier lot list is final for this revision\",\"page\":1}],\"unresolved\":[]}",
+            "execution_step_key": "2"
+          }
+        ],
+        "draft": null,
+        "document_reading": {
+          "step_id": "d3061c68-4aa4-4a45-8318-3b121b867913",
+          "configured_ocr_model": "azure/document-intelligence-layout",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "output_hash": "12b211648cee50d26ff2aac9f0120ae3440917dbf578be45a0838e54b34a8989",
+          "text": "BatchFence | Revision 1\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-731, revision 1, 18 October 2026.\nComplete incident boundary: the affected supplier lot list is final for this revision.\nAffected lots: SUP-A\nOn-site descendants of SUP-A require containment pending quality review.\nSUP-B is not affected by this revision.\nThis notice does not authorize inventory actions. Review the retained records\nseparately.\nSynthetic acceptance original | page 1 of 1\n",
+          "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+          "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+        },
+        "consumption": null,
+        "requested_at": "2026-10-18T00:29:00.8719253Z",
+        "completed_at": null,
+        "trace_id": "918b4e786e7d8d8fca820278f6869c02",
+        "error_present": false,
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "transport_provenance": {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:28:02.737965+00:00",
+          "method": "GET",
+          "path": "/api/v1/workflows/615b739c-0eca-4a6e-a1d2-1e54b4359560/executions/53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+          "http_status": 200,
+          "elapsed_ms": 759,
+          "response_hash": "d1f9859f5a843e019fa70be6a0f0e5aa3b377263bd4f8bd8f720736e140c3565",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      },
+      {
+        "execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+        "status": "running",
+        "provider_status": "Running",
+        "steps": [
+          {
+            "kind": "extractor",
+            "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+            "step_id": "92441f92-cd13-4042-944e-ee71201a8567",
+            "state": {
+              "status": "done",
+              "branch": null,
+              "iterations": null,
+              "iterationsCompleted": null,
+              "iterationsFailed": null,
+              "iterationDetails": null,
+              "branchCounts": null,
+              "childExecutionId": null,
+              "durationMs": 18214,
+              "outputCheckNote": null,
+              "decision": null
+            },
+            "configured_model_key": "own/gemma-4-31b-it",
+            "model_identity_basis": "Configuration, not a returned runtime model ID",
+            "output_hash": "1bb051402f6d58cefe07b4cba39437315865265efbaea1c3f9a01b37435ba683",
+            "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"QF-731\",\"disposition\":\"asserted\",\"quote\":\"Supplier notice QF-731\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"disposition\":\"negated\",\"quote\":\"SUP-B is not affected by this revision\",\"page\":1},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"Complete incident boundary: the affected supplier lot list is final for this revision\",\"page\":1}],\"unresolved\":[]}",
+            "execution_step_key": "2"
+          }
+        ],
+        "draft": null,
+        "document_reading": {
+          "step_id": "d3061c68-4aa4-4a45-8318-3b121b867913",
+          "configured_ocr_model": "azure/document-intelligence-layout",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "output_hash": "12b211648cee50d26ff2aac9f0120ae3440917dbf578be45a0838e54b34a8989",
+          "text": "BatchFence | Revision 1\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-731, revision 1, 18 October 2026.\nComplete incident boundary: the affected supplier lot list is final for this revision.\nAffected lots: SUP-A\nOn-site descendants of SUP-A require containment pending quality review.\nSUP-B is not affected by this revision.\nThis notice does not authorize inventory actions. Review the retained records\nseparately.\nSynthetic acceptance original | page 1 of 1\n",
+          "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+          "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+        },
+        "consumption": null,
+        "requested_at": "2026-10-18T00:29:00.8719253Z",
+        "completed_at": null,
+        "trace_id": "918b4e786e7d8d8fca820278f6869c02",
+        "error_present": false,
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "transport_provenance": {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:28:07.690227+00:00",
+          "method": "GET",
+          "path": "/api/v1/workflows/615b739c-0eca-4a6e-a1d2-1e54b4359560/executions/53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+          "http_status": 200,
+          "elapsed_ms": 926,
+          "response_hash": "d1f9859f5a843e019fa70be6a0f0e5aa3b377263bd4f8bd8f720736e140c3565",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      },
+      {
+        "execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+        "status": "running",
+        "provider_status": "Running",
+        "steps": [
+          {
+            "kind": "extractor",
+            "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+            "step_id": "92441f92-cd13-4042-944e-ee71201a8567",
+            "state": {
+              "status": "done",
+              "branch": null,
+              "iterations": null,
+              "iterationsCompleted": null,
+              "iterationsFailed": null,
+              "iterationDetails": null,
+              "branchCounts": null,
+              "childExecutionId": null,
+              "durationMs": 18214,
+              "outputCheckNote": null,
+              "decision": null
+            },
+            "configured_model_key": "own/gemma-4-31b-it",
+            "model_identity_basis": "Configuration, not a returned runtime model ID",
+            "output_hash": "1bb051402f6d58cefe07b4cba39437315865265efbaea1c3f9a01b37435ba683",
+            "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"QF-731\",\"disposition\":\"asserted\",\"quote\":\"Supplier notice QF-731\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"disposition\":\"negated\",\"quote\":\"SUP-B is not affected by this revision\",\"page\":1},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"Complete incident boundary: the affected supplier lot list is final for this revision\",\"page\":1}],\"unresolved\":[]}",
+            "execution_step_key": "2"
+          }
+        ],
+        "draft": null,
+        "document_reading": {
+          "step_id": "d3061c68-4aa4-4a45-8318-3b121b867913",
+          "configured_ocr_model": "azure/document-intelligence-layout",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "output_hash": "12b211648cee50d26ff2aac9f0120ae3440917dbf578be45a0838e54b34a8989",
+          "text": "BatchFence | Revision 1\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-731, revision 1, 18 October 2026.\nComplete incident boundary: the affected supplier lot list is final for this revision.\nAffected lots: SUP-A\nOn-site descendants of SUP-A require containment pending quality review.\nSUP-B is not affected by this revision.\nThis notice does not authorize inventory actions. Review the retained records\nseparately.\nSynthetic acceptance original | page 1 of 1\n",
+          "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+          "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+        },
+        "consumption": null,
+        "requested_at": "2026-10-18T00:29:00.8719253Z",
+        "completed_at": null,
+        "trace_id": "918b4e786e7d8d8fca820278f6869c02",
+        "error_present": false,
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "transport_provenance": {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:28:12.481591+00:00",
+          "method": "GET",
+          "path": "/api/v1/workflows/615b739c-0eca-4a6e-a1d2-1e54b4359560/executions/53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+          "http_status": 200,
+          "elapsed_ms": 768,
+          "response_hash": "d1f9859f5a843e019fa70be6a0f0e5aa3b377263bd4f8bd8f720736e140c3565",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      },
+      {
+        "execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+        "status": "running",
+        "provider_status": "Running",
+        "steps": [
+          {
+            "kind": "extractor",
+            "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+            "step_id": "92441f92-cd13-4042-944e-ee71201a8567",
+            "state": {
+              "status": "done",
+              "branch": null,
+              "iterations": null,
+              "iterationsCompleted": null,
+              "iterationsFailed": null,
+              "iterationDetails": null,
+              "branchCounts": null,
+              "childExecutionId": null,
+              "durationMs": 18214,
+              "outputCheckNote": null,
+              "decision": null
+            },
+            "configured_model_key": "own/gemma-4-31b-it",
+            "model_identity_basis": "Configuration, not a returned runtime model ID",
+            "output_hash": "1bb051402f6d58cefe07b4cba39437315865265efbaea1c3f9a01b37435ba683",
+            "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"QF-731\",\"disposition\":\"asserted\",\"quote\":\"Supplier notice QF-731\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"disposition\":\"negated\",\"quote\":\"SUP-B is not affected by this revision\",\"page\":1},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"Complete incident boundary: the affected supplier lot list is final for this revision\",\"page\":1}],\"unresolved\":[]}",
+            "execution_step_key": "2"
+          }
+        ],
+        "draft": null,
+        "document_reading": {
+          "step_id": "d3061c68-4aa4-4a45-8318-3b121b867913",
+          "configured_ocr_model": "azure/document-intelligence-layout",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "output_hash": "12b211648cee50d26ff2aac9f0120ae3440917dbf578be45a0838e54b34a8989",
+          "text": "BatchFence | Revision 1\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-731, revision 1, 18 October 2026.\nComplete incident boundary: the affected supplier lot list is final for this revision.\nAffected lots: SUP-A\nOn-site descendants of SUP-A require containment pending quality review.\nSUP-B is not affected by this revision.\nThis notice does not authorize inventory actions. Review the retained records\nseparately.\nSynthetic acceptance original | page 1 of 1\n",
+          "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+          "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+        },
+        "consumption": null,
+        "requested_at": "2026-10-18T00:29:00.8719253Z",
+        "completed_at": null,
+        "trace_id": "918b4e786e7d8d8fca820278f6869c02",
+        "error_present": false,
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "transport_provenance": {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:28:17.225196+00:00",
+          "method": "GET",
+          "path": "/api/v1/workflows/615b739c-0eca-4a6e-a1d2-1e54b4359560/executions/53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+          "http_status": 200,
+          "elapsed_ms": 717,
+          "response_hash": "d1f9859f5a843e019fa70be6a0f0e5aa3b377263bd4f8bd8f720736e140c3565",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      },
+      {
+        "execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+        "status": "running",
+        "provider_status": "Running",
+        "steps": [
+          {
+            "kind": "extractor",
+            "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+            "step_id": "92441f92-cd13-4042-944e-ee71201a8567",
+            "state": {
+              "status": "done",
+              "branch": null,
+              "iterations": null,
+              "iterationsCompleted": null,
+              "iterationsFailed": null,
+              "iterationDetails": null,
+              "branchCounts": null,
+              "childExecutionId": null,
+              "durationMs": 18214,
+              "outputCheckNote": null,
+              "decision": null
+            },
+            "configured_model_key": "own/gemma-4-31b-it",
+            "model_identity_basis": "Configuration, not a returned runtime model ID",
+            "output_hash": "1bb051402f6d58cefe07b4cba39437315865265efbaea1c3f9a01b37435ba683",
+            "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"QF-731\",\"disposition\":\"asserted\",\"quote\":\"Supplier notice QF-731\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"disposition\":\"negated\",\"quote\":\"SUP-B is not affected by this revision\",\"page\":1},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"Complete incident boundary: the affected supplier lot list is final for this revision\",\"page\":1}],\"unresolved\":[]}",
+            "execution_step_key": "2"
+          }
+        ],
+        "draft": null,
+        "document_reading": {
+          "step_id": "d3061c68-4aa4-4a45-8318-3b121b867913",
+          "configured_ocr_model": "azure/document-intelligence-layout",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "output_hash": "12b211648cee50d26ff2aac9f0120ae3440917dbf578be45a0838e54b34a8989",
+          "text": "BatchFence | Revision 1\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-731, revision 1, 18 October 2026.\nComplete incident boundary: the affected supplier lot list is final for this revision.\nAffected lots: SUP-A\nOn-site descendants of SUP-A require containment pending quality review.\nSUP-B is not affected by this revision.\nThis notice does not authorize inventory actions. Review the retained records\nseparately.\nSynthetic acceptance original | page 1 of 1\n",
+          "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+          "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+        },
+        "consumption": null,
+        "requested_at": "2026-10-18T00:29:00.8719253Z",
+        "completed_at": null,
+        "trace_id": "918b4e786e7d8d8fca820278f6869c02",
+        "error_present": false,
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "transport_provenance": {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:28:21.980200+00:00",
+          "method": "GET",
+          "path": "/api/v1/workflows/615b739c-0eca-4a6e-a1d2-1e54b4359560/executions/53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+          "http_status": 200,
+          "elapsed_ms": 721,
+          "response_hash": "d1f9859f5a843e019fa70be6a0f0e5aa3b377263bd4f8bd8f720736e140c3565",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      },
+      {
+        "execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+        "status": "running",
+        "provider_status": "Running",
+        "steps": [
+          {
+            "kind": "extractor",
+            "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+            "step_id": "92441f92-cd13-4042-944e-ee71201a8567",
+            "state": {
+              "status": "done",
+              "branch": null,
+              "iterations": null,
+              "iterationsCompleted": null,
+              "iterationsFailed": null,
+              "iterationDetails": null,
+              "branchCounts": null,
+              "childExecutionId": null,
+              "durationMs": 18214,
+              "outputCheckNote": null,
+              "decision": null
+            },
+            "configured_model_key": "own/gemma-4-31b-it",
+            "model_identity_basis": "Configuration, not a returned runtime model ID",
+            "output_hash": "1bb051402f6d58cefe07b4cba39437315865265efbaea1c3f9a01b37435ba683",
+            "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"QF-731\",\"disposition\":\"asserted\",\"quote\":\"Supplier notice QF-731\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"disposition\":\"negated\",\"quote\":\"SUP-B is not affected by this revision\",\"page\":1},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"Complete incident boundary: the affected supplier lot list is final for this revision\",\"page\":1}],\"unresolved\":[]}",
+            "execution_step_key": "2"
+          }
+        ],
+        "draft": null,
+        "document_reading": {
+          "step_id": "d3061c68-4aa4-4a45-8318-3b121b867913",
+          "configured_ocr_model": "azure/document-intelligence-layout",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "output_hash": "12b211648cee50d26ff2aac9f0120ae3440917dbf578be45a0838e54b34a8989",
+          "text": "BatchFence | Revision 1\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-731, revision 1, 18 October 2026.\nComplete incident boundary: the affected supplier lot list is final for this revision.\nAffected lots: SUP-A\nOn-site descendants of SUP-A require containment pending quality review.\nSUP-B is not affected by this revision.\nThis notice does not authorize inventory actions. Review the retained records\nseparately.\nSynthetic acceptance original | page 1 of 1\n",
+          "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+          "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+        },
+        "consumption": null,
+        "requested_at": "2026-10-18T00:29:00.8719253Z",
+        "completed_at": null,
+        "trace_id": "918b4e786e7d8d8fca820278f6869c02",
+        "error_present": false,
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "transport_provenance": {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:28:26.780412+00:00",
+          "method": "GET",
+          "path": "/api/v1/workflows/615b739c-0eca-4a6e-a1d2-1e54b4359560/executions/53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+          "http_status": 200,
+          "elapsed_ms": 772,
+          "response_hash": "d1f9859f5a843e019fa70be6a0f0e5aa3b377263bd4f8bd8f720736e140c3565",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      },
+      {
+        "execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+        "status": "running",
+        "provider_status": "Running",
+        "steps": [
+          {
+            "kind": "extractor",
+            "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+            "step_id": "92441f92-cd13-4042-944e-ee71201a8567",
+            "state": {
+              "status": "done",
+              "branch": null,
+              "iterations": null,
+              "iterationsCompleted": null,
+              "iterationsFailed": null,
+              "iterationDetails": null,
+              "branchCounts": null,
+              "childExecutionId": null,
+              "durationMs": 18214,
+              "outputCheckNote": null,
+              "decision": null
+            },
+            "configured_model_key": "own/gemma-4-31b-it",
+            "model_identity_basis": "Configuration, not a returned runtime model ID",
+            "output_hash": "1bb051402f6d58cefe07b4cba39437315865265efbaea1c3f9a01b37435ba683",
+            "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"QF-731\",\"disposition\":\"asserted\",\"quote\":\"Supplier notice QF-731\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"disposition\":\"negated\",\"quote\":\"SUP-B is not affected by this revision\",\"page\":1},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"Complete incident boundary: the affected supplier lot list is final for this revision\",\"page\":1}],\"unresolved\":[]}",
+            "execution_step_key": "2"
+          }
+        ],
+        "draft": null,
+        "document_reading": {
+          "step_id": "d3061c68-4aa4-4a45-8318-3b121b867913",
+          "configured_ocr_model": "azure/document-intelligence-layout",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "output_hash": "12b211648cee50d26ff2aac9f0120ae3440917dbf578be45a0838e54b34a8989",
+          "text": "BatchFence | Revision 1\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-731, revision 1, 18 October 2026.\nComplete incident boundary: the affected supplier lot list is final for this revision.\nAffected lots: SUP-A\nOn-site descendants of SUP-A require containment pending quality review.\nSUP-B is not affected by this revision.\nThis notice does not authorize inventory actions. Review the retained records\nseparately.\nSynthetic acceptance original | page 1 of 1\n",
+          "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+          "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+        },
+        "consumption": null,
+        "requested_at": "2026-10-18T00:29:00.8719253Z",
+        "completed_at": null,
+        "trace_id": "918b4e786e7d8d8fca820278f6869c02",
+        "error_present": false,
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "transport_provenance": {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:28:31.715472+00:00",
+          "method": "GET",
+          "path": "/api/v1/workflows/615b739c-0eca-4a6e-a1d2-1e54b4359560/executions/53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+          "http_status": 200,
+          "elapsed_ms": 903,
+          "response_hash": "d1f9859f5a843e019fa70be6a0f0e5aa3b377263bd4f8bd8f720736e140c3565",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      },
+      {
+        "execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+        "status": "running",
+        "provider_status": "Running",
+        "steps": [
+          {
+            "kind": "extractor",
+            "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+            "step_id": "92441f92-cd13-4042-944e-ee71201a8567",
+            "state": {
+              "status": "done",
+              "branch": null,
+              "iterations": null,
+              "iterationsCompleted": null,
+              "iterationsFailed": null,
+              "iterationDetails": null,
+              "branchCounts": null,
+              "childExecutionId": null,
+              "durationMs": 18214,
+              "outputCheckNote": null,
+              "decision": null
+            },
+            "configured_model_key": "own/gemma-4-31b-it",
+            "model_identity_basis": "Configuration, not a returned runtime model ID",
+            "output_hash": "1bb051402f6d58cefe07b4cba39437315865265efbaea1c3f9a01b37435ba683",
+            "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"QF-731\",\"disposition\":\"asserted\",\"quote\":\"Supplier notice QF-731\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"disposition\":\"negated\",\"quote\":\"SUP-B is not affected by this revision\",\"page\":1},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"Complete incident boundary: the affected supplier lot list is final for this revision\",\"page\":1}],\"unresolved\":[]}",
+            "execution_step_key": "2"
+          }
+        ],
+        "draft": null,
+        "document_reading": {
+          "step_id": "d3061c68-4aa4-4a45-8318-3b121b867913",
+          "configured_ocr_model": "azure/document-intelligence-layout",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "output_hash": "12b211648cee50d26ff2aac9f0120ae3440917dbf578be45a0838e54b34a8989",
+          "text": "BatchFence | Revision 1\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-731, revision 1, 18 October 2026.\nComplete incident boundary: the affected supplier lot list is final for this revision.\nAffected lots: SUP-A\nOn-site descendants of SUP-A require containment pending quality review.\nSUP-B is not affected by this revision.\nThis notice does not authorize inventory actions. Review the retained records\nseparately.\nSynthetic acceptance original | page 1 of 1\n",
+          "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+          "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+        },
+        "consumption": null,
+        "requested_at": "2026-10-18T00:29:00.8719253Z",
+        "completed_at": null,
+        "trace_id": "918b4e786e7d8d8fca820278f6869c02",
+        "error_present": false,
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "transport_provenance": {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:28:36.679923+00:00",
+          "method": "GET",
+          "path": "/api/v1/workflows/615b739c-0eca-4a6e-a1d2-1e54b4359560/executions/53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+          "http_status": 200,
+          "elapsed_ms": 933,
+          "response_hash": "d1f9859f5a843e019fa70be6a0f0e5aa3b377263bd4f8bd8f720736e140c3565",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      },
+      {
+        "execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+        "status": "running",
+        "provider_status": "Running",
+        "steps": [
+          {
+            "kind": "extractor",
+            "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+            "step_id": "92441f92-cd13-4042-944e-ee71201a8567",
+            "state": {
+              "status": "done",
+              "branch": null,
+              "iterations": null,
+              "iterationsCompleted": null,
+              "iterationsFailed": null,
+              "iterationDetails": null,
+              "branchCounts": null,
+              "childExecutionId": null,
+              "durationMs": 18214,
+              "outputCheckNote": null,
+              "decision": null
+            },
+            "configured_model_key": "own/gemma-4-31b-it",
+            "model_identity_basis": "Configuration, not a returned runtime model ID",
+            "output_hash": "1bb051402f6d58cefe07b4cba39437315865265efbaea1c3f9a01b37435ba683",
+            "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"QF-731\",\"disposition\":\"asserted\",\"quote\":\"Supplier notice QF-731\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"disposition\":\"negated\",\"quote\":\"SUP-B is not affected by this revision\",\"page\":1},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"Complete incident boundary: the affected supplier lot list is final for this revision\",\"page\":1}],\"unresolved\":[]}",
+            "execution_step_key": "2"
+          }
+        ],
+        "draft": null,
+        "document_reading": {
+          "step_id": "d3061c68-4aa4-4a45-8318-3b121b867913",
+          "configured_ocr_model": "azure/document-intelligence-layout",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "output_hash": "12b211648cee50d26ff2aac9f0120ae3440917dbf578be45a0838e54b34a8989",
+          "text": "BatchFence | Revision 1\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-731, revision 1, 18 October 2026.\nComplete incident boundary: the affected supplier lot list is final for this revision.\nAffected lots: SUP-A\nOn-site descendants of SUP-A require containment pending quality review.\nSUP-B is not affected by this revision.\nThis notice does not authorize inventory actions. Review the retained records\nseparately.\nSynthetic acceptance original | page 1 of 1\n",
+          "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+          "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+        },
+        "consumption": null,
+        "requested_at": "2026-10-18T00:29:00.8719253Z",
+        "completed_at": null,
+        "trace_id": "918b4e786e7d8d8fca820278f6869c02",
+        "error_present": false,
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "transport_provenance": {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:28:41.646676+00:00",
+          "method": "GET",
+          "path": "/api/v1/workflows/615b739c-0eca-4a6e-a1d2-1e54b4359560/executions/53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+          "http_status": 200,
+          "elapsed_ms": 935,
+          "response_hash": "d1f9859f5a843e019fa70be6a0f0e5aa3b377263bd4f8bd8f720736e140c3565",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      },
+      {
+        "execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+        "status": "running",
+        "provider_status": "Running",
+        "steps": [
+          {
+            "kind": "extractor",
+            "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+            "step_id": "92441f92-cd13-4042-944e-ee71201a8567",
+            "state": {
+              "status": "done",
+              "branch": null,
+              "iterations": null,
+              "iterationsCompleted": null,
+              "iterationsFailed": null,
+              "iterationDetails": null,
+              "branchCounts": null,
+              "childExecutionId": null,
+              "durationMs": 18214,
+              "outputCheckNote": null,
+              "decision": null
+            },
+            "configured_model_key": "own/gemma-4-31b-it",
+            "model_identity_basis": "Configuration, not a returned runtime model ID",
+            "output_hash": "1bb051402f6d58cefe07b4cba39437315865265efbaea1c3f9a01b37435ba683",
+            "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"QF-731\",\"disposition\":\"asserted\",\"quote\":\"Supplier notice QF-731\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"disposition\":\"negated\",\"quote\":\"SUP-B is not affected by this revision\",\"page\":1},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"Complete incident boundary: the affected supplier lot list is final for this revision\",\"page\":1}],\"unresolved\":[]}",
+            "execution_step_key": "2"
+          }
+        ],
+        "draft": null,
+        "document_reading": {
+          "step_id": "d3061c68-4aa4-4a45-8318-3b121b867913",
+          "configured_ocr_model": "azure/document-intelligence-layout",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "output_hash": "12b211648cee50d26ff2aac9f0120ae3440917dbf578be45a0838e54b34a8989",
+          "text": "BatchFence | Revision 1\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-731, revision 1, 18 October 2026.\nComplete incident boundary: the affected supplier lot list is final for this revision.\nAffected lots: SUP-A\nOn-site descendants of SUP-A require containment pending quality review.\nSUP-B is not affected by this revision.\nThis notice does not authorize inventory actions. Review the retained records\nseparately.\nSynthetic acceptance original | page 1 of 1\n",
+          "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+          "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+        },
+        "consumption": null,
+        "requested_at": "2026-10-18T00:29:00.8719253Z",
+        "completed_at": null,
+        "trace_id": "918b4e786e7d8d8fca820278f6869c02",
+        "error_present": false,
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "transport_provenance": {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:28:46.441517+00:00",
+          "method": "GET",
+          "path": "/api/v1/workflows/615b739c-0eca-4a6e-a1d2-1e54b4359560/executions/53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+          "http_status": 200,
+          "elapsed_ms": 768,
+          "response_hash": "d1f9859f5a843e019fa70be6a0f0e5aa3b377263bd4f8bd8f720736e140c3565",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      },
+      {
+        "execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+        "status": "running",
+        "provider_status": "Running",
+        "steps": [
+          {
+            "kind": "extractor",
+            "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+            "step_id": "92441f92-cd13-4042-944e-ee71201a8567",
+            "state": {
+              "status": "done",
+              "branch": null,
+              "iterations": null,
+              "iterationsCompleted": null,
+              "iterationsFailed": null,
+              "iterationDetails": null,
+              "branchCounts": null,
+              "childExecutionId": null,
+              "durationMs": 18214,
+              "outputCheckNote": null,
+              "decision": null
+            },
+            "configured_model_key": "own/gemma-4-31b-it",
+            "model_identity_basis": "Configuration, not a returned runtime model ID",
+            "output_hash": "1bb051402f6d58cefe07b4cba39437315865265efbaea1c3f9a01b37435ba683",
+            "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"QF-731\",\"disposition\":\"asserted\",\"quote\":\"Supplier notice QF-731\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"disposition\":\"negated\",\"quote\":\"SUP-B is not affected by this revision\",\"page\":1},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"Complete incident boundary: the affected supplier lot list is final for this revision\",\"page\":1}],\"unresolved\":[]}",
+            "execution_step_key": "2"
+          }
+        ],
+        "draft": null,
+        "document_reading": {
+          "step_id": "d3061c68-4aa4-4a45-8318-3b121b867913",
+          "configured_ocr_model": "azure/document-intelligence-layout",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "output_hash": "12b211648cee50d26ff2aac9f0120ae3440917dbf578be45a0838e54b34a8989",
+          "text": "BatchFence | Revision 1\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-731, revision 1, 18 October 2026.\nComplete incident boundary: the affected supplier lot list is final for this revision.\nAffected lots: SUP-A\nOn-site descendants of SUP-A require containment pending quality review.\nSUP-B is not affected by this revision.\nThis notice does not authorize inventory actions. Review the retained records\nseparately.\nSynthetic acceptance original | page 1 of 1\n",
+          "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+          "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+        },
+        "consumption": null,
+        "requested_at": "2026-10-18T00:29:00.8719253Z",
+        "completed_at": null,
+        "trace_id": "918b4e786e7d8d8fca820278f6869c02",
+        "error_present": false,
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "transport_provenance": {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:28:51.239460+00:00",
+          "method": "GET",
+          "path": "/api/v1/workflows/615b739c-0eca-4a6e-a1d2-1e54b4359560/executions/53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+          "http_status": 200,
+          "elapsed_ms": 769,
+          "response_hash": "d1f9859f5a843e019fa70be6a0f0e5aa3b377263bd4f8bd8f720736e140c3565",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      },
+      {
+        "execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+        "status": "running",
+        "provider_status": "Running",
+        "steps": [
+          {
+            "kind": "extractor",
+            "id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+            "step_id": "92441f92-cd13-4042-944e-ee71201a8567",
+            "state": {
+              "status": "done",
+              "branch": null,
+              "iterations": null,
+              "iterationsCompleted": null,
+              "iterationsFailed": null,
+              "iterationDetails": null,
+              "branchCounts": null,
+              "childExecutionId": null,
+              "durationMs": 18214,
+              "outputCheckNote": null,
+              "decision": null
+            },
+            "configured_model_key": "own/gemma-4-31b-it",
+            "model_identity_basis": "Configuration, not a returned runtime model ID",
+            "output_hash": "1bb051402f6d58cefe07b4cba39437315865265efbaea1c3f9a01b37435ba683",
+            "output": "{\"candidates\":[{\"kind\":\"document_id\",\"value\":\"QF-731\",\"disposition\":\"asserted\",\"quote\":\"Supplier notice QF-731\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-A\",\"disposition\":\"asserted\",\"quote\":\"Affected lots: SUP-A\",\"page\":1},{\"kind\":\"supplier_lot\",\"value\":\"SUP-B\",\"disposition\":\"negated\",\"quote\":\"SUP-B is not affected by this revision\",\"page\":1},{\"kind\":\"completeness\",\"value\":\"complete\",\"disposition\":\"asserted\",\"quote\":\"Complete incident boundary: the affected supplier lot list is final for this revision\",\"page\":1}],\"unresolved\":[]}",
+            "execution_step_key": "2"
+          }
+        ],
+        "draft": null,
+        "document_reading": {
+          "step_id": "d3061c68-4aa4-4a45-8318-3b121b867913",
+          "configured_ocr_model": "azure/document-intelligence-layout",
+          "state": {
+            "status": "done",
+            "branch": null,
+            "iterations": null,
+            "iterationsCompleted": null,
+            "iterationsFailed": null,
+            "iterationDetails": null,
+            "branchCounts": null,
+            "childExecutionId": null,
+            "durationMs": 5,
+            "outputCheckNote": null,
+            "decision": null
+          },
+          "output_hash": "12b211648cee50d26ff2aac9f0120ae3440917dbf578be45a0838e54b34a8989",
+          "text": "BatchFence | Revision 1\nFICTIONAL ENGINEERING SOURCE - no real inventory\nSupplier notice QF-731, revision 1, 18 October 2026.\nComplete incident boundary: the affected supplier lot list is final for this revision.\nAffected lots: SUP-A\nOn-site descendants of SUP-A require containment pending quality review.\nSUP-B is not affected by this revision.\nThis notice does not authorize inventory actions. Review the retained records\nseparately.\nSynthetic acceptance original | page 1 of 1\n",
+          "operation": "Evolus document reading; prefer native PDF text, OCR for scans",
+          "page_mapping": "Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required"
+        },
+        "consumption": null,
+        "requested_at": "2026-10-18T00:29:00.8719253Z",
+        "completed_at": null,
+        "trace_id": "918b4e786e7d8d8fca820278f6869c02",
+        "error_present": false,
+        "runtime_model_identity": "Not returned by this API; independent AMD request evidence is required for runtime identity verification",
+        "transport_provenance": {
+          "provider": "Evolus",
+          "at": "2026-10-18T00:28:55.986250+00:00",
+          "method": "GET",
+          "path": "/api/v1/workflows/615b739c-0eca-4a6e-a1d2-1e54b4359560/executions/53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+          "http_status": 200,
+          "elapsed_ms": 721,
+          "response_hash": "d1f9859f5a843e019fa70be6a0f0e5aa3b377263bd4f8bd8f720736e140c3565",
+          "request_id": null,
+          "execution_header": null,
+          "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+        }
+      }
+    ],
+    "external_execution_id": "53dd9ae9-8aca-f111-bf5b-6045bd9ce552",
+    "authority": "Unreviewed proposal only; no inventory, genealogy or approval writes",
+    "poll_count": 16,
+    "last_polled_at": 1792283335.256196,
+    "poll_in_flight_until": 0
+  },
+  "review_corrections": null,
+  "application_plan": null,
+  "review": "Raw model diagnostic; no source facts or action automatically accepted"
+}

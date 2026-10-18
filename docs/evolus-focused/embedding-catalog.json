@@ -1,0 +1,14 @@
+{
+  "http_status": 422,
+  "result": {
+    "title": "One or more fields are invalid",
+    "status": 422,
+    "errorCode": "common.validation",
+    "traceId": "1f30c0c37f090b942bd6128c1a5a4e67",
+    "errors": {
+      "context": [
+        "required"
+      ]
+    }
+  }
+}

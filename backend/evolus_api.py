@@ -9,13 +9,19 @@ from .domain import DomainError,digest
 from .fixtures import now
 
 
+class UncertainExecution(DomainError):
+    def __init__(self,execution_id=None):
+        super().__init__('Evolus submission outcome is uncertain; reconcile any known execution ID before a new dispatch')
+        self.execution_id=execution_id if isinstance(execution_id,str) and re.fullmatch(r'[a-fA-F0-9-]{36}',execution_id) else None
+
+
 def identifier(value):
     if not re.fullmatch(r'[A-Za-z0-9_-]{1,160}',str(value)):
         raise DomainError('Expected configured Evolus resource identifier')
     return value
 
 
-def call(method,path,*,body=None,files=None,form=None,query=None,personal=False,transport=None,expect_text=False):
+def call(method,path,*,body=None,files=None,form=None,query=None,personal=False,transport=None,expect_text=False,timeout=40):
     from .evolus_adapter import https_origin,_bounded
     base=https_origin(os.environ['EVOLUS_API_BASE_URL'])
     if base!='https://api.evolus.ai':raise DomainError('Base differs from the supplied Evolus API specification')
@@ -26,16 +32,23 @@ def call(method,path,*,body=None,files=None,form=None,query=None,personal=False,
     if files:args.update(data=form or {},files=[('file',(f['filename'],f['raw'],f['media_type'])) for f in files])
     elif body is not None:args['json']=body
     started=time.perf_counter()
-    with httpx.Client(timeout=40,follow_redirects=False,trust_env=False,transport=transport) as client:
+    with httpx.Client(timeout=timeout,follow_redirects=False,trust_env=False,transport=transport) as client:
         with client.stream(method,base+path,headers=headers,**args) as response:
-            raw=b''.join(_bounded(response.iter_bytes(),128000))
+            execution_header=response.headers.get('x-workflow-execution-id')
+            try:raw=b''.join(_bounded(response.iter_bytes(),128000))
+            except (httpx.TransportError,DomainError):
+                if method=='POST' and path.endswith('/execute'):raise UncertainExecution(execution_header)
+                raise
             if response.status_code>=400:
                 # Problem bodies may contain request data; only a bounded code is retained.
                 try:code=json.loads(raw).get('errorCode','')
                 except (ValueError,AttributeError):code=''
                 safe=code if isinstance(code,str) and re.fullmatch(r'[a-zA-Z0-9_.-]{1,100}',code) else ''
                 raise DomainError('Evolus HTTP '+str(response.status_code)+' '+safe+'; no automatic retry')
-            result=raw.decode('utf-8') if expect_text else json.loads(raw) if raw else None
+            try:result=raw.decode('utf-8') if expect_text else json.loads(raw) if raw else None
+            except (ValueError,UnicodeDecodeError):
+                if method=='POST' and path.endswith('/execute'):raise UncertainExecution(execution_header)
+                raise DomainError('Evolus returned an invalid response; no result accepted')
     if any(os.getenv(k) and os.environ[k] in json.dumps(result) for k in ('AMD_API_KEY','GEMMA_API_KEY','EVOLUS_API_KEY','EVOLUS_USER_API_KEY')):
         raise DomainError('Private value found in provider result; output discarded')
     return {'provider':'Evolus','at':now(),'method':method,'path':path,'http_status':response.status_code,
@@ -46,8 +59,11 @@ def call(method,path,*,body=None,files=None,form=None,query=None,personal=False,
 
 def workflow_start(inputs,transport=None):
     wid=identifier(inputs['workflow_id'])
-    reply=call('POST',f'/api/v1/workflows/{wid}/execute',files=inputs['file_items'],form={'input':inputs['text']},transport=transport)
-    raw=reply.pop('result');eid=identifier(raw['executionId'])
+    try:reply=call('POST',f'/api/v1/workflows/{wid}/execute',files=inputs['file_items'],form={'input':inputs['text']},transport=transport)
+    except httpx.TransportError:raise UncertainExecution()
+    raw=reply.pop('result')
+    try:eid=identifier(raw['executionId'])
+    except (KeyError,TypeError,DomainError):raise UncertainExecution(reply.get('execution_header'))
     reply['result']={'execution_id':eid,'status':'running','provider_status':'Queued',
         'enqueued_at':raw.get('enqueuedAt'),'trace_id':raw.get('traceId'),'queue_job_id':raw.get('jobId')}
     return reply
@@ -70,7 +86,16 @@ def verify_workflow(manifest,before_call=lambda:None,transport=None):
         raise DomainError('Configured workflow ownership, active state or combined-file mode changed')
     if flow.get('emailPollingEnabled') or flow.get('scheduleCron'):raise DomainError('External/scheduled delivery must remain disabled')
     steps=flow.get('steps') or [];expected={manifest[k]['step_id'] for k in ('extractor','agent','output')}
-    if len(steps)!=3 or {s['id'] for s in steps}!=expected:raise DomainError('Workflow must contain only the exact configured extractor, interpretation and terminal output steps')
+    reader=manifest.get('document_reader')
+    if reader:expected.add(reader['step_id'])
+    if len(steps)!=len(expected) or {s['id'] for s in steps}!=expected:raise DomainError('Workflow must contain only the exact verified document, extractor, interpretation and terminal output steps')
+    if reader:
+        from .evolus_adapter import allowance
+        proof=allowance('evolus')
+        if not proof.get('phase_id') or proof.get('ocr_credits_per_page')!=reader['credits_per_page']:raise DomainError('Current funded document-reading tariff required')
+        step=next(s for s in steps if s['id']==reader['step_id'])
+        if step.get('stepType')!=0 or step.get('order')!=reader['step_order'] or step.get('inputStepIds') or step.get('inputMode')!=1 or step.get('ocrModelKey')!=reader['model_key'] or step.get('agentId') or step.get('prompt') or json.loads(step.get('stepConfigJson') or '{}')!=reader['config']:
+            raise DomainError('Document-reading model, source or strict completeness configuration changed')
     for kind,step_type in [('extractor',13),('agent',1),('output',14)]:
         expected_step=manifest[kind];step=next(s for s in steps if s['id']==expected_step['step_id'])
         if step.get('order')!=expected_step['step_order']:raise DomainError('Workflow step order changed; execution output mapping is no longer verified')
@@ -117,7 +142,14 @@ def normalize_execution(raw,manifest):
         from .scope_proposals import parse_json
         try:draft=parse_json(raw.get('output'))
         except ValueError:draft={'unparsed_response':raw.get('output'),'raw_extraction_error':'Completed workflow output is not one JSON review draft; no facts accepted'}
-    return {'execution_id':raw['id'],'status':status,'provider_status':provider_status,'steps':steps,'draft':draft,
+    reader=manifest.get('document_reader');reading=None
+    if reader:
+        k=str(reader['step_order']);text=outputs.get(k)
+        reading={'step_id':reader['step_id'],'configured_ocr_model':reader['model_key'],'state':states.get(k),'output_hash':digest(text),'text':text,
+            'operation':'Evolus document reading; prefer native PDF text, OCR for scans','page_mapping':'Not returned as retained local block IDs; exact original/source validation and visual OCR review remain required'}
+        if status=='completed' and (not text or not states.get(k) or states[k].get('status') not in (None,'done')):
+            status='failed';draft=None
+    return {'execution_id':raw['id'],'status':status,'provider_status':provider_status,'steps':steps,'draft':draft,'document_reading':reading,
         'consumption':raw.get('consumption'),'requested_at':raw.get('requestedAt'),'completed_at':raw.get('completedAt'),
         'trace_id':raw.get('traceId'),'error_present':bool(raw.get('error')),
         'runtime_model_identity':'Not returned by this API; independent AMD request evidence is required for runtime identity verification'}
@@ -158,6 +190,7 @@ def library_passages(binding,allowed_passages,transport=None,before_call=lambda:
     library_id=binding['library_id'];before_call();listed=inspect_library(library_id,transport)
     ids={d['id'] for d in listed['result']};expected={d['remote_document_id'] for d in binding['documents']}
     if ids!=expected:raise DomainError('Dedicated library membership drifted; retrieval disabled before reading content')
+    if binding.get('library_type')=='Rag' and any(d.get('ingestionStatus')!=2 for d in listed['result']):raise DomainError('Rag indexing is not complete; no model may read the library')
     passages=[];provenance=[{k:v for k,v in listed.items() if k!='result'}]
     for document in binding['documents']:
         relevant=[p for p in allowed_passages if p['document_id']==document['document_id'] and p['version']==document['version']]

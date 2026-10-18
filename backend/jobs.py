@@ -16,7 +16,7 @@ def recover_expired(db, owner):
             repo.put_record(db, owner, 'job', key, job, rev)
 
 
-def start(db, owner, key, kind, inputs, mode):
+def start(db, owner, key, kind, inputs, mode,lease_seconds=120):
     recover_expired(db, owner)
     import json
     jobs = [json.loads(r[0]) for r in db.execute("SELECT data FROM bf_records WHERE owner=? AND kind='job'", (owner,)).fetchall()]
@@ -31,8 +31,9 @@ def start(db, owner, key, kind, inputs, mode):
         user_count = sum(j['mode']=='live' and j['actor'].get('user_id')==actor.get('user_id') for j in jobs)
         if org_count >= int(os.getenv('MAX_ORG_LIVE_JOBS') or '20') or user_count >= int(os.getenv('MAX_USER_LIVE_JOBS') or '8'):
             raise DomainError('Persisted live job budget reached; failed/cancelled attempts count')
+    if not 1<=lease_seconds<=600:raise DomainError('Job lease must stay within ten minutes')
     job={'id':key,'kind':kind,'inputs':inputs,'mode':mode,'actor':actor,'status':'running',
-         'started_at':now(),'lease_until':time.time()+120,'attempts':1,'automatic_retry':False}
+         'started_at':now(),'lease_until':time.time()+lease_seconds,'attempts':1,'automatic_retry':False}
     repo.put_record(db,owner,'job',key,job,0)
     return job
 

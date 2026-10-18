@@ -1,0 +1,38 @@
+{
+  "frozen_before_dispatch": true,
+  "sources": [
+    {
+      "file": "notice-v1.pdf",
+      "sha256": "664a61651109bf0f04c029192876f554a254d60320f8b02c6139afc35d25dc90",
+      "pages": 1,
+      "expected_lot_mentions": [
+        "SUP-A"
+      ],
+      "expected_incident_scope": "complete",
+      "synthetic": true
+    },
+    {
+      "file": "notice-v2.pdf",
+      "sha256": "315c2655066002fc37f44418747f402dbdafe52c34d497723a3dd7bf7931ee6d",
+      "pages": 1,
+      "expected_lot_mentions": [
+        "SUP-A",
+        "SUP-B"
+      ],
+      "expected_incident_scope": "complete",
+      "synthetic": true
+    },
+    {
+      "file": "incomplete.pdf",
+      "sha256": "6ce4b0620d3bb1d42eb5318c639a3967142f0df45123483c74d6fe1aef9c9319",
+      "pages": 2,
+      "expected_lot_mentions": [
+        "SUP-A",
+        "SUP-B"
+      ],
+      "expected_incident_scope": "partial/conflicting",
+      "synthetic": true
+    }
+  ],
+  "review": "Agent-operated fictional tests; not independent human validation"
+}

@@ -2428,3 +2428,6 @@ td small {
 @media(max-width:1150px){.source-review-layout{grid-template-columns:1fr}.original-source{position:static;max-height:450px}.assist-diff{grid-template-columns:1fr}.assist-diff>svg{transform:rotate(90deg)}}
 @media(max-width:650px){.translation-pair,.label-comparison{grid-template-columns:1fr}.assist-card-heading{display:grid}.assist-workspace .module-title h2{font-size:21px}.assist-input-row{display:grid}.handover-card{padding:17px}.source-review-layout{gap:18px}.assist-workspace .button{white-space:normal;text-align:left}.assist-summary{padding:16px}.assist-workspace .module-card{padding:16px}}
 @media(prefers-reduced-motion:reduce){.assist-workspace *{animation:none!important;transition:none!important}}
+
+/* Focused evidence process: existing visual system. */
+.pdf-page-preview{display:block;width:100%;height:auto;border:1px solid var(--line,#dce3eb);border-radius:8px;margin:12px 0}.checkpoint-status{font-size:12px;color:#506378;margin:0 0 18px;line-height:1.6}.process-next{border-left:3px solid #147d73}.process-knowledge{min-width:0}.source-text select{max-width:100%;margin:8px 0}.assist-citation .text-button{margin-top:6px}.process-knowledge blockquote{overflow-wrap:anywhere}.process-next li{line-height:1.6}

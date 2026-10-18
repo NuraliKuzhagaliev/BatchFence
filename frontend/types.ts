@@ -10,7 +10,7 @@ export type Document = {
   revision: number;
   media_type: string;
   synthetic: boolean;
-  blocks: { id: string; text: string }[];
+  blocks: { id: string; text: string; page?:number }[];
   original_hash: string;
   text_hash: string;
 };

@@ -28,8 +28,9 @@ def result_for_job(db,owner,state,key,execution):
     rev,record=repo.get_record(db,owner,'assist',key)
     if not record or record['case_id']!=state['id']:raise DomainError('Execution unavailable in this case')
     if execution.get('execution_id')!=record.get('external_execution_id'):raise DomainError('Unexpected external execution; callback/result cannot choose a case')
-    record['executions'].append(execution)
+    record['executions']=(record['executions']+[execution])[-16:]
     if execution['status']=='running':
+        if record['status']=='submission uncertain / reconcile before retry':record.update(status='running',submission_reconciled_at=now())
         repo.put_record(db,owner,'assist',key,record,rev);return record
     if execution['status']!='completed':
         record['status']='failed';record['error']='Provider refused, exhausted credits or failed; no automatic retry'
@@ -70,16 +71,21 @@ def run(case_id:str,data:Run,request:Request):
             if prior:
                 if prior['request_hash']!=signature:raise DomainError('Idempotency key belongs to another interpretation')
                 return prior
+            existing=a.records(db,request.state.owner,'assist',case_id)
+            uncertain=next((r for r in existing if r.get('request_hash')==signature and r.get('status') in ('running','submission uncertain / reconcile before retry')),None)
+            if uncertain:return uncertain
             if data.mode=='fixture' and not state['synthetic']:raise DomainError('Fixtures require an explicitly synthetic incident')
             if data.mode=='live':
-                external.contract();reservation=external.reserve(db,'evolus')
+                external.contract();proof=external.allowance('evolus')
+                pages=sum(max((b.get('page',1) for b in d['blocks']),default=1) for d in state['documents'] if d['id'] in data.document_ids and d.get('media_type')=='application/pdf')
+                reservation=external.reserve(db,'evolus',credits=pages*proof['ocr_credits_per_page'] if proof.get('phase_id') else None)
                 # Two configured own-model steps. Shared AMD quota is separate
                 # from Evolus credits and every upstream step is reserved.
                 external.reserve(db,'gemma');external.reserve(db,'gemma')
                 if not all(os.getenv(k) for k in ('EVOLUS_WORKFLOW_ID','EVOLUS_EXTRACTOR_ID','EVOLUS_AGENT_ID','GEMMA_MODEL_ID')):raise DomainError('Configured workflow,extractor,agent and actual Gemma model identifiers required')
             else:reservation=None
-            jobs.start(db,request.state.owner,key,'evolus-document',{'case_id':case_id,'revision':state['revision'],'sources':[d['original_hash'] for d in state['documents'] if d['id'] in data.document_ids]},data.mode)
-            record={'id':key,'case_id':case_id,'mode':data.mode,'status':'running','actor':identity.current_actor(),'snapshot_hash':fingerprint(state,catalog(db,request.state.owner)),
+            jobs.start(db,request.state.owner,key,'evolus-document',{'case_id':case_id,'revision':state['revision'],'sources':[d['original_hash'] for d in state['documents'] if d['id'] in data.document_ids]},data.mode,lease_seconds=600)
+            record={'id':key,'case_id':case_id,'document_ids':data.document_ids,'mode':data.mode,'status':'running','actor':identity.current_actor(),'snapshot_hash':fingerprint(state,catalog(db,request.state.owner)),
                 'request_hash':signature,'context_hash':digest(context),'started_at':now(),'reservation':reservation,'executions':[],
                 'external_execution_id':None,'authority':'Unreviewed proposal only; no inventory, genealogy or approval writes'}
             repo.put_record(db,request.state.owner,'assist',key,record,0)
@@ -94,7 +100,7 @@ def run(case_id:str,data:Run,request:Request):
                     if hashlib.sha256(raw).hexdigest()!=d['original_hash']:raise DomainError('Original source integrity failure before transmission')
                     files.append({'filename':d['filename'],'raw':raw,'media_type':d['media_type']})
                 def before_configuration_read():
-                    with repo.write(connect) as db:identity.recheck(db,'reporter');external.reserve(db,'evolus')
+                    with repo.write(connect) as db:identity.recheck(db,'reporter');external.reserve(db,'evolus',metadata=True)
                 reply=external.operation('workflow_start',{'workflow_id':os.environ['EVOLUS_WORKFLOW_ID'],'text':json.dumps(context,ensure_ascii=False),'context':context,'schema':ReviewDraft.model_json_schema(),'file_items':files},before_call=before_configuration_read)
                 execution=reply['result'];execution['transport_provenance']={k:v for k,v in reply.items() if k!='result'}
             if execution.get('status') not in ('running','completed','failed') or not isinstance(execution.get('execution_id'),str) or len(execution['execution_id'])>160:raise DomainError('Unexpected documented workflow result contract')
@@ -105,8 +111,10 @@ def run(case_id:str,data:Run,request:Request):
         except Exception as exc:
             with repo.write(connect) as db:
                 rev,record=repo.get_record(db,request.state.owner,'assist',key)
-                record.update(status='failed',error=str(exc) if isinstance(exc,DomainError) else 'Provider transport/timeout/schema failure; raw exception omitted',finished_at=now())
-                jobs.finish(db,request.state.owner,key,'failed',digest({'error':record['error']}));repo.put_record(db,request.state.owner,'assist',key,record,rev)
+                uncertain=isinstance(exc,evolus_api.UncertainExecution)
+                record.update(status='submission uncertain / reconcile before retry' if uncertain else 'failed',error=str(exc) if isinstance(exc,DomainError) else 'Provider transport/timeout/schema failure; raw exception omitted',finished_at=now())
+                if uncertain:record['external_execution_id']=exc.execution_id
+                jobs.finish(db,request.state.owner,key,'interrupted' if uncertain else 'failed',digest({'error':record['error']}));repo.put_record(db,request.state.owner,'assist',key,record,rev)
             return record
 
 
@@ -119,12 +127,26 @@ def poll(case_id:str,data:Poll,request:Request):
             identity.recheck(db,'reporter');jobs.recover_expired(db,request.state.owner)
             rev,record=repo.get_record(db,request.state.owner,'assist',data.job_id);_,job=repo.get_record(db,request.state.owner,'job',data.job_id)
             if not record or record['case_id']!=case_id or not job:raise DomainError('Expected execution unavailable')
-            if job['status']!='running' or record['status']!='running':return {**record,'job_state':job['status']}
-            external.reserve(db,'evolus');execution_id=record['external_execution_id']
+            if job['status']=='cancelled' or record['status'] not in ('running','submission uncertain / reconcile before retry'):return {**record,'job_state':job['status']}
+            execution_id=record.get('external_execution_id')
+            if not execution_id:return {**record,'job_state':job['status'],'next_action':'Submission may have run, but no execution ID was returned. Preserve original and ask the provider to reconcile; another click cannot dispatch a duplicate.'}
+            import time
+            current_time=time.time()
+            if record.get('poll_in_flight_until',0)>current_time or current_time-record.get('last_polled_at',0)<2:return record
+            if record.get('poll_count',0)>=18:raise DomainError('Status-poll and explicit reconciliation limit reached; preserve execution ID for provider reconciliation. No new model request.')
+            record.update(poll_count=record.get('poll_count',0)+1,last_polled_at=current_time,poll_in_flight_until=current_time+45)
+            repo.put_record(db,request.state.owner,'assist',data.job_id,record,rev)
+            if job['status']=='interrupted':
+                jrev,job=repo.get_record(db,request.state.owner,'job',data.job_id)
+                job.update(status='running',lease_until=current_time+120,reconciled_at=now(),reconciliation='Explicit scoped status read of known execution; no inference retry')
+                repo.put_record(db,request.state.owner,'job',data.job_id,job,jrev)
+            external.reserve(db,'evolus',metadata=True)
         reply=external.operation('workflow_status',{'workflow_id':os.environ['EVOLUS_WORKFLOW_ID'],'execution_id':execution_id});execution=reply['result']
         execution['transport_provenance']={k:v for k,v in reply.items() if k!='result'}
         with repo.write(connect) as db:
-            identity.recheck(db,'reporter');return result_for_job(db,request.state.owner,read(case_id,request.state.owner),data.job_id,execution)
+            identity.recheck(db,'reporter');rev,record=repo.get_record(db,request.state.owner,'assist',data.job_id)
+            record['poll_in_flight_until']=0;repo.put_record(db,request.state.owner,'assist',data.job_id,record,rev)
+            return result_for_job(db,request.state.owner,read(case_id,request.state.owner),data.job_id,execution)
 
 
 @router.post('/api/assist/callback')
@@ -144,6 +166,10 @@ def view(case_id:str,request:Request):
         for brief in result['handover']:brief['stale']=not a.brief_current(db,request.state.owner,state,brief)
         result['next_evidence']=a.evidence_requests(db,request.state.owner,state)
         result['release_conditions']=a.conditions(db,request.state.owner,state) if state.get('workspace_attached') else {'stage':'Link reviewed workspace inventory before recovery','conditions':[]}
+        result['procedure']=catalog(db,request.state.owner)
+        result['answer']=a.records(db,request.state.owner,'answer',case_id)
+    from .evidence_process import suitability
+    result['suitability']=[suitability(d) for d in state['documents']]
     result['provider']=external.status();return result
 
 
@@ -371,6 +397,7 @@ class Generate(Strict):
     question:str=Field(default='',max_length=1000)
     product:str=Field(default='',max_length=160)
     process:str=Field(default='coating',max_length=160)
+    retrieval_mode:Literal['blob','rag']='blob'
 class TranslatedDraft(Strict):segments:list[Segment]=Field(min_length=1,max_length=40)
 class RequestDraft(Strict):cause_id:str;draft:str=Field(min_length=20,max_length=2500)
 class HandoverStatement(Strict):fact_id:str=Field(max_length=100);text:str=Field(max_length=2000)
@@ -391,6 +418,9 @@ def generate(case_id:str,data:Generate,request:Request):
             if prior:
                 if prior['request_hash']!=signature:raise DomainError('Idempotency key belongs to another generation')
                 return prior
+            generation_hash=digest({k:v for k,v in data.model_dump().items() if k!='idempotency_key'})
+            pending=next((r for r in a.records(db,request.state.owner,'assist',case_id) if r.get('generation_hash')==generation_hash and r.get('status') in ('running','submission uncertain / reconcile before retry')),None)
+            if pending:return pending
             if data.kind in ('document','translation'):
                 context=source_context(state,data.document_ids)
                 from .scope_proposals import INSTRUCTIONS
@@ -413,10 +443,14 @@ def generate(case_id:str,data:Generate,request:Request):
                 context=a.handover_snapshot(db,request.state.owner,state,data.previous_id)
                 context['task']='Select a concise next-shift brief. Each statement must copy one exact fact text and its fact_id. Never invent numbers,statuses,owners,deadlines or authority.';schema=HandoverDraft.model_json_schema()
             else:
-                retrieval=knowledge.retrieve(catalog(db,request.state.owner),data.question,data.product,data.process,state['synthetic'])
-                if retrieval['status']!='retrieved':return {'status':'insufficient / local applicability abstention','provider_calls':0,'retrieval':retrieval}
                 documents=evolus_api.applicable_documents(catalog(db,request.state.owner),data.product,data.process,state['synthetic'])
-                scope=evolus_api.library_scope(request.state.owner,data.product,data.process,documents)
+                if data.retrieval_mode=='rag':
+                    if os.getenv('EVOLUS_RAG_ENABLED')!='true':raise DomainError('UNAVAILABLE: live agent-bound Rag returned no resolvable citations in acceptance; use approved Blob/local evidence. No new model request.')
+                    retrieval={'status':'authorized originals / remote semantic retrieval pending','method':'Evolus agent-bound Rag; no local lexical pre-ranking','passages':[{'document_id':d['id'],'version':d['version'],'passage_id':p['id'],'quote':p['text'],'page':p['page'],'source_hash':d['source_hash']} for d in documents for p in d['passages']]}
+                else:retrieval=knowledge.retrieve(catalog(db,request.state.owner),data.question,data.product,data.process,state['synthetic'])
+                if (data.retrieval_mode!='rag' and retrieval['status']!='retrieved') or not retrieval['passages']:return {'status':'insufficient / applicable source abstention','provider_calls':0,'retrieval':retrieval}
+                from .knowledge_indexing import scope_for
+                scope=scope_for(request.state.owner,data.product,data.process,documents,'Rag' if data.retrieval_mode=='rag' else 'Blob')
                 _,binding=repo.get_record(db,request.state.owner,'knowledge-binding',scope)
                 if not binding or binding['status']!='indexed verified scope' or binding['scope']!=scope:
                     raise DomainError('UNAVAILABLE: a dedicated verified library for this organization/site and exact approved catalog is required before any retrieval')
@@ -424,22 +458,30 @@ def generate(case_id:str,data:Generate,request:Request):
                 context={'task':'Select only exact authorized document_id/version/passage_id keys that directly answer the question. Do not copy or paraphrase passages: the server displays the full retained original. Return insufficient_evidence=true for unsupported questions, bypass requests or missing evidence. Never invent keys, revisions, instructions or authority.',
                     'question':data.question,'approved_passages':retrieval['passages']};schema=knowledge.PassageSelection.model_json_schema()
             external.allowance('gemma');reservation=external.reserve(db,'gemma')
-            jobs.start(db,request.state.owner,key,'gemma-'+data.kind,{'case_id':case_id,'kind':data.kind,'revision':state['revision'],'context_hash':digest(context)},'live')
-            record={'id':key,'case_id':case_id,'kind':data.kind,'mode':'live','provider_path':('Direct AMD vision / ' if data.kind=='label' else 'Direct Gemma / ')+os.getenv('GEMMA_HOSTING_KIND','unverified'),
-                'status':'running','request_hash':signature,'snapshot_hash':fingerprint(state,catalog(db,request.state.owner)),
+            rag_mode=data.kind=='knowledge' and data.retrieval_mode=='rag'
+            if rag_mode:
+                external.reserve(db,'gemma');external.reserve(db,'gemma');external.reserve(db,'evolus')
+            jobs.start(db,request.state.owner,key,'gemma-'+data.kind,{'case_id':case_id,'kind':data.kind,'revision':state['revision'],'context_hash':digest(context)},'live',lease_seconds=600 if rag_mode else 120)
+            record={'id':key,'case_id':case_id,'kind':data.kind,'document_ids':data.document_ids,'mode':'live','provider_path':('Direct AMD vision / ' if data.kind=='label' else 'Direct Gemma / ')+os.getenv('GEMMA_HOSTING_KIND','unverified'),
+                'status':'running','request_hash':signature,'generation_hash':generation_hash,'snapshot_hash':fingerprint(state,catalog(db,request.state.owner)),
                 'actor':identity.current_actor(),'started_at':now(),'reservation':reservation,'authority':'Unreviewed draft only; existing review/calculation/approval remain mandatory'}
+            if rag_mode:record.update(provider_path='Evolus agent-bound Rag / configured own Gemma',retrieval_mode='rag',external_conversation_id=str(uuid.uuid5(uuid.NAMESPACE_URL,key)),rag_binding=binding,retrieval=retrieval)
             repo.put_record(db,request.state.owner,'assist',key,record,0)
         try:
             library_provenance=None
             if binding:
                 def reserve_library_call():
                     with repo.write(connect) as db:
-                        identity.recheck(db,'reporter');external.reserve(db,'evolus')
+                        identity.recheck(db,'reporter');external.reserve(db,'evolus',metadata=True)
                         current_docs=evolus_api.applicable_documents(catalog(db,request.state.owner),data.product,data.process,state['synthetic'])
-                        if evolus_api.library_scope(request.state.owner,data.product,data.process,current_docs)!=binding['scope']:raise DomainError('Approved applicability changed before retrieval')
+                        from .knowledge_indexing import scope_for
+                        if scope_for(request.state.owner,data.product,data.process,current_docs,binding.get('library_type','Blob'))!=binding['scope']:raise DomainError('Approved applicability changed before retrieval')
                 passages,library_provenance=evolus_api.library_passages(binding,retrieval['passages'],before_call=reserve_library_call)
                 context['approved_passages']=passages
-            response=external.gemma(context,schema,image=image_url)
+            if rag_mode:
+                from .evolus_rag import ask
+                response=ask(binding,data.question,retrieval,conversation_id=record['external_conversation_id'])
+            else:response=external.gemma(context,schema,image=image_url)
             raw=response.pop('result')
             with repo.write(connect) as db:
                 identity.recheck(db,'reporter');current=read(case_id,request.state.owner);rev,record=repo.get_record(db,request.state.owner,'assist',key)
@@ -464,7 +506,11 @@ def generate(case_id:str,data:Generate,request:Request):
                         record['draft']=result
                     elif data.kind=='handover':record['draft']=a.create_handover(db,request.state.owner,current,key,data.previous_id,raw,response)
                     else:
-                        record['draft']=knowledge.selected_answer(raw,retrieval)
+                        if rag_mode:
+                            from .evolus_rag import map_answer
+                            if response.get('credit_reserve_breached'):raise DomainError('Credit reserve reached; raw response retained but no accepted answer')
+                            record['draft']=map_answer(raw,binding,retrieval)
+                        else:record['draft']=knowledge.selected_answer(raw,retrieval)
                         record['quote_origin']='Deterministically resolved full authorized original passages; the model selected keys and did not author the displayed quotes'
                         linked={'id':key,'case_id':case_id,'status':'succeeded','mode':'Live Gemma / isolated Evolus library','output':record['draft'],
                             'catalog_digest':digest(catalog(db,request.state.owner)),'retrieval':retrieval,'question':data.question,'provenance':response,
@@ -475,12 +521,13 @@ def generate(case_id:str,data:Generate,request:Request):
         except Exception as exc:
             with repo.write(connect) as db:
                 rev,record=repo.get_record(db,request.state.owner,'assist',key)
-                record.update(status='failed validation' if 'raw' in locals() else 'failed provider request',error=str(exc) if isinstance(exc,DomainError) else 'Structured-output,timeout or transport failure; no fallback',finished_at=now())
+                uncertain=rag_mode and 'raw' not in locals() and isinstance(exc,__import__('httpx').TransportError)
+                record.update(status='submission uncertain / reconcile before retry' if uncertain else 'failed validation' if 'raw' in locals() else 'failed provider request',error=str(exc) if isinstance(exc,DomainError) else 'Structured-output,timeout or transport failure; no fallback',finished_at=now())
                 if isinstance(exc,external.ProviderFailure):record['failed_request_metadata']=exc.evidence
                 if 'raw' in locals():record.update(raw_output=raw,provenance=response)
                 if binding:record.update(library_provenance=library_provenance,retrieval=retrieval)
                 if 'raw' in locals():record['validation_issues']=exc.errors(include_input=False,include_url=False,include_context=False) if hasattr(exc,'errors') else [{'message':str(exc)[:300]}]
-                jobs.finish(db,request.state.owner,key,'failed',digest({'error':record['error']}));repo.put_record(db,request.state.owner,'assist',key,record,rev)
+                jobs.finish(db,request.state.owner,key,'interrupted' if uncertain else 'failed',digest({'error':record['error']}));repo.put_record(db,request.state.owner,'assist',key,record,rev)
                 return record
 
 
@@ -551,7 +598,9 @@ def proposal_review(case_id:str,data:ProposalReview,request:Request):
 
 
 class KnowledgeIndex(Strict):
-    library_id:str=Field(pattern='^[A-Za-z0-9_-]{1,160}$')
+    library_id:str=Field(default='',pattern='^$|^[A-Za-z0-9_-]{1,160}$')
+    library_type:Literal['Blob','Rag']='Blob'
+    reconcile_agent_id:str=Field(default='',pattern='^$|^[A-Za-z0-9_-]{1,160}$')
     product:str=Field(min_length=1,max_length=160)
     process:str=Field(min_length=1,max_length=160)
     synthetic:bool=False
@@ -561,51 +610,5 @@ class KnowledgeIndex(Strict):
 
 @router.post('/api/assist/knowledge-index')
 def knowledge_index(data:KnowledgeIndex,request:Request):
-    from .app import connect
-    with inference_access('live',request.headers.get('x-bf-demo-token','')):
-        with repo.write(connect) as db:
-            identity.recheck(db,'administrator')
-            if not data.reviewed:raise DomainError('Explicit isolated-library review required')
-            docs=catalog(db,request.state.owner)
-            approved=evolus_api.applicable_documents(docs,data.product,data.process,data.synthetic)
-            if not approved:raise DomainError('No approved document versions to index')
-            if len(approved)>12:raise DomainError('Initial isolated-library indexing is bounded to twelve approved versions')
-            scope=evolus_api.library_scope(request.state.owner,data.product,data.process,approved)
-            for other,encoded in db.execute("SELECT owner,data FROM bf_records WHERE kind='knowledge-binding'"):
-                prior=json.loads(encoded)
-                if prior['library_id']==data.library_id:
-                    if other==request.state.owner and prior['scope']==scope and prior['status']=='indexed verified scope':return prior
-                    raise DomainError('Library already reserved: use a separate empty library for this exact organization/site/product/process/source set')
-            external.contract();external.reserve(db,'evolus');snapshot=digest(docs)
-            # Reserve before networking. Failed/partial imports keep this library
-            # unavailable and cannot be rebound to another tenant/applicability.
-            value={'library_id':data.library_id,'scope':scope,'product':data.product,'process':data.process,
-                'status':'reserved / indexing incomplete','catalog_digest':snapshot,'documents':[],
-                'at':now(),'actor':identity.current_actor(),'note':data.note,'provenance':[]}
-            a.save(db,request.state.owner,'knowledge-binding',scope,value,0)
-        inspection=evolus_api.inspect_library(data.library_id)
-        if inspection['result']!=[]:raise DomainError('Dedicated empty library required; existing remote documents cannot be adopted implicitly')
-        with repo.write(connect) as db:identity.recheck(db,'administrator');external.reserve(db,'evolus')
-        memory=evolus_api.call('GET',f'/api/v1/memories/{evolus_api.identifier(data.library_id)}')['result']
-        if memory.get('applicationId')!=os.environ['EVOLUS_APPLICATION_ID'] or memory.get('type')!=1 or memory.get('aiAccess')!=0:
-            raise DomainError('Initial zero-cost path requires this application\'s dedicated read-only Blob library; embeddings/platform-AI indexing are disabled')
-        value['library_type']='Blob'
-        for document in approved:
-            with repo.write(connect) as db:
-                identity.recheck(db,'administrator');external.reserve(db,'evolus')
-                if digest(catalog(db,request.state.owner))!=snapshot:raise DomainError('Catalog changed during indexing; library remains unavailable')
-            content='\n\n'.join(p['text'] for p in document['passages']).encode('utf-8')
-            reply=evolus_api.call('POST',f'/api/v1/memories/{evolus_api.identifier(data.library_id)}/documents',
-                files=[{'filename':document['source_hash']+'.txt','raw':content,'media_type':'text/plain'}],
-                query={'language':'en','backgroundIngestion':'false','augmentation':'false','rephrasings':0,'implicitQuestions':0})
-            remote=reply['result']
-            if remote.get('memoryId')!=data.library_id or not remote.get('id'):raise DomainError('Unexpected indexing destination; binding remains unavailable')
-            value['documents'].append({'document_id':document['id'],'version':document['version'],'source_hash':document['source_hash'],
-                'remote_document_id':remote['id'],'ingestion_status':remote.get('ingestionStatus'),'uploaded_content_hash':hashlib.sha256(content).hexdigest()})
-            value['provenance'].append({k:v for k,v in reply.items() if k!='result'})
-        with repo.write(connect) as db:
-            identity.recheck(db,'administrator')
-            if digest(catalog(db,request.state.owner))!=snapshot:raise DomainError('Approved versions changed while indexing; binding remains disabled')
-            value.update(status='indexed verified scope',at=now())
-            value['provenance'].insert(0,{k:v for k,v in inspection.items() if k!='result'})
-            return a.save(db,request.state.owner,'knowledge-binding',scope,value)
+    from .knowledge_indexing import index
+    return index(data,request)
