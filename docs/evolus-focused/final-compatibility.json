@@ -1,0 +1,17 @@
+{
+  "runtime_commit": "37832f08a933644cd364567b9551444c934e508a",
+  "previous_public_runtime": "e847bb7cfb557e7fa055bb52244b9e9477701168",
+  "git_diff_empty_paths": [
+    "frontend",
+    "desktop",
+    "package.json",
+    "package-lock.json"
+  ],
+  "installer_sha256": "04d56c9787bda9d12dad1e3dee265c1c8f32329148f3a266ae19197b511acd0e",
+  "installer_rebuild_needed_for_metadata_fix": false,
+  "reason": "Only backend schema/validation, tests, evidence and engineering harness literals changed; deployed renderer/shared packet code identical to rebuilt installed version.",
+  "final_main_ci": 39088735180,
+  "tests_passed": 455,
+  "targeted_metadata_controls": 74,
+  "domain_scenarios": 30
+}

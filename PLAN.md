@@ -1,3 +1,15 @@
+# Focused rc4 — completion checkpoint
+
+Runtime37832f08a933644cd364567b9551444c934e508a is deployed. Unicode retrieval, scoped encoding repair, original-PDF Evolus processing, connected source review, failure/reconnect protection and packet checkpoint controls are implemented and engineering verified. Rag remains disabled because the live ask lacked citations; Blob/local mode works.
+
+Fresh public and installed workflows are documented separately from fixture baselines and agent corrections. Final Windows correction, 800 units, two receipts, stale rejection and read-only packet passed. Raw revised interpretation still omits identities; the guard rejects it and review remains mandatory.
+
+455 main-CI tests, 30 domain cases, eight container/restart checks and 74 affected controls passed. Installer rebuilt/installed; final backend-only metadata fix has no packaged-input changes.21/24 model steps reserved; stop live calls. No purchases or key rotation.
+
+Remaining work: finish authorized GitHub release uploads, verify all five anonymous downloads and exact source tag, publish final evidence checkpoint and clean up only the task-owned fixture server. No more inference for publication. Human dependencies/limits: RAG citations, independent acceptance, unsigned installer, temporary hosting and allowance expiry at18October16:00UTC. Detailed evidence and run commands are in HANDOFF.md.
+
+---
+
 # Focused rc4 metadata correction — final gate
 
 Live guarded runtime e847bb7: public corrective PDF returned all3identities/complete scope and reached800/two receipts with explicitly fixture500 baseline; original genuine public500 proof is separate. Public and installed fixed reader reopen the unchanged real packet without granting action authority.451clean LinuxCI passed;70source-guard controls and30domain cases passed.

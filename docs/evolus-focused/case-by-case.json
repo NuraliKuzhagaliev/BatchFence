@@ -1,0 +1,121 @@
+{
+  "scope": "Compact new focused acceptance, not the historical12-model comparison; all fictional, agent-operated review, no independent human validation",
+  "runtime": "37832f08a933644cd364567b9551444c934e508a",
+  "cases": [
+    {
+      "case": "initial supported PDF",
+      "retained_evidence": "probe/reconciled.json",
+      "expected": "SUP-A affected;SUP-B excluded;complete",
+      "raw_result": "Correct; completed after initial polling window",
+      "application_behavior": "Known execution read once; closed diagnostic did not apply"
+    },
+    {
+      "case": "incomplete original PDF",
+      "retained_evidence": "incomplete",
+      "expected": "SUP-A affected;SUP-B uncertain;partial/disputed receiving",
+      "raw_result": "Correct raw partial/contradiction",
+      "application_behavior": "Conservative explicit review proposed1200; unsupported exclusion422; no approval or receipt"
+    },
+    {
+      "case": "isolated Rag",
+      "retained_evidence": "rag-probe",
+      "expected": "Relevant exact source and resolvable full-passage citations",
+      "raw_result": "Relevant key but citations empty",
+      "application_behavior": "Rejected; semantic mode remains disabled"
+    },
+    {
+      "case": "public first PDF",
+      "retained_evidence": "clients/web/first-raw-job.json",
+      "expected": "SUP-A affected;SUP-B excluded;complete",
+      "raw_result": "Correct",
+      "application_behavior": "Explicit source review/approval;500 and receipt1"
+    },
+    {
+      "case": "public revised PDF before guard",
+      "retained_evidence": "clients/web/revised-raw-job.json",
+      "expected": "SUP-A/SUP-C affected;SUP-B excluded;complete",
+      "raw_result": "Extractor correct;agent omittedC/B and claimedcomplete",
+      "application_behavior": "Old validation accepted proposal;engineering stopped before review;explicit unresolved-source correction then separate review reached800/receipt2"
+    },
+    {
+      "case": "public corrective PDF",
+      "retained_evidence": "clients/web-postfix/revised-raw-job.json",
+      "expected": "SUP-A/SUP-C affected;SUP-B excluded;complete",
+      "raw_result": "Correct raw, no correction",
+      "application_behavior": "Explicit review then800/receipt2; fixture500baseline; stale409"
+    },
+    {
+      "case": "Windows first PDF",
+      "retained_evidence": "clients/windows/first-raw-job.json",
+      "expected": "SUP-A affected;SUP-B excluded;complete",
+      "raw_result": "Correct",
+      "application_behavior": "Explicit review then500/receipt1"
+    },
+    {
+      "case": "Windows revised PDF with guard",
+      "retained_evidence": "clients/windows/revised-raw-job.json",
+      "expected": "SUP-A/SUP-C affected;SUP-B excluded;complete",
+      "raw_result": "Extractor correct;agent omittedC/B",
+      "application_behavior": "Guard rejected before facts/plan; correction revealed metadata/stock-ID contract defect; original500/receipt preserved"
+    }
+  ],
+  "final_windows_corrective": {
+    "passed": true,
+    "at": "2026-10-18T02:10:10.830Z",
+    "surface": "windows-postfix",
+    "health": {
+      "status": "ok",
+      "database": "ready",
+      "version": "0.4.0-rc.4",
+      "commit": "37832f08a933644cd364567b9551444c934e508a",
+      "inference_mode": "fixture",
+      "amd_configured": true,
+      "live_protected": true,
+      "profile": "public",
+      "public_demo": true,
+      "storage_mode": "ephemeral",
+      "replay_available": true
+    },
+    "outcomes": [
+      {
+        "stage": "revised",
+        "expected_affected": [
+          "SUP-A",
+          "SUP-C"
+        ],
+        "raw_affected": [
+          "SUP-A"
+        ],
+        "raw_scope": "complete",
+        "raw_correction": true,
+        "raw_affected_correct": false,
+        "reviewed_affected": [
+          "SUP-A",
+          "SUP-C"
+        ],
+        "review": "Agent-operated review of retained fictional originals, exact lot dispositions and complete boundary. Explicit engineering approval only; no independent human acceptance.",
+        "applied_units": 800,
+        "receipts": 2,
+        "client_elapsed_ms": 273694,
+        "continued_existing_response": false,
+        "model_application_elapsed_ms": 266823,
+        "remote_execution_id": "a492b298-98ca-f111-bf5b-6045bd9ce552",
+        "explicit_status_reconciliations": 1
+      }
+    ],
+    "receipts": 2,
+    "applied_units": 800,
+    "baseline": "Explicit fixture500; revised800 uses fresh actual Evolus extraction/interpretation",
+    "stale_approval_rejected": true,
+    "sop_revision_evidence": "Original genuine public stale-SOP proof and shared regressions reused; original installed live Blob evidence retained separately",
+    "offline_no_mutation_authority": true,
+    "packet_sha256": "9af50b49a03d5ba235b5b3b6bccb5e85cdfe253b74d863fe96a681f850e78d72",
+    "workspace_token_not_in_browser_storage": true,
+    "errors": [],
+    "review": "Agent-operated review of retained fictional originals, exact lot dispositions and complete boundary. Explicit engineering approval only; no independent human acceptance.",
+    "native_dialogs": "Not repeated; installed filesystem save/open exercised with explicit test dialog-return stubs. Previous real native-dialog acceptance retained."
+  },
+  "benchmark_integrity": "Original frozenv1 manifest unchanged. expected_lot_mentions incorrectly omitted negativeSUP-B; distinguish literal mentions from affected truth. Originalv2 does not raise500 because its possible descendant already held. AdditionalSUP-C fixture frozen separately.",
+  "interpretation": "No model superiority or general accuracy claim; prompts/model settings unchanged. Improvements are evidence coverage/type validation and containment; raw omissions remain failures.",
+  "publication": "Final release in progress; runtime source checkpoint fixed"
+}

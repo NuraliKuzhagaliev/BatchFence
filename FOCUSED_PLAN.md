@@ -1,3 +1,9 @@
+# Focused phase complete — final evidence
+
+Runtime37832f08a933644cd364567b9551444c934e508a,455cleanCI tests/30domain/8container checks. New workflow and client acceptance passed with limitations in HANDOFF/RESULTS.21/24conservative equivalents reserved,9possible reader/OCRpages. No more modelcalls in this finite phase. Rag citation capability blocked; Blob retained. Publication checks and final handoff remain bookkeeping only. Old counters and all original evidence preserved.
+
+---
+
 # Focused Evolus completion - finite phase
 
 Baseline rc3 runtime7d5b291/evidence103f088. Preserve all original48/64 ledgers, stable/preview builds, sources, receipts and working Gemma vision. New private journal: work/evolus-focused/phase-ledger.json; never reset old counters. README/media/submission, own ADC/vLLM, new hosting/storage and real enterprise actions are deferred.

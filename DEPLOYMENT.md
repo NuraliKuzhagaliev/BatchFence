@@ -1,3 +1,15 @@
+# Focused rc4 deployment checkpoint
+
+Existing Free Render service `srv-db968c7btjjs73fghkog` serves runtime37832f08a933644cd364567b9551444c934e508a at https://batchfence.onrender.com. Deploy `dep-dba2it5g1s2s73aui0a0` followed successful mainCI39088735180. No new service, paid plan or disk was provisioned.
+
+Only necessary nonsecret phase proofs and the documented workflow manifest were merged into existing configuration. AMD/team and currently valid Evolus credentials remain unchanged. The final hosted cap5 plus prior19 reserved equivalents enforces the finite phase ceiling24; two final Windows steps bring total reservations21. Proof expiry remains18October2026 at16:00UTC. Do not extend expiry or reset counters without actual new allowance evidence. Provider keys remain backend-only; the separate workspace token is held in client memory.
+
+Public and installed live acceptance, stale rejection and offline packets passed with explicit agent review/correction; raw model failures remain reported. Rag is disabled, Blob/local mode is available. Final backend metadata changes have no frontend/desktop/package differences. Installer and exact-source release assets are under releases; anonymous verification is pending final upload. Stable and rc3 rollback artifacts remain intact.
+
+Free hosting can sleep and lose server data on restart/redeploy. Export the case before configuration or deployment changes. Native-text PDFs are freshly verified; platform scan OCR and independent operational acceptance remain limited. See HANDOFF.md for opening the clients, exact run commands, funding and remaining human actions. No credential rotation is required.
+
+---
+
 # Focused rc4 metadata correction — final gate
 
 Live guarded runtime e847bb7: public corrective PDF returned all3identities/complete scope and reached800/two receipts with explicitly fixture500 baseline; original genuine public500 proof is separate. Public and installed fixed reader reopen the unchanged real packet without granting action authority.451clean LinuxCI passed;70source-guard controls and30domain cases passed.

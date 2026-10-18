@@ -1,0 +1,118 @@
+{
+  "at": "2026-10-18T02:11:43.667889+00:00",
+  "inference_calls": 0,
+  "amd": {
+    "daily_cost_limit_usd": 1,
+    "daily_cost_used_usd": 0.005716097075492144,
+    "daily_cost_remaining_usd": 0.9942839029245079,
+    "daily_reset_at": "2026-10-18T16:00:00.000Z"
+  },
+  "amd_units": "Provider API uses _usd names; event manual identifies these as nonmonetary free shared points, not charges. Shared key may include other participants.",
+  "evolus_balance": [
+    {
+      "bucketId": "92e2bcdc-315a-4113-a101-146575a6f72e",
+      "applicationId": "705220fb-be5e-4d61-b1ee-5a5fc824ab8e",
+      "bucketType": {
+        "code": "LLM_CREDITS"
+      },
+      "monthlyBalance": 50000.0,
+      "extraBalance": 0.0,
+      "totalBalance": 50000.0,
+      "lastResetAt": "2026-10-16T22:01:20.3065606Z",
+      "monthlyAllocation": null,
+      "lots": [],
+      "monthlyCreditsResetAt": "2026-11-16T00:00:00Z",
+      "monthlyCreditsRemaining": 50000.0
+    }
+  ],
+  "phase_equivalents_reserved": 21,
+  "phase_cap": 24,
+  "possible_reader_ocr_pages": 9,
+  "available_final_execution_accounting": [
+    {
+      "evidence": "docs/evolus-focused/clients/web/first-raw-job.json",
+      "execution_id": "4306c85b-90ca-f111-bf5b-6045bd9ce552",
+      "consumption": {
+        "credits": 0,
+        "pendingEntries": 0,
+        "costUsd": null,
+        "llmTokens": null,
+        "ocrPages": null,
+        "embeddingTokens": null,
+        "speechToTextSeconds": null,
+        "entries": null
+      },
+      "status": "unreviewed proposal"
+    },
+    {
+      "evidence": "docs/evolus-focused/clients/web/revised-raw-job.json",
+      "execution_id": "00a115b5-90ca-f111-bf5b-6045bd9ce552",
+      "consumption": null,
+      "status": "running"
+    },
+    {
+      "evidence": "docs/evolus-focused/clients/web-postfix/revised-raw-job.json",
+      "execution_id": "029a739a-94ca-f111-bf5b-6045bd9ce552",
+      "consumption": {
+        "credits": 0,
+        "pendingEntries": 0,
+        "costUsd": null,
+        "llmTokens": null,
+        "ocrPages": null,
+        "embeddingTokens": null,
+        "speechToTextSeconds": null,
+        "entries": null
+      },
+      "status": "unreviewed proposal"
+    },
+    {
+      "evidence": "docs/evolus-focused/clients/windows/first-raw-job.json",
+      "execution_id": "06674c42-95ca-f111-bf5b-6045bd9ce552",
+      "consumption": {
+        "credits": 0,
+        "pendingEntries": 0,
+        "costUsd": null,
+        "llmTokens": null,
+        "ocrPages": null,
+        "embeddingTokens": null,
+        "speechToTextSeconds": null,
+        "entries": null
+      },
+      "status": "unreviewed proposal"
+    },
+    {
+      "evidence": "docs/evolus-focused/clients/windows/revised-raw-job.json",
+      "execution_id": "31d16756-95ca-f111-bf5b-6045bd9ce552",
+      "consumption": {
+        "credits": 0,
+        "pendingEntries": 0,
+        "costUsd": null,
+        "llmTokens": null,
+        "ocrPages": null,
+        "embeddingTokens": null,
+        "speechToTextSeconds": null,
+        "entries": null
+      },
+      "status": "failed validation"
+    },
+    {
+      "evidence": "docs/evolus-focused/clients/windows-postfix/revised-raw-job.json",
+      "execution_id": "a492b298-98ca-f111-bf5b-6045bd9ce552",
+      "consumption": {
+        "credits": 0,
+        "pendingEntries": 0,
+        "costUsd": null,
+        "llmTokens": null,
+        "ocrPages": null,
+        "embeddingTokens": null,
+        "speechToTextSeconds": null,
+        "entries": null
+      },
+      "status": "failed validation"
+    }
+  ],
+  "embedding_indexing_accounting": "No per-index finalized ledger exposed; observed balance delta0, tariff metadata unavailable, no claim of universal zero embedding price",
+  "credentials_changed": false,
+  "purchases": 0,
+  "additional_cash_spend_authorized": 0
+}

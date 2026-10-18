@@ -1,3 +1,45 @@
+# BatchFence 0.4.0-rc.4 — morning handoff
+
+The public app runs commit `37832f08a933644cd364567b9551444c934e508a` at https://batchfence.onrender.com. The supported review-controlled workflow passed engineering acceptance through the public web app and installed Windows client. Release publication and anonymous artifact verification are being finalized; their final record will be `docs/evolus-focused/publication.json`.
+
+## What works
+
+- Unicode lexical retrieval supports Russian, English and Italian originals, with explicit abstention for unsupported cross-language questions. It is not translation or semantic search.
+- Supplier PDF intake retains original bytes and hashes. The connected Evolus reader, extractor, configured Gemma agent and output feed source-backed proposals, original-page review, applicable procedures, deterministic scope, explicit approval and sandbox receipts.
+- Source preview, page navigation, highlighting, suitability/gaps and next actions share the existing interface. Normal/scaled Windows views, narrow web layout and keyboard focus were checked.
+- Unknown submissions retain execution identity and reconcile status without resubmitting inference. Polling is bounded. Export feedback distinguishes confirmed saves from unconfirmed downloads; reopening a packet grants no action authority.
+- Existing recovery, uncertainty, stale-approval and immutable receipt controls remain. Prior rc3 vision evidence is preserved without new image calls.
+
+## Actual live results and limits
+
+Fresh first-PDF workflows reached 500 units and one receipt in both clients. Genuine Evolus Blob content plus fresh direct AMD Gemma selection retained the full procedure caveats. The original public revised agent omitted SUP-C/SUP-B while claiming complete scope. The old validator accepted a proposal; engineering stopped before review/apply. Explicit source correction and separate review then reached 800 units and two receipts.
+
+The new guard compares source-backed extractor identities with interpretation and checks exact recorded identities in explicit affected-list headers. The installed client demonstrated rejection before facts or narrowing. A subsequent correction exposed freeform document metadata incorrectly using stock-ID grammar. That contract is fixed without relaxing stock identifiers or granting metadata stock authority. Invalid stock corrections now return bounded HTTP422 diagnostics.
+
+Final installed execution `a492b298-98ca-f111-bf5b-6045bd9ce552` again omitted identities and was rejected. Explicit source correction added them as unresolved proposals; separate review established the complete original boundary, then approval/application reached 800 units and two receipts. Stale approval was rejected, and the exported packet reopened read-only. This corrective run used an explicitly labeled fixture 500 baseline and reused the separate genuine first-500/Blob evidence. It took 273,694ms including review/status reconciliation; the application model job took 266,823ms. One existing-ID status read followed 16 automatic reads; no model retry or browser errors.
+
+Raw interpretation reliability remains limited. These are agent-operated fictional cases, not independent human validation. The controls demonstrate a safe review path, not autonomous completeness or general model accuracy. Exact raw failures, corrections and expectations are separate in `docs/evolus-focused/case-by-case.json`.
+
+Isolated Rag ingestion completed, but its actual ask returned no resolvable citations. The answer was rejected and semantic mode remains disabled. Blob plus local lexical retrieval works. Evolus is configured as `own/gemma-4-31b-it`; its workflow API does not expose runtime model identity. Direct AMD returned `self-dploy/Gemma-4-31B-IT`. Fresh native-text PDFs were verified; platform scan OCR was not freshly accepted.
+
+## Verification and artifacts
+
+Main CI39088735180 passed 455 tests, the production build, 30 domain scenarios and eight actual Linux container/restart/isolation checks. The 74 affected source/metadata controls passed. The legitimate unknown-model packet issue was fixed and the installer rebuilt and separately installed successfully. The final metadata fix is backend-only: frontend, desktop and package inputs have an empty diff, so another installer build was unnecessary. Known-value/pattern audits found no credentials in publishable source/package inputs.
+
+Installer: `D:\projects\BatchFence\releases\BatchFence-0.4.0-rc.4-win-x64-setup.exe`, 113,799,533 bytes, SHA256 `04d56c9787bda9d12dad1e3dee265c1c8f32329148f3a266ae19197b511acd0e`. Installed executable: `D:\projects\BatchFence\work\installed-0.4.0-rc.4\BatchFence Evidence Preview.exe`. Source ZIP, notes, manifest and checksums are beside the installer. Stable0.3.0, rc3 and previous previews remain preserved. Final evidence is published separately from runtime to avoid redeploying for bookkeeping.
+
+## Funding and remaining human actions
+
+At 02:11:43UTC, Evolus had 50,000 platform credits and shared AMD had 0.9942839029245079 nonmonetary points remaining. The phase reserved 21 of 24 conservative model steps and nine possible reader/OCR pages, within the 1,000-credit exposure cap and 49,000-credit reserve. Available finalized BYOK accounting reports zero credits and zero pending entries; unavailable internal cost/token fields remain unknown. Indexing-specific final accounting/tariff is unavailable; a zero observed balance delta is not a universal free-embedding claim. No purchases, credential rotation, new hosting, external messages, real inventory actions or submission occurred. Stop model calls for this phase; exhausted older ledgers remain unchanged.
+
+Open either client, then Sources & intake → connected assistance. Use only the separate private workspace live-access token from ignored `work/cloud-demo.env`; never put provider keys into the client. Review original passages, proposals, scope and plan before approval. No credential action is needed now. Current verified-free proof expires 18October2026 at 16:00UTC /21:00Qyzylorda; later live use requires fresh allowance evidence and the necessary nonsecret configuration update, without key rotation or counter resets.
+
+Free Render storage is temporary and may show its wake-up interstitial: export before sleep/restart/redeploy. The installer is unsigned. Current native save/open acceptance used the actual filesystem with stubbed dialog returns; prior real four-dialog evidence is retained. Independent operator, domain, language and physical-photo acceptance remain pending. Own AMD Cloud/vLLM and partner eligibility, production durability/identity, README/media and submission are deferred. Rag needs resolvable provider citations before activation.
+
+Run from `D:\projects\BatchFence`: `npm run build`; `.venv\Scripts\python.exe -m pytest -q`; `.venv\Scripts\python.exe -m scripts.evaluate`; `.venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8787`; `npm run package:desktop`. Existing `.env` remains the only local configuration. Do not rerun one-shot live helpers or reset ledgers. See `docs/evolus-focused/RESULTS.md`, `main-ci.json`, `final-accounting.json` and `clients/windows-postfix/result.json`.
+
+---
+
 # Focused rc4 metadata correction — final gate
 
 Live guarded runtime e847bb7: public corrective PDF returned all3identities/complete scope and reached800/two receipts with explicitly fixture500 baseline; original genuine public500 proof is separate. Public and installed fixed reader reopen the unchanged real packet without granting action authority.451clean LinuxCI passed;70source-guard controls and30domain cases passed.
