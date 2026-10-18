@@ -38,7 +38,8 @@ def reconcile_rag(case_id,key,request):
         r.update(raw_output=response.pop('result'),provenance=response,finished_at=now())
         try:
             if fingerprint(state,catalog(db,owner))!=r['snapshot_hash'] or state.get('cancelled'):raise DomainError('Evidence changed; response is historical only')
-            r['draft']=evolus_rag.map_answer(r['raw_output'],r['rag_binding'],r['retrieval'])
+            r['draft'],proof=evolus_rag.resolve_answer(r['raw_output'],r['rag_binding'],r['retrieval'])
+            r['provenance']['citation_resolution']=proof
             r['status']='unreviewed proposal'
         except (DomainError,ValueError) as exc:r.update(status='failed validation',error=str(exc))
         repo.put_record(db,owner,'assist',key,r,rev);return r
@@ -69,8 +70,13 @@ def result_for_job(db,owner,state,key,execution):
             record['runtime_model_identity']=execution.get('runtime_model_identity','Not returned / independent inference verification pending')
         record['raw_draft']=execution.get('draft')
         try:
-            if record['mode']=='live':record['source_coverage']=extractor_coverage(state,execution,execution['draft'],record.get('document_ids',[]))
-            record['draft']=validate_draft(state,execution['draft'])
+            proposal=execution['draft']
+            if execution.get('interpretation_contract')=='identity-annotations-v1':
+                from .identity_annotations import assemble
+                proposal,record['proposal_assembly']=assemble(state,execution,proposal,record.get('document_ids',[]))
+                record['review_draft']=proposal
+            if record['mode']=='live':record['source_coverage']=extractor_coverage(state,execution,proposal,record.get('document_ids',[]))
+            record['draft']=validate_draft(state,proposal)
         except Exception as exc:
             record.update(status='failed validation',error='Raw interpretation failed source/schema validation; no fact or scope update')
             record['validation_issues']=exc.errors(include_input=False,include_url=False,include_context=False) if hasattr(exc,'errors') else [{'message':str(exc)[:300]}]
@@ -498,7 +504,9 @@ def generate(case_id:str,data:Generate,request:Request):
             record={'id':key,'case_id':case_id,'kind':data.kind,'document_ids':data.document_ids,'mode':'live','provider_path':('Direct AMD vision / ' if data.kind=='label' else 'Direct Gemma / ')+os.getenv('GEMMA_HOSTING_KIND','unverified'),
                 'status':'running','request_hash':signature,'generation_hash':generation_hash,'snapshot_hash':fingerprint(state,catalog(db,request.state.owner)),
                 'actor':identity.current_actor(),'started_at':now(),'reservation':reservation,'authority':'Unreviewed draft only; existing review/calculation/approval remain mandatory'}
-            if rag_mode:record.update(provider_path='Evolus agent-bound Rag / configured own Gemma',retrieval_mode='rag',external_conversation_id=str(uuid.uuid5(uuid.NAMESPACE_URL,key)),rag_binding=binding,retrieval=retrieval)
+            if rag_mode:
+                from .evolus_rag import model_key
+                record.update(provider_path='Evolus agent-bound Rag / configured '+model_key(),retrieval_mode='rag',external_conversation_id=str(uuid.uuid5(uuid.NAMESPACE_URL,key)),rag_binding=binding,retrieval=retrieval)
             repo.put_record(db,request.state.owner,'assist',key,record,0)
         try:
             library_provenance=None
@@ -540,11 +548,12 @@ def generate(case_id:str,data:Generate,request:Request):
                     elif data.kind=='handover':record['draft']=a.create_handover(db,request.state.owner,current,key,data.previous_id,raw,response)
                     else:
                         if rag_mode:
-                            from .evolus_rag import map_answer
+                            from .evolus_rag import resolve_answer
                             if response.get('credit_reserve_breached'):raise DomainError('Credit reserve reached; raw response retained but no accepted answer')
-                            record['draft']=map_answer(raw,binding,retrieval)
+                            record['draft'],proof=resolve_answer(raw,binding,retrieval)
+                            record['provenance']['citation_resolution']=proof
                         else:record['draft']=knowledge.selected_answer(raw,retrieval)
-                        record['quote_origin']='Deterministically resolved full authorized original passages; the model selected keys and did not author the displayed quotes'
+                        record['quote_origin']='Displayed quotations are full exact retained originals; model selection and citation remain proposals, never approval or release authority'
                         linked={'id':key,'case_id':case_id,'status':'succeeded','mode':'Live Gemma / isolated Evolus library','output':record['draft'],
                             'catalog_digest':digest(catalog(db,request.state.owner)),'retrieval':retrieval,'question':data.question,'provenance':response,
                             'library_provenance':library_provenance,'timestamp':now(),'boundary':'Exact applicable passage proposals; explicit original evidence review required for any check'}

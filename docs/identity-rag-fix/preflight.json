@@ -1,0 +1,81 @@
+{
+  "at": "2026-10-18T06:04:17.973835+00:00",
+  "access": {
+    "subscriptionStatus": "TRIALING",
+    "planCode": "EVOLUS_DEVELOPER_EVENT",
+    "serviceUsable": true,
+    "renewsAutomatically": false,
+    "creditsBlocked": {
+      "blocked": false,
+      "reason": null
+    },
+    "trialEndsAt": "2026-11-15T22:59:00Z"
+  },
+  "evolus_balance": [
+    {
+      "bucketId": "92e2bcdc-315a-4113-a101-146575a6f72e",
+      "applicationId": "705220fb-be5e-4d61-b1ee-5a5fc824ab8e",
+      "bucketType": {
+        "code": "LLM_CREDITS"
+      },
+      "monthlyBalance": 50000.0,
+      "extraBalance": 0.0,
+      "totalBalance": 50000.0,
+      "lastResetAt": "2026-10-16T22:01:20.3065606Z",
+      "monthlyAllocation": null,
+      "lots": [],
+      "monthlyCreditsResetAt": "2026-11-16T00:00:00Z",
+      "monthlyCreditsRemaining": 50000.0
+    }
+  ],
+  "model": {
+    "id": "own/gemma-4-31b-it",
+    "name": "Gemma-4-31B-IT",
+    "author": "own",
+    "capabilities": {
+      "tools": true,
+      "vision": false,
+      "structuredOutput": false,
+      "reasoning": []
+    },
+    "contextLength": 262144,
+    "tier": null,
+    "locked": false,
+    "lockReason": null,
+    "requiredPlanFeature": null,
+    "requiredPlanName": null,
+    "pricing": {
+      "kind": "byok-free",
+      "unit": "1M-token",
+      "input": 0,
+      "output": 0,
+      "estimated": false
+    },
+    "dataBadges": [],
+    "badges": [],
+    "recommended": false,
+    "deprecated": false,
+    "unavailable": false,
+    "outsideShowcase": false,
+    "logicalKey": null,
+    "voice": null,
+    "connectionId": null,
+    "dimensions": null,
+    "immutableAfterCreation": false
+  },
+  "amd": {
+    "daily_cost_remaining_usd": 0.9941465971060097,
+    "daily_cost_used_usd": 0.005853402893990278,
+    "daily_cost_limit_usd": 1,
+    "daily_reset_at": "2026-10-18T16:00:00.000Z"
+  },
+  "model_dispatches": 0,
+  "phase_id": "identity-rag-fix-2026-10-18-v1",
+  "max_model_equivalents": 16,
+  "planned_model_equivalents": 13,
+  "plan": "Two original-PDF workflows4steps plus diagnostic/web/Windows Rag asks9conservative equivalents. Three equivalents reserved for one materially changed corrective retest, never unchanged retries. Reuse indexed fictional SOP. Preserve old21/24 and48/64ledgers.",
+  "platform_exposure_cap": 1000,
+  "platform_reserve": 49000,
+  "cash_limit": 0,
+  "possible_native_ocr_pages": 2
+}

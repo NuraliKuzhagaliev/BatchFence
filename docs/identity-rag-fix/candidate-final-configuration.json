@@ -1,0 +1,159 @@
+{
+  "manifest": {
+    "connection_id": "f2f3d7ea-d7a9-4ddd-b09a-913df0b695ba",
+    "provider_base_url": "https://developer.amd.com.cn/radeon/api/v1",
+    "provider_model_id": "Gemma-4-31B-IT",
+    "catalog_model_key": "own/gemma-4-31b-it",
+    "catalog_pricing": {
+      "kind": "byok-free",
+      "unit": "1M-token",
+      "input": 0,
+      "output": 0,
+      "estimated": false
+    },
+    "catalog_sha256": "392e265f4ce52c017ba3be4377654f32b6f94ca5bfe67030f56ed62894c83a26",
+    "extractor": {
+      "resource_id": "0412148a-94de-4696-8aed-23e08ae2b1ab",
+      "output_structure_id": "f56aab1b-9b7e-45c8-af13-24ecee68b34c",
+      "model_key": "own/gemma-4-31b-it",
+      "schema_hash": "21691a098599745bf805000abc4d70b1f935e65ea95ea439cfb3df1abaf8a41b",
+      "prompt_hash": "5cd60855c578143f6a001395e8b923fd7ae2ac3d2709b08d0aa7d034e1f8b243",
+      "step_id": "ad1ba06c-f2d0-4533-a6ef-832746c5432c",
+      "input_step_ids": [
+        "e394f109-14e1-4eb4-91ce-e60739578cea"
+      ],
+      "input_mode": 4,
+      "prompt": null,
+      "step_order": 2,
+      "structure_prompt_hash": "fa7063561bc602d13526f7ff7159a6ea22c11aa3d8e6cbbe3a4c8075adf207dd"
+    },
+    "agent": {
+      "resource_id": "4cd7fff3-a2a7-4c43-a16a-1974779bfaad",
+      "output_structure_id": "b7b8d4b8-6f89-4243-a9f4-856a2239dcac",
+      "model_key": "own/gemma-4-31b-it",
+      "schema_hash": "5524126ff82edf2bb9cd97e385add89e14cb805b1ff12cb345eeb71da0dfa7d5",
+      "prompt_hash": "f5d32fa9982a66fddbb66434d401677ef855f9489214fca687cf58b616c35fb8",
+      "structure_prompt_hash": "d4d2aa67d94f5b2d9077abd258330290aeb5217fc16e2afce35afb2d6c4e8404",
+      "step_id": "f8280daa-d181-4890-9994-b5b9afe9b9d2",
+      "step_order": 3,
+      "input_step_ids": [
+        "ad1ba06c-f2d0-4533-a6ef-832746c5432c"
+      ],
+      "input_mode": 4,
+      "prompt": null
+    },
+    "workflow_id": "15ea93a2-9a30-4a17-bf47-ef18a16207bd",
+    "output": {
+      "step_id": "49af9a8d-1995-4dcf-a9d8-d0385e2919ef",
+      "input_step_ids": [
+        "f8280daa-d181-4890-9994-b5b9afe9b9d2"
+      ],
+      "input_mode": 0,
+      "prompt": null,
+      "step_order": 4
+    },
+    "library_id": "eae0f36e-5fca-f111-bf5b-6045bd9ce552",
+    "document_reader": {
+      "step_id": "e394f109-14e1-4eb4-91ce-e60739578cea",
+      "step_order": 1,
+      "model_key": "azure/document-intelligence-layout",
+      "credits_per_page": 10.466666666666667,
+      "config": {
+        "filesOptional": false,
+        "preferNativeText": true,
+        "skipUnsupportedFiles": false
+      },
+      "input_step_ids": [],
+      "input_mode": 1,
+      "prompt": null
+    },
+    "interpretation_contract": "identity-annotations-v1"
+  },
+  "verification": {
+    "checked_at": "2026-10-18T06:18:30.027745+00:00",
+    "configuration_hash": "aaaa1a0c3e6cdbdf981b602f9e143c5033e06be17c5c4fb7b3ae984cb6412fd4",
+    "requests": [
+      {
+        "provider": "Evolus",
+        "at": "2026-10-18T06:18:26.353711+00:00",
+        "method": "GET",
+        "path": "/api/v1/workflows/15ea93a2-9a30-4a17-bf47-ef18a16207bd",
+        "http_status": 200,
+        "elapsed_ms": 661,
+        "response_hash": "64cd631adcfc42b34c0d04fedb3c36fd8b525bec72bbc23275e58bd4335ed3e7",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      },
+      {
+        "provider": "Evolus",
+        "at": "2026-10-18T06:18:27.030506+00:00",
+        "method": "GET",
+        "path": "/api/v1/own-models/connections",
+        "http_status": 200,
+        "elapsed_ms": 677,
+        "response_hash": "a4310cc7aab43fc523b4d5c85082e94aee972aac8eac944059c3c8bac04bb586",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      },
+      {
+        "provider": "Evolus",
+        "at": "2026-10-18T06:18:27.749952+00:00",
+        "method": "GET",
+        "path": "/api/v1/agents/0412148a-94de-4696-8aed-23e08ae2b1ab",
+        "http_status": 200,
+        "elapsed_ms": 719,
+        "response_hash": "9c13a2a7bcced7d215bca1e2e9305449cbaf93776bb7a1b9d21f89c34c2219fa",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      },
+      {
+        "provider": "Evolus",
+        "at": "2026-10-18T06:18:28.561907+00:00",
+        "method": "GET",
+        "path": "/api/v1/agents/0412148a-94de-4696-8aed-23e08ae2b1ab/json/f56aab1b-9b7e-45c8-af13-24ecee68b34c",
+        "http_status": 200,
+        "elapsed_ms": 812,
+        "response_hash": "ad76cbaae7b635f0a1e3d935fe7cfe907d252d3941af148ab297262e105a840d",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      },
+      {
+        "provider": "Evolus",
+        "at": "2026-10-18T06:18:29.294553+00:00",
+        "method": "GET",
+        "path": "/api/v1/agents/4cd7fff3-a2a7-4c43-a16a-1974779bfaad",
+        "http_status": 200,
+        "elapsed_ms": 732,
+        "response_hash": "f5c685513ae61c8687a49138292b1b1ace6f1ab9aac10aba451827fb652a3917",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      },
+      {
+        "provider": "Evolus",
+        "at": "2026-10-18T06:18:30.027522+00:00",
+        "method": "GET",
+        "path": "/api/v1/agents/4cd7fff3-a2a7-4c43-a16a-1974779bfaad/json/b7b8d4b8-6f89-4243-a9f4-856a2239dcac",
+        "http_status": 200,
+        "elapsed_ms": 733,
+        "response_hash": "be68b30e635eacc62fc7be7eeeaab986c8b3dd6af83f1d8081b7cc8d05d842ec",
+        "request_id": null,
+        "execution_header": null,
+        "contract": "Evolus Integration API v1 / owner-supplied OpenAPI 3.0.4"
+      }
+    ],
+    "model_identity_basis": "Verified own-model configuration; WorkflowExecution does not return runtime model ID",
+    "provider_internal_retries": "BatchFence makes one dispatch. Structured correction budget is zero; undocumented provider infrastructure retries are not claimed absent."
+  },
+  "retained_features": [
+    "paired revision changes",
+    "contradictions",
+    "missing-evidence request drafts"
+  ],
+  "old_rc4_resources_changed": false,
+  "model_dispatches": 0
+}

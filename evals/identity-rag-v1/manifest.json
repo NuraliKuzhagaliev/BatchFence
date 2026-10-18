@@ -1,0 +1,33 @@
+{
+  "frozen_before_dispatch": true,
+  "sources": [
+    {
+      "surface": "web",
+      "path": "evals/evolus-focused-v1/notice-revised-sup-c.pdf",
+      "sha256": "74112b00f8d562663471d4f9894f9277bc878d21388f3a1db709da69266382e5",
+      "expected_affected": [
+        "SUP-A",
+        "SUP-C"
+      ],
+      "expected_excluded": [
+        "SUP-B"
+      ],
+      "expected_scope": "complete"
+    },
+    {
+      "surface": "windows",
+      "path": "evals/identity-rag-v1/notice-heldout.pdf",
+      "sha256": "90c826b9f5b927f131e86039a7f99f8ec550d44906be2fdb9fb1b1754a93afc7",
+      "expected_affected": [
+        "SUP-A",
+        "SUP-C"
+      ],
+      "expected_excluded": [
+        "SUP-B"
+      ],
+      "expected_scope": "complete"
+    }
+  ],
+  "review": "Fictional agent-operated engineering acceptance; not independent human validation",
+  "negative_variants": "AX-0007/AX-0008 partial/conflicting sources are injected local regression cases, not fresh model results"
+}

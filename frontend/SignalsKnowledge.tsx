@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Case } from "./types";
 import { request, contentHash } from "./platform";
 import {
@@ -359,7 +359,24 @@ export function KnowledgePanel({
 }) {
   const [answer, setAnswer] = useState<RecordData | null>(null),
     [claim, setClaim] = useState(0),
-    [libraryMode, setLibraryMode] = useState(initialLibrary);
+    [libraryMode, setLibraryMode] = useState(initialLibrary),
+    [ragMode, setRagMode] = useState(false),
+    [ragAvailable, setRagAvailable] = useState(false);
+  useEffect(() => {
+    let current = true;
+    if (mode === "live" && !readOnly)
+      void request<RecordData>("GET", "/api/assist/status").then(
+        (s) => {
+          if (current) setRagAvailable(s.semantic_rag_enabled === true);
+        },
+        () => {
+          if (current) setRagAvailable(false);
+        },
+      );
+    return () => {
+      current = false;
+    };
+  }, [mode, readOnly]);
   const shown = answer || (data.answer || []).at(-1),
     docs = data.procedure || [];
   return (
@@ -374,10 +391,10 @@ export function KnowledgePanel({
       </p>
       <p className="caption">
         Unicode lexical matching supports Russian, English and Italian
-        originals. It does not translate a cross-language question. Evolus
-        semantic retrieval is unavailable: its live acceptance response lacked
-        resolvable citations and was rejected. Approved Blob/local evidence
-        remains available.
+        originals. It does not translate a cross-language question.{" "}
+        {ragAvailable
+          ? "Isolated Evolus semantic retrieval can find originals across languages; each answer requires returned citations and the complete original passage."
+          : "Evolus semantic retrieval is unavailable until citation-backed acceptance is enabled. Approved Blob/local evidence remains available."}
       </p>
       <div className="module-columns">
         <div>
@@ -386,13 +403,19 @@ export function KnowledgePanel({
               Live evidence route
               <select
                 aria-label="Live knowledge evidence route"
-                value={libraryMode ? "evolus" : "amd"}
+                value={ragMode ? "rag" : libraryMode ? "evolus" : "amd"}
                 disabled={readOnly}
-                onChange={(e) => setLibraryMode(e.target.value === "evolus")}
+                onChange={(e) => {
+                  setLibraryMode(e.target.value !== "amd");
+                  setRagMode(e.target.value === "rag");
+                }}
               >
                 <option value="amd">AMD · approved local catalog</option>
                 <option value="evolus">
                   Gemma · local lexical + isolated Evolus Blob
+                </option>
+                <option value="rag" disabled={!ragAvailable}>
+                  Evolus · isolated semantic retrieval with citations
                 </option>
               </select>
             </label>
@@ -400,7 +423,7 @@ export function KnowledgePanel({
           <ReviewForm
             title="Ask the approved procedures"
             disabled={readOnly}
-            submit={`Find supported passages · ${mode === "live" ? "Live AMD" : "Synthetic"}`}
+            submit={`Find supported passages · ${mode === "live" ? (ragMode ? "Live Evolus" : "Live AMD") : "Synthetic"}`}
             fields={[
               {
                 key: "question",
@@ -424,6 +447,7 @@ export function KnowledgePanel({
                   {
                     ...b,
                     kind: "knowledge",
+                    retrieval_mode: ragMode ? "rag" : "blob",
                     revision: state.revision,
                     idempotency_key: crypto.randomUUID(),
                   },
@@ -548,10 +572,12 @@ export function KnowledgePanel({
           <details className="module-card">
             <summary>Set up an isolated Evolus library · administrator</summary>
             <p>
-              Use a dedicated empty read-only Blob library from the configured
-              Evolus application. Organization, site, product, process and
-              approved revisions are bound before retrieval. Existing libraries
-              cannot be silently reused.
+              {ragMode
+                ? "Create an isolated read-only Rag library for this exact approved fictional source set."
+                : "Use a dedicated empty read-only Blob library from the configured Evolus application."}{" "}
+              Organization, site, product, process and approved revisions are
+              bound before retrieval. Existing broad libraries cannot be
+              adopted.
             </p>
             <ReviewForm
               title="Bind this approved source set"
@@ -559,7 +585,7 @@ export function KnowledgePanel({
                 {
                   key: "library_id",
                   label: "Dedicated empty Evolus library ID",
-                  required: true,
+                  required: !ragMode,
                 },
                 { key: "product", label: "Applicable product", required: true },
                 { key: "process", label: "Applicable process", required: true },
@@ -574,7 +600,10 @@ export function KnowledgePanel({
               submit="Index reviewed sources"
               disabled={readOnly}
               onSubmit={async (b) => {
-                await request("POST", "/api/assist/knowledge-index", b);
+                await request("POST", "/api/assist/knowledge-index", {
+                  ...b,
+                  library_type: ragMode ? "Rag" : "Blob",
+                });
                 await refresh();
               }}
             />

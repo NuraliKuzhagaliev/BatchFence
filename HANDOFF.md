@@ -1,3 +1,15 @@
+# Identity and RAG completion — candidate rc5
+
+Preserve rc4/runtime37832f0 and final evidence3ca013a. New branchfix-source-identity-rag; old ledgers and working provider resources unchanged. Source interpretation now annotates extracted identities rather than recreating the inventory. Assembly retains missing interpretations as unresolved proposals, marks scope unknown and preserves raw model output separately. Existing source validation, critical review, approval, stale rejection and receipts remain mandatory. Paired revision changes, contradictions and request drafts remain supported.
+
+RAG diagnostics: current free Gemma returned a shortened passage and no native citations. Existing indexed chunks contain the full caveat. The separately configured available free MiMo route returned the complete passage plus exact document/revision/hash/passage/page, while Evolus native citations remainedempty. New strict inline-reference resolution checks every field and full quotation against the current isolated remote chunks; provenance explicitly distinguishes this from provider-native annotations. Original citationless keys-only responses, wrong hashes/versions/pages, shortened caveats and foreign sources still reject. The provider-native metadata limitation remains unresolved; no fabricated CitationInfo. Final model routing is task-specific, not a general model-superiority claim.
+
+Funding: actual active event trial,50000platformcredits, no renewal, ownGemma/MiMo zero token price and sharedAMD hard free boundary confirmed. Separate phase identity-rag-fix-2026-10-18-v1:16conservative equivalents maximum.6reserved for changed-contract Gemma and compatibleMiMo diagnostics;10remain for one PDF2steps and one Rag3equivalents per final public/Windows client. Two final exact one-SOP libraries are necessary for owner isolation; no broad indexing.1000platform exposurecap/49000reserve and18October16:00UTC expiry remain. No purchases, key changes or old counter resets. No additional unchanged retries.
+
+Verification so far:66affected tests and4version tests passed. Full run478passed/1failure because its oldversion literal was collected before the version-test edit; isolated updated test passes. New final CI must pass. Production build and affected Windows packaging in progress. Native citation absence and all raw failures retained in docs/identity-rag-fix. Candidate has not yet passed fresh published-client acceptance. Next: CI-gated deploy of existing Free service, one fresh workflow per client, artifact publication and final handoff.
+
+---
+
 # BatchFence 0.4.0-rc.4 — morning handoff
 
 The public app runs commit `37832f08a933644cd364567b9551444c934e508a` at https://batchfence.onrender.com. The supported review-controlled workflow passed engineering acceptance through the public web app and installed Windows client. Release: https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.4. All five assets were fully downloaded anonymously and matched checksums; all 2,079 source members match the actual release tag. Public/local/installed frontend bytes match. Exact record: `docs/evolus-focused/publication.json`.

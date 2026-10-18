@@ -10,7 +10,7 @@ def test_health_reports_current_application_version(client):
     from backend.app import app
     response=client.get('/api/health')
     assert response.status_code==200
-    assert response.json()['version']==app.version=='0.4.0-rc.4'
+    assert response.json()['version']==app.version=='0.4.0-rc.5'
 
 
 def configured(monkeypatch):
