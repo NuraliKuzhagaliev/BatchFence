@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "at": "2026-10-18T05:55:29.172625+00:00",
+  "release": "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.5",
+  "release_target": "e51ef7ec0080b2873a8d46734a09aebedc4380ab",
+  "downloads": {
+    "BatchFence-0.4.0-rc.5-source.zip": {
+      "sha256": "d1f744131770e10df883b3e73b73017712aff2312d683f247f8503b83f617ed3",
+      "bytes": 135739137,
+      "method": "Full received stream SHA256; ZIP checked in memory"
+    },
+    "BatchFence-0.4.0-rc.5-win-x64-setup.exe": {
+      "sha256": "b9562291cca631562141ea9f975fca01016b8bc525e0576be4e55460a7d84cc9",
+      "bytes": 113799426,
+      "method": "Downloaded file SHA256"
+    },
+    "BatchFence-0.4.0-rc.5-windows-checks.json": {
+      "sha256": "5a8e7c8f53afa095875144500753c4e1649db9169d8d16a5b8dce9013f817038",
+      "bytes": 741,
+      "method": "Downloaded file SHA256"
+    }
+  },
+  "windows_report": {
+    "passed": true,
+    "surface": "Windows packaged Electron",
+    "checks": [
+      "Explicit synthetic route preserved across focus and reconnect",
+      "Client transport loads owned case through actual backend",
+      "RAG route and explicit existing-agent reconciliation visible and selectable",
+      "Application source-citation origin and missing-proof rejection disclosed",
+      "Changing retrieval route creates no plan, receipt or inventory action"
+    ],
+    "inference_calls": 0,
+    "cash_spent": 0,
+    "native_dialogs": "Not exercised; no native-dialog or independent human acceptance claim",
+    "fresh_rag_application_acceptance": "Not exercised: no private live-access token or provider configuration in the build runner",
+    "page_errors": []
+  },
+  "installer_signature": "Unsigned, preserved; header and downloaded checksum checked, not executed on this Linux host"
+}

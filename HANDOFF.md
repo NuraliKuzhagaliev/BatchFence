@@ -1,3 +1,17 @@
+# Published rc.5 — guarded implementation; live acceptance still pending
+
+Runtime **e51ef7e** is live at https://batchfence.onrender.com/ and release **v0.4.0-rc.5** is published. PR #10 merged; final CI39101811517 passed 471 regression tests, 30 domain cases, full publication scan, Linux container/restart and actual packaged Windows UI/native transport. Downloaded installer/source/report checksums passed, including source ZIP CRC and commit identity. Public asset bytes match the tested build; one synthetic 500→800/two-receipt check and stale approval/apply409 passed. Denied private RAG403 left receipts unchanged. The RAG route is visible/selectable in actual Chrome. See `docs/lot-citation-fix/verification.json` and `RESULTS.md` for exact evidence and limits.
+
+Lot omissions are **blocked for exact recorded identities**, independently of both model stages; an omitted negative or uncertain reference cannot silently narrow a proposal. The checklist is submitted in source context; fresh propagation through the whole pinned Evolus reader/extractor/agent graph and improved raw model recall are not claimed. Source-checked correction and consequential review remain mandatory.
+
+The explicit indexed-source citation protocol is implemented/tested, with complete approved originals verified against independently read identified Evolus chunks. It is labelled application-verified source evidence, not provider-native annotations. Exactly three genuine portal diagnostic dispatches were made; no further model calls were made during final publication checks. The original agent/index and all keys were preserved. No purchases or real inventory actions.
+
+**Genuine blocker:** this environment has no private BatchFence live-access token/provider .env and cannot operate the owner's installed Windows instance. Fresh end-to-end BatchFence RAG and owner-installed live acceptance remain open. Use the next local acceptance instructions below with existing private configuration, exact same-owner binding and a current finite free allowance; no new or rotated key is required. Do not blindly rerun one-shot scripts, reset old budgets or silently re-ingest an index after ephemeral storage loses its owner binding. No claim of perfect extraction, independent human acceptance or production readiness. The installed release remains unsigned; public storage remains temporary.
+
+This final documentation checkpoint changes no runtime code, provider settings or deployed assets; CI/deploy skips are intentional for evidence-only files.
+
+---
+
 # rc.5 lot completeness / indexed-source citation hotfix
 
 Current implementation is described in `docs/lot-citation-fix/RESULTS.md`; preserve all older evidence below. 471 local regression tests, 30 domain cases and production build passed. Exactly three genuine Evolus portal diagnostic requests were made on separate agent `0240f5fc-b802-481e-bcc1-532d91423da8`, reusing library `df996134-8cca-f111-bf5b-6045bd9ce552`; original agent, index and credentials unchanged. The portal-selected recovery key is valid; its complete caveat is present in separately inspected indexed sections. No cash purchases or inventory actions.
