@@ -8,6 +8,7 @@ from datetime import datetime,timezone
 from pathlib import Path
 from urllib.parse import urlsplit
 import httpx
+from contextlib import contextmanager
 from .domain import DomainError,digest
 from .fixtures import now
 
@@ -174,7 +175,20 @@ def _bounded(chunks,maximum):
         yield chunk
 
 
-def gemma(context,schema,*,image=None,transport=None,vision_probe=False):
+@contextmanager
+def _gemma_client(timeout,transport,started,request_contract,model):
+    try:
+        with httpx.Client(timeout=timeout,follow_redirects=False,trust_env=False,transport=transport) as client:
+            yield client
+    except httpx.HTTPError as exc:
+        raise ProviderFailure('AMD transport '+type(exc).__name__+'; no retry',{
+            'provider':'Configured AMD shared endpoint','at':now(),'http_status':None,
+            'transport_error':type(exc).__name__,'requested_model_id':model,'request_id':None,
+            'request_contract':request_contract,'elapsed_ms':round((time.perf_counter()-started)*1000)}) from None
+
+
+def gemma(context,schema,*,image=None,transport=None,vision_probe=False,timeout_seconds=40):
+    if type(timeout_seconds) is not int or not 1<=timeout_seconds<=90:raise DomainError('Gemma timeout must be bounded to at most 90 seconds')
     required=('GEMMA_API_BASE_URL','GEMMA_API_KEY','GEMMA_MODEL_ID')
     if any(not os.getenv(k) for k in required):raise DomainError('UNAVAILABLE: '+', '.join(k for k in required if not os.getenv(k)))
     if image and os.getenv('GEMMA_VISION_VERIFIED')!='true' and not vision_probe:raise DomainError('UNAVAILABLE: this exact deployed model has not passed image acceptance')
@@ -186,12 +200,12 @@ def gemma(context,schema,*,image=None,transport=None,vision_probe=False):
         {'role':'user','content':content}]}
     if not image and len(json.dumps(payload,ensure_ascii=False).encode())>20000:raise DomainError('Gemma text request exceeds the 20 KB budget envelope')
     if os.getenv('GEMMA_JSON_OBJECT')=='true':payload['response_format']={'type':'json_object'}
-    request_contract={'endpoint':base+'/chat/completions','image_input':bool(image),'response_format':payload.get('response_format'),
+    request_contract={'endpoint':base+'/chat/completions','image_input':bool(image),'response_format':payload.get('response_format'),'timeout_seconds':timeout_seconds,
         'payload_sha256':digest(payload)}
     if image and image.startswith('data:image/png;base64,'):
         image_bytes=base64.b64decode(image.split(',',1)[1],validate=True)
         request_contract.update(image_mime='image/png',image_bytes=len(image_bytes),image_sha256=hashlib.sha256(image_bytes).hexdigest())
-    with httpx.Client(timeout=40,follow_redirects=False,trust_env=False,transport=transport) as client:
+    with _gemma_client(timeout_seconds,transport,started,request_contract,model) as client:
         with client.stream('POST',base+'/chat/completions',headers={'Authorization':'Bearer '+os.environ['GEMMA_API_KEY']},json=payload) as response:
             if response.status_code>=400:
                 retry=response.headers.get('retry-after','')

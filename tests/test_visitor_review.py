@@ -40,7 +40,7 @@ def test_anonymous_live_path_retains_unknowns_and_old_budget(setup,monkeypatch):
     monkeypatch.setenv('MAX_TOTAL_LIVE_RUNS','0')  # old phase ceiling cannot block visitors
     with module.connect() as db:
         v.repo.put_record(db,'system:assisted-budget','gemma','frozen-phase',{'dispatches':18},0)
-    monkeypatch.setattr(v.external,'gemma',lambda context,schema:(calls.append(context) or {'result':proposal(s),'model_id':'mock/local-regression','http_status':200}))
+    monkeypatch.setattr(v.external,'gemma',lambda context,schema,**kw:(calls.append(context) or {'result':proposal(s),'model_id':'mock/local-regression','http_status':200}))
     r=analyze(c,s);assert r.status_code==200,r.text
     result=r.json();assert result['status']=='completed / review required'
     assert {x['value'] for x in result['draft']['candidates']}=={'VENDOR-Z-928','VENDOR-Z-929'}
@@ -146,3 +146,14 @@ def test_actual_entitlement_contract(monkeypatch,remaining,catalog,http_status,e
     else:
         with pytest.raises(v.HTTPException) as e:v.entitlement(httpx.MockTransport(response))
         assert e.value.status_code==expected
+
+
+def test_bounded_transport_failure_has_sanitized_evidence(monkeypatch):
+    monkeypatch.setenv('GEMMA_API_BASE_URL',v.BASE);monkeypatch.setenv('GEMMA_MODEL_ID',v.MODEL);monkeypatch.setenv('GEMMA_API_KEY','mock-private-test-key')
+    def failure(request):raise httpx.ReadTimeout('Do not expose headers or credentials',request=request)
+    with pytest.raises(v.external.ProviderFailure) as e:
+        v.external.gemma({'task':'Local mocked regression'}, {},transport=httpx.MockTransport(failure),timeout_seconds=90)
+    assert e.value.evidence['transport_error']=='ReadTimeout'
+    assert e.value.evidence['request_contract']['timeout_seconds']==90
+    assert 'mock-private-test-key' not in json.dumps(e.value.evidence)
+    with pytest.raises(v.DomainError):v.external.gemma({}, {},timeout_seconds=600)

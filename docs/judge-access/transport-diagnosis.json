@@ -1,0 +1,11 @@
+{
+  "first_attempt": "public/attempt-1-failure.json",
+  "outcome": "provider unavailable; no proposals accepted; no fixture fallback",
+  "elapsed_wall_ms": 40708,
+  "original_adapter_read_timeout_seconds": 40,
+  "original_transport_exception_type": "not retained by the old generic catch",
+  "provider_request_id": "not returned",
+  "diagnosis": "Timing is consistent with the configured timeout, but the original transport cause is not conclusively recoverable. A documented provider usage read after failure contained no newer completed request than 07:17:58 UTC. This does not prove the request was never dispatched.",
+  "changed_retest": "Visitor-only timeout raised to 90 seconds, within its 120-second job lease; protected workflows keep 40 seconds. Transport failures now retain sanitized exception class, payload/endpoint fingerprint and elapsed time. Same bounded 1600-token limit, no automatic retries. One changed-configuration public retest planned.",
+  "spending": "Same verified shared free endpoint; no purchase, key change, paid route or historical-ledger reset."
+}
