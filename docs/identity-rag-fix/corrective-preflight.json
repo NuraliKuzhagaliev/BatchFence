@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-18T07:05:56.519583+00:00",
+  "amd": {
+    "daily_cost_limit_usd": 1,
+    "daily_cost_used_usd": 0.006546064279973507,
+    "daily_cost_remaining_usd": 0.9934539357200265,
+    "daily_reset_at": "2026-10-18T16:00:00.000Z"
+  },
+  "evolus_balances": [
+    {
+      "bucketId": "92e2bcdc-315a-4113-a101-146575a6f72e",
+      "applicationId": "705220fb-be5e-4d61-b1ee-5a5fc824ab8e",
+      "bucketType": {
+        "code": "LLM_CREDITS"
+      },
+      "monthlyBalance": 50000.0,
+      "extraBalance": 0.0,
+      "totalBalance": 50000.0,
+      "lastResetAt": "2026-10-16T22:01:20.3065606Z",
+      "monthlyAllocation": null,
+      "lots": [],
+      "monthlyCreditsResetAt": "2026-11-16T00:00:00Z",
+      "monthlyCreditsRemaining": 50000.0
+    }
+  ],
+  "model_dispatches": 0,
+  "additional_cash_spend": 0,
+  "note": "Existing documented free shared hard cap and nonrenewing event credits; API USD field names meter nonmonetary shared-service points."
+}

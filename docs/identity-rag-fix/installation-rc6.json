@@ -1,23 +1,21 @@
 {
-  "installer": "BatchFence-0.4.0-rc.6-win-x64-setup.exe",
-  "bytes": 113799664,
-  "sha256": "6062549f86447ffda9359071dfad083cbac056acd20333127725729b82f22cf4",
-  "silent_install_exit": 0,
-  "installed_path": "D:\\projects\\BatchFence\\work\\installed-0.4.0-rc.6\\BatchFence Evidence Preview.exe",
-  "app_id": "app.batchfence.identity040rc6",
-  "unsigned": true,
-  "installed_local_assets_equal": [
+  "at": "2026-10-18T07:05:49.149883+00:00",
+  "version": "0.4.0-rc.6",
+  "installer_exit": 0,
+  "bytes": 113799966,
+  "sha256": "fcf7ad60d417c9a63b0ec56681312c6967197956a666c32231aa67f5cb0cc803",
+  "installed_executable": "D:\\projects\\BatchFence\\work\\installed-0.4.0-rc.6\\BatchFence Evidence Preview.exe",
+  "asset_parity": [
     {
-      "name": "index-BUa5d2Eo.js",
-      "sha256": "fc0225c9f43e2148f41ed490aba1c1561f992563557a0d434f4b6d156abe2478"
+      "file": "index-C1izMUIu.css",
+      "sha256": "dc2916c8692bf131bb62ddba706fd4a2247de174d0d35d14039b57bcc4b7121e",
+      "installed_equals_local": true
     },
     {
-      "name": "index-C1izMUIu.css",
-      "sha256": "dc2916c8692bf131bb62ddba706fd4a2247de174d0d35d14039b57bcc4b7121e"
+      "file": "index-DyAKLV_5.js",
+      "sha256": "420f5914e9e231f7b6a70d73d32c9b35f6ae8c667fe9ff5cdda838e5e3734856",
+      "installed_equals_local": true
     }
   ],
-  "preserved_published_releases": [
-    "0.4.0-rc.4",
-    "0.4.0-rc.5"
-  ]
+  "unsigned": true
 }

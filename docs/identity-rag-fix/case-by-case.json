@@ -1,0 +1,269 @@
+{
+  "at": "2026-10-18T07:17:11.790657+00:00",
+  "cases": [
+    {
+      "case": "retained-omission.json",
+      "kind": "historical retained omission",
+      "expected": {
+        "SUP-A": "affected",
+        "SUP-C": "affected",
+        "SUP-B": "explicitly_excluded"
+      },
+      "raw_actual": {
+        "SUP-A": "affected"
+      },
+      "quality": "Raw omissions retained as failures",
+      "after_fix": "Exact local replay retains missing identities as unresolved with unknown scope; explicit source review required",
+      "new_inference": false
+    },
+    {
+      "case": "retained-windows-omission.json",
+      "kind": "historical retained omission",
+      "expected": {
+        "SUP-A": "affected",
+        "SUP-C": "affected",
+        "SUP-B": "explicitly_excluded"
+      },
+      "raw_actual": {
+        "SUP-A": "affected"
+      },
+      "quality": "Raw omissions retained as failures",
+      "after_fix": "Exact local replay retains missing identities as unresolved with unknown scope; explicit source review required",
+      "new_inference": false
+    },
+    {
+      "case": "web",
+      "kind": "fresh Evolus reader/extractor/Gemma annotations",
+      "source": "evals/identity-rag-v1/manifest.json",
+      "raw_incident_annotations_correct": true,
+      "raw_affected": [
+        "SUP-A",
+        "SUP-C"
+      ],
+      "raw_excluded": [
+        "SUP-B"
+      ],
+      "raw_scope_claim": "complete",
+      "assembly": {
+        "contract": "identity-annotations-v1",
+        "source_identity_count": 3,
+        "annotated_identity_count": 3,
+        "missing_annotations": [],
+        "missing_extractions": [],
+        "raw_scope_claim": "complete",
+        "authority": "Extracted identities and model annotations are proposals; explicit original review and approval remain mandatory"
+      },
+      "source_correction": false,
+      "explicit_original_scope_review": true,
+      "applied_units": 800,
+      "receipts": 2,
+      "review": "Agent-operated review of fictional originals and exact source, lot, scope and approval controls. Not independent human validation."
+    },
+    {
+      "case": "windows-corrective",
+      "kind": "fresh Evolus reader/extractor/Gemma annotations",
+      "source": "evals/identity-rag-v1/manifest.json",
+      "raw_incident_annotations_correct": true,
+      "raw_affected": [
+        "SUP-A",
+        "SUP-C"
+      ],
+      "raw_excluded": [
+        "SUP-B"
+      ],
+      "raw_scope_claim": "complete",
+      "assembly": {
+        "contract": "identity-annotations-v1",
+        "source_identity_count": 3,
+        "annotated_identity_count": 3,
+        "missing_annotations": [],
+        "missing_extractions": [],
+        "extractor_format_issues": [
+          "Document metadata QA-901 used incident disposition mentioned; retained as unresolved identity, original review required"
+        ],
+        "raw_scope_claim": "complete",
+        "authority": "Extracted identities and model annotations are proposals; explicit original review and approval remain mandatory"
+      },
+      "source_correction": false,
+      "explicit_original_scope_review": true,
+      "applied_units": 800,
+      "receipts": 2,
+      "review": "Agent-operated review of fictional originals and exact source, lot, scope and approval controls. Not independent human validation."
+    },
+    {
+      "case": "windows initial rc6",
+      "kind": "fresh extraction format error, not lot omission",
+      "retained_job": "clients/windows/document-raw-job.json",
+      "raw_annotations": {
+        "annotations": [
+          {
+            "kind": "supplier_lot",
+            "value": "SUP-A",
+            "incident_status": "affected",
+            "quote": "SUP-A remains affected by the same confirmed coating defect."
+          },
+          {
+            "kind": "supplier_lot",
+            "value": "SUP-B",
+            "incident_status": "explicitly_excluded",
+            "quote": "SUP-B is explicitly excluded from this notice."
+          },
+          {
+            "kind": "supplier_lot",
+            "value": "SUP-C",
+            "incident_status": "affected",
+            "quote": "SUP-C is affected by the confirmed coating defect."
+          }
+        ],
+        "incident_scope": "complete",
+        "scope_evidence": [
+          {
+            "document_id": "DOC-bd1d14ae7614",
+            "block_id": "page-1-line-5",
+            "quote": "Complete incident boundary: this is the exhaustive affected supplier lot list."
+          }
+        ],
+        "changes": [],
+        "contradictions": [],
+        "unresolved": [],
+        "request_drafts": []
+      },
+      "error": "Extractor document_id QA-901 used identity disposition mentioned, outside its enum",
+      "containment": "Rejected before review/intake/narrowing; baseline500 and receipt preserved",
+      "fix": "Only demonstrated non-stock metadata maps to unresolved, original error recorded and raw execution unchanged; scope unknown until review",
+      "local_regression": "metadata-controls.xml",
+      "raw_model_quality": "All three incident annotations correct; extraction format invalid"
+    },
+    {
+      "case": "rag-diagnostic",
+      "kind": "historical unshipped quote-contract diagnostic",
+      "configured_model": "own/gemma-4-31b-it",
+      "runtime_model_identity": "Not returned by this API; configured own Gemma only",
+      "actual_response": {
+        "answer": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. (SOP-FOCUSED-EN, Passage ID: recovery)",
+        "title": "Api request",
+        "agentId": "f31cf1e9-c78b-472b-9c31-2a4d3ea40c87",
+        "conversationId": "b914342d-bc6f-4848-b2f9-8da12fb7701b",
+        "totalTokenCount": null,
+        "citations": []
+      },
+      "quality": "Gemma shortened final caveat; MiMo copied full passage; both lacked native citation metadata",
+      "application_behavior": "Rejected under then-native-only contract; inline experiment not shipped",
+      "comparison_limit": "Different prompts/settings and single asks do not establish model superiority",
+      "new_inference": false
+    },
+    {
+      "case": "rag-compatible",
+      "kind": "historical unshipped quote-contract diagnostic",
+      "configured_model": "own/mimo-v2.6-flash",
+      "runtime_model_identity": "Not returned by this API; configured own model only",
+      "actual_response": {
+        "answer": "Before release or recovery, recorded receiving evidence must resolve the relevant ancestry and the applicable quality condition. A separate authorized approver is required. A source citation, model answer or narrower proposed hold never releases existing applied holds.\n\n\u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a: Document ID: SOP-FOCUSED-EN, Revision: 1, Source hash: 9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee.txt, Passage ID: recovery, Page: 1",
+        "title": "Api request",
+        "agentId": "8c595b4e-425c-49d7-9f0a-5d00293be82f",
+        "conversationId": "66f82b76-1d29-48f0-805b-a1554337a294",
+        "totalTokenCount": null,
+        "citations": []
+      },
+      "quality": "Gemma shortened final caveat; MiMo copied full passage; both lacked native citation metadata",
+      "application_behavior": "Rejected under then-native-only contract; inline experiment not shipped",
+      "comparison_limit": "Different prompts/settings and single asks do not establish model superiority",
+      "new_inference": false
+    }
+  ],
+  "final_rag": {
+    "web": {
+      "configured_model": "own/gemma-4-31b-it",
+      "runtime_model_identity": "Not returned by this API; configured own Gemma only",
+      "conversation_id": "82b57512-ded3-58e5-99ff-e19063d460a7",
+      "citation_resolution": {
+        "basis": "application-verified indexed sources",
+        "provider_annotation_count": 0,
+        "chunks": [
+          {
+            "remote_document_id": "b4113ede-f641-453e-8c1c-6632fb30c6ff",
+            "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+            "chunks": [
+              {
+                "id": "C001",
+                "body_hash": "9c72943ae39faf048024a1c18f3aa631d4fd4356ae355ccc2710798a663ac397"
+              }
+            ]
+          },
+          {
+            "remote_document_id": "b4113ede-f641-453e-8c1c-6632fb30c6ff",
+            "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+            "chunks": [
+              {
+                "id": "C001",
+                "body_hash": "9c72943ae39faf048024a1c18f3aa631d4fd4356ae355ccc2710798a663ac397"
+              },
+              {
+                "id": "C002",
+                "body_hash": "305d3ab800b878a3c2f048cbff48548484c532a73285a239d6b1e02b82955b01"
+              }
+            ]
+          }
+        ]
+      },
+      "consumption": {
+        "credits": 0,
+        "pendingEntries": 0,
+        "costUsd": null,
+        "llmTokens": null,
+        "ocrPages": null,
+        "embeddingTokens": null,
+        "speechToTextSeconds": null,
+        "entries": null
+      },
+      "full_caveat_retained": true
+    },
+    "windows": {
+      "configured_model": "own/gemma-4-31b-it",
+      "runtime_model_identity": "Not returned by this API; configured own Gemma only",
+      "conversation_id": "dceaf91a-afd6-5ab7-a916-75ef5ad18e06",
+      "citation_resolution": {
+        "basis": "application-verified indexed sources",
+        "provider_annotation_count": 0,
+        "chunks": [
+          {
+            "remote_document_id": "ab3cc023-14a8-42f4-bff3-5441e3960974",
+            "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+            "chunks": [
+              {
+                "id": "C001",
+                "body_hash": "9c72943ae39faf048024a1c18f3aa631d4fd4356ae355ccc2710798a663ac397"
+              }
+            ]
+          },
+          {
+            "remote_document_id": "ab3cc023-14a8-42f4-bff3-5441e3960974",
+            "source_hash": "9c5155b3ecc53def260d107d2f8ed25515e46b2dc7b8209e340e78be8db791ee",
+            "chunks": [
+              {
+                "id": "C001",
+                "body_hash": "9c72943ae39faf048024a1c18f3aa631d4fd4356ae355ccc2710798a663ac397"
+              },
+              {
+                "id": "C002",
+                "body_hash": "305d3ab800b878a3c2f048cbff48548484c532a73285a239d6b1e02b82955b01"
+              }
+            ]
+          }
+        ]
+      },
+      "consumption": {
+        "credits": 0,
+        "pendingEntries": 0,
+        "costUsd": null,
+        "llmTokens": null,
+        "ocrPages": null,
+        "embeddingTokens": null,
+        "speechToTextSeconds": null,
+        "entries": null
+      },
+      "full_caveat_retained": true
+    }
+  },
+  "benchmark": "Original inputs, expectations and raw evidence preserved. New PDF frozen before dispatch; no deleted cases, relabeling or expected answers hardcoded in routing."
+}

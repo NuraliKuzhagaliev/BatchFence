@@ -157,6 +157,7 @@ export type Receipt = {
   changes: { pool_id: string; units: number; before: string; after: string }[];
 };
 export type Case = {
+  visitor_review?: boolean;
   enterprise_packet?: Record<string, any>;
   enterprise_example?: boolean;
   procedure_checks?: Record<string, any>[];

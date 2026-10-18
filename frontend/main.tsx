@@ -48,6 +48,7 @@ import {
 import { EnterprisePanels } from "./EnterprisePanels";
 import { RecoveryPanel } from "./RecoveryPanel";
 import { ContinuationPanel } from "./ContinuationPanels";
+import { VisitorReview } from "./VisitorReview";
 import "./style.css";
 const euro = (n: number) =>
   new Intl.NumberFormat("en-IE", {
@@ -288,6 +289,7 @@ function App() {
   const [requiresSignIn, setRequiresSignIn] = useState(false);
   const [pilotIdentity, setPilotIdentity] = useState<string>("");
   const [liveProtected, setLiveProtected] = useState(false);
+  const [visitorReady, setVisitorReady] = useState(false);
   const [replayAvailable, setReplayAvailable] = useState(false);
   const [temporaryStorage, setTemporaryStorage] = useState(false);
   const connectionWasAvailable = useRef(true);
@@ -337,6 +339,7 @@ function App() {
           inference_mode: string;
           amd_configured: boolean;
           live_protected: boolean;
+          visitor_review_enabled?: boolean;
           public_demo: boolean;
           storage_mode: string;
           replay_available: boolean;
@@ -360,6 +363,7 @@ function App() {
         if (!active) return;
         setCases(all);
         setLiveProtected(health.live_protected);
+        setVisitorReady(!!health.visitor_review_enabled);
         setTemporaryStorage(health.storage_mode === "ephemeral");
         setReplayAvailable(health.replay_available);
         if (!inferenceModeInitialized.current) {
@@ -913,7 +917,11 @@ function App() {
               )}
             </div>
           )}
-          {state && section !== "incidents" ? (
+          {state?.visitor_review ? (
+            <VisitorReview key={state.id} state={state} update={accept} readOnly={!!packet}
+              leave={() => { setData(null); setPacket(null); setSection("incidents"); }}
+              renderOriginal={doc => <SourceText doc={doc} caseId={state.id} readOnly={!!packet} />} />
+          ) : state && section !== "incidents" ? (
             <EnterprisePanels
               key={state.id + section}
               section={section}
@@ -945,6 +953,13 @@ function App() {
                   records, and approve the exact plan you reviewed.
                 </p>
                 <div className="welcome-buttons">
+                  {!native && visitorReady && <button className="button primary" disabled={!!busy || !online || !ready}
+                    onClick={() => void task("Starting your isolated document review", async () => {
+                      accept(await request<Case>("POST", "/api/cases/visitor", {}));
+                      setSection("incidents");
+                    })}>
+                    Analyze your document <UploadIcon size={17} />
+                  </button>}
                   <button
                     className="button primary"
                     onClick={demo}
@@ -969,7 +984,7 @@ function App() {
                 <p className="source-note">
                   Example records are fictional. Recorded packets preserve their
                   original provenance.
-                  {liveProtected && (
+                  {liveProtected && !visitorReady && (
                     <>
                       <br />
                       Live inference requires a private access key. Use

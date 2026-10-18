@@ -1,0 +1,8 @@
+Helio Components — supplier quality notice QN-732
+Issued 18 October 2026
+Supplier lot HELIO-731 has a coating adhesion defect and requires containment review.
+Supplier lot HELIO-732 is explicitly excluded from this notice after the separate inspection.
+The relationship of lot HELIO-733 to this shipment is unconfirmed; do not exclude it based on this notice.
+This is an interim notice. The final incident boundary remains unresolved pending the receiving records.
+No customer stock quantities, finished-goods genealogy or order allocations are supplied.
+Fictional nonsensitive engineering acceptance document.

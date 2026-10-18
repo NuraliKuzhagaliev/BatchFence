@@ -1,6 +1,6 @@
 {
-  "run": 39105185366,
-  "commit": "1e456db376caa37be2860483d44109342f3f9fe8",
+  "run": 39106687601,
+  "commit": "d6fa31f7d321b0e0c51dad5afcb577b6e31e8130",
   "results": [
     {
       "job_log": "windows-hotfix/8_Check actual packaged Electron UI and native transport.txt",
@@ -24,7 +24,7 @@
     {
       "job_log": "verify/11_Build Linux container and verify restart persistence.txt",
       "result": {
-        "at": "2026-10-18T06:47:08.518135+00:00",
+        "at": "2026-10-18T07:12:14.502988+00:00",
         "mode": "fixture",
         "live_inference": false,
         "checks": [

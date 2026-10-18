@@ -1,3 +1,55 @@
+# Public judging workflow — in progress (2026-10-18)
+
+Branch `feat/public-judge-review` preserves rc6 runtime/tag/evidence and the existing README/presentation work. Source-only visitor cases start with empty inventory. Direct AMD Gemma processing checks current shared catalog/usage rather than historical engineering reservations. Old owner routes remain token-protected; visitor inventory/scope/action endpoints reject.
+
+Completed locally: 13 targeted mocked regressions and production build. Metadata-only AMD preflight passed (Gemma-4-31B-IT, approximately 0.993254 nonmonetary points). Current manual says shared endpoints are free with a hard daily cap; no published event-access end date. Quota reset 2026-10-18T16:00Z is not access expiry. No new inference yet.
+
+Pending: targeted browser/UI and safety verification, minimal fresh deployed acceptance on a new fictional non-sample document, unrelated-input rejection, independent-session isolation, CI/publication. `PUBLIC_REVIEW_ENABLED` defaults false until activation. Existing 18/18 engineering ledger and all credentials remain unchanged. No purchase, key rotation, real inventory action or hackathon submission. Windows rc6 installer stays preserved; new visitor entry is web-only.
+
+Resume: finish targeted checks, then publish via existing GitHub/Free Render flow and verify anonymous deployed upload → genuine model response → original-source inspection. Do not claim live judging acceptance before this passes.
+
+---
+
+# BatchFence 0.4.0-rc.6 — verified source identity and RAG release
+
+Web: https://batchfence.onrender.com. Windows and source release: https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.6. Verified runtime/tag/source **d6fa31f7d321b0e0c51dad5afcb577b6e31e8130**; final evidence is a separate recoverable Git checkpoint linked from the release body. Prior rc4/rc5/stable releases are preserved.
+
+## What changed and what actually passed
+
+- The interpretation agent annotates the exact source identity inventory. Assembly retains missing extraction/interpretation as unresolved, keeps scope unknown, and also uses the newer independent recorded-identity guard. Raw proposals remain separate from original-based review, calculation, approval and execution.
+- Fresh public and installed Windows PDF responses retained SUP-A/SUP-C affected and SUP-B explicitly excluded. Explicit source/scope review and approval reached 800 units/two receipts; stale approval rejected; packets reopened read-only without action authority. Current 500-unit baselines are explicitly fixtures; prior genuine first-500 evidence is reused separately. Public fresh processing used runtime 1e456db; final metadata-only containment change reused that unaffected evidence, then final public/local/installed asset parity and UI checks passed. Windows corrective fresh processing used the final runtime above.
+- Initial Windows extraction used invalid identity disposition `mentioned` for document metadata QA-901. It was rejected before review/narrowing. The format error recurred in the corrective live run: only this demonstrated non-stock case becomes unresolved metadata, scope stays unknown until explicit original review, and the raw error remains visible. All four critical identity types remain strict. Incident-label correctness is not the same as error-free raw extraction.
+- Both clients completed genuine Evolus-mediated Gemma RAG processing. Exact versioned selections resolve only after independently reading identified remote chunks and checking the current approved original/hash/version. The full no-release caveat is displayed. These are **application-verified indexed-source citations**; provider-native annotations remain empty. No receipt or existing hold changed through consultation. Legacy bindings require explicit same-owner reconciliation; no silent upgrade/cross-owner adoption.
+- Configured model `own/gemma-4-31b-it`; Evolus runtime model identity is unavailable. Historical Gemma/MiMo natural-quote diagnostics and the unshipped inline experiment remain clearly labelled. One-case differences do not establish model superiority. All reviews were agent-operated fictional engineering, not independent human acceptance.
+
+## Verification and artifacts
+
+The interrupted source download was preserved byte for byte at `D:\projects\BatchFence\work\identity-rag-fix\downloads\BatchFence-0.4.0-rc.6-source.zip` (101,711,872 bytes, SHA256 `650d791419eaed2c7bea6922830e55f3e56d0d0af374b6a76d9f2b1d69851095`). Only the missing 39,149,562 bytes were retrieved with validated HTTP206 and assembled into a separate complete source ZIP in `work/identity-rag-fix/downloads-resumed/`. The already verified anonymous installer was reused. This resumed completion performed no inference, builds, deployments, credential updates or key rotations.
+
+Main CI 39106687601 passed **491 tests**, 30 domain cases, production build, known-secret audit, 8 actual Linux container/restart/isolation checks and 5 packaged Windows UI/native-transport checks. 78 affected controls passed, including the exact retained format failure, historical omissions, partial/conflicting notices, unsupported exclusions and malformed/foreign references. Existing reconciled focus/reconnect/export/PDF/layout checks are reused. Final web/installed zero-inference smoke, 390 px layout, desktop-only Open web app and web-only Windows download passed with no page errors.
+
+All **five assets** were fully downloaded anonymously and matched their checksums. All **2,185 source files** match the actual release-tag archive byte for byte. Public/local/installed frontend bytes match. Final installer installed successfully (exit 0), is unsigned, 113,799,966 bytes, SHA256 `fcf7ad60d417c9a63b0ec56681312c6967197956a666c32231aa67f5cb0cc803`.
+
+Local artifacts: `D:\projects\BatchFence\releases\BatchFence-0.4.0-rc.6-win-x64-setup.exe`, corresponding source ZIP, notes, manifest and `SHA256SUMS-0.4.0-rc.6.txt`. Installed executable: `D:\projects\BatchFence\work\installed-0.4.0-rc.6\BatchFence Evidence Preview.exe`. Actual private exported packet: `D:\projects\BatchFence\work\identity-rag-fix\windows-corrective-packet.json`; web packet alongside. Public evidence: `docs/identity-rag-fix/RESULTS.md`, `case-by-case.json`, `raw-quality.json`, `clients/`, `main-ci.json`, `final-platform-ci.json`, `publication.json` and `publication-smoke.json`. Raw failures and original sources remain retained.
+
+## Opening and remaining actions
+
+Open the web link or installed executable. Sources & intake → connected assistance uses the separate private workspace live-access token; provider keys stay server-side. The existing `.env` at **D:\projects\BatchFence\.env** remains the only local configuration; no key values were displayed or rotated. Review every proposed fact, exclusion and completeness boundary against the original before calculation/approval. Export before leaving, sleep or redeployment; free server storage is temporary. Reopened packets are historical read-only evidence.
+
+The finite engineering phase is complete: **18/18 conservative equivalents**, explicitly refined from 16 after the demonstrated Windows defect; all previous attempts and ledgers preserved. Seven top-level live operations:3 native-PDF workflows and4 RAG asks, including diagnostics/failure/corrective run. No more model calls or automatic retries. Evolus observed balance 50,000 credits; AMD shared remaining 0.9932541246525943 nonmonetary points. Exposed finalized BYOK accounting 0 credits/no pending entries; internal tokens/cost and indexing-specific final tariff remain unknown. Zero observed balance delta does not imply universal free embeddings. No purchases, paid infrastructure, key rotations, submission, external messages or enterprise inventory actions.
+
+**For a later fresh live demonstration:** refresh a distinct finite authorized nonsecret allowance from actual current provider evidence, retaining this completed ledger. The current Gemma test allowance is exhausted; do not reset/relabel it to repeat evaluation. Existing proof expires **18 October 2026 at 16:00 UTC / 21:00 Qyzylorda**. Necessary settings are the existing `GEMMA_COST_APPROVAL_JSON`/`EVOLUS_COST_APPROVAL_JSON` (and their local proof files) on the same service and local configuration, preserving all keys. No new or rotated credential or purchase is needed. There is no remaining credential-access blocker for this completed task.
+
+Verdict: **verified for a review-controlled hackathon demonstration**, with the above finite live-use gate. General raw-model correctness, scan OCR, independent operator/domain/photo acceptance and production enterprise readiness are not established. Provider-native citation metadata remains absent; the recurring document-metadata format error remains safely contained/review-required. Windows is unsigned; Free Render can sleep/show its wake page and lose server state. Prior vision and all other extension evidence are preserved, not re-claimed as freshly evaluated.
+
+Commands from `D:\projects\BatchFence`: `npm run build`; `.venv\Scripts\python.exe -m pytest -q`; `.venv\Scripts\python.exe -m scripts.evaluate`; `.venv\Scripts\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8787`; `npm run package:desktop -- --publish never`. One-shot live acceptance helpers must not be rerun under this completed allowance.
+
+---
+
+## Historical checkpoints below
+
+Earlier pending/blocked/candidate statements below describe their own timestamps and are superseded by this verified release record.
+
 # rc.6 focused metadata containment — final live gate pending
 
 The updated workflow passed fresh public-web acceptance: revised original PDF retained SUP-A/SUP-B/SUP-C, source review and approval reached 800 units with two receipts, stale apply was rejected, and genuine Evolus RAG displayed the complete original caveat with independently verified chunk identities. Provider-native annotations were empty; these are explicitly application-verified indexed-source citations.
