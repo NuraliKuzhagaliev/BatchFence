@@ -141,7 +141,7 @@ async def domain_error(request, exc):
 
 
 @contextmanager
-def transaction(case_id, owner):
+def transaction(case_id, owner, *, allow_visitor=False):
     db = connect()
     try:
         db.execute('BEGIN IMMEDIATE')
@@ -150,6 +150,8 @@ def transaction(case_id, owner):
         if not row:
             fail('NOT_FOUND', 'Case unavailable in this session', 404)
         state = json.loads(row[0])
+        if state.get('visitor_review') and not allow_visitor:
+            fail('REVIEW_ONLY', 'Visitor source review cannot acquire inventory, sample relationships or action authority.', 403)
         workspace.hydrate(db,owner,state)
         before_state = copy.deepcopy(state)
         yield db, state
@@ -435,7 +437,7 @@ def upload(case_id: str, data: Upload, request: Request):
     if sum(len(b['text']) for b in doc['blocks']) > 80_000:
         fail('TEXT_LIMIT', 'Normalized text exceeds 80,000 characters', 413)
     pending = parse_csv(doc) if suffix == '.csv' else None
-    with transaction(case_id, request.state.owner) as (db, s):
+    with transaction(case_id, request.state.owner, allow_visitor=True) as (db, s):
         repository.save_source(db, request.state.owner, raw)
         for page in ocr_images:
             repository.save_source(db, request.state.owner, page['raw'])

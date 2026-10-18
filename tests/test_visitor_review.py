@@ -51,6 +51,7 @@ def test_anonymous_live_path_retains_unknowns_and_old_budget(setup,monkeypatch):
     state=c.get('/api/cases/'+s['id']).json();assert not state['stocks'] and not state['edges'] and not state['receipts']
     for route in ('approve','apply','assist-intake','analyze','revision'):
         assert c.post(f"/api/cases/{s['id']}/{route}",json={}).status_code==403
+    assert c.post('/api/enterprise/example',json={'case_id':s['id'],'acknowledged_synthetic':True}).status_code==403
     r=c.post(f"/api/cases/{s['id']}/visitor-review",json={'proposal_id':result['id'],'revision':s['revision'],'reviewed':True,'note':'I checked the exact original lot statements.'})
     assert r.status_code==200,r.text
     assert 'authority' in r.json()['review']
