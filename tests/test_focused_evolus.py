@@ -62,6 +62,7 @@ def test_uncertain_submission_deduplicates_and_reconciles_without_new_inference(
     state=post(client,'/api/cases/demo');doc=state['documents'][0];r='/api/cases/'+state['id'];calls=[]
     monkeypatch.setattr(external,'contract',lambda:{})
     monkeypatch.setattr(external,'reserve',lambda *a,**k:{'injected':True})
+    monkeypatch.setattr(external,'allowance',lambda *a,**k:{})
     for k,v in {'EVOLUS_WORKFLOW_ID':'flow','EVOLUS_EXTRACTOR_ID':'extractor','EVOLUS_AGENT_ID':'agent','EVOLUS_GEMMA_MODEL_KEY':'own/test','GEMMA_MODEL_ID':'test'}.items():monkeypatch.setenv(k,v)
     eid='11111111-1111-1111-1111-111111111111'
     def operation(name,inputs,**kwargs):

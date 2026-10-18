@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "factor": 1,
+      "metrics": {
+        "width": 1344,
+        "scroll": 1329,
+        "dpr": 1,
+        "focused": "Run Evolus document workflow"
+      },
+      "original_page2_visible": true,
+      "keyboard_focus": true,
+      "installed_client": true,
+      "inference_calls": 0
+    },
+    {
+      "factor": 1.25,
+      "metrics": {
+        "width": 1350,
+        "scroll": 1335,
+        "dpr": 1.25,
+        "focused": "Run Evolus document workflow"
+      },
+      "original_page2_visible": true,
+      "keyboard_focus": true,
+      "installed_client": true,
+      "inference_calls": 0
+    }
+  ],
+  "method": "Real installed rc4, Chromium device scale override100%/125%; OS settings unchanged. Native file chooser not repeated."
+}
