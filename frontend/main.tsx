@@ -33,11 +33,21 @@ import {
 } from "./platform";
 import type { Case, Document, Evidence, Packet, Upload, Run } from "./types";
 import { Graph, GenealogyPreview, labels } from "./Graph";
-import { EvidencePlanner, RevisionComparison, VerificationPanel, Elapsed } from "./UpgradePanels";
-import {PilotLogin,QuantityStrip,IntakePanel,OcrReview} from "./FoundationPanels";
-import {EnterprisePanels} from './EnterprisePanels';
-import {RecoveryPanel} from './RecoveryPanel';
-import {ContinuationPanel} from './ContinuationPanels';
+import {
+  EvidencePlanner,
+  RevisionComparison,
+  VerificationPanel,
+  Elapsed,
+} from "./UpgradePanels";
+import {
+  PilotLogin,
+  QuantityStrip,
+  IntakePanel,
+  OcrReview,
+} from "./FoundationPanels";
+import { EnterprisePanels } from "./EnterprisePanels";
+import { RecoveryPanel } from "./RecoveryPanel";
+import { ContinuationPanel } from "./ContinuationPanels";
 import "./style.css";
 const euro = (n: number) =>
   new Intl.NumberFormat("en-IE", {
@@ -65,52 +75,185 @@ function SourceText({
   doc,
   evidence,
   caseId,
-  readOnly=false,
+  readOnly = false,
 }: {
   doc?: Document;
   evidence?: Evidence | null;
-  caseId?:string;
-  readOnly?:boolean;
+  caseId?: string;
+  readOnly?: boolean;
 }) {
-  const pages=[...new Set(doc?.blocks.map(b=>b.page||1)||[1])].sort((a,b)=>a-b);
-  const [page,setPage]=useState(1),[image,setImage]=useState(''),[imageError,setImageError]=useState('');
-  useEffect(()=>{setPage(doc?.blocks.find(b=>b.id===evidence?.block_id)?.page||1);},[doc?.id,evidence?.block_id]);
-  useEffect(()=>{let active=true;setImage('');setImageError('');if(caseId&&doc?.media_type==='application/pdf'&&!readOnly)request<{data_url:string}>('GET',`/api/cases/${caseId}/documents/${doc.id}/pages/${page}`).then(r=>{if(active)setImage(r.data_url);},e=>{if(active)setImageError(e.message);});return()=>{active=false;};},[caseId,doc?.id,page,readOnly]);
+  const pages = [...new Set(doc?.blocks.map((b) => b.page || 1) || [1])].sort(
+    (a, b) => a - b,
+  );
+  const [page, setPage] = useState(1),
+    [image, setImage] = useState(""),
+    [imageError, setImageError] = useState(""),
+    [imageLoading, setImageLoading] = useState(false),
+    [previewAttempt, setPreviewAttempt] = useState(0);
+  useEffect(() => {
+    setPage(doc?.blocks.find((b) => b.id === evidence?.block_id)?.page || 1);
+  }, [doc?.id, evidence?.block_id]);
+  useEffect(() => {
+    let active = true;
+    setImage("");
+    setImageError("");
+    if (caseId && doc?.media_type === "application/pdf" && !readOnly) {
+      setImageLoading(true);
+      request<{ data_url: string }>(
+        "GET",
+        `/api/cases/${caseId}/documents/${doc.id}/pages/${page}`,
+      ).then(
+        (r) => {
+          if (active) {
+            setImage(r.data_url);
+            setImageLoading(false);
+          }
+        },
+        (e) => {
+          if (active) {
+            setImageError(e.message);
+            setImageLoading(false);
+          }
+        },
+      );
+    } else setImageLoading(false);
+    return () => {
+      active = false;
+    };
+  }, [caseId, doc?.id, page, readOnly, previewAttempt]);
   return (
     <div className="source-text">
-      {doc?.media_type==='application/pdf'&&<><label>Original PDF page<select aria-label="Original PDF page" value={page} onChange={e=>setPage(Number(e.target.value))}>{pages.map(p=><option key={p} value={p}>Page {p}</option>)}</select></label>{image&&<img className="pdf-page-preview" src={image} alt={`Original PDF page ${page} of ${doc.filename}`}/>}<p className="caption">Retained original PDF · {doc.original_hash.slice(0,12)}. Page preview is derived rendering; passages below come from the retained parser.</p>{imageError&&<p className="caption" role="status">Page preview unavailable: {imageError}. Retained text remains available.</p>}{readOnly&&<p className="caption">Original page preview requires the authorized source store; this historical packet contains retained text and provenance.</p>}</>}
-      {doc?.blocks.filter(b=>doc.media_type!=='application/pdf'||(b.page||1)===page).map((b) => (
-        <div
-          key={b.id}
-          className={
-            "source-block " + (evidence?.block_id === b.id ? "highlight" : "")
-          }
-        >
-          <span>{b.id}</span>
-          <p>{b.text}</p>
-        </div>
-      ))}
+      {doc?.media_type === "application/pdf" && (
+        <>
+          <label>
+            Original PDF page
+            <select
+              aria-label="Original PDF page"
+              value={page}
+              disabled={imageLoading}
+              onChange={(e) => setPage(Number(e.target.value))}
+            >
+              {pages.map((p) => (
+                <option key={p} value={p}>
+                  Page {p}
+                </option>
+              ))}
+            </select>
+          </label>
+          {image && (
+            <img
+              className="pdf-page-preview"
+              src={image}
+              alt={`Original PDF page ${page} of ${doc.filename}`}
+            />
+          )}
+          {imageLoading && (
+            <p className="caption" role="status">
+              Rendering retained original page…
+            </p>
+          )}
+          <p className="caption">
+            Retained original PDF · {doc.original_hash.slice(0, 12)}. Page
+            preview is derived rendering; passages below come from the retained
+            parser.
+          </p>
+          {imageError && (
+            <p className="caption" role="status">
+              Page preview unavailable: {imageError}. Retained text remains
+              available.
+              <button
+                className="text-button"
+                disabled={imageLoading}
+                onClick={() => setPreviewAttempt((n) => n + 1)}
+              >
+                Retry original preview
+              </button>
+            </p>
+          )}
+          {readOnly && (
+            <p className="caption">
+              Original page preview requires the authorized source store; this
+              historical packet contains retained text and provenance.
+            </p>
+          )}
+        </>
+      )}
+      {doc?.blocks
+        .filter(
+          (b) => doc.media_type !== "application/pdf" || (b.page || 1) === page,
+        )
+        .map((b) => (
+          <div
+            key={b.id}
+            className={
+              "source-block " + (evidence?.block_id === b.id ? "highlight" : "")
+            }
+          >
+            <span>{b.id}</span>
+            <p>{b.text}</p>
+          </div>
+        ))}
     </div>
   );
 }
-const RELEASE_URL = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.3";
-const WINDOWS_DOWNLOAD = "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.4.0-rc.3/BatchFence-0.4.0-rc.3-win-x64-setup.exe";
+const RELEASE_URL =
+  "https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.4";
+const WINDOWS_DOWNLOAD =
+  "https://github.com/NuraliKuzhagaliev/BatchFence/releases/download/v0.4.0-rc.4/BatchFence-0.4.0-rc.4-win-x64-setup.exe";
 function PlatformLinks({ openWeb }: { openWeb: () => void }) {
   return native ? (
-    <button className="button" onClick={openWeb}><ExternalLink size={16} />Open web app</button>
+    <button className="button" onClick={openWeb}>
+      <ExternalLink size={16} />
+      Open web app
+    </button>
   ) : (
     <>
-      <a className="button primary" href={WINDOWS_DOWNLOAD}><FileDown size={16} />Download for Windows</a>
-      <a className="text-button" href={RELEASE_URL} target="_blank" rel="noopener noreferrer">Release notes <ExternalLink size={14} /></a>
+      <a className="button primary" href={WINDOWS_DOWNLOAD}>
+        <FileDown size={16} />
+        Download for Windows
+      </a>
+      <a
+        className="text-button"
+        href={RELEASE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Release notes <ExternalLink size={14} />
+      </a>
     </>
   );
 }
 function App() {
-  type Checkpoint={caseId:string;revision:number;inventoryVersion:number;hash:string;at:string;dirty:boolean};
-  const [checkpoint,setCheckpoint]=useState<Checkpoint|null>(()=>{try{return JSON.parse(localStorage.getItem('bf.checkpoint.v1')||'null');}catch{return null;}});
-  const workGeneration=useRef(0);
-  useEffect(()=>{const changed=()=>{workGeneration.current++;setCheckpoint(c=>{if(!c)return c;const next={...c,dirty:true};localStorage.setItem('bf.checkpoint.v1',JSON.stringify(next));return next;});};window.addEventListener('bf:work-changed',changed);return()=>window.removeEventListener('bf:work-changed',changed);},[]);
-  const [section,setSection]=useState('incidents');
+  type Checkpoint = {
+    caseId: string;
+    revision: number;
+    inventoryVersion: number;
+    hash: string;
+    at: string;
+    dirty: boolean;
+  };
+  const [checkpoint, setCheckpoint] = useState<Checkpoint | null>(() => {
+    try {
+      return JSON.parse(localStorage.getItem("bf.checkpoint.v1") || "null");
+    } catch {
+      return null;
+    }
+  });
+  const workGeneration = useRef(0);
+  useEffect(() => {
+    const changed = () => {
+      workGeneration.current++;
+      setCheckpoint((c) => {
+        if (!c) return c;
+        const next = { ...c, dirty: true };
+        localStorage.setItem("bf.checkpoint.v1", JSON.stringify(next));
+        return next;
+      });
+    };
+    window.addEventListener("bf:work-changed", changed);
+    return () => window.removeEventListener("bf:work-changed", changed);
+  }, []);
+  const [section, setSection] = useState("incidents");
   const [data, setData] = useState<Case | null>(null),
     [packet, setPacket] = useState<Packet | null>(null),
     [busy, setBusy] = useState(""),
@@ -129,7 +272,7 @@ function App() {
     [lots, setLots] = useState(""),
     [uncertainLots, setUncertainLots] = useState(""),
     [excludedLots, setExcludedLots] = useState(""),
-    [corrections, setCorrections] = useState<Record<string,string>>({}),
+    [corrections, setCorrections] = useState<Record<string, string>>({}),
     [scopeResolved, setScopeResolved] = useState(false),
     [resolutionQuote, setResolutionQuote] = useState(""),
     [reviewNote, setReviewNote] = useState(""),
@@ -142,8 +285,8 @@ function App() {
     >([]),
     input = useRef<HTMLInputElement>(null),
     packetInput = useRef<HTMLInputElement>(null);
-  const [requiresSignIn,setRequiresSignIn]=useState(false);
-  const [pilotIdentity,setPilotIdentity]=useState<string>('');
+  const [requiresSignIn, setRequiresSignIn] = useState(false);
+  const [pilotIdentity, setPilotIdentity] = useState<string>("");
   const [liveProtected, setLiveProtected] = useState(false);
   const [replayAvailable, setReplayAvailable] = useState(false);
   const [temporaryStorage, setTemporaryStorage] = useState(false);
@@ -198,9 +341,20 @@ function App() {
           storage_mode: string;
           replay_available: boolean;
         }>("GET", "/api/health");
-        if(health.profile==='pilot'){
-          try {const me=await request<{actor:{username:string}}>('GET','/api/auth/me');if(active)setPilotIdentity(me.actor.username);}
-          catch {if(active){setRequiresSignIn(true);setOnline(true);}return;}
+        if (health.profile === "pilot") {
+          try {
+            const me = await request<{ actor: { username: string } }>(
+              "GET",
+              "/api/auth/me",
+            );
+            if (active) setPilotIdentity(me.actor.username);
+          } catch {
+            if (active) {
+              setRequiresSignIn(true);
+              setOnline(true);
+            }
+            return;
+          }
         }
         const all = await request<typeof cases>("GET", "/api/cases");
         if (!active) return;
@@ -209,20 +363,45 @@ function App() {
         setTemporaryStorage(health.storage_mode === "ephemeral");
         setReplayAvailable(health.replay_available);
         if (!inferenceModeInitialized.current) {
-        setMode(
-          health.amd_configured && health.inference_mode === "live" && !health.live_protected
-            ? "live"
-            : "fixture",
-        );
-        inferenceModeInitialized.current = true;
+          setMode(
+            health.amd_configured &&
+              health.inference_mode === "live" &&
+              !health.live_protected
+              ? "live"
+              : "fixture",
+          );
+          inferenceModeInitialized.current = true;
         }
         const id = localStorage.getItem("bf.case");
         if (id && all.some((c) => c.id === id)) {
           const c = await request<Case>("GET", "/api/cases/" + id);
           if (active) setData(c);
-          try{const saved=JSON.parse(localStorage.getItem('bf.checkpoint.v1')||'null');if(saved?.caseId===id){const current=await request<Packet>('GET',`/api/cases/${id}/export`);if(active){const next={...saved,dirty:saved.hash!==current.integrity_hash};setCheckpoint(next);localStorage.setItem('bf.checkpoint.v1',JSON.stringify(next));}}}catch{/* An unavailable checkpoint comparison cannot establish a successful save. */}
+          try {
+            const saved = JSON.parse(
+              localStorage.getItem("bf.checkpoint.v1") || "null",
+            );
+            if (saved?.caseId === id) {
+              const current = await request<Packet>(
+                "GET",
+                `/api/cases/${id}/export`,
+              );
+              if (active) {
+                const next = {
+                  ...saved,
+                  dirty: saved.hash !== current.integrity_hash,
+                };
+                setCheckpoint(next);
+                localStorage.setItem("bf.checkpoint.v1", JSON.stringify(next));
+              }
+            }
+          } catch {
+            /* An unavailable checkpoint comparison cannot establish a successful save. */
+          }
         }
-        if(!connectionWasAvailable.current)setNotice('Backend reconnected. Current evidence and action state reloaded.');
+        if (!connectionWasAvailable.current)
+          setNotice(
+            "Backend reconnected. Current evidence and action state reloaded.",
+          );
         setOnline(true);
         connectionWasAvailable.current = true;
       } catch {
@@ -234,12 +413,22 @@ function App() {
     }
     void boot();
     // User activity checks connectivity without keeping a free host awake.
-    const focus = () => { if(document.visibilityState==='visible') void boot(); };
-    const offline=()=>{connectionWasAvailable.current=false;setOnline(false);};
-    window.addEventListener('focus',focus);
-    window.addEventListener('online',focus);
-    window.addEventListener('offline',offline);
-    return () => {active=false;window.removeEventListener('focus',focus);window.removeEventListener('online',focus);window.removeEventListener('offline',offline);};
+    const focus = () => {
+      if (document.visibilityState === "visible") void boot();
+    };
+    const offline = () => {
+      connectionWasAvailable.current = false;
+      setOnline(false);
+    };
+    window.addEventListener("focus", focus);
+    window.addEventListener("online", focus);
+    window.addEventListener("offline", offline);
+    return () => {
+      active = false;
+      window.removeEventListener("focus", focus);
+      window.removeEventListener("online", focus);
+      window.removeEventListener("offline", offline);
+    };
   }, []);
   useEffect(() => {
     if (state)
@@ -266,9 +455,17 @@ function App() {
   }
   async function replayDemo() {
     await task("Opening historical AMD evidence", async () => {
-      const p = await validatePacket(await request<Packet>("GET", "/api/replay"));
-      setPacket(p); setReview(false); setSource(""); setEvidence(null); setTab("map");
-      setNotice("Replay · historical live AMD response on synthetic records. Agent-operated review; no new inference or independent human validation.");
+      const p = await validatePacket(
+        await request<Packet>("GET", "/api/replay"),
+      );
+      setPacket(p);
+      setReview(false);
+      setSource("");
+      setEvidence(null);
+      setTab("map");
+      setNotice(
+        "Replay · historical live AMD response on synthetic records. Agent-operated review; no new inference or independent human validation.",
+      );
     });
   }
   async function analyze() {
@@ -287,7 +484,10 @@ function App() {
         const r = s.runs.at(-1);
         if (r?.status !== "succeeded")
           throw Error(r?.error || "Interpretation failed");
-        if (doc.request_id) { setReview(false); setTab("requests"); } else beginReview(r);
+        if (doc.request_id) {
+          setReview(false);
+          setTab("requests");
+        } else beginReview(r);
         setMobile("map");
       },
     );
@@ -295,7 +495,9 @@ function App() {
   function beginReview(r: Run) {
     setCorrections({});
     setLots("");
-    setUncertainLots([...new Set(r.output!.facts.map(f => f.lot_id))].join(", "));
+    setUncertainLots(
+      [...new Set(r.output!.facts.map((f) => f.lot_id))].join(", "),
+    );
     setExcludedLots("");
     setChecked(false);
     setBounded(false);
@@ -317,8 +519,14 @@ function App() {
             .filter(Boolean),
           accept_scope: checked,
           lot_corrections: corrections,
-          uncertain_lot_ids: uncertainLots.split(",").map(l => l.trim()).filter(Boolean),
-          excluded_lot_ids: excludedLots.split(",").map(l => l.trim()).filter(Boolean),
+          uncertain_lot_ids: uncertainLots
+            .split(",")
+            .map((l) => l.trim())
+            .filter(Boolean),
+          excluded_lot_ids: excludedLots
+            .split(",")
+            .map((l) => l.trim())
+            .filter(Boolean),
           incident_scope_status: scopeResolved ? "resolved" : "unresolved",
           resolution_quote: resolutionQuote,
           bounded_scope_reviewed: bounded,
@@ -360,7 +568,9 @@ function App() {
           digest: plan.digest,
         }),
       );
-      setNotice("This exact plan is approved. Workspace holds can now be applied.");
+      setNotice(
+        "This exact plan is approved. Workspace holds can now be applied.",
+      );
     });
   }
   async function apply(test = false) {
@@ -431,15 +641,31 @@ function App() {
       const p =
         packet ||
         (await request<Packet>("GET", "/api/cases/" + state.id + "/export"));
-      const generation=workGeneration.current;
-      const saved=await savePacket(p);
-      if (saved===true){
-        const savedCheckpoint={caseId:p.case.id,revision:p.case.revision,inventoryVersion:p.case.inventory_version,hash:p.integrity_hash,at:new Date().toISOString(),dirty:generation!==workGeneration.current};
-        setCheckpoint(savedCheckpoint);localStorage.setItem('bf.checkpoint.v1',JSON.stringify(savedCheckpoint));
+      const generation = workGeneration.current;
+      const saved = await savePacket(p);
+      if (saved === true) {
+        const savedCheckpoint = {
+          caseId: p.case.id,
+          revision: p.case.revision,
+          inventoryVersion: p.case.inventory_version,
+          hash: p.integrity_hash,
+          at: new Date().toISOString(),
+          dirty: generation !== workGeneration.current,
+        };
+        setCheckpoint(savedCheckpoint);
+        localStorage.setItem(
+          "bf.checkpoint.v1",
+          JSON.stringify(savedCheckpoint),
+        );
         setNotice(
           "Decision packet saved with source extracts, review history and receipts.",
         );
-      }else setNotice(saved==='download-started'?'Packet download started. Completion is unconfirmed by this browser; check your Downloads folder. No saved-checkpoint claim is made.':'Packet save cancelled; the current work has not been checkpointed.');
+      } else
+        setNotice(
+          saved === "download-started"
+            ? "Packet download started. Completion is unconfirmed by this browser; check your Downloads folder. No saved-checkpoint claim is made."
+            : "Packet save cancelled; the current work has not been checkpointed.",
+        );
     });
   }
   async function openPacket() {
@@ -480,7 +706,10 @@ function App() {
   const diff = state?.history
     .filter((h) => h.type === "reviewed" && h.old_units != null)
     .at(-1);
-  if(requiresSignIn&&!packet)return <PilotLogin onSuccess={()=>location.reload()} onPacket={openPacket}/>;
+  if (requiresSignIn && !packet)
+    return (
+      <PilotLogin onSuccess={() => location.reload()} onPacket={openPacket} />
+    );
   return (
     <div className="app-shell">
       <aside className="rail">
@@ -529,10 +758,36 @@ function App() {
             BatchFence<span className="separator">/</span>
             <span className="workspace-name">Quality operations</span>
           </div>
-          {state&&<p className="checkpoint-status" role="status">{checkpoint?.caseId===state.id?`Last saved checkpoint ${new Date(checkpoint.at).toLocaleString()} · evidence r${checkpoint.revision}. ${!checkpoint.dirty&&checkpoint.revision===state.revision&&checkpoint.inventoryVersion===state.inventory_version?'This client has no newer unsaved work.':'New or changed work is not in that checkpoint.'}`:'No confirmed saved checkpoint for this incident.'} {temporaryStorage?'Server storage is temporary; save a packet before leaving.':''}</p>}
+          {state && (
+            <p className="checkpoint-status" role="status">
+              {checkpoint?.caseId === state.id
+                ? `Last saved checkpoint ${new Date(checkpoint.at).toLocaleString()} · evidence r${checkpoint.revision}. ${!checkpoint.dirty && checkpoint.revision === state.revision && checkpoint.inventoryVersion === state.inventory_version ? "This client has no newer unsaved work." : "New or changed work is not in that checkpoint."}`
+                : "No confirmed saved checkpoint for this incident."}{" "}
+              {temporaryStorage
+                ? "Server storage is temporary; save a packet before leaving."
+                : ""}
+            </p>
+          )}
           <div className="top-actions">
-            {pilotIdentity&&<><span className="caption">{pilotIdentity}</span><button className="text-button" onClick={async()=>{await request('POST','/api/auth/logout',{});location.reload();}}>Sign out</button></>}
-            {!online&&<button className="text-button" onClick={()=>location.reload()}>Retry connection</button>}
+            {pilotIdentity && (
+              <>
+                <span className="caption">{pilotIdentity}</span>
+                <button
+                  className="text-button"
+                  onClick={async () => {
+                    await request("POST", "/api/auth/logout", {});
+                    location.reload();
+                  }}
+                >
+                  Sign out
+                </button>
+              </>
+            )}
+            {!online && (
+              <button className="text-button" onClick={() => location.reload()}>
+                Retry connection
+              </button>
+            )}
             <span className={"connection " + (!online ? "offline" : "")}>
               <i />
               {online ? "Backend connected" : "Backend offline"}
@@ -547,13 +802,29 @@ function App() {
           </div>
         </header>
         <nav className="module-mobile-nav" aria-label="Quality workspaces">
-          {['overview','signals','incidents','knowledge','actions','verification'].map(key=><button key={key} className={section===key?'active':''} onClick={()=>setSection(key)}>{key[0].toUpperCase()+key.slice(1)}</button>)}
+          {[
+            "overview",
+            "signals",
+            "incidents",
+            "knowledge",
+            "actions",
+            "verification",
+          ].map((key) => (
+            <button
+              key={key}
+              className={section === key ? "active" : ""}
+              onClick={() => setSection(key)}
+            >
+              {key[0].toUpperCase() + key.slice(1)}
+            </button>
+          ))}
         </nav>
         <main>
           <div className="page-heading">
             <div>
               <div className="eyebrow">
-                QUALITY OPERATIONS <ChevronRight size={12} /> {section.toUpperCase()}
+                QUALITY OPERATIONS <ChevronRight size={12} />{" "}
+                {section.toUpperCase()}
               </div>
               <h1>{state ? state.name : "Evidence to action."}</h1>
               <p>
@@ -599,11 +870,20 @@ function App() {
                 {native
                   ? "Windows native shell with fixed-origin transport."
                   : "Web with same-origin backend."}{" "}
-                Request limits apply; exhausted limits are reported before another request is made.
+                Request limits apply; exhausted limits are reported before
+                another request is made.
               </p>
             </section>
           )}
-          {temporaryStorage && <div className="feedback info" role="note"><History size={17} /><span>Temporary storage. Export your decision packet: server data can be lost on sleep, restart or redeployment.</span></div>}
+          {temporaryStorage && (
+            <div className="feedback info" role="note">
+              <History size={17} />
+              <span>
+                Temporary storage. Export your decision packet: server data can
+                be lost on sleep, restart or redeployment.
+              </span>
+            </div>
+          )}
           {(error || notice || busy) && (
             <div
               className={
@@ -618,7 +898,7 @@ function App() {
               ) : (
                 <Check size={17} />
               )}
-              <span>{error || (busy ? <Elapsed label={busy}/> : notice)}</span>
+              <span>{error || (busy ? <Elapsed label={busy} /> : notice)}</span>
               {!busy && (
                 <button
                   className="icon-button"
@@ -633,7 +913,24 @@ function App() {
               )}
             </div>
           )}
-          {state && section!=='incidents' ? <EnterprisePanels key={state.id+section} section={section} state={state} readOnly={readOnly} mode={mode} setMode={setMode} update={accept} navigate={setSection} openCase={async id=>{accept(await request<Case>('GET','/api/cases/'+id));setSection('incidents');setReview(false);setTab('map');}}/> : !state ? (
+          {state && section !== "incidents" ? (
+            <EnterprisePanels
+              key={state.id + section}
+              section={section}
+              state={state}
+              readOnly={readOnly}
+              mode={mode}
+              setMode={setMode}
+              update={accept}
+              navigate={setSection}
+              openCase={async (id) => {
+                accept(await request<Case>("GET", "/api/cases/" + id));
+                setSection("incidents");
+                setReview(false);
+                setTab("map");
+              }}
+            />
+          ) : !state ? (
             <section className="welcome">
               <div className="welcome-copy">
                 <span className="pill navy">
@@ -660,12 +957,25 @@ function App() {
                     Review a packet
                   </button>
                 </div>
-                {replayAvailable && <button className="text-button" onClick={replayDemo} disabled={!!busy || !online}>
-                  Open recorded AMD packet <History size={15} />
-                </button>}
+                {replayAvailable && (
+                  <button
+                    className="text-button"
+                    onClick={replayDemo}
+                    disabled={!!busy || !online}
+                  >
+                    Open recorded AMD packet <History size={15} />
+                  </button>
+                )}
                 <p className="source-note">
-                  Example records are fictional. Recorded packets preserve their original provenance.
-                  {liveProtected && <><br />Live inference requires a private access key. Use synthetic records on this shared service.</>}
+                  Example records are fictional. Recorded packets preserve their
+                  original provenance.
+                  {liveProtected && (
+                    <>
+                      <br />
+                      Live inference requires a private access key. Use
+                      synthetic records on this shared service.
+                    </>
+                  )}
                 </p>
               </div>
               <div className="welcome-visual">
@@ -694,7 +1004,13 @@ function App() {
                 </div>
               </div>
               <div className="distribution">
-                <PlatformLinks openWeb={() => void task("Opening web app", async () => { await native?.openWebApp(); })} />
+                <PlatformLinks
+                  openWeb={() =>
+                    void task("Opening web app", async () => {
+                      await native?.openWebApp();
+                    })
+                  }
+                />
               </div>
               {cases.length > 0 && (
                 <div className="resume">
@@ -734,7 +1050,14 @@ function App() {
                 </span>
                 <span>Evidence r{state.revision}</span>
                 <span>Stock v{state.inventory_version}</span>
-                <span className={"case-status " + (plan?.status==='applied' && !state.pending_revision ? 'status-applied' : 'status-review')}>
+                <span
+                  className={
+                    "case-status " +
+                    (plan?.status === "applied" && !state.pending_revision
+                      ? "status-applied"
+                      : "status-review")
+                  }
+                >
                   <i />
                   {status}
                 </span>
@@ -805,7 +1128,15 @@ function App() {
                   </button>
                 ))}
               </nav>
-              <div className={"workbench mobile-" + mobile + (['sources','handover'].includes(tab)&&!inspector?' focused-review':'')}>
+              <div
+                className={
+                  "workbench mobile-" +
+                  mobile +
+                  (["sources", "handover"].includes(tab) && !inspector
+                    ? " focused-review"
+                    : "")
+                }
+              >
                 <aside className="source-panel panel">
                   <div className="panel-heading">
                     <h2>
@@ -861,6 +1192,26 @@ function App() {
                     <span className="caption">
                       UTF-8 TXT/CSV or PDF · 2 MB/file · PDF up to 8 pages
                     </span>
+                    <details className="caption">
+                      <summary>Supported import envelope</summary>
+                      <p>
+                        Up to 24 documents per case and 80,000 retained
+                        characters per file. Narrative interpretation accepts a
+                        complete selected source context up to 18,000
+                        characters; oversized sources are rejected, never
+                        silently truncated. Encrypted, malformed and empty files
+                        are rejected. Scans require original-page and
+                        critical-field review. Mapped CSV intake supports up to
+                        500 records; absent required fields remain gaps.
+                      </p>
+                      <p>
+                        Evolus receives the original file. Its document reader
+                        prefers native text; covered OCR is distinct from the
+                        retained local text and page references. Source
+                        occurrence does not establish authenticity or complete
+                        incident scope.
+                      </p>
+                    </details>
                   </div>
                   <div className="extract-box">
                     <div className="eyebrow">NARRATIVE INTERPRETATION</div>
@@ -878,12 +1229,28 @@ function App() {
                       </option>
                       <option value="live">Live · AMD endpoint</option>
                     </select>
-                    {liveProtected && mode === "live" && !packet && <>
-                      <label className="field-label" htmlFor="live-demo-access">Live access key</label>
-                      <input id="live-demo-access" type="password" autoComplete="off" maxLength={200}
-                        onChange={(e) => setLiveDemoToken(e.target.value)} disabled={!canWrite} />
-                      <p className="caption">Provided privately by the workspace owner. Kept only in this page's memory.</p>
-                    </>}
+                    {liveProtected && mode === "live" && !packet && (
+                      <>
+                        <label
+                          className="field-label"
+                          htmlFor="live-demo-access"
+                        >
+                          Live access key
+                        </label>
+                        <input
+                          id="live-demo-access"
+                          type="password"
+                          autoComplete="off"
+                          maxLength={200}
+                          onChange={(e) => setLiveDemoToken(e.target.value)}
+                          disabled={!canWrite}
+                        />
+                        <p className="caption">
+                          Provided privately by the workspace owner. Kept only
+                          in this page's memory.
+                        </p>
+                      </>
+                    )}
                     <button
                       className="button primary full"
                       disabled={!canWrite || !doc}
@@ -896,15 +1263,16 @@ function App() {
                       {packet
                         ? "Historical model run · no new inference."
                         : mode === "fixture"
-                        ? "Synthetic walkthrough. No AI inference is claimed."
-                        : "Fresh AMD request. Failures stay visible."}
+                          ? "Synthetic walkthrough. No AI inference is claimed."
+                          : "Fresh AMD request. Failures stay visible."}
                     </p>
                     {run?.status === "failed" && (
                       <div className="feedback error" role="alert">
                         <AlertTriangle size={17} />
                         <span>
-                          Extraction failed: {run.error || "Invalid provider response"}.
-                          No candidate facts were accepted from this run.
+                          Extraction failed:{" "}
+                          {run.error || "Invalid provider response"}. No
+                          candidate facts were accepted from this run.
                         </span>
                       </div>
                     )}
@@ -922,10 +1290,25 @@ function App() {
                   <div className="map-heading">
                     <div>
                       <h2>
-                        {({recovery:'Controlled recovery',timeline:'Evidence revision timeline',sources:'Source records',handover:'Shift handover',requests:'Evidence requests',orders:'Order review',receipt:'Execution receipt',verify:'Verification'} as Record<string,string>)[tab]||'Exposure map'}
+                        {(
+                          {
+                            recovery: "Controlled recovery",
+                            timeline: "Evidence revision timeline",
+                            sources: "Source records",
+                            handover: "Shift handover",
+                            requests: "Evidence requests",
+                            orders: "Order review",
+                            receipt: "Execution receipt",
+                            verify: "Verification",
+                          } as Record<string, string>
+                        )[tab] || "Exposure map"}
                       </h2>
                       <span className="caption">
-                        {tab==='sources'?'Compare the retained original with each proposed interpretation.':tab==='handover'?'A dated snapshot of quantities, outstanding work and the next permitted action.':'Select stock to inspect the decision and supporting evidence.'}
+                        {tab === "sources"
+                          ? "Compare the retained original with each proposed interpretation."
+                          : tab === "handover"
+                            ? "A dated snapshot of quantities, outstanding work and the next permitted action."
+                            : "Select stock to inspect the decision and supporting evidence."}
                       </span>
                     </div>
                     {tab === "map" && (
@@ -939,11 +1322,27 @@ function App() {
                     )}
                   </div>
                   <nav className="guided-steps" aria-label="Incident guide">
-                    <button onClick={()=>setTab('sources')}>1 · Notice</button>
-                    <button onClick={()=>{setTab('map');if(currentRun && !doc?.request_id && run)beginReview(run);}}>2 · Review exposure</button>
-                    <button onClick={()=>setTab('requests')}>3 · Resolve a question</button>
-                    <button onClick={()=>setTab('timeline')}>4 · Revision consequences</button>
-                    <button onClick={()=>setTab('verify')}>5 · Verify & export</button>
+                    <button onClick={() => setTab("sources")}>
+                      1 · Notice
+                    </button>
+                    <button
+                      onClick={() => {
+                        setTab("map");
+                        if (currentRun && !doc?.request_id && run)
+                          beginReview(run);
+                      }}
+                    >
+                      2 · Review exposure
+                    </button>
+                    <button onClick={() => setTab("requests")}>
+                      3 · Resolve a question
+                    </button>
+                    <button onClick={() => setTab("timeline")}>
+                      4 · Revision consequences
+                    </button>
+                    <button onClick={() => setTab("verify")}>
+                      5 · Verify & export
+                    </button>
                   </nav>
                   <div
                     className="tabs"
@@ -977,8 +1376,8 @@ function App() {
                       </button>
                     ))}
                   </div>
-                  <QuantityStrip state={state}/>
-                  {result && tab!=="recovery" && (
+                  <QuantityStrip state={state} />
+                  {result && tab !== "recovery" && (
                     <div
                       className={
                         "comparison " +
@@ -1026,44 +1425,176 @@ function App() {
                       <h3>Confirm the affected supplier lots.</h3>
                       <p>
                         Model proposals start unresolved. Move each lot into one
-                        reviewed group after inspecting its source. Negative proposals
-                        do not establish exclusions.
+                        reviewed group after inspecting its source. Negative
+                        proposals do not establish exclusions.
                       </p>
-                      {Array.from(new Set(run?.output?.facts.map(f=>f.lot_id))).map((id) => {
-                        const f=run!.output!.facts.find(f=>f.lot_id===id)!;
-                        const reviewedId=corrections[id]||id;
-                        const disposition=lots.split(',').map(x=>x.trim()).includes(reviewedId)?'affected':excludedLots.split(',').map(x=>x.trim()).includes(reviewedId)?'excluded':'unresolved';
-                        function choose(value:string,newId=reviewedId){
-                          const clean=(text:string)=>text.split(',').map(x=>x.trim()).filter(x=>x&&x!==reviewedId&&x!==id&&x!==newId);
-                          setLots([...clean(lots),...(value==='affected'?[newId]:[])].join(', '));
-                          setUncertainLots([...clean(uncertainLots),...(value==='unresolved'?[newId]:[])].join(', '));
-                          setExcludedLots([...clean(excludedLots),...(value==='excluded'?[newId]:[])].join(', '));
+                      {Array.from(
+                        new Set(run?.output?.facts.map((f) => f.lot_id)),
+                      ).map((id) => {
+                        const f = run!.output!.facts.find(
+                          (f) => f.lot_id === id,
+                        )!;
+                        const reviewedId = corrections[id] || id;
+                        const disposition = lots
+                          .split(",")
+                          .map((x) => x.trim())
+                          .includes(reviewedId)
+                          ? "affected"
+                          : excludedLots
+                                .split(",")
+                                .map((x) => x.trim())
+                                .includes(reviewedId)
+                            ? "excluded"
+                            : "unresolved";
+                        function choose(value: string, newId = reviewedId) {
+                          const clean = (text: string) =>
+                            text
+                              .split(",")
+                              .map((x) => x.trim())
+                              .filter(
+                                (x) =>
+                                  x &&
+                                  x !== reviewedId &&
+                                  x !== id &&
+                                  x !== newId,
+                              );
+                          setLots(
+                            [
+                              ...clean(lots),
+                              ...(value === "affected" ? [newId] : []),
+                            ].join(", "),
+                          );
+                          setUncertainLots(
+                            [
+                              ...clean(uncertainLots),
+                              ...(value === "unresolved" ? [newId] : []),
+                            ].join(", "),
+                          );
+                          setExcludedLots(
+                            [
+                              ...clean(excludedLots),
+                              ...(value === "excluded" ? [newId] : []),
+                            ].join(", "),
+                          );
                         }
-                        return <article className="lot-review-card" key={id}>
-                          <button className="candidate" onClick={()=>showEvidence(f.evidence[0])}><code>{id}</code><span>Proposed: {f.proposal_incident_status || run?.validated_proposals?.facts.find(p=>p.lot_id===id)?.status || (f.proposal_disposition?'identity '+f.proposal_disposition:f.affected?'affected':'unresolved or mentioned')}</span><small>Inspect quote <ChevronRight size={12}/></small></button>
-                          <blockquote>{f.evidence[0]?.quote}</blockquote>
-                          <label className="field-label" htmlFor={'disposition-'+id}>Disposition of {id}</label>
-                          <select id={'disposition-'+id} value={disposition} onChange={e=>choose(e.target.value)}><option value="unresolved">Unresolved</option><option value="affected">Affected</option><option value="excluded">Explicitly excluded</option></select>
-                          <details><summary>Correct source identifier</summary><p>Use an exact ID from this source. The original proposal remains in the audit trail; explain the correction below.</p><label>Source-backed identifier<input aria-label={'Correct identifier '+id} value={corrections[id]??id} onChange={e=>{setCorrections({...corrections,[id]:e.target.value});choose('unresolved',e.target.value);}}/></label></details>
-                        </article>;
+                        return (
+                          <article className="lot-review-card" key={id}>
+                            <button
+                              className="candidate"
+                              onClick={() => showEvidence(f.evidence[0])}
+                            >
+                              <code>{id}</code>
+                              <span>
+                                Proposed:{" "}
+                                {f.proposal_incident_status ||
+                                  run?.validated_proposals?.facts.find(
+                                    (p) => p.lot_id === id,
+                                  )?.status ||
+                                  (f.proposal_disposition
+                                    ? "identity " + f.proposal_disposition
+                                    : f.affected
+                                      ? "affected"
+                                      : "unresolved or mentioned")}
+                              </span>
+                              <small>
+                                Inspect quote <ChevronRight size={12} />
+                              </small>
+                            </button>
+                            <blockquote>{f.evidence[0]?.quote}</blockquote>
+                            <label
+                              className="field-label"
+                              htmlFor={"disposition-" + id}
+                            >
+                              Disposition of {id}
+                            </label>
+                            <select
+                              id={"disposition-" + id}
+                              value={disposition}
+                              onChange={(e) => choose(e.target.value)}
+                            >
+                              <option value="unresolved">Unresolved</option>
+                              <option value="affected">Affected</option>
+                              <option value="excluded">
+                                Explicitly excluded
+                              </option>
+                            </select>
+                            <details>
+                              <summary>Correct source identifier</summary>
+                              <p>
+                                Use an exact ID from this source. The original
+                                proposal remains in the audit trail; explain the
+                                correction below.
+                              </p>
+                              <label>
+                                Source-backed identifier
+                                <input
+                                  aria-label={"Correct identifier " + id}
+                                  value={corrections[id] ?? id}
+                                  onChange={(e) => {
+                                    setCorrections({
+                                      ...corrections,
+                                      [id]: e.target.value,
+                                    });
+                                    choose("unresolved", e.target.value);
+                                  }}
+                                />
+                              </label>
+                            </details>
+                          </article>
+                        );
                       })}
-                      {run?.scope_concerns?.length ? <p className="review-qualifier" role="status">
-                        This notice explicitly leaves scope unresolved. Keep implicated lots uncertain.
-                        Clarifying evidence is required before narrowing.
-                      </p> : null}
-                      <label className="field-label" htmlFor="review-scope-status">Incident scope certainty</label>
-                      <select id="review-scope-status" value={scopeResolved ? "resolved" : "unresolved"}
-                        onChange={e => { setScopeResolved(e.target.value === "resolved"); setBounded(false); }}>
-                        <option value="unresolved">Unresolved · no narrowed exclusions</option>
-                        <option value="resolved" disabled={!!run?.scope_concerns?.length}>Resolved · complete boundary reviewed</option>
+                      {run?.scope_concerns?.length ? (
+                        <p className="review-qualifier" role="status">
+                          This notice explicitly leaves scope unresolved. Keep
+                          implicated lots uncertain. Clarifying evidence is
+                          required before narrowing.
+                        </p>
+                      ) : null}
+                      <label
+                        className="field-label"
+                        htmlFor="review-scope-status"
+                      >
+                        Incident scope certainty
+                      </label>
+                      <select
+                        id="review-scope-status"
+                        value={scopeResolved ? "resolved" : "unresolved"}
+                        onChange={(e) => {
+                          setScopeResolved(e.target.value === "resolved");
+                          setBounded(false);
+                        }}
+                      >
+                        <option value="unresolved">
+                          Unresolved · no narrowed exclusions
+                        </option>
+                        <option
+                          value="resolved"
+                          disabled={!!run?.scope_concerns?.length}
+                        >
+                          Resolved · complete boundary reviewed
+                        </option>
                       </select>
-                      {scopeResolved && <>
-                        <label className="field-label" htmlFor="review-basis">Scope resolution basis · exact source quote</label>
-                        <textarea id="review-basis" value={resolutionQuote} onChange={e => setResolutionQuote(e.target.value)} />
-                      </>}
-                      <label className="field-label" htmlFor="review-note">Review explanation · scope and exclusions</label>
-                      <textarea id="review-note" value={reviewNote} onChange={e => setReviewNote(e.target.value)}
-                        placeholder="Explain the source-backed boundary and any excluded lots. Leave unresolved claims uncertain." />
+                      {scopeResolved && (
+                        <>
+                          <label className="field-label" htmlFor="review-basis">
+                            Scope resolution basis · exact source quote
+                          </label>
+                          <textarea
+                            id="review-basis"
+                            value={resolutionQuote}
+                            onChange={(e) => setResolutionQuote(e.target.value)}
+                          />
+                        </>
+                      )}
+                      <label className="field-label" htmlFor="review-note">
+                        Review explanation · scope and exclusions
+                      </label>
+                      <textarea
+                        id="review-note"
+                        value={reviewNote}
+                        onChange={(e) => setReviewNote(e.target.value)}
+                        placeholder="Explain the source-backed boundary and any excluded lots. Leave unresolved claims uncertain."
+                      />
                       <label className="checkbox">
                         <input
                           type="checkbox"
@@ -1096,7 +1627,13 @@ function App() {
                       )}
                       <button
                         className="button primary"
-                        disabled={!checked || !canWrite || (scopeResolved && (resolutionQuote.trim().length < 8 || reviewNote.trim().length < 20))}
+                        disabled={
+                          !checked ||
+                          !canWrite ||
+                          (scopeResolved &&
+                            (resolutionQuote.trim().length < 8 ||
+                              reviewNote.trim().length < 20))
+                        }
                         onClick={confirm}
                       >
                         <Check size={16} />
@@ -1104,15 +1641,46 @@ function App() {
                       </button>
                     </section>
                   ) : tab === "recovery" ? (
-                    <><ContinuationPanel state={state} part="conditions" readOnly={readOnly} update={accept}/><RecoveryPanel key={state.id} state={state} readOnly={readOnly} update={accept}/></>
+                    <>
+                      <ContinuationPanel
+                        state={state}
+                        part="conditions"
+                        readOnly={readOnly}
+                        update={accept}
+                      />
+                      <RecoveryPanel
+                        key={state.id}
+                        state={state}
+                        readOnly={readOnly}
+                        update={accept}
+                      />
+                    </>
                   ) : tab === "handover" ? (
-                    <ContinuationPanel state={state} part="handover" readOnly={readOnly} update={accept}/>
+                    <ContinuationPanel
+                      state={state}
+                      part="handover"
+                      readOnly={readOnly}
+                      update={accept}
+                    />
                   ) : tab === "verify" ? (
-                    <VerificationPanel state={state} replay={!!packet} readOnly={readOnly}/>
+                    <VerificationPanel
+                      state={state}
+                      replay={!!packet}
+                      readOnly={readOnly}
+                    />
                   ) : tab === "timeline" ? (
                     <section className="timeline">
-                      <RevisionComparison state={state} readOnly={readOnly} onEvidence={showEvidence}/>
-                      <ContinuationPanel state={state} part="changes" readOnly={readOnly} update={accept}/>
+                      <RevisionComparison
+                        state={state}
+                        readOnly={readOnly}
+                        onEvidence={showEvidence}
+                      />
+                      <ContinuationPanel
+                        state={state}
+                        part="changes"
+                        readOnly={readOnly}
+                        update={accept}
+                      />
                       {state.history.length ? (
                         state.history.map((h, i) => (
                           <div
@@ -1160,11 +1728,70 @@ function App() {
                   ) : tab === "sources" ? (
                     <section className="source-page">
                       <h3>{doc?.filename}</h3>
-                      {doc&&<OcrReview key={doc.id} state={state} doc={doc} readOnly={readOnly} onUpdate={accept}/>}
-                      <details className="source-mapping"><summary>Map original inventory and lineage records</summary><IntakePanel key={state.id} state={state} readOnly={readOnly} onUpdate={accept}/></details><div className="source-review-layout"><aside className="original-source"><span className="eyebrow">RETAINED ORIGINAL</span><SourceText doc={doc} evidence={evidence} caseId={state.id} readOnly={readOnly}/></aside><ContinuationPanel state={state} part="sources" doc={doc} readOnly={readOnly} update={accept} onEvidence={showEvidence} openReview={s=>{beginReview(s.runs.at(-1)!);setTab('map');}}/></div>
+                      {doc && (
+                        <OcrReview
+                          key={doc.id}
+                          state={state}
+                          doc={doc}
+                          readOnly={readOnly}
+                          onUpdate={accept}
+                        />
+                      )}
+                      <details className="source-mapping">
+                        <summary>
+                          Map original inventory and lineage records
+                        </summary>
+                        <IntakePanel
+                          key={state.id}
+                          state={state}
+                          readOnly={readOnly}
+                          onUpdate={accept}
+                        />
+                      </details>
+                      <div className="source-review-layout">
+                        <aside className="original-source">
+                          <span className="eyebrow">RETAINED ORIGINAL</span>
+                          <SourceText
+                            doc={doc}
+                            evidence={evidence}
+                            caseId={state.id}
+                            readOnly={readOnly}
+                          />
+                        </aside>
+                        <ContinuationPanel
+                          state={state}
+                          part="sources"
+                          doc={doc}
+                          readOnly={readOnly}
+                          update={accept}
+                          onEvidence={showEvidence}
+                          openReview={(s) => {
+                            beginReview(s.runs.at(-1)!);
+                            setTab("map");
+                          }}
+                        />
+                      </div>
                     </section>
                   ) : tab === "requests" ? (
-                    <><EvidencePlanner state={state} readOnly={readOnly||!!busy} mode={mode} onUpdate={s=>{accept(s);setNotice('');setError('');}} onEvidence={showEvidence}/><ContinuationPanel state={state} part="requests" readOnly={readOnly||!!busy} update={accept}/></>
+                    <>
+                      <EvidencePlanner
+                        state={state}
+                        readOnly={readOnly || !!busy}
+                        mode={mode}
+                        onUpdate={(s) => {
+                          accept(s);
+                          setNotice("");
+                          setError("");
+                        }}
+                        onEvidence={showEvidence}
+                      />
+                      <ContinuationPanel
+                        state={state}
+                        part="requests"
+                        readOnly={readOnly || !!busy}
+                        update={accept}
+                      />
+                    </>
                   ) : tab === "orders" ? (
                     <section>
                       {result ? (
@@ -1253,12 +1880,11 @@ function App() {
                             <span className="receipt-check">
                               <Check size={25} />
                             </span>
-                            <span className="eyebrow">
-                              EXECUTION RECEIPT
-                            </span>
+                            <span className="eyebrow">EXECUTION RECEIPT</span>
                             <h3>Holds applied. Evidence preserved.</h3>
                             <p>
-                              The approved transaction updated this workspace’s inventory.
+                              The approved transaction updated this workspace’s
+                              inventory.
                             </p>
                             <dl>
                               <dt>Transaction</dt>
@@ -1290,7 +1916,9 @@ function App() {
                               ))}
                             </div>
                             <p className="caption">
-                              Changes apply to this workspace only. No external inventory system or machinery is connected, and no supplier message was sent.
+                              Changes apply to this workspace only. No external
+                              inventory system or machinery is connected, and no
+                              supplier message was sent.
                             </p>
                           </article>
                         ))
@@ -1351,7 +1979,22 @@ function App() {
                       />
                     )
                   ) : (
-                    <div><GenealogyPreview data={state}/><div className="preview-action"><button className="button primary" disabled={!canWrite} onClick={analyze}>Extract & review notice <ArrowRight size={16}/></button><p>No stock has been held. Review the evidence before approving.</p></div></div>
+                    <div>
+                      <GenealogyPreview data={state} />
+                      <div className="preview-action">
+                        <button
+                          className="button primary"
+                          disabled={!canWrite}
+                          onClick={analyze}
+                        >
+                          Extract & review notice <ArrowRight size={16} />
+                        </button>
+                        <p>
+                          No stock has been held. Review the evidence before
+                          approving.
+                        </p>
+                      </div>
+                    </div>
                   )}
                 </section>
                 <aside
@@ -1400,7 +2043,10 @@ function App() {
                             <code>{row.row_id}</code>
                           </dd>
                           <dt>Current state</dt>
-                          <dd>{state.stocks.find(stock=>stock.id===row.id)?.status??row.status}</dd>
+                          <dd>
+                            {state.stocks.find((stock) => stock.id === row.id)
+                              ?.status ?? row.status}
+                          </dd>
                         </dl>
                       </div>
                       <div className="inspector-sources">
@@ -1470,7 +2116,12 @@ function App() {
                           : "SELECTED DOCUMENT"}
                       </div>
                       <h3>{inspectorDoc?.filename}</h3>
-                      <SourceText doc={inspectorDoc} evidence={evidence} caseId={state.id} readOnly={readOnly}/>
+                      <SourceText
+                        doc={inspectorDoc}
+                        evidence={evidence}
+                        caseId={state.id}
+                        readOnly={readOnly}
+                      />
                       {evidence && (
                         <button
                           className="text-button"
@@ -1517,7 +2168,12 @@ function App() {
                               state.scope.lot_ids.join(", ")
                             : "Review the notice to create the first plan."}
                     </p>
-                    {!packet && <p className="execution-scope">Holds update this workspace’s inventory. No external inventory system is connected.</p>}
+                    {!packet && (
+                      <p className="execution-scope">
+                        Holds update this workspace’s inventory. No external
+                        inventory system is connected.
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div className="decision-actions">
@@ -1617,7 +2273,15 @@ function App() {
                   <RotateCcw size={12} />
                   New isolated incident
                 </button>
-                <div className="platform-actions"><PlatformLinks openWeb={() => void task("Opening web app", async () => { await native?.openWebApp(); })} /></div>
+                <div className="platform-actions">
+                  <PlatformLinks
+                    openWeb={() =>
+                      void task("Opening web app", async () => {
+                        await native?.openWebApp();
+                      })
+                    }
+                  />
+                </div>
               </footer>
             </>
           )}

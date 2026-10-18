@@ -19,7 +19,7 @@ def render_page(raw,number):
     renderer=shutil.which(os.getenv('PDFTOPPM_PATH') or 'pdftoppm')
     if not renderer:raise DomainError('PDF renderer unavailable; inspect the retained original externally')
     if not 1<=number<=8 or not raw.startswith(b'%PDF-'):raise DomainError('Unsupported original PDF page')
-    if not document_slot.acquire(blocking=False):raise DomainError('Another document operation is running; try the page preview after it finishes')
+    if not document_slot.acquire(timeout=2):raise DomainError('Another document operation is running; try the page preview after it finishes')
     try:
         folder=repo.source_root().parent/'ocr-tmp';folder.mkdir(parents=True,exist_ok=True)
         with tempfile.TemporaryDirectory(prefix='preview-',dir=folder) as tmp:

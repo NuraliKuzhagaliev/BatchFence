@@ -1,3 +1,11 @@
+# Focused Evolus rc4 release gate
+
+447pytest,30domain,36focused controls,12core browser checks and focused save/PDF/layout checks pass. Production build, separate rc4 Windows installer/install and packaged-source sanitation pass. Unicode/source workflow/checkpoint changes are implemented. Fresh supported/incomplete original-PDF evidence and exact downstream safety are retained. Rag returned no provider citations, so it remains unavailable; Blob/local mode preserved.
+
+Nonsecret phase proofs/workflow manifest were merged into the existing local .env and existing Free Render service without replacing any credentials or unrelated settings. Current public runtime remains rc3 until CI-gated merge/deploy. Next: branch/main CI, fresh public/installed PDF500→800 plus actual Blob evidence and offline packets, release artifact verification. No additional routine approval required. Details: docs/evolus-focused/RESULTS.md and FOCUSED_PLAN.md. Old release and evidence below are preserved historical records.
+
+---
+
 # Focused Evolus completion — in progress
 
 Branch focused-evolus-0.4 preserves rc3 (runtime7d5b291, evidence103f088). Unicode lexical retrieval and scoped UI encoding repair implemented; original-PDF Evolus reader/extractor/Gemma workflow configured separately. Source preview, suitability, proposed facts, approved originals, bounded status polling and truthful checkpoint feedback implemented.36 affected local controls pass. Current changes are not yet published or client-accepted.

@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-18T00:50:26.922Z",
+  "browser": "Microsoft Edge, Playwright headless",
+  "url": "http://127.0.0.1:8813",
+  "provenance": "Synthetic fixture; no live inference",
+  "checks": [
+    "Exact source citation reachable from candidate",
+    "Evidence queue 100 units / €4,000",
+    "V1 order review 3 orders",
+    "Uncertain exclusion rejected server-side through UI",
+    "Stale approval rejected through UI",
+    "V2 800-unit plan and 4 orders",
+    "Exported packet includes actual receipt; refresh persists case",
+    "Responsive layout no horizontal overflow at 1280 and 390",
+    "Imported CSV preserves split/rework event nodes in real graph",
+    "Web packet opens read-only without approval/apply authority",
+    "Already opened packet remains readable without network",
+    "Reconnect fetches changed backend evidence before live actions"
+  ],
+  "errors": [],
+  "case_id": "f3afed493a1143e6861a34de5b4a5146",
+  "packet": "D:\\projects\\BatchFence\\work\\evolus-focused\\core-ui-packet.json"
+}

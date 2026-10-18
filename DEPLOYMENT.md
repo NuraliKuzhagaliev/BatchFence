@@ -1,3 +1,11 @@
+# Focused Evolus rc4 release gate
+
+447pytest,30domain,36focused controls,12core browser checks and focused save/PDF/layout checks pass. Production build, separate rc4 Windows installer/install and packaged-source sanitation pass. Unicode/source workflow/checkpoint changes are implemented. Fresh supported/incomplete original-PDF evidence and exact downstream safety are retained. Rag returned no provider citations, so it remains unavailable; Blob/local mode preserved.
+
+Nonsecret phase proofs/workflow manifest were merged into the existing local .env and existing Free Render service without replacing any credentials or unrelated settings. Current public runtime remains rc3 until CI-gated merge/deploy. Next: branch/main CI, fresh public/installed PDF500→800 plus actual Blob evidence and offline packets, release artifact verification. No additional routine approval required. Details: docs/evolus-focused/RESULTS.md and FOCUSED_PLAN.md. Old release and evidence below are preserved historical records.
+
+---
+
 # Current0.4.0-rc.2 release
 
 Existing free public service is live on04e9c7b75ff90d83e9b6ff5ce7b9b2be90fc58ed, deploy dep-db9vqqm7bikc73e668b0. No new infrastructure, paid service or credential changes. Fresh public web and installed Windows direct Gemma/genuine Evolus workflows drive reviewed500/800 and receipts. Fresh vision currently returns provider500; terminal failures have no reading/authority. All exact client/build/CI/limitations are in HANDOFF.md and docs/hardening-0.4/final-live-evaluation.json.

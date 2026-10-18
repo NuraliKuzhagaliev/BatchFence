@@ -74,3 +74,15 @@ def ask(binding,question,retrieval,transport=None,conversation_id=None):
         'accounting_state':'unfinalized' if not accounting or accounting.get('credits') is None or accounting.get('pendingEntries',0)>0 else 'finalized',
         'result':safe,'credit_reserve_breached':after['spendable_platform_credits']<guard.allowance('evolus')['stop_margin'],
         'retry_policy':'One BatchFence dispatch; up to3 provider attempt equivalents reserved conservatively; provider internals not returned'}
+
+
+def reconcile(binding,conversation_id,transport=None):
+    verify(binding,transport)
+    aid=api.identifier(binding['agent_id']);cid=api.identifier(conversation_id)
+    reply=api.call('GET',f'/api/v1/agents/{aid}/conversations/{cid}',transport=transport)
+    values=[r for r in reply['result'].get('responses',[]) if r.get('fromGPT') and r.get('agentId')==aid and r.get('conversationId')==cid]
+    if not values:return None
+    if len(values)!=1:raise DomainError('Conversation has multiple responses; explicit provider reconciliation required')
+    raw=values[0];safe={k:raw.get(k) for k in ('answer','agentId','conversationId','totalTokenCount')}
+    safe['citations']=[{k:c.get(k) for k in ('documentId','inputFileId','outputFileId','startIndex','endIndex','textToReplace')} for c in raw.get('citations') or []]
+    return {'result':safe,'consumption':reply['result'].get('consumption'),'at':reply['at'],'response_hash':reply['response_hash'],'provider':'Evolus read-only conversation reconciliation','inference_dispatches':0,'runtime_model_identity':'Not returned by this API'}

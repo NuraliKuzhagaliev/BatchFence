@@ -20,6 +20,30 @@ class Run(Strict):
 class Poll(Strict):job_id:str=Field(min_length=1,max_length=80)
 
 
+def reconcile_rag(case_id,key,request):
+    from .app import connect,read
+    from . import evolus_rag
+    owner=request.state.owner
+    with repo.write(connect) as db:
+        identity.recheck(db,'reporter');rev,r=repo.get_record(db,owner,'assist',key)
+        if r.get('reconcile_reads',0)>=2:raise DomainError('Two read-only reconciliation attempts exhausted; preserve conversation ID for provider support. No new inference.')
+        r['reconcile_reads']=r.get('reconcile_reads',0)+1;repo.put_record(db,owner,'assist',key,r,rev);external.reserve(db,'evolus',metadata=True)
+    # Membership is verified before reading a response; no local passages are
+    # sent to the agent and no ask is submitted on this recovery path.
+    evolus_api.library_passages(r['rag_binding'],r['retrieval']['passages'])
+    response=evolus_rag.reconcile(r['rag_binding'],r['external_conversation_id'])
+    if response is None:return {**r,'next_action':'Provider has no completed response; preserve conversation ID. No retry was submitted.'}
+    with repo.write(connect) as db:
+        identity.recheck(db,'reporter');rev,r=repo.get_record(db,owner,'assist',key);state=read(case_id,owner)
+        r.update(raw_output=response.pop('result'),provenance=response,finished_at=now())
+        try:
+            if fingerprint(state,catalog(db,owner))!=r['snapshot_hash'] or state.get('cancelled'):raise DomainError('Evidence changed; response is historical only')
+            r['draft']=evolus_rag.map_answer(r['raw_output'],r['rag_binding'],r['retrieval'])
+            r['status']='unreviewed proposal'
+        except (DomainError,ValueError) as exc:r.update(status='failed validation',error=str(exc))
+        repo.put_record(db,owner,'assist',key,r,rev);return r
+
+
 @router.get('/api/assist/status')
 def status():return external.status()
 
@@ -128,6 +152,13 @@ def poll(case_id:str,data:Poll,request:Request):
             rev,record=repo.get_record(db,request.state.owner,'assist',data.job_id);_,job=repo.get_record(db,request.state.owner,'job',data.job_id)
             if not record or record['case_id']!=case_id or not job:raise DomainError('Expected execution unavailable')
             if job['status']=='cancelled' or record['status'] not in ('running','submission uncertain / reconcile before retry'):return {**record,'job_state':job['status']}
+            if record.get('retrieval_mode')=='rag':
+                # End this transaction before any network request.
+                rag_record=True
+            else:rag_record=False
+        if rag_record:return reconcile_rag(case_id,data.job_id,request)
+        with repo.write(connect) as db:
+            identity.recheck(db,'reporter');rev,record=repo.get_record(db,request.state.owner,'assist',data.job_id);_,job=repo.get_record(db,request.state.owner,'job',data.job_id)
             execution_id=record.get('external_execution_id')
             if not execution_id:return {**record,'job_state':job['status'],'next_action':'Submission may have run, but no execution ID was returned. Preserve original and ask the provider to reconcile; another click cannot dispatch a duplicate.'}
             import time
