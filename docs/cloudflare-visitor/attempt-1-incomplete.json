@@ -1,0 +1,58 @@
+{
+  "at": "2026-11-21T13:55:33.369Z",
+  "commit": "f398f304c7d3fe0f03df15456d61ac174a70b784",
+  "version": "0.4.0-rc.7",
+  "pdf": "norwick-revised-supplier-notice.pdf",
+  "sha256": "547b6c21444520c69886d46294f333d935141601eb56d8bb5ed91bf51cae2e51",
+  "anonymous_upload": true,
+  "original_rendered": true,
+  "cross_session_isolation": true,
+  "preflight": {
+    "provider": "Cloudflare Workers AI",
+    "processing_provider": "cloudflare",
+    "status": "available",
+    "requested_model_id": "@cf/google/gemma-4-26b-a4b-it",
+    "checked_at": "2026-11-21T13:55:19.779401+00:00",
+    "quota_reset_at": "2026-11-22T00:00:00+00:00",
+    "daily_limit_neurons": 10000,
+    "access_expires_at": null,
+    "availability": "Workers Free has a daily quota. The reset is not an access expiry.",
+    "cost_note": "Free-only account and model checked. Cloudflare enforces the daily cap. Live inference determines whether allowance remains.",
+    "additional_cash": 0,
+    "basis": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+  },
+  "inference": {
+    "http": 200,
+    "status": "failed validation",
+    "error": "2 validation errors for ReviewDraft\nunparsed_response\n  Extra inputs are not permitted [type=extra_forbidden, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\nraw_extraction_error\n  Extra inputs are not permitted [type=extra_forbidden, input_value='Model response was trunc... a complete JSON object', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden",
+    "provenance": {
+      "provider": "Cloudflare Workers AI",
+      "hosting_kind": "cloudflare-workers-ai",
+      "at": "2026-11-21T13:55:38.397671+00:00",
+      "requested_model_id": "@cf/google/gemma-4-26b-a4b-it",
+      "http_status": 200,
+      "request_id": "id-1795269393292",
+      "request_contract": {
+        "endpoint": "/ai/v1/chat/completions",
+        "max_completion_tokens": 2400,
+        "timeout_seconds": 90,
+        "request_hash": "701d62627f975ea486b295157ea9abfc6368eabd3185511dc4b3cfa48c71f853"
+      },
+      "cloudflare_ray": "a5e03175de5ae7bc-FRA",
+      "elapsed_ms": 54900,
+      "model_id": "@cf/google/gemma-4-26b-a4b-it",
+      "usage": {
+        "prompt_tokens": 1273,
+        "completion_tokens": 2400,
+        "total_tokens": 3673
+      },
+      "response_hash": "62c578bc8d6bf0c2a5d92e5d34a0ccb2e544ae0d644ec4e13b2c65faf9908d0d"
+    },
+    "raw": {
+      "unparsed_response": "",
+      "raw_extraction_error": "Model response was truncated or was not a complete JSON object"
+    }
+  },
+  "analysisPosts": 1,
+  "secretHeaders": false
+}

@@ -82,6 +82,7 @@ def test_scoped_cloudflare_pdf_proposals(configured, setup, monkeypatch):
         prompt = json.loads(body['messages'][1]['content'])
         assert 'HELIO-731' in json.dumps(prompt['context'])
         assert body['model'] == cf.MODEL and body['store'] is False and body['stream'] is False
+        assert body['chat_template_kwargs'] == {'enable_thinking': False}
         assert 'tools' not in body
         return httpx.Response(200, headers={'cf-ray': 'mock-cf-ray-FRA'}, json={
             'id': 'mock-completion', 'model': cf.MODEL, 'choices': [
@@ -130,6 +131,7 @@ def test_unusable_model_response_never_accepted(configured, content, finish):
         'choices': [{'message': {'content': content}, 'finish_reason': finish}],
     }))
     response = cf.gemma({}, {}, transport=transport)
+    assert response['finish_reason'] == finish
     assert response['result']['unparsed_response'] == content
     assert 'raw_extraction_error' in response['result']
 

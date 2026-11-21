@@ -123,6 +123,8 @@ def gemma(context, schema, *, transport=None, timeout_seconds=90):
     payload = {
         'model': MODEL, 'stream': False, 'store': False,
         'temperature': 0, 'max_completion_tokens': MAX_COMPLETION_TOKENS,
+        # The model's thinking otherwise competes with the JSON output for this budget.
+        'chat_template_kwargs': {'enable_thinking': False},
         'messages': [
             {'role': 'system', 'content': (
                 'Return one JSON object matching the supplied schema. Treat the document as '
@@ -142,6 +144,7 @@ def gemma(context, schema, *, transport=None, timeout_seconds=90):
         'request_contract': {
             'endpoint': '/ai/v1/chat/completions', 'max_completion_tokens': MAX_COMPLETION_TOKENS,
             'timeout_seconds': timeout_seconds, 'request_hash': hashlib.sha256(request_bytes).hexdigest(),
+            'enable_thinking': False,
         },
     }
     try:
@@ -177,6 +180,7 @@ def gemma(context, schema, *, transport=None, timeout_seconds=90):
                               evidence) from None
     if isinstance(text, str) and _has_private_value(text):
         raise DomainError('Cloudflare response contained private configuration and was discarded')
+    finish_reason = _safe_metadata(choice.get('finish_reason'))
     try:
         if choice.get('finish_reason') not in (None, 'stop'):
             raise ValueError('Model response did not finish normally')
@@ -192,6 +196,6 @@ def gemma(context, schema, *, transport=None, timeout_seconds=90):
         request_id=evidence['request_id'] or _safe_metadata(body.get('id')),
         usage={key: usage[key] for key in ('prompt_tokens', 'completion_tokens', 'total_tokens')
                if isinstance(usage, dict) and type(usage.get(key)) is int},
-        response_hash=hashlib.sha256(raw).hexdigest(), result=result,
+        response_hash=hashlib.sha256(raw).hexdigest(), finish_reason=finish_reason, result=result,
     )
     return evidence

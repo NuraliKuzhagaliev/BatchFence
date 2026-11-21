@@ -217,6 +217,8 @@ def analyze(case_id:str,data:Analyze,request:Request):
             record.update(raw_output=raw,provenance=response,finished_at=now())
             current=read(case_id,request.state.owner)
             if fingerprint(current)!=record['snapshot_hash']:raise DomainError('Evidence changed during processing; response retained as stale, not a current proposal')
+            if provider=='cloudflare' and 'unparsed_response' in raw:
+                raise DomainError('Cloudflare Gemma did not return a complete structured result. The original is still available.')
             record['draft']=retain_unknown_ids(current,raw,doc)
             record['status']='completed / review required'
         except (DomainError,ValueError) as exc:

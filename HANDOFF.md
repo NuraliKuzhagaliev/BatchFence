@@ -8,6 +8,8 @@ Live activation requires `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` in t
 
 Initial production check against the previous deployed build confirmed an anonymous upload of a newly generated supplier notice PDF, matching original hash, rendered PDF page, and isolation in a second browser session. No inference was attempted on that older build. The Cloudflare token was saved privately as a new Render secret. The service and account plans were not changed.
 
+The first Cloudflare browser request on runtime version 0.4.0-rc.7 at commit f398f30 returned HTTP 200, but used 2,400 completion tokens and returned no JSON content. Validation rejected it before any proposals were shown. See [retained attempt](docs/cloudflare-visitor/attempt-1-incomplete.json). The follow-up uses Cloudflare's documented disable-thinking setting for Gemma with the same output cap, without retrying automatically.
+
 ### Prior hackathon checkpoint (historical)
 
 # Public judging workflow complete — verified rc7
