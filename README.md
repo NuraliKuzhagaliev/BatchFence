@@ -8,10 +8,12 @@ BatchFence helps quality teams review supplier notices and trace which lots may 
 
 1. On the public website, choose **Analyze your document** to open an isolated review session.
 2. Upload a nonsensitive supplier or quality notice, batch record, or receiving document. The visitor route accepts **UTF-8 TXT** and **PDF with readable text**, up to **2 MB** and **8 PDF pages**. The source must also fit the analysis context. Scans that require OCR need a separate workflow.
-3. Review the named provider and consent to processing the document text. Choose **Analyze with Gemma** when Cloudflare Workers AI is configured and available. Visitors use their own browser session without a workspace token or provider account.
+3. Review the named provider and consent to processing the document text. Choose **Analyze with Gemma** when the provider status is available. Visitors use their own browser session without a workspace token or provider account.
 4. Check proposed lot identities and statuses against the original passages. Record your source inspection and export the review packet.
 
 A visitor review preserves unresolved inventory context. Inventory quantity, lineage and allocations require reviewed evidence in an authorized workspace. The public workflow cannot approve or apply a hold or release.
+
+**Verified on the public site on 21 November 2026.** A clean browser uploaded a new fictional supplier PDF without a workspace token. Cloudflare returned HTTP 200 in 11.62 seconds using `@cf/google/gemma-4-26b-a4b-it`. All three proposed lot labels matched this notice and the app kept inventory scope unresolved. A second browser session could not read the source or results. [Live response and test evidence](docs/cloudflare-visitor/result.json) · [Example PDF](docs/cloudflare-visitor/norwick-revised-supplier-notice.pdf) · [Deployed screenshot](docs/cloudflare-visitor/verified-review.png) · [Retained first attempt](docs/cloudflare-visitor/attempt-1-incomplete.json)
 
 ## Provider and hosting availability
 
