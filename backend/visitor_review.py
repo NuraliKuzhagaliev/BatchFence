@@ -19,6 +19,7 @@ router=APIRouter()
 BASE='https://developer.amd.com.cn/radeon/api/v1'
 MODEL='Gemma-4-31B-IT'
 REFERENCE='https://notebooks.amd.com/tokenfactory (User Manual, checked 2026-10-18)'
+MAX_ATTEMPTS_PER_SESSION=6
 visitor_limit=RequestLimiter()
 status_cache={}
 status_lock=threading.Lock()
@@ -79,12 +80,14 @@ def status():
     # Status display cache only; dispatch always performs a fresh entitlement read.
     provider=processing_provider()
     with status_lock:
-        if status_cache.get('provider')==provider and status_cache.get('until',0)>time.monotonic():return status_cache['value']
-        try:value=entitlement()
-        except HTTPException as e:value={'status':'allowance exhausted' if e.status_code==429 else 'provider unavailable','message':e.detail['message']}
-        value={'provider':provider_label(provider),'processing_provider':provider,**value}
-        status_cache.update(provider=provider,until=time.monotonic()+60,value=value)
-        return value
+        if status_cache.get('provider')==provider and status_cache.get('until',0)>time.monotonic():
+            value=status_cache['value']
+        else:
+            try:value=entitlement()
+            except HTTPException as e:value={'status':'allowance exhausted' if e.status_code==429 else 'provider unavailable','message':e.detail['message']}
+            value={'provider':provider_label(provider),'processing_provider':provider,**value}
+            status_cache.update(provider=provider,until=time.monotonic()+60,value=value)
+    return {**value,'max_attempts_per_session':MAX_ATTEMPTS_PER_SESSION}
 
 
 @router.post('/api/cases/visitor')
@@ -199,7 +202,11 @@ def analyze(case_id:str,data:Analyze,request:Request):
             _,old=repo.get_record(db,request.state.owner,'assist',key)
             if old:return old
             rev,quota=repo.get_record(db,request.state.owner,'visitor-usage','current',{'attempts':0})
-            if quota['attempts']>=4:raise HTTPException(429,{'code':'SESSION_LIMIT','message':'This session has used its four AI attempts. Retained results and originals remain available.'})
+            if quota['attempts']>=MAX_ATTEMPTS_PER_SESSION:
+                raise HTTPException(429,{
+                    'code':'SESSION_LIMIT',
+                    'message':f'This session has used its {MAX_ATTEMPTS_PER_SESSION} AI attempts. Retained results and originals remain available.',
+                })
             host=request.client.host if request.client else 'unknown'
             if not visitor_limit.allow('visitor:'+host,global_limit=6,owner_limit=2):raise HTTPException(429,{'code':'RATE_LIMIT','message':'Visitor analysis is temporarily rate limited. Try in one minute.'})
             quota['attempts']+=1;repo.put_record(db,request.state.owner,'visitor-usage','current',quota,rev)
@@ -208,7 +215,7 @@ def analyze(case_id:str,data:Analyze,request:Request):
                 'entitlement':proof,'authority':'Unreviewed proposals only. No inventory relationships or action authority.'}
             repo.put_record(db,request.state.owner,'assist',key,record,0)
             # A distinct job class preserves old workspace evaluation ceilings.
-            # Visitor quota is the persisted four-attempt record above plus
+            # Visitor quota is the persisted session counter above plus
             # current provider-enforced entitlement, never a phase reservation.
             jobs.start(db,request.state.owner,key,'visitor-document',{'case_id':case_id,'document_id':doc['id'],'revision':state['revision']},'visitor-live',lease_seconds=120)
         try:

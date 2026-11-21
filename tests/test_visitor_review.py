@@ -106,10 +106,18 @@ def test_provider_failure_retained_no_retry(setup,monkeypatch):
 
 def test_persistent_session_attempt_bound(setup,monkeypatch):
     c,s,upload=setup;s=upload()
-    monkeypatch.setattr(v.external,'gemma',lambda *a,**k:pytest.fail('Unexpected inference'))
+    calls=[]
+    monkeypatch.setattr(v.external,'gemma',lambda *a,**k:(calls.append(1) or {'result':proposal(s)}))
     owner=__import__('hashlib').sha256(c.cookies.get('bf_session').encode()).hexdigest()
-    with module.connect() as db:v.repo.put_record(db,owner,'visitor-usage','current',{'attempts':4},0)
-    r=analyze(c,s);assert r.status_code==429 and r.json()['detail']['code']=='SESSION_LIMIT'
+    with module.connect() as db:v.repo.put_record(db,owner,'visitor-usage','current',{'attempts':5},0)
+    assert c.get('/api/visitor/status').json()['max_attempts_per_session']==6
+    sixth=analyze(c,s,key='sixth-attempt')
+    assert sixth.status_code==200 and sixth.json()['status']=='completed / review required'
+    seventh=analyze(c,s,key='seventh-attempt')
+    assert seventh.status_code==429 and seventh.json()['detail']['code']=='SESSION_LIMIT'
+    assert len(calls)==1
+    with module.connect() as db:
+        assert v.repo.get_record(db,owner,'visitor-usage','current')[1]=={'attempts':6}
 
 
 def test_stale_source_review_rejects(setup,monkeypatch):

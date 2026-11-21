@@ -57,7 +57,7 @@ export function VisitorReview({ state, update, renderOriginal, leave, readOnly =
       {availability.message && <p>{availability.message}</p>}
       {availability.checked_at && <p className="caption">Checked {new Date(availability.checked_at).toLocaleString()} · {availability.requested_model_id} · quota resets {new Date(availability.quota_reset_at).toLocaleString()}. {availability.availability}</p>}
       <p>Source review only. Unknown lots remain unresolved against inventory. Supply reviewed quantities, lineage and allocations before any containment calculation in an authorized workspace. No hold, release or enterprise approval is available here.</p>
-      <p className="caption">UTF-8 TXT or readable text PDF · 2 MB per file · PDF: up to 8 pages · bounded interpretation context (18,000 characters including source metadata). No silent truncation. Four AI attempts per session; failed attempts count. Shared rate limits apply. Storage on the free host is temporary.</p>
+      <p className="caption">UTF-8 TXT or readable text PDF · 2 MB per file · PDF: up to 8 pages · bounded interpretation context (18,000 characters including source metadata). No silent truncation. {typeof availability.max_attempts_per_session === "number" && <>Up to {availability.max_attempts_per_session} AI attempts per session; failed attempts count. </>}Shared rate limits apply. Storage on the free host is temporary.</p>
       {!readOnly && <>
         <input ref={input} type="file" hidden accept=".txt,.pdf,text/plain,application/pdf" onChange={e => {
           const file = e.target.files?.[0]; e.target.value = ""; if (!file) return;
