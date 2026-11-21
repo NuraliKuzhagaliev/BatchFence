@@ -1,3 +1,15 @@
+# BatchFence handoff
+
+## Cloudflare public website migration
+
+The post-hackathon Cloudflare route is scoped to anonymous source review on the existing Render Free service. It uses a pinned Gemma model, verifies Cloudflare subscriptions and catalog before dispatch, checks that consent names the active provider, and reuses the source-only validation, isolation and limits. The original README is archived as [the hackathon edition](README.hackathon.md), with AMD and Evolus evidence preserved.
+
+Live activation requires `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` in the existing Render service, plus `PUBLIC_REVIEW_PROVIDER=cloudflare`. Use a Workers Free account and the scoped permissions in [DEPLOYMENT.md](DEPLOYMENT.md#cloudflare-workers-ai-for-public-document-review). Verify one fresh anonymous PDF from a clean browser on the exact deployed commit. A preflight, build, or mocked request does not establish fresh Cloudflare inference.
+
+Initial production check against the previous deployed build confirmed an anonymous upload of a newly generated supplier notice PDF, matching original hash, rendered PDF page, and isolation in a second browser session. No inference was attempted on that older build. The Cloudflare token was saved privately as a new Render secret. The service and account plans were not changed.
+
+### Prior hackathon checkpoint (historical)
+
 # Public judging workflow complete — verified rc7
 
 Public: https://batchfence.onrender.com/. Runtime/version: **becdb4b3335a5ea334be7db463cb915c6a6bd7ef /0.4.0-rc.7**. Existing Free Render deploy **dep-dbaaonavcj2c73a18icg** is live. GitHub PRs 13, 14 and 15 are merged. Final evidence branch: `evidence/public-judge-rc7`. Only PUBLIC_REVIEW_ENABLED=true was added to Render; keys and existing protected access controls are unchanged. Original rc6 tag/release/installer and all evidence remain preserved.

@@ -13,12 +13,15 @@ export function VisitorReview({ state, update, renderOriginal, leave, readOnly =
   const [availability, setAvailability] = useState<RecordData>({ status: "checking provider" });
   const [busy, setBusy] = useState("");
   const [error, setError] = useState("");
-  const [consent, setConsent] = useState(false);
+  const [consentFor, setConsentFor] = useState("");
   const [reviewed, setReviewed] = useState(false);
   const [note, setNote] = useState("");
   const input = useRef<HTMLInputElement>(null);
   const doc = state.documents.find(d => d.id === selected) || state.documents.at(-1);
   const route = `/api/cases/${state.id}`;
+  const provider = availability.processing_provider;
+  const providerName = availability.provider || "the configured AI provider";
+  const consent = !!provider && consentFor === provider;
   async function refresh() {
     if (!readOnly) {
       setRecords(await request<RecordData[]>("GET", route + "/visitor-analysis"));
@@ -48,11 +51,11 @@ export function VisitorReview({ state, update, renderOriginal, leave, readOnly =
       <span className="pill navy">{readOnly ? "READ-ONLY PACKET" : "YOUR ISOLATED REVIEW SESSION"}</span>
     </div>
     <h2>Bring your own evidence.</h2>
-    <p>Upload a supplier or quality notice, batch record or receiving evidence. Inspect the original beside genuine AMD Gemma proposals. No provider account or workspace access key is needed.</p>
+    <p>Upload a supplier or quality notice, batch record or receiving evidence. Inspect the original beside source-backed AI proposals. No provider account or workspace access key is needed.</p>
     <div className="module-card">
-      <strong>Provider: {availability.status}</strong>
+      <strong>{availability.provider || "AI provider"} · {availability.status}</strong>
       {availability.message && <p>{availability.message}</p>}
-      {availability.checked_at && <p className="caption">Checked {new Date(availability.checked_at).toLocaleString()} · {availability.requested_model_id} · quota resets {new Date(availability.quota_reset_at).toLocaleString()}. Event access has no published end date and may be withdrawn. This reset is not an access expiry.</p>}
+      {availability.checked_at && <p className="caption">Checked {new Date(availability.checked_at).toLocaleString()} · {availability.requested_model_id} · quota resets {new Date(availability.quota_reset_at).toLocaleString()}. {availability.availability}</p>}
       <p>Source review only. Unknown lots remain unresolved against inventory. Supply reviewed quantities, lineage and allocations before any containment calculation in an authorized workspace. No hold, release or enterprise approval is available here.</p>
       <p className="caption">UTF-8 TXT or readable text PDF · 2 MB per file · PDF: up to 8 pages · bounded interpretation context (18,000 characters including source metadata). No silent truncation. Four AI attempts per session; failed attempts count. Shared rate limits apply. Storage on the free host is temporary.</p>
       {!readOnly && <>
@@ -60,7 +63,7 @@ export function VisitorReview({ state, update, renderOriginal, leave, readOnly =
           const file = e.target.files?.[0]; e.target.value = ""; if (!file) return;
           void act("Uploading and reading original", async () => {
             const next = await request<Case>("POST", route + "/documents", { ...await fileUpload(file), synthetic: false });
-            update(next); setSelected(next.documents.at(-1)!.id); setReviewed(false); setConsent(false); setNote("");
+            update(next); setSelected(next.documents.at(-1)!.id); setReviewed(false); setConsentFor(""); setNote("");
           });
         }} />
         <div className="button-row">
@@ -70,25 +73,25 @@ export function VisitorReview({ state, update, renderOriginal, leave, readOnly =
         </div>
       </>}
     </div>
-    {busy && <p className="visitor-feedback" role="status">{busy === "Processing with live AMD Gemma" ? "Processing · extracting identities and interpreting source evidence. No inventory action will run." : busy}…</p>}
+    {busy && <p className="visitor-feedback" role="status">{busy === "Processing with Gemma" ? "Processing · extracting identities and interpreting source evidence. No inventory action will run." : busy}…</p>}
     {error && <p className="error-message" role="alert">{error}</p>}
-    {state.documents.length > 0 && <label>Uploaded original<select aria-label="Uploaded original" value={doc?.id} disabled={!!busy} onChange={e => { setSelected(e.target.value); setReviewed(false); }}>{state.documents.map(d => <option key={d.id} value={d.id}>{d.filename}</option>)}</select></label>}
+    {state.documents.length > 0 && <label>Uploaded original<select aria-label="Uploaded original" value={doc?.id} disabled={!!busy} onChange={e => { setSelected(e.target.value); setReviewed(false); setConsentFor(""); }}>{state.documents.map(d => <option key={d.id} value={d.id}>{d.filename}</option>)}</select></label>}
     {doc && <div className="visitor-columns">
       <article className="module-card"><h3>Original evidence</h3><p className="caption">{doc.filename} · retained original · {doc.original_hash.slice(0, 16)}…</p>{renderOriginal(doc)}</article>
       <article className="module-card"><h3>AI proposals and uncertainties</h3>
         {!readOnly && <>
-          <label className="check"><input type="checkbox" checked={consent} disabled={!!busy} onChange={e => setConsent(e.target.checked)} /> I may share this nonsensitive document with AMD for AI processing. It contains no personal, health, financial or confidential enterprise data.</label>
-          <p className="caption">The provider documents prompt/output retention of about two days. Never upload credentials. This is a scoped document-review tool, not a general chat or provider proxy.</p>
-          <button className="button primary" disabled={!!busy || !consent || result?.status === "running"} onClick={() => void act("Processing with live AMD Gemma", async () => {
-            const value = await request<RecordData>("POST", route + "/visitor-analysis", { document_id: doc.id, revision: state.revision, idempotency_key: crypto.randomUUID(), external_processing_consent: consent });
+          <label className="check"><input type="checkbox" checked={consent} disabled={!!busy || !availability.provider} onChange={e => setConsentFor(e.target.checked ? provider : "")} /> I may share text from this nonsensitive document with {providerName} for AI processing. It contains no personal, health, financial or confidential enterprise data.</label>
+          <p className="caption">Never upload credentials. {provider === "cloudflare" ? "Read Cloudflare’s Workers AI data-use policy before sharing documents." : "The AMD event provider documents prompt/output retention of about two days."} {provider === "cloudflare" && <a href="https://developers.cloudflare.com/workers-ai/platform/data-usage/" target="_blank" rel="noreferrer">Workers AI data use</a>}</p>
+          <button className="button primary" disabled={!!busy || !consent || result?.status === "running"} onClick={() => void act("Processing with Gemma", async () => {
+            const value = await request<RecordData>("POST", route + "/visitor-analysis", { document_id: doc.id, revision: state.revision, idempotency_key: crypto.randomUUID(), external_processing_consent: consent, ...(provider === "cloudflare" ? { processing_provider: provider } : {}) });
             await refresh(); if (!value.status.startsWith("completed")) setError(value.error || value.status);
-          })}><Sparkles size={16} /> Analyze with AMD Gemma</button>
+          })}><Sparkles size={16} /> {provider === "amd" ? "Analyze with AMD Gemma" : "Analyze with Gemma"}</button>
         </>}
         {!result && <p>Uploaded · ready for analysis. No AI response has been generated yet.</p>}
         {result && <>
           <h4>{result.status}{result.stale ? " · stale after source change" : ""}</h4>
           <p>{result.error || result.authority}</p>
-          {result.provenance && <p className="caption">Actual model: {result.provenance.model_id || "not returned"} · requested: {result.provenance.requested_model_id} · HTTP {result.provenance.http_status} · {result.provenance.elapsed_ms} ms · {result.provenance.at}</p>}
+          {result.provenance && <p className="caption">{result.provenance.provider && <>{result.provenance.provider} · </>}Actual model: {result.provenance.model_id || "not returned"} · requested: {result.provenance.requested_model_id} · HTTP {result.provenance.http_status} · {result.provenance.elapsed_ms} ms · {result.provenance.at}</p>}
           {result.draft?.candidates?.map((c: RecordData, i: number) => <div className="visitor-candidate" key={i}>
             <strong>{c.value}</strong><p>{c.kind} · {c.origin ? "local unresolved reference" : "model proposal"}: {c.model_incident_status || c.model_disposition || c.incident_status || c.disposition}</p>
             {c.inventory_status && <p className="assist-uncertain">Inventory: {c.inventory_status}</p>}

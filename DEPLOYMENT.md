@@ -1,5 +1,17 @@
 # BatchFence 0.4.0-rc.6 — verified source identity and RAG release
 
+## Cloudflare Workers AI for public document review
+
+Use the existing **batchfence** Free Render service (`srv-db968c7btjjs73fghkog`). The visitor route alone can use this provider. Protected workspace adapters, the historical AMD artifacts, and the published Windows release remain in place.
+
+1. Verify **Workers Free** in the intended Cloudflare account and create an account-scoped API token with **Workers AI Read**, **Workers AI Edit** (Cloudflare API docs call this Write), and **Billing Read**. Read access to account subscriptions allows the server to reject paid or unverifiable plans. The account should have no active paid or unknown subscriptions. The pinned model is `@cf/google/gemma-4-26b-a4b-it`.
+2. In **Render → batchfence → Environment**, save `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` privately. Keep `PUBLIC_REVIEW_ENABLED=true` and set `PUBLIC_REVIEW_PROVIDER=cloudflare`. Merge these settings with the existing configuration. Credentials must stay server-side. Do not change the Render or Cloudflare plan.
+3. Deploy the verified GitHub commit to the existing service. Check `/api/health` for its commit and `/api/visitor/status` for the named provider and successful free subscription/catalog preflight. A successful preflight does not establish that daily inference quota remains.
+4. Run `node scripts/cloudflare-visitor-check.cjs --live <deployed-commit>` from the repo to test one fresh PDF through the website from a clean browser. `node scripts/cloudflare-visitor-check.cjs` checks upload, rendering and session isolation without inference. Reports go to `work/cloudflare-visitor/`. No tokens are loaded by the browser test.
+5. To disable Cloudflare, return `PUBLIC_REVIEW_PROVIDER` to `amd` or disable visitor review. Keep the existing internal and historical routes intact. Never raise Cloudflare or Render to Paid to address a quota error.
+
+Cloudflare Workers Free stops inference when the daily 10,000 Neuron allocation is exhausted. The exact quota is shared at account level and the reset is **00:00 UTC**. A documented account-limit error (3036) is distinct from temporary capacity failures. The request sends only the bounded text context for the selected source after consent. The provider token and account ID are environment values, excluded from packets and diagnostics. [Workers AI pricing](https://developers.cloudflare.com/workers-ai/platform/pricing/) · [REST API](https://developers.cloudflare.com/workers-ai/get-started/rest-api/) · [Account subscriptions API](https://developers.cloudflare.com/api/resources/accounts/subresources/subscriptions/methods/get/)
+
 Web: https://batchfence.onrender.com. Windows and source release: https://github.com/NuraliKuzhagaliev/BatchFence/releases/tag/v0.4.0-rc.6. Verified runtime/tag/source **d6fa31f7d321b0e0c51dad5afcb577b6e31e8130**; final evidence is a separate recoverable Git checkpoint linked from the release body. Prior rc4/rc5/stable releases are preserved.
 
 ## What changed and what actually passed

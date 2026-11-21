@@ -1,14 +1,15 @@
 """Public, source-only review. No owner-token bypass on existing live routes.
 
-The shared free endpoint enforces its own quota. Historical engineering ledgers
-are never read or modified here. Every dispatch checks actual catalog/usage.
+The configured free endpoint enforces its own quota. Every dispatch checks
+entitlement. Historical engineering ledgers are never read or modified here.
 """
 import json,os,re,threading,time,uuid
 from datetime import datetime,timezone
+from typing import Literal
 from fastapi import APIRouter,Request,HTTPException
 from pydantic import Field
 import httpx
-from . import repository as repo,evolus_adapter as external,jobs
+from . import cloudflare_ai, repository as repo,evolus_adapter as external,jobs
 from .assist_contracts import Strict,ReviewDraft,validate_draft,source_context,fingerprint
 from .domain import DomainError,digest
 from .fixtures import now
@@ -28,9 +29,25 @@ def enabled():
     return os.getenv('PUBLIC_REVIEW_ENABLED')=='true' and not pilot()
 
 
+def processing_provider():
+    return os.getenv('PUBLIC_REVIEW_PROVIDER', 'amd')
+
+
+def provider_label(provider):
+    return {'amd': 'AMD shared Gemma', 'cloudflare': cloudflare_ai.PROVIDER}.get(provider)
+
+
 def entitlement(transport=None):
     """No inference, paid fallback, coupon redemption or credential changes."""
     if not enabled():raise HTTPException(503,{'code':'PROVIDER_UNAVAILABLE','message':'Visitor AI analysis is not enabled.'})
+    provider=processing_provider()
+    if provider=='cloudflare':
+        try:
+            return cloudflare_ai.entitlement(transport)
+        except (httpx.HTTPError, ValueError, KeyError, TypeError, AttributeError):
+            raise HTTPException(503,{'code':'PROVIDER_UNAVAILABLE','message':'Cloudflare free-plan or model access could not be verified. No inference was submitted.'}) from None
+    if provider!='amd':
+        raise HTTPException(503,{'code':'PROVIDER_UNAVAILABLE','message':'The visitor analysis provider is unavailable.'})
     if os.getenv('GEMMA_API_BASE_URL','').rstrip('/')!=BASE or os.getenv('GEMMA_MODEL_ID')!=MODEL or os.getenv('GEMMA_HOSTING_KIND')!='managed-amd-shared' or not os.getenv('GEMMA_API_KEY'):
         raise HTTPException(503,{'code':'PROVIDER_UNAVAILABLE','message':'The verified free shared Gemma route is unavailable.'})
     try:
@@ -60,11 +77,13 @@ def entitlement(transport=None):
 @router.get('/api/visitor/status')
 def status():
     # Status display cache only; dispatch always performs a fresh entitlement read.
+    provider=processing_provider()
     with status_lock:
-        if status_cache.get('until',0)>time.monotonic():return status_cache['value']
+        if status_cache.get('provider')==provider and status_cache.get('until',0)>time.monotonic():return status_cache['value']
         try:value=entitlement()
         except HTTPException as e:value={'status':'allowance exhausted' if e.status_code==429 else 'provider unavailable','message':e.detail['message']}
-        status_cache.update(until=time.monotonic()+60,value=value)
+        value={'provider':provider_label(provider),'processing_provider':provider,**value}
+        status_cache.update(provider=provider,until=time.monotonic()+60,value=value)
         return value
 
 
@@ -85,6 +104,7 @@ class Analyze(Strict):
     revision:int
     idempotency_key:str=Field(min_length=8,max_length=100)
     external_processing_consent:bool
+    processing_provider:Literal["amd", "cloudflare"] | None = None
 
 
 def source_check(doc):
@@ -157,13 +177,15 @@ def analyze(case_id:str,data:Analyze,request:Request):
     state=read(case_id,request.state.owner)
     if not state.get('visitor_review') or not enabled():raise HTTPException(403,{'code':'REVIEW_ONLY','message':'This route is only for isolated visitor source review.'})
     if data.revision!=state['revision']:raise HTTPException(409,{'code':'STALE_SOURCE','message':'The source changed. Inspect the current original before analysis.'})
-    if not data.external_processing_consent:raise HTTPException(422,{'code':'CONSENT','message':'Confirm that this nonsensitive document may be processed by AMD.'})
+    provider=processing_provider()
+    if not data.external_processing_consent or (data.processing_provider or 'amd')!=provider:
+        raise HTTPException(422,{'code':'CONSENT','message':'Confirm that this nonsensitive document may be sent to the currently configured AI provider.'})
     doc=next((d for d in state['documents'] if d['id']==data.document_id),None)
     if not doc:raise HTTPException(404,{'code':'DOCUMENT','message':'Select an uploaded original in this session.'})
     source_check(doc)
     context=source_context(state,[doc['id']]);context['task']='Extract exact supplier/batch identities and source-grounded incident proposals, including excluded, uncertain and merely mentioned lots. Retain every source identity. Cite supplied original document_id/block_id and exact quotes. Preserve negation, conflicting revisions and incomplete scope. Do not invent inventory, ancestry, quantities or sample IDs. If unrelated or unreadable, abstain with explicit unresolved reasons. Never grant approval or act.'
     key='VISITOR-'+digest([case_id,data.idempotency_key])[:32]
-    signature=digest(data.model_dump())
+    signature=digest(data.model_dump(exclude_none=True))
     with connect() as db:
         _,old=repo.get_record(db,request.state.owner,'assist',key)
     if old:
@@ -182,7 +204,7 @@ def analyze(case_id:str,data:Analyze,request:Request):
             if not visitor_limit.allow('visitor:'+host,global_limit=6,owner_limit=2):raise HTTPException(429,{'code':'RATE_LIMIT','message':'Visitor analysis is temporarily rate limited. Try in one minute.'})
             quota['attempts']+=1;repo.put_record(db,request.state.owner,'visitor-usage','current',quota,rev)
             record={'id':key,'case_id':case_id,'kind':'document','document_ids':[doc['id']],'mode':'live','status':'running','started_at':now(),
-                'provider_path':'Direct AMD shared Gemma / visitor source review','request_hash':signature,'snapshot_hash':fingerprint(state),
+                'provider_path':'Cloudflare Workers AI Gemma / visitor source review' if provider=='cloudflare' else 'Direct AMD shared Gemma / visitor source review','request_hash':signature,'snapshot_hash':fingerprint(state),
                 'entitlement':proof,'authority':'Unreviewed proposals only. No inventory relationships or action authority.'}
             repo.put_record(db,request.state.owner,'assist',key,record,0)
             # A distinct job class preserves old workspace evaluation ceilings.
@@ -190,7 +212,8 @@ def analyze(case_id:str,data:Analyze,request:Request):
             # current provider-enforced entitlement, never a phase reservation.
             jobs.start(db,request.state.owner,key,'visitor-document',{'case_id':case_id,'document_id':doc['id'],'revision':state['revision']},'visitor-live',lease_seconds=120)
         try:
-            response=external.gemma(context,ReviewDraft.model_json_schema(),timeout_seconds=90);raw=response.pop('result')
+            gemma=cloudflare_ai.gemma if provider=='cloudflare' else external.gemma
+            response=gemma(context,ReviewDraft.model_json_schema(),timeout_seconds=90);raw=response.pop('result')
             record.update(raw_output=raw,provenance=response,finished_at=now())
             current=read(case_id,request.state.owner)
             if fingerprint(current)!=record['snapshot_hash']:raise DomainError('Evidence changed during processing; response retained as stale, not a current proposal')
@@ -198,7 +221,14 @@ def analyze(case_id:str,data:Analyze,request:Request):
             record['status']='completed / review required'
         except (DomainError,ValueError) as exc:
             record.update(status='failed validation',error=str(exc)[:600],finished_at=now())
-            if isinstance(exc,external.ProviderFailure):record.update(status='allowance exhausted' if exc.evidence['http_status']==429 else 'provider unavailable',failure_evidence=exc.evidence)
+            if isinstance(exc,external.ProviderFailure):
+                exhausted=exc.evidence.get('allowance_exhausted',exc.evidence['http_status']==429)
+                record.update(status='allowance exhausted' if exhausted else 'provider unavailable',failure_evidence=exc.evidence)
+                if provider=='cloudflare' and exhausted:
+                    with status_lock:
+                        status_cache.update(provider=provider,until=time.monotonic()+60,value={
+                            **proof,'processing_provider':provider,'status':'allowance exhausted','message':str(exc),
+                        })
         except (httpx.HTTPError,KeyError,TypeError):
             record.update(status='provider unavailable',error='Provider response was unavailable or malformed. No retry or fixture substitution.',finished_at=now())
         with repo.write(connect) as db:
